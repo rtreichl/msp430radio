@@ -15,6 +15,8 @@
 #define Start_up_3		"Version 1.00"
 #define	Shift_left_3	2
 
+#define I2C_LCD_BAUDRATE			40
+
 
 
 #include <msp430.h>
@@ -22,6 +24,7 @@
 #include <intrinsics.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include "MSP430G2553_USCI_I2C.h"
 #include "SI4735.h"
 #include "MSP430G2553_Clock_Timer.h"
@@ -40,6 +43,7 @@ volatile unsigned char sec = 240;
 int main (void)
 {
 	Clock_INIT2();
+	USCI_I2C_INIT (I2C_LCD_BAUDRATE);
 	WDTCTL = WDT_ADLY_250;                  // WDT 250ms, ACLK, interval timer
 	IE1 |= WDTIE;							//WDT Interupt Enable
 
@@ -65,11 +69,7 @@ int main (void)
 	//AudioSwitch(RADIO_LEFT,RADIO_RIGHT);
 
 	//Schalte den Verstärker mit Default Werten ein
-	Amplifier_init(POP,0);
-
-
-	// Init I2C Kommunikation übergebe Adresse des Slaves 0x11h und den Teiler für die Frequenz
-	USCI_I2C_INIT(0x11,40);
+	Amplifier_init(POP,AMPLIFIER_GAIN);
 
 	// Initialisiert den Radiochip
 	SI4735_INIT();
@@ -77,6 +77,8 @@ int main (void)
 	//SI4735_Set_Volume(20);
 
 	_delay_ms(30);
+
+	//SI4735_Fm_Tune_Status();
 
 	Encoder_1_init();
 	Encoder_2_init();
