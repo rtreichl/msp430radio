@@ -7,8 +7,10 @@
 
 #include "Radio.h"
 #include "MSP430G2553_USCI_I2C.h"
+#include "SI4735.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include "Timer.h"
 #include "Menu.h"
 
@@ -17,11 +19,8 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 	//Radio States => [New Freq Bit, Station_Present Bit, Radio_Text_Update Bit, 0 Bit, TP Bit, PTY 5 Bits, TA Bit, M/S Bit, DI 4 Bits] LSB
 	char GRP, pos;
 	char rds_read_byte[14];
-	char i2c_data_out[3];
 	char tmp = 0, doit = 0;
 	static char rds_text_count = 0, rds_station_count = 0;
-	USCI_I2C_INIT(0x11,80);
-	sprintf(i2c_data_out, "%c%c", 0x24,0x01);
 	if(*Radio_States & (1<<15))
 	{
 		rds_text_count = 0;
@@ -32,6 +31,8 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 	{
 		do
 		{
+			USCI_I2C_WRITE2(I2C_SI4735, REPT, 2, 0x24, 0x01);
+			USCI_I2C_READ(I2C_SI4735, STOP, 13, rds_read_byte);
 			I2C_write_and_read(2,i2c_data_out,14,rds_read_byte);                             //RDS-Daten und Status auslesen
 			if(!((rds_read_byte[11 + RDS_BYTES_OFFSET] == 3) || (rds_read_byte[11 + RDS_BYTES_OFFSET] == 12) || (rds_read_byte[11 + RDS_BYTES_OFFSET] == 48) || (rds_read_byte[11 + RDS_BYTES_OFFSET] == 192)) && rds_read_byte[0] == 0)
 			if(rds_read_byte[2 + RDS_BYTES_OFFSET]>0)                       //neue Daten empfangen?
@@ -89,12 +90,11 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 	*Radio_States |= (rds_read_byte[5 + RDS_BYTES_OFFSET] & 0x07)<<9 | (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xE0)<<1; //TP Bit PTY 5 Bits
 }
 
-char rds_triggered()
+uint8_t rds_triggered()
 {
-	char Com = 0;
-	char rds = 0;
-	Com = 0x14;
-	I2C_write_and_read(1,&Com,1,&rds);
+	uint8_t rds = 0;
+	USCI_I2C_WRITE2(I2C_SI4735, REPT, 1, 0x14);
+	USCI_I2C_READ(I2C_SI4735, STOP, 1, &rds);
 	return rds;
 }
 

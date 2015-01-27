@@ -8,7 +8,7 @@
 #ifndef VERSTAERKER_H_
 #define VERSTAERKER_H_
 
-enum EQUALIZER {POP, CLASSIC, JAZZ, RAP_HIP_HOP, ROCK, NEWS_VOICE};
+enum EQUALIZER {POP = 0, CLASSIC, JAZZ, RAP_HIP_HOP, ROCK, NEWS_VOICE, TEST};
 
 void Amplifier_init(unsigned char Start_Mode,signed  char Start_Gain);
 

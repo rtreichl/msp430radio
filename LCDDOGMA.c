@@ -64,9 +64,6 @@
 #define I2C_LCD_PORT_SEL			P3SEL
 #define I2C_LCD_PORT_SEL2			P3SEL2
 
-
-#define I2C_LCD_BAUDRATE			40
-
 void i2c_lcd_brightnes(unsigned int brightnes)
 {
 	//I2C_LCD_PORT_SEL |= I2C_LCD_PORT_PIN;
@@ -80,34 +77,21 @@ void i2c_lcd_brightnes(unsigned int brightnes)
 
 void i2c_lcd_init()
 {
-	char Kommando [4];
-
-	USCI_I2C_INIT (0x20,I2C_LCD_BAUDRATE);
-
-	sprintf(Kommando, "%c%c", 0x03,0x00);
-	USCI_I2C_WRITE1(2, Kommando);
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x03, 0x00);
 
 	_delay_ms(40);
-	USCI_I2C_INIT (0x20,I2C_LCD_BAUDRATE);
 
-	//sprintf(Kommando, "%c", 0x01);
-	//USCI_I2C_WRITE1(1, Kommando);
-
-	sprintf(Kommando, "%c%c%c",0x01, 0x03, 0x13);
-	USCI_I2C_WRITE1(3, Kommando);
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
 	_delay_ms(2);
 
-	sprintf(Kommando, "%c%c%c",0x01, 0x03, 0x13);
-	USCI_I2C_WRITE1(3, Kommando);
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
 	_delay_us(30);
 
-	sprintf(Kommando, "%c%c%c",0x01, 0x03, 0x13);
-	USCI_I2C_WRITE1(3, Kommando);
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
-	sprintf(Kommando, "%c%c%c",0x01, 0x02, 0x12);
-	USCI_I2C_WRITE1(3, Kommando);
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x02, 0x12);
 
 	_delay_us(30);
 
@@ -124,32 +108,22 @@ void i2c_lcd_init()
 }
 void i2c_lcd_write_char(unsigned char Symbol)
 {
-	char Kommando [3];
-	USCI_I2C_INIT (0x20,I2C_LCD_BAUDRATE);
 
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Symbol>>4) & 0x0f) | 0x40));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Symbol>>4) & 0x0f) | 0x50));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Symbol & 0x0f) | 0x40));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Symbol & 0x0f) | 0x50));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, 0x08);
 
-	sprintf(Kommando, "%c%c", 0x01, (((Symbol>>4) & 0x0f) | 0x40)/*, (((Symbol>>4) & 0x0f) | 0x50), ((Symbol & 0x0f) | 0x40), ((Symbol & 0x0f) | 0x50), 0x08*/);
-	USCI_I2C_WRITE1(2, Kommando);
-	sprintf(Kommando, "%c%c", 0x01, (((Symbol>>4) & 0x0f) | 0x50));
-	USCI_I2C_WRITE1(2, Kommando);
-	sprintf(Kommando, "%c%c", 0x01, ((Symbol & 0x0f) | 0x40));
-	USCI_I2C_WRITE1(2, Kommando);
-	sprintf(Kommando, "%c%c", 0x01, ((Symbol & 0x0f) | 0x50));
-	USCI_I2C_WRITE1(2, Kommando);
-	sprintf(Kommando, "%c%c", 0x01, 0x08);
-	USCI_I2C_WRITE1(2, Kommando);
 	_delay_us(200);
 }
 
 void i2c_lcd_write_string(const char *s, unsigned char n_bytes)
 {
-	char Kommando [3];
-	register char Symbol;
-	char i = 0;
-	USCI_I2C_INIT (0x20,I2C_LCD_BAUDRATE);
+	register uint8_t Symbol;
+	uint8_t i = 0;
 
 	for(i = 0; i < n_bytes; i++)
-	//while ( ()
 	{
 		Symbol = *s++;
 		switch(Symbol)
@@ -173,38 +147,21 @@ void i2c_lcd_write_string(const char *s, unsigned char n_bytes)
 				Symbol = 0x8E; //Ä
 				break;
 		}
-		sprintf(Kommando, "%c%c", 0x01, (((Symbol>>4) & 0x0f) | 0x40)/*, (((Symbol>>4) & 0x0f) | 0x50), ((Symbol & 0x0f) | 0x40), ((Symbol & 0x0f) | 0x50), 0x08*/);
-		USCI_I2C_WRITE1(2, Kommando);                        // Write M
-		sprintf(Kommando, "%c%c", 0x01, (((Symbol>>4) & 0x0f) | 0x50));
-		USCI_I2C_WRITE1(2, Kommando);
-		sprintf(Kommando, "%c%c", 0x01, ((Symbol & 0x0f) | 0x40));
-		USCI_I2C_WRITE1(2, Kommando);
-		sprintf(Kommando, "%c%c", 0x01, ((Symbol & 0x0f) | 0x50));
-		USCI_I2C_WRITE1(2, Kommando);
-		sprintf(Kommando, "%c%c",0x01, 0x08);
-		USCI_I2C_WRITE1(2, Kommando);
+
+		USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 6, 0x01, (((Symbol>>4) & 0x0f) | 0x40), (((Symbol>>4) & 0x0f) | 0x50), ((Symbol & 0x0f) | 0x40), ((Symbol & 0x0f) | 0x50), 0x08);
 		_delay_us(100);
 	}
 }
 
 void i2c_lcd_command(unsigned char Command)
 {
-	char Kommando [3];
-	USCI_I2C_INIT (0x20,40);
-	//sprintf(Kommando, "%c", 0x01);
-	//USCI_I2C_WRITE1(1, Kommando);
 
-	sprintf(Kommando, "%c%c", 0x01, ((Command>>4) & 0x0f)/*, (((Command>>4) & 0x0f) | 0x10), (Command & 0x0f), ((Command & 0x0f) | 0x10)*/);
-	USCI_I2C_WRITE1(2, Kommando);
+	//USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 5, 0x01, ((Command>>4) & 0x0f), (((Command>>4) & 0x0f) | 0x10), (Command & 0x0f), ((Command & 0x0f) | 0x10));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Command>>4) & 0x0f));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Command>>4) & 0x0f) | 0x10));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (Command & 0x0f));
+	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Command & 0x0f) | 0x10));
 
-	sprintf(Kommando, "%c%c", 0x01, (((Command>>4) & 0x0f) | 0x10));
-	USCI_I2C_WRITE1(2, Kommando);
-
-	sprintf(Kommando, "%c%c", 0x01, (Command & 0x0f));
-	USCI_I2C_WRITE1(2, Kommando);
-
-	sprintf(Kommando, "%c%c", 0x01, ((Command & 0x0f) | 0x10));
-	USCI_I2C_WRITE1(2, Kommando);
 	_delay_ms(5);
 }
 

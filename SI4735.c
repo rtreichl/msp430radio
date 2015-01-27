@@ -21,45 +21,38 @@
 
 void SI4735_Set_Volume (signed char Volume) //setzt Volume als die Lautstärke
 {
-	char Command[7];
-	char response = 0;
-	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x40,0x00,0x00,Volume);
-	I2C_write_and_read(6,Command,1,&response);
+	//char Command[7];
+	//char response = 0;
+	//sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x40,0x00,0x00,Volume);
+	//I2C_write_and_read(6,Command,1,&response);
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, Volume);
 }
 
 
 void SI4735_Fm_Tune_Freq_2 (unsigned int Frequenz) //setzt den FM Empfang und legt die Frequenz zwischen 64 - 108 MHz in 10 kHz einheiten fest
 {
-	char Command[6];
-	char response;
-	sprintf(Command, "%c%c%c%c%c", 0x20,0x01,(0xFF & (Frequenz>>8)),(0xFF & Frequenz),0x00);
-	I2C_write_and_read(5,Command,1,&response);
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 5, 0x20, 0x01, (0xFF & (Frequenz >> 8)), (0xFF & Frequenz), 0x00);
  	_delay_ms(1);
- 	SI4735_Fm_Tune_Status();
 }
 
-void SI4735_FM_RDS_INT_SOURCE() //RDS interrupt Quelle einstellen
+/*void SI4735_FM_RDS_INT_SOURCE() //RDS interrupt Quelle einstellen
 {
 	char Command[7];
 	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x15,0x00,0x00,0x01);
 	USCI_I2C_WRITE1(6,Command);
-}
+}*/
 
 void SI4735_Power_Up (void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
 {
-	char Command[4];
-	sprintf(Command, "%c%c%c", 0x01,0xD0,0x05);
-	USCI_I2C_WRITE1(3, Command);
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 3, 0x01, 0xD0, 0x05);
 }
 
 void SI4735_Power_Down (void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
 {
-	char Command[2];
-	sprintf(Command, "%c", 0x11);
-	USCI_I2C_WRITE1(1, Command);
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 1, 0x11);
 }
 
-void SI4735_Refclk_Freq (void)	//aktivieren und festlegen der referenc clock frequency 32,768 kHz
+/*void SI4735_Refclk_Freq (void)	//aktivieren und festlegen der referenc clock frequency 32,768 kHz
 {
 	char Command[7];
 	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x02,0x01,0x7E,0xF4);
@@ -71,27 +64,25 @@ void SI4735_RX_Volume (void)	//setzt den Maximalwert für die Lautstärke
 	char Command[7];
 	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x40,0x00,0x00,SI4735_volume);
 	USCI_I2C_WRITE1(6, Command);
-}
+}*/
 
-void SI4735_Fm_Deemphasis (void)	//entzerrt die Empfangene Frequenz, wert für Europa, Australien und Japan beträgt 50µs
+/*void SI4735_Fm_Deemphasis (void)	//entzerrt die Empfangene Frequenz, wert für Europa, Australien und Japan beträgt 50µs
 {
 	char Command[7];
 	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x11,0x00,0x00,0x01);
 	USCI_I2C_WRITE1(6, Command);
-}
+}*/
 
 void SI4735_Rx_Hard_Mute (void)	//setzt den Audio Ausgang auf stumm, L und R Audio Ausgang könnten selbständig auf stumm geschaltet sein
 {
-	char Command[7];
-	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x40,0x01,0x00,0x00);
-	USCI_I2C_WRITE1(6, Command);
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x01, 0x00, 0x00);
 }
 
-void SI4735_Fm_Seek_Band_Bottom (void)	//legt die untere Grenze für die Frequenzsuche fest
+/*void SI4735_Fm_Seek_Band_Bottom (void)	//legt die untere Grenze für die Frequenzsuche fest
 {
 	char Command[7];
 	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x14,0x00,0x22,0x6A);
-	USCI_I2C_WRITE1(6, Command);
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, Command);
 }
 
 void SI4735_Fm_Seek_Band_Top (void)	//legt die obere Grenze für die Frequenzsuche fest
@@ -108,26 +99,16 @@ void SI4735_Fm_Tune_Freq (void)	//setzt den FM Empfang und legt die Frequenz zwi
 	USCI_I2C_WRITE1(5, Command);
 }
 
-void SI4735_FM_RDS_INT_FIFO_COUNT()	//RDS FIFO Count festlegen
-{
-	char Command[7];
-	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x15,0x01,0x00,0x04);
-	USCI_I2C_WRITE1(6,Command);
-}
-
-void SI4735_FM_RDS_CONFIG() //RDS Einstellungen
-{
-	char Command[7];
-	sprintf(Command, "%c%c%c%c%c%c", 0x12,0x00,0x15,0x02,0xAA,0x01);
-	USCI_I2C_WRITE1(6,Command);
-}
-
 void SI4735_Fm_Tune_Status (void)	//gibt den Aktuellen Wert der Frequenz oder Suchlauf zurück, ist noch in arbeit
 {
 	char Command[3];
 	char response[8];
-	sprintf(Command, "%c%c", 0x22,0x00);
-	I2C_write_and_read(2,Command,8,response);
+	//sprintf(Command, "%c%c", 0x22,0x00);
+	//I2C_write_and_read(2,Command,8,response);
+	_delay_ms(1);
+	USCI_I2C_WRITE2(I2C_SI4735, REPT, 2, 0x22, 0x00);
+	//_delay_us(100);
+	USCI_I2C_READ(I2C_SI4735, STOP, 8, response);
     _delay_ms(1);
 }
 
@@ -153,7 +134,7 @@ void SI4735_seek_Up(void)	//Frequensuchlauf für höhere Frequenzen
 	char Command[3];
 	sprintf(Command, "%c%c", 0x21,0x04);
 	USCI_I2C_WRITE1(2, Command);
-}
+}*/
 
 void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 {
@@ -177,27 +158,54 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 	P2REN |= BIT4;
 	P2OUT |= BIT4;
 
-	//_delay_ms(1);
+	_delay_ms(100);
 
-	SI4735_Power_Up ();
+	/* Power_up FM mode */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 3,  0x01, 0xD0, 0x05);
+	while((P2IN & BIT4));
+	//_delay_ms(20);
 
-	_delay_ms(20);
+	//__delay_cycles(8000);
 
-	SI4735_RX_Volume ();
-
-	__delay_cycles(8000);
-
-	SI4735_Refclk_Freq ();
+	/*activate and setting refclk to 32.768 kHz */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x02, 0x01, 0x80, 0x00);
 	while((P2IN & BIT4));
 
-	SI4735_Fm_Deemphasis ();
+	/* setup prescaler to 1 */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x02, 0x02, 0x00, 0x01);
 	while((P2IN & BIT4));
 
-	_delay_ms(200);
-	SI4735_Fm_Tune_Freq();
+	/* setting deemphasis to 50µs standart for europe */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x11, 0x00, 0x00, 0x01);
 	while((P2IN & BIT4));
 
-	SI4735_FM_RDS_INT_SOURCE();
-	SI4735_FM_RDS_INT_FIFO_COUNT();
-	SI4735_FM_RDS_CONFIG();
+	/* configure top range for seeking */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6,  0x12, 0x00, 0x14, 0x00, 0x22, 0x6A);
+	while((P2IN & BIT4));
+
+	/* configure bottom range for seeking */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x14, 0x01, 0x2A, 0x26);
+	while((P2IN & BIT4));
+
+	/* setup RDS interrupt sources */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x15, 0x00, 0x00, 0x01);
+	while((P2IN & BIT4));
+
+	/* setup RDS FIFO count */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x15, 0x01, 0x00, 0x04);
+	while((P2IN & BIT4));
+
+	/* config RDS */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x15, 0x02, 0xAA, 0x01);
+	while((P2IN & BIT4));
+
+	_delay_ms(1);
+
+	/* Tune to frequency 107,7 */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 5, 0x20, 0x01, 0x2A, 0x12, 0x00);
+	while((P2IN & BIT4));
+
+	/* Enable radio audio output with standart value */
+	USCI_I2C_WRITE2(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735_volume);
+	while((P2IN & BIT4));
 }

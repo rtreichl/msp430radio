@@ -8,14 +8,14 @@
 #ifndef USCIT_I2C_H_
 #define USCIT_I2C_H_
 
-void USCI_I2C_INIT (unsigned char SlaveAdresse, unsigned char Teiler);
+#define STOP 0
+#define REPT 1
 
-void USCI_I2C_WRITE1 (unsigned char Byts, char *CMD);
+#include <stdint.h>
 
-//void USCI_I2C_WRITE2 (unsigned char Byts, unsigned char *CMD);
-
-void USCI_I2C_READ (unsigned char RXBytes);
-void I2C_write_and_read(unsigned char TxByts,  char *TxData, unsigned char RxByts,  char *RxData);
+void USCI_I2C_INIT (uint8_t Teiler);
+void USCI_I2C_WRITE2 (uint8_t addr, uint8_t rept_start, uint8_t n_args, ...);
+void USCI_I2C_READ (uint8_t addr, uint8_t rept_start, uint8_t RXBytes, uint8_t *RxData);
 
 
 #endif /* USCIT_I2C_H_ */

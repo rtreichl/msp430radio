@@ -8,6 +8,8 @@
 #ifndef SI4735_H_
 #define SI4735_H_
 
+#define I2C_SI4735 0x11
+
 	void SI4735_Power_Up (void);
 
 	void SI4735_Power_Down (void);

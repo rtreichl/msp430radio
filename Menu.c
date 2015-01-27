@@ -101,7 +101,7 @@ void menu(void)
 				tmp = *(char *)(FLASH_ADR_STATION_FREQ + en_counter2*10);
 				if(tmp != 0xFF)																						//Falls ein Sender ausgewählt	
 				{
-					USCI_I2C_INIT(0x11,80);
+					//USCI_I2C_INIT(0x11,80);
 					act_freq = tmp;																					//Übernehme Frequenz
 					SI4735_Fm_Tune_Freq_2((875+(char)(act_freq-1))*10);
 					Radio_States |= (1<<15);
@@ -277,7 +277,7 @@ void menu(void)
 					act_vol = 0;
 
 				}
-				USCI_I2C_INIT(0x11,80);
+				//Amplifier_Gain(act_vol - 30);
 				SI4735_Set_Volume(act_vol);
 				en_counter1 = 0;
 				delay_vol = 1;
@@ -552,7 +552,6 @@ void menu(void)
 				{
 					act_freq = 205;
 				}
-				USCI_I2C_INIT(0x11,80);
 				SI4735_Fm_Tune_Freq_2((875+(char)(act_freq-1))*10);
 				en_counter2 = 0;
 				delay_freq = 1;
@@ -769,7 +768,6 @@ void exit_standby(void)
 
 
 	// Init I2C Kommunikation übergebe Adresse des Slaves 0x11h und den Teiler für die Frequenz
-	USCI_I2C_INIT(0x11,40);
 
 	// Initialisiert den Radiochip
 	SI4735_Power_Up();
