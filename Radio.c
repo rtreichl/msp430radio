@@ -17,8 +17,11 @@
 void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)                 //nur Sender-Stationsnamen auslesen
 {
 	//Radio States => [New Freq Bit, Station_Present Bit, Radio_Text_Update Bit, 0 Bit, TP Bit, PTY 5 Bits, TA Bit, M/S Bit, DI 4 Bits] LSB
-	char GRP, pos;
-	char rds_read_byte[14];
+	uint8_t pos;
+	uint8_t rds_read_byte[13];
+	uint8_t i;
+	uint8_t temp;
+	RDS *rds = (RDS*) (uint16_t*) rds_read_byte;
 	char tmp = 0, doit = 0;
 	static char rds_text_count = 0, rds_station_count = 0;
 	if(*Radio_States & (1<<15))
@@ -33,38 +36,41 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 		{
 			USCI_I2C_WRITE2(I2C_SI4735, REPT, 2, 0x24, 0x01);
 			USCI_I2C_READ(I2C_SI4735, STOP, 13, rds_read_byte);
-			I2C_write_and_read(2,i2c_data_out,14,rds_read_byte);                             //RDS-Daten und Status auslesen
-			if(!((rds_read_byte[11 + RDS_BYTES_OFFSET] == 3) || (rds_read_byte[11 + RDS_BYTES_OFFSET] == 12) || (rds_read_byte[11 + RDS_BYTES_OFFSET] == 48) || (rds_read_byte[11 + RDS_BYTES_OFFSET] == 192)) && rds_read_byte[0] == 0)
-			if(rds_read_byte[2 + RDS_BYTES_OFFSET]>0)                       //neue Daten empfangen?
+			for (i = 4; i <= 10; i+=2) {
+				temp = rds_read_byte[i];
+				rds_read_byte[i] = rds_read_byte[i+1];
+				rds_read_byte[i+1] = temp;
+			}
+			if(rds->err.BLEA != 3 && rds->err.BLEB != 3 && rds->err.BLEC != 3 && rds->err.BLED != 3)
 			{
-				GRP = (rds_read_byte[5 + RDS_BYTES_OFFSET]&0xF0)>>4;
-				if (GRP == 2)
+				if (rds->block_b.GROUP_NUM == 2)
 				{
-					pos = (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0x0F)<<2;
+					GROUP_2A *rds2 = (GROUP_2A*) &(rds->pi);
+					pos =rds2->B*4;
 					if(++rds_text_count == 16)
 					{
 						rds_text_count = 0;
 						*Radio_States |= (1<<13);
 					}
-					Radion_Text[pos++] = rds_read_byte[7 + RDS_BYTES_OFFSET];
-					Radion_Text[pos++] = rds_read_byte[8 + RDS_BYTES_OFFSET];
-					Radion_Text[pos++] = rds_read_byte[9 + RDS_BYTES_OFFSET];
-					Radion_Text[pos] = rds_read_byte[10 + RDS_BYTES_OFFSET];
+					Radion_Text[pos++] = rds2->SEGMENT[1];
+					Radion_Text[pos++] = rds2->SEGMENT[0];
+					Radion_Text[pos++] = rds2->SEGMENT[3];
+					Radion_Text[pos] = rds2->SEGMENT[2];
 					Radion_Text[65] = '\0';
 				}
-				if (GRP == 4)
+				if (rds->block_b.GROUP_NUM == 4)
 				{
-					rds_group_4A(rds_read_byte);
+					rds_group_4A(rds);
 				}
-				if (GRP == 0)
+				if (rds->block_b.GROUP_NUM == 0)
 				{
 
-					*Radio_States |= (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xFC)>>2;	//TA Bit M/S Bit DI 4 Bits
-					pos = (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0x03);               	//Adresse herausfiltern
-					pos = pos<<1;
-					Station_Name[pos] = rds_read_byte[9 + RDS_BYTES_OFFSET];
-					pos = pos + 1;
-					Station_Name[pos] = rds_read_byte[10 + RDS_BYTES_OFFSET];
+					//*Radio_States |= (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xFC)>>2;	//TA Bit M/S Bit DI 4 Bits
+					GROUP_0A *rds2 = (GROUP_0A*) &(rds->pi);
+					//*Radio_States |= (rds2->TA | rds2->MS | rds2->DI) >> 2;
+					pos = rds2->CI*2;
+					Station_Name[pos++] = rds2->PS_NAME[1];
+					Station_Name[pos] = rds2->PS_NAME[0];
 					Station_Name[8] = '\0';
 					if(++rds_station_count == 4)
 					{
@@ -74,9 +80,8 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 				}
 			}
 			_delay_us(25);
-			//_delay_ms(1);
-			tmp = rds_read_byte[2 + RDS_BYTES_OFFSET];
-			if(tmp < 20 && doit == 0)
+			tmp = rds->fifo.RDSFIFOUSED;
+			if(tmp < 10 && doit == 0)
 			{
 				break;
 			}
@@ -85,9 +90,11 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 				doit = 1;
 			}
 		}
-		while(tmp > 0);//rds_read_byte[2 + RDS_BYTES_OFFSET] > 0);
+		while(tmp > 0);
 	}
-	*Radio_States |= (rds_read_byte[5 + RDS_BYTES_OFFSET] & 0x07)<<9 | (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xE0)<<1; //TP Bit PTY 5 Bits
+	//*Radio_States |= (rds_read_byte[5 + RDS_BYTES_OFFSET] & 0x07)<<9 | (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xE0)<<1; //TP Bit PTY 5 Bits
+}
+
 uint8_t get_signal_qual(uint8_t *stats)
 {
 	USCI_I2C_WRITE2(I2C_SI4735, REPT, 2, 0x23, 0x00);
@@ -103,8 +110,9 @@ uint8_t rds_triggered()
 	return rds;
 }
 
-void rds_group_4A(char *rds_data)
+void rds_group_4A(RDS *data)
 {
+	GROUP_4A *data2 = (GROUP_4A*) &(data->pi);
 	char offset = 0;
 	unsigned int mdj = 0;
 	unsigned char m_hour, m_minute, m_day, m_month, m_year;
@@ -115,14 +123,10 @@ void rds_group_4A(char *rds_data)
 	m_month = 0;
 	m_year = 10;
 
-	m_minute = (rds_data[9 + RDS_BYTES_OFFSET] & 0x0F)<<2;
-	m_minute |= (rds_data[10 + RDS_BYTES_OFFSET] & 0xC0)>>6;
-	m_hour = (rds_data[8 + RDS_BYTES_OFFSET] & 0x01)<<4;
-	m_hour |= (rds_data[9 + RDS_BYTES_OFFSET] & 0xF0)>>4;
-	offset = (rds_data[10 + RDS_BYTES_OFFSET] & 0x1F);
-	mdj = (rds_data[8 + RDS_BYTES_OFFSET] & 0xFE)>>1;
-	mdj |= (rds_data[7 + RDS_BYTES_OFFSET])<<7;
-	mdj |= (rds_data[6 + RDS_BYTES_OFFSET] & 0x03)<<15;
+	m_minute = data2->MINUTE;
+	m_hour = data2->HOUR_L + data2->HOUR_H * 16;
+	offset = data2->TIME_OFF;
+	mdj = data2->DATE_L + (data2->DATE_H << 15);
 
 	temp = mdj - 55198 + 1; //55198 = MDJ of 01.01.2010
 
