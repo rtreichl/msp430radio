@@ -66,31 +66,33 @@
 
 void i2c_lcd_brightnes(unsigned int brightnes)
 {
-	//I2C_LCD_PORT_SEL |= I2C_LCD_PORT_PIN;
+	// Enable backlight for display
+	// In next PCB release there should be a I²C PWM controller for brightness controll
 	I2C_LCD_PORT_DIR |= I2C_LCD_PORT_PIN;
 	I2C_LCD_PORT_OUT |= I2C_LCD_PORT_PIN;
-	//TA1CCR0 = brightnes;                       // PWM Period
-	//TA1CCTL1 = OUTMOD_6;                       // CCR1 reset/set
-	//TA1CCR1 = 384;                             // CCR1 PWM duty cycle
-	//TA1CTL = TASSEL_1 + MC_3;                  // ACLK, up mode
 }
 
 void i2c_lcd_init()
 {
+	// Go in default state
 	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x03, 0x00);
 
 	_delay_ms(40);
 
+	// Send reset command
 	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
 	_delay_ms(2);
 
+	// Send 2nd reset command
 	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
 	_delay_us(30);
 
+	// Send 3rd reset command
 	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
+	// Go in default data mode of display
 	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x02, 0x12);
 
 	_delay_us(30);
