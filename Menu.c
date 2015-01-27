@@ -39,6 +39,8 @@ void menu(void)
 	static char delay_vol = 0,delay_freq = 0;
 	static char s_time[7] = "\6  :  ", s_date[9] = "01.01.14";
 	static char init = 0, set = 0, radio_on = 1;
+	static uint8_t display_mode = 0;
+	char rsq[4];
 
 	//char sel_mode,AM_MODE,FM_MODE,rds_mode,RDS_OFF,RDS_ON,pty_mode,tpta_mode,PTY_OFF,PTY_ON,TPTA_OFF,TPTA_ON,RESET,NO,YES,standby_mode;
 	unsigned int i=0;
@@ -154,8 +156,8 @@ void menu(void)
 			switch(counter2_second_lvl)
 			{
 			case 0:																									//rds(ON/OFF)
-					en_counter2 = check_for_out_of_range(en_counter2,2);
-					en_counter2 = en_counter2 % 2;																	//Auf 2 begrenzt
+					en_counter2 = check_for_out_of_range(en_counter2,3);
+					en_counter2 = en_counter2 % 3;																	//Auf 2 begrenzt
 					if (encoder_2_button=='k')
 					{
 						counter2_third_lvl = en_counter2;															//Bei kurzem Tastendruck Encoder-Wert für dritte Ebene übernehmen
@@ -324,27 +326,17 @@ void menu(void)
 				{
 				case 0:																								//RDS
 
-						switch (counter2_third_lvl)
-						{
-						case 0:
-
-								//rds_mode = RDS_ON;
-								counter2_second_lvl = MAX_SECOND_LVL;												//Rücksprung zu
-								counter2_third_lvl = MAX_THIRD_LVL;													//Anzeigen-Untermenü
-								en_counter2 = 0;																	//Pfeil soll auf RDS zeigen
-								
-							break;
-						case 1:
-
+						if (counter2_third_lvl < MAX_THIRD_LVL)	{
+								display_mode = counter2_third_lvl;
 								//rds_mode = RDS_OFF;
 								counter2_second_lvl = MAX_SECOND_LVL;												//Rücksprung zu
 								counter2_third_lvl = MAX_THIRD_LVL;													//Anzeigen-Untermenü
-								en_counter2 = 0;																	//Pfeil soll auf RDS zeigen
-								
-							break;
-						default:																					//RDS-Untermenü anzeigen
+								en_counter2 = 0;													//Pfeil soll auf RDS zeigen
+						}
+						else {																						//RDS-Untermenü anzeigen
 							i2c_lcd_create_view("RDS",1,0,0);
 							i2c_lcd_create_view("PTY",1,1,0);
+							i2c_lcd_create_view("Signal Report",1,2,0);
 							i2c_lcd_create_view("~",0,en_counter2,1);
 						}
 					break;
@@ -410,45 +402,13 @@ void menu(void)
 					}
 				break;
 			case 3:																									//Equalizer
-				switch (counter2_second_lvl)
-				{
-				case 0:
-					Amplifier_init(POP,AMPLIFIER_GAIN);																//pop
+				if (counter2_second_lvl < MAX_SECOND_LVL) {
+					Amplifier_set_equalizer_mode(counter2_second_lvl,AMPLIFIER_GAIN);																//pop
 					counter2_first_lvl = MAX_FIRST_LVL;																//Rücksprung zu
 					counter2_second_lvl = MAX_SECOND_LVL;															//Einstellungen
 					en_counter2 = 3;																				//Pfeil soll auf Equalizer zeigen
-					break;
-				case 1:
-					Amplifier_init(CLASSIC,AMPLIFIER_GAIN);															//Klassik
-					counter2_first_lvl = MAX_FIRST_LVL;																//Rücksprung zu
-					counter2_second_lvl = MAX_SECOND_LVL;															//Einstellungen
-					en_counter2 = 3;																				//Pfeil soll auf Equalizer zeigen
-					break;
-				case 2:
-					Amplifier_init(JAZZ,AMPLIFIER_GAIN);															//Jazz
-					counter2_first_lvl = MAX_FIRST_LVL;																//Rücksprung zu
-					counter2_second_lvl = MAX_SECOND_LVL;															//Einstellungen
-					en_counter2 = 3;																				//Pfeil soll auf Equalizer zeigen
-					break;
-				case 3:
-					Amplifier_init(RAP_HIP_HOP,AMPLIFIER_GAIN);														//Hip-Hop
-					counter2_first_lvl = MAX_FIRST_LVL;																//Rücksprung zu
-					counter2_second_lvl = MAX_SECOND_LVL;															//Einstellungen
-					en_counter2 = 3;																				//Pfeil soll auf Equalizer zeigen
-					break;
-				case 4:
-					Amplifier_init(ROCK,AMPLIFIER_GAIN);															//rock
-					counter2_first_lvl = MAX_FIRST_LVL;																//Rücksprung zu
-					counter2_second_lvl = MAX_SECOND_LVL;															//Einstellungen
-					en_counter2 = 3;																				//Pfeil soll auf Equalizer zeigen
-					break;
-				case 5:
-					Amplifier_init(NEWS_VOICE,AMPLIFIER_GAIN);														//news/voice
-					counter2_first_lvl = MAX_FIRST_LVL;																//Rücksprung zu
-					counter2_second_lvl = MAX_SECOND_LVL;															//Einstellungen
-					en_counter2 = 3;																				//Pfeil soll auf Equalizer zeigen
-					break;
-				default:																							//Equalizer-Untermenü anzeigen
+				}
+				else {																								//Equalizer-Untermenü anzeigen
 					if (en_counter2 < 3)																			// wenn einer der ersten drei elemente ausgewählt ist
 					{
 						i2c_lcd_create_view("Pop",1,0,0);
@@ -532,6 +492,8 @@ void menu(void)
 				en_counter2 = 0;
 				break;
 			default:
+				//Seeking function
+				//Auto search function
 				i2c_lcd_create_view("Senderliste",1,0,0);
 				i2c_lcd_create_view("Speichern",1,1,0);
 				i2c_lcd_create_view("Return",1,2,0);
@@ -557,40 +519,32 @@ void menu(void)
 				delay_freq = 1;
 				sekunde = 0;
 			}
-			if(radio_on)
-			{
-			get_rds_data(&Radio_States, Station_Name, Radion_Text);													//RDS-Daten auslesen
-			if(Radio_States & (1<<14))
-			{
-				i2c_lcd_create_view(Station_Name, 0, 0, 0);
+			if(radio_on) {
+				get_rds_data(&Radio_States, Station_Name, Radion_Text);												//RDS-Daten auslesen
+				if(Radio_States & (1<<14)) {
+					i2c_lcd_create_view(Station_Name, 0, 0, 0);
+				}
+				else {																								//ansonsten Frequenz anzeigen
+					sprintf(string,"%d.%dMHz",(act_freq+874)/10,(act_freq+874)%10);
+					i2c_lcd_create_view(string,0,0,0);
+				}
 			}
-			else																									//ansonsten Frequenz anzeigen
-			{
-				sprintf(string,"%d.%dMHz",(act_freq+874)/10,(act_freq+874)%10);
-				i2c_lcd_create_view(string,0,0,0);
-			}
-			}
-			else
-			{
+			else {
 				i2c_lcd_create_view("LINE-IN ",0,0,0);
 			}
-			if(Radio_States & 0x1000)																				//aktuelles Datum über RDS erhalten
-			{
+			if(Radio_States & 0x1000) {																				//aktuelles Datum über RDS erhalten
  				Radio_States &= ~0x1000;
 				sec = 0;
 			}
 			time_date(0, 0, 0, 0, 0, 0, 0, s_time, s_date);															//Lese Datum und Zeit String aus
 			i2c_lcd_create_view(s_time, 10, 0, 0);																	//Zeige Zeit an
 			i2c_lcd_create_view(s_date,8,1,0);																		//Zeige Datum an
-			if(vol_mute)																							//vol_mute zeichen ausgeben
-			{
-				sprintf(string,"\7÷",0);
-				i2c_lcd_create_view(string,0,1,0);
+			if(vol_mute) {																							//vol_mute zeichen ausgeben
+				i2c_lcd_create_view("\7÷",0,1,0);
 			}
 			else																									//vol_mute off zeichen ausgeben
 			{
-				sprintf(string,"\7û",act_vol);
-				i2c_lcd_create_view(string,0,1,0);
+				i2c_lcd_create_view("\7û",0,1,0);
 			}
 			if(delay_freq == 1 && sekunde < BLEND_OUT_AFTER)														//Delay für Bargraph Frequenz
 			{
@@ -610,6 +564,7 @@ void menu(void)
 			{
 				delay_vol = 0;
 			}
+			if (display_mode != 2) {
 			if(delay_vol == 0 && delay_freq == 0)																	//Radiotext anzeigen wenn bargraph kein Encoder gedreht wird
 			{
 				if(posrt < 16)																						//So lange der Text nicht am linken Rand angekommen ist kopiere nur die anzahl der angezeigen Zeichen
@@ -629,6 +584,21 @@ void menu(void)
 					string[1] = 0;																					//String Abschlss einfügen
 					i2c_lcd_create_view(string,0,2,0);																//Text in den Display Speicher ablegen
 				}
+			}
+			}
+			else {
+				uint8_t temp[8];
+				get_signal_qual(temp);
+				//sprintf(rsq, "%d", temp[3] & 0x7F);
+				//i2c_lcd_create_view(rsq, 8, 1, 0);
+				sprintf(rsq, "  %ddBuV", temp[4]);
+				i2c_lcd_create_view(rsq, 8+(8-strlen(rsq)), 1, 0);
+				sprintf(rsq, "%ddB", temp[5]);
+				i2c_lcd_create_view(rsq, 0+(4-strlen(rsq)), 2, 0);
+				sprintf(rsq, "%d%c", temp[6], 0x25);
+				i2c_lcd_create_view(rsq, 5+(4-strlen(rsq)), 2, 0);
+				sprintf(rsq, "%dkHz", (int8_t)temp[7]);
+				i2c_lcd_create_view(rsq, 11+(5-strlen(rsq)), 2, 0);
 			}
 			if(Radio_States & 0x2000 && posrt == 78)																//Radiotext(wenn neu vorhanden) kopieren
 			{

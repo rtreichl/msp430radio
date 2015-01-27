@@ -13,6 +13,7 @@
 
 void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text);
 uint8_t rds_triggered();
+uint8_t get_signal_qual();
 void rds_group_4A(char *rds_data);
 
 #endif /* RADIO_H_ */

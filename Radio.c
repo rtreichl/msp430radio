@@ -88,6 +88,11 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 		while(tmp > 0);//rds_read_byte[2 + RDS_BYTES_OFFSET] > 0);
 	}
 	*Radio_States |= (rds_read_byte[5 + RDS_BYTES_OFFSET] & 0x07)<<9 | (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xE0)<<1; //TP Bit PTY 5 Bits
+uint8_t get_signal_qual(uint8_t *stats)
+{
+	USCI_I2C_WRITE2(I2C_SI4735, REPT, 2, 0x23, 0x00);
+	USCI_I2C_READ(I2C_SI4735, STOP, 8, stats);
+	return 0;
 }
 
 uint8_t rds_triggered()
