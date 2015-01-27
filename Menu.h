@@ -13,7 +13,7 @@
 #define MAX_SECOND_LVL 6
 #define MAX_THIRD_LVL 4
 #define BLEND_OUT_AFTER	3 //(3-1)*250ms
-#define AMPLIFIER_GAIN 30
+#define AMPLIFIER_GAIN 15
 
 void menu(void);
 void null_befor_value(char *string ,char value, unsigned char pos);
