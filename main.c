@@ -33,10 +33,6 @@
 #include "Timer.h"
 #include "Menu.h"
 
-void rds_read(void);
-char rds_triggered();
-void rds_group_4A(char rds_data[13]);
-
 volatile unsigned char sekunde = 0;
 volatile unsigned char posrt = 0;
 volatile unsigned char sec = 240;
