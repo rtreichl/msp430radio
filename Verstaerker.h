@@ -8,14 +8,26 @@
 #ifndef VERSTAERKER_H_
 #define VERSTAERKER_H_
 
-enum EQUALIZER {POP = 0, CLASSIC, JAZZ, RAP_HIP_HOP, ROCK, NEWS_VOICE, TEST};
+#include <msp430.h>
+#include <stdint.h>
+#include "MSP430G2553_USCI_I2C.h"
+#include "Timer.h"
 
-void Amplifier_init(unsigned char Start_Mode,signed  char Start_Gain);
+#define I2C_AUDIO_AMP			0x58
+#define AUDIO_SHUT_DOWN_PORT	P3OUT
+#define AUDIO_SHUT_DOWN_PIN		BIT2
+#define AUDIO_SHUT_DOWN_DDR		P3DIR
 
-void Amplifier_Shutdown(unsigned char Shutdown);
+enum EQUALIZER {POP = 0, CLASSIC, JAZZ, RAP_HIP_HOP, ROCK, NEWS_VOICE};
 
-void Amplifier_Gain(signed char Gain);
+enum AMPLIFIER {RELEASE = 0, SHUTDOWN};
 
-void Amplifier_set_equalizer_mode(unsigned char Mode,signed char Gain);
+void Amplifier_init(uint8_t Start_Mode, int8_t Start_Gain);
+
+void Amplifier_Shutdown(uint8_t Shutdown);
+
+void Amplifier_Gain(int8_t Gain);
+
+void Amplifier_set_equalizer_mode(uint8_t Mode, int8_t Gain);
 
 #endif /* VERSTAERKER_H_ */
