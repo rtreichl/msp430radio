@@ -8,7 +8,7 @@
 //Variables from Encoder 1
 volatile unsigned int encoder_1_count = 0;							//Shows the actual value from Encoder 1
 volatile char encoder_1_last = 0;									//Last state from Encoder 1
-volatile char encoder_1_button = 0;									//Button Value for Menu
+volatile char encoder_1_button = 'f';									//Button Value for Menu
 volatile char encoder_1_state = 0;									//Button Value for State mashine in Encoder
 volatile int count_button_1 = 0;									//
 
@@ -19,7 +19,7 @@ volatile int count_button_1 = 0;									//
 //Variables from Encoder 2
 volatile unsigned int encoder_2_count = 0;							//Shows the actual value from Encoder 2
 volatile char encoder_2_last = 0;									//Last state from Encoder 2
-volatile char encoder_2_button = 0;
+volatile char encoder_2_button = 'f';
 volatile char encoder_2_state = 0;
 volatile int count_button_2 = 0;
 
@@ -84,7 +84,7 @@ void Encoder_1_init(void)
 {
 	encoder_1_last = 0;
 	encoder_1_count = 0x8000;
-	encoder_1_button = 0;
+	encoder_1_button = 'f';
 	encoder_1_state = 0;
 	ENCODER_1_IE  &=  ~(ENCODER_1_A | ENCODER_1_B);					//Disable Interrupt on all listed Pins
 	ENCODER_1_DIR &= ~(ENCODER_1_A | ENCODER_1_B | ENCODER_1_T);	//Set Signal A, B, Button as Input
@@ -158,7 +158,7 @@ void Encoder_2_init(void)
 {
 	encoder_2_last = 0;
 	encoder_2_count = 0x8000;
-	encoder_2_button = 0;
+	encoder_2_button = 'f';
 	encoder_2_state = 0;
 	ENCODER_2_IE  &=  ~(ENCODER_2_A | ENCODER_2_B);	//Disable Interrupt on all listed Pins
 	ENCODER_2_DIR &= ~(ENCODER_2_A | ENCODER_2_B | ENCODER_2_T);	//Set Signal A, B, Button as Input

@@ -40,6 +40,8 @@ void menu(void)
 	static char s_time[7] = "\6  :  ", s_date[9] = "01.01.14";
 	static char init = 0, set = 0, radio_on = 1;
 	static uint8_t display_mode = 0;
+	static uint8_t counter_sum = 0;
+	uint8_t flush = 0;
 	char rsq[4];
 
 	//char sel_mode,AM_MODE,FM_MODE,rds_mode,RDS_OFF,RDS_ON,pty_mode,tpta_mode,PTY_OFF,PTY_ON,TPTA_OFF,TPTA_ON,RESET,NO,YES,standby_mode;
@@ -54,6 +56,8 @@ void menu(void)
 	/***************************************************************encoder-auswahl für encoder 1******************************************************************************************/
 	/****************************************Encoderzustände: l (lang gedrückt), k (kurz gedrückt), f (Taste wieder frei)******************************************************************/
 	/**************************************************************************************************************************************************************************************/
+
+	flush = 0;
 	if(init == 0)																									//Beim einschalten Initialisieren
 	{
 		time_date(0, 0, 1, 1, 14, 1, 0, s_time, s_date);
@@ -63,41 +67,54 @@ void menu(void)
 	en_counter1 +=  Encoder_1_get_count();																			//Encoderwert für Encoder 1 um geänderten Encoderwert erhöhen
 	en_counter2 +=  Encoder_2_get_count();																			//Encoderwert für Encoder 2 um geänderten Encoderwert erhöhen
 
+	if(counter_sum != en_counter1 + en_counter2 + posrt){															//Überprüfe ob sich Summe aus den Encoder-Werten und der aktuellen Radio-Text Position geändert hat
+		flush |= 1;
+		counter_sum = en_counter1 + en_counter2 + posrt;
+	}
 
-	if (encoder_1_button=='k')																						//Bei kurzem Tastendruck Volume Mute ON/OFF					
+
+
+	if (encoder_1_button == BUTTON_PRESS_SHORT)																						//Bei kurzem Tastendruck Volume Mute ON/OFF
 	{
 		vol_mute ^= 1;
 		Amplifier_Shutdown(vol_mute);
-		encoder_1_button = 'f';															
+		flush |= 1;
+		encoder_1_button = BUTTON_FREE;
 	}
-	else if (encoder_1_button=='l')																					//Bei langem Tastendruck in Standby-Modus wechseln
+	else if (encoder_1_button == BUTTON_PRESS_LONG)																					//Bei langem Tastendruck in Standby-Modus wechseln
 	{
 		if(set==0)
 		{
 			enter_standby();
-			set=1;
+			set = 1;
 		}
-		if(set==1)
+		if(set == 1)
 		{
 			exit_standby();
-			set=0;
+			set = 0;
 		}
-		encoder_1_button = 'f';
+		flush |= 1;
+		encoder_1_button = BUTTON_FREE;
 	}
 	/**********************************************************************ende encoder 1**************************************************************************************************/
 
 	/**************************************************************encoder-auswahl für encoder 2*******************************************************************************************/
 	/*********************************************Encoderzustände: l (lang gedrückt), k (kurz gedrückt), f (Taste wieder frei)*************************************************************/
 	/**************************************************************************************************************************************************************************************/
+
+	if(encoder_2_button != BUTTON_FREE) {
+		flush |= 1;
+	}
+
 	switch (counter2_zero_lvl)
 	{
 	case 1:																											//Senderauswahl
 		switch (counter2_first_lvl)
 		{
 		case 0:																										//Senderliste
-			en_counter2 = check_for_out_of_range(en_counter2,15);
-			en_counter2 = en_counter2%15;																			//Auf 15 Werte begrenzen(gibt nicht mehr)
-			if(encoder_2_button=='k')
+			en_counter2 = check_for_out_of_range(en_counter2, 15);
+			en_counter2 = en_counter2 % 15;																			//Auf 15 Werte begrenzen(gibt nicht mehr)
+			if(encoder_2_button == BUTTON_PRESS_SHORT)
 			{
 				char tmp = 0;
 				tmp = *(char *)(FLASH_ADR_STATION_FREQ + en_counter2*10);
@@ -105,36 +122,36 @@ void menu(void)
 				{
 					//USCI_I2C_INIT(0x11,80);
 					act_freq = tmp;																					//Übernehme Frequenz
-					SI4735_Fm_Tune_Freq_2((875+(char)(act_freq-1))*10);
+					SI4735_Fm_Tune_Freq_2((875 + (char)(act_freq-1))*10);
 					Radio_States |= (1<<15);
-					strncpy(Akt_Radio_Text,"Radio Text",64);
+					strncpy(Akt_Radio_Text, "Radio Text", 64);
 				}
 				en_counter2 = 0;																					//Durchlaufender Counter wird wieder Null gesetzt, da eine Ebene höher
 				counter2_zero_lvl = MAX_ZERO_LVL;																	//Wieder auf den Haupt-
 				counter2_first_lvl = MAX_FIRST_LVL;																	//bildschirm kommen
-				encoder_2_button = 'f';
+				encoder_2_button = BUTTON_FREE;
 			}
 			break;
 		case 1:																										//Speichern
-			en_counter2 = check_for_out_of_range(en_counter2,15);
-			en_counter2 = en_counter2%15;																			//Auf 15 Werte begrenzen(Anzahl der Speicherplätze)
-			if (encoder_2_button == 'k')
+			en_counter2 = check_for_out_of_range(en_counter2, 15);
+			en_counter2 = en_counter2 % 15;																			//Auf 15 Werte begrenzen(Anzahl der Speicherplätze)
+			if (encoder_2_button == BUTTON_PRESS_SHORT)
 			{
 				stor_data_to_flash ((char *)FLASH_ADR_STATION_NAME, Station_Name, act_freq, en_counter2*10); 
 
 				counter2_zero_lvl = MAX_ZERO_LVL;																	//Wieder auf den Haupt-
 				counter2_first_lvl = MAX_FIRST_LVL;																	//bildschirm kommen
 				en_counter2 = 0;																					//Durchlaufender Counter wird wieder Null gesetzt, da eine Ebene höher
-				encoder_2_button = 'f';
+				encoder_2_button = BUTTON_FREE;
 			}
 			break;
 		default:
-			en_counter2 = check_for_out_of_range(en_counter2,3);
-			en_counter2 = en_counter2%3;																			//Auf 3 Werte begrenzen(Senderliste,Speichern,Return)
-			if (encoder_2_button=='k')
+			en_counter2 = check_for_out_of_range(en_counter2, 3);
+			en_counter2 = en_counter2 % 3;																			//Auf 3 Werte begrenzen(Senderliste,Speichern,Return)
+			if (encoder_2_button == BUTTON_PRESS_SHORT)
 			{
 				counter2_first_lvl = en_counter2;																	//Encoderwert für erste ebene ermitteln
-				encoder_2_button = 'f';
+				encoder_2_button = BUTTON_FREE;
 				en_counter2 = 0;																					//Durchlaufender Counter wird wieder Null gesetzt, da eine Ebene tiefer
 			}
 		}
@@ -143,12 +160,12 @@ void menu(void)
 		switch (counter2_first_lvl)
 		{
 		case 0:																										//AM/FM
-				en_counter2 = check_for_out_of_range(en_counter2,2);
+				en_counter2 = check_for_out_of_range(en_counter2, 2);
 				en_counter2 = en_counter2 % 2;																		//Auf 2 begrenzt(AM/FM)
-				if (encoder_2_button=='k')
+				if (encoder_2_button == BUTTON_PRESS_SHORT)
 				{
 					counter2_second_lvl = en_counter2;																//Bei kurzem Tastendruck Encoder-Wert für dritte Ebene übernehmen
-					encoder_2_button = 'f';
+					encoder_2_button = BUTTON_FREE;
 				}
 
 			break;
@@ -156,100 +173,100 @@ void menu(void)
 			switch(counter2_second_lvl)
 			{
 			case 0:																									//rds(ON/OFF)
-					en_counter2 = check_for_out_of_range(en_counter2,3);
+					en_counter2 = check_for_out_of_range(en_counter2, 3);
 					en_counter2 = en_counter2 % 3;																	//Auf 2 begrenzt
-					if (encoder_2_button=='k')
+					if (encoder_2_button == BUTTON_PRESS_SHORT)
 					{
 						counter2_third_lvl = en_counter2;															//Bei kurzem Tastendruck Encoder-Wert für dritte Ebene übernehmen
-						encoder_2_button = 'f';
+						encoder_2_button = BUTTON_FREE;
 
 					}
 
 				break;
 			case 1:																									//tp/ta
-					en_counter2 = check_for_out_of_range(en_counter2,2);
+					en_counter2 = check_for_out_of_range(en_counter2, 2);
 					en_counter2 = en_counter2 % 2;																	//Auf 2 begrenzt(ON/OFF)
-					if (encoder_2_button=='k')																		
+					if (encoder_2_button == BUTTON_PRESS_SHORT)
 					{
 						counter2_third_lvl = en_counter2;															//Bei kurzem Tastendruck Encoder-Wert für dritte Ebene übernehmen
-						encoder_2_button = 'f';
+						encoder_2_button = BUTTON_FREE;
 					}
 
 				break;
 			case 2:																									//return
 					counter2_first_lvl = MAX_FIRST_LVL;																//Wieder in das Menü 
 					counter2_second_lvl = MAX_SECOND_LVL;															//der Einstellungen springen
-					encoder_2_button = 'f';
+					encoder_2_button = BUTTON_FREE;
 					en_counter2 = 0;																				
 				break;
 			default:																								//anzeige-auswahl
-					en_counter2 = check_for_out_of_range(en_counter2,4);
+					en_counter2 = check_for_out_of_range(en_counter2, 4);
 					en_counter2 = en_counter2 % 3;																	//Auf 4 begrenzen(RDS/PTY/TPTA/RETURN)
-					if (encoder_2_button=='k')
+					if (encoder_2_button == BUTTON_PRESS_SHORT)
 					{
 						counter2_second_lvl = en_counter2;															//Bei kurzem Tastendruck Encoder-Wert für zweite Ebene übernehmen
-						encoder_2_button = 'f';
+						encoder_2_button = BUTTON_FREE;
 						en_counter2 = 0;
 					}
 			}
 			break;
 		case 2:																										//werkszustand
-				en_counter2 = check_for_out_of_range(en_counter2,2);
+				en_counter2 = check_for_out_of_range(en_counter2, 2);
 				en_counter2 = en_counter2 % 2;																		//Auf 2 begrenzen(ON/OFF)
-				if (encoder_2_button=='k')
+				if (encoder_2_button == BUTTON_PRESS_SHORT)
 				{
 					counter2_second_lvl = en_counter2;																//Bei kurzem Tastendruck Encoder-Wert für zweite Ebene übernehmen
-					encoder_2_button = 'f';
+					encoder_2_button = BUTTON_FREE;
 
 				}
 			break;
 		case 3:																										//Equalizer
-			en_counter2 = check_for_out_of_range(en_counter2,6);
+			en_counter2 = check_for_out_of_range(en_counter2, 6);
 			en_counter2 = en_counter2 % 6;																			//Auf 6 begrenzen(POP,ROCK,JAZZ;
-			if (encoder_2_button=='k')
+			if (encoder_2_button == BUTTON_PRESS_SHORT)
 			{
 				counter2_second_lvl = en_counter2;																	//Bei kurzem Tastendruck Encoder-Wert für zweite Ebene übernehmen
-				encoder_2_button = 'f';
+				encoder_2_button = BUTTON_FREE;
 			}
 			break;
 		case 4:																										//Audio-Switch
-			en_counter2 = check_for_out_of_range(en_counter2,2);
+			en_counter2 = check_for_out_of_range(en_counter2, 2);
 			en_counter2 = en_counter2 % 2;
-			if (encoder_2_button =='k')
+			if (encoder_2_button == BUTTON_PRESS_SHORT)
 			{
 				counter2_second_lvl = en_counter2;																	//Bei kurzem Tastendruck Encoder-Wert für zweite Ebene übernehmen
-				encoder_2_button = 'f';
+				encoder_2_button = BUTTON_FREE;
 			}
 			break;
 		case 5:																										//return
-				encoder_2_button = 'f';
+				encoder_2_button = BUTTON_FREE;
 				counter2_zero_lvl = MAX_ZERO_LVL;																	//Wieder auf Haupt-
 				counter2_first_lvl = MAX_FIRST_LVL;																	//anzeige wechseln
 				en_counter2 = 0;
 			break;
 		
 		default:
-				en_counter2 = check_for_out_of_range(en_counter2,6);
+				en_counter2 = check_for_out_of_range(en_counter2, 6);
 				en_counter2 = en_counter2 % 6;																		//Auf 6 begrenzen(AM/FM,Anzeige,Equalizer,Audio-Switch,Werkszustand,Return)
-				if (encoder_2_button=='k')
+				if (encoder_2_button == BUTTON_PRESS_SHORT)
 				{
 					counter2_first_lvl = en_counter2;																//Bei kurzem Tastendruck Encoder-Wert für erste Ebene übernehmen
-					encoder_2_button = 'f';
+					encoder_2_button = BUTTON_FREE;
 					en_counter2 = 0;
 				}
 		}
 		break;
 		default:
-		if (encoder_2_button=='k')																					
+		if (encoder_2_button == BUTTON_PRESS_SHORT)
 		{
 			counter2_zero_lvl = 1;																					//Bei kurzem Tastendruck Auswahl der Senderliste
-			encoder_2_button = 'f';
+			encoder_2_button = BUTTON_FREE;
 			en_counter2 = 0;
 		}
-		else if (encoder_2_button == 'l')								
+		else if (encoder_2_button == BUTTON_PRESS_LONG)
 		{
 			counter2_zero_lvl = 2;																					//Bei langem Tastendruck Auswahl Einstellungen
-			encoder_2_button = 'f';
+			encoder_2_button = BUTTON_FREE;
 			en_counter2 = 0;
 		}
 	}
@@ -315,9 +332,9 @@ void menu(void)
 							en_counter2 = 0;																		//Pfeil soll auf AM/FM zeigen
 						break;
 					default:																						//Anzeige für AM/FM Untermenü anzeigen
-						i2c_lcd_create_view("AM",1,0,0);
-						i2c_lcd_create_view("FM",1,1,0);
-						i2c_lcd_create_view("~",0,en_counter2,1);
+						i2c_lcd_create_view("AM", 1, 0, 0);
+						i2c_lcd_create_view("FM", 1, 1, 0);
+						i2c_lcd_create_view("~", 0, en_counter2, 0);
 					}
 					break;
 			case 1:																									//Anzeigenauswahl
@@ -334,10 +351,10 @@ void menu(void)
 								en_counter2 = 0;													//Pfeil soll auf RDS zeigen
 						}
 						else {																						//RDS-Untermenü anzeigen
-							i2c_lcd_create_view("RDS",1,0,0);
-							i2c_lcd_create_view("PTY",1,1,0);
-							i2c_lcd_create_view("Signal Report",1,2,0);
-							i2c_lcd_create_view("~",0,en_counter2,1);
+							i2c_lcd_create_view("RDS", 1, 0, 0);
+							i2c_lcd_create_view("PTY", 1, 1, 0);
+							i2c_lcd_create_view("Signal Report", 1, 2, 0);
+							i2c_lcd_create_view("~", 0, en_counter2, 0);
 						}
 					break;
 				case 1:																								//TP/TA
@@ -361,18 +378,18 @@ void menu(void)
 								
 							break;
 						default:																					//TPTA-Untermenü anzeigen
-							i2c_lcd_create_view("TP/TA ON",1,0,0);
-							i2c_lcd_create_view("TP/TA OFF",1,1,0);
-							i2c_lcd_create_view("~",0,en_counter2,1);
+							i2c_lcd_create_view("TP/TA ON", 1, 0, 0);
+							i2c_lcd_create_view("TP/TA OFF", 1, 1, 0);
+							i2c_lcd_create_view("~", 0, en_counter2, 0);
 						}
 					break;
 				default:																							//Anzeige-Untermenü anzeigen
 																								// wenn einer der ersten drei elemente ausgewählt ist
 						
-							i2c_lcd_create_view("RDS/PTY",1,0,0);
-							i2c_lcd_create_view("TP/TA",1,1,0);					
-							i2c_lcd_create_view("Return",1,2,0);
-							i2c_lcd_create_view("~",0,en_counter2,1);
+							i2c_lcd_create_view("RDS/PTY", 1, 0, 0);
+							i2c_lcd_create_view("TP/TA", 1, 1, 0);
+							i2c_lcd_create_view("Return", 1, 2, 0);
+							i2c_lcd_create_view("~", 0, en_counter2, 0);
 						
 				}
 				break;
@@ -396,14 +413,14 @@ void menu(void)
 							
 						break;
 					default:																						//Werkszustand-Untermenü anzeigen
-						i2c_lcd_create_view("NEIN",1,0,0);
-						i2c_lcd_create_view("JA",1,1,0);
-						i2c_lcd_create_view("~",0,en_counter2,1);
+						i2c_lcd_create_view("NEIN", 1, 0, 0);
+						i2c_lcd_create_view("JA", 1, 1, 0);
+						i2c_lcd_create_view("~", 0, en_counter2, 0);
 					}
 				break;
 			case 3:																									//Equalizer
 				if (counter2_second_lvl < MAX_SECOND_LVL) {
-					Amplifier_set_equalizer_mode(counter2_second_lvl,AMPLIFIER_GAIN);																//pop
+					Amplifier_set_equalizer_mode(counter2_second_lvl, AMPLIFIER_GAIN);																//pop
 					counter2_first_lvl = MAX_FIRST_LVL;																//Rücksprung zu
 					counter2_second_lvl = MAX_SECOND_LVL;															//Einstellungen
 					en_counter2 = 3;																				//Pfeil soll auf Equalizer zeigen
@@ -411,17 +428,17 @@ void menu(void)
 				else {																								//Equalizer-Untermenü anzeigen
 					if (en_counter2 < 3)																			// wenn einer der ersten drei elemente ausgewählt ist
 					{
-						i2c_lcd_create_view("Pop",1,0,0);
-						i2c_lcd_create_view("Klassik",1,1,0);
-						i2c_lcd_create_view("Jazz",1,2,0);
-						i2c_lcd_create_view("~",0,en_counter2,1);
+						i2c_lcd_create_view("Pop", 1, 0, 0);
+						i2c_lcd_create_view("Klassik", 1, 1, 0);
+						i2c_lcd_create_view("Jazz", 1, 2, 0);
+						i2c_lcd_create_view("~", 0, en_counter2, 0);
 					}
 					else
 					{
-						i2c_lcd_create_view("Hip-Hop",1,0,0);						
-						i2c_lcd_create_view("Rock",1,1,0);
-						i2c_lcd_create_view("News/Voice",1,2,0);
-						i2c_lcd_create_view("~",0,en_counter2-3,1);
+						i2c_lcd_create_view("Hip-Hop", 1, 0, 0);
+						i2c_lcd_create_view("Rock", 1, 1, 0);
+						i2c_lcd_create_view("News/Voice", 1, 2, 0);
+						i2c_lcd_create_view("~", 0, en_counter2 - 3, 0);
 					}
 				}
 				break;
@@ -443,25 +460,25 @@ void menu(void)
 					radio_on = 1;
 					break;
 				default:
-					i2c_lcd_create_view("AUX",1,0,0);
-					i2c_lcd_create_view("Radio",1,1,0);
-					i2c_lcd_create_view("~",0,en_counter2,1);
+					i2c_lcd_create_view("AUX", 1, 0, 0);
+					i2c_lcd_create_view("Radio", 1, 1, 0);
+					i2c_lcd_create_view("~", 0, en_counter2, 0);
 				}
 				break;
 			default:																								//Einstellungen-Untermenü anzeigen
 				if (en_counter2 < 3)																				// wenn einer der ersten drei elemente ausgewählt ist
 				{
-					i2c_lcd_create_view("AM/FM",1,0,0);
-					i2c_lcd_create_view("Anzeige",1,1,0);
-					i2c_lcd_create_view("Werkszustand",1,2,0);
-					i2c_lcd_create_view("~",0,en_counter2,1);
+					i2c_lcd_create_view("AM/FM", 1, 0, 0);
+					i2c_lcd_create_view("Anzeige", 1, 1, 0);
+					i2c_lcd_create_view("Werkszustand", 1, 2, 0);
+					i2c_lcd_create_view("~", 0, en_counter2, 0);
 				}
 				else
 				{
-					i2c_lcd_create_view("Equalizer",1,0,0);
-					i2c_lcd_create_view("Audio-Switch",1,1,0);
-					i2c_lcd_create_view("Return",1,2,0);
-					i2c_lcd_create_view("~",0,en_counter2-3,1);
+					i2c_lcd_create_view("Equalizer", 1, 0, 0);
+					i2c_lcd_create_view("Audio-Switch", 1, 1, 0);
+					i2c_lcd_create_view("Return", 1, 2, 0);
+					i2c_lcd_create_view("~", 0, en_counter2 - 3, 0);
 				}
 
 			}
@@ -472,19 +489,19 @@ void menu(void)
 			switch (counter2_first_lvl)
 			{
 			case 1:																									//Speichern
-				i2c_lcd_create_view("S:",14,0,0);
+				i2c_lcd_create_view("S:", 14, 0, 0);
 			case 0:																									//listeneintrag auswählen und Einträge anzeigen
 				if(counter2_first_lvl == 0)
-				i2c_lcd_create_view("A:",14,0,0);
-				for (i=(en_counter2/3)*3;i<(en_counter2/3)*3+3;i++)
+				i2c_lcd_create_view("A:", 14, 0, 0);
+				for (i = (en_counter2 / 3) * 3 ; i < (en_counter2 / 3) * 3 + 3; i++)
 				{
 					null_befor_value(string, i+1, 0);
-					string[2]='.';
-					string[3]=0;
-					i2c_lcd_create_view(string,1,i%3,0);
-					i2c_lcd_create_view((char *)(FLASH_ADR_STATION_NAME+i*10),4,i%3,0);
+					string[2] = '.';
+					string[3] = 0;
+					i2c_lcd_create_view(string, 1, i % 3, 0);
+					i2c_lcd_create_view((char *)(FLASH_ADR_STATION_NAME + i * 10), 4, i % 3, 0);
 				}
-				i2c_lcd_create_view("~",0,en_counter2%3,1);
+				i2c_lcd_create_view("~", 0, en_counter2 % 3, 0);
 				break;
 			case 2:																									//Return
 				counter2_zero_lvl = MAX_ZERO_LVL;																	//Rücksprung zu
@@ -494,17 +511,17 @@ void menu(void)
 			default:
 				//Seeking function
 				//Auto search function
-				i2c_lcd_create_view("Senderliste",1,0,0);
-				i2c_lcd_create_view("Speichern",1,1,0);
-				i2c_lcd_create_view("Return",1,2,0);
-				i2c_lcd_create_view("~",0,en_counter2,1);
+				i2c_lcd_create_view("Senderliste", 1, 0, 0);
+				i2c_lcd_create_view("Speichern", 1, 1, 0);
+				i2c_lcd_create_view("Return", 1, 2, 0);
+				i2c_lcd_create_view("~", 0, en_counter2, 0);
 			}
 			break;
 		default:																									//auf Frequenzänderung reagieren
 			if (en_counter2 != 0)																					//wenn Encoder gedreht wird												
 			{
 				Radio_States |= (1<<15);
-				strncpy(Akt_Radio_Text,"Radio Text",64);
+				strncpy(Akt_Radio_Text,"Radio Text", 64);
 				act_freq += en_counter2;
 				if(act_freq > 205)																					//Freq bei 107.8MHz
 				{
@@ -514,7 +531,7 @@ void menu(void)
 				{
 					act_freq = 205;
 				}
-				SI4735_Fm_Tune_Freq_2((875+(char)(act_freq-1))*10);
+				SI4735_Fm_Tune_Freq_2((875 + (char)(act_freq - 1)) * 10);
 				en_counter2 = 0;
 				delay_freq = 1;
 				sekunde = 0;
@@ -525,12 +542,12 @@ void menu(void)
 					i2c_lcd_create_view(Station_Name, 0, 0, 0);
 				}
 				else {																								//ansonsten Frequenz anzeigen
-					sprintf(string,"%d.%dMHz",(act_freq+874)/10,(act_freq+874)%10);
-					i2c_lcd_create_view(string,0,0,0);
+					sprintf(string, "%d.%dMHz", (act_freq + 874) / 10, (act_freq + 874) % 10);
+					i2c_lcd_create_view(string, 0, 0, 0);
 				}
 			}
 			else {
-				i2c_lcd_create_view("LINE-IN ",0,0,0);
+				i2c_lcd_create_view("LINE-IN ", 0, 0, 0);
 			}
 			if(Radio_States & 0x1000) {																				//aktuelles Datum über RDS erhalten
  				Radio_States &= ~0x1000;
@@ -538,17 +555,17 @@ void menu(void)
 			}
 			time_date(0, 0, 0, 0, 0, 0, 0, s_time, s_date);															//Lese Datum und Zeit String aus
 			i2c_lcd_create_view(s_time, 10, 0, 0);																	//Zeige Zeit an
-			i2c_lcd_create_view(s_date,8,1,0);																		//Zeige Datum an
+			i2c_lcd_create_view(s_date, 8, 1, 0);																	//Zeige Datum an
 			if(vol_mute) {																							//vol_mute zeichen ausgeben
-				i2c_lcd_create_view("\7÷",0,1,0);
+				i2c_lcd_create_view("\7÷", 0, 1, 0);
 			}
 			else																									//vol_mute off zeichen ausgeben
 			{
-				i2c_lcd_create_view("\7û",0,1,0);
+				i2c_lcd_create_view("\7û", 0, 1, 0);
 			}
 			if(delay_freq == 1 && sekunde < BLEND_OUT_AFTER)														//Delay für Bargraph Frequenz
 			{
-				i2c_lcd_bargraph((act_freq*60)/204);
+				i2c_lcd_bargraph((act_freq * 60) / 204);
 			}
 			else
 			{
@@ -556,12 +573,11 @@ void menu(void)
 			}
 			if(delay_vol == 1 && sekunde < BLEND_OUT_AFTER)															//Delay für Bargraph Volume
 			{
-				sprintf(string,"=%d%c",(act_vol*100)/60,0x25);
-				i2c_lcd_create_view(string,1,1,0);
+				sprintf(string, "=%d%c", (act_vol * 100) / 60, 0x25);
+				i2c_lcd_create_view(string, 1, 1, 0);
 				i2c_lcd_bargraph(act_vol);
 			}
-			else
-			{
+			else {
 				delay_vol = 0;
 			}
 			if (display_mode != 2) {
@@ -569,20 +585,20 @@ void menu(void)
 			{
 				if(posrt < 16)																						//So lange der Text nicht am linken Rand angekommen ist kopiere nur die anzahl der angezeigen Zeichen
 				{
-					strncpy(string, Akt_Radio_Text, posrt+1);														//Kopiere die Anzahl der Zeichen erscheinen sollen
-					i2c_lcd_create_view(string,15-posrt,2,0);														//Text in den Display Speicher ablegen
+					strncpy(string, Akt_Radio_Text, posrt + 1);														//Kopiere die Anzahl der Zeichen erscheinen sollen
+					i2c_lcd_create_view(string, 15 - posrt , 2, 0);														//Text in den Display Speicher ablegen
 				}
 				else																								//Wenn der Text den bereich unten ausfüllt
 				{
-					strncpy(string, Akt_Radio_Text+posrt-15, 16);													//Kopiere die zeichen die aktuell durch geschiftet werden sollen
-					i2c_lcd_create_view(string,0,2,0);																//Text in den Display Speicher ablegen
+					strncpy(string, Akt_Radio_Text + posrt - 15, 16);													//Kopiere die zeichen die aktuell durch geschiftet werden sollen
+					i2c_lcd_create_view(string, 0, 2, 0);																//Text in den Display Speicher ablegen
 				}
 				string[16] = 0;																						//String Abschluss einfügen
 				if(string[0] == 0)																					//Wenn nix übergeben wird dann
 				{
 					string[0] = 0x20;																				//Leerzeichen einfügen
 					string[1] = 0;																					//String Abschlss einfügen
-					i2c_lcd_create_view(string,0,2,0);																//Text in den Display Speicher ablegen
+					i2c_lcd_create_view(string, 0, 2, 0);																//Text in den Display Speicher ablegen
 				}
 			}
 			}
@@ -592,22 +608,24 @@ void menu(void)
 				//sprintf(rsq, "%d", temp[3] & 0x7F);
 				//i2c_lcd_create_view(rsq, 8, 1, 0);
 				sprintf(rsq, "  %ddBuV", temp[4]);
-				i2c_lcd_create_view(rsq, 8+(8-strlen(rsq)), 1, 0);
+				i2c_lcd_create_view(rsq, 8 + (8 - strlen(rsq)), 1, 0);
 				sprintf(rsq, "%ddB", temp[5]);
-				i2c_lcd_create_view(rsq, 0+(4-strlen(rsq)), 2, 0);
+				i2c_lcd_create_view(rsq, (4 - strlen(rsq)), 2, 0);
 				sprintf(rsq, "%d%c", temp[6], 0x25);
-				i2c_lcd_create_view(rsq, 5+(4-strlen(rsq)), 2, 0);
+				i2c_lcd_create_view(rsq, 5 + (4 - strlen(rsq)), 2, 0);
 				sprintf(rsq, "%dkHz", (int8_t)temp[7]);
-				i2c_lcd_create_view(rsq, 11+(5-strlen(rsq)), 2, 0);
+				i2c_lcd_create_view(rsq, 11 + (5 - strlen(rsq)), 2, 0);
 			}
 			if(Radio_States & 0x2000 && posrt == 78)																//Radiotext(wenn neu vorhanden) kopieren
 			{
 				Radio_States &= ~0x2000;
 				strncpy(Akt_Radio_Text, Radion_Text, 64);
 			}
-			i2c_lcd_create_view("",0,0,1);
+
 
 	}
+
+	i2c_lcd_create_view("", 0, 0, flush);
 	/*******************************************************************************ENDE ENCODER 2**************************************************************************************/
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -620,13 +638,13 @@ void null_befor_value(char *string ,char value, unsigned char pos)
 {
 	if (value < 10)
 	{
-		string[pos] = '0';
-		string[pos+1] = 0x30 + value;
+		string[pos++] = '0';
+		string[pos  ] = 0x30 + value;
 	}
 	else
 	{
-		string[pos] = 0x30 + value / 10;
-		string[pos+1] = 0x30 + value % 10;
+		string[pos++] = 0x30 + value / 10;
+		string[pos  ] = 0x30 + value % 10;
 	}
 }
 
@@ -659,7 +677,7 @@ void time_date(unsigned char t_hour, unsigned char t_minute, unsigned char t_day
 				{
 					day_per_month[1] = 28;
 				}
-				if(day++ == day_per_month[month-1])
+				if(day++ == day_per_month[month - 1])
 				{
 					day = 1;
 					if(++month == 13)
@@ -688,9 +706,9 @@ char check_for_out_of_range(signed char value,char modulo)
 {
 	if(value < 0)
 	{
-		value = modulo-1;
+		value = modulo - 1;
 	}
-	if(value == (127-(127%modulo)))
+	if(value == (127 - (127 % modulo)))
 	{
 		value = modulo;
 	}
@@ -699,7 +717,7 @@ char check_for_out_of_range(signed char value,char modulo)
 
 void enter_standby(void)
 {
-	i2c_lcd_create_view("",0, 0, 1);
+	i2c_lcd_create_view("", 0, 0, 1);
 
 	P3DIR |=  BIT1;
 	P3OUT &=~ BIT1;
@@ -733,7 +751,7 @@ void exit_standby(void)
 
 
 
-	Amplifier_init(POP,30);
+	Amplifier_init(POP, 30);
 	//AudioSwitch(0x05,0x01);
 
 

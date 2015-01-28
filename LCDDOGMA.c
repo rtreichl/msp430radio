@@ -151,7 +151,7 @@ void i2c_lcd_write_string(const char *s, unsigned char n_bytes)
 		}
 
 		USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 6, 0x01, (((Symbol>>4) & 0x0f) | 0x40), (((Symbol>>4) & 0x0f) | 0x50), ((Symbol & 0x0f) | 0x40), ((Symbol & 0x0f) | 0x50), 0x08);
-		_delay_us(100);
+		//_delay_us(100);
 	}
 }
 

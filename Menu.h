@@ -14,6 +14,9 @@
 #define MAX_THIRD_LVL 4
 #define BLEND_OUT_AFTER	3 //(3-1)*250ms
 #define AMPLIFIER_GAIN 15
+#define BUTTON_PRESS_LONG 0x6C
+#define BUTTON_PRESS_SHORT 0x6B
+#define BUTTON_FREE 0x66
 
 void menu(void);
 void null_befor_value(char *string ,char value, unsigned char pos);
