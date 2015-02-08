@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <msp430g2553.h>
-#include "MSP430G2553_USCI_I2C.h"
+#include "driver/src/i2c.h"
 #include "LCDDOGMA.h"
 #include "Timer.h"
 
@@ -75,25 +75,25 @@ void i2c_lcd_brightnes(unsigned int brightnes)
 void i2c_lcd_init()
 {
 	// Go in default state
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x03, 0x00);
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x03, 0x00);
 
 	_delay_ms(40);
 
 	// Send reset command
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
 	_delay_ms(2);
 
 	// Send 2nd reset command
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
 	_delay_us(30);
 
 	// Send 3rd reset command
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x03, 0x13);
 
 	// Go in default data mode of display
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x02, 0x12);
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 3, 0x01, 0x02, 0x12);
 
 	_delay_us(30);
 
@@ -111,11 +111,11 @@ void i2c_lcd_init()
 void i2c_lcd_write_char(unsigned char Symbol)
 {
 
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Symbol>>4) & 0x0f) | 0x40));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Symbol>>4) & 0x0f) | 0x50));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Symbol & 0x0f) | 0x40));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Symbol & 0x0f) | 0x50));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, 0x08);
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Symbol>>4) & 0x0f) | 0x40));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Symbol>>4) & 0x0f) | 0x50));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Symbol & 0x0f) | 0x40));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Symbol & 0x0f) | 0x50));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, 0x08);
 
 	_delay_us(200);
 }
@@ -150,7 +150,7 @@ void i2c_lcd_write_string(const char *s, unsigned char n_bytes)
 				break;
 		}
 
-		USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 6, 0x01, (((Symbol>>4) & 0x0f) | 0x40), (((Symbol>>4) & 0x0f) | 0x50), ((Symbol & 0x0f) | 0x40), ((Symbol & 0x0f) | 0x50), 0x08);
+		i2c_write_var(I2C_LCD_ADRESS, STOP, 6, 0x01, (((Symbol>>4) & 0x0f) | 0x40), (((Symbol>>4) & 0x0f) | 0x50), ((Symbol & 0x0f) | 0x40), ((Symbol & 0x0f) | 0x50), 0x08);
 		//_delay_us(100);
 	}
 }
@@ -159,10 +159,10 @@ void i2c_lcd_command(unsigned char Command)
 {
 
 	//USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 5, 0x01, ((Command>>4) & 0x0f), (((Command>>4) & 0x0f) | 0x10), (Command & 0x0f), ((Command & 0x0f) | 0x10));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Command>>4) & 0x0f));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Command>>4) & 0x0f) | 0x10));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, (Command & 0x0f));
-	USCI_I2C_WRITE2(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Command & 0x0f) | 0x10));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Command>>4) & 0x0f));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, (((Command>>4) & 0x0f) | 0x10));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, (Command & 0x0f));
+	i2c_write_var(I2C_LCD_ADRESS, STOP, 2, 0x01, ((Command & 0x0f) | 0x10));
 
 	_delay_ms(5);
 }

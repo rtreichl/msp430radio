@@ -6,7 +6,7 @@
  */
 
 #include "Radio.h"
-#include "MSP430G2553_USCI_I2C.h"
+#include "driver/src/i2c.h"
 #include "SI4735.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,8 +34,8 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 	{
 		do
 		{
-			USCI_I2C_WRITE2(I2C_SI4735, REPT, 2, 0x24, 0x01);
-			USCI_I2C_READ(I2C_SI4735, STOP, 13, rds_read_byte);
+			i2c_write_var(I2C_SI4735, REPT, 2, 0x24, 0x01);
+			i2c_read(I2C_SI4735, STOP, 13, rds_read_byte);
 			for (i = 4; i <= 10; i+=2) {
 				temp = rds_read_byte[i];
 				rds_read_byte[i] = rds_read_byte[i+1];
@@ -97,16 +97,16 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 
 uint8_t get_signal_qual(uint8_t *stats)
 {
-	USCI_I2C_WRITE2(I2C_SI4735, REPT, 2, 0x23, 0x00);
-	USCI_I2C_READ(I2C_SI4735, STOP, 8, stats);
+	i2c_write_var(I2C_SI4735, REPT, 2, 0x23, 0x00);
+	i2c_read(I2C_SI4735, STOP, 8, stats);
 	return 0;
 }
 
 uint8_t rds_triggered()
 {
 	uint8_t rds = 0;
-	USCI_I2C_WRITE2(I2C_SI4735, REPT, 1, 0x14);
-	USCI_I2C_READ(I2C_SI4735, STOP, 1, &rds);
+	i2c_write_var(I2C_SI4735, REPT, 1, 0x14);
+	i2c_read(I2C_SI4735, STOP, 1, &rds);
 	return rds;
 }
 

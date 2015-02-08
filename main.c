@@ -25,7 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "MSP430G2553_USCI_I2C.h"
+#include "driver/src/i2c.h"
 #include "SI4735.h"
 #include "MSP430G2553_Clock_Timer.h"
 #include "MSP430G2553_GPIO.h"
@@ -43,10 +43,11 @@ volatile unsigned char sec = 240;
 int main (void)
 {
 	Clock_INIT2();
-	USCI_I2C_INIT (I2C_LCD_BAUDRATE);
+	i2c_init (I2C_LCD_BAUDRATE);
 	WDTCTL = WDT_ADLY_250;                  // WDT 250ms, ACLK, interval timer
 	IE1 |= WDTIE;							//WDT Interupt Enable
-
+	//_EINT();
+	//while(1);
 	//Warte bis alles mit Spannung versorgt ist und Empfangsbereit ist
 	_delay_ms(250);
 
@@ -112,10 +113,10 @@ __interrupt void nmi(void){}
 __interrupt void tim0(void){}
 #pragma vector=TIMER1_A1_VECTOR
 __interrupt void tim1(void){}
-#pragma vector=USCIAB0RX_VECTOR
-__interrupt void us_rx(void){}
-#pragma vector=USCIAB0TX_VECTOR
-__interrupt void us_tx(void){}
+//#pragma vector=USCIAB0RX_VECTOR
+//__interrupt void us_rx(void){}
+//#pragma vector=USCIAB0TX_VECTOR
+//__interrupt void us_tx(void){}
 #pragma vector=ADC10_VECTOR
 __interrupt void adc(void){}
 #pragma vector=COMPARATORA_VECTOR

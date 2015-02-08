@@ -1,162 +1,208 @@
-/*
- * USCIT_I2C.c
- *
- *  Created on: 03.07.2013
- *      Author: Alexander Raskopf
- *      Status: Nach Test
- *
- *   Kommentar: Die einzelnen Funktionen für Initialisieren, Schreiben und Lesen, wurden den TI Beispielen
- *   			entnohmen und agepasst.
- *   			Master TX Multiple Byte nach D. Dang
- *   			Master RX Multiple Byte nach D. Dang
+#include "i2c.h"
+
+/**
+ * @struct I2C_CTRL
+ * @brief This struct inclued all necessaries for I2C module.
  */
 
+struct I2C_CTRL {
+	uint8_t : 5;
+	uint8_t rept_start : 1;		///< Stores the value, if an repated start or stop will be send after performance on I2C.
+	uint8_t status : 2;			///< Stores the actual state of I2C module.
+	uint8_t *PTxData;			///< Poiniter to be transmitting bytes.
+	uint8_t TxByteCtr;			///< Number of to be transmitting bytes.
+	uint8_t TxByteRes;			///< Number of reserved bytes on stash.
+	uint8_t *PRxData;			///< Pointer to be receiving bytes.
+	uint8_t RxByteCtr;			///< Number of to be recieving bytes.
+} i2c = { .PTxData = 0, .status = IDLE, .TxByteRes = 0 };
 
-#include <msp430.h>
-#include <msp430g2553.h>
-#include <intrinsics.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include "MSP430G2553_USCI_I2C.h"
-#include "Timer.h"
-//#include "I2C.h"
-uint8_t stop = 1;
+/**
+ * @var *PTxData Pointer to reserved data for var args.
+ */
+uint8_t *PTxData = 0 ;
 
-unsigned char *PTxData = 0 ;                     // Pointer to TX data
-unsigned char *PTxData2 = 0 ;                     // Pointer to TX data
-uint8_t act_size = 0;
-//char *CMD;                                   // Pointer to TX data
-unsigned char TXByteCtr;
-unsigned char *PRxData;                      // Pointer to RX data
-unsigned char RXByteCtr;
-//unsigned char RxBuffer[128];                 // Allocate 128 byte of RAM
-
-
-
-void USCI_I2C_INIT (uint8_t Teiler) // Initialisiert USCI_B0 für I2C Kommunikation
-																	  // An die Funktion wird der Teil für die Frequenz und die Slave Adresse übergeben
+uint8_t i2c_init (uint8_t smclk_freq, uint8_t i2c_freq)
 {
-	UCB0CTL1 |= UCSWRST;                      // Enable SW reset
-	P1SEL |= BIT6 + BIT7;                     // Assign I2C pins to USCI_B0
-	P1SEL2|= BIT6 + BIT7;                     // Assign I2C pins to USCI_B0
+	if ()
 
-	UCB0CTL0 = UCMST + UCMODE_3 + UCSYNC;     // I2C Master, synchronous mode
-	UCB0CTL1 = UCSSEL_2 + UCSWRST;            // Use SMCLK, keep SW reset
-	UCB0BR0 = Teiler;                         // fSCL = SMCLK/12 = ~100kHz
-	UCB0BR1 = 0;								//
-	UCB0CTL1 &= ~UCSWRST;                     // Clear SW reset, resume operation*/
+	/* Reset USCI_B0 */
+	UCB0CTL1 |= UCSWRST;
+
+	/* Assign P1.6 and P1.7 to USIC_B0 */
+	P1SEL |= BIT6 + BIT7;
+	P1SEL2 |= BIT6 + BIT7;
+
+	/* USCI_B0 as I2C Master */
+	UCB0CTL0 = UCMST + UCMODE_3 + UCSYNC;
+
+	/* Set SMCLK as clock for USCI_B0 */
+	UCB0CTL1 = UCSSEL_2 + UCSWRST;
+
+	/* Calculate prescaler for USCI_B0 based on SMCLK freq and I2C freq  */
+	UCB0BR0 = 0x00FF & (uint16_t)smclk_freq/i2c_freq;
+	UCB0BR1 = (0xFF00 & (uint16_t)smclk_freq/i2c_freq) >> 8;
+
+	/* Enable NACK interrupt */
+	UCB0I2CIE = UCNACKIE;
+
+	/* Resume USCI_B0 to normal operation state */
+	UCB0CTL1 &= ~UCSWRST;
+
+	/* Enable gloabl interrupts */
+	__enable_interrupt();
+
+	return 0;
 }
 
-void USCI_I2C_WRITE2 (uint8_t addr, uint8_t rept_start, uint8_t n_args, ...)
+uint8_t i2c_write_var (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_args, ...)
 {
-	/* Reserve size of memory for transmit buffer */
-	if(PTxData2 == 0) {
-		PTxData2 = (uint8_t *) malloc(n_args * sizeof(uint8_t));
-		act_size = n_args;
+	/* Wait until all transmitions and receptions done */
+	while( i2c.status != IDLE);
+
+	/* Reserve size of memory for transmit buffer if buffer is uninitialised*/
+	if(PTxData == 0) {
+		PTxData = (uint8_t *) malloc(n_args * sizeof(uint8_t));
+		i2c.TxByteRes = n_args;
 	}
+	/* Reserve more memory if actual size not enough */
 	else {
-		if(act_size != n_args) {
-			PTxData2 = (uint8_t *) realloc(PTxData2, n_args * sizeof(uint8_t));
-			act_size = n_args;
+		if(i2c.TxByteRes < n_args) {
+			PTxData = (uint8_t *) realloc(PTxData, n_args * sizeof(uint8_t));
+			i2c.TxByteRes = n_args;
 		}
 	}
+
+	uint8_t i = 0;
+	va_list ap;
+
+	/* Read n_args from function
+	 * Copy args to transmit buffer
+	 */
+	va_start(ap, n_args);
+	for(i = 0; i < n_args; i++)
+		i2c.PTxData[i] = va_arg(ap, uint8_t);
+	va_end(ap);
+
+	return i2c_write_arr(addr, rept_start, n_args, PTxData);
+}
+
+uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size, uint8_t *TxData)
+{
+	/* Copy pointer from TxData */
+	i2c.PTxData = TxData;
 
 	/* Set slave address */
 	UCB0I2CSA = addr;
 
-	uint8_t i = 0;
-	/* Read n_args from function
-	 * Copy args to transmit buffer */
-	va_list ap;
-	va_start(ap, n_args);
-	for(i = 0; i < n_args; i++)
-		PTxData2[i] = va_arg(ap, uint8_t);
-	va_end(ap);
+	/* Set Transmit Interrupt */
+	IE2 = UCB0TXIE;
 
-	/* Clear Interrupt */
-	IE2 = 0;
+	i2c.rept_start = rept_start;
 
 	/* Load TX byte counter */
-	TXByteCtr = n_args;
+	i2c.TxByteCtr = n_size;
 
-	/* Wait unitl stop condition was send */
-	while (UCB0CTL1 & UCTXSTP);
+	i2c.status = TRANSMIT;
 
 	/* Send a start condition with write flag */
 	UCB0CTL1 |= UCTR + UCTXSTT;
-	i = 0;
-	/* Wait until start condtion is send */
-	while (!(IFG2 & UCB0TXIFG));
-	do {
-		/* Copy value from buffer to transmit register */
-		UCB0TXBUF = PTxData2[i++];
 
-		/* Clear transmition flag to go forward on sendig */
-		IFG2 &= ~UCB0TXIFG;
-
-		/* Wait until data are send */
-		while (!(IFG2 & UCB0TXIFG));
-	} while(--TXByteCtr);
-
+	/* Wait until Transmition is complet */
 	if(rept_start == STOP) {
-		/* Sending Stop Conditon */
-		UCB0CTL1 |= UCTXSTP;
-
-		/* Wait until stop condtion was send */
-		while (UCB0CTL1 & UCTXSTP);
+		while(UCB0STAT & UCBBUSY);
 	}
-	IFG2 &= ~UCB0TXIFG;
+	else {
+		_delay_us(100);
+	}
+
+	i2c.status = IDLE;
+
+	return 0;
+
 }
 
-void USCI_I2C_READ (uint8_t addr, uint8_t rept_start, uint8_t RXBytes, uint8_t *RxData) // Liest eine Anzahl an Bytes vom Slave und übergibt diese an den Master
+uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t RXBytes, uint8_t *RxData)
 {
+	while(i2c.status != IDLE);
+
+	/* Set slave address */
+	UCB0I2CSA = addr;
+
 	/* Change pointer to given buffer */
-	PRxData = (unsigned char *)RxData;
+	i2c.PRxData = RxData;
 	/* Load RX counter */
-	RXByteCtr = RXBytes;
+	i2c.RxByteCtr = RXBytes;
 
 	/* Clear Interrupt */
-	IE2 = 0;
-
-	/* Wait unitl stop condition was send */
-	while (UCB0CTL1 & UCTXSTP);
+	IE2 = UCB0RXIE;
 
 	/* configure receiver mode */
 	UCB0CTL1 &= ~UCTR;
 
+	i2c.status = RECEIVE;
+
 	/* Send a start condition with read flag */
-	UCB0CTL1 |= UCTXSTT;
-	while(UCB0CTL1 & UCTXSTT);
-	if ( RXByteCtr == 1 ) {
+	if ( i2c.RxByteCtr == 1 ) {
+		i2c.RxByteCtr = 0;
+		__disable_interrupt();
+		UCB0CTL1 |= UCTXSTT;
+		while(UCB0CTL1 & UCTXSTT);
 		UCB0CTL1 |= UCTXSTP;
-		RXByteCtr = 0;
+		__enable_interrupt();
 	}
 	else {
-		RXByteCtr -= 2;
+		i2c.RxByteCtr -= 2;
+		UCB0CTL1 |= UCTXSTT;
 	}
-	do {
-		/* write received data in buffer */
 
-		if(RXByteCtr == 0) {
+	while(UCB0STAT & UCBBUSY);
+
+	i2c.status = IDLE;
+
+	return 0;
+}
+
+uint8_t i2c_get_status()
+{
+	return i2c.status;
+}
+
+#pragma vector = USCIAB0TX_VECTOR
+__interrupt void USCIAB0TX_ISR(void)
+{
+	if(IFG2 & UCB0RXIFG) {
+		if( i2c.RxByteCtr == 0) {
 			UCB0CTL1 |= UCTXSTP;
+			*(i2c.PRxData) = UCB0RXBUF;
+			i2c.PRxData++;
 		}
-		while (!(IFG2 & UCB0RXIFG));
-		*PRxData++ = UCB0RXBUF;
-		IFG2 &= ~UCB0RXIFG;
-
-		/* clear receive interrupt flag */
-
-		/* Wait until transmition interrupt flag is set */
-		//while (!(IFG2 & UCB0RXIFG));
+		else {
+			*(i2c.PRxData) = UCB0RXBUF;
+			i2c.PRxData++;
+			i2c.RxByteCtr--;
+		}
 	}
-	while(RXByteCtr--);
+	else {
+		if( i2c.TxByteCtr == 0) {
+			if( i2c.rept_start == STOP) {
+				UCB0CTL1 |= UCTXSTP;
+			}
+			IFG2 &= ~UCB0TXIFG;
+			i2c.rept_start = STOP;
+		}
+		else {
+			UCB0TXBUF = *(i2c.PTxData);
+			i2c.PTxData++;
+			i2c.TxByteCtr--;
+		}
+	}
+}
 
-	if(stop != 0) {
-		//UCB0CTL1 |= UCTXSTP;
-
-		/* Wait until stop condtion was send */
-		while (UCB0CTL1 & UCTXSTP);
+#pragma vector = USCIAB0RX_VECTOR
+__interrupt void USCIAB0RX_ISR(void)
+{
+	if( UCB0STAT & UCNACKIFG) {
+		UCB0CTL1 |= UCTXSTP;
+		UCB0STAT &= ~UCNACKIFG;
 	}
 }

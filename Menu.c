@@ -3,7 +3,7 @@
 #include "LCDDOGMA.h"
 #include "SI4735.h"
 #include "msp430.h"
-#include "MSP430G2553_USCI_I2C.h"
+#include "driver/src/i2c.h"
 #include "Timer.h"
 #include <stdio.h>
 #include "Radio.h"
