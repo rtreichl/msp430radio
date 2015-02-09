@@ -1,16 +1,15 @@
 
-#include "Encoder.h"
-#include "LCDDOGMA.h"
-#include "SI4735.h"
-#include "msp430.h"
-#include "driver/src/i2c.h"
-#include "Timer.h"
+#include <driver/encoder.h>
+#include <driver/lcd.h>
+#include <driver/si4735.h>
+#include <driver/i2c.h>
+#include <Timer.h>
 #include <stdio.h>
 #include "Radio.h"
-#include "Flash.h"
+#include <driver/flash.h>
 #include "Menu.h"
 #include "string.h"
-#include "Verstaerker.h"
+#include <driver/tpa2016d2.h>
 //#include "AudioSwitch.h"
 #include "MSP430G2553_Clock_Timer.h"
 
@@ -332,9 +331,9 @@ void menu(void)
 							en_counter2 = 0;																		//Pfeil soll auf AM/FM zeigen
 						break;
 					default:																						//Anzeige für AM/FM Untermenü anzeigen
-						i2c_lcd_create_view("AM", 1, 0, 0);
-						i2c_lcd_create_view("FM", 1, 1, 0);
-						i2c_lcd_create_view("~", 0, en_counter2, 0);
+						lcd_create_view("AM", 1, 0, 0);
+						lcd_create_view("FM", 1, 1, 0);
+						lcd_create_view("~", 0, en_counter2, 0);
 					}
 					break;
 			case 1:																									//Anzeigenauswahl
@@ -351,10 +350,10 @@ void menu(void)
 								en_counter2 = 0;													//Pfeil soll auf RDS zeigen
 						}
 						else {																						//RDS-Untermenü anzeigen
-							i2c_lcd_create_view("RDS", 1, 0, 0);
-							i2c_lcd_create_view("PTY", 1, 1, 0);
-							i2c_lcd_create_view("Signal Report", 1, 2, 0);
-							i2c_lcd_create_view("~", 0, en_counter2, 0);
+							lcd_create_view("RDS", 1, 0, 0);
+							lcd_create_view("PTY", 1, 1, 0);
+							lcd_create_view("Signal Report", 1, 2, 0);
+							lcd_create_view("~", 0, en_counter2, 0);
 						}
 					break;
 				case 1:																								//TP/TA
@@ -378,18 +377,18 @@ void menu(void)
 								
 							break;
 						default:																					//TPTA-Untermenü anzeigen
-							i2c_lcd_create_view("TP/TA ON", 1, 0, 0);
-							i2c_lcd_create_view("TP/TA OFF", 1, 1, 0);
-							i2c_lcd_create_view("~", 0, en_counter2, 0);
+							lcd_create_view("TP/TA ON", 1, 0, 0);
+							lcd_create_view("TP/TA OFF", 1, 1, 0);
+							lcd_create_view("~", 0, en_counter2, 0);
 						}
 					break;
 				default:																							//Anzeige-Untermenü anzeigen
 																								// wenn einer der ersten drei elemente ausgewählt ist
 						
-							i2c_lcd_create_view("RDS/PTY", 1, 0, 0);
-							i2c_lcd_create_view("TP/TA", 1, 1, 0);
-							i2c_lcd_create_view("Return", 1, 2, 0);
-							i2c_lcd_create_view("~", 0, en_counter2, 0);
+							lcd_create_view("RDS/PTY", 1, 0, 0);
+							lcd_create_view("TP/TA", 1, 1, 0);
+							lcd_create_view("Return", 1, 2, 0);
+							lcd_create_view("~", 0, en_counter2, 0);
 						
 				}
 				break;
@@ -413,9 +412,9 @@ void menu(void)
 							
 						break;
 					default:																						//Werkszustand-Untermenü anzeigen
-						i2c_lcd_create_view("NEIN", 1, 0, 0);
-						i2c_lcd_create_view("JA", 1, 1, 0);
-						i2c_lcd_create_view("~", 0, en_counter2, 0);
+						lcd_create_view("NEIN", 1, 0, 0);
+						lcd_create_view("JA", 1, 1, 0);
+						lcd_create_view("~", 0, en_counter2, 0);
 					}
 				break;
 			case 3:																									//Equalizer
@@ -428,17 +427,17 @@ void menu(void)
 				else {																								//Equalizer-Untermenü anzeigen
 					if (en_counter2 < 3)																			// wenn einer der ersten drei elemente ausgewählt ist
 					{
-						i2c_lcd_create_view("Pop", 1, 0, 0);
-						i2c_lcd_create_view("Klassik", 1, 1, 0);
-						i2c_lcd_create_view("Jazz", 1, 2, 0);
-						i2c_lcd_create_view("~", 0, en_counter2, 0);
+						lcd_create_view("Pop", 1, 0, 0);
+						lcd_create_view("Klassik", 1, 1, 0);
+						lcd_create_view("Jazz", 1, 2, 0);
+						lcd_create_view("~", 0, en_counter2, 0);
 					}
 					else
 					{
-						i2c_lcd_create_view("Hip-Hop", 1, 0, 0);
-						i2c_lcd_create_view("Rock", 1, 1, 0);
-						i2c_lcd_create_view("News/Voice", 1, 2, 0);
-						i2c_lcd_create_view("~", 0, en_counter2 - 3, 0);
+						lcd_create_view("Hip-Hop", 1, 0, 0);
+						lcd_create_view("Rock", 1, 1, 0);
+						lcd_create_view("News/Voice", 1, 2, 0);
+						lcd_create_view("~", 0, en_counter2 - 3, 0);
 					}
 				}
 				break;
@@ -460,25 +459,25 @@ void menu(void)
 					radio_on = 1;
 					break;
 				default:
-					i2c_lcd_create_view("AUX", 1, 0, 0);
-					i2c_lcd_create_view("Radio", 1, 1, 0);
-					i2c_lcd_create_view("~", 0, en_counter2, 0);
+					lcd_create_view("AUX", 1, 0, 0);
+					lcd_create_view("Radio", 1, 1, 0);
+					lcd_create_view("~", 0, en_counter2, 0);
 				}
 				break;
 			default:																								//Einstellungen-Untermenü anzeigen
 				if (en_counter2 < 3)																				// wenn einer der ersten drei elemente ausgewählt ist
 				{
-					i2c_lcd_create_view("AM/FM", 1, 0, 0);
-					i2c_lcd_create_view("Anzeige", 1, 1, 0);
-					i2c_lcd_create_view("Werkszustand", 1, 2, 0);
-					i2c_lcd_create_view("~", 0, en_counter2, 0);
+					lcd_create_view("AM/FM", 1, 0, 0);
+					lcd_create_view("Anzeige", 1, 1, 0);
+					lcd_create_view("Werkszustand", 1, 2, 0);
+					lcd_create_view("~", 0, en_counter2, 0);
 				}
 				else
 				{
-					i2c_lcd_create_view("Equalizer", 1, 0, 0);
-					i2c_lcd_create_view("Audio-Switch", 1, 1, 0);
-					i2c_lcd_create_view("Return", 1, 2, 0);
-					i2c_lcd_create_view("~", 0, en_counter2 - 3, 0);
+					lcd_create_view("Equalizer", 1, 0, 0);
+					lcd_create_view("Audio-Switch", 1, 1, 0);
+					lcd_create_view("Return", 1, 2, 0);
+					lcd_create_view("~", 0, en_counter2 - 3, 0);
 				}
 
 			}
@@ -489,19 +488,19 @@ void menu(void)
 			switch (counter2_first_lvl)
 			{
 			case 1:																									//Speichern
-				i2c_lcd_create_view("S:", 14, 0, 0);
+				lcd_create_view("S:", 14, 0, 0);
 			case 0:																									//listeneintrag auswählen und Einträge anzeigen
 				if(counter2_first_lvl == 0)
-				i2c_lcd_create_view("A:", 14, 0, 0);
+				lcd_create_view("A:", 14, 0, 0);
 				for (i = (en_counter2 / 3) * 3 ; i < (en_counter2 / 3) * 3 + 3; i++)
 				{
 					null_befor_value(string, i+1, 0);
 					string[2] = '.';
 					string[3] = 0;
-					i2c_lcd_create_view(string, 1, i % 3, 0);
-					i2c_lcd_create_view((char *)(FLASH_ADR_STATION_NAME + i * 10), 4, i % 3, 0);
+					lcd_create_view(string, 1, i % 3, 0);
+					lcd_create_view((char *)(FLASH_ADR_STATION_NAME + i * 10), 4, i % 3, 0);
 				}
-				i2c_lcd_create_view("~", 0, en_counter2 % 3, 0);
+				lcd_create_view("~", 0, en_counter2 % 3, 0);
 				break;
 			case 2:																									//Return
 				counter2_zero_lvl = MAX_ZERO_LVL;																	//Rücksprung zu
@@ -511,10 +510,10 @@ void menu(void)
 			default:
 				//Seeking function
 				//Auto search function
-				i2c_lcd_create_view("Senderliste", 1, 0, 0);
-				i2c_lcd_create_view("Speichern", 1, 1, 0);
-				i2c_lcd_create_view("Return", 1, 2, 0);
-				i2c_lcd_create_view("~", 0, en_counter2, 0);
+				lcd_create_view("Senderliste", 1, 0, 0);
+				lcd_create_view("Speichern", 1, 1, 0);
+				lcd_create_view("Return", 1, 2, 0);
+				lcd_create_view("~", 0, en_counter2, 0);
 			}
 			break;
 		default:																									//auf Frequenzänderung reagieren
@@ -539,33 +538,33 @@ void menu(void)
 			if(radio_on) {
 				get_rds_data(&Radio_States, Station_Name, Radion_Text);												//RDS-Daten auslesen
 				if(Radio_States & (1<<14)) {
-					i2c_lcd_create_view(Station_Name, 0, 0, 0);
+					lcd_create_view(Station_Name, 0, 0, 0);
 				}
 				else {																								//ansonsten Frequenz anzeigen
 					sprintf(string, "%d.%dMHz", (act_freq + 874) / 10, (act_freq + 874) % 10);
-					i2c_lcd_create_view(string, 0, 0, 0);
+					lcd_create_view(string, 0, 0, 0);
 				}
 			}
 			else {
-				i2c_lcd_create_view("LINE-IN ", 0, 0, 0);
+				lcd_create_view("LINE-IN ", 0, 0, 0);
 			}
 			if(Radio_States & 0x1000) {																				//aktuelles Datum über RDS erhalten
  				Radio_States &= ~0x1000;
 				sec = 0;
 			}
 			time_date(0, 0, 0, 0, 0, 0, 0, s_time, s_date);															//Lese Datum und Zeit String aus
-			i2c_lcd_create_view(s_time, 10, 0, 0);																	//Zeige Zeit an
-			i2c_lcd_create_view(s_date, 8, 1, 0);																	//Zeige Datum an
+			lcd_create_view(s_time, 10, 0, 0);																	//Zeige Zeit an
+			lcd_create_view(s_date, 8, 1, 0);																	//Zeige Datum an
 			if(vol_mute) {																							//vol_mute zeichen ausgeben
-				i2c_lcd_create_view("\7÷", 0, 1, 0);
+				lcd_create_view("\7÷", 0, 1, 0);
 			}
 			else																									//vol_mute off zeichen ausgeben
 			{
-				i2c_lcd_create_view("\7û", 0, 1, 0);
+				lcd_create_view("\7û", 0, 1, 0);
 			}
 			if(delay_freq == 1 && sekunde < BLEND_OUT_AFTER)														//Delay für Bargraph Frequenz
 			{
-				i2c_lcd_bargraph((act_freq * 60) / 204);
+				lcd_bargraph((act_freq * 60) / 204);
 			}
 			else
 			{
@@ -574,8 +573,8 @@ void menu(void)
 			if(delay_vol == 1 && sekunde < BLEND_OUT_AFTER)															//Delay für Bargraph Volume
 			{
 				sprintf(string, "=%d%c", (act_vol * 100) / 60, 0x25);
-				i2c_lcd_create_view(string, 1, 1, 0);
-				i2c_lcd_bargraph(act_vol);
+				lcd_create_view(string, 1, 1, 0);
+				lcd_bargraph(act_vol);
 			}
 			else {
 				delay_vol = 0;
@@ -586,19 +585,19 @@ void menu(void)
 				if(posrt < 16)																						//So lange der Text nicht am linken Rand angekommen ist kopiere nur die anzahl der angezeigen Zeichen
 				{
 					strncpy(string, Akt_Radio_Text, posrt + 1);														//Kopiere die Anzahl der Zeichen erscheinen sollen
-					i2c_lcd_create_view(string, 15 - posrt , 2, 0);														//Text in den Display Speicher ablegen
+					lcd_create_view(string, 15 - posrt , 2, 0);														//Text in den Display Speicher ablegen
 				}
 				else																								//Wenn der Text den bereich unten ausfüllt
 				{
 					strncpy(string, Akt_Radio_Text + posrt - 15, 16);													//Kopiere die zeichen die aktuell durch geschiftet werden sollen
-					i2c_lcd_create_view(string, 0, 2, 0);																//Text in den Display Speicher ablegen
+					lcd_create_view(string, 0, 2, 0);																//Text in den Display Speicher ablegen
 				}
 				string[16] = 0;																						//String Abschluss einfügen
 				if(string[0] == 0)																					//Wenn nix übergeben wird dann
 				{
 					string[0] = 0x20;																				//Leerzeichen einfügen
 					string[1] = 0;																					//String Abschlss einfügen
-					i2c_lcd_create_view(string, 0, 2, 0);																//Text in den Display Speicher ablegen
+					lcd_create_view(string, 0, 2, 0);																//Text in den Display Speicher ablegen
 				}
 			}
 			}
@@ -606,15 +605,15 @@ void menu(void)
 				uint8_t temp[8];
 				get_signal_qual(temp);
 				//sprintf(rsq, "%d", temp[3] & 0x7F);
-				//i2c_lcd_create_view(rsq, 8, 1, 0);
+				//lcd_create_view(rsq, 8, 1, 0);
 				sprintf(rsq, "  %ddBuV", temp[4]);
-				i2c_lcd_create_view(rsq, 8 + (8 - strlen(rsq)), 1, 0);
+				lcd_create_view(rsq, 8 + (8 - strlen(rsq)), 1, 0);
 				sprintf(rsq, "%ddB", temp[5]);
-				i2c_lcd_create_view(rsq, (4 - strlen(rsq)), 2, 0);
+				lcd_create_view(rsq, (4 - strlen(rsq)), 2, 0);
 				sprintf(rsq, "%d%c", temp[6], 0x25);
-				i2c_lcd_create_view(rsq, 5 + (4 - strlen(rsq)), 2, 0);
+				lcd_create_view(rsq, 5 + (4 - strlen(rsq)), 2, 0);
 				sprintf(rsq, "%dkHz", (int8_t)temp[7]);
-				i2c_lcd_create_view(rsq, 11 + (5 - strlen(rsq)), 2, 0);
+				lcd_create_view(rsq, 11 + (5 - strlen(rsq)), 2, 0);
 			}
 			if(Radio_States & 0x2000 && posrt == 78)																//Radiotext(wenn neu vorhanden) kopieren
 			{
@@ -625,7 +624,7 @@ void menu(void)
 
 	}
 
-	i2c_lcd_create_view("", 0, 0, flush);
+	lcd_create_view("", 0, 0, flush);
 	/*******************************************************************************ENDE ENCODER 2**************************************************************************************/
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -717,7 +716,7 @@ char check_for_out_of_range(signed char value,char modulo)
 
 void enter_standby(void)
 {
-	i2c_lcd_create_view("", 0, 0, 1);
+	lcd_create_view("", 0, 0, 1);
 
 	P3DIR |=  BIT1;
 	P3OUT &=~ BIT1;
@@ -747,7 +746,7 @@ void exit_standby(void)
 	P3OUT |=  BIT2;
 
 	_delay_ms(1);
-	i2c_lcd_init();
+	lcd_init(12);
 
 
 

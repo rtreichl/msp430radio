@@ -22,7 +22,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include "../../Timer.h"
+#include <Timer.h>
 
 
 /**

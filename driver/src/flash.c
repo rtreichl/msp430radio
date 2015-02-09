@@ -6,7 +6,7 @@
  */
 
 #include "msp430.h"
-#include "Flash.h"
+#include <driver/flash.h>
 
 void stor_data_to_flash (char *Flash_ptr, char *data, char value, unsigned char pos)
 {

@@ -8,6 +8,9 @@
 #ifndef ENCODER_H_
 #define ENCODER_H_
 
+#include <msp430.h>
+#include <stdint.h>
+
 void Encoder_Timer_init(void);
 #define TIME_FOR_LONG_PRESS 1500
 
@@ -31,7 +34,7 @@ void Encoder_Timer_init(void);
 //Functions from Encoder 1
 void Encoder_1_init(void); 		//Initiation from Encoder 1
 void Encoder_1_decoder(void);	//Decoder from Encoder 1
-int Encoder_1_get_count();
+int16_t Encoder_1_get_count();
 
 #endif // ENCODER_1
 
@@ -53,7 +56,7 @@ int Encoder_1_get_count();
 //Functions from Encoder 2
 void Encoder_2_init(void); 		//Initiation from Encoder 2
 void Encoder_2_decoder(void);	//Decoder from Encoder 2
-int Encoder_2_get_count();
+int16_t Encoder_2_get_count();
 
 #endif //ENCODER_2
 

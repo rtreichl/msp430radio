@@ -8,7 +8,13 @@
 #ifndef SI4735_H_
 #define SI4735_H_
 
+#include <stdint.h>
+#include <driver/i2c.h>
+#include <Timer.h>
+
+
 #define I2C_SI4735 0x11
+#define SI4735_VOLUME_MAX 63
 
 	void SI4735_Power_Up (void);
 
@@ -47,5 +53,6 @@
 	void SI4735_Set_Volume (signed char Volume);
 
 	void SI4735_Fm_Tune_Freq_2 (unsigned int Frequenz);
+
 
 #endif /* SI4735_H_ */

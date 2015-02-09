@@ -1,14 +1,4 @@
-/*
- * radio_new.h
- *
- *  Created on: 02.02.2015
- *      Author: Richard
- */
-
-#ifndef RADIO_NEW_H_
-#define RADIO_NEW_H_
-
-#define MSP_RXD			1, 1
+#define MSP_RXD			1.1
 #define MSP_TXD			1.2
 #define EN1_A			1.3
 #define EN1_B			1.4
@@ -29,10 +19,3 @@
 #define SCL				1.6
 #define SDA				1.7
 #define PWM_RST			1.0
-
-#define DEFINE_SEL(a, b) P##a##SEL
-#define MSP_RXD_SEL DEFINE_SEL(MSP_RXD)
-
-int x = MSP_RXD_SEL;
-
-#endif /* RADIO_NEW_H_ */

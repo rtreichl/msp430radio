@@ -6,8 +6,8 @@
  */
 
 #include "Radio.h"
-#include "driver/src/i2c.h"
-#include "SI4735.h"
+#include <driver/i2c.h>
+#include <driver/si4735.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

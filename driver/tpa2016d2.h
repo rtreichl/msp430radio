@@ -10,7 +10,7 @@
 
 #include <msp430.h>
 #include <stdint.h>
-#include "driver/src/i2c.h"
+#include <driver/i2c.h>
 #include "Timer.h"
 
 #define I2C_AUDIO_AMP			0x58

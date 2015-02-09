@@ -8,11 +8,7 @@
  *   Kommentar: In bearbeitung: die Frequenz soll über FM_Tune_Status abgefragt und im Flash gespeichert werden
  *   							es soll auch die zuletzt verwendete Lautstärke gespeichert werden
  */
-#include "driver/src/i2c.h"
-#include "msp430.h"
-#include "SI4735.h"
-#include "Timer.h"
-#include <stdio.h>
+#include <driver/si4735.h>
 
 
 

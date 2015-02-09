@@ -9,21 +9,38 @@
 #define PCA9530_H_
 
 #include <stdint.h>
+#include <driver/i2c.h>
 
-#define PCA9530_I2C_STD_ADR	0x60;
-#define PCA9530_I2C_A0_BIT 	0;
+#define PCA9530_I2C_STD_ADR	0x60
+#define PCA9530_I2C_A0_BIT 	0
 #define PCA9530_I2C_ADR		(PCA9530_I2C_STD_ADR | PCA9530_I2C_A0_BIT)
 
-#define INPUT	0
-#define PSC0	1
-#define PWM0	2
-#define PSC1	3
-#define PWM1	4
-#define LS0		5
 
-enum PCA9530_LED_STATE { LED_OFF = 0, LED_ON, PWM0_RATE, PWM1_RATE };
-enum PCA9530_FREQ { FREQ_0 = 0, FREQ_1 };
-enum PCA9530_PWM { PWM_0 = 0, PWM_1 };
+enum PCA9530_CTRL_CMD {
+	INPUT = 0,
+	PSC0,
+	PWM0,
+	PSC1,
+	PWM1,
+	LS0
+};
+
+enum PCA9530_LED_STATE {
+	LED_OFF = 0,
+	LED_ON,
+	PWM0_RATE,
+	PWM1_RATE
+};
+
+enum PCA9530_FREQ {
+	FREQ_0 = 0,
+	FREQ_1
+};
+
+enum PCA9530_PWM {
+	PWM_0 = 0,
+	PWM_1
+};
 
 typedef struct  pca9530_ctl {
 	uint8_t : 3;

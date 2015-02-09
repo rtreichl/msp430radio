@@ -25,14 +25,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "driver/src/i2c.h"
-#include "SI4735.h"
+#include "driver/i2c.h"
+#include <driver/si4735.h>
 #include "MSP430G2553_Clock_Timer.h"
-#include "MSP430G2553_GPIO.h"
 //#include "AudioSwitch.h"
-#include "Verstaerker.h"
-#include "LCDDOGMA.h"
-#include "Encoder.h"
+#include <driver/tpa2016d2.h>
+#include <driver/lcd.h>
+#include <driver/encoder.h>
 #include "Timer.h"
 #include "Menu.h"
 
@@ -43,7 +42,7 @@ volatile unsigned char sec = 240;
 int main (void)
 {
 	Clock_INIT2();
-	i2c_init (I2C_LCD_BAUDRATE);
+	i2c_init (400,10);
 	WDTCTL = WDT_ADLY_250;                  // WDT 250ms, ACLK, interval timer
 	IE1 |= WDTIE;							//WDT Interupt Enable
 	//_EINT();
@@ -51,21 +50,20 @@ int main (void)
 	//Warte bis alles mit Spannung versorgt ist und Empfangsbereit ist
 	_delay_ms(250);
 
-	i2c_lcd_brightnes(511);
-	i2c_lcd_init();							//LCD Init
+	lcd_init(12);							//LCD Init
 
-	i2c_lcd_generatebargraph();				//Gernarte GCCR Symbole
-
-	//i2c_lcd_write_char('x');
-
-	i2c_lcd_create_view(" ",0, 0, 1);		//Clear Display
+	lcd_generatebargraph();				//Gernarte GCCR Symbole
 
 	//i2c_lcd_write_char('x');
 
-	i2c_lcd_create_view(Start_up_1, Shift_left_1, 0, 0);
-	i2c_lcd_create_view(Start_up_2, Shift_left_2, 1, 0);
-	i2c_lcd_create_view(Start_up_3, Shift_left_3, 2, 1);
-	i2c_lcd_brightnes(511);
+	lcd_create_view(0,0, 0, 2);		//Clear Display
+
+	//i2c_lcd_write_char('x');
+
+	lcd_create_view(Start_up_1, Shift_left_1, 0, 0);
+	lcd_create_view(Start_up_2, Shift_left_2, 1, 0);
+	lcd_create_view(Start_up_3, Shift_left_3, 2, 1);
+	//i2c_lcd_brightnes(511);
 	//Setze den Input auf den SI4735
 	//AudioSwitch(RADIO_LEFT,RADIO_RIGHT);
 
@@ -109,8 +107,6 @@ __interrupt void watchdog_timer(void)
 
 #pragma vector=NMI_VECTOR
 __interrupt void nmi(void){}
-#pragma vector=TIMER0_A1_VECTOR
-__interrupt void tim0(void){}
 #pragma vector=TIMER1_A1_VECTOR
 __interrupt void tim1(void){}
 //#pragma vector=USCIAB0RX_VECTOR

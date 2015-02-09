@@ -4,7 +4,7 @@
  *  Created on: 11.12.2013
  *      Author: Alexander
  */
-#include "Verstaerker.h"
+#include <driver/tpa2016d2.h>
 
 void Amplifier_init(uint8_t Start_Mode, int8_t Start_Gain)
 {
@@ -29,7 +29,7 @@ void Amplifier_init(uint8_t Start_Mode, int8_t Start_Gain)
 void Amplifier_Shutdown(uint8_t Shutdown) 	//only 1 or 0 => 1 for Shutdown and 0 for Release
 {
 	// Send command to amplifier
-	i2c_write_var(I2C_AUDIO_AMP, STOP, 2, 0x01,0xC3 | Shutdown<<5);
+	i2c_write_var(I2C_AUDIO_AMP, STOP, 2, 0x01, 0xC3 | Shutdown<<5);
 }
 
 void Amplifier_Gain(int8_t Gain)

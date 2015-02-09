@@ -1,4 +1,4 @@
-#include "i2c.h"
+#include <driver/i2c.h>
 
 /**
  * @struct I2C_CTRL
@@ -23,8 +23,6 @@ uint8_t *PTxData = 0 ;
 
 uint8_t i2c_init (uint8_t smclk_freq, uint8_t i2c_freq)
 {
-	if ()
-
 	/* Reset USCI_B0 */
 	UCB0CTL1 |= UCSWRST;
 
