@@ -9,7 +9,7 @@
  *   							es soll auch die zuletzt verwendete Lautstärke gespeichert werden
  */
 #include <driver/si4735.h>
-
+#include <si4735_cmd_prop.h>
 
 
 #define SI4735_volume 20 		// Maximalwert für die Lautstärke
@@ -117,40 +117,123 @@ void SI4735_Start_Volume (void)	//setzt den Startwert für die Lautstärke
 		USCI_I2C_WRITE1(6, Command);
 	}
 }
+*/
 
-void SI4735_seek_Down(void)	//Frequenzsuchlauf für niedrige Frequenzen
+uint8_t si4735_fm_rds_status(uint8_t statusonly, uint8_t mtfifo, uint8_t intack)
 {
-	char Command[3];
-	sprintf(Command, "%c%c", 0x21,0x0C);
-	USCI_I2C_WRITE1(2, Command);
+	uint8_t resp[13];
+	FM_RDS_STATUS_ARG1_STC arg1 = { .STATUSONLY = statusonly, .MTFIFO = mtfifo, .INTACK = intack};
+
+	i2c_write_var(I2C_SI4735, REPT, 2, FM_RDS_STATUS, arg1.byte);
+	i2c_read(I2C_SI4735, STOP, 13, resp);
+
+	return resp[0];
 }
 
-void SI4735_seek_Up(void)	//Frequensuchlauf für höhere Frequenzen
+uint8_t si4735_fm_rsq_status(uint8_t intack)
 {
-	char Command[3];
-	sprintf(Command, "%c%c", 0x21,0x04);
-	USCI_I2C_WRITE1(2, Command);
-}*/
+	uint8_t resp[8];
+	FM_RSQ_STATUS_ARG1_STC arg1 = { .INTACK = intack};
+
+	i2c_write_var(I2C_SI4735, REPT, 2, FM_RSQ_STATUS, arg1.byte);
+	i2c_read(I2C_SI4735, STOP, 8, resp);
+
+	return resp[0];
+}
+
+uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack)
+{
+	uint8_t resp[8];
+	FM_TUNE_STATUS_ARG1_STC arg1 = { .CANCEL = cancel, .INTACK = intack};
+
+	i2c_write_var(I2C_SI4735, REPT, 2, FM_TUNE_STATUS, arg1.byte);
+	i2c_read(I2C_SI4735, STOP, 8, resp);
+
+	return resp[0];
+}
+
+uint8_t si4735_fm_tune_freq(uint16_t frequency)
+{
+	INT_STATUS status;
+	FM_TUNE_FREQ_ARG1_STC arg1 = { .FREEZE = 0, .FAST = 0};
+
+	i2c_write_var(I2C_SI4735, REPT, 5, FM_TUNE_FREQ, arg1.byte, HB(frequency), LB(frequency), 0x00);
+	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+
+	return status.byte;
+}
+
+uint8_t si4735_get_int_status()
+{
+	INT_STATUS status;
+	//TODO check int pin from SI4735 via interrupt routin if interrupt availible read.
+	i2c_write_var(I2C_SI4735, REPT, 1, GET_INT_STATUS);
+	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+
+	return status.byte;
+}
+
+uint16_t si4735_get_property(uint16_t property, uint16_t *data)
+{
+	uint8_t resp[4];
+
+	i2c_write_var(I2C_SI4735, REPT, 6, SET_PROPERTY, 0x00, HB(property), LB(property));
+	i2c_read(I2C_SI4735, STOP, 4, resp);
+
+	*data = ((resp[2] << 8) + (resp[3]));
+
+	return resp[0];
+}
+
+uint8_t si4735_set_property( uint16_t property, uint16_t data)
+{
+	INT_STATUS status;
+	i2c_write_var(I2C_SI4735, STOP, 5, SET_PROPERTY, 0x00, HB(property), LB(property), HB(data), LB(data));
+	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+
+	return status.byte;
+	//TODO wait until command is proceed.
+}
+
+uint8_t si4735_fm_seek_start(uint8_t up_down)	//Frequensuchlauf für höhere Frequenzen
+{
+	INT_STATUS status;
+	FM_SEEK_START_ARG1_STC arg1 = {.SEEKUP = up_down, .WRAP = 1};
+	//TODO mute audio output
+	i2c_write_var(I2C_SI4735, REPT, 2, FM_SEEK_START, arg1.byte);
+	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+	//TODO wait until seek stopped on valid freqency
+	//TODO unmute audio output
+	return status.byte;
+}
 
 void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 {
    //SEN
-	P3DIR |=   BIT4;
-	P3OUT &=~  BIT4;
+	SI_EN_DIR = SI_EN_PIN;
+	SI_EN_OUT = SI_EN_PIN;
+	//P3DIR |=   BIT4;
+	//P3OUT &=~  BIT4;
 
 	//P2DIR |= BIT4;
 
 	// Clear Reset
+
+	//SI_RST_DIR |= SI_RST_PIN;
+	//SI_RST_OUT &= ~SI_RST_PIN;
 	P2DIR |=  BIT3;
 	P2OUT &=~  BIT3;
 
 	//_delay_ms(1);
 	// Set Reset
+	//SI_RST_OUT |= SI_RST_PIN;
 	P2OUT |=  BIT3;		// Ausgang auf low gesetzt
 
 	//_delay_ms(1);
 
 	//GPO2/INT
+	//SI_INT_REN |= SI_INT_PIN;
+	//SI_INT_OUT |= SI_INT_PIN;
 	P2REN |= BIT4;
 	P2OUT |= BIT4;
 

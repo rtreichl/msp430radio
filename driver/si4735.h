@@ -11,6 +11,7 @@
 #include <stdint.h>
 #include <driver/i2c.h>
 #include <Timer.h>
+#include <settings/radio_pin_mapping.h>
 
 
 #define I2C_SI4735 0x11
