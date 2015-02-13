@@ -89,6 +89,15 @@ typedef union fm_tune_status_arg1 {
 	};
 } FM_TUNE_STATUS_ARG1_STC;
 
+typedef union fm_tune_status_resp1 {
+	uint8_t byte;
+	struct {
+		uint8_t :6;
+		uint8_t AFCRL:1;
+		uint8_t VALID:1;
+	};
+} FM_TUNE_STATUS_RESP1_STC;
+
 
 #define FM_RSQ_STATUS	0x23
 
@@ -100,6 +109,38 @@ typedef union fm_rsq_status_arg1 {
 	};
 } FM_RSQ_STATUS_ARG1_STC;
 
+typedef union fm_rsq_status_resp1 {
+	uint8_t byte;
+	struct {
+		uint8_t BLENDINT:1;
+		uint8_t :1;
+		uint8_t MULTHINT:1;
+		uint8_t MULTLINT:1;
+		uint8_t SNRHINT:1;
+		uint8_t SNRLINT:1;
+		uint8_t RSSIHINT:1;
+		uint8_t RSSILINT:1;
+	};
+} FM_RSQ_STATUS_RESP1_STC;
+
+typedef union fm_rsq_status_resp2 {
+	uint8_t byte;
+	struct {
+		uint8_t :4;
+		uint8_t SMUTE:1;
+		uint8_t :1;
+		uint8_t AFCRL:1;
+		uint8_t VALID:1;
+	};
+} FM_RSQ_STATUS_RESP2_STC;
+
+typedef union fm_rsq_status_resp3 {
+	uint8_t byte;
+	struct {
+		uint8_t PILOT:1;
+		uint8_t STBLEND:7;
+	};
+} FM_RSQ_STATUS_RESP3_STC;
 
 #define FM_RDS_STATUS	0x24
 
@@ -113,8 +154,56 @@ typedef union fm_rds_status_arg1 {
 	};
 } FM_RDS_STATUS_ARG1_STC;
 
+typedef union fm_rds_status_resp1 {
+	uint8_t byte;
+	struct {
+		uint8_t :2;
+		uint8_t RDSNEWBLOCKB:1;
+		uint8_t RDSNEWBLOCKA:1;
+		uint8_t :1;
+		uint8_t RDSSYNCFOUND:1;
+		uint8_t RDSSYNCLOST:1;
+		uint8_t RDSRECV:1;
+	};
+} FM_RDS_STATUS_RESP1_STC;
+
+typedef union fm_rds_status_resp2 {
+	uint8_t byte;
+	struct {
+		uint8_t :5;
+		uint8_t GRPLOST:1;
+		uint8_t :1;
+		uint8_t RDSSYNC:1;
+	};
+} FM_RDS_STATUS_RESP2_STC;
+
+typedef union fm_rds_status_resp12 {
+	uint8_t byte;
+	struct {
+		uint8_t BLEA:2;
+		uint8_t BLEB:1;
+		uint8_t BLEC:2;
+		uint8_t BLED:2;
+	};
+} FM_RDS_STATUS_RESP12_STC;
+
 #define FM_AGC_STATUS	0x27
 
+typedef union fm_agc_status_resp1 {
+	uint8_t byte;
+	struct {
+		uint8_t :7;
+		uint8_t READ_RFAGCDIS:1;
+	};
+} FM_AGC_STATUS_RESP1_STC;
+
+typedef union fm_agc_status_resp2 {
+	uint8_t byte;
+	struct {
+		uint8_t :3;
+		uint8_t READ_LNA_GAIN_INDEX:5;
+	};
+} FM_AGC_STATUS_RESP2_STC;
 
 #define FM_AGC_OVERRIDE	0x28
 
