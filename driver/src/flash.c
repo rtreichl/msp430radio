@@ -7,12 +7,13 @@
 
 #include "msp430.h"
 #include <driver/flash.h>
+#include <stdint.h>
 
-void stor_data_to_flash (char *Flash_ptr, char *data, char value, unsigned char pos)
+void stor_data_to_flash (int8_t *Flash_ptr, int8_t *data, int8_t value, uint8_t pos)
 {
 	_DINT();
-	char tmp_stor[150];
-	unsigned char i = 0;
+	int8_t tmp_stor[150];
+	uint8_t i = 0;
 	for(i = 0;i<150;i++)
 		tmp_stor[i] = Flash_ptr[i];
 	erase_flash(Flash_ptr);
@@ -33,7 +34,7 @@ void stor_data_to_flash (char *Flash_ptr, char *data, char value, unsigned char 
 	_EINT();
 }
 
-void erase_flash(char *Flash_ptr)
+void erase_flash(int8_t *Flash_ptr)
 {
 	_DINT();
 	while(BUSY & FCTL3);
