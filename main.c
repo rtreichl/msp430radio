@@ -40,6 +40,8 @@
 
 #define AMPLIFIER_GAIN 15
 
+#define ENCODER_TAST_REFRESH	10
+
 volatile unsigned char sekunde = 0;
 volatile unsigned char posrt = 0;
 volatile unsigned char sec = 240;
@@ -79,9 +81,9 @@ int main (void)
 
 	//i2c_lcd_write_char('x');
 
-	lcd_create_view(Start_up_1, Shift_left_1, 0, 0);
-	lcd_create_view(Start_up_2, Shift_left_2, 1, 0);
-	lcd_create_view(Start_up_3, Shift_left_3, 2, 1);
+	lcd_create_view(Start_up_1, Shift_left_1, 0, 0, 0);
+	lcd_create_view(Start_up_2, Shift_left_2, 1, 0, 0);
+	lcd_create_view(Start_up_3, Shift_left_3, 2, 0, 1);
 	//i2c_lcd_brightnes(511);
 	//Setze den Input auf den SI4735
 	//AudioSwitch(RADIO_LEFT,RADIO_RIGHT);
@@ -110,6 +112,10 @@ int main (void)
 		//menu();
 	  en_counter2 +=  Encoder_2_get_count();
 	  menu_handler(&encoder_2_button, &en_counter2);
+	  if(timer_count[1] >= ENCODER_TAST_REFRESH) {
+	  	timer_count[1] -= ENCODER_TAST_REFRESH;
+	  	encoder_interrupt2();
+	  }
 	  //encoder_2_button = 'f';
 	  //en_counter2 = 0;
 	}
@@ -125,7 +131,7 @@ __interrupt void watchdog_timer(void)
 	if(++sec >= 240)			//wenn eine Minute vorbei ist dann setze den zähler zurück und erhöhe die Minute um eins
 	{
 		sec = 0;
-		time_date(0, 0, 0, 0, 0, 0, 1, 0, 0);
+		//time_date(0, 0, 0, 0, 0, 0, 1, 0, 0);
 	}
 }
 

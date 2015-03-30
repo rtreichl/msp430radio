@@ -1,4 +1,4 @@
-
+#ifndef 0
 #include <driver/encoder.h>
 #include <driver/lcd.h>
 #include <driver/si4735.h>
@@ -790,3 +790,4 @@ void exit_standby(void)
 
 
 }
+#endif
