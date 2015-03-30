@@ -39,4 +39,6 @@ extern const char on_text[];
 extern const char off_text[];
 extern const char main_text[];
 
+extern const char * const pty_text[];
+
 #endif /* _language_H_ */
