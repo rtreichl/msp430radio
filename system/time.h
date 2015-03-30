@@ -10,8 +10,6 @@
 
 #include <stdint.h>
 
-extern const uint8_t month_days[];
-
 typedef struct time_date {
 	uint32_t minute_one:4;
 	uint32_t minute_ten:3;
@@ -24,6 +22,8 @@ typedef struct time_date {
 	uint32_t year_one:4;
 	uint32_t year_ten:4;
 } TIME_DATE;
+
+extern const uint8_t month_days[];
 
 void time_date_update();
 uint8_t date_to_str(char *str);
