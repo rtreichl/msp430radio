@@ -3,15 +3,16 @@
 #include <driver/lcd.h>
 #include <driver/si4735.h>
 #include <driver/i2c.h>
-#include <Timer.h>
+#include <driver/timer.h>
 #include <stdio.h>
-#include "Radio.h"
+#include <system/rds.h>
 #include <driver/flash.h>
 #include "Menu.h"
 #include "string.h"
 #include <driver/tpa2016d2.h>
+#include <system/radio.h>
+#include <driver/flash.h>
 //#include "AudioSwitch.h"
-#include "MSP430G2553_Clock_Timer.h"
 
 
 
@@ -116,12 +117,12 @@ void menu(void)
 			if(encoder_2_button == BUTTON_PRESS_SHORT)
 			{
 				char tmp = 0;
-				tmp = *(char *)(FLASH_ADR_STATION_FREQ + en_counter2*10);
+				//tmp = *(char *)(FLASH_ADR_STATION_FREQ + en_counter2*10);
 				if(tmp != 0xFF)																						//Falls ein Sender ausgewählt	
 				{
 					//USCI_I2C_INIT(0x11,80);
 					act_freq = tmp;																					//Übernehme Frequenz
-					SI4735_Fm_Tune_Freq_2((875 + (char)(act_freq-1))*10);
+					radio_tune_freq((875 + (char)(act_freq-1))*10);
 					Radio_States |= (1<<15);
 					strncpy(Akt_Radio_Text, "Radio Text", 64);
 				}
@@ -136,7 +137,7 @@ void menu(void)
 			en_counter2 = en_counter2 % 15;																			//Auf 15 Werte begrenzen(Anzahl der Speicherplätze)
 			if (encoder_2_button == BUTTON_PRESS_SHORT)
 			{
-				stor_data_to_flash ((char *)FLASH_ADR_STATION_NAME, Station_Name, act_freq, en_counter2*10); 
+				//stor_data_to_flash ((char *)FLASH_ADR_STATION_NAME, Station_Name, act_freq, en_counter2*10);
 
 				counter2_zero_lvl = MAX_ZERO_LVL;																	//Wieder auf den Haupt-
 				counter2_first_lvl = MAX_FIRST_LVL;																	//bildschirm kommen
@@ -311,7 +312,7 @@ void menu(void)
 
 				}
 				//Amplifier_Gain(act_vol - 30);
-				SI4735_Set_Volume(act_vol);
+				radio_volume(act_vol);
 				en_counter1 = 0;
 				delay_vol = 1;
 				sekunde = 0;
@@ -419,7 +420,7 @@ void menu(void)
 					case 1:
 							for(i = 0; i < 15; i++)
 							{
-								stor_data_to_flash ((char *)FLASH_ADR_STATION_NAME, "<Empty>", 0xFF, i*10);			//Speicher löschen
+								//stor_data_to_flash ((char *)FLASH_ADR_STATION_NAME, "<Empty>", 0xFF, i*10);			//Speicher löschen
 							}
 							counter2_first_lvl = MAX_FIRST_LVL;														//Rücksprung zu
 							counter2_second_lvl = MAX_SECOND_LVL;													//Einstellungen
@@ -513,7 +514,7 @@ void menu(void)
 					string[2] = '.';
 					string[3] = 0;
 					lcd_create_view(string, 1, i % 3, 0);
-					lcd_create_view((char *)(FLASH_ADR_STATION_NAME + i * 10), 4, i % 3, 0);
+					//lcd_create_view((char *)(FLASH_ADR_STATION_NAME + i * 10), 4, i % 3, 0);
 				}
 				lcd_create_view("~", 0, en_counter2 % 3, 0);
 				break;
@@ -554,7 +555,7 @@ void menu(void)
 				{
 					act_freq = 205;
 				}
-				SI4735_Fm_Tune_Freq_2((875 + (char)(act_freq - 1)) * 10);
+				radio_tune_freq((875 + (char)(act_freq - 1)) * 10);
 				en_counter2 = 0;
 				delay_freq = 1;
 				sekunde = 0;
@@ -758,7 +759,7 @@ void enter_standby(void)
 void exit_standby(void)
 {
 
-	Clock_INIT2();
+	//Clock_INIT2();
 
 	_delay_ms(500);
 	//GPIO_INIT();
@@ -783,7 +784,7 @@ void exit_standby(void)
 	// Initialisiert den Radiochip
 	SI4735_Power_Up();
 	//SI4735_INIT();
-	SI4735_Set_Volume(20);
+	radio_volume(20);
 
 
 
