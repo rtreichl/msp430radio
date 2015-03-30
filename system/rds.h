@@ -9,12 +9,12 @@
 #define RADIO_H_
 
 #include <stdint.h>
+#include <driver/i2c.h>
+#include <driver/si4735.h>
+#include <system/time.h>
+#include <driver/timer.h>
 
 //#define RDS_BYTES_OFFSET 2
-
-void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text);
-uint8_t rds_triggered();
-uint8_t get_signal_qual();
 
 typedef struct status {
 	uint8_t STCINT:1;
@@ -169,6 +169,10 @@ typedef struct rds {
 	uint8_t block[4];
 	ERR		err;
 } RDS;
+
+void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text);
+uint8_t rds_triggered();
+uint8_t get_signal_qual();
 
 void rds_group_4A(RDS *data);
 

@@ -5,14 +5,7 @@
  *      Author: Richi
  */
 
-#include "Radio.h"
-#include <driver/i2c.h>
-#include <driver/si4735.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include "Timer.h"
-#include "Menu.h"
+#include <system/rds.h>
 
 void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)                 //nur Sender-Stationsnamen auslesen
 {
@@ -79,7 +72,7 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 					}
 				}
 			}
-			_delay_us(25);
+			_delay_ten_us(25);
 			tmp = rds->fifo.RDSFIFOUSED;
 			if(tmp < 10 && doit == 0)
 			{
@@ -116,7 +109,7 @@ void rds_group_4A(RDS *data)
 	char offset = 0;
 	unsigned int mdj = 0;
 	unsigned char m_hour, m_minute, m_day, m_month, m_year;
-	unsigned char day_per_month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	//unsigned char day_per_month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	int temp;
 
 	m_day = 1;
@@ -139,7 +132,7 @@ void rds_group_4A(RDS *data)
 			m_month = 1;
 			m_year++;
 		}
-		temp -= day_per_month[m_month-1];
+		temp -= month_days[m_month-1];
 	}
 	temp = m_minute + 60 * m_hour + 30 * offset;
 	if (temp >= 1440)
@@ -154,5 +147,6 @@ void rds_group_4A(RDS *data)
 	}
 	m_minute = temp%60;
 	m_hour = temp/60;
-	time_date(m_hour, m_minute, m_day, m_month, m_year, 1, 0, 0, 0);
+	time_set(m_hour, m_minute, m_day, m_month, m_year, 0);
+	//time_date(m_hour, m_minute, m_day, m_month, m_year, 1, 0, 0, 0);
 }
