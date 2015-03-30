@@ -28,3 +28,10 @@ void _delay_us(int us)
 		_delay_cycles(8);
 	}while(++kaka != us);
 }
+
+
+/*TODO Implement various timers and a timer handler for event timers and normal timers to calculate runtimes
+ * for function on main handler. Timer initialization should be include setup base clock on given configuration
+ * and also a function that gives back the actuall working frequency for other functions, who are needing a frequency
+ * for intialization. Timer initialization will be started before all other functions, so it´s placed in to system_pre_init();
+ */

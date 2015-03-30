@@ -27,6 +27,7 @@
 #include <stdint.h>
 #include "driver/i2c.h"
 #include <driver/si4735.h>
+#include <driver/pca9530.h>
 #include "MSP430G2553_Clock_Timer.h"
 //#include "AudioSwitch.h"
 #include <driver/tpa2016d2.h>
@@ -39,8 +40,10 @@ volatile unsigned char sekunde = 0;
 volatile unsigned char posrt = 0;
 volatile unsigned char sec = 240;
 
+
 int main (void)
 {
+	//while(1);
 	Clock_INIT2();
 	i2c_init (400,10);
 	WDTCTL = WDT_ADLY_250;                  // WDT 250ms, ACLK, interval timer
@@ -50,7 +53,20 @@ int main (void)
 	//Warte bis alles mit Spannung versorgt ist und Empfangsbereit ist
 	_delay_ms(250);
 
-	lcd_init(12);							//LCD Init
+	const PCA9530 config = {
+		76,
+		0,
+		1,
+		127,
+		PWM0_RATE,
+		PWM1_RATE
+	};
+
+	pca9530_init(&config);
+
+	lcd_init(4);							//LCD Init
+
+	radio_brightness(90);
 
 	lcd_generatebargraph();				//Gernarte GCCR Symbole
 
@@ -67,11 +83,11 @@ int main (void)
 	//Setze den Input auf den SI4735
 	//AudioSwitch(RADIO_LEFT,RADIO_RIGHT);
 
-	//Schalte den Verstärker mit Default Werten ein
-	Amplifier_init(POP,AMPLIFIER_GAIN);
-
 	// Initialisiert den Radiochip
 	SI4735_INIT();
+
+	//Schalte den Verstärker mit Default Werten ein
+	Amplifier_init(POP,AMPLIFIER_GAIN);
 
 	//SI4735_Set_Volume(20);
 
