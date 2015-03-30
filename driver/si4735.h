@@ -10,7 +10,7 @@
 
 #include <stdint.h>
 #include <driver/i2c.h>
-#include <Timer.h>
+#include <driver/timer.h>
 #include <settings/radio_pin_mapping.h>
 
 
@@ -60,5 +60,11 @@
 	uint8_t si4735_configure_seeking(uint16_t top_freq, uint16_t bot_freq, uint8_t freq_spacing, uint8_t snr, uint8_t rssi);
 
 	uint8_t si4735_set_property( uint16_t property, uint16_t data);
+
+	uint8_t si4735_fm_seek_start(uint8_t up_down);
+
+	uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack, uint8_t *resp);
+
+	uint8_t si4735_fm_tune_freq(uint16_t frequency);
 
 #endif /* SI4735_H_ */
