@@ -58,7 +58,7 @@ uint8_t lcd_init(uint8_t contrast)
 	lcd_generatebargraph();
 
 	//Clear LCD and Init view ram
-	lcd_create_view(0,0, 0, 2);
+	lcd_create_view(0, 0, 0, 0, 2);
 
 	return 0;
 }
@@ -330,9 +330,9 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
 	pos = x + y * 16;
 
-	if(num == 0) {
-		num == 48;
-	}
+	/*if(num == 0) {
+		num = 48;
+	}*/
 
 	/* if string is empty determinat string on given position */
 	if(str == 0) {
@@ -340,9 +340,9 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 	}
 	else {
 		/* copy string on given position */
-		while(*str != 0 && pos < 48 && num > 0) {
+		while(*str != 0 && pos < 48 ) {//&& num > 0) {
 			lcd_view[pos++] = *(str++);
-			num--;
+			//num--;
 		}
 	}
 
