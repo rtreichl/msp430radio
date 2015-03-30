@@ -33,7 +33,7 @@ uint8_t lcd_init(uint8_t contrast)
 	// Send 2nd reset command
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x03, 0x13);
 
-	_delay_us(30);
+	_delay_ten_us(3);
 
 	// Send 3rd reset command
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x03, 0x13);
@@ -41,7 +41,7 @@ uint8_t lcd_init(uint8_t contrast)
 	// Go in default data mode of display
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x02, 0x12);
 
-	_delay_us(30);
+	_delay_ten_us(3);
 
 	lcd_command(LCD_FUNCTION_SET | LCD_2_LINE_INST_1);
 	lcd_command(LCD_BIAS_SET | LCD_BIAS_1_4 | LCD_3_LINE);
@@ -53,6 +53,12 @@ uint8_t lcd_init(uint8_t contrast)
 	lcd_command(LCD_CLEAR_SCREEN);
 	lcd_command(LCD_ENTRY_MODE_SET | LCD_COURSER_INKREMENT);
 	lcd_command(LCD_RESET_COURSER);
+
+	//Gernarte GCCR Symbole
+	lcd_generatebargraph();
+
+	//Clear LCD and Init view ram
+	lcd_create_view(0,0, 0, 2);
 
 	return 0;
 }
@@ -78,7 +84,7 @@ uint8_t lcd_write_char(uint8_t symbol)
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((symbol & 0x0f) | 0x50));
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, 0x08);*/
 
-	_delay_us(200);
+	_delay_ten_us(20);
 
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 5,
 			0x00,
@@ -306,9 +312,9 @@ uint8_t lcd_generatebargraph()
 	return 0;
 }
 
-uint8_t lcd_create_view(const int8_t *str, uint8_t x, uint8_t y, uint8_t flush)
+uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)
 {
-	volatile static int8_t lcd_view[49];
+	static int8_t lcd_view[49];
 
 	uint8_t	i,
 			pos;
@@ -324,14 +330,19 @@ uint8_t lcd_create_view(const int8_t *str, uint8_t x, uint8_t y, uint8_t flush)
 
 	pos = x + y * 16;
 
+	if(num == 0) {
+		num == 48;
+	}
+
 	/* if string is empty determinat string on given position */
-	if(*str == 0 && flush != 1) {
-		lcd_view[pos] = 0;
+	if(str == 0) {
+		lcd_view[48] = 0;
 	}
 	else {
 		/* copy string on given position */
-		while(*str != 0 && pos < 48) {
+		while(*str != 0 && pos < 48 && num > 0) {
 			lcd_view[pos++] = *(str++);
+			num--;
 		}
 	}
 
@@ -354,30 +365,6 @@ uint8_t lcd_create_view(const int8_t *str, uint8_t x, uint8_t y, uint8_t flush)
 		lcd_set_courser(0,1);
 		lcd_write_string(lcd_view,48);
 	}
-
-	return 0;
-}
-
-
-//TODO move to radio
-uint8_t lcd_bargraph(uint8_t value)
-{
-	uint8_t i = 0;
-	uint8_t string[2];
-
-	lcd_create_view("- ",0,2,0);
-	for(i = 1;i <= value/5 && i <= 12;i++)
-		lcd_create_view("\5",1+i,2,0);
-	if(i<=12)
-	{
-		//sprintf(string,"%c",value%5);
-		string[0] = value % 5;
-		lcd_create_view(string,1+i,2,0);
-	}
-	i++;
-	for(i=i;i<=12;i++)
-		lcd_create_view("\0",1+i,2,0);
-	lcd_create_view(" +",14,2,0);
 
 	return 0;
 }
