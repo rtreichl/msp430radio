@@ -26,10 +26,10 @@ volatile int16_t count_button_2 = 0;
 
 void Encoder_Timer_init()
 {
-		TA0CCTL0 |= CCIE;											//Enable Compare Interrupt
-        TA0CCR0 = 500;												//Compare Value 500
-        TA0CTL = TASSEL_2 | ID0 | ID1;           					//ACLK, up to TCCR0, interrupt
-        TA0CTL |= MC_1;												//Enable Timer in up Mode
+		//TA0CCTL0 |= CCIE;											//Enable Compare Interrupt
+        //TA0CCR0 = 500;												//Compare Value 500
+        //TA0CTL = TASSEL_2 | ID0 | ID1;           					//ACLK, up to TCCR0, interrupt
+        //TA0CTL |= MC_1;												//Enable Timer in up Mode
 }
 
 #ifdef ENCODER_1
@@ -202,8 +202,9 @@ void Encoder_2_init(void)
 
 #endif	//ENCODER_2
 
-#pragma vector=TIMER0_A0_VECTOR
-__interrupt void Timer_A1(void)
+//#pragma vector=TIMER0_A0_VECTOR
+//__interrupt void Timer_A0(void)
+void encoder_interrupt2(void)
 {
 	if((EN1_TAST_IN & EN1_TAST_PIN) == 0)
          {

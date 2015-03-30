@@ -20,6 +20,7 @@ void Encoder_Timer_init(void);
 #define ENCODER_2	//Enable Encoder 2
 
 void encoder_interrupt(void);
+void encoder_interrupt2(void);
 
 #ifdef ENCODER_1 //If Encoder 1 is selected
 
