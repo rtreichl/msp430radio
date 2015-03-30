@@ -56,13 +56,13 @@ int16_t Encoder_1_get_count()
 void Encoder_1_decoder(void)
 {
 	int8_t encoder_1_new = 0, encoder_1_diff = 0;
-	if((ENCODER_1_PIN & ENCODER_1_A) != 0)							//Check Signal A for a High Value
+	if((EN1_A_IN & EN1_A_PIN) != 0)							//Check Signal A for a High Value
 	{
 		encoder_1_new = 3;											//Decode Graycode new = Bit1 := A and Bit0 := A^B
 
 
 	}
-	if((ENCODER_1_PIN & ENCODER_1_B) != 0)							//Check Signal A for a High Value
+	if((EN1_B_IN & EN1_B_PIN) != 0)							//Check Signal A for a High Value
 	{
 		encoder_1_new ^= 1;											//Decode Graycode new = Bit1 := A and Bit0 := A^B
 
@@ -85,24 +85,34 @@ void Encoder_1_init(void)
 	encoder_1_count = 0x8000;
 	encoder_1_button = 'f';
 	encoder_1_state = 0;
-	ENCODER_1_IE  &=  ~(ENCODER_1_A | ENCODER_1_B);					//Disable Interrupt on all listed Pins
-	ENCODER_1_DIR &= ~(ENCODER_1_A | ENCODER_1_B | ENCODER_1_T);	//Set Signal A, B, Button as Input
-	ENCODER_1_REN  |=  ENCODER_1_T;									//Enable Pullup/Pulldown on Button Pin
-	ENCODER_1_OUT |=  ENCODER_1_T;									//Set Pullup Resistor on Button Pin
-	ENCODER_1_OUT &=  ~(ENCODER_1_A | ENCODER_1_B);
-	if((ENCODER_1_PIN & ENCODER_1_A) != 0)
+	EN1_A_IE &= ~(EN1_A_PIN);					//Disable Interrupt on all listed Pins
+	EN1_B_IE &= ~(EN1_B_PIN);
+	EN1_A_DIR &= ~(EN1_A_PIN);	//Set Signal A, B, Button as Input
+	EN1_B_DIR &= ~(EN1_B_PIN);
+	EN1_TAST_DIR &= ~(EN1_TAST_PIN);
+	EN1_TAST_REN  |=  EN1_TAST_PIN;									//Enable Pullup/Pulldown on Button Pin
+	EN1_TAST_OUT |=  EN1_TAST_PIN;									//Set Pullup Resistor on Button Pin
+	EN1_A_OUT &= ~(EN1_A_PIN);
+	EN1_B_OUT &= ~(EN1_B_PIN);
+	if((EN1_A_IN & EN1_A_PIN) != 0)
 	{
 		encoder_1_last = 3;											//Decode Graycode new = Bit1 := A and Bit0 := A^B
-		ENCODER_1_IES |=  ENCODER_1_A;								//Interrupt for a falling edge for Signal A
+		EN1_A_IES |=  EN1_A_PIN;								//Interrupt for a falling edge for Signal A
 
 	}
-	if((ENCODER_1_PIN & ENCODER_1_B) != 0)
+	if((EN1_B_IN & EN1_B_PIN) != 0)
 	{
 		encoder_1_last ^= 1;										//Decode Graycode new = Bit1 := A and Bit0 := A^B
-		ENCODER_1_IES |=  ENCODER_1_B;								//Interrupt for a falling edge for Signal B
+		EN1_B_IES |=  EN1_B_PIN;								//Interrupt for a falling edge for Signal B
 	}
-	ENCODER_1_IFG &=~ (ENCODER_1_A | ENCODER_1_B);					//Clear Interrupt Flag before enable Interrupt on all listed Pins
-	ENCODER_1_IE  |=  (ENCODER_1_A | ENCODER_1_B);					//Enable Interrupt on all listed Pins
+	/*EN1_A_IFG &= ~(EN1_A_PIN);									//Clear Interrupt Flag before enable Interrupt on all listed Pins
+	EN1_B_IFG &= ~(EN1_B_PIN);
+	EN1_A_IE |= EN1_A_PIN;										//Enable Interrupt on all listed Pins
+	EN1_B_IE |= EN1_B_PIN;*/
+	ext_interrupt_create(EN1_A_INT, encoder_interrupt);
+	ext_interrupt_create(EN1_B_INT, encoder_interrupt);
+	ext_interrupt_enable(EN1_A_INT);
+	ext_interrupt_enable(EN1_B_INT);
 	__bis_SR_register(GIE);
 }
 
@@ -132,12 +142,12 @@ int16_t Encoder_2_get_count()
 void Encoder_2_decoder(void)
 {
 	int8_t encoder_2_new = 0, encoder_2_diff = 0;
-	if((ENCODER_2_PIN & ENCODER_2_A) != 0)							//Check Signal A for a High Value
+	if((EN2_A_IN & EN2_A_PIN) != 0)							//Check Signal A for a High Value
 	{
 		encoder_2_new = 3;											//Decode Graycode new = Bit1 := A and Bit0 := A^B
 
 	}
-	if((ENCODER_2_PIN & ENCODER_2_B) != 0)							//Check Signal A for a High Value
+	if((EN2_B_IN & EN2_B_PIN) != 0)							//Check Signal A for a High Value
 	{
 		encoder_2_new ^= 1;											//Decode Graycode new = Bit1 := A and Bit0 := A^B
 	}
@@ -159,65 +169,43 @@ void Encoder_2_init(void)
 	encoder_2_count = 0x8000;
 	encoder_2_button = 'f';
 	encoder_2_state = 0;
-	ENCODER_2_IE  &=  ~(ENCODER_2_A | ENCODER_2_B);	//Disable Interrupt on all listed Pins
-	ENCODER_2_DIR &= ~(ENCODER_2_A | ENCODER_2_B | ENCODER_2_T);	//Set Signal A, B, Button as Input
-	ENCODER_2_REN  |=  ENCODER_2_T;									//Enable Pullup/Pulldown on Button Pin
-	ENCODER_2_OUT |=  ENCODER_2_T;									//Set Pullup Resistor on Button Pin
-	ENCODER_2_OUT &=  ~(ENCODER_2_A | ENCODER_2_B);
-	if((ENCODER_2_PIN & ENCODER_2_A) != 0)
+	EN2_A_IE &= ~(EN2_A_PIN);					//Disable Interrupt on all listed Pins
+	EN2_B_IE &= ~(EN2_B_PIN);
+	EN2_A_DIR &= ~(EN2_A_PIN);	//Set Signal A, B, Button as Input
+	EN2_B_DIR &= ~(EN2_B_PIN);
+	EN2_TAST_DIR &= ~(EN2_TAST_PIN);
+	EN2_TAST_REN  |=  EN2_TAST_PIN;									//Enable Pullup/Pulldown on Button Pin
+	EN2_TAST_OUT |=  EN2_TAST_PIN;									//Set Pullup Resistor on Button Pin
+	EN2_A_OUT &= ~(EN2_A_PIN);
+	EN2_B_OUT &= ~(EN2_B_PIN);
+	if((EN2_A_IN & EN2_A_PIN) != 0)
 	{
-		encoder_2_last = 3;											//Decode Graycode new = Bit1 := A and Bit0 := A^B
-		ENCODER_2_IES |=  ENCODER_2_A;								//Interrupt for a falling edge for Signal A
+		encoder_2_last = 3;											//Decode Graycode new = Bit2 := A and Bit0 := A^B
+		EN2_A_IES |=  EN2_A_PIN;								//Interrupt for a falling edge for Signal A
 
 	}
-	if((ENCODER_2_PIN & ENCODER_2_B) != 0)
+	if((EN2_B_IN & EN2_B_PIN) != 0)
 	{
-		encoder_2_last ^= 1;										//Decode Graycode new = Bit1 := A and Bit0 := A^B
-		ENCODER_2_IES |=  ENCODER_2_B;								//Interrupt for a falling edge for Signal B
+		encoder_2_last ^= 1;										//Decode Graycode new = Bit2 := A and Bit0 := A^B
+		EN2_B_IES |=  EN2_B_PIN;								//Interrupt for a falling edge for Signal B
 	}
-	ENCODER_2_IFG &=~ (ENCODER_2_A | ENCODER_2_B);					//Clear Interrupt Flag befor enable Interrupt on all listed Pins
-	ENCODER_2_IE  |=  (ENCODER_2_A | ENCODER_2_B);					//Enable Interrupt on all listed Pins
+	/*EN2_A_IFG &= ~(EN2_A_PIN);									//Clear Interrupt Flag before enable Interrupt on all listed Pins
+	EN2_B_IFG &= ~(EN2_B_PIN);
+	EN2_A_IE |= EN2_A_PIN;										//Enable Interrupt on all listed Pins
+	EN2_B_IE |= EN2_B_PIN;*/
+	ext_interrupt_create(EN2_A_INT, encoder_interrupt);
+	ext_interrupt_create(EN2_B_INT, encoder_interrupt);
+	ext_interrupt_enable(EN2_A_INT);
+	ext_interrupt_enable(EN2_B_INT);
 	__bis_SR_register(GIE);
 }
 
 #endif	//ENCODER_2
 
-#pragma vector = PORT1_VECTOR
-__interrupt void Port1_interrupts(void)
-{
-	if(P1IFG&BIT5)
-	{
-		if((P1IN&BIT5)==0)
-		{
-			_BIC_SR(LPM0_EXIT);
-			P1IFG&=~BIT5;
-		}
-	}
-
-
-#ifdef ENCODER_1
-	if(ENCODER_1_IFG & (ENCODER_1_A | ENCODER_1_B))
-		Encoder_1_decoder();
-	ENCODER_1_IES ^=  ENCODER_1_IFG;
-	ENCODER_1_IFG &=~ (ENCODER_1_A | ENCODER_1_B);
-#endif
-}
-
-#pragma vector = PORT2_VECTOR
-__interrupt void Port2_interrupts(void)
-{
-#ifdef ENCODER_2
-	if(ENCODER_2_IFG & (ENCODER_2_A | ENCODER_2_B))
-		Encoder_2_decoder();
-	ENCODER_2_IES ^=  ENCODER_2_IFG;
-	ENCODER_2_IFG &=~ (ENCODER_2_A | ENCODER_2_B);
-#endif
-}
-
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A1(void)
 {
-	if((ENCODER_1_PIN & ENCODER_1_T) == 0)
+	if((EN1_TAST_IN & EN1_TAST_PIN) == 0)
          {
         	 if(count_button_1++ >= TIME_FOR_LONG_PRESS)
         	 {
@@ -234,7 +222,7 @@ __interrupt void Timer_A1(void)
         	 }
         	 count_button_1 = 0;
          }
-         if((ENCODER_2_PIN & ENCODER_2_T) == 0)
+         if((EN2_TAST_IN & EN2_TAST_PIN) == 0)
          {
         	 if(count_button_2++ >= TIME_FOR_LONG_PRESS)
         	 {
@@ -252,6 +240,22 @@ __interrupt void Timer_A1(void)
         	 count_button_2 = 0;
          }
 
+}
+
+void encoder_interrupt(void)
+{
+	#ifdef ENCODER_1
+		if((EN1_A_IFG & EN1_A_PIN) || (EN1_A_IFG & EN1_B_PIN))
+			Encoder_1_decoder();
+		EN1_A_IES ^= (EN1_A_IFG & EN1_A_PIN);
+		EN1_B_IES ^= (EN1_B_IFG & EN1_B_PIN);
+	#endif
+	#ifdef ENCODER_2
+		if((EN2_A_IFG & EN2_A_PIN) || (EN2_A_IFG & EN2_B_PIN))
+			Encoder_2_decoder();
+		EN2_A_IES ^= (EN2_A_IFG & EN2_A_PIN);
+		EN2_B_IES ^= (EN2_B_IFG & EN2_B_PIN);
+	#endif
 }
 
 #endif //ENCODER_H_
