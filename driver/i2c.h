@@ -1,5 +1,5 @@
 /**
- * @file driver/src/i2c.h
+ * @file driver/i2c.h
  *
  * @author Richard Treichl
  * @date 07.02.2015
@@ -22,7 +22,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <Timer.h>
+#include <driver/timer.h>
 
 
 /**

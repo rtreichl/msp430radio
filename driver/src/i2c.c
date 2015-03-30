@@ -41,7 +41,7 @@ uint8_t i2c_init (uint16_t smclk_freq, uint16_t i2c_freq)
 	/*UCB0BR0 = 0x00FF & (uint16_t)smclk_freq/i2c_freq;
 	UCB0BR1 = (0xFF00 & (uint16_t)smclk_freq/i2c_freq) >> 8;*/
 
-	UCB0BR0 = 0x24;
+	UCB0BR0 = 0x14;
 
 	/* Enable NACK interrupt */
 	UCB0I2CIE = UCNACKIE;
@@ -113,7 +113,7 @@ uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size
 		while(UCB0STAT & UCBBUSY);
 	}
 	else {
-		_delay_us(100);
+		_delay_ten_us(10);
 	}
 
 	i2c.status = IDLE;
