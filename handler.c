@@ -16,3 +16,15 @@
  * A further problem is the msp430 has a very low ram, so if many functions saving many variables during calculation.
  * Better implemention would be a not a multitheread system, only a single thread system and minimize waitings.
  */
+
+
+void handler (void)
+{
+	while(1) {
+		//TODO check for rds interrupt and go on further functions
+		//TODO call all half second or on specified input aciton menu function
+		//TODO do all 0.1 messuarments on a valid channel
+		//TODO implement timers and eventtimers
+		//TODO polling encoder switches every 10 up to 20 milli seconds
+	}
+}
