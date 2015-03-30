@@ -54,7 +54,9 @@ uint8_t radio_volume(uint8_t volume)
 
 uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)
 {
-	static uint8_t volume = 0;
+	uint8_t encoder_right_button;
+	int8_t encoder_right_count;
+
 	if(*encoder_left_count != 0) {
 		if(*encoder_left_count < 0 && radio.volume > 0) {
 			radio.volume--;
@@ -66,36 +68,37 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)
 		}
 	}
 
-	if(*encoder_right_count != 0) {
-		if(*encoder_right_count < 0 && radio.station_freq > 0) {
+	if(encoder_right_count != 0) {
+		if(encoder_right_count < 0 && radio.station_freq > 0) {
 			radio.station_freq--;
-			*encoder_right_count = 0;
+			encoder_right_count = 0;
 		}
-		else if(*encoder_right_count > 0 && radio.station_freq < 100) {
+		else if(encoder_right_count > 0 && radio.station_freq < 100) {
 			radio.station_freq++;
-			*encoder_right_count = 0;
+			encoder_right_count = 0;
 		}
 	}
 	if(*encoder_left_button == BUTTON_PRESS_SHORT)
 	{
-		*encoder_left_button = BUTTON_PRESS_FREE;
+		*encoder_left_button = BUTTON_FREE;
 		return 0xFF;
 	}
 	if(*encoder_left_button == BUTTON_PRESS_LONG)
 	{
-		*encoder_left_button = BUTTON_PRESS_FREE;
+		*encoder_left_button = BUTTON_FREE;
 		return 0xFF;
 	}
-	if(*encoder_right_button == BUTTON_PRESS_SHORT)
+	if(encoder_right_button == BUTTON_PRESS_SHORT)
 	{
-		*encoder_right_button = BUTTON_PRESS_FREE;
+		encoder_right_button = BUTTON_FREE;
 		//radio_mute
 	}
-	if(*encoder_right_button == BUTTON_PRESS_LONG)
+	if(encoder_right_button == BUTTON_PRESS_LONG)
 	{
-		*encoder_right_button = BUTTON_PRESS_FREE;
+		encoder_right_button = BUTTON_FREE;
 		//radio_standby
 	}
+	radio_display_handler();
 	return 0;
 }
 /*
@@ -115,59 +118,68 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)
 				lcd_create_view(rsq, 11 + (5 - strlen(rsq)), 2, 0);
 			}
 */
+
+#define RADIO_TEXT_SCROLL 500
+
 uint8_t radio_display_handler(void)
 {
-	char tmp_string[8];
-	switch(radio.stats.mode) {
+	char tmp_string[9];
+	switch(radio.status.display_mode) {
 	case RADIO_RDS_VIEW:
 		if(timer_count[2] == RADIO_TEXT_SCROLL) {
-			if(radio.stats.scroll_text < 16) {
-				lcd_create_view(radio.station_text, 15 - radio.stats.scroll_text, 2, radio.stats.scroll_text, 0);
+			if(radio.status.scroll_text < 15) {
+				lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text, 0);
 			}
 			else {
-				lcd_create_view(radio.station_text - 15 + radio.stats.scroll_text, 0, 2, 16, 0);
+				lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
 			}
-			if(++radio.stats.scroll_text >= 64) {
-				radio.stats.scroll_text = 0;
+			if(++radio.status.scroll_text >= 64) {
+				radio.status.scroll_text = 0;
 			}
 		}
-		if(radio.status.rds_station_name == VALID) {
-			lcd_create_view(radio.station_name, 0, 0, 0, 0);
-		}
-		else {
-			radio_freq_to_string(tmp_string, radio.station_freq);
-			lcd_create_view(tmp_string, 0, 0, 0, 0);
-			lcd_create_view("MHz"); //TODO add this to a String table
-		}
-
 		date_to_str(tmp_string);
-		lcd_create_view(tmp_string,  8, 0, 0, 0);
+		lcd_create_view(tmp_string,  8, 1, 0, 0);
 		break;
 	case RADIO_RSQ_VIEW:
-		radio_value_to_string(tmp_string, radio.rsq.rssi, 3);
+		radio_value_to_string(tmp_string, radio.rsq.rssi, 3, 10);
 		lcd_create_view(tmp_string, 8, 1, 0, 0);
-		lcd_create_view("dBuV", 11, 11, 0, 0);
-		radio_value_to_string(tmp_string, radio.rsq.snr, 3);
+		lcd_create_view("dBuV", 11, 1, 0, 0);
+		radio_value_to_string(tmp_string, radio.rsq.snr, 3, 10);
 		lcd_create_view(tmp_string, 0, 2, 0, 0);
 		lcd_create_view("dB", 3, 11, 0, 0);
-		radio_value_to_string(tmp_string, radio.rsq.multi, 3);
-		lcd_create_view(tmp_string, 5, 2, 0, 0);
-		lcd_create_view("%", 11, 11, 0, 0);
-		radio_value_to_string(tmp_string, radio.rsq.freq_off, 3);
-		lcd_create_view(tmp_string, 8, 2, 0, 0);
-		lcd_create_view("kHz", 11, 2, 0, 0);
+		radio_value_to_string(tmp_string, radio.rsq.multi, 3 ,10);
+		lcd_create_view(tmp_string, 6, 2, 0, 0);
+		lcd_create_view("%", 9, 2, 0, 0);
+		radio_value_to_string(tmp_string, radio.rsq.freq_off, 3, 10);
+		lcd_create_view(tmp_string, 10, 2, 0, 0);
+		lcd_create_view("kHz", 13, 2, 0, 0);
+		break;
+	case RADIO_PIPTY_VIEW:
+		radio_value_to_string(tmp_string, radio.status.pi, 4, 16);
+		lcd_create_view("PI:", 8, 1, 0, 0);
+		lcd_create_view(tmp_string, 12, 1, 0, 0);
+		lcd_create_view(pty_text[radio.status.pty], 0, 2, 0, 0);
 		break;
 	}
-
+	if(radio.status.name_valid == VALID) {
+		lcd_create_view(radio.rds.name, 0, 0, 0, 0);
+	}
+	else {
+		radio_freq_to_string(tmp_string, radio.station_freq);
+		lcd_create_view(tmp_string, 0, 0, 0, 0);
+		lcd_create_view("MHz", 5, 0, 0, 0); //TODO add this to a String table
+	}
 	time_to_str(tmp_string);
-	lcd_create_view("\6", 9, 0, 0, 0); //TODO \6 add this to lcd symbols
-	lcd_create_view(tmp_string,  10, 0, 0, 0);
+	lcd_create_view("\6", 10, 0, 0, 0); //TODO \6 add this to lcd symbols
+	//lcd_create_view(tmp_string,  10, 0, 0, 0);
+	lcd_create_view(tmp_string,  11, 0, 0, 1);
 
 	//TODO new radio handler which controll all for radio time and interupt based.
 	return 0;
 }
 
-uint8_t radio_freq_to_string(char *str, uint16_t freq) {
+uint8_t radio_freq_to_string(char *str, uint16_t freq)
+{
 	uint8_t count = 0;
 	freq /= 10;
 	str[0] = ' ';
@@ -185,13 +197,17 @@ uint8_t radio_freq_to_string(char *str, uint16_t freq) {
 	return 0;
 }
 
-uint8_t radio_value_to_string(char *str, uint16_t value, uint8_t size) {
+uint8_t radio_value_to_string(char *str, uint16_t value, uint8_t size, uint8_t base)
+{
 	str[size] = 0;
 	str += size - 1;
 	while (size > 0) {
 		if (value != 0) {
-			*str = value % 10 + '0';
-			value /= 10;
+			*str = value % base + '0';
+			if (*str > '9') {
+				*str += 'A' - '9' - 1;
+			}
+			value /= base;
 		}
 		else {
 			*str = ' ';
@@ -202,7 +218,6 @@ uint8_t radio_value_to_string(char *str, uint16_t value, uint8_t size) {
 	}
 	return 0;
 }
-
 
 uint8_t radio_tune_freq(uint16_t freq)
 {
