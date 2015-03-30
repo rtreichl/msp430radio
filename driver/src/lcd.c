@@ -7,32 +7,39 @@
 
 #include <driver/lcd.h>
 
-uint8_t lcd_replace_special_letter(uint8_t chr);
+int8_t lcd_replace_special_letter(int8_t chr);
 
 uint8_t lcd_init(uint8_t contrast)
 {
+
+	// Activate PCA9534
+	PCA_ON_OFF_SEL &= (~PCA_ON_OFF_PIN);
+	PCA_ON_OFF_DIR |= PCA_ON_OFF_PIN;
+	PCA_ON_OFF_OUT |= PCA_ON_OFF_PIN;
+
+
 	// Go in default state
-	pca9534_config(0x7F);
+	//pca9534_config(0x7F);
 
-	//i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x03, 0x00);
+	//i2c_write_var(PCA9534_I2C_ADR, STOP, 2,0x03, 0x00);
 
-	_delay_ms(40);
+	_delay_ms(100);
 
 	// Send reset command
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 3, 0x01, 0x03, 0x13);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x03, 0x13);
 
 	_delay_ms(2);
 
 	// Send 2nd reset command
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 3, 0x01, 0x03, 0x13);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x03, 0x13);
 
 	_delay_us(30);
 
 	// Send 3rd reset command
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 3, 0x01, 0x03, 0x13);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x03, 0x13);
 
 	// Go in default data mode of display
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 3, 0x01, 0x02, 0x12);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x02, 0x12);
 
 	_delay_us(30);
 
@@ -63,10 +70,18 @@ uint8_t lcd_contrast(uint8_t contrast)
 uint8_t lcd_write_char(uint8_t symbol)
 {
 
-	symbol = lcd_replace_special_letter(symbol);
+	//symbol = lcd_replace_special_letter(symbol);
 
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 6,
-			0x01,
+	/*i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (((symbol>>4) & 0x0f) | 0x40));
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (((symbol>>4) & 0x0f) | 0x50));
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((symbol & 0x0f) | 0x40));
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((symbol & 0x0f) | 0x50));
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, 0x08);*/
+
+	_delay_us(200);
+
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 5,
+			0x00,
 			LCD_HIGHER_BYTE(symbol) | LCD_ENABLE_HIGH | LCD_DATA,
 			LCD_HIGHER_BYTE(symbol) | LCD_ENABLE_LOW  | LCD_DATA,
 			LCD_LOWER_BYTE(symbol)  | LCD_ENABLE_HIGH | LCD_DATA,
@@ -75,7 +90,7 @@ uint8_t lcd_write_char(uint8_t symbol)
 	return 0;
 }
 
-uint8_t lcd_write_string(const uint8_t *str, unsigned char n_bytes)
+uint8_t lcd_write_string(const int8_t *str, unsigned char n_bytes)
 {
 	register uint8_t chr;
 	uint8_t i = 0;
@@ -84,10 +99,39 @@ uint8_t lcd_write_string(const uint8_t *str, unsigned char n_bytes)
 	{
 		chr = *str++;
 
-		chr = lcd_replace_special_letter(chr);
+		switch(chr) {
+			case 0xF6:
+			case 0x97:
+				chr = 0x94; //ö
+				break;
+			case 0xFC:
+			case 0x99:
+				chr = 0x81; //ü
+				break;
+			case 0xE4:
+			case 0x91:
+				chr = 0x84; //ä
+				break;
+			case 0xDC:
+			case 0xD9:
+				chr = 0x9A; //Ü
+				break;
+			case 0xD6:
+			case 0xD7:
+				chr = 0x99; //Ö
+				break;
+			case 0xC4:
+			case 0xD1:
+				chr = 0x8E; //Ä
+				break;
+		}
 
-		i2c_write_var(PCA9534_I2C_ADR, STOP, 6,
-				0x01,
+		//chr = lcd_replace_special_letter(chr);
+
+		//i2c_write_var(PCA9534_I2C_ADR, STOP, 5, (((chr>>4) & 0x0f) | 0x40), (((chr>>4) & 0x0f) | 0x50), ((chr& 0x0f) | 0x40), ((chr & 0x0f) | 0x50));
+
+		i2c_write_var(PCA9534_I2C_ADR, STOP, 5,
+				0x00,
 				LCD_HIGHER_BYTE(chr) | LCD_ENABLE_HIGH | LCD_DATA,
 				LCD_HIGHER_BYTE(chr) | LCD_ENABLE_LOW  | LCD_DATA,
 				LCD_LOWER_BYTE(chr)  | LCD_ENABLE_HIGH | LCD_DATA,
@@ -99,36 +143,24 @@ uint8_t lcd_write_string(const uint8_t *str, unsigned char n_bytes)
 
 uint8_t lcd_command(uint8_t command)
 {
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_HIGH);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((command>>4) & 0x0f));
+	_delay_ms(1);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (((command>>4) & 0x0f) | 0x10));
+	_delay_ms(1);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (command & 0x0f));
+	_delay_ms(1);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((command & 0x0f) | 0x10));
+	_delay_ms(5);
+	/*i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_HIGH);
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_LOW);
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_HIGH);
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_LOW);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_LOWER_BYTE(command) | LCD_ENABLE_HIGH);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_LOWER_BYTE(command) | LCD_ENABLE_LOW);*/
 
 	return 0;
 }
 
-uint8_t lcd_replace_special_letter(uint8_t chr)
+int8_t lcd_replace_special_letter(int8_t chr)
 {
-	switch(chr) {
-		case 0x97:
-			chr = 0x94; //ö
-			break;
-		case 0x99:
-			chr = 0x81; //ü
-			break;
-		case 0x91:
-			chr = 0x84; //ä
-			break;
-		case 0xD9:
-			chr = 0x9A; //Ü
-			break;
-		case 0xD7:
-			chr = 0x99; //Ö
-			break;
-		case 0xD1:
-			chr = 0x8E; //Ä
-			break;
-	}
 	return chr;
 }
 
@@ -274,9 +306,9 @@ uint8_t lcd_generatebargraph()
 	return 0;
 }
 
-uint8_t lcd_create_view(const uint8_t *str, uint8_t x, uint8_t y, uint8_t flush)
+uint8_t lcd_create_view(const int8_t *str, uint8_t x, uint8_t y, uint8_t flush)
 {
-	static uint8_t lcd_view[49];
+	volatile static int8_t lcd_view[49];
 
 	uint8_t	i,
 			pos;
@@ -316,7 +348,7 @@ uint8_t lcd_create_view(const uint8_t *str, uint8_t x, uint8_t y, uint8_t flush)
 	/* Init lcd_view with blanks */
 	if(flush == 2) {
 		for(i = 0; i < 48; i++) {
-			lcd_view[i] = ' ';
+			lcd_view[i] = 0x20;
 		}
 		lcd_view[48] = 0;
 		lcd_set_courser(0,1);
