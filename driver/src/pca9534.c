@@ -9,7 +9,7 @@
 
 uint8_t	pca9534_output(uint8_t  byte)
 {
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, OUTPUT, byte);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, OUTP, byte);
 	return 0;
 }
 uint8_t pca9534_config(uint8_t config)
@@ -20,7 +20,7 @@ uint8_t pca9534_config(uint8_t config)
 uint8_t pca9534_input()
 {
 	uint8_t input;
-	i2c_write_var(PCA9534_I2C_ADR, REPT, 1, INPUT);
+	i2c_write_var(PCA9534_I2C_ADR, REPT, 1, IN);
 	i2c_read(PCA9534_I2C_ADR, STOP, 1, &input);
 	return input;
 }
