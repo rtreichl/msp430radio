@@ -16,11 +16,27 @@
  * A further problem is the msp430 has a very low ram, so if many functions saving many variables during calculation.
  * Better implemention would be a not a multitheread system, only a single thread system and minimize waitings.
  */
+#include <system/handler.h>
 
+#define	TIME_SECOND	1000
+#define ENCODER_TAST_REFRESH	10
 
 void handler (void)
 {
+	//TODO collect all function for timer based and calling functions
 	while(1) {
+		if(timer_count[0] >= TIME_SECOND) {
+			timer_count[0] -= TIME_SECOND;
+			//call time_update();
+		}
+		if(timer_count[1] >= ENCODER_TAST_REFRESH) {
+			timer_count[1] -= ENCODER_TAST_REFRESH;
+			//call encoder_interrupt2();
+		}
+		/*if(encoder_2 != 0 || encoder_1 != 0 || encoder_1_button != 'f' || encoder_2_button != 'f') {
+			call menu_handler
+		}
+		 */
 		//TODO check for rds interrupt and go on further functions
 		//TODO call all half second or on specified input aciton menu function
 		//TODO do all 0.1 messuarments on a valid channel
