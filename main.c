@@ -28,30 +28,37 @@
 #include "driver/i2c.h"
 #include <driver/si4735.h>
 #include <driver/pca9530.h>
-#include "MSP430G2553_Clock_Timer.h"
 //#include "AudioSwitch.h"
 #include <driver/tpa2016d2.h>
 #include <driver/lcd.h>
 #include <driver/encoder.h>
-#include "Timer.h"
+#include <driver/timer.h>
 #include "Menu.h"
+#include <menu/menu.h>
+#include <system/radio.h>
+#include <driver/timer.h>
+
+#define AMPLIFIER_GAIN 15
 
 volatile unsigned char sekunde = 0;
 volatile unsigned char posrt = 0;
 volatile unsigned char sec = 240;
 
+extern volatile unsigned char encoder_1_button, encoder_2_button, sekunde, sec , posrt;
 
 int main (void)
 {
-	//while(1);
-	Clock_INIT2();
+	basic_clock_init();
+	timer_init();
 	i2c_init (400,10);
-	WDTCTL = WDT_ADLY_250;                  // WDT 250ms, ACLK, interval timer
-	IE1 |= WDTIE;							//WDT Interupt Enable
+	WDTCTL = WDTPW + WDTHOLD;
+
+	//WDTCTL = WDT_ARST_1000;                  // WDT 250ms, ACLK, interval timer
+	//IE1 |= WDTIE;							//WDT Interupt Enable
 	//_EINT();
 	//while(1);
 	//Warte bis alles mit Spannung versorgt ist und Empfangsbereit ist
-	_delay_ms(250);
+	_delay_ms(100);
 
 	const PCA9530 config = {
 		76,
@@ -68,11 +75,7 @@ int main (void)
 
 	radio_brightness(90);
 
-	lcd_generatebargraph();				//Gernarte GCCR Symbole
-
-	//i2c_lcd_write_char('x');
-
-	lcd_create_view(0,0, 0, 2);		//Clear Display
+	//Clear Display
 
 	//i2c_lcd_write_char('x');
 
@@ -99,9 +102,16 @@ int main (void)
 	Encoder_2_init();
 	Encoder_Timer_init();
 
+	int8_t en_counter2;
+
+
 	while(1)
 	{
-	  menu();
+		//menu();
+	  en_counter2 +=  Encoder_2_get_count();
+	  menu_handler(&encoder_2_button, &en_counter2);
+	  //encoder_2_button = 'f';
+	  //en_counter2 = 0;
 	}
 
 }
@@ -133,5 +143,5 @@ __interrupt void tim1(void){}
 __interrupt void adc(void){}
 #pragma vector=COMPARATORA_VECTOR
 __interrupt void comp(void){}
-#pragma vector=TIMER1_A0_VECTOR
-__interrupt void Timer_A(void){}
+//#pragma vector=TIMER1_A0_VECTOR
+//__interrupt void Timer_A(void){}
