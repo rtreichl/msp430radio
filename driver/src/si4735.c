@@ -173,7 +173,7 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 	SI_EN_DIR |= SI_EN_PIN;
 
 	SI_RST_OUT &= ~SI_RST_PIN;
-	_delay_ten_us(1);
+	_delay_ten_us(10);
 	SI_RST_OUT |= SI_RST_PIN;
 	_delay_ten_us(10);
 
