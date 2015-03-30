@@ -10,9 +10,14 @@
  */
 #include <driver/si4735.h>
 #include <si4735_cmd_prop.h>
+#include <settings/radio_configuration.h>
+#include <driver/external_interrupthandler.h>
 
+volatile uint8_t si_interrupt;
 
-#define SI4735_volume 20 		// Maximalwert für die Lautstärke
+void si4735_get_interrupt(uint8_t int_number);
+
+#define SI4735_volume 5 		// Maximalwert für die Lautstärke
 #define SI4735_volume_start  20 // Startlautstärke
 
 void SI4735_Set_Volume (signed char Volume) //setzt Volume als die Lautstärke
@@ -141,12 +146,12 @@ uint8_t si4735_fm_rsq_status(uint8_t intack)
 	return resp[0];
 }
 
-uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack)
+uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack, uint8_t *resp)
 {
-	uint8_t resp[8];
 	FM_TUNE_STATUS_ARG1_STC arg1 = { .CANCEL = cancel, .INTACK = intack};
 
 	i2c_write_var(I2C_SI4735, REPT, 2, FM_TUNE_STATUS, arg1.byte);
+	si4735_get_interrupt(8);
 	i2c_read(I2C_SI4735, STOP, 8, resp);
 
 	return resp[0];
@@ -155,9 +160,10 @@ uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack)
 uint8_t si4735_fm_tune_freq(uint16_t frequency)
 {
 	INT_STATUS status;
-	FM_TUNE_FREQ_ARG1_STC arg1 = { .FREEZE = 0, .FAST = 0};
+	FM_TUNE_FREQ_ARG1_STC arg1 = { .FREEZE = 0, .FAST = 1};
 
-	i2c_write_var(I2C_SI4735, REPT, 5, FM_TUNE_FREQ, arg1.byte, HB(frequency), LB(frequency), 0x00);
+	i2c_write_var(I2C_SI4735, STOP, 5, FM_TUNE_FREQ, arg1.byte, HB(frequency), LB(frequency), 0x00);
+	si4735_get_interrupt(7);
 	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
 
 	return status.byte;
@@ -177,7 +183,7 @@ uint16_t si4735_get_property(uint16_t property, uint16_t *data)
 {
 	uint8_t resp[4];
 
-	i2c_write_var(I2C_SI4735, REPT, 6, SET_PROPERTY, 0x00, HB(property), LB(property));
+	i2c_write_var(I2C_SI4735, STOP, 6, SET_PROPERTY, 0x00, HB(property), LB(property));
 	i2c_read(I2C_SI4735, STOP, 4, resp);
 
 	*data = ((resp[2] << 8) + (resp[3]));
@@ -187,104 +193,198 @@ uint16_t si4735_get_property(uint16_t property, uint16_t *data)
 
 uint8_t si4735_set_property( uint16_t property, uint16_t data)
 {
-	INT_STATUS status;
-	i2c_write_var(I2C_SI4735, STOP, 5, SET_PROPERTY, 0x00, HB(property), LB(property), HB(data), LB(data));
-	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+	//INT_STATUS status;
+	i2c_write_var(I2C_SI4735, STOP, 6, SET_PROPERTY, 0x00, HB(property), LB(property), HB(data), LB(data));
+	si4735_get_interrupt(8);
 
-	return status.byte;
+	return 0;
 	//TODO wait until command is proceed.
 }
 
 uint8_t si4735_fm_seek_start(uint8_t up_down)	//Frequensuchlauf für höhere Frequenzen
 {
 	INT_STATUS status;
-	FM_SEEK_START_ARG1_STC arg1 = {.SEEKUP = up_down, .WRAP = 1};
-	//TODO mute audio output
-	i2c_write_var(I2C_SI4735, REPT, 2, FM_SEEK_START, arg1.byte);
+	FM_SEEK_START_ARG1_STC arg1 = {.SEEKUP = 0, .WRAP = 1};
+
+	arg1.SEEKUP = up_down;
+	i2c_write_var(I2C_SI4735, STOP, 2, FM_SEEK_START, arg1.byte);
+	si4735_get_interrupt(7);
 	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
-	//TODO wait until seek stopped on valid freqency
-	//TODO unmute audio output
+
 	return status.byte;
+}
+
+uint8_t si4735_configure_rds(FM_RDS_INT_SOURCE_STC rds_int, FM_RDS_CONFIG_STC rds_config, FM_RDS_INT_FIFO_COUNT_STC rds_fifo)
+{
+	si4735_set_property(FM_RDS_INT_SOURCE, rds_int.byte);
+
+	si4735_set_property(FM_RDS_INT_FIFO_COUNT, rds_fifo.byte);
+
+	si4735_set_property(FM_RDS_CONFIG, rds_config.byte);
+
+	return 0;
+}
+
+uint8_t si4735_configure_seeking(uint16_t top_freq, uint16_t bot_freq, uint8_t freq_spacing, uint8_t snr, uint8_t rssi)
+{
+	//TODO setup bottom and top frequency for seeking
+	si4735_set_property(FM_SEEK_BAND_BOTTOM, top_freq);
+
+	si4735_set_property(FM_SEEK_BAND_TOP, bot_freq);
+
+	//TODO implement a control on value for freqency space, snr and rssi only allowed values
+	si4735_set_property(FM_SEEK_FREQ_SPACING, freq_spacing);
+
+	si4735_set_property(FM_SEEK_TUNE_SNR_THRES, snr);
+
+	si4735_set_property(FM_SEEK_TUNE_RSSI_THRES, rssi);
+	return 0;
+}
+
+uint8_t si4735_wait_for_cts()
+{
+	//TODO implement a function which wait so long until CTS was send
+	return 0;
+}
+
+uint8_t si4735_wait_for_command_completed()
+{
+	//TODO Set timer to 10 ms only after this can be send next command
+	return 0;
 }
 
 void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 {
    //SEN
-	SI_EN_DIR = SI_EN_PIN;
-	SI_EN_OUT = SI_EN_PIN;
+	ext_interrupt_create(SI_INT_INT, si4735_interrupt);
+
+	SI_RST_DIR |= SI_RST_PIN;
+	SI_EN_DIR |= SI_EN_PIN;
+
+	SI_RST_OUT &= ~SI_RST_PIN;
+	_delay_us(10);
+	SI_RST_OUT |= SI_RST_PIN;
+	_delay_us(10);
+
+	SI_EN_OUT &= ~SI_EN_PIN;
 	//P3DIR |=   BIT4;
 	//P3OUT &=~  BIT4;
 
 	//P2DIR |= BIT4;
 
 	// Clear Reset
-
-	//SI_RST_DIR |= SI_RST_PIN;
-	//SI_RST_OUT &= ~SI_RST_PIN;
-	P2DIR |=  BIT3;
-	P2OUT &=~  BIT3;
-
-	//_delay_ms(1);
+	//P2DIR |=  BIT3;
+	//P2OUT &=~  BIT3;
 	// Set Reset
-	//SI_RST_OUT |= SI_RST_PIN;
-	P2OUT |=  BIT3;		// Ausgang auf low gesetzt
 
-	//_delay_ms(1);
+	GPO_IEN_STC gpo_ien = {0};
+	gpo_ien.STCIEN = 1;
+	gpo_ien.CTSIEN = 1;
 
-	//GPO2/INT
-	//SI_INT_REN |= SI_INT_PIN;
-	//SI_INT_OUT |= SI_INT_PIN;
-	P2REN |= BIT4;
-	P2OUT |= BIT4;
-
-	_delay_ms(100);
-
-	/* Power_up FM mode */
-	i2c_write_var(I2C_SI4735, STOP, 3,  0x01, 0xD0, 0x05);
-	while((P2IN & BIT4));
-	//_delay_ms(20);
-
-	//__delay_cycles(8000);
-
-	/*activate and setting refclk to 32.768 kHz */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x02, 0x01, 0x80, 0x00);
-	while((P2IN & BIT4));
-
-	/* setup prescaler to 1 */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x02, 0x02, 0x00, 0x01);
-	while((P2IN & BIT4));
-
-	/* setting deemphasis to 50µs standart for europe */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x11, 0x00, 0x00, 0x01);
-	while((P2IN & BIT4));
-
-	/* configure top range for seeking */
-	i2c_write_var(I2C_SI4735, STOP, 6,  0x12, 0x00, 0x14, 0x00, 0x22, 0x6A);
-	while((P2IN & BIT4));
-
-	/* configure bottom range for seeking */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x14, 0x01, 0x2A, 0x26);
-	while((P2IN & BIT4));
-
-	/* setup RDS interrupt sources */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x15, 0x00, 0x00, 0x01);
-	while((P2IN & BIT4));
-
-	/* setup RDS FIFO count */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x15, 0x01, 0x00, 0x04);
-	while((P2IN & BIT4));
-
-	/* config RDS */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x15, 0x02, 0xAA, 0x01);
-	while((P2IN & BIT4));
+	//P2OUT |=  BIT3;		// Ausgang auf low gesetzt
 
 	_delay_ms(1);
 
+	//GPO2/INT
+	SI_INT_REN |= SI_INT_PIN;
+	SI_INT_OUT |= SI_INT_PIN;
+	//ext_interrupt_enable(SI_INT_INT);
+	//SI_INT_IES |= SI_INT_PIN;
+	//SI_INT_IE |= SI_INT_PIN;
+	//P2REN |= BIT4;
+	//P2OUT |= BIT4;
+
+	_delay_ms(1);
+
+	ext_interrupt_enable(SI_INT_INT);
+
+	/* Power_up FM mode */
+	i2c_write_var(I2C_SI4735, STOP, 3,  0x01, 0xD0, 0x05);
+	si4735_get_interrupt(8);
+
+	/*activate and setting refclk to 32.768 kHz */
+	si4735_set_property(REFCLK_FREQ, 0x8000);
+
+	/* setup prescaler to 1 */
+	si4735_set_property(REFCLK_PRESCALE, 1);
+
+	/* setting deemphasis to 50µs standart for europe */
+	si4735_set_property(FM_DEEMPH, DEEMPH_EU);
+
+
+	const FM_RDS_INT_SOURCE_STC rds_int = {
+			.RDSRECV = 1,
+			.RDSSYNCLOST = 0,
+			.RDSSYNCFOUND = 0,
+			.RDSNEWBLOCKA = 0,
+			.RDSNEWBLOCKB = 0
+	};
+
+	const FM_RDS_INT_FIFO_COUNT_STC rds_fifo = {
+			.RDSFIFOCNT = 10,
+	};
+
+	const FM_RDS_CONFIG_STC rds_config = {
+			.BLETHA = BLETH_1_2_ERR,
+			.BLETHB = BLETH_1_2_ERR,
+			.BLETHC = BLETH_1_2_ERR,
+			.BLETHD = BLETH_1_2_ERR,
+			.RDSEN = 1
+	};
+
+	si4735_configure_rds(rds_int, rds_config, rds_fifo);
+
+	si4735_set_property(GPO_IEN, gpo_ien.byte);
+	//_delay_ms(10);
+
 	/* Tune to frequency 107,7 */
-	i2c_write_var(I2C_SI4735, STOP, 5, 0x20, 0x01, 0x2A, 0x12, 0x00);
-	while((P2IN & BIT4));
+	si4735_fm_tune_freq(RADIO_BOT_FREQ);
+
+	si4735_configure_seeking(RADIO_BOT_FREQ, RADIO_TOP_FREQ, RADIO_SEEK_FREQ_SPACE, RADIO_VALID_SNR, RADIO_VALID_RSSI);
+
+	_delay_ms(10);
+
+	si4735_fm_seek_start(1);
+
+	_delay_ms(2);
 
 	/* Enable radio audio output with standart value */
-	i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735_volume);
-	while((P2IN & BIT4));
+	si4735_set_property(RX_VOLUME, SI4735_volume);
+	//i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735_volume);
+
+	//uint8_t resp[8];
+
+
+
+	//si4735_fm_tune_status(0, 0, resp);
+
+	//si4735_get_interrupt(8);
+
+	ext_interrupt_disable(SI_INT_INT);
+	//while((SI_INT_IN & SI_INT_PIN));
+}
+
+void si4735_get_interrupt(uint8_t int_number)
+{
+	INT_STATUS status;
+	while(!si_interrupt);
+	si_interrupt = 0;
+	if(int_number < 8)
+	while(!si_interrupt);
+	si_interrupt = 0;
+	//_delay_us(10);
+	/*if(int_number < 8) {
+		//_delay_ms(10);
+		do {
+			i2c_write_var(I2C_SI4735, REPT, 1, 0x14);
+			i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+		}
+		while(status.byte == 0);
+	}*/
+	//return 1;
+}
+
+void si4735_interrupt(void)
+{
+	si_interrupt = 1;
 }

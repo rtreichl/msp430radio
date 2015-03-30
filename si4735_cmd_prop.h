@@ -70,10 +70,10 @@ typedef union fm_tune_freq_arg1 {
 typedef union fm_seek_start_arg1 {
 	uint8_t byte;
 	struct {
-		uint8_t :4;
-		uint8_t SEEKUP:1;
-		uint8_t WRAP:1;
 		uint8_t :2;
+		uint8_t WRAP:1;
+		uint8_t SEEKUP:1;
+		uint8_t :4;
 	};
 } FM_SEEK_START_ARG1_STC;
 
@@ -317,18 +317,18 @@ typedef union gpo_ien {
 	uint16_t byte;
 	uint8_t  bytes[2];
 	struct {
-		uint16_t:4;				///< Reserved
-		uint16_t RSQREP:1;
-		uint16_t RDSREP:1;
-		uint16_t :1;			///< Reserved
-		uint16_t STCREP:1;
-		uint16_t CTSIEN:1;
-		uint16_t ERRIEN:1;
-		uint16_t :2;			///< Reserved
-		uint16_t RSQIEN:1;
-		uint16_t RDSIEN:1;
-		uint16_t :1;			///< Reserved
 		uint16_t STCIEN:1;
+		uint16_t :1;			///< Reserved
+		uint16_t RDSIEN:1;
+		uint16_t RSQIEN:1;
+		uint16_t :2;			///< Reserved
+		uint16_t ERRIEN:1;
+		uint16_t CTSIEN:1;
+		uint16_t STCREP:1;
+		uint16_t :1;			///< Reserved
+		uint16_t RDSREP:1;
+		uint16_t RSQREP:1;
+		uint16_t:4;				///< Reserved
 	};
 } GPO_IEN_STC;
 
@@ -699,10 +699,10 @@ typedef union fm_soft_mute_atk_rate {
 } FM_SOFT_MUTE_ATK_RATE_STC;
 
 /* Property 0x1400. FM_SEEK_BAND_BOTTOM */
-#define FMSKFREQL	0x1400
+#define FM_SEEK_BAND_BOTTOM	0x1400
 
 /* Property 0x1401. FM_SEEK_BAND_TOP */
-#define FMSKFREQH	0x1401
+#define FM_SEEK_BAND_TOP	0x1401
 
 /* Property 0x1402. FM_SEEK_FREQ_SPACING */
 #define FM_SEEK_FREQ_SPACING		0x1402
@@ -751,13 +751,13 @@ typedef union fm_rds_int_source {
 	uint16_t byte;
 	uint8_t  bytes[2];
 	struct {
-		uint16_t:10;				///< Reserved
-		uint16_t RDSNEWBLOCKB:1;
-		uint16_t RDSNEWBLOCKA:1;
-		uint16_t:1;				///< Reserved
-		uint16_t RDSSYNCFOUND:1;
-		uint16_t RDSSYNCLOST:1;
 		uint16_t RDSRECV:1;
+		uint16_t RDSSYNCLOST:1;
+		uint16_t RDSSYNCFOUND:1;
+		uint16_t:1;				///< Reserved
+		uint16_t RDSNEWBLOCKA:1;
+		uint16_t RDSNEWBLOCKB:1;
+		uint16_t:10;				///< Reserved
 	};
 } FM_RDS_INT_SOURCE_STC;
 
@@ -768,8 +768,8 @@ typedef union fm_rds_int_fifo_count {
 	uint16_t byte;
 	uint8_t  bytes[2];
 	struct {
-		uint16_t:8;				///< Reserved
 		uint16_t RDSFIFOCNT:8;
+		uint16_t:8;				///< Reserved
 	};
 } FM_RDS_INT_FIFO_COUNT_STC;
 
@@ -785,12 +785,12 @@ typedef union fm_rds_config {
 	uint16_t byte;
 	uint8_t  bytes[2];
 	struct {
-		uint16_t BLETHA:2;
-		uint16_t BLETHB:2;
-		uint16_t BLETHC:2;
-		uint16_t BLETHD:2;
-		uint16_t:7;				///< Reserved
 		uint16_t RDSEN:1;
+		uint16_t:7;				///< Reserved
+		uint16_t BLETHD:2;
+		uint16_t BLETHC:2;
+		uint16_t BLETHB:2;
+		uint16_t BLETHA:2;
 	};
 } FM_RDS_CONFIG_STC;
 

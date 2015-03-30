@@ -55,5 +55,10 @@
 
 	void SI4735_Fm_Tune_Freq_2 (unsigned int Frequenz);
 
+	void si4735_interrupt(void);
+
+	uint8_t si4735_configure_seeking(uint16_t top_freq, uint16_t bot_freq, uint8_t freq_spacing, uint8_t snr, uint8_t rssi);
+
+	uint8_t si4735_set_property( uint16_t property, uint16_t data);
 
 #endif /* SI4735_H_ */
