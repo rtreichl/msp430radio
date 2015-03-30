@@ -11,6 +11,7 @@
 #include <msp430.h>
 #include <stdint.h>
 #include <driver/i2c.h>
+#include <settings/radio_pin_mapping.h>
 #include "Timer.h"
 
 #define I2C_AUDIO_AMP			0x58

@@ -9,11 +9,11 @@
 void Amplifier_init(uint8_t Start_Mode, int8_t Start_Gain)
 {
 	// Enable Amplifier by pulling SDZ high
-	AUDIO_SHUT_DOWN_DDR |= AUDIO_SHUT_DOWN_PIN;
-	AUDIO_SHUT_DOWN_PORT|= AUDIO_SHUT_DOWN_PIN;
+	AMP_SHUTDOWN_DIR |= AMP_SHUTDOWN_PIN;
+	AMP_SHUTDOWN_OUT |= AMP_SHUTDOWN_PIN;
 
 	// Wait some time before configure Amplifier
-	_delay_us(500);
+	_delay_ms(5);
 
 
 	// Enable Amplifier with R/L speaker enabled
