@@ -38,7 +38,7 @@ void menu(void)
 	static char delay_vol = 0,delay_freq = 0;
 	static char s_time[7] = "\6  :  ", s_date[9] = "01.01.14";
 	static char init = 0, set = 0, radio_on = 1;
-	static uint8_t display_mode = 0;
+	static uint8_t display_mode = 2;
 	static uint8_t counter_sum = 0;
 	uint8_t flush = 0;
 	char rsq[4];
@@ -131,7 +131,7 @@ void menu(void)
 				encoder_2_button = BUTTON_FREE;
 			}
 			break;
-		case 1:																										//Speichern
+		case 3:																										//Speichern
 			en_counter2 = check_for_out_of_range(en_counter2, 15);
 			en_counter2 = en_counter2 % 15;																			//Auf 15 Werte begrenzen(Anzahl der Speicherplätze)
 			if (encoder_2_button == BUTTON_PRESS_SHORT)
@@ -144,9 +144,24 @@ void menu(void)
 				encoder_2_button = BUTTON_FREE;
 			}
 			break;
+		case 1:
+			act_freq = (radio_seeking(1)/10 - 875 +1);
+			//(875 + (char)(act_freq-1))*10
+			Radio_States |= (1<<15);
+			strncpy(Akt_Radio_Text, "Radio Text", 64);
+			counter2_zero_lvl = MAX_ZERO_LVL;																	//Wieder auf den Haupt-
+			counter2_first_lvl = MAX_FIRST_LVL;																	//bildschirm kommen
+			break;
+		case 2:
+			act_freq = (radio_seeking(0)/10 - 875 +1);
+			Radio_States |= (1<<15);
+			strncpy(Akt_Radio_Text, "Radio Text", 64);
+			counter2_zero_lvl = MAX_ZERO_LVL;																	//Wieder auf den Haupt-
+			counter2_first_lvl = MAX_FIRST_LVL;
+			break;
 		default:
-			en_counter2 = check_for_out_of_range(en_counter2, 3);
-			en_counter2 = en_counter2 % 3;																			//Auf 3 Werte begrenzen(Senderliste,Speichern,Return)
+			en_counter2 = check_for_out_of_range(en_counter2, 6);
+			en_counter2 = en_counter2 % 6;																			//Auf 3 Werte begrenzen(Senderliste,Speichern,Return)
 			if (encoder_2_button == BUTTON_PRESS_SHORT)
 			{
 				counter2_first_lvl = en_counter2;																	//Encoderwert für erste ebene ermitteln
@@ -510,10 +525,19 @@ void menu(void)
 			default:
 				//Seeking function
 				//Auto search function
-				lcd_create_view("Senderliste", 1, 0, 0);
-				lcd_create_view("Speichern", 1, 1, 0);
-				lcd_create_view("Return", 1, 2, 0);
-				lcd_create_view("~", 0, en_counter2, 0);
+				if (en_counter2 < 3)																				// wenn einer der ersten drei elemente ausgewählt ist
+				{
+					lcd_create_view("Senderliste", 1, 0, 0);
+					lcd_create_view("Suche Aufwärts", 1, 1, 0);
+					lcd_create_view("Suche Abwärts", 1, 2, 0);
+					lcd_create_view("~", 0, en_counter2, 0);
+				}
+				else {
+					lcd_create_view("Sendersuchlauf", 1, 0, 0);
+					lcd_create_view("Sender Speichern", 1, 1, 0);
+					lcd_create_view("Return", 1, 2, 0);
+					lcd_create_view("~", 0, en_counter2-3, 0);
+				}
 			}
 			break;
 		default:																									//auf Frequenzänderung reagieren
