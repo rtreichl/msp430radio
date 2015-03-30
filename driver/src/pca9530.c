@@ -86,7 +86,7 @@ uint8_t pca9530_read_input()
 	return input;
 }
 
-uint8_t pca9530_init( PCA9530 *config)
+uint8_t pca9530_init(const PCA9530 *config)
 {
 	PWM_RST_DIR |= PWM_RST_PIN;
 	PWM_RST_OUT |= PWM_RST_PIN;
