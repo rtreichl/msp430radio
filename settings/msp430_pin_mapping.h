@@ -4,8 +4,8 @@
 #define EN1_B			1.4
 #define EN1_TAST		1.5
 #define SI_RST			3.1
-#define SI_INT			3.0
-#define SI_EN			3.2
+#define SI_INT			2.3
+#define SI_EN			3.0
 #define EN2_A			2.0
 #define EN2_B			2.1
 #define EN2_TAST		2.2
