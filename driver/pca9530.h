@@ -66,12 +66,13 @@ typedef struct pca9530 {
 	uint8_t pwm0;
 	uint8_t freq1;
 	uint8_t pwm1;
-	PCA9530_SEL led_sel;
+	enum PCA9530_LED_STATE led0;
+	enum PCA9530_LED_STATE led1;
 } PCA9530;
 
 uint8_t	pca9530_set_freq(enum PCA9530_FREQ freq_sel, uint8_t  freq);
 uint8_t pca9530_set_pwm(enum PCA9530_PWM pwm_sel, uint8_t pwm);
-uint8_t pca9530_config_led(enum PCA9530_LED_STATE led_state);
+uint8_t pca9530_config_led(enum PCA9530_LED_STATE led0_state, enum PCA9530_LED_STATE led1_state);
 uint8_t pca9530_read_input();
 uint8_t pca9530_init( PCA9530 *config);
 
