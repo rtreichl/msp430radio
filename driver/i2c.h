@@ -54,7 +54,7 @@ enum I2C_CRTL_STATS {
  *  @return error
 */
 
-uint8_t i2c_init (uint8_t smclk_freq, uint8_t i2c_freq);
+uint8_t i2c_init (uint16_t smclk_freq, uint16_t i2c_freq);
 
 /**
  *  @brief Transmits I2C commands with a variable length to a I2C slave.

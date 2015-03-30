@@ -16,12 +16,13 @@ struct I2C_CTRL {
 	uint8_t RxByteCtr;			///< Number of to be recieving bytes.
 } i2c = { .PTxData = 0, .status = IDLE, .TxByteRes = 0 };
 
+
 /**
  * @var *PTxData Pointer to reserved data for var args.
  */
 uint8_t *PTxData = 0 ;
 
-uint8_t i2c_init (uint8_t smclk_freq, uint8_t i2c_freq)
+uint8_t i2c_init (uint16_t smclk_freq, uint16_t i2c_freq)
 {
 	/* Reset USCI_B0 */
 	UCB0CTL1 |= UCSWRST;
@@ -37,8 +38,10 @@ uint8_t i2c_init (uint8_t smclk_freq, uint8_t i2c_freq)
 	UCB0CTL1 = UCSSEL_2 + UCSWRST;
 
 	/* Calculate prescaler for USCI_B0 based on SMCLK freq and I2C freq  */
-	UCB0BR0 = 0x00FF & (uint16_t)smclk_freq/i2c_freq;
-	UCB0BR1 = (0xFF00 & (uint16_t)smclk_freq/i2c_freq) >> 8;
+	/*UCB0BR0 = 0x00FF & (uint16_t)smclk_freq/i2c_freq;
+	UCB0BR1 = (0xFF00 & (uint16_t)smclk_freq/i2c_freq) >> 8;*/
+
+	UCB0BR0 = 0x24;
 
 	/* Enable NACK interrupt */
 	UCB0I2CIE = UCNACKIE;
@@ -78,7 +81,7 @@ uint8_t i2c_write_var (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_arg
 	 */
 	va_start(ap, n_args);
 	for(i = 0; i < n_args; i++)
-		i2c.PTxData[i] = va_arg(ap, uint8_t);
+		PTxData[i] = va_arg(ap, uint8_t);
 	va_end(ap);
 
 	return i2c_write_arr(addr, rept_start, n_args, PTxData);
