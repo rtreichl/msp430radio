@@ -4,9 +4,8 @@
  *  Created on: 11.03.2015
  *      Author: Richard
  */
-#include <msp430.h>
-#include <stdint.h>
-#include <settings/radio_pin_mapping.h>
+
+#include <driver/external_interrupthandler.h>
 
 #define ENCODER_1
 #define ENCODER_2
@@ -19,7 +18,7 @@ uint8_t ext_interrupt_create(uint8_t int_number, void (*ptrfunction)())
 	if(int_number > 15) {
 		return 0xFF;
 	}
-	ext_int_handler[int_number] = ptrfunction;
+	ext_int_handler[int_number] = (ptrfunc)ptrfunction;
 
 	return 0;
 }
