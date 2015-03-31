@@ -65,13 +65,16 @@ uint8_t radio_contrast(uint8_t contrast)
 	return 0;
 }
 
-uint8_t radio_volume(uint8_t volume)
+uint8_t radio_volume(int8_t *volume)
 {
-	if(volume > 100) {
-		return 0xFF;
+	uint8_t tmp_volume;
+	if(*volume > 100) {
+		*volume = 100;
+	} else if(*volume < 0) {
+		*volume = 0;
 	}
-	//volume = ((uint16_t)volume * SI4735_VOLUME_MAX) / 100;
-	si4735_set_property(RX_VOLUME, volume);
+	tmp_volume = ((int16_t)(*volume) * SI4735_VOLUME_MAX) / 100;
+	si4735_set_property(RX_VOLUME, tmp_volume);
 	_delay_ms(10);
 	return 0;
 }
@@ -84,10 +87,12 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)
 	if(*encoder_left_count != 0) {
 		if(*encoder_left_count < 0 && radio.volume > 0) {
 			radio.volume--;
+			radio_volume(&(radio.volume));
 			*encoder_left_count = 0;
 		}
 		else if(*encoder_left_count > 0 && radio.volume < 100) {
 			radio.volume++;
+			radio_volume(&(radio.volume));
 			*encoder_left_count = 0;
 		}
 	}
