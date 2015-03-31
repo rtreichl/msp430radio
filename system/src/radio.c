@@ -81,8 +81,8 @@ uint8_t radio_volume(int8_t *volume)
 
 uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)
 {
-	uint8_t encoder_right_button;
-	int8_t encoder_right_count;
+	uint8_t encoder_right_button = BUTTON_FREE;
+	int8_t encoder_right_count = 0;
 
 	if(*encoder_left_count != 0) {
 		if(*encoder_left_count < 0 && radio.volume > 0) {
