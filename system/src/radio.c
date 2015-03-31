@@ -197,10 +197,19 @@ uint8_t radio_freq_to_string(char *str, uint16_t freq)
 	return 0;
 }
 
-uint8_t radio_value_to_string(char *str, uint16_t value, uint8_t size, uint8_t base)
+uint8_t radio_value_to_string(char *str, int16_t value, uint8_t size, uint8_t base)
 {
+	uint8_t tmp_sign = 0;
 	str[size] = 0;
 	str += size - 1;
+	if(value == 0) {
+		*str = '0';
+		str--;
+	} else if (value < 0) {
+		tmp_sign = 1;
+		value = (uint16_t)(-1 * value);
+	}
+
 	while (size > 0) {
 		if (value != 0) {
 			*str = value % base + '0';
@@ -210,7 +219,12 @@ uint8_t radio_value_to_string(char *str, uint16_t value, uint8_t size, uint8_t b
 			value /= base;
 		}
 		else {
-			*str = ' ';
+			if(tmp_sign == 1) {
+				*str = '-';
+				tmp_sign = 0;
+			} else {
+				*str = ' ';
+			}
 		}
 		str--;
 		size--;

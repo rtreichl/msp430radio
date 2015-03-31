@@ -75,7 +75,7 @@ uint8_t radio_volume(uint8_t volume);
 uint16_t radio_seeking(uint8_t up_down);
 uint8_t radio_tune_freq(uint16_t freq);
 uint8_t radio_freq_to_string(char *str, uint16_t freq);
-uint8_t radio_value_to_string(char *str, uint16_t value, uint8_t size, uint8_t base);
+uint8_t radio_value_to_string(char *str, int16_t value, uint8_t size, uint8_t base);
 uint8_t radio_store_station(uint16_t freq, int8_t *name, uint8_t pos);
 
 #endif /* RADIO_NEW_H_ */
