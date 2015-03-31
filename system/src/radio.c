@@ -40,6 +40,7 @@ uint8_t radio_init()
 	lcd_create_view(Start_up_3, Shift_left_3, 2, 0, 1);
 	Amplifier_init(POP,AMPLIFIER_GAIN);
 	SI4735_INIT();
+	radio_volume(&(radio.volume));
 	Encoder_1_init();
 	Encoder_2_init();
 	return 0;

@@ -253,7 +253,7 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 	_delay_ms(2);
 
 	/* Enable radio audio output with standart value */
-	si4735_set_property(RX_VOLUME, SI4735_volume);
+	//si4735_set_property(RX_VOLUME, SI4735_volume);
 	//i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735_volume);
 
 	//uint8_t resp[8];
