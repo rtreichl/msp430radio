@@ -27,7 +27,7 @@ uint8_t radio_init()
 	i2c_init (400,10);
 	radio.station_freq = 10770;
 	radio.status.audio_mute = 0;
-	radio.status.display_mode = 2;
+	radio.status.display_mode = 0;
 	radio.volume = 30;
 	radio.brightness = 80;
 	radio.contrast = 4;
