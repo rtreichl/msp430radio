@@ -130,23 +130,6 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)
 	radio_display_handler();
 	return 0;
 }
-/*
-
-	else {
-				uint8_t temp[8];
-				get_signal_qual(temp);
-				//sprintf(rsq, "%d", temp[3] & 0x7F);
-				//lcd_create_view(rsq, 8, 1, 0);
-				sprintf(rsq, "  %ddBuV", temp[4]);
-				lcd_create_view(rsq, 8 + (8 - strlen(rsq)), 1, 0);
-				sprintf(rsq, "%ddB", temp[5]);
-				lcd_create_view(rsq, (4 - strlen(rsq)), 2, 0);
-				sprintf(rsq, "%d%c", temp[6], 0x25);
-				lcd_create_view(rsq, 5 + (4 - strlen(rsq)), 2, 0);
-				sprintf(rsq, "%dkHz", (int8_t)temp[7]);
-				lcd_create_view(rsq, 11 + (5 - strlen(rsq)), 2, 0);
-			}
-*/
 
 #define RADIO_TEXT_SCROLL 500
 
