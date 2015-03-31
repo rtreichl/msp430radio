@@ -315,7 +315,7 @@ MENU_ENTRY view_return_entry = {
 	0,
 	0,
 	0,
-	&audio_entry,
+	&brightness_entry,
 	return_text,
 	0,
 };
