@@ -8,12 +8,6 @@
  *   Kommentar: Tasterabfrage verbessern
  *   			schleifen durch Timer ersetzen
  */
-#define Start_up_1 		"HS-Rosenheim"
-#define	Shift_left_1	2
-#define	Start_up_2		"FM/AM  Radio"
-#define	Shift_left_2	2
-#define Start_up_3		"Version 1.00"
-#define	Shift_left_3	2
 
 #define I2C_LCD_BAUDRATE			40
 
@@ -38,9 +32,8 @@
 #include <system/radio.h>
 #include <driver/timer.h>
 
-#define AMPLIFIER_GAIN 15
-
 #define ENCODER_TAST_REFRESH	10
+#define	TIME_SECOND	50
 
 volatile unsigned char sekunde = 0;
 volatile unsigned char posrt = 0;
@@ -50,74 +43,26 @@ extern volatile unsigned char encoder_1_button, encoder_2_button, sekunde, sec ,
 
 int main (void)
 {
-	basic_clock_init();
-	timer_init();
-	i2c_init (400,10);
 	WDTCTL = WDTPW + WDTHOLD;
-
-	//WDTCTL = WDT_ARST_1000;                  // WDT 250ms, ACLK, interval timer
-	//IE1 |= WDTIE;							//WDT Interupt Enable
-	//_EINT();
-	//while(1);
-	//Warte bis alles mit Spannung versorgt ist und Empfangsbereit ist
-	_delay_ms(100);
-
-	const PCA9530 config = {
-		76,
-		0,
-		1,
-		127,
-		PWM0_RATE,
-		PWM1_RATE
-	};
-
-	pca9530_init(&config);
-
-	lcd_init(4);							//LCD Init
-
-	radio_brightness(90);
-
-	//Clear Display
-
-	//i2c_lcd_write_char('x');
-
-	lcd_create_view(Start_up_1, Shift_left_1, 0, 0, 0);
-	lcd_create_view(Start_up_2, Shift_left_2, 1, 0, 0);
-	lcd_create_view(Start_up_3, Shift_left_3, 2, 0, 1);
-	//i2c_lcd_brightnes(511);
-	//Setze den Input auf den SI4735
-	//AudioSwitch(RADIO_LEFT,RADIO_RIGHT);
-
-	// Initialisiert den Radiochip
-	SI4735_INIT();
-
-	//Schalte den Verstärker mit Default Werten ein
-	Amplifier_init(POP,AMPLIFIER_GAIN);
-
-	//SI4735_Set_Volume(20);
-
-	_delay_ms(30);
-
-	//SI4735_Fm_Tune_Status();
-
-	Encoder_1_init();
-	Encoder_2_init();
-	Encoder_Timer_init();
-
+	radio_init();
 	int8_t en_counter2;
-
+	time_set(18,29,27,2,16,0);
 
 	while(1)
 	{
 		//menu();
-	  en_counter2 +=  Encoder_2_get_count();
-	  menu_handler(&encoder_2_button, &en_counter2);
-	  if(timer_count[1] >= ENCODER_TAST_REFRESH) {
-	  	timer_count[1] -= ENCODER_TAST_REFRESH;
-	  	encoder_interrupt2();
-	  }
-	  //encoder_2_button = 'f';
-	  //en_counter2 = 0;
+		en_counter2 +=  Encoder_2_get_count();
+		menu_handler(&encoder_2_button, &en_counter2);
+		if(timer_count[1] >= ENCODER_TAST_REFRESH) {
+		timer_count[1] -= ENCODER_TAST_REFRESH;
+		encoder_interrupt2();
+		}
+		if(timer_count[3] >= TIME_SECOND) {
+		timer_count[3] -= TIME_SECOND;
+		time_date_update();
+		}
+		//encoder_2_button = 'f';
+		//en_counter2 = 0;
 	}
 
 }

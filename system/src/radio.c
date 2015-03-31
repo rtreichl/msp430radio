@@ -9,16 +9,39 @@
 
 RADIO radio;
 
+#define AUDIO_MUTE 1
+
+const PCA9530 pca9530_config = {
+	76,
+	0,
+	1,
+	127,
+	PWM0_RATE,
+	PWM1_RATE
+};
+
 uint8_t radio_init()
 {
-	//load stored values from flash
-	//init lcd
-	//show start screen
-	//init si
-	//init amp
-	//init background lighting
-	//init encoder
-	//init time
+	basic_clock_init();
+	timer_init();
+	i2c_init (400,10);
+	radio.station_freq = 10770;
+	radio.status.audio_mute = 0;
+	radio.status.display_mode = 2;
+	radio.volume = 30;
+	radio.brightness = 80;
+	radio.contrast = 4;
+	//TODOload values from flash
+	pca9530_init(&pca9530_config);
+	radio_brightness(radio.brightness);
+	lcd_init(radio.contrast);
+	lcd_create_view(Start_up_1, Shift_left_1, 0, 0, 0);
+	lcd_create_view(Start_up_2, Shift_left_2, 1, 0, 0);
+	lcd_create_view(Start_up_3, Shift_left_3, 2, 0, 1);
+	Amplifier_init(POP,AMPLIFIER_GAIN);
+	SI4735_INIT();
+	Encoder_1_init();
+	Encoder_2_init();
 	return 0;
 }
 
@@ -126,12 +149,13 @@ uint8_t radio_display_handler(void)
 	char tmp_string[9];
 	switch(radio.status.display_mode) {
 	case RADIO_RDS_VIEW:
-		if(timer_count[2] == RADIO_TEXT_SCROLL) {
+		if(timer_count[2] >= RADIO_TEXT_SCROLL) {
+			timer_count[2] -= RADIO_TEXT_SCROLL;
 			if(radio.status.scroll_text < 15) {
-				lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text, 0);
+				//lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text, 0);
 			}
 			else {
-				lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
+				//lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
 			}
 			if(++radio.status.scroll_text >= 64) {
 				radio.status.scroll_text = 0;
@@ -142,11 +166,11 @@ uint8_t radio_display_handler(void)
 		break;
 	case RADIO_RSQ_VIEW:
 		radio_value_to_string(tmp_string, radio.rsq.rssi, 3, 10);
-		lcd_create_view(tmp_string, 8, 1, 0, 0);
-		lcd_create_view("dBuV", 11, 1, 0, 0);
+		lcd_create_view(tmp_string, 9, 1, 0, 0);
+		lcd_create_view("dBuV", 12, 1, 0, 0);
 		radio_value_to_string(tmp_string, radio.rsq.snr, 3, 10);
 		lcd_create_view(tmp_string, 0, 2, 0, 0);
-		lcd_create_view("dB", 3, 11, 0, 0);
+		lcd_create_view("dB", 3, 2, 0, 0);
 		radio_value_to_string(tmp_string, radio.rsq.multi, 3 ,10);
 		lcd_create_view(tmp_string, 6, 2, 0, 0);
 		lcd_create_view("%", 9, 2, 0, 0);
@@ -155,10 +179,10 @@ uint8_t radio_display_handler(void)
 		lcd_create_view("kHz", 13, 2, 0, 0);
 		break;
 	case RADIO_PIPTY_VIEW:
-		radio_value_to_string(tmp_string, radio.status.pi, 4, 16);
-		lcd_create_view("PI:", 8, 1, 0, 0);
+		radio_value_to_string(tmp_string, radio.rds.pi, 4, 16);
+		lcd_create_view("PI:", 9, 1, 0, 0);
 		lcd_create_view(tmp_string, 12, 1, 0, 0);
-		lcd_create_view(pty_text[radio.status.pty], 0, 2, 0, 0);
+		lcd_create_view(pty_text[radio.rds.pty], 0, 2, 0, 0);
 		break;
 	}
 	if(radio.status.name_valid == VALID) {
@@ -171,7 +195,11 @@ uint8_t radio_display_handler(void)
 	}
 	time_to_str(tmp_string);
 	lcd_create_view("\6", 10, 0, 0, 0); //TODO \6 add this to lcd symbols
-	//lcd_create_view(tmp_string,  10, 0, 0, 0);
+	if(radio.status.audio_mute == AUDIO_MUTE) {
+		lcd_create_view("\7÷", 0, 1, 0, 0);
+	} else {
+		lcd_create_view("\7û", 0, 1, 0, 0);	//Audio normal
+	}
 	lcd_create_view(tmp_string,  11, 0, 0, 1);
 
 	//TODO new radio handler which controll all for radio time and interupt based.
