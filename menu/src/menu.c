@@ -38,13 +38,14 @@ uint8_t menu_display()
 		else {
 			lcd_create_view(actuall_entry->parent->text, 0, 0, 0, 0);
 		}
-		lcd_create_view("~", 0, 1, 0, 0);
+		//lcd_create_view("~", 0, 1, 0, 0);
 		lcd_create_view(actuall_entry->text, 1, 1, 0, 0);
 		if (actuall_entry->next != 0) {
 			lcd_create_view(actuall_entry->next->text, 1, 2, 0, 0);
 		}
+		lcd_create_view("~", 0, 1, 0, 1);
 	}
-	lcd_create_view(0, 0, 0, 0, 1);
+
 	return 0;
 }
 
@@ -109,7 +110,7 @@ uint8_t menu_scroll(uint8_t value)
 	for(i = i; i <= 12; i++) {
 		lcd_create_view("\0", 1 + i, 2, 0, 0);
 	}
-	lcd_create_view("+", 14, 2, 0, 0);
+	lcd_create_view(" +", 14, 2, 0, 1);
 
 	return 0;
 }
