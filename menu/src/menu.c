@@ -67,15 +67,27 @@ uint8_t menu_function(uint8_t *encoder_button, int8_t *encoder_count)
 
 uint8_t menu_scroll_settings(uint8_t *encoder_button, int8_t *encoder_count)
 {
-	static uint8_t value = 0;
+	static int8_t value = 0;
 	if(value == 0) {
 		value = 23; //TODO load value from flash
 	}
-	menu_scroll(value);
-	if(*encoder_button == BUTTON_PRESS_FREE) {
-		//TODO store value to flash
+	if(*encoder_count > 0) {
+		value++;
+	} else if(*encoder_count < 0) {
+		value--;
+	}
+	if(value > 100) {
+		value = 100;
+	} else if (value < 0) {
 		value = 0;
-		return 0xFF;
+	}
+	*encoder_count = 0;
+	menu_scroll((value * 60) / 100);
+	if(*encoder_button == BUTTON_PRESS_SHORT) {
+		//TODO store value to flash
+		*encoder_button = BUTTON_FREE;
+		value = 0;
+		return 0xFD;
 	}
 	return 0;
 }
