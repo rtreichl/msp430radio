@@ -33,7 +33,7 @@
 #include <driver/timer.h>
 
 #define ENCODER_TAST_REFRESH	10
-#define	TIME_SECOND	50
+#define	TIME_SECOND	60000
 
 volatile unsigned char sekunde = 0;
 volatile unsigned char posrt = 0;
