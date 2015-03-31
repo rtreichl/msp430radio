@@ -1,0 +1,54 @@
+\hypertarget{_radio_8c}{}\section{Radio.\+c File Reference}
+\label{_radio_8c}\index{Radio.\+c@{Radio.\+c}}
+{\ttfamily \#include \char`\"{}Radio.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$driver/i2c.\+h$>$}\\*
+{\ttfamily \#include $<$driver/si4735.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Timer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Menu.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_radio_8c_a7d3450a025ce61ff8522b8a575d34a8f}{get\+\_\+rds\+\_\+data} (int $\ast$Radio\+\_\+\+States, char $\ast$Station\+\_\+\+Name, char $\ast$Radion\+\_\+\+Text)
+\item 
+uint8\+\_\+t \hyperlink{_radio_8c_ad78635732ebd8ebf68f659b9b31e9635}{get\+\_\+signal\+\_\+qual} (uint8\+\_\+t $\ast$stats)
+\item 
+uint8\+\_\+t \hyperlink{_radio_8c_ad4168f8a33d30a3526e416da5997baa9}{rds\+\_\+triggered} ()
+\item 
+void \hyperlink{_radio_8c_a33e5a772a8a82d668cc39ebfd4ba37a4}{rds\+\_\+group\+\_\+4\+A} (\hyperlink{_radio_8h_a81e0fb5b6d2d10818bd855ba8b948a14}{R\+D\+S} $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_radio_8c_a7d3450a025ce61ff8522b8a575d34a8f}{}\index{Radio.\+c@{Radio.\+c}!get\+\_\+rds\+\_\+data@{get\+\_\+rds\+\_\+data}}
+\index{get\+\_\+rds\+\_\+data@{get\+\_\+rds\+\_\+data}!Radio.\+c@{Radio.\+c}}
+\subsubsection[{get\+\_\+rds\+\_\+data}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+rds\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{Radio\+\_\+\+States, }
+\item[{char $\ast$}]{Station\+\_\+\+Name, }
+\item[{char $\ast$}]{Radion\+\_\+\+Text}
+\end{DoxyParamCaption}
+)}\label{_radio_8c_a7d3450a025ce61ff8522b8a575d34a8f}
+\hypertarget{_radio_8c_ad78635732ebd8ebf68f659b9b31e9635}{}\index{Radio.\+c@{Radio.\+c}!get\+\_\+signal\+\_\+qual@{get\+\_\+signal\+\_\+qual}}
+\index{get\+\_\+signal\+\_\+qual@{get\+\_\+signal\+\_\+qual}!Radio.\+c@{Radio.\+c}}
+\subsubsection[{get\+\_\+signal\+\_\+qual}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t get\+\_\+signal\+\_\+qual (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{stats}
+\end{DoxyParamCaption}
+)}\label{_radio_8c_ad78635732ebd8ebf68f659b9b31e9635}
+\hypertarget{_radio_8c_a33e5a772a8a82d668cc39ebfd4ba37a4}{}\index{Radio.\+c@{Radio.\+c}!rds\+\_\+group\+\_\+4\+A@{rds\+\_\+group\+\_\+4\+A}}
+\index{rds\+\_\+group\+\_\+4\+A@{rds\+\_\+group\+\_\+4\+A}!Radio.\+c@{Radio.\+c}}
+\subsubsection[{rds\+\_\+group\+\_\+4\+A}]{\setlength{\rightskip}{0pt plus 5cm}void rds\+\_\+group\+\_\+4\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf R\+D\+S} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{_radio_8c_a33e5a772a8a82d668cc39ebfd4ba37a4}
+\hypertarget{_radio_8c_ad4168f8a33d30a3526e416da5997baa9}{}\index{Radio.\+c@{Radio.\+c}!rds\+\_\+triggered@{rds\+\_\+triggered}}
+\index{rds\+\_\+triggered@{rds\+\_\+triggered}!Radio.\+c@{Radio.\+c}}
+\subsubsection[{rds\+\_\+triggered}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t rds\+\_\+triggered (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_radio_8c_ad4168f8a33d30a3526e416da5997baa9}

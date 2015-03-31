@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: settings/radio_configuration.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('radio__configuration_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">radio_configuration.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="radio__configuration_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RADIO_CONF_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RADIO_CONF_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="si4735__cmd__prop_8h.html">driver/include/si4735_cmd_prop.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/* Defines values for auto search and seek funktion */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a321c7ff1de8c8984c5e2f910fb93eb8d">    8</a></span>&#160;<span class="preprocessor">#define RADIO_VALID_SNR         10              //10dB</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a3d0abde431e04f57b0828a482d81204f">    9</a></span>&#160;<span class="preprocessor">#define RADIO_VALID_RSSI        20              //25dB�V</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a20ce0fa2e3fd92a34010d5cfca702fb3">   10</a></span>&#160;<span class="preprocessor">#define RADIO_BOT_FREQ          0x222E          //87,50 MHz</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a84521b00c701ae970f07d6fa4c65bf1e">   11</a></span>&#160;<span class="preprocessor">#define RADIO_TOP_FREQ          0x2A30          //108,00 MHz</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a28422425adfe6f62b8c5f0b8b2952ca9">   12</a></span>&#160;<span class="preprocessor">#define RADIO_SEEK_FREQ_SPACE   SKSPACE_10      //100 kHz</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#aa20dae62d62d88d3f2e3a394d92957b6">   13</a></span>&#160;<span class="preprocessor">#define RADIO_CALBC1            CALBC1_16MHZ    //16 MHz</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ad42e009112be3fa3698a34fe031fd800">   14</a></span>&#160;<span class="preprocessor">#define RADIO_CALDCO            CALDCO_16MHZ    //16 MHz</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a81989ef096e0274361f3ba2942cd2936">   15</a></span>&#160;<span class="preprocessor">#define RADIO_DCO_FREQ          16              //16 MHz</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a1f0dc0c3815b6ea709b43b43829e2a7e">   16</a></span>&#160;<span class="preprocessor">#define RADIO_LCD_REFRESCH      500             //500 ms</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a86ea4ccfbfa22c5c883e6106fbbac802">   17</a></span>&#160;<span class="preprocessor">#define RADIO_ENCODER_POLL      100             //100 ms</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a5ca80255b3ccba91ba52f515ddf6f0b0">   18</a></span>&#160;<span class="preprocessor">#define RADIO_MCLK              16              //16 MHz</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a454052574ad920650b805c96420c6a85">   19</a></span>&#160;<span class="preprocessor">#define RADIO_SCLK              2               //2 MHz</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* RADIO_CONF_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="si4735__cmd__prop_8h_html"><div class="ttname"><a href="si4735__cmd__prop_8h.html">si4735_cmd_prop.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_0c8fd76a6ec5a01c144012824d36fa80.html">settings</a></li><li class="navelem"><a class="el" href="radio__configuration_8h.html">radio_configuration.h</a></li>
+    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

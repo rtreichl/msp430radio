@@ -1,0 +1,68 @@
+.TH "radio_new.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+radio_new.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <driver/pca9530\&.h>\fP
+.br
+\fC#include <libs/log_exp_table\&.h>\fP
+.br
+\fC#include <driver/si4735\&.h>\fP
+.br
+\fC#include <si4735_cmd_prop\&.h>\fP
+.br
+\fC#include <driver/external_interrupthandler\&.h>\fP
+.br
+\fC#include <driver/lcd\&.h>\fP
+.br
+\fC#include <driver/flash\&.h>\fP
+.br
+\fC#include 'Timer\&.h'\fP
+.br
+\fC#include <settings/radio_configuration\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBradio_brightness\fP (uint8_t brightness)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_contrast\fP (uint8_t contrast)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_volume\fP (uint8_t volume)"
+.br
+.ti -1c
+.RI "uint16_t \fBradio_seeking\fP (uint8_t up_down)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_tune_freq\fP (uint16_t freq)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_store_station\fP (uint16_t freq, int8_t *name, uint8_t pos)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t radio_brightness (uint8_t brightness)"
+
+.SS "uint8_t radio_contrast (uint8_t contrast)"
+
+.SS "uint16_t radio_seeking (uint8_t up_down)"
+
+.SS "uint8_t radio_store_station (uint16_t freq, int8_t * name, uint8_t pos)"
+
+.SS "uint8_t radio_tune_freq (uint16_t freq)"
+
+.SS "uint8_t radio_volume (uint8_t volume)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

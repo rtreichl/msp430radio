@@ -1,0 +1,112 @@
+.TH "driver/tpa2016d2.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/tpa2016d2.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <msp430\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <driver/i2c\&.h>\fP
+.br
+\fC#include <settings/radio_pin_mapping\&.h>\fP
+.br
+\fC#include 'Timer\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2C_AUDIO_AMP\fP   0x58"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SHUT_DOWN_PORT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SHUT_DOWN_PIN\fP   BIT2"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SHUT_DOWN_DDR\fP   P3DIR"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBEQUALIZER\fP { \fBPOP\fP = 0, \fBCLASSIC\fP, \fBJAZZ\fP, \fBRAP_HIP_HOP\fP, \fBROCK\fP, \fBNEWS_VOICE\fP }"
+.br
+.ti -1c
+.RI "enum \fBAMPLIFIER\fP { \fBRELEASE\fP = 0, \fBSHUTDOWN\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBAmplifier_init\fP (uint8_t Start_Mode, int8_t Start_Gain)"
+.br
+.ti -1c
+.RI "void \fBAmplifier_Shutdown\fP (uint8_t Shutdown)"
+.br
+.ti -1c
+.RI "void \fBAmplifier_Gain\fP (int8_t Gain)"
+.br
+.ti -1c
+.RI "void \fBAmplifier_set_equalizer_mode\fP (uint8_t Mode, int8_t Gain)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AUDIO_SHUT_DOWN_DDR   P3DIR"
+
+.SS "#define AUDIO_SHUT_DOWN_PIN   BIT2"
+
+.SS "#define AUDIO_SHUT_DOWN_PORT   P3OUT"
+
+.SS "#define I2C_AUDIO_AMP   0x58"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBAMPLIFIER\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIRELEASE \fP\fP
+.TP
+\fB\fISHUTDOWN \fP\fP
+.SS "enum \fBEQUALIZER\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPOP \fP\fP
+.TP
+\fB\fICLASSIC \fP\fP
+.TP
+\fB\fIJAZZ \fP\fP
+.TP
+\fB\fIRAP_HIP_HOP \fP\fP
+.TP
+\fB\fIROCK \fP\fP
+.TP
+\fB\fINEWS_VOICE \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "void Amplifier_Gain (int8_t Gain)"
+
+.SS "void Amplifier_init (uint8_t Start_Mode, int8_t Start_Gain)"
+
+.SS "void Amplifier_set_equalizer_mode (uint8_t Mode, int8_t Gain)"
+
+.SS "void Amplifier_Shutdown (uint8_t Shutdown)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

@@ -1,0 +1,717 @@
+.TH "menu/src/menu_struct.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+menu/src/menu_struct.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <menu/menu_struct\&.h>\fP
+.br
+
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBmain_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBview_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBradio_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBtatp_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBtatp_on_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBtatp_off_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBtatp_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBvolume_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBfreq_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBfreq_seeking_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBfreq_fixed_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBfreq_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBradio_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBtext_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBrds_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBptypi_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBrsq_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBtext_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBcontrast_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBbrightness_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBbrightness_fixed_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBbrightness_auto_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBbrightness_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBaudio_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBpop_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBclassic_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBjazz_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBhiphop_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBrock_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBnews_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBaudio_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBview_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBsource_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBfm_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBam_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBlinein_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBsource_return_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBreset_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBreset_no_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBreset_yes_entry\fP"
+.br
+.ti -1c
+.RI "\fBMENU_ENTRY\fP \fBmain_return_entry\fP"
+.br
+.in -1c
+.SH "Variable Documentation"
+.PP 
+.SS "\fBMENU_ENTRY\fP am_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &source_entry,
+    &linein_entry,
+    &fm_entry,
+    am_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP audio_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &pop_entry,
+    0,
+    &main_entry,
+    &source_entry,
+    &radio_entry,
+    audio_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP audio_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &audio_entry,
+    0,
+    0,
+    0,
+    &news_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP brightness_auto_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &brightness_entry,
+    &brightness_fixed_entry,
+    0,
+    auto_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP brightness_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &brightness_auto_entry,
+    0,
+    &view_entry,
+    &view_return_entry,
+    &contrast_entry,
+    brightness_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP brightness_fixed_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &brightness_entry,
+    &brightness_return_entry,
+    &brightness_auto_entry,
+    fixed_text,
+    MENU_BRIG_ENTRY,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP brightness_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &brightness_entry,
+    0,
+    0,
+    0,
+    &brightness_auto_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP classic_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &audio_entry,
+    &jazz_entry,
+    &pop_entry,
+    classic_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP contrast_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &text_entry,
+    &brightness_entry,
+    &text_entry,
+    contrast_text,
+    MENU_CONT_ENTRY,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP fm_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &source_entry,
+    &am_entry,
+    0,
+    fm_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP freq_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &freq_seeking_entry,
+    0,
+    &radio_entry,
+    &radio_return_entry,
+    &volume_entry,
+    freq_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP freq_fixed_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &freq_entry,
+    &freq_return_entry,
+    &freq_seeking_entry,
+    fixed_text,
+    MENU_FREQ_ENTRY,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP freq_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &freq_entry,
+    0,
+    0,
+    0,
+    &freq_fixed_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP freq_seeking_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &freq_entry,
+    &freq_fixed_entry,
+    0,
+    seeking_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP hiphop_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &audio_entry,
+    &rock_entry,
+    &jazz_entry,
+    hiphop_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP jazz_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &audio_entry,
+    &hiphop_entry,
+    &classic_entry,
+    jazz_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP linein_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &source_entry,
+    &source_return_entry,
+    &am_entry,
+    linein_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP main_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &view_entry,
+    0,
+    0,
+    0,
+    0,
+    main_text,
+    MENU_MAIN_ENTRY,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP main_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &main_entry,
+    0,
+    0,
+    0,
+    &reset_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP news_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &audio_entry,
+    &audio_return_entry,
+    &rock_entry,
+    news_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP pop_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &audio_entry,
+    &classic_entry,
+    0,
+    pop_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP ptypi_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &text_entry,
+    &rsq_entry,
+    &rds_entry,
+    ptypi_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP radio_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &tatp_entry,
+    0,
+    &main_entry,
+    &audio_entry,
+    &view_entry,
+    radio_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP radio_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &radio_entry,
+    0,
+    0,
+    0,
+    &freq_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP rds_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &text_entry,
+    &ptypi_entry,
+    0,
+    rds_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP reset_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &reset_no_entry,
+    0,
+    &main_entry,
+    &main_return_entry,
+    &source_entry,
+    reset_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP reset_no_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &reset_entry,
+    &reset_yes_entry,
+    0,
+    no_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP reset_yes_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &reset_entry,
+    0,
+    &reset_no_entry,
+    yes_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP rock_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &audio_entry,
+    &news_entry,
+    &hiphop_entry,
+    rock_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP rsq_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &text_entry,
+    &text_return_entry,
+    &ptypi_entry,
+    rsq_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP source_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &fm_entry,
+    0,
+    &main_entry,
+    &reset_entry,
+    &view_entry,
+    source_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP source_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &source_entry,
+    0,
+    0,
+    0,
+    &linein_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP tatp_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &tatp_on_entry,
+    0,
+    &radio_entry,
+    &volume_entry,
+    0,
+    tatp_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP tatp_off_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &tatp_entry,
+    &tatp_return_entry,
+    &tatp_on_entry,
+    off_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP tatp_on_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &tatp_entry,
+    &tatp_off_entry,
+    0,
+    on_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP tatp_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &tatp_entry,
+    0,
+    0,
+    0,
+    &tatp_off_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP text_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &rds_entry,
+    0,
+    &view_entry,
+    &contrast_entry,
+    0,
+    text_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP text_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &text_entry,
+    0,
+    0,
+    0,
+    &rsq_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP view_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &text_entry,
+    0,
+    &main_entry,
+    &radio_entry,
+    0,
+    view_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP view_return_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    &view_entry,
+    0,
+    0,
+    0,
+    &audio_entry,
+    return_text,
+    0,
+}
+.fi
+.SS "\fBMENU_ENTRY\fP volume_entry"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    0,
+    0,
+    &radio_entry,
+    &freq_entry,
+    &tatp_entry,
+    volume_text,
+    MENU_VOL_ENTRY,
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

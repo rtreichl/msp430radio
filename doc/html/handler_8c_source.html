@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: system/src/handler.c Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('handler_8c_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">handler.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="handler_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * handler.c</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 05.02.2015</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richard</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * The handler calls frunctions time and interrupt based for the interrupts is a new interrupt handler needed!!!</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * The interrupt handler should reakt on different interrupts and look up in a table where the to calling function is!!!</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Problem which is to solve is how to get an own interrupt handler on msp430 architectur.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * For a good performance, interrupt function which is called, should be shortest as possible.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * As next step there can be a function, that will countinouse the callculation in a normal operate state.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * The funciton call after a interrupt servece the handler.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * A further problem is the msp430 has a very low ram, so if many functions saving many variables during calculation.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * Better implemention would be a not a multitheread system, only a single thread system and minimize waitings.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="handler_8h.html">system/handler.h</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="handler_8c.html#aeef40d3fecdec58e4c8c0a51cc41a563">   21</a></span>&#160;<span class="preprocessor">#define TIME_SECOND 1000</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="handler_8c.html#a51c68c498627f53e5abb0a3415148b78">   22</a></span>&#160;<span class="preprocessor">#define ENCODER_TAST_REFRESH    10</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22">handler</a> (<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//TODO collect all function for timer based and calling functions</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">while</span>(1) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[0] &gt;= <a class="code" href="handler_8c.html#aeef40d3fecdec58e4c8c0a51cc41a563">TIME_SECOND</a>) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[0] -= <a class="code" href="handler_8c.html#aeef40d3fecdec58e4c8c0a51cc41a563">TIME_SECOND</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="comment">//call time_update();</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[1] &gt;= <a class="code" href="handler_8c.html#a51c68c498627f53e5abb0a3415148b78">ENCODER_TAST_REFRESH</a>) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[1] -= <a class="code" href="handler_8c.html#a51c68c498627f53e5abb0a3415148b78">ENCODER_TAST_REFRESH</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="comment">//call encoder_interrupt2();</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">/*if(encoder_2 != 0 || encoder_1 != 0 || encoder_1_button != &#39;f&#39; || encoder_2_button != &#39;f&#39;) {</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">            call menu_handler</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        }</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//TODO check for rds interrupt and go on further functions</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">//TODO call all half second or on specified input aciton menu function</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//TODO do all 0.1 messuarments on a valid channel</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">//TODO implement timers and eventtimers</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//TODO polling encoder switches every 10 up to 20 milli seconds</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="ttc" id="handler_8c_html_a4f639cde11f5cab70d795fd2f75c9d22"><div class="ttname"><a href="handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22">handler</a></div><div class="ttdeci">void handler(void)</div><div class="ttdef"><b>Definition:</b> <a href="handler_8c_source.html#l00024">handler.c:24</a></div></div>
+<div class="ttc" id="handler_8c_html_a51c68c498627f53e5abb0a3415148b78"><div class="ttname"><a href="handler_8c.html#a51c68c498627f53e5abb0a3415148b78">ENCODER_TAST_REFRESH</a></div><div class="ttdeci">#define ENCODER_TAST_REFRESH</div><div class="ttdef"><b>Definition:</b> <a href="handler_8c_source.html#l00022">handler.c:22</a></div></div>
+<div class="ttc" id="timer_8c_html_ab6610e73cf6ab96714447222bd0c7bca"><div class="ttname"><a href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a></div><div class="ttdeci">volatile uint16_t timer_count[TIMER_COUNTS]</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00010">timer.c:10</a></div></div>
+<div class="ttc" id="handler_8c_html_aeef40d3fecdec58e4c8c0a51cc41a563"><div class="ttname"><a href="handler_8c.html#aeef40d3fecdec58e4c8c0a51cc41a563">TIME_SECOND</a></div><div class="ttdeci">#define TIME_SECOND</div><div class="ttdef"><b>Definition:</b> <a href="handler_8c_source.html#l00021">handler.c:21</a></div></div>
+<div class="ttc" id="handler_8h_html"><div class="ttname"><a href="handler_8h.html">handler.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="dir_87da1dd3838e3a2bc958fb8a1763f6f7.html">src</a></li><li class="navelem"><a class="el" href="handler_8c.html">handler.c</a></li>
+    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

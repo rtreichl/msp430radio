@@ -1,0 +1,8 @@
+<map id="system/time.h" name="system/time.h">
+<area shape="rect" id="node2" href="$radio_8h.html" title="system/radio.h" alt="" coords="102,80,210,107"/>
+<area shape="rect" id="node5" href="$rds_8h.html" title="system/rds.h" alt="" coords="245,80,344,107"/>
+<area shape="rect" id="node7" href="$time_8c.html" title="system/src/time.c" alt="" coords="369,80,495,107"/>
+<area shape="rect" id="node3" href="$main_8c.html" title="main.c" alt="" coords="5,155,67,181"/>
+<area shape="rect" id="node4" href="$radio_8c.html" title="system/src/radio.c" alt="" coords="91,155,221,181"/>
+<area shape="rect" id="node6" href="$rds_8c.html" title="system/src/rds.c" alt="" coords="245,155,365,181"/>
+</map>

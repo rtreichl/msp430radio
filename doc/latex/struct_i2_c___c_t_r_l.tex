@@ -1,0 +1,125 @@
+\hypertarget{struct_i2_c___c_t_r_l}{}\section{I2\+C\+\_\+\+C\+T\+R\+L Strukturreferenz}
+\label{struct_i2_c___c_t_r_l}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+
+
+This struct inclued all necessaries for I2\+C module.  
+
+
+\subsection*{Datenfelder}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{struct_i2_c___c_t_r_l_a8b4eebe79ded0459acec2f4950102ba3}{\+\_\+\+\_\+pad0\+\_\+\+\_\+}\+: 5
+\item 
+uint8\+\_\+t \hyperlink{struct_i2_c___c_t_r_l_a374bcaa6a416b8601564a1053ddf78bb}{rept\+\_\+start}\+: 1
+\begin{DoxyCompactList}\small\item\em Stores the value, if an repated start or stop will be send after performance on I2\+C. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status}\+: 2
+\begin{DoxyCompactList}\small\item\em Stores the actual state of I2\+C module. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{struct_i2_c___c_t_r_l_af294cab6f89af5bd936b709e202c8421}{P\+Tx\+Data}
+\begin{DoxyCompactList}\small\item\em Poiniter to be transmitting bytes. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct_i2_c___c_t_r_l_aec22639ad7dc7eed52b3e116ea3223fe}{Tx\+Byte\+Ctr}
+\begin{DoxyCompactList}\small\item\em Number of to be transmitting bytes. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct_i2_c___c_t_r_l_a28b787f8db17314755d031d75ec38017}{Tx\+Byte\+Res}
+\begin{DoxyCompactList}\small\item\em Number of reserved bytes on stash. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}{P\+Rx\+Data}
+\begin{DoxyCompactList}\small\item\em Pointer to be receiving bytes. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{Rx\+Byte\+Ctr}
+\begin{DoxyCompactList}\small\item\em Number of to be recieving bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+This struct inclued all necessaries for I2\+C module. 
+
+Definiert in Zeile 8 der Datei i2c.\+c.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{struct_i2_c___c_t_r_l_a8b4eebe79ded0459acec2f4950102ba3}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{\+\_\+\+\_\+pad0\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t \+\_\+\+\_\+pad0\+\_\+\+\_\+}\label{struct_i2_c___c_t_r_l_a8b4eebe79ded0459acec2f4950102ba3}
+
+
+Definiert in Zeile 9 der Datei i2c.\+c.
+
+\hypertarget{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!P\+Rx\+Data@{P\+Rx\+Data}}
+\index{P\+Rx\+Data@{P\+Rx\+Data}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{P\+Rx\+Data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t$\ast$ P\+Rx\+Data}\label{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}
+
+
+Pointer to be receiving bytes. 
+
+
+
+Definiert in Zeile 15 der Datei i2c.\+c.
+
+\hypertarget{struct_i2_c___c_t_r_l_af294cab6f89af5bd936b709e202c8421}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!P\+Tx\+Data@{P\+Tx\+Data}}
+\index{P\+Tx\+Data@{P\+Tx\+Data}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{P\+Tx\+Data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t$\ast$ P\+Tx\+Data}\label{struct_i2_c___c_t_r_l_af294cab6f89af5bd936b709e202c8421}
+
+
+Poiniter to be transmitting bytes. 
+
+
+
+Definiert in Zeile 12 der Datei i2c.\+c.
+
+\hypertarget{struct_i2_c___c_t_r_l_a374bcaa6a416b8601564a1053ddf78bb}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!rept\+\_\+start@{rept\+\_\+start}}
+\index{rept\+\_\+start@{rept\+\_\+start}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{rept\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t rept\+\_\+start}\label{struct_i2_c___c_t_r_l_a374bcaa6a416b8601564a1053ddf78bb}
+
+
+Stores the value, if an repated start or stop will be send after performance on I2\+C. 
+
+
+
+Definiert in Zeile 10 der Datei i2c.\+c.
+
+\hypertarget{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!Rx\+Byte\+Ctr@{Rx\+Byte\+Ctr}}
+\index{Rx\+Byte\+Ctr@{Rx\+Byte\+Ctr}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{Rx\+Byte\+Ctr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Rx\+Byte\+Ctr}\label{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}
+
+
+Number of to be recieving bytes. 
+
+
+
+Definiert in Zeile 16 der Datei i2c.\+c.
+
+\hypertarget{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!status@{status}}
+\index{status@{status}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t {\bf status}}\label{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}
+
+
+Stores the actual state of I2\+C module. 
+
+
+
+Definiert in Zeile 11 der Datei i2c.\+c.
+
+\hypertarget{struct_i2_c___c_t_r_l_aec22639ad7dc7eed52b3e116ea3223fe}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!Tx\+Byte\+Ctr@{Tx\+Byte\+Ctr}}
+\index{Tx\+Byte\+Ctr@{Tx\+Byte\+Ctr}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{Tx\+Byte\+Ctr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Tx\+Byte\+Ctr}\label{struct_i2_c___c_t_r_l_aec22639ad7dc7eed52b3e116ea3223fe}
+
+
+Number of to be transmitting bytes. 
+
+
+
+Definiert in Zeile 13 der Datei i2c.\+c.
+
+\hypertarget{struct_i2_c___c_t_r_l_a28b787f8db17314755d031d75ec38017}{}\index{I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}!Tx\+Byte\+Res@{Tx\+Byte\+Res}}
+\index{Tx\+Byte\+Res@{Tx\+Byte\+Res}!I2\+C\+\_\+\+C\+T\+R\+L@{I2\+C\+\_\+\+C\+T\+R\+L}}
+\subsubsection[{Tx\+Byte\+Res}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Tx\+Byte\+Res}\label{struct_i2_c___c_t_r_l_a28b787f8db17314755d031d75ec38017}
+
+
+Number of reserved bytes on stash. 
+
+
+
+Definiert in Zeile 14 der Datei i2c.\+c.
+
+
+
+Die Dokumentation für diese Struktur wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+driver/src/\hyperlink{i2c_8c}{i2c.\+c}\end{DoxyCompactItemize}

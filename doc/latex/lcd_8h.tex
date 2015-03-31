@@ -1,0 +1,722 @@
+\hypertarget{lcd_8h}{}\section{driver/lcd.h-\/\+Dateireferenz}
+\label{lcd_8h}\index{driver/lcd.\+h@{driver/lcd.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$driver/pca9534.\+h$>$}\\*
+{\ttfamily \#include $<$driver/include/lcd\+\_\+commands.\+h$>$}\\*
+{\ttfamily \#include $<$settings/radio\+\_\+pin\+\_\+mapping.\+h$>$}\\*
+{\ttfamily \#include $<$driver/timer.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für lcd.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lcd_8h_a0092100866584e3511716fbf8e39c11f}{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+H\+I\+G\+H}~0x10
+\item 
+\#define \hyperlink{lcd_8h_a0cbc0c73a8326693dcae8ceac5c7b71b}{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+L\+O\+W}~0x00
+\item 
+\#define \hyperlink{lcd_8h_ad543004401896d9736084fcd833b7fd6}{L\+C\+D\+\_\+\+R\+E\+A\+D}~0x20
+\item 
+\#define \hyperlink{lcd_8h_ac83c798c669ca46b417ecc89c6ad37fe}{L\+C\+D\+\_\+\+W\+R\+I\+T\+E}~0x00
+\item 
+\#define \hyperlink{lcd_8h_a25e9d818788f36ed74d7c4579f87f2a6}{L\+C\+D\+\_\+\+D\+A\+T\+A}~0x40
+\item 
+\#define \hyperlink{lcd_8h_a28893b8aae31c65dfc6f5d478e225a2d}{L\+C\+D\+\_\+\+C\+M\+D}~0x00
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a312eed1baec275e185dc00b760de1356}{lcd\+\_\+init} (uint8\+\_\+t contrast)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a011d26f08674b8430d53ea5e8cebd9e3}{lcd\+\_\+write\+\_\+char} (uint8\+\_\+t chr)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a2a4df97ebc5b396233aa31765228ef42}{lcd\+\_\+set\+\_\+courser} (uint8\+\_\+t x, uint8\+\_\+t y)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a41e4f70e7f07bd5333b929ed8f9df77f}{lcd\+\_\+command} (uint8\+\_\+t cmd)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a2e011676f64d2ee1c854b912133ae3f9}{lcd\+\_\+write\+\_\+string} (const int8\+\_\+t $\ast$str, uint8\+\_\+t n\+\_\+bytes)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a782f2bf84393a90f55c040d08c84b06d}{lcd\+\_\+connect} ()
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\+\_\+generatechar} (uint8\+\_\+t code, const uint8\+\_\+t $\ast$data)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a737d0616c3643d82d1a612a5a667d709}{lcd\+\_\+bargraph} (uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value})
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\+\_\+create\+\_\+view} (const char $\ast$str, uint8\+\_\+t x, uint8\+\_\+t y, uint8\+\_\+t num, uint8\+\_\+t flush)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956}{lcd\+\_\+contrast} (uint8\+\_\+t contrast)
+\item 
+uint8\+\_\+t \hyperlink{lcd_8h_a6b9abf6cd27026b67144523ffbef4916}{lcd\+\_\+generatebargraph} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{lcd_8h_a28893b8aae31c65dfc6f5d478e225a2d}{}\index{lcd.\+h@{lcd.\+h}!L\+C\+D\+\_\+\+C\+M\+D@{L\+C\+D\+\_\+\+C\+M\+D}}
+\index{L\+C\+D\+\_\+\+C\+M\+D@{L\+C\+D\+\_\+\+C\+M\+D}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{L\+C\+D\+\_\+\+C\+M\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+C\+M\+D~0x00}\label{lcd_8h_a28893b8aae31c65dfc6f5d478e225a2d}
+
+
+Definiert in Zeile 24 der Datei lcd.\+h.
+
+\hypertarget{lcd_8h_a25e9d818788f36ed74d7c4579f87f2a6}{}\index{lcd.\+h@{lcd.\+h}!L\+C\+D\+\_\+\+D\+A\+T\+A@{L\+C\+D\+\_\+\+D\+A\+T\+A}}
+\index{L\+C\+D\+\_\+\+D\+A\+T\+A@{L\+C\+D\+\_\+\+D\+A\+T\+A}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{L\+C\+D\+\_\+\+D\+A\+T\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+D\+A\+T\+A~0x40}\label{lcd_8h_a25e9d818788f36ed74d7c4579f87f2a6}
+
+
+Definiert in Zeile 23 der Datei lcd.\+h.
+
+\hypertarget{lcd_8h_a0092100866584e3511716fbf8e39c11f}{}\index{lcd.\+h@{lcd.\+h}!L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+H\+I\+G\+H@{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+H\+I\+G\+H}}
+\index{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+H\+I\+G\+H@{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+H\+I\+G\+H}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+H\+I\+G\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+H\+I\+G\+H~0x10}\label{lcd_8h_a0092100866584e3511716fbf8e39c11f}
+
+
+Definiert in Zeile 19 der Datei lcd.\+h.
+
+\hypertarget{lcd_8h_a0cbc0c73a8326693dcae8ceac5c7b71b}{}\index{lcd.\+h@{lcd.\+h}!L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+L\+O\+W@{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+L\+O\+W}}
+\index{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+L\+O\+W@{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+L\+O\+W}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+L\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+L\+O\+W~0x00}\label{lcd_8h_a0cbc0c73a8326693dcae8ceac5c7b71b}
+
+
+Definiert in Zeile 20 der Datei lcd.\+h.
+
+\hypertarget{lcd_8h_ad543004401896d9736084fcd833b7fd6}{}\index{lcd.\+h@{lcd.\+h}!L\+C\+D\+\_\+\+R\+E\+A\+D@{L\+C\+D\+\_\+\+R\+E\+A\+D}}
+\index{L\+C\+D\+\_\+\+R\+E\+A\+D@{L\+C\+D\+\_\+\+R\+E\+A\+D}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{L\+C\+D\+\_\+\+R\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+R\+E\+A\+D~0x20}\label{lcd_8h_ad543004401896d9736084fcd833b7fd6}
+
+
+Definiert in Zeile 21 der Datei lcd.\+h.
+
+\hypertarget{lcd_8h_ac83c798c669ca46b417ecc89c6ad37fe}{}\index{lcd.\+h@{lcd.\+h}!L\+C\+D\+\_\+\+W\+R\+I\+T\+E@{L\+C\+D\+\_\+\+W\+R\+I\+T\+E}}
+\index{L\+C\+D\+\_\+\+W\+R\+I\+T\+E@{L\+C\+D\+\_\+\+W\+R\+I\+T\+E}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{L\+C\+D\+\_\+\+W\+R\+I\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+C\+D\+\_\+\+W\+R\+I\+T\+E~0x00}\label{lcd_8h_ac83c798c669ca46b417ecc89c6ad37fe}
+
+
+Definiert in Zeile 22 der Datei lcd.\+h.
+
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{lcd_8h_a737d0616c3643d82d1a612a5a667d709}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+bargraph@{lcd\+\_\+bargraph}}
+\index{lcd\+\_\+bargraph@{lcd\+\_\+bargraph}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+bargraph}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+bargraph (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a737d0616c3643d82d1a612a5a667d709}
+\hypertarget{lcd_8h_a41e4f70e7f07bd5333b929ed8f9df77f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+command@{lcd\+\_\+command}}
+\index{lcd\+\_\+command@{lcd\+\_\+command}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+command}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{cmd}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a41e4f70e7f07bd5333b929ed8f9df77f}
+
+
+Definiert in Zeile 150 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+151 \{
+152     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, ((command>>4) & 0x0f));
+153     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
+154     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, (((command>>4) & 0x0f) | 0x10))
+      ;
+155     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
+156     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, (command & 0x0f));
+157     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
+158     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, ((command & 0x0f) | 0x10));
+159     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(5);
+160     \textcolor{comment}{/*i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 2, 0x01, LCD\_HIGHER\_BYTE(command) | LCD\_ENABLE\_HIGH);}
+161 \textcolor{comment}{    i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 2, 0x01, LCD\_HIGHER\_BYTE(command) | LCD\_ENABLE\_LOW);}
+162 \textcolor{comment}{    i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 2, 0x01, LCD\_LOWER\_BYTE(command) | LCD\_ENABLE\_HIGH);}
+163 \textcolor{comment}{    i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 2, 0x01, LCD\_LOWER\_BYTE(command) | LCD\_ENABLE\_LOW);*/}
+164 
+165     \textcolor{keywordflow}{return} 0;
+166 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a41e4f70e7f07bd5333b929ed8f9df77f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a41e4f70e7f07bd5333b929ed8f9df77f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_a782f2bf84393a90f55c040d08c84b06d}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+connect@{lcd\+\_\+connect}}
+\index{lcd\+\_\+connect@{lcd\+\_\+connect}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+connect}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a782f2bf84393a90f55c040d08c84b06d}
+\hypertarget{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+contrast@{lcd\+\_\+contrast}}
+\index{lcd\+\_\+contrast@{lcd\+\_\+contrast}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+contrast}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+contrast (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{contrast}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956}
+
+
+Definiert in Zeile 66 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+67 \{
+68     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\_FUNCTION\_SET} | \hyperlink{lcd__commands_8h_add84145ade06b4f96934b7f1ed712e50}{LCD\_2\_LINE\_INST\_1});
+69     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_a09afb8c9876350b83530222841b6b4ca}{LCD\_POWER\_CONTROL} | ((0x30 & contrast) >> 4));
+70     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_a2dc0a014e84d69016cc4785bbc1fb3ac}{LCD\_CONTRAST\_SET} | (0x0F & contrast));
+71     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\_FUNCTION\_SET} | \hyperlink{lcd__commands_8h_a77febe1793148d377a47feafd8f00f2a}{LCD\_INST\_0});
+72 
+73     \textcolor{keywordflow}{return} 0;
+74 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+create\+\_\+view@{lcd\+\_\+create\+\_\+view}}
+\index{lcd\+\_\+create\+\_\+view@{lcd\+\_\+create\+\_\+view}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+create\+\_\+view}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+create\+\_\+view (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str, }
+\item[{uint8\+\_\+t}]{x, }
+\item[{uint8\+\_\+t}]{y, }
+\item[{uint8\+\_\+t}]{num, }
+\item[{uint8\+\_\+t}]{flush}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}
+
+
+Definiert in Zeile 315 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+316 \{
+317     \textcolor{keyword}{static} int8\_t lcd\_view[49];
+318 
+319     uint8\_t i,
+320             pos;
+321     \textcolor{comment}{/* invalid line position */}
+322     \textcolor{keywordflow}{if} (x > 15) \{
+323         \textcolor{keywordflow}{return} 0xFE;
+324     \}
+325 
+326     \textcolor{comment}{/* invalid row position */}
+327     \textcolor{keywordflow}{if} (y > 2) \{
+328         \textcolor{keywordflow}{return} 0xFF;
+329     \}
+330 
+331     pos = x + y * 16;
+332 
+333     \textcolor{comment}{/*if(num == 0) \{}
+334 \textcolor{comment}{        num = 48;}
+335 \textcolor{comment}{    \}*/}
+336 
+337     \textcolor{comment}{/* if string is empty determinat string on given position */}
+338     \textcolor{keywordflow}{if}(str == 0) \{
+339         lcd\_view[48] = 0;
+340     \}
+341     \textcolor{keywordflow}{else} \{
+342         \textcolor{comment}{/* copy string on given position */}
+343         \textcolor{keywordflow}{while}(*str != 0 && pos < 48 ) \{\textcolor{comment}{//&& num > 0) \{}
+344             lcd\_view[pos++] = *(str++);
+345             \textcolor{comment}{//num--;}
+346         \}
+347     \}
+348 
+349     \textcolor{comment}{/* Normal flush with over writing lcd\_view with blanks */}
+350     \textcolor{keywordflow}{if}(flush == 1) \{
+351         \hyperlink{lcd_8c_a2a4df97ebc5b396233aa31765228ef42}{lcd\_set\_courser}(0,1);
+352         \hyperlink{lcd_8c_aa6e1aa2ef9b677e16d8198df683429ec}{lcd\_write\_string}(lcd\_view,48);
+353         \textcolor{keywordflow}{for}(i = 0; i < 48; i++) \{
+354             lcd\_view[i] = \textcolor{charliteral}{' '};
+355         \}
+356         lcd\_view[48] = 0;
+357     \}
+358 
+359     \textcolor{comment}{/* Init lcd\_view with blanks */}
+360     \textcolor{keywordflow}{if}(flush == 2) \{
+361         \textcolor{keywordflow}{for}(i = 0; i < 48; i++) \{
+362             lcd\_view[i] = 0x20;
+363         \}
+364         lcd\_view[48] = 0;
+365         \hyperlink{lcd_8c_a2a4df97ebc5b396233aa31765228ef42}{lcd\_set\_courser}(0,1);
+366         \hyperlink{lcd_8c_aa6e1aa2ef9b677e16d8198df683429ec}{lcd\_write\_string}(lcd\_view,48);
+367     \}
+368 
+369     \textcolor{keywordflow}{return} 0;
+370 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_a6b9abf6cd27026b67144523ffbef4916}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+generatebargraph@{lcd\+\_\+generatebargraph}}
+\index{lcd\+\_\+generatebargraph@{lcd\+\_\+generatebargraph}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+generatebargraph}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+generatebargraph (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a6b9abf6cd27026b67144523ffbef4916}
+
+
+Definiert in Zeile 213 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+214 \{
+215     uint8\_t chrdata1[8] = \{
+216         0x1F,   \textcolor{comment}{//xxxxx}
+217         0x10,   \textcolor{comment}{//xoooo}
+218         0x10,   \textcolor{comment}{//xoooo}
+219         0x10,   \textcolor{comment}{//xoooo}
+220         0x10,   \textcolor{comment}{//xoooo}
+221         0x10,   \textcolor{comment}{//xoooo}
+222         0x1F,   \textcolor{comment}{//xxxxx}
+223         0x00
+224     \};
+225 
+226     uint8\_t chrdata2[8] = \{
+227         0x1F,   \textcolor{comment}{//xxxxx}
+228         0x18,   \textcolor{comment}{//xxooo}
+229         0x18,   \textcolor{comment}{//xxooo}
+230         0x18,   \textcolor{comment}{//xxooo}
+231         0x18,   \textcolor{comment}{//xxooo}
+232         0x18,   \textcolor{comment}{//xxooo}
+233         0x1F,   \textcolor{comment}{//xxxxx}
+234         0x00
+235     \};
+236 
+237     uint8\_t chrdata3[8] = \{
+238         0x1F,   \textcolor{comment}{//xxxxx}
+239         0x1C,   \textcolor{comment}{//xxxoo}
+240         0x1C,   \textcolor{comment}{//xxxoo}
+241         0x1C,   \textcolor{comment}{//xxxoo}
+242         0x1C,   \textcolor{comment}{//xxxoo}
+243         0x1C,   \textcolor{comment}{//xxxoo}
+244         0x1F,   \textcolor{comment}{//xxxxx}
+245         0x00
+246     \};
+247 
+248     uint8\_t chrdata4[8] = \{
+249         0x1F,   \textcolor{comment}{//xxxxx}
+250         0x1E,   \textcolor{comment}{//xxxxo}
+251         0x1E,   \textcolor{comment}{//xxxxo}
+252         0x1E,   \textcolor{comment}{//xxxxo}
+253         0x1E,   \textcolor{comment}{//xxxxo}
+254         0x1E,   \textcolor{comment}{//xxxxo}
+255         0x1F,   \textcolor{comment}{//xxxxx}
+256         0x00
+257     \};
+258 
+259     uint8\_t chrdata5[8] = \{
+260         0x1F,   \textcolor{comment}{//xxxxx}
+261         0x1F,   \textcolor{comment}{//xxxxx}
+262         0x1F,   \textcolor{comment}{//xxxxx}
+263         0x1F,   \textcolor{comment}{//xxxxx}
+264         0x1F,   \textcolor{comment}{//xxxxx}
+265         0x1F,   \textcolor{comment}{//xxxxx}
+266         0x1F,   \textcolor{comment}{//xxxxx}
+267         0x00
+268     \};
+269 
+270     uint8\_t chrdata0[8] = \{
+271         0x1F,   \textcolor{comment}{//xxxxx}
+272         0x00,   \textcolor{comment}{//ooooo}
+273         0x00,   \textcolor{comment}{//ooooo}
+274         0x00,   \textcolor{comment}{//ooooo}
+275         0x00,   \textcolor{comment}{//ooooo}
+276         0x00,   \textcolor{comment}{//ooooo}
+277         0x1F,   \textcolor{comment}{//xxxxx}
+278         0x00
+279     \};
+280 
+281     uint8\_t chrdata6[8] = \{
+282         0x0E,   \textcolor{comment}{//oxxxo}
+283         0x15,   \textcolor{comment}{//xoxox}
+284         0x15,   \textcolor{comment}{//xoxox}
+285         0x17,   \textcolor{comment}{//xoxxx}
+286         0x11,   \textcolor{comment}{//oooox}
+287         0x11,   \textcolor{comment}{//xooox}
+288         0x0E,   \textcolor{comment}{//oxxxo}
+289         0x00
+290     \};
+291 
+292     uint8\_t chrdata7[8] = \{
+293         0x03,   \textcolor{comment}{//oooxx}
+294         0x05,   \textcolor{comment}{//ooxox}
+295         0x19,   \textcolor{comment}{//xxoox}
+296         0x11,   \textcolor{comment}{//xxoox}
+297         0x19,   \textcolor{comment}{//xxoox}
+298         0x05,   \textcolor{comment}{//ooxox}
+299         0x03,   \textcolor{comment}{//oooxx}
+300         0x00
+301     \};
+302 
+303     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(0,chrdata0);
+304     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(1,chrdata1);
+305     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(2,chrdata2);
+306     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(3,chrdata3);
+307     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(4,chrdata4);
+308     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(5,chrdata5);
+309     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(6,chrdata6);
+310     \hyperlink{lcd_8c_ac5d817278ad99ea7420d6240c7e6cba6}{lcd\_generatechar}(7,chrdata7);
+311 
+312     \textcolor{keywordflow}{return} 0;
+313 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a6b9abf6cd27026b67144523ffbef4916_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{lcd_8h_a6b9abf6cd27026b67144523ffbef4916_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_ac5d817278ad99ea7420d6240c7e6cba6}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+generatechar@{lcd\+\_\+generatechar}}
+\index{lcd\+\_\+generatechar@{lcd\+\_\+generatechar}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+generatechar}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+generatechar (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{code, }
+\item[{const uint8\+\_\+t $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_ac5d817278ad99ea7420d6240c7e6cba6}
+
+
+Definiert in Zeile 198 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+199 \{
+200     uint8\_t i = 0;
+201     \textcolor{comment}{// Startposition des Zeichens einstellen}
+202     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_a5109f670d7f397ba8845d08167bf4ab2}{LCD\_SET\_CGADR}|(code<<3));
+203 
+204     \textcolor{comment}{// Bitmuster �bertragen}
+205     \textcolor{keywordflow}{for} (i = 0; i < 8; i++)
+206     \{
+207         \hyperlink{lcd_8c_a1a22a2c5cd6e0e4e06977a2f78a7ab08}{lcd\_write\_char}(data[i]);
+208     \}
+209 
+210     \textcolor{keywordflow}{return} 0;
+211 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_ac5d817278ad99ea7420d6240c7e6cba6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_ac5d817278ad99ea7420d6240c7e6cba6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_a312eed1baec275e185dc00b760de1356}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+init@{lcd\+\_\+init}}
+\index{lcd\+\_\+init@{lcd\+\_\+init}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{contrast}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a312eed1baec275e185dc00b760de1356}
+
+
+Definiert in Zeile 12 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+13 \{
+14 
+15     \textcolor{comment}{// Activate PCA9534}
+16     \hyperlink{settings_2radio__pin__mapping_8h_a131b17b16bb25a95f17f81423722dcb1}{PCA\_ON\_OFF\_SEL} &= (~\hyperlink{settings_2radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN});
+17     \hyperlink{settings_2radio__pin__mapping_8h_aca9911d61d5202bad563d5f748782548}{PCA\_ON\_OFF\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN};
+18     \hyperlink{settings_2radio__pin__mapping_8h_abd6e55737a7d5e65b8582d647b103f8e}{PCA\_ON\_OFF\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN};
+19 
+20 
+21     \textcolor{comment}{// Go in default state}
+22     \textcolor{comment}{//pca9534\_config(0x7F);}
+23 
+24     \textcolor{comment}{//i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 2,0x03, 0x00);}
+25 
+26     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(100);
+27 
+28     \textcolor{comment}{// Send reset command}
+29     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 0x03, 0x13);
+30 
+31     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(2);
+32 
+33     \textcolor{comment}{// Send 2nd reset command}
+34     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 0x03, 0x13);
+35 
+36     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(3);
+37 
+38     \textcolor{comment}{// Send 3rd reset command}
+39     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 0x03, 0x13);
+40 
+41     \textcolor{comment}{// Go in default data mode of display}
+42     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 0x02, 0x12);
+43 
+44     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(3);
+45 
+46     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\_FUNCTION\_SET} | \hyperlink{lcd__commands_8h_add84145ade06b4f96934b7f1ed712e50}{LCD\_2\_LINE\_INST\_1});
+47     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_aa16d1fe8c9651f81c3f1649e57bc870c}{LCD\_BIAS\_SET} | \hyperlink{lcd__commands_8h_a3e0a4be625c4ed54cf0257a3b526ea00}{LCD\_BIAS\_1\_4} | 
+      \hyperlink{lcd__commands_8h_af685b6108573c92216437b1a512c6a72}{LCD\_3\_LINE});
+48     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_a09afb8c9876350b83530222841b6b4ca}{LCD\_POWER\_CONTROL} | ((0x30 & contrast) >> 4));
+49     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_aa182b257140f187c7ceb85761802a6d4}{LCD\_FOLLOWER\_CONTROL} | 
+      \hyperlink{lcd__commands_8h_aa7170591c5c6954165b8f1b6c94bdcea}{LCD\_FOLLOWER\_CIRCUT\_ON} | \hyperlink{lcd__commands_8h_af05126b3001c839af73fdbc7e2b0940e}{LCD\_AMPLIFFED\_RATIO});
+50     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_a2dc0a014e84d69016cc4785bbc1fb3ac}{LCD\_CONTRAST\_SET} | (0x0F & contrast));
+51     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_af8ec7e043a3b67ee423b97783d08aeb1}{LCD\_FUNCTION\_SET} | \hyperlink{lcd__commands_8h_a77febe1793148d377a47feafd8f00f2a}{LCD\_INST\_0});
+52     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_a9b4eda8a777de7cc4b7cbaa71621029e}{LCD\_DISPLAY\_CONTROL} | 
+      \hyperlink{lcd__commands_8h_a846dac5d1bb72bef7a76ee110c0445b6}{LCD\_DISPLAY\_ON});
+53     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_ac547b969070db1798702062faca30c6e}{LCD\_CLEAR\_SCREEN});
+54     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_ae5e77a91b0fef0c36af29424a1ee2da1}{LCD\_ENTRY\_MODE\_SET} | 
+      \hyperlink{lcd__commands_8h_a6e5a50c1f9f21c012e6d44ebcd5fd65f}{LCD\_COURSER\_INKREMENT});
+55     \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(\hyperlink{lcd__commands_8h_a350fda109811fb23bfaf6ef763c31b9b}{LCD\_RESET\_COURSER});
+56 
+57     \textcolor{comment}{//Gernarte GCCR Symbole}
+58     \hyperlink{lcd_8c_a6b9abf6cd27026b67144523ffbef4916}{lcd\_generatebargraph}();
+59 
+60     \textcolor{comment}{//Clear LCD and Init view ram}
+61     \hyperlink{lcd_8c_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(0, 0, 0, 0, 2);
+62 
+63     \textcolor{keywordflow}{return} 0;
+64 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a312eed1baec275e185dc00b760de1356_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{lcd_8h_a312eed1baec275e185dc00b760de1356_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_a2a4df97ebc5b396233aa31765228ef42}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+\_\+courser@{lcd\+\_\+set\+\_\+courser}}
+\index{lcd\+\_\+set\+\_\+courser@{lcd\+\_\+set\+\_\+courser}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+\_\+courser}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+set\+\_\+courser (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{x, }
+\item[{uint8\+\_\+t}]{y}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a2a4df97ebc5b396233aa31765228ef42}
+
+
+Definiert in Zeile 173 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+174 \{
+175     \textcolor{keywordflow}{if} (x > 15) \{
+176         \textcolor{keywordflow}{return} 0xFE;
+177     \}
+178 
+179     \textcolor{keywordflow}{switch} (y) \{
+180         \textcolor{keywordflow}{case} 1:
+181             \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(x + \hyperlink{lcd__commands_8h_ad3c37e4453c7f7ba2d5220f9d8fa8502}{LCD\_ADRESS\_LINE\_1});
+182             \textcolor{keywordflow}{break};
+183         \textcolor{keywordflow}{case} 2:
+184             \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(x + \hyperlink{lcd__commands_8h_a357f0824fb224d0925d6ca5230585814}{LCD\_ADRESS\_LINE\_2});
+185             \textcolor{keywordflow}{break};
+186         \textcolor{keywordflow}{case} 3:
+187             \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(x + \hyperlink{lcd__commands_8h_a0531c4c867eea2495519880aecd7c422}{LCD\_ADRESS\_LINE\_3});
+188             \textcolor{keywordflow}{break};
+189         \textcolor{keywordflow}{case} 4:
+190             \hyperlink{lcd_8c_a250728451a22259562d3f01a12bbd77b}{lcd\_command}(x + \hyperlink{lcd__commands_8h_a467510be8265e0cc87ce3e4110f9e75e}{LCD\_ADRESS\_LINE\_4});
+191             \textcolor{keywordflow}{break};
+192         \textcolor{keywordflow}{default}:
+193             \textcolor{keywordflow}{return} 0xFF;
+194     \}
+195     \textcolor{keywordflow}{return} 0;
+196 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a2a4df97ebc5b396233aa31765228ef42_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a2a4df97ebc5b396233aa31765228ef42_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_a011d26f08674b8430d53ea5e8cebd9e3}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+write\+\_\+char@{lcd\+\_\+write\+\_\+char}}
+\index{lcd\+\_\+write\+\_\+char@{lcd\+\_\+write\+\_\+char}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+write\+\_\+char}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+write\+\_\+char (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{chr}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a011d26f08674b8430d53ea5e8cebd9e3}
+
+
+Definiert in Zeile 76 der Datei lcd.\+c.
+
+
+\begin{DoxyCode}
+77 \{
+78 
+79     \textcolor{comment}{//symbol = lcd\_replace\_special\_letter(symbol);}
+80 
+81     \textcolor{comment}{/*i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 1, (((symbol>>4) & 0x0f) | 0x40));}
+82 \textcolor{comment}{    i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 1, (((symbol>>4) & 0x0f) | 0x50));}
+83 \textcolor{comment}{    i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 1, ((symbol & 0x0f) | 0x40));}
+84 \textcolor{comment}{    i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 1, ((symbol & 0x0f) | 0x50));}
+85 \textcolor{comment}{    i2c\_write\_var(PCA9534\_I2C\_ADR, STOP, 1, 0x08);*/}
+86 
+87     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(20);
+88 
+89     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 5,
+90             0x00,
+91             \hyperlink{lcd__commands_8h_afd4bb10e8cc3368a80abe3ef75d92c39}{LCD\_HIGHER\_BYTE}(symbol) | \hyperlink{lcd_8h_a0092100866584e3511716fbf8e39c11f}{LCD\_ENABLE\_HIGH} | 
+      \hyperlink{lcd_8h_a25e9d818788f36ed74d7c4579f87f2a6}{LCD\_DATA},
+92             \hyperlink{lcd__commands_8h_afd4bb10e8cc3368a80abe3ef75d92c39}{LCD\_HIGHER\_BYTE}(symbol) | \hyperlink{lcd_8h_a0cbc0c73a8326693dcae8ceac5c7b71b}{LCD\_ENABLE\_LOW}  | 
+      \hyperlink{lcd_8h_a25e9d818788f36ed74d7c4579f87f2a6}{LCD\_DATA},
+93             \hyperlink{lcd__commands_8h_afb9a52fe082bc759811cbc78af93e5be}{LCD\_LOWER\_BYTE}(symbol)  | \hyperlink{lcd_8h_a0092100866584e3511716fbf8e39c11f}{LCD\_ENABLE\_HIGH} | 
+      \hyperlink{lcd_8h_a25e9d818788f36ed74d7c4579f87f2a6}{LCD\_DATA},
+94             \hyperlink{lcd__commands_8h_afb9a52fe082bc759811cbc78af93e5be}{LCD\_LOWER\_BYTE}(symbol)  | \hyperlink{lcd_8h_a0cbc0c73a8326693dcae8ceac5c7b71b}{LCD\_ENABLE\_LOW}  | 
+      \hyperlink{lcd_8h_a25e9d818788f36ed74d7c4579f87f2a6}{LCD\_DATA});
+95 
+96     \textcolor{keywordflow}{return} 0;
+97 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a011d26f08674b8430d53ea5e8cebd9e3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcd_8h_a011d26f08674b8430d53ea5e8cebd9e3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{lcd_8h_a2e011676f64d2ee1c854b912133ae3f9}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+write\+\_\+string@{lcd\+\_\+write\+\_\+string}}
+\index{lcd\+\_\+write\+\_\+string@{lcd\+\_\+write\+\_\+string}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+write\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t lcd\+\_\+write\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{const int8\+\_\+t $\ast$}]{str, }
+\item[{uint8\+\_\+t}]{n\+\_\+bytes}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a2e011676f64d2ee1c854b912133ae3f9}

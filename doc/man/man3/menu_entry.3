@@ -1,0 +1,55 @@
+.TH "menu_entry" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+menu_entry \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <menu_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const struct \fBmenu_entry\fP * \fBchild_short\fP"
+.br
+.ti -1c
+.RI "const struct \fBmenu_entry\fP * \fBchild_long\fP"
+.br
+.ti -1c
+.RI "const struct \fBmenu_entry\fP * \fBparent\fP"
+.br
+.ti -1c
+.RI "const struct \fBmenu_entry\fP * \fBnext\fP"
+.br
+.ti -1c
+.RI "const struct \fBmenu_entry\fP * \fBprevious\fP"
+.br
+.ti -1c
+.RI "const char * \fBtext\fP"
+.br
+.ti -1c
+.RI "const uint16_t \fBentry_num\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "const struct \fBmenu_entry\fP* menu_entry::child_long"
+
+.SS "const struct \fBmenu_entry\fP* menu_entry::child_short"
+
+.SS "const uint16_t menu_entry::entry_num"
+
+.SS "const struct \fBmenu_entry\fP* menu_entry::next"
+
+.SS "const struct \fBmenu_entry\fP* menu_entry::parent"
+
+.SS "const struct \fBmenu_entry\fP* menu_entry::previous"
+
+.SS "const char* menu_entry::text"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

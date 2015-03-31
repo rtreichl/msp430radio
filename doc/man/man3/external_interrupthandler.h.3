@@ -1,0 +1,44 @@
+.TH "driver/external_interrupthandler.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/external_interrupthandler.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <msp430\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <settings/radio_pin_mapping\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBext_interrupt_create\fP (uint8_t int_number, void(*ptrfunction)())"
+.br
+.ti -1c
+.RI "uint8_t \fBext_interrupt_disable\fP (uint8_t int_number)"
+.br
+.ti -1c
+.RI "uint8_t \fBext_interrupt_enable\fP (uint8_t int_number)"
+.br
+.ti -1c
+.RI "uint8_t \fBext_interrupt_delete\fP (uint8_t int_number)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t ext_interrupt_create (uint8_t int_number, void(*)() ptrfunction)"
+
+.SS "uint8_t ext_interrupt_delete (uint8_t int_number)"
+
+.SS "uint8_t ext_interrupt_disable (uint8_t int_number)"
+
+.SS "uint8_t ext_interrupt_enable (uint8_t int_number)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

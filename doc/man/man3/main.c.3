@@ -1,0 +1,140 @@
+.TH "main.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+main.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <msp430\&.h>\fP
+.br
+\fC#include <msp430g2553\&.h>\fP
+.br
+\fC#include <intrinsics\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include 'driver/i2c\&.h'\fP
+.br
+\fC#include <driver/si4735\&.h>\fP
+.br
+\fC#include <driver/pca9530\&.h>\fP
+.br
+\fC#include <driver/tpa2016d2\&.h>\fP
+.br
+\fC#include <driver/lcd\&.h>\fP
+.br
+\fC#include <driver/encoder\&.h>\fP
+.br
+\fC#include 'Timer\&.h'\fP
+.br
+\fC#include 'Menu\&.h'\fP
+.br
+\fC#include <radio_new\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBStart_up_1\fP   'HS-Rosenheim'"
+.br
+.ti -1c
+.RI "#define \fBShift_left_1\fP   2"
+.br
+.ti -1c
+.RI "#define \fBStart_up_2\fP   'FM/AM  Radio'"
+.br
+.ti -1c
+.RI "#define \fBShift_left_2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBStart_up_3\fP   'Version 1\&.00'"
+.br
+.ti -1c
+.RI "#define \fBShift_left_3\fP   2"
+.br
+.ti -1c
+.RI "#define \fBI2C_LCD_BAUDRATE\fP   40"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (void)"
+.br
+.ti -1c
+.RI "__interrupt void \fBwatchdog_timer\fP (void)"
+.br
+.ti -1c
+.RI "__interrupt void \fBnmi\fP (void)"
+.br
+.ti -1c
+.RI "__interrupt void \fBtim1\fP (void)"
+.br
+.ti -1c
+.RI "__interrupt void \fBadc\fP (void)"
+.br
+.ti -1c
+.RI "__interrupt void \fBcomp\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "volatile unsigned char \fBsekunde\fP = 0"
+.br
+.ti -1c
+.RI "volatile unsigned char \fBposrt\fP = 0"
+.br
+.ti -1c
+.RI "volatile unsigned char \fBsec\fP = 240"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define I2C_LCD_BAUDRATE   40"
+
+.SS "#define Shift_left_1   2"
+
+.SS "#define Shift_left_2   2"
+
+.SS "#define Shift_left_3   2"
+
+.SS "#define Start_up_1   'HS-Rosenheim'"
+
+.SS "#define Start_up_2   'FM/AM  Radio'"
+
+.SS "#define Start_up_3   'Version 1\&.00'"
+
+.SH "Function Documentation"
+.PP 
+.SS "__interrupt void adc (void)"
+
+.SS "__interrupt void comp (void)"
+
+.SS "int main (void)"
+
+.SS "__interrupt void nmi (void)"
+
+.SS "__interrupt void tim1 (void)"
+
+.SS "__interrupt void watchdog_timer (void)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "volatile unsigned char posrt = 0"
+
+.SS "volatile unsigned char sec = 240"
+
+.SS "volatile unsigned char sekunde = 0"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

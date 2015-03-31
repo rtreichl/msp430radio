@@ -1,0 +1,170 @@
+.TH "Radio.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Radio.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBstatus\fP"
+.br
+.ti -1c
+.RI "struct \fBinfo\fP"
+.br
+.ti -1c
+.RI "struct \fBsync\fP"
+.br
+.ti -1c
+.RI "struct \fBfifo\fP"
+.br
+.ti -1c
+.RI "struct \fBerr\fP"
+.br
+.ti -1c
+.RI "struct \fBgroup_0a\fP"
+.br
+.ti -1c
+.RI "struct \fBgroup_0b\fP"
+.br
+.ti -1c
+.RI "struct \fBgroup_2a\fP"
+.br
+.ti -1c
+.RI "struct \fBgroup_2b\fP"
+.br
+.ti -1c
+.RI "struct \fBgroup_1b\fP"
+.br
+.ti -1c
+.RI "struct \fBgroup_1a\fP"
+.br
+.ti -1c
+.RI "struct \fBgroup_4a\fP"
+.br
+.ti -1c
+.RI "struct \fBblock_b\fP"
+.br
+.ti -1c
+.RI "struct \fBpi\fP"
+.br
+.ti -1c
+.RI "struct \fBrds\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBstatus\fP \fBSTATUS\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBinfo\fP \fBINFO\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBsync\fP \fBSYNC\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBfifo\fP \fBFIFO\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBerr\fP \fBERR\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgroup_0a\fP \fBGROUP_0A\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgroup_0b\fP \fBGROUP_0B\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgroup_2a\fP \fBGROUP_2A\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgroup_2b\fP \fBGROUP_2B\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgroup_1b\fP \fBGROUP_1B\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgroup_1a\fP \fBGROUP_1A\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgroup_4a\fP \fBGROUP_4A\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBblock_b\fP \fBBLOCK_B\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBpi\fP \fBPI\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBrds\fP \fBRDS\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBget_rds_data\fP (int *Radio_States, char *Station_Name, char *Radion_Text)"
+.br
+.ti -1c
+.RI "uint8_t \fBrds_triggered\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBget_signal_qual\fP ()"
+.br
+.ti -1c
+.RI "void \fBrds_group_4A\fP (\fBRDS\fP *data)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBblock_b\fP  \fBBLOCK_B\fP"
+
+.SS "typedef struct \fBerr\fP  \fBERR\fP"
+
+.SS "typedef struct \fBfifo\fP  \fBFIFO\fP"
+
+.SS "typedef struct \fBgroup_0a\fP  \fBGROUP_0A\fP"
+
+.SS "typedef struct \fBgroup_0b\fP  \fBGROUP_0B\fP"
+
+.SS "typedef struct \fBgroup_1a\fP  \fBGROUP_1A\fP"
+
+.SS "typedef struct \fBgroup_1b\fP  \fBGROUP_1B\fP"
+
+.SS "typedef struct \fBgroup_2a\fP  \fBGROUP_2A\fP"
+
+.SS "typedef struct \fBgroup_2b\fP  \fBGROUP_2B\fP"
+
+.SS "typedef struct \fBgroup_4a\fP  \fBGROUP_4A\fP"
+
+.SS "typedef struct \fBinfo\fP  \fBINFO\fP"
+
+.SS "typedef struct \fBpi\fP  \fBPI\fP"
+
+.SS "typedef struct \fBrds\fP  \fBRDS\fP"
+
+.SS "typedef struct \fBstatus\fP  \fBSTATUS\fP"
+
+.SS "typedef struct \fBsync\fP  \fBSYNC\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void get_rds_data (int * Radio_States, char * Station_Name, char * Radion_Text)"
+
+.SS "uint8_t get_signal_qual ()"
+
+.SS "void rds_group_4A (\fBRDS\fP * data)"
+
+.SS "uint8_t rds_triggered ()"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

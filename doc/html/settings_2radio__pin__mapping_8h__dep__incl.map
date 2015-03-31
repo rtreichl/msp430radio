@@ -1,0 +1,22 @@
+<map id="settings/radio_pin_mapping.h" name="settings/radio_pin_mapping.h">
+<area shape="rect" id="node2" href="$encoder_8h.html" title="driver/encoder.h" alt="" coords="16,177,129,203"/>
+<area shape="rect" id="node7" href="$external__interrupthandler_8h.html" title="driver/external_interrupthandler.h" alt="" coords="216,95,425,121"/>
+<area shape="rect" id="node10" href="$lcd_8h.html" title="driver/lcd.h" alt="" coords="959,177,1043,203"/>
+<area shape="rect" id="node16" href="$si4735_8h.html" title="driver/si4735.h" alt="" coords="521,95,627,121"/>
+<area shape="rect" id="node19" href="$pca9530_8c.html" title="driver/src/pca9530.c" alt="" coords="869,95,1007,121"/>
+<area shape="rect" id="node20" href="$tpa2016d2_8h.html" title="driver/tpa2016d2.h" alt="" coords="667,95,793,121"/>
+<area shape="rect" id="node3" href="$encoder_8c.html" title="driver/src/encoder.c" alt="" coords="5,259,140,285"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="main.c" alt="" coords="642,333,703,360"/>
+<area shape="rect" id="node5" href="$radio_8h.html" title="system/radio.h" alt="" coords="417,259,525,285"/>
+<area shape="rect" id="node6" href="$radio_8c.html" title="system/src/radio.c" alt="" coords="406,333,537,360"/>
+<area shape="rect" id="node8" href="$external__interrupthandler_8c.html" title="driver/src/external\l_interrupthandler.c" alt="" coords="153,169,283,211"/>
+<area shape="rect" id="node9" href="$si4735_8c.html" title="driver/src/si4735.c" alt="" coords="359,177,485,203"/>
+<area shape="rect" id="node11" href="$lcd_8c.html" title="driver/src/lcd.c" alt="" coords="846,259,953,285"/>
+<area shape="rect" id="node12" href="$menu_2menu_8h.html" title="menu/menu.h" alt="" coords="977,259,1078,285"/>
+<area shape="rect" id="node13" href="$menu__struct_8h.html" title="menu/menu_struct.h" alt="" coords="957,333,1098,360"/>
+<area shape="rect" id="node15" href="$menu_2src_2menu_8c.html" title="menu/src/menu.c" alt="" coords="810,333,933,360"/>
+<area shape="rect" id="node14" href="$menu__struct_8c.html" title="menu/src/menu_struct.c" alt="" coords="946,408,1109,435"/>
+<area shape="rect" id="node17" href="$rds_8h.html" title="system/rds.h" alt="" coords="611,177,710,203"/>
+<area shape="rect" id="node18" href="$rds_8c.html" title="system/src/rds.c" alt="" coords="601,259,721,285"/>
+<area shape="rect" id="node21" href="$tpa2016d2_8c.html" title="driver/src/tpa2016d2.c" alt="" coords="785,177,934,203"/>
+</map>

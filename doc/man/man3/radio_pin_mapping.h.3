@@ -1,0 +1,1039 @@
+.TH "settings/radio_pin_mapping.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+settings/radio_pin_mapping.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMSP_RXD_PIN\fP   BIT1"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_INT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBMSP_RXD_REN\fP   P1REN"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_PIN\fP   BIT2"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_INT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBMSP_TXD_REN\fP   P1REN"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_PIN\fP   BIT3"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_INT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBEN1_A_REN\fP   P1REN"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_PIN\fP   BIT4"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_INT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBEN1_B_REN\fP   P1REN"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_PIN\fP   BIT5"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_INT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBEN1_TAST_REN\fP   P1REN"
+.br
+.ti -1c
+.RI "#define \fBSI_RST_PIN\fP   BIT1"
+.br
+.ti -1c
+.RI "#define \fBSI_RST_IN\fP   P3IN"
+.br
+.ti -1c
+.RI "#define \fBSI_RST_OUT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBSI_RST_DIR\fP   P3DIR"
+.br
+.ti -1c
+.RI "#define \fBSI_RST_SEL\fP   P3SEL"
+.br
+.ti -1c
+.RI "#define \fBSI_RST_SEL2\fP   P3SEL2"
+.br
+.ti -1c
+.RI "#define \fBSI_RST_REN\fP   P3REN"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_PIN\fP   BIT3"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_IN\fP   P2IN"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_OUT\fP   P2OUT"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_DIR\fP   P2DIR"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_IFG\fP   P2IFG"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_IES\fP   P2IES"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_IE\fP   P2IE"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_INT\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_SEL\fP   P2SEL"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_SEL2\fP   P2SEL2"
+.br
+.ti -1c
+.RI "#define \fBSI_INT_REN\fP   P2REN"
+.br
+.ti -1c
+.RI "#define \fBSI_EN_PIN\fP   BIT0"
+.br
+.ti -1c
+.RI "#define \fBSI_EN_IN\fP   P3IN"
+.br
+.ti -1c
+.RI "#define \fBSI_EN_OUT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBSI_EN_DIR\fP   P3DIR"
+.br
+.ti -1c
+.RI "#define \fBSI_EN_SEL\fP   P3SEL"
+.br
+.ti -1c
+.RI "#define \fBSI_EN_SEL2\fP   P3SEL2"
+.br
+.ti -1c
+.RI "#define \fBSI_EN_REN\fP   P3REN"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_PIN\fP   BIT0"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_IN\fP   P2IN"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_OUT\fP   P2OUT"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_DIR\fP   P2DIR"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_IFG\fP   P2IFG"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_IES\fP   P2IES"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_IE\fP   P2IE"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_INT\fP   8"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_SEL\fP   P2SEL"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_SEL2\fP   P2SEL2"
+.br
+.ti -1c
+.RI "#define \fBEN2_A_REN\fP   P2REN"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_PIN\fP   BIT1"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_IN\fP   P2IN"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_OUT\fP   P2OUT"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_DIR\fP   P2DIR"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_IFG\fP   P2IFG"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_IES\fP   P2IES"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_IE\fP   P2IE"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_INT\fP   9"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_SEL\fP   P2SEL"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_SEL2\fP   P2SEL2"
+.br
+.ti -1c
+.RI "#define \fBEN2_B_REN\fP   P2REN"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_PIN\fP   BIT2"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_IN\fP   P2IN"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_OUT\fP   P2OUT"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_DIR\fP   P2DIR"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_IFG\fP   P2IFG"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_IES\fP   P2IES"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_IE\fP   P2IE"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_INT\fP   10"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_SEL\fP   P2SEL"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_SEL2\fP   P2SEL2"
+.br
+.ti -1c
+.RI "#define \fBEN2_TAST_REN\fP   P2REN"
+.br
+.ti -1c
+.RI "#define \fBAUIDO_SW_GND_PIN\fP   BIT2"
+.br
+.ti -1c
+.RI "#define \fBAUIDO_SW_GND_IN\fP   P3IN"
+.br
+.ti -1c
+.RI "#define \fBAUIDO_SW_GND_OUT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBAUIDO_SW_GND_DIR\fP   P3DIR"
+.br
+.ti -1c
+.RI "#define \fBAUIDO_SW_GND_SEL\fP   P3SEL"
+.br
+.ti -1c
+.RI "#define \fBAUIDO_SW_GND_SEL2\fP   P3SEL2"
+.br
+.ti -1c
+.RI "#define \fBAUIDO_SW_GND_REN\fP   P3REN"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SW_LINE_PIN\fP   BIT3"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SW_LINE_IN\fP   P3IN"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SW_LINE_OUT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SW_LINE_DIR\fP   P3DIR"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SW_LINE_SEL\fP   P3SEL"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SW_LINE_SEL2\fP   P3SEL2"
+.br
+.ti -1c
+.RI "#define \fBAUDIO_SW_LINE_REN\fP   P3REN"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_PIN\fP   BIT4"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_IN\fP   P2IN"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_OUT\fP   P2OUT"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_DIR\fP   P2DIR"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_IFG\fP   P2IFG"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_IES\fP   P2IES"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_IE\fP   P2IE"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_INT\fP   12"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_SEL\fP   P2SEL"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_SEL2\fP   P2SEL2"
+.br
+.ti -1c
+.RI "#define \fBPCA_ON_OFF_REN\fP   P2REN"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_PIN\fP   BIT5"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_IN\fP   P2IN"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_OUT\fP   P2OUT"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_DIR\fP   P2DIR"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_IFG\fP   P2IFG"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_IES\fP   P2IES"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_IE\fP   P2IE"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_INT\fP   13"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_SEL\fP   P2SEL"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_SEL2\fP   P2SEL2"
+.br
+.ti -1c
+.RI "#define \fBPCA_INT_REN\fP   P2REN"
+.br
+.ti -1c
+.RI "#define \fBANT_MF_PIN\fP   BIT5"
+.br
+.ti -1c
+.RI "#define \fBANT_MF_IN\fP   P3IN"
+.br
+.ti -1c
+.RI "#define \fBANT_MF_OUT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBANT_MF_DIR\fP   P3DIR"
+.br
+.ti -1c
+.RI "#define \fBANT_MF_SEL\fP   P3SEL"
+.br
+.ti -1c
+.RI "#define \fBANT_MF_SEL2\fP   P3SEL2"
+.br
+.ti -1c
+.RI "#define \fBANT_MF_REN\fP   P3REN"
+.br
+.ti -1c
+.RI "#define \fBANT_LF_PIN\fP   BIT6"
+.br
+.ti -1c
+.RI "#define \fBANT_LF_IN\fP   P3IN"
+.br
+.ti -1c
+.RI "#define \fBANT_LF_OUT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBANT_LF_DIR\fP   P3DIR"
+.br
+.ti -1c
+.RI "#define \fBANT_LF_SEL\fP   P3SEL"
+.br
+.ti -1c
+.RI "#define \fBANT_LF_SEL2\fP   P3SEL2"
+.br
+.ti -1c
+.RI "#define \fBANT_LF_REN\fP   P3REN"
+.br
+.ti -1c
+.RI "#define \fBAMP_SHUTDOWN_PIN\fP   BIT7"
+.br
+.ti -1c
+.RI "#define \fBAMP_SHUTDOWN_IN\fP   P3IN"
+.br
+.ti -1c
+.RI "#define \fBAMP_SHUTDOWN_OUT\fP   P3OUT"
+.br
+.ti -1c
+.RI "#define \fBAMP_SHUTDOWN_DIR\fP   P3DIR"
+.br
+.ti -1c
+.RI "#define \fBAMP_SHUTDOWN_SEL\fP   P3SEL"
+.br
+.ti -1c
+.RI "#define \fBAMP_SHUTDOWN_SEL2\fP   P3SEL2"
+.br
+.ti -1c
+.RI "#define \fBAMP_SHUTDOWN_REN\fP   P3REN"
+.br
+.ti -1c
+.RI "#define \fBSCL_PIN\fP   BIT6"
+.br
+.ti -1c
+.RI "#define \fBSCL_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBSCL_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBSCL_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBSCL_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBSCL_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBSCL_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBSCL_INT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSCL_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBSCL_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBSCL_REN\fP   P1REN"
+.br
+.ti -1c
+.RI "#define \fBSDA_PIN\fP   BIT7"
+.br
+.ti -1c
+.RI "#define \fBSDA_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBSDA_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBSDA_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBSDA_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBSDA_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBSDA_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBSDA_INT\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSDA_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBSDA_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBSDA_REN\fP   P1REN"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_PIN\fP   BIT0"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_IN\fP   P1IN"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_OUT\fP   P1OUT"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_DIR\fP   P1DIR"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_IFG\fP   P1IFG"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_IES\fP   P1IES"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_IE\fP   P1IE"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_INT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_SEL\fP   P1SEL"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_SEL2\fP   P1SEL2"
+.br
+.ti -1c
+.RI "#define \fBPWM_RST_REN\fP   P1REN"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AMP_SHUTDOWN_DIR   P3DIR"
+
+.SS "#define AMP_SHUTDOWN_IN   P3IN"
+
+.SS "#define AMP_SHUTDOWN_OUT   P3OUT"
+
+.SS "#define AMP_SHUTDOWN_PIN   BIT7"
+
+.SS "#define AMP_SHUTDOWN_REN   P3REN"
+
+.SS "#define AMP_SHUTDOWN_SEL   P3SEL"
+
+.SS "#define AMP_SHUTDOWN_SEL2   P3SEL2"
+
+.SS "#define ANT_LF_DIR   P3DIR"
+
+.SS "#define ANT_LF_IN   P3IN"
+
+.SS "#define ANT_LF_OUT   P3OUT"
+
+.SS "#define ANT_LF_PIN   BIT6"
+
+.SS "#define ANT_LF_REN   P3REN"
+
+.SS "#define ANT_LF_SEL   P3SEL"
+
+.SS "#define ANT_LF_SEL2   P3SEL2"
+
+.SS "#define ANT_MF_DIR   P3DIR"
+
+.SS "#define ANT_MF_IN   P3IN"
+
+.SS "#define ANT_MF_OUT   P3OUT"
+
+.SS "#define ANT_MF_PIN   BIT5"
+
+.SS "#define ANT_MF_REN   P3REN"
+
+.SS "#define ANT_MF_SEL   P3SEL"
+
+.SS "#define ANT_MF_SEL2   P3SEL2"
+
+.SS "#define AUDIO_SW_LINE_DIR   P3DIR"
+
+.SS "#define AUDIO_SW_LINE_IN   P3IN"
+
+.SS "#define AUDIO_SW_LINE_OUT   P3OUT"
+
+.SS "#define AUDIO_SW_LINE_PIN   BIT3"
+
+.SS "#define AUDIO_SW_LINE_REN   P3REN"
+
+.SS "#define AUDIO_SW_LINE_SEL   P3SEL"
+
+.SS "#define AUDIO_SW_LINE_SEL2   P3SEL2"
+
+.SS "#define AUIDO_SW_GND_DIR   P3DIR"
+
+.SS "#define AUIDO_SW_GND_IN   P3IN"
+
+.SS "#define AUIDO_SW_GND_OUT   P3OUT"
+
+.SS "#define AUIDO_SW_GND_PIN   BIT2"
+
+.SS "#define AUIDO_SW_GND_REN   P3REN"
+
+.SS "#define AUIDO_SW_GND_SEL   P3SEL"
+
+.SS "#define AUIDO_SW_GND_SEL2   P3SEL2"
+
+.SS "#define EN1_A_DIR   P1DIR"
+
+.SS "#define EN1_A_IE   P1IE"
+
+.SS "#define EN1_A_IES   P1IES"
+
+.SS "#define EN1_A_IFG   P1IFG"
+
+.SS "#define EN1_A_IN   P1IN"
+
+.SS "#define EN1_A_INT   3"
+
+.SS "#define EN1_A_OUT   P1OUT"
+
+.SS "#define EN1_A_PIN   BIT3"
+
+.SS "#define EN1_A_REN   P1REN"
+
+.SS "#define EN1_A_SEL   P1SEL"
+
+.SS "#define EN1_A_SEL2   P1SEL2"
+
+.SS "#define EN1_B_DIR   P1DIR"
+
+.SS "#define EN1_B_IE   P1IE"
+
+.SS "#define EN1_B_IES   P1IES"
+
+.SS "#define EN1_B_IFG   P1IFG"
+
+.SS "#define EN1_B_IN   P1IN"
+
+.SS "#define EN1_B_INT   4"
+
+.SS "#define EN1_B_OUT   P1OUT"
+
+.SS "#define EN1_B_PIN   BIT4"
+
+.SS "#define EN1_B_REN   P1REN"
+
+.SS "#define EN1_B_SEL   P1SEL"
+
+.SS "#define EN1_B_SEL2   P1SEL2"
+
+.SS "#define EN1_TAST_DIR   P1DIR"
+
+.SS "#define EN1_TAST_IE   P1IE"
+
+.SS "#define EN1_TAST_IES   P1IES"
+
+.SS "#define EN1_TAST_IFG   P1IFG"
+
+.SS "#define EN1_TAST_IN   P1IN"
+
+.SS "#define EN1_TAST_INT   5"
+
+.SS "#define EN1_TAST_OUT   P1OUT"
+
+.SS "#define EN1_TAST_PIN   BIT5"
+
+.SS "#define EN1_TAST_REN   P1REN"
+
+.SS "#define EN1_TAST_SEL   P1SEL"
+
+.SS "#define EN1_TAST_SEL2   P1SEL2"
+
+.SS "#define EN2_A_DIR   P2DIR"
+
+.SS "#define EN2_A_IE   P2IE"
+
+.SS "#define EN2_A_IES   P2IES"
+
+.SS "#define EN2_A_IFG   P2IFG"
+
+.SS "#define EN2_A_IN   P2IN"
+
+.SS "#define EN2_A_INT   8"
+
+.SS "#define EN2_A_OUT   P2OUT"
+
+.SS "#define EN2_A_PIN   BIT0"
+
+.SS "#define EN2_A_REN   P2REN"
+
+.SS "#define EN2_A_SEL   P2SEL"
+
+.SS "#define EN2_A_SEL2   P2SEL2"
+
+.SS "#define EN2_B_DIR   P2DIR"
+
+.SS "#define EN2_B_IE   P2IE"
+
+.SS "#define EN2_B_IES   P2IES"
+
+.SS "#define EN2_B_IFG   P2IFG"
+
+.SS "#define EN2_B_IN   P2IN"
+
+.SS "#define EN2_B_INT   9"
+
+.SS "#define EN2_B_OUT   P2OUT"
+
+.SS "#define EN2_B_PIN   BIT1"
+
+.SS "#define EN2_B_REN   P2REN"
+
+.SS "#define EN2_B_SEL   P2SEL"
+
+.SS "#define EN2_B_SEL2   P2SEL2"
+
+.SS "#define EN2_TAST_DIR   P2DIR"
+
+.SS "#define EN2_TAST_IE   P2IE"
+
+.SS "#define EN2_TAST_IES   P2IES"
+
+.SS "#define EN2_TAST_IFG   P2IFG"
+
+.SS "#define EN2_TAST_IN   P2IN"
+
+.SS "#define EN2_TAST_INT   10"
+
+.SS "#define EN2_TAST_OUT   P2OUT"
+
+.SS "#define EN2_TAST_PIN   BIT2"
+
+.SS "#define EN2_TAST_REN   P2REN"
+
+.SS "#define EN2_TAST_SEL   P2SEL"
+
+.SS "#define EN2_TAST_SEL2   P2SEL2"
+
+.SS "#define MSP_RXD_DIR   P1DIR"
+
+.SS "#define MSP_RXD_IE   P1IE"
+
+.SS "#define MSP_RXD_IES   P1IES"
+
+.SS "#define MSP_RXD_IFG   P1IFG"
+
+.SS "#define MSP_RXD_IN   P1IN"
+
+.SS "#define MSP_RXD_INT   1"
+
+.SS "#define MSP_RXD_OUT   P1OUT"
+
+.SS "#define MSP_RXD_PIN   BIT1"
+
+.PP
+\fBDate:\fP
+.RS 4
+Mar 11 2015 13:52:21 
+.RE
+.PP
+
+.SS "#define MSP_RXD_REN   P1REN"
+
+.SS "#define MSP_RXD_SEL   P1SEL"
+
+.SS "#define MSP_RXD_SEL2   P1SEL2"
+
+.SS "#define MSP_TXD_DIR   P1DIR"
+
+.SS "#define MSP_TXD_IE   P1IE"
+
+.SS "#define MSP_TXD_IES   P1IES"
+
+.SS "#define MSP_TXD_IFG   P1IFG"
+
+.SS "#define MSP_TXD_IN   P1IN"
+
+.SS "#define MSP_TXD_INT   2"
+
+.SS "#define MSP_TXD_OUT   P1OUT"
+
+.SS "#define MSP_TXD_PIN   BIT2"
+
+.SS "#define MSP_TXD_REN   P1REN"
+
+.SS "#define MSP_TXD_SEL   P1SEL"
+
+.SS "#define MSP_TXD_SEL2   P1SEL2"
+
+.SS "#define PCA_INT_DIR   P2DIR"
+
+.SS "#define PCA_INT_IE   P2IE"
+
+.SS "#define PCA_INT_IES   P2IES"
+
+.SS "#define PCA_INT_IFG   P2IFG"
+
+.SS "#define PCA_INT_IN   P2IN"
+
+.SS "#define PCA_INT_INT   13"
+
+.SS "#define PCA_INT_OUT   P2OUT"
+
+.SS "#define PCA_INT_PIN   BIT5"
+
+.SS "#define PCA_INT_REN   P2REN"
+
+.SS "#define PCA_INT_SEL   P2SEL"
+
+.SS "#define PCA_INT_SEL2   P2SEL2"
+
+.SS "#define PCA_ON_OFF_DIR   P2DIR"
+
+.SS "#define PCA_ON_OFF_IE   P2IE"
+
+.SS "#define PCA_ON_OFF_IES   P2IES"
+
+.SS "#define PCA_ON_OFF_IFG   P2IFG"
+
+.SS "#define PCA_ON_OFF_IN   P2IN"
+
+.SS "#define PCA_ON_OFF_INT   12"
+
+.SS "#define PCA_ON_OFF_OUT   P2OUT"
+
+.SS "#define PCA_ON_OFF_PIN   BIT4"
+
+.SS "#define PCA_ON_OFF_REN   P2REN"
+
+.SS "#define PCA_ON_OFF_SEL   P2SEL"
+
+.SS "#define PCA_ON_OFF_SEL2   P2SEL2"
+
+.SS "#define PWM_RST_DIR   P1DIR"
+
+.SS "#define PWM_RST_IE   P1IE"
+
+.SS "#define PWM_RST_IES   P1IES"
+
+.SS "#define PWM_RST_IFG   P1IFG"
+
+.SS "#define PWM_RST_IN   P1IN"
+
+.SS "#define PWM_RST_INT   0"
+
+.SS "#define PWM_RST_OUT   P1OUT"
+
+.SS "#define PWM_RST_PIN   BIT0"
+
+.SS "#define PWM_RST_REN   P1REN"
+
+.SS "#define PWM_RST_SEL   P1SEL"
+
+.SS "#define PWM_RST_SEL2   P1SEL2"
+
+.SS "#define SCL_DIR   P1DIR"
+
+.SS "#define SCL_IE   P1IE"
+
+.SS "#define SCL_IES   P1IES"
+
+.SS "#define SCL_IFG   P1IFG"
+
+.SS "#define SCL_IN   P1IN"
+
+.SS "#define SCL_INT   6"
+
+.SS "#define SCL_OUT   P1OUT"
+
+.SS "#define SCL_PIN   BIT6"
+
+.SS "#define SCL_REN   P1REN"
+
+.SS "#define SCL_SEL   P1SEL"
+
+.SS "#define SCL_SEL2   P1SEL2"
+
+.SS "#define SDA_DIR   P1DIR"
+
+.SS "#define SDA_IE   P1IE"
+
+.SS "#define SDA_IES   P1IES"
+
+.SS "#define SDA_IFG   P1IFG"
+
+.SS "#define SDA_IN   P1IN"
+
+.SS "#define SDA_INT   7"
+
+.SS "#define SDA_OUT   P1OUT"
+
+.SS "#define SDA_PIN   BIT7"
+
+.SS "#define SDA_REN   P1REN"
+
+.SS "#define SDA_SEL   P1SEL"
+
+.SS "#define SDA_SEL2   P1SEL2"
+
+.SS "#define SI_EN_DIR   P3DIR"
+
+.SS "#define SI_EN_IN   P3IN"
+
+.SS "#define SI_EN_OUT   P3OUT"
+
+.SS "#define SI_EN_PIN   BIT0"
+
+.SS "#define SI_EN_REN   P3REN"
+
+.SS "#define SI_EN_SEL   P3SEL"
+
+.SS "#define SI_EN_SEL2   P3SEL2"
+
+.SS "#define SI_INT_DIR   P2DIR"
+
+.SS "#define SI_INT_IE   P2IE"
+
+.SS "#define SI_INT_IES   P2IES"
+
+.SS "#define SI_INT_IFG   P2IFG"
+
+.SS "#define SI_INT_IN   P2IN"
+
+.SS "#define SI_INT_INT   11"
+
+.SS "#define SI_INT_OUT   P2OUT"
+
+.SS "#define SI_INT_PIN   BIT3"
+
+.SS "#define SI_INT_REN   P2REN"
+
+.SS "#define SI_INT_SEL   P2SEL"
+
+.SS "#define SI_INT_SEL2   P2SEL2"
+
+.SS "#define SI_RST_DIR   P3DIR"
+
+.SS "#define SI_RST_IN   P3IN"
+
+.SS "#define SI_RST_OUT   P3OUT"
+
+.SS "#define SI_RST_PIN   BIT1"
+
+.SS "#define SI_RST_REN   P3REN"
+
+.SS "#define SI_RST_SEL   P3SEL"
+
+.SS "#define SI_RST_SEL2   P3SEL2"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

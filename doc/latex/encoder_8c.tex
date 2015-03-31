@@ -1,0 +1,638 @@
+\hypertarget{encoder_8c}{}\section{driver/src/encoder.c-\/\+Dateireferenz}
+\label{encoder_8c}\index{driver/src/encoder.\+c@{driver/src/encoder.\+c}}
+{\ttfamily \#include $<$driver/encoder.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für encoder.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{encoder_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{encoder_8c_a5378ed2b5356942a2f369a1ea5a3eec7}{Encoder\+\_\+\+Timer\+\_\+init} ()
+\item 
+int16\+\_\+t \hyperlink{encoder_8c_a7a39090bb6f1d88f9371e44f4923194b}{Encoder\+\_\+1\+\_\+get\+\_\+count} ()
+\item 
+void \hyperlink{encoder_8c_afcb65d25ec031240b72ae3a51c1e9b4a}{Encoder\+\_\+1\+\_\+decoder} (void)
+\item 
+void \hyperlink{encoder_8c_a1b09f480da15d565de0b4acf37f40199}{Encoder\+\_\+1\+\_\+init} (void)
+\item 
+int16\+\_\+t \hyperlink{encoder_8c_a17708354c0e76c0422398f8dcd50dfea}{Encoder\+\_\+2\+\_\+get\+\_\+count} ()
+\item 
+void \hyperlink{encoder_8c_a81332b0a52a42a7a7b134228f9bb3848}{Encoder\+\_\+2\+\_\+decoder} (void)
+\item 
+void \hyperlink{encoder_8c_af947b4bf6e9bc6d5b580609d046789da}{Encoder\+\_\+2\+\_\+init} (void)
+\item 
+void \hyperlink{encoder_8c_a136248fd00f8429933544a54b030aef9}{encoder\+\_\+interrupt2} (void)
+\item 
+void \hyperlink{encoder_8c_a271ca5c0624ed124f6398f408d1f3017}{encoder\+\_\+interrupt} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint16\+\_\+t \hyperlink{encoder_8c_a4a5df64ab4c9f6d2244c392af3dc4ff1}{encoder\+\_\+1\+\_\+count} = 0
+\item 
+volatile int8\+\_\+t \hyperlink{encoder_8c_a52e92b8862928ab741898127d67b7a32}{encoder\+\_\+1\+\_\+last} = 0
+\item 
+volatile int8\+\_\+t \hyperlink{encoder_8c_a9fa5b87a6a8bbae5be7490696462d3bb}{encoder\+\_\+1\+\_\+button} = \textquotesingle{}f\textquotesingle{}
+\item 
+volatile int8\+\_\+t \hyperlink{encoder_8c_a9c2830729a8375d0339290d3e7e35f3a}{encoder\+\_\+1\+\_\+state} = 0
+\item 
+volatile int16\+\_\+t \hyperlink{encoder_8c_ae3ef1f2bd9f8f2194ee5c7684ebfed93}{count\+\_\+button\+\_\+1} = 0
+\item 
+volatile uint16\+\_\+t \hyperlink{encoder_8c_a1244187bbdce651e81fe1c530597e132}{encoder\+\_\+2\+\_\+count} = 0
+\item 
+volatile int8\+\_\+t \hyperlink{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}{encoder\+\_\+2\+\_\+last} = 0
+\item 
+volatile int8\+\_\+t \hyperlink{encoder_8c_a884ca0c2eba02b6531c717d301657d0c}{encoder\+\_\+2\+\_\+button} = \textquotesingle{}f\textquotesingle{}
+\item 
+volatile int8\+\_\+t \hyperlink{encoder_8c_a2086480a2a40842b6f9a88cd0dfdc9fe}{encoder\+\_\+2\+\_\+state} = 0
+\item 
+volatile int16\+\_\+t \hyperlink{encoder_8c_af04a440960da9f7d90ab52bb94b9f7a1}{count\+\_\+button\+\_\+2} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{encoder_8c_afcb65d25ec031240b72ae3a51c1e9b4a}{}\index{encoder.\+c@{encoder.\+c}!Encoder\+\_\+1\+\_\+decoder@{Encoder\+\_\+1\+\_\+decoder}}
+\index{Encoder\+\_\+1\+\_\+decoder@{Encoder\+\_\+1\+\_\+decoder}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{Encoder\+\_\+1\+\_\+decoder}]{\setlength{\rightskip}{0pt plus 5cm}void Encoder\+\_\+1\+\_\+decoder (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_afcb65d25ec031240b72ae3a51c1e9b4a}
+
+
+Definiert in Zeile 56 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+57 \{
+58     int8\_t encoder\_1\_new = 0, encoder\_1\_diff = 0;
+59     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a61b6422841b6c5ab9640866758446063}{EN1\_A\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN}) != 0)                            \textcolor{comment}{//Check Signal A for a High
+       Value}
+60     \{
+61         encoder\_1\_new = 3;                                          \textcolor{comment}{//Decode Graycode new = Bit1 := A and
+       Bit0 := A^B}
+62 
+63 
+64     \}
+65     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_aa3581a50b6dc24fbb10a751d776ecd08}{EN1\_B\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN}) != 0)                            \textcolor{comment}{//Check Signal A for a High
+       Value}
+66     \{
+67         encoder\_1\_new ^= 1;                                         \textcolor{comment}{//Decode Graycode new = Bit1 := A and
+       Bit0 := A^B}
+68 
+69     \}
+70     encoder\_1\_diff = \hyperlink{encoder_8c_a52e92b8862928ab741898127d67b7a32}{encoder\_1\_last} - encoder\_1\_new;              \textcolor{comment}{//The difference of last
+       and new can only be -3, -1, 1, 3}
+71     \textcolor{keywordflow}{if}(encoder\_1\_diff & 1 == 1)                                     \textcolor{comment}{//Check difference if an Error
+       occurred. Bit0 is always 1}
+72     \{
+73         \hyperlink{encoder_8c_a52e92b8862928ab741898127d67b7a32}{encoder\_1\_last} = encoder\_1\_new;                               \textcolor{comment}{//Save the new Value
+       form Encoder to last}
+74 \textcolor{preprocessor}{#if ENCODER\_1\_ROTARY == 0                                           //Rotary direction can be set to
+       right(0) or left(1) this option only demand the count direction}
+75         \hyperlink{encoder_8c_a4a5df64ab4c9f6d2244c392af3dc4ff1}{encoder\_1\_count} -= ((encoder\_1\_diff & 2) - 1);               \textcolor{comment}{//the difference is for
+       right rotary 1 1 1 -3 and for left -1 -1 -1 3 the bit mask will force the second bit}
+76 \textcolor{preprocessor}{#else}
+77         \hyperlink{encoder_8c_a4a5df64ab4c9f6d2244c392af3dc4ff1}{encoder\_1\_count} += ((encoder\_1\_diff & 2) - 1);               \textcolor{comment}{//the difference is for
+       left rotary 1 1 1 -3 and for right -1 -1 -1 3 the bit mask will force the second bit}
+78 \textcolor{preprocessor}{#endif}
+79     \}
+80 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{encoder_8c_afcb65d25ec031240b72ae3a51c1e9b4a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8c_a7a39090bb6f1d88f9371e44f4923194b}{}\index{encoder.\+c@{encoder.\+c}!Encoder\+\_\+1\+\_\+get\+\_\+count@{Encoder\+\_\+1\+\_\+get\+\_\+count}}
+\index{Encoder\+\_\+1\+\_\+get\+\_\+count@{Encoder\+\_\+1\+\_\+get\+\_\+count}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{Encoder\+\_\+1\+\_\+get\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Encoder\+\_\+1\+\_\+get\+\_\+count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_a7a39090bb6f1d88f9371e44f4923194b}
+
+
+Definiert in Zeile 37 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+38 \{
+39     \textcolor{keyword}{static} uint16\_t tmp\_count\_1 = 0x8000;                       \textcolor{comment}{//Set a start Value in the Middle of Range}
+40     uint16\_t tmp\_en = \hyperlink{encoder_8c_a4a5df64ab4c9f6d2244c392af3dc4ff1}{encoder\_1\_count};                           \textcolor{comment}{//Save encoder\_2\_count if
+       there is a break form a Interrupt}
+41     uint16\_t tmp\_t = tmp\_count\_1/4;                             \textcolor{comment}{//Calculate number of Steps}
+42     uint16\_t tmp\_en\_t = tmp\_en/4;                               \textcolor{comment}{//Calculate number of Steps}
+43     \textcolor{keywordflow}{if}((tmp\_en%4) == 3)                                             \textcolor{comment}{//Check if Encoder is near the next
+       full Rast point}
+44     \{
+45         tmp\_en\_t++;                                                 \textcolor{comment}{//if true up Value for Steps of act.
+       Value}
+46     \}
+47     \textcolor{keywordflow}{if}((tmp\_count\_1%4) == 3)                                        \textcolor{comment}{//Check if last Value of Encoder was
+       near the next full Rast point}
+48     \{
+49         tmp\_t++;                                                    \textcolor{comment}{//if true up Value for Steps of last
+       Value}
+50     \}
+51     int16\_t diff = tmp\_en\_t - tmp\_t;                                    \textcolor{comment}{//make the difference of act. and
+       last Value}
+52     tmp\_count\_1 = tmp\_en;                                           \textcolor{comment}{//save act. Value as last Value}
+53     \textcolor{keywordflow}{return} diff;                                                    \textcolor{comment}{//give difference back}
+54 \}
+\end{DoxyCode}
+\hypertarget{encoder_8c_a1b09f480da15d565de0b4acf37f40199}{}\index{encoder.\+c@{encoder.\+c}!Encoder\+\_\+1\+\_\+init@{Encoder\+\_\+1\+\_\+init}}
+\index{Encoder\+\_\+1\+\_\+init@{Encoder\+\_\+1\+\_\+init}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{Encoder\+\_\+1\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void Encoder\+\_\+1\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_a1b09f480da15d565de0b4acf37f40199}
+
+
+Definiert in Zeile 82 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+83 \{
+84     \hyperlink{encoder_8c_a52e92b8862928ab741898127d67b7a32}{encoder\_1\_last} = 0;
+85     \hyperlink{encoder_8c_a4a5df64ab4c9f6d2244c392af3dc4ff1}{encoder\_1\_count} = 0x8000;
+86     \hyperlink{encoder_8c_a9fa5b87a6a8bbae5be7490696462d3bb}{encoder\_1\_button} = \textcolor{charliteral}{'f'};
+87     \hyperlink{encoder_8c_a9c2830729a8375d0339290d3e7e35f3a}{encoder\_1\_state} = 0;
+88     \hyperlink{settings_2radio__pin__mapping_8h_a017bdeed62629f89515ecb80f50acd48}{EN1\_A\_IE} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN});                  \textcolor{comment}{//Disable Interrupt on all listed Pins}
+89     \hyperlink{settings_2radio__pin__mapping_8h_af890d74738a7ac889d375b62fc418422}{EN1\_B\_IE} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN});
+90     \hyperlink{settings_2radio__pin__mapping_8h_aeb5004944ba49d984e709a82a4a3a98f}{EN1\_A\_DIR} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN});    \textcolor{comment}{//Set Signal A, B, Button as Input}
+91     \hyperlink{settings_2radio__pin__mapping_8h_aec83cd81d0c29f46e98e0cc71dc833b1}{EN1\_B\_DIR} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN});
+92     \hyperlink{settings_2radio__pin__mapping_8h_a17bebfdcc7429ad6569f58389b152eae}{EN1\_TAST\_DIR} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_a54875c0dfa7d0292803b5e36b5da289a}{EN1\_TAST\_PIN});
+93     \hyperlink{settings_2radio__pin__mapping_8h_ae63e3c94f4edb0bbbe420d9a59eaa633}{EN1\_TAST\_REN}  |=  \hyperlink{settings_2radio__pin__mapping_8h_a54875c0dfa7d0292803b5e36b5da289a}{EN1\_TAST\_PIN};                                 \textcolor{comment}{//Enable
+       Pullup/Pulldown on Button Pin}
+94     \hyperlink{settings_2radio__pin__mapping_8h_a8284d0501cd7cd52056d597ba14d7d02}{EN1\_TAST\_OUT} |=  \hyperlink{settings_2radio__pin__mapping_8h_a54875c0dfa7d0292803b5e36b5da289a}{EN1\_TAST\_PIN};                                  \textcolor{comment}{//Set Pullup
+       Resistor on Button Pin}
+95     \hyperlink{settings_2radio__pin__mapping_8h_a0b205f6ada4a4c7d68e40950a65c2f85}{EN1\_A\_OUT} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN});
+96     \hyperlink{settings_2radio__pin__mapping_8h_a227e242001671e6f1fd5d71c8822eb79}{EN1\_B\_OUT} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN});
+97     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a61b6422841b6c5ab9640866758446063}{EN1\_A\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN}) != 0)
+98     \{
+99         \hyperlink{encoder_8c_a52e92b8862928ab741898127d67b7a32}{encoder\_1\_last} = 3;                                           \textcolor{comment}{//Decode Graycode new =
+       Bit1 := A and Bit0 := A^B}
+100         \hyperlink{settings_2radio__pin__mapping_8h_a066c7f99b1e754ff59c882960e093209}{EN1\_A\_IES} |=  \hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN};                              \textcolor{comment}{//Interrupt for a falling
+       edge for Signal A}
+101 
+102     \}
+103     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_aa3581a50b6dc24fbb10a751d776ecd08}{EN1\_B\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN}) != 0)
+104     \{
+105         \hyperlink{encoder_8c_a52e92b8862928ab741898127d67b7a32}{encoder\_1\_last} ^= 1;                                      \textcolor{comment}{//Decode Graycode new =
+       Bit1 := A and Bit0 := A^B}
+106         \hyperlink{settings_2radio__pin__mapping_8h_aa031142272b3a51baf6ce4b042a8da86}{EN1\_B\_IES} |=  \hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN};                              \textcolor{comment}{//Interrupt for a falling
+       edge for Signal B}
+107     \}
+108     \textcolor{comment}{/*EN1\_A\_IFG &= ~(EN1\_A\_PIN);                                    //Clear Interrupt Flag before enable
+       Interrupt on all listed Pins}
+109 \textcolor{comment}{    EN1\_B\_IFG &= ~(EN1\_B\_PIN);}
+110 \textcolor{comment}{    EN1\_A\_IE |= EN1\_A\_PIN;                                      //Enable Interrupt on all listed Pins}
+111 \textcolor{comment}{    EN1\_B\_IE |= EN1\_B\_PIN;*/}
+112     \hyperlink{external__interrupthandler_8h_a1685394f9610006097ec45181e59563b}{ext\_interrupt\_create}(\hyperlink{settings_2radio__pin__mapping_8h_a629ca23b0c7a97f78a1c9de4cd29de8b}{EN1\_A\_INT}, 
+      \hyperlink{encoder_8c_a271ca5c0624ed124f6398f408d1f3017}{encoder\_interrupt});
+113     \hyperlink{external__interrupthandler_8h_a1685394f9610006097ec45181e59563b}{ext\_interrupt\_create}(\hyperlink{settings_2radio__pin__mapping_8h_a52587c1512ac91fdc2ca2df48143ec74}{EN1\_B\_INT}, 
+      \hyperlink{encoder_8c_a271ca5c0624ed124f6398f408d1f3017}{encoder\_interrupt});
+114     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{settings_2radio__pin__mapping_8h_a629ca23b0c7a97f78a1c9de4cd29de8b}{EN1\_A\_INT});
+115     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{settings_2radio__pin__mapping_8h_a52587c1512ac91fdc2ca2df48143ec74}{EN1\_B\_INT});
+116     \_\_bis\_SR\_register(GIE);
+117 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{encoder_8c_a1b09f480da15d565de0b4acf37f40199_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{encoder_8c_a1b09f480da15d565de0b4acf37f40199_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8c_a81332b0a52a42a7a7b134228f9bb3848}{}\index{encoder.\+c@{encoder.\+c}!Encoder\+\_\+2\+\_\+decoder@{Encoder\+\_\+2\+\_\+decoder}}
+\index{Encoder\+\_\+2\+\_\+decoder@{Encoder\+\_\+2\+\_\+decoder}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{Encoder\+\_\+2\+\_\+decoder}]{\setlength{\rightskip}{0pt plus 5cm}void Encoder\+\_\+2\+\_\+decoder (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_a81332b0a52a42a7a7b134228f9bb3848}
+
+
+Definiert in Zeile 142 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+143 \{
+144     int8\_t encoder\_2\_new = 0, encoder\_2\_diff = 0;
+145     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a49efd6845dbcb3ab3f7c90d1e0fa566b}{EN2\_A\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN}) != 0)                            \textcolor{comment}{//Check Signal A for a High
+       Value}
+146     \{
+147         encoder\_2\_new = 3;                                          \textcolor{comment}{//Decode Graycode new = Bit1 := A and
+       Bit0 := A^B}
+148 
+149     \}
+150     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a48f46bb31bccfcc81eb544380495f16a}{EN2\_B\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN}) != 0)                            \textcolor{comment}{//Check Signal A for a High
+       Value}
+151     \{
+152         encoder\_2\_new ^= 1;                                         \textcolor{comment}{//Decode Graycode new = Bit1 := A and
+       Bit0 := A^B}
+153     \}
+154     encoder\_2\_diff = \hyperlink{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}{encoder\_2\_last} - encoder\_2\_new;              \textcolor{comment}{//The difference of last
+       and new can only be -3, -1, 1, 3}
+155     \textcolor{keywordflow}{if}(encoder\_2\_diff & 1 == 1)                                     \textcolor{comment}{//Check difference if an Error
+       occurred. Bit0 is always 1}
+156     \{
+157         \hyperlink{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}{encoder\_2\_last} = encoder\_2\_new;                               \textcolor{comment}{//Save the new Value
+       form Encoder to last}
+158 \textcolor{preprocessor}{#if ENCODER\_2\_ROTARY == 0                                           //Rotary direction can be set to
+       right(0) or left(1) this option only demand the count direction}
+159         \hyperlink{encoder_8c_a1244187bbdce651e81fe1c530597e132}{encoder\_2\_count} -= ((encoder\_2\_diff & 2) - 1);               \textcolor{comment}{//the difference is for
+       right rotary  1 1 1 -3 and for left -1 -1 -1 3 the bit mask will force the second bit}
+160 \textcolor{preprocessor}{#else}
+161         \hyperlink{encoder_8c_a1244187bbdce651e81fe1c530597e132}{encoder\_2\_count} += ((encoder\_2\_diff & 2) - 1);               \textcolor{comment}{//the difference is for
+       left rotary 1 1 1 -3 and for right -1 -1 -1 3 the bit mask will force the second bit}
+162 \textcolor{preprocessor}{#endif}
+163     \}
+164 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{encoder_8c_a81332b0a52a42a7a7b134228f9bb3848_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8c_a17708354c0e76c0422398f8dcd50dfea}{}\index{encoder.\+c@{encoder.\+c}!Encoder\+\_\+2\+\_\+get\+\_\+count@{Encoder\+\_\+2\+\_\+get\+\_\+count}}
+\index{Encoder\+\_\+2\+\_\+get\+\_\+count@{Encoder\+\_\+2\+\_\+get\+\_\+count}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{Encoder\+\_\+2\+\_\+get\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Encoder\+\_\+2\+\_\+get\+\_\+count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_a17708354c0e76c0422398f8dcd50dfea}
+
+
+Definiert in Zeile 123 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+124 \{
+125     \textcolor{keyword}{static} uint16\_t tmp\_count\_2 = 0x8000;                       \textcolor{comment}{//Set a start Value in the Middle of Range}
+126     uint16\_t tmp\_en = \hyperlink{encoder_8c_a1244187bbdce651e81fe1c530597e132}{encoder\_2\_count};                           \textcolor{comment}{//Save encoder\_2\_count if
+       there is a break form a Interrupt}
+127     uint16\_t tmp\_t = tmp\_count\_2/4;                             \textcolor{comment}{//Calculate number of Steps}
+128     uint16\_t tmp\_en\_t = tmp\_en/4;                               \textcolor{comment}{//Calculate number of Steps}
+129     \textcolor{keywordflow}{if}((tmp\_en%4) == 3)                                             \textcolor{comment}{//Check if Encoder is near the next
+       full Rast point}
+130     \{
+131         tmp\_en\_t++;                                                 \textcolor{comment}{//if true up Value for Steps of act.
+       Value}
+132     \}
+133     \textcolor{keywordflow}{if}((tmp\_count\_2%4) == 3)                                        \textcolor{comment}{//Check if last Value of Encoder was
+       near the next full Rast point}
+134     \{
+135         tmp\_t++;                                                    \textcolor{comment}{//if true up Value for Steps of last
+       Value}
+136     \}
+137     int16\_t diff = tmp\_en\_t - tmp\_t;                                    \textcolor{comment}{//make the difference of act. and
+       last Value}
+138     tmp\_count\_2 = tmp\_en;                                           \textcolor{comment}{//save act. Value as last Value}
+139     \textcolor{keywordflow}{return} diff;                                                    \textcolor{comment}{//give difference back}
+140 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{encoder_8c_a17708354c0e76c0422398f8dcd50dfea_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8c_af947b4bf6e9bc6d5b580609d046789da}{}\index{encoder.\+c@{encoder.\+c}!Encoder\+\_\+2\+\_\+init@{Encoder\+\_\+2\+\_\+init}}
+\index{Encoder\+\_\+2\+\_\+init@{Encoder\+\_\+2\+\_\+init}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{Encoder\+\_\+2\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void Encoder\+\_\+2\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_af947b4bf6e9bc6d5b580609d046789da}
+
+
+Definiert in Zeile 166 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+167 \{
+168     \hyperlink{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}{encoder\_2\_last} = 0;
+169     \hyperlink{encoder_8c_a1244187bbdce651e81fe1c530597e132}{encoder\_2\_count} = 0x8000;
+170     \hyperlink{encoder_8c_a884ca0c2eba02b6531c717d301657d0c}{encoder\_2\_button} = \textcolor{charliteral}{'f'};
+171     \hyperlink{encoder_8c_a2086480a2a40842b6f9a88cd0dfdc9fe}{encoder\_2\_state} = 0;
+172     \hyperlink{settings_2radio__pin__mapping_8h_a7709b77c11e400ded2596f0634b45ab2}{EN2\_A\_IE} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN});                  \textcolor{comment}{//Disable Interrupt on all listed Pins}
+173     \hyperlink{settings_2radio__pin__mapping_8h_a7b9a010c0a8328559df08d24b346083d}{EN2\_B\_IE} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN});
+174     \hyperlink{settings_2radio__pin__mapping_8h_aa9de3ba0029b65528096f534b3e834c6}{EN2\_A\_DIR} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN});    \textcolor{comment}{//Set Signal A, B, Button as Input}
+175     \hyperlink{settings_2radio__pin__mapping_8h_a22250238f82cdb7078d2c5441b027652}{EN2\_B\_DIR} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN});
+176     \hyperlink{settings_2radio__pin__mapping_8h_a673667629a7b302169d039fe97c4977d}{EN2\_TAST\_DIR} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_aee5aa0b07fb616affd51e63bd3864df1}{EN2\_TAST\_PIN});
+177     \hyperlink{settings_2radio__pin__mapping_8h_a4cd9e04440d9aa10a3168c4f283b230f}{EN2\_TAST\_REN}  |=  \hyperlink{settings_2radio__pin__mapping_8h_aee5aa0b07fb616affd51e63bd3864df1}{EN2\_TAST\_PIN};                                 \textcolor{comment}{//Enable
+       Pullup/Pulldown on Button Pin}
+178     \hyperlink{settings_2radio__pin__mapping_8h_a8f933b198cde25d847cf7b93635204ff}{EN2\_TAST\_OUT} |=  \hyperlink{settings_2radio__pin__mapping_8h_aee5aa0b07fb616affd51e63bd3864df1}{EN2\_TAST\_PIN};                                  \textcolor{comment}{//Set Pullup
+       Resistor on Button Pin}
+179     \hyperlink{settings_2radio__pin__mapping_8h_af22dffc9cc834381109078315408db5b}{EN2\_A\_OUT} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN});
+180     \hyperlink{settings_2radio__pin__mapping_8h_acac6c0dc776ccd1e4ee67460f799718d}{EN2\_B\_OUT} &= ~(\hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN});
+181     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a49efd6845dbcb3ab3f7c90d1e0fa566b}{EN2\_A\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN}) != 0)
+182     \{
+183         \hyperlink{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}{encoder\_2\_last} = 3;                                           \textcolor{comment}{//Decode Graycode new =
+       Bit2 := A and Bit0 := A^B}
+184         \hyperlink{settings_2radio__pin__mapping_8h_a41e71eca89ee3291c17581fad6fdefd8}{EN2\_A\_IES} |=  \hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN};                              \textcolor{comment}{//Interrupt for a falling
+       edge for Signal A}
+185 
+186     \}
+187     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a48f46bb31bccfcc81eb544380495f16a}{EN2\_B\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN}) != 0)
+188     \{
+189         \hyperlink{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}{encoder\_2\_last} ^= 1;                                      \textcolor{comment}{//Decode Graycode new =
+       Bit2 := A and Bit0 := A^B}
+190         \hyperlink{settings_2radio__pin__mapping_8h_a99a2a53edaabc0a1c84aa48e3f7c4ef9}{EN2\_B\_IES} |=  \hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN};                              \textcolor{comment}{//Interrupt for a falling
+       edge for Signal B}
+191     \}
+192     \textcolor{comment}{/*EN2\_A\_IFG &= ~(EN2\_A\_PIN);                                    //Clear Interrupt Flag before enable
+       Interrupt on all listed Pins}
+193 \textcolor{comment}{    EN2\_B\_IFG &= ~(EN2\_B\_PIN);}
+194 \textcolor{comment}{    EN2\_A\_IE |= EN2\_A\_PIN;                                      //Enable Interrupt on all listed Pins}
+195 \textcolor{comment}{    EN2\_B\_IE |= EN2\_B\_PIN;*/}
+196     \hyperlink{external__interrupthandler_8h_a1685394f9610006097ec45181e59563b}{ext\_interrupt\_create}(\hyperlink{settings_2radio__pin__mapping_8h_a3b321cd15a5fcef5ca3df226da4b591f}{EN2\_A\_INT}, 
+      \hyperlink{encoder_8c_a271ca5c0624ed124f6398f408d1f3017}{encoder\_interrupt});
+197     \hyperlink{external__interrupthandler_8h_a1685394f9610006097ec45181e59563b}{ext\_interrupt\_create}(\hyperlink{settings_2radio__pin__mapping_8h_a9f64f10a1e3db1942b43c4c7048db31f}{EN2\_B\_INT}, 
+      \hyperlink{encoder_8c_a271ca5c0624ed124f6398f408d1f3017}{encoder\_interrupt});
+198     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{settings_2radio__pin__mapping_8h_a3b321cd15a5fcef5ca3df226da4b591f}{EN2\_A\_INT});
+199     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{settings_2radio__pin__mapping_8h_a9f64f10a1e3db1942b43c4c7048db31f}{EN2\_B\_INT});
+200     \_\_bis\_SR\_register(GIE);
+201 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{encoder_8c_af947b4bf6e9bc6d5b580609d046789da_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{encoder_8c_af947b4bf6e9bc6d5b580609d046789da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8c_a271ca5c0624ed124f6398f408d1f3017}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+interrupt@{encoder\+\_\+interrupt}}
+\index{encoder\+\_\+interrupt@{encoder\+\_\+interrupt}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void encoder\+\_\+interrupt (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_a271ca5c0624ed124f6398f408d1f3017}
+
+
+Definiert in Zeile 246 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+247 \{
+248 \textcolor{preprocessor}{    #ifdef ENCODER\_1}
+249         \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a1043fa7116c62a475e5ea1813d23a861}{EN1\_A\_IFG} & \hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN}) || (\hyperlink{settings_2radio__pin__mapping_8h_a1043fa7116c62a475e5ea1813d23a861}{EN1\_A\_IFG} & 
+      \hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN}))
+250             \hyperlink{encoder_8c_afcb65d25ec031240b72ae3a51c1e9b4a}{Encoder\_1\_decoder}();
+251         \hyperlink{settings_2radio__pin__mapping_8h_a066c7f99b1e754ff59c882960e093209}{EN1\_A\_IES} ^= (\hyperlink{settings_2radio__pin__mapping_8h_a1043fa7116c62a475e5ea1813d23a861}{EN1\_A\_IFG} & \hyperlink{settings_2radio__pin__mapping_8h_a0024d666d429cb9fba37e6643bf0176f}{EN1\_A\_PIN});
+252         \hyperlink{settings_2radio__pin__mapping_8h_aa031142272b3a51baf6ce4b042a8da86}{EN1\_B\_IES} ^= (\hyperlink{settings_2radio__pin__mapping_8h_aa02e7ee13b2b275ebe769fce501d58c6}{EN1\_B\_IFG} & \hyperlink{settings_2radio__pin__mapping_8h_ab2f63975ed49814fa8d414fada8921ab}{EN1\_B\_PIN});
+253 \textcolor{preprocessor}{    #endif}
+254 \textcolor{preprocessor}{    #ifdef ENCODER\_2}
+255         \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a175a62fa6af8855bd81a55795d7f5f0f}{EN2\_A\_IFG} & \hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN}) || (\hyperlink{settings_2radio__pin__mapping_8h_a175a62fa6af8855bd81a55795d7f5f0f}{EN2\_A\_IFG} & 
+      \hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN}))
+256             \hyperlink{encoder_8c_a81332b0a52a42a7a7b134228f9bb3848}{Encoder\_2\_decoder}();
+257         \hyperlink{settings_2radio__pin__mapping_8h_a41e71eca89ee3291c17581fad6fdefd8}{EN2\_A\_IES} ^= (\hyperlink{settings_2radio__pin__mapping_8h_a175a62fa6af8855bd81a55795d7f5f0f}{EN2\_A\_IFG} & \hyperlink{settings_2radio__pin__mapping_8h_aa7555244b53a05e839b826f258d6e2d7}{EN2\_A\_PIN});
+258         \hyperlink{settings_2radio__pin__mapping_8h_a99a2a53edaabc0a1c84aa48e3f7c4ef9}{EN2\_B\_IES} ^= (\hyperlink{settings_2radio__pin__mapping_8h_ad9a883273c82609188dd02de52df52bb}{EN2\_B\_IFG} & \hyperlink{settings_2radio__pin__mapping_8h_a858448cf6f0647489f8ec30d2020b715}{EN2\_B\_PIN});
+259 \textcolor{preprocessor}{    #endif}
+260 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{encoder_8c_a271ca5c0624ed124f6398f408d1f3017_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{encoder_8c_a271ca5c0624ed124f6398f408d1f3017_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8c_a136248fd00f8429933544a54b030aef9}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+interrupt2@{encoder\+\_\+interrupt2}}
+\index{encoder\+\_\+interrupt2@{encoder\+\_\+interrupt2}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+interrupt2}]{\setlength{\rightskip}{0pt plus 5cm}void encoder\+\_\+interrupt2 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_a136248fd00f8429933544a54b030aef9}
+
+
+Definiert in Zeile 207 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+208 \{
+209     \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_a577b0f13adb3d518ab0d5d62a4bb2400}{EN1\_TAST\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_a54875c0dfa7d0292803b5e36b5da289a}{EN1\_TAST\_PIN}) == 0)
+210          \{
+211              \textcolor{keywordflow}{if}(\hyperlink{encoder_8c_ae3ef1f2bd9f8f2194ee5c7684ebfed93}{count\_button\_1}++ >= \hyperlink{encoder_8h_a66fa07b195f2bbfb79187fb92fe09d89}{TIME\_FOR\_LONG\_PRESS})
+212              \{
+213                  \hyperlink{encoder_8c_a9fa5b87a6a8bbae5be7490696462d3bb}{encoder\_1\_button} = \textcolor{charliteral}{'l'};
+214                  \hyperlink{encoder_8c_a9c2830729a8375d0339290d3e7e35f3a}{encoder\_1\_state} = \textcolor{charliteral}{'l'};
+215              \}
+216          \}
+217          \textcolor{keywordflow}{else}
+218          \{
+219              \textcolor{keywordflow}{if}(\hyperlink{encoder_8c_ae3ef1f2bd9f8f2194ee5c7684ebfed93}{count\_button\_1} != 0 && \hyperlink{encoder_8c_ae3ef1f2bd9f8f2194ee5c7684ebfed93}{count\_button\_1} < 
+      \hyperlink{encoder_8h_a66fa07b195f2bbfb79187fb92fe09d89}{TIME\_FOR\_LONG\_PRESS})
+220              \{
+221                  \hyperlink{encoder_8c_a9fa5b87a6a8bbae5be7490696462d3bb}{encoder\_1\_button} = \textcolor{charliteral}{'k'};
+222                  \hyperlink{encoder_8c_a9c2830729a8375d0339290d3e7e35f3a}{encoder\_1\_state} = \textcolor{charliteral}{'k'};
+223              \}
+224              \hyperlink{encoder_8c_ae3ef1f2bd9f8f2194ee5c7684ebfed93}{count\_button\_1} = 0;
+225          \}
+226          \textcolor{keywordflow}{if}((\hyperlink{settings_2radio__pin__mapping_8h_ad92c07f0c2b6ecb114dfa57f39b5371b}{EN2\_TAST\_IN} & \hyperlink{settings_2radio__pin__mapping_8h_aee5aa0b07fb616affd51e63bd3864df1}{EN2\_TAST\_PIN}) == 0)
+227          \{
+228              \textcolor{keywordflow}{if}(\hyperlink{encoder_8c_af04a440960da9f7d90ab52bb94b9f7a1}{count\_button\_2}++ >= \hyperlink{encoder_8h_a66fa07b195f2bbfb79187fb92fe09d89}{TIME\_FOR\_LONG\_PRESS})
+229              \{
+230                  \hyperlink{encoder_8c_a884ca0c2eba02b6531c717d301657d0c}{encoder\_2\_button} = \textcolor{charliteral}{'l'};
+231                  \hyperlink{encoder_8c_a2086480a2a40842b6f9a88cd0dfdc9fe}{encoder\_2\_state} = \textcolor{charliteral}{'l'};
+232              \}
+233          \}
+234          \textcolor{keywordflow}{else}
+235          \{
+236              \textcolor{keywordflow}{if}(\hyperlink{encoder_8c_af04a440960da9f7d90ab52bb94b9f7a1}{count\_button\_2} != 0 && \hyperlink{encoder_8c_af04a440960da9f7d90ab52bb94b9f7a1}{count\_button\_2} < 
+      \hyperlink{encoder_8h_a66fa07b195f2bbfb79187fb92fe09d89}{TIME\_FOR\_LONG\_PRESS})
+237              \{
+238                  \hyperlink{encoder_8c_a884ca0c2eba02b6531c717d301657d0c}{encoder\_2\_button} = \textcolor{charliteral}{'k'};
+239                  \hyperlink{encoder_8c_a2086480a2a40842b6f9a88cd0dfdc9fe}{encoder\_2\_state} = \textcolor{charliteral}{'k'};
+240              \}
+241              \hyperlink{encoder_8c_af04a440960da9f7d90ab52bb94b9f7a1}{count\_button\_2} = 0;
+242          \}
+243 
+244 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{encoder_8c_a136248fd00f8429933544a54b030aef9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8c_a5378ed2b5356942a2f369a1ea5a3eec7}{}\index{encoder.\+c@{encoder.\+c}!Encoder\+\_\+\+Timer\+\_\+init@{Encoder\+\_\+\+Timer\+\_\+init}}
+\index{Encoder\+\_\+\+Timer\+\_\+init@{Encoder\+\_\+\+Timer\+\_\+init}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{Encoder\+\_\+\+Timer\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void Encoder\+\_\+\+Timer\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{encoder_8c_a5378ed2b5356942a2f369a1ea5a3eec7}
+
+
+Definiert in Zeile 27 der Datei encoder.\+c.
+
+
+\begin{DoxyCode}
+28 \{
+29         \textcolor{comment}{//TA0CCTL0 |= CCIE;                                         //Enable Compare Interrupt}
+30         \textcolor{comment}{//TA0CCR0 = 500;                                                //Compare Value 500}
+31         \textcolor{comment}{//TA0CTL = TASSEL\_2 | ID0 | ID1;                            //ACLK, up to TCCR0, interrupt}
+32         \textcolor{comment}{//TA0CTL |= MC\_1;                                               //Enable Timer in up Mode}
+33 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{encoder_8c_a5378ed2b5356942a2f369a1ea5a3eec7_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{encoder_8c_ae3ef1f2bd9f8f2194ee5c7684ebfed93}{}\index{encoder.\+c@{encoder.\+c}!count\+\_\+button\+\_\+1@{count\+\_\+button\+\_\+1}}
+\index{count\+\_\+button\+\_\+1@{count\+\_\+button\+\_\+1}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{count\+\_\+button\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int16\+\_\+t count\+\_\+button\+\_\+1 = 0}\label{encoder_8c_ae3ef1f2bd9f8f2194ee5c7684ebfed93}
+
+
+Definiert in Zeile 12 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_af04a440960da9f7d90ab52bb94b9f7a1}{}\index{encoder.\+c@{encoder.\+c}!count\+\_\+button\+\_\+2@{count\+\_\+button\+\_\+2}}
+\index{count\+\_\+button\+\_\+2@{count\+\_\+button\+\_\+2}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{count\+\_\+button\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int16\+\_\+t count\+\_\+button\+\_\+2 = 0}\label{encoder_8c_af04a440960da9f7d90ab52bb94b9f7a1}
+
+
+Definiert in Zeile 23 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a9fa5b87a6a8bbae5be7490696462d3bb}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+1\+\_\+button@{encoder\+\_\+1\+\_\+button}}
+\index{encoder\+\_\+1\+\_\+button@{encoder\+\_\+1\+\_\+button}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+1\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile int8\+\_\+t encoder\+\_\+1\+\_\+button = \textquotesingle{}f\textquotesingle{}}\label{encoder_8c_a9fa5b87a6a8bbae5be7490696462d3bb}
+
+
+Definiert in Zeile 10 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a4a5df64ab4c9f6d2244c392af3dc4ff1}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+1\+\_\+count@{encoder\+\_\+1\+\_\+count}}
+\index{encoder\+\_\+1\+\_\+count@{encoder\+\_\+1\+\_\+count}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+1\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint16\+\_\+t encoder\+\_\+1\+\_\+count = 0}\label{encoder_8c_a4a5df64ab4c9f6d2244c392af3dc4ff1}
+
+
+Definiert in Zeile 8 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a52e92b8862928ab741898127d67b7a32}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+1\+\_\+last@{encoder\+\_\+1\+\_\+last}}
+\index{encoder\+\_\+1\+\_\+last@{encoder\+\_\+1\+\_\+last}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+1\+\_\+last}]{\setlength{\rightskip}{0pt plus 5cm}volatile int8\+\_\+t encoder\+\_\+1\+\_\+last = 0}\label{encoder_8c_a52e92b8862928ab741898127d67b7a32}
+
+
+Definiert in Zeile 9 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a9c2830729a8375d0339290d3e7e35f3a}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+1\+\_\+state@{encoder\+\_\+1\+\_\+state}}
+\index{encoder\+\_\+1\+\_\+state@{encoder\+\_\+1\+\_\+state}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+1\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}volatile int8\+\_\+t encoder\+\_\+1\+\_\+state = 0}\label{encoder_8c_a9c2830729a8375d0339290d3e7e35f3a}
+
+
+Definiert in Zeile 11 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a884ca0c2eba02b6531c717d301657d0c}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+2\+\_\+button@{encoder\+\_\+2\+\_\+button}}
+\index{encoder\+\_\+2\+\_\+button@{encoder\+\_\+2\+\_\+button}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+2\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile int8\+\_\+t encoder\+\_\+2\+\_\+button = \textquotesingle{}f\textquotesingle{}}\label{encoder_8c_a884ca0c2eba02b6531c717d301657d0c}
+
+
+Definiert in Zeile 21 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a1244187bbdce651e81fe1c530597e132}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+2\+\_\+count@{encoder\+\_\+2\+\_\+count}}
+\index{encoder\+\_\+2\+\_\+count@{encoder\+\_\+2\+\_\+count}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+2\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint16\+\_\+t encoder\+\_\+2\+\_\+count = 0}\label{encoder_8c_a1244187bbdce651e81fe1c530597e132}
+
+
+Definiert in Zeile 19 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+2\+\_\+last@{encoder\+\_\+2\+\_\+last}}
+\index{encoder\+\_\+2\+\_\+last@{encoder\+\_\+2\+\_\+last}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+2\+\_\+last}]{\setlength{\rightskip}{0pt plus 5cm}volatile int8\+\_\+t encoder\+\_\+2\+\_\+last = 0}\label{encoder_8c_a615b57b8f31adc94bfb79998c56a53cf}
+
+
+Definiert in Zeile 20 der Datei encoder.\+c.
+
+\hypertarget{encoder_8c_a2086480a2a40842b6f9a88cd0dfdc9fe}{}\index{encoder.\+c@{encoder.\+c}!encoder\+\_\+2\+\_\+state@{encoder\+\_\+2\+\_\+state}}
+\index{encoder\+\_\+2\+\_\+state@{encoder\+\_\+2\+\_\+state}!encoder.\+c@{encoder.\+c}}
+\subsubsection[{encoder\+\_\+2\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}volatile int8\+\_\+t encoder\+\_\+2\+\_\+state = 0}\label{encoder_8c_a2086480a2a40842b6f9a88cd0dfdc9fe}
+
+
+Definiert in Zeile 22 der Datei encoder.\+c.
+

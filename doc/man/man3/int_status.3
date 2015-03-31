@@ -1,0 +1,68 @@
+.TH "int_status" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+int_status \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <si4735_cmd_prop\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBbyte\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint8_t \fBCTS\fP:1"
+.br
+.ti -1c
+.RI "   uint8_t \fBERR\fP:1"
+.br
+.ti -1c
+.RI "   uint8_t \fB__pad0__\fP:2"
+.br
+.ti -1c
+.RI "   uint8_t \fBRSQINT\fP:1"
+.br
+.ti -1c
+.RI "   uint8_t \fBRDSINT\fP:1"
+.br
+.ti -1c
+.RI "   uint8_t \fB__pad1__\fP:1"
+.br
+.ti -1c
+.RI "   uint8_t \fBSTCINT\fP:1"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint8_t int_status::__pad0__"
+
+.SS "uint8_t int_status::__pad1__"
+
+.SS "uint8_t int_status::byte"
+
+.SS "uint8_t int_status::CTS"
+
+.SS "uint8_t int_status::ERR"
+
+.SS "uint8_t int_status::RDSINT"
+
+.SS "uint8_t int_status::RSQINT"
+
+.SS "uint8_t int_status::STCINT"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

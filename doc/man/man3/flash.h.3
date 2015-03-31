@@ -1,0 +1,60 @@
+.TH "driver/flash.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/flash.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <msp430\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFLASH_ADR_START\fP   0x1000"
+.br
+.ti -1c
+.RI "#define \fBFLASH_SEG_SIZE\fP   0x0040"
+.br
+.ti -1c
+.RI "#define \fBFLASH_ADR_STOP\fP   0x10FF"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBstore_data_to_flash\fP (int8_t *data, uint8_t size, uint8_t pos)"
+.br
+.ti -1c
+.RI "uint8_t \fBread_flash\fP (int8_t *data, uint8_t size, uint8_t pos)"
+.br
+.ti -1c
+.RI "void \fBerase_flash\fP (uint8_t *Flash_ptr)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FLASH_ADR_START   0x1000"
+
+.SS "#define FLASH_ADR_STOP   0x10FF"
+
+.SS "#define FLASH_SEG_SIZE   0x0040"
+
+.SH "Function Documentation"
+.PP 
+.SS "void erase_flash (uint8_t * Flash_ptr)"
+
+.SS "uint8_t read_flash (int8_t * data, uint8_t size, uint8_t pos)"
+
+.SS "uint8_t store_data_to_flash (int8_t * data, uint8_t size, uint8_t pos)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

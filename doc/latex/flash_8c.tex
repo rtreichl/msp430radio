@@ -1,0 +1,172 @@
+\hypertarget{flash_8c}{}\section{driver/src/flash.c-\/\+Dateireferenz}
+\label{flash_8c}\index{driver/src/flash.\+c@{driver/src/flash.\+c}}
+{\ttfamily \#include $<$driver/flash.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für flash.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{flash_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{flash_8c_aece8757a70bfb964ca3de0302924c3fd}{store\+\_\+data\+\_\+to\+\_\+flash} (int8\+\_\+t $\ast$data, uint8\+\_\+t size, uint8\+\_\+t pos)
+\item 
+uint8\+\_\+t \hyperlink{flash_8c_a410eac820c90fe099aa8ed2600d133ce}{read\+\_\+flash} (int8\+\_\+t $\ast$data, uint8\+\_\+t size, uint8\+\_\+t pos)
+\item 
+void \hyperlink{flash_8c_ac9bcd5ed27bda651ccaa0b4a39730202}{erase\+\_\+flash} (uint8\+\_\+t $\ast$Flash\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{flash_8c_ac9bcd5ed27bda651ccaa0b4a39730202}{}\index{flash.\+c@{flash.\+c}!erase\+\_\+flash@{erase\+\_\+flash}}
+\index{erase\+\_\+flash@{erase\+\_\+flash}!flash.\+c@{flash.\+c}}
+\subsubsection[{erase\+\_\+flash}]{\setlength{\rightskip}{0pt plus 5cm}void erase\+\_\+flash (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{Flash\+\_\+ptr}
+\end{DoxyParamCaption}
+)}\label{flash_8c_ac9bcd5ed27bda651ccaa0b4a39730202}
+
+
+Definiert in Zeile 63 der Datei flash.\+c.
+
+
+\begin{DoxyCode}
+64 \{
+65     \_DINT();
+66     \textcolor{keywordflow}{while}(BUSY & FCTL3);
+67     FCTL1 = FWKEY + ERASE;                   \textcolor{comment}{// Set Erase bit}
+68     FCTL3 = FWKEY;                           \textcolor{comment}{// Clear Lock bit}
+69     *Flash\_ptr = 0;                          \textcolor{comment}{// Dummy write to erase Flash segment}
+70     \textcolor{keywordflow}{while}(BUSY & FCTL3);
+71     FCTL1 = FWKEY;                           \textcolor{comment}{// Clear WRT bit}
+72     FCTL3 = FWKEY + LOCK;                    \textcolor{comment}{// Set LOCK bit}
+73     \_EINT();
+74 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flash_8c_ac9bcd5ed27bda651ccaa0b4a39730202_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{flash_8c_a410eac820c90fe099aa8ed2600d133ce}{}\index{flash.\+c@{flash.\+c}!read\+\_\+flash@{read\+\_\+flash}}
+\index{read\+\_\+flash@{read\+\_\+flash}!flash.\+c@{flash.\+c}}
+\subsubsection[{read\+\_\+flash}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t read\+\_\+flash (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t $\ast$}]{data, }
+\item[{uint8\+\_\+t}]{size, }
+\item[{uint8\+\_\+t}]{pos}
+\end{DoxyParamCaption}
+)}\label{flash_8c_a410eac820c90fe099aa8ed2600d133ce}
+
+
+Definiert in Zeile 57 der Datei flash.\+c.
+
+
+\begin{DoxyCode}
+58 \{
+59     memcpy(data, (int8\_t *)\hyperlink{flash_8h_aacc1626c22c9bd0b71666e386e59c8aa}{FLASH\_ADR\_START} + pos, size);
+60     \textcolor{keywordflow}{return} 0;
+61 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flash_8c_a410eac820c90fe099aa8ed2600d133ce_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{flash_8c_aece8757a70bfb964ca3de0302924c3fd}{}\index{flash.\+c@{flash.\+c}!store\+\_\+data\+\_\+to\+\_\+flash@{store\+\_\+data\+\_\+to\+\_\+flash}}
+\index{store\+\_\+data\+\_\+to\+\_\+flash@{store\+\_\+data\+\_\+to\+\_\+flash}!flash.\+c@{flash.\+c}}
+\subsubsection[{store\+\_\+data\+\_\+to\+\_\+flash}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t store\+\_\+data\+\_\+to\+\_\+flash (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t $\ast$}]{data, }
+\item[{uint8\+\_\+t}]{size, }
+\item[{uint8\+\_\+t}]{pos}
+\end{DoxyParamCaption}
+)}\label{flash_8c_aece8757a70bfb964ca3de0302924c3fd}
+
+
+Definiert in Zeile 11 der Datei flash.\+c.
+
+
+\begin{DoxyCode}
+12 \{
+13     \_DINT();
+14     uint8\_t *Flash\_ptr = (uint8\_t *)\hyperlink{flash_8h_aacc1626c22c9bd0b71666e386e59c8aa}{FLASH\_ADR\_START};
+15     int8\_t seg\_store[\hyperlink{flash_8h_acc6c9e893edc4bef8dbe6e157c926a89}{FLASH\_SEG\_SIZE}];
+16     uint8\_t i = 0;
+17 
+18     \textcolor{keywordflow}{if}(size + pos > \hyperlink{flash_8h_acc6c9e893edc4bef8dbe6e157c926a89}{FLASH\_SEG\_SIZE}) \{
+19         \textcolor{keywordflow}{return} 0xFF;
+20     \}
+21 
+22     \textcolor{keywordflow}{switch}(pos / \hyperlink{flash_8h_acc6c9e893edc4bef8dbe6e157c926a89}{FLASH\_SEG\_SIZE}) \{
+23         \textcolor{keywordflow}{case} 0:
+24             \hyperlink{flash_8c_a410eac820c90fe099aa8ed2600d133ce}{read\_flash}(seg\_store, (uint8\_t)\hyperlink{flash_8h_acc6c9e893edc4bef8dbe6e157c926a89}{FLASH\_SEG\_SIZE}, 0);
+25             \hyperlink{flash_8c_ac9bcd5ed27bda651ccaa0b4a39730202}{erase\_flash}(Flash\_ptr);
+26             \textcolor{keywordflow}{break};
+27         \textcolor{keywordflow}{case} 1:
+28             \hyperlink{flash_8c_a410eac820c90fe099aa8ed2600d133ce}{read\_flash}(seg\_store, (uint8\_t)\hyperlink{flash_8h_acc6c9e893edc4bef8dbe6e157c926a89}{FLASH\_SEG\_SIZE}, (uint8\_t)FLASH\_SEG\_SIZE)
+      ;
+29             \hyperlink{flash_8c_ac9bcd5ed27bda651ccaa0b4a39730202}{erase\_flash}(Flash\_ptr + (uint8\_t)FLASH\_SEG\_SIZE);
+30             \textcolor{keywordflow}{break};
+31         \textcolor{keywordflow}{case} 2:
+32             \hyperlink{flash_8c_a410eac820c90fe099aa8ed2600d133ce}{read\_flash}(seg\_store, (uint8\_t)FLASH\_SEG\_SIZE, 2 * (uint8\_t)FLASH\_SEG\_SIZE);
+33             \hyperlink{flash_8c_ac9bcd5ed27bda651ccaa0b4a39730202}{erase\_flash}(Flash\_ptr + 2 * (uint8\_t)FLASH\_SEG\_SIZE);
+34             \textcolor{keywordflow}{break};
+35         \textcolor{keywordflow}{default}:
+36             \textcolor{keywordflow}{return} 0xFE;
+37     \}
+38 
+39     memcpy(seg\_store + pos, data, size);
+40 
+41     FCTL3 = FWKEY;                              \textcolor{comment}{// Clear Lock bit}
+42     FCTL1 = FWKEY + WRT + BLKWRT;               \textcolor{comment}{// Set WRT bit for write operation}
+43 
+44     \textcolor{keywordflow}{for}(i = pos; i < \hyperlink{flash_8h_acc6c9e893edc4bef8dbe6e157c926a89}{FLASH\_SEG\_SIZE}; i++) \{
+45         Flash\_ptr[i] = seg\_store[i - pos];      \textcolor{comment}{// Write value to flash}
+46         \textcolor{keywordflow}{while}(BUSY & FCTL3);
+47     \}
+48 
+49     FCTL1 = FWKEY;
+50     \textcolor{keywordflow}{while}(BUSY & FCTL3);                        \textcolor{comment}{// Clear WRT bit}
+51     FCTL3 = FWKEY + LOCK;                       \textcolor{comment}{// Set LOCK bit}
+52     \_EINT();
+53 
+54     \textcolor{keywordflow}{return} 0;
+55 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{flash_8c_aece8757a70bfb964ca3de0302924c3fd_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{flash_8c_aece8757a70bfb964ca3de0302924c3fd_icgraph}
+\end{center}
+\end{figure}
+
+

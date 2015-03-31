@@ -1,0 +1,112 @@
+\hypertarget{pca9534_8c}{}\section{driver/src/pca9534.c-\/\+Dateireferenz}
+\label{pca9534_8c}\index{driver/src/pca9534.\+c@{driver/src/pca9534.\+c}}
+{\ttfamily \#include $<$driver/pca9534.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für pca9534.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9534_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{pca9534_8c_a6669f6eb205943c42c98c5d54af12343}{pca9534\+\_\+output} (uint8\+\_\+t byte)
+\item 
+uint8\+\_\+t \hyperlink{pca9534_8c_a2575938ed73756b70b0dc6fa87dc9cb1}{pca9534\+\_\+config} (uint8\+\_\+t config)
+\item 
+uint8\+\_\+t \hyperlink{pca9534_8c_a20d4e8d9173eded61af0bbdf23086913}{pca9534\+\_\+input} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{pca9534_8c_a2575938ed73756b70b0dc6fa87dc9cb1}{}\index{pca9534.\+c@{pca9534.\+c}!pca9534\+\_\+config@{pca9534\+\_\+config}}
+\index{pca9534\+\_\+config@{pca9534\+\_\+config}!pca9534.\+c@{pca9534.\+c}}
+\subsubsection[{pca9534\+\_\+config}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9534\+\_\+config (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{config}
+\end{DoxyParamCaption}
+)}\label{pca9534_8c_a2575938ed73756b70b0dc6fa87dc9cb1}
+
+
+Definiert in Zeile 15 der Datei pca9534.\+c.
+
+
+\begin{DoxyCode}
+16 \{
+17     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 
+      \hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2}{CONFIG}, config);
+18     \textcolor{keywordflow}{return} 0;
+19 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9534_8c_a2575938ed73756b70b0dc6fa87dc9cb1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{pca9534_8c_a20d4e8d9173eded61af0bbdf23086913}{}\index{pca9534.\+c@{pca9534.\+c}!pca9534\+\_\+input@{pca9534\+\_\+input}}
+\index{pca9534\+\_\+input@{pca9534\+\_\+input}!pca9534.\+c@{pca9534.\+c}}
+\subsubsection[{pca9534\+\_\+input}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9534\+\_\+input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{pca9534_8c_a20d4e8d9173eded61af0bbdf23086913}
+
+
+Definiert in Zeile 20 der Datei pca9534.\+c.
+
+
+\begin{DoxyCode}
+21 \{
+22     uint8\_t input;
+23     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 1, \hyperlink{pca9534_8h_a844a88dccab900a2718a89447f54c8b1af3180515f5867a29932df1dc207b31ad}{IN});
+24     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &input);
+25     \textcolor{keywordflow}{return} input;
+26 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9534_8c_a20d4e8d9173eded61af0bbdf23086913_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{pca9534_8c_a6669f6eb205943c42c98c5d54af12343}{}\index{pca9534.\+c@{pca9534.\+c}!pca9534\+\_\+output@{pca9534\+\_\+output}}
+\index{pca9534\+\_\+output@{pca9534\+\_\+output}!pca9534.\+c@{pca9534.\+c}}
+\subsubsection[{pca9534\+\_\+output}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9534\+\_\+output (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{byte}
+\end{DoxyParamCaption}
+)}\label{pca9534_8c_a6669f6eb205943c42c98c5d54af12343}
+
+
+Definiert in Zeile 10 der Datei pca9534.\+c.
+
+
+\begin{DoxyCode}
+11 \{
+12     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9534_8h_a327d2e2bdf4be4cf7155f21f093b9aae}{PCA9534\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, \hyperlink{pca9534_8h_a844a88dccab900a2718a89447f54c8b1a78a336ebc4129fefb9a9fc4f32daf4f1}{OUTP}, byte);
+13     \textcolor{keywordflow}{return} 0;
+14 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9534_8c_a6669f6eb205943c42c98c5d54af12343_cgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,458 @@
+\hypertarget{pca9530_8h}{}\section{driver/pca9530.h-\/\+Dateireferenz}
+\label{pca9530_8h}\index{driver/pca9530.\+h@{driver/pca9530.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$driver/i2c.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für pca9530.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpca9530__ctl}{pca9530\+\_\+ctl}
+\item 
+struct \hyperlink{structpca9530__in}{pca9530\+\_\+in}
+\item 
+struct \hyperlink{structpca9530__sel}{pca9530\+\_\+sel}
+\item 
+struct \hyperlink{structpca9530}{pca9530}
+\end{DoxyCompactItemize}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{pca9530_8h_a566fb06c05caecf304dfe9a0bb657b34}{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R}~0x60
+\item 
+\#define \hyperlink{pca9530_8h_a554cc61fe4234ac4c4eafa0b4977175c}{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T}~0
+\item 
+\#define \hyperlink{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A\+D\+R}~(\hyperlink{pca9530_8h_a566fb06c05caecf304dfe9a0bb657b34}{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R} $\vert$ \hyperlink{pca9530_8h_a554cc61fe4234ac4c4eafa0b4977175c}{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T})
+\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structpca9530__ctl}{pca9530\+\_\+ctl} \hyperlink{pca9530_8h_ab385b8535f80ceababc3fd9d0f15b045}{P\+C\+A9530\+\_\+\+C\+T\+L}
+\item 
+typedef struct \hyperlink{structpca9530__in}{pca9530\+\_\+in} \hyperlink{pca9530_8h_a2e7c59b702993415a25765895971bc16}{P\+C\+A9530\+\_\+\+I\+N}
+\item 
+typedef struct \hyperlink{structpca9530__sel}{pca9530\+\_\+sel} \hyperlink{pca9530_8h_a10250afacff108ca56d8080a27aa91a0}{P\+C\+A9530\+\_\+\+S\+E\+L}
+\item 
+typedef struct \hyperlink{structpca9530}{pca9530} \hyperlink{pca9530_8h_a837a42b4ed8a83b5aee92843449537bf}{P\+C\+A9530}
+\end{DoxyCompactItemize}
+\subsection*{Aufzählungen}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962}{P\+C\+A9530\+\_\+\+C\+T\+R\+L\+\_\+\+C\+M\+D} \{ \\*
+\hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a}{I\+N\+P\+U\+T} = 0, 
+\hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45}{P\+S\+C0}, 
+\hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc}{P\+W\+M0}, 
+\hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3}{P\+S\+C1}, 
+\\*
+\hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a}{P\+W\+M1}, 
+\hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad}{L\+S0}
+ \}
+\item 
+enum \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E} \{ \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40}{L\+E\+D\+\_\+\+O\+F\+F} = 0, 
+\hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d}{L\+E\+D\+\_\+\+O\+N}, 
+\hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932}{P\+W\+M0\+\_\+\+R\+A\+T\+E}, 
+\hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248}{P\+W\+M1\+\_\+\+R\+A\+T\+E}
+ \}
+\item 
+enum \hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8}{P\+C\+A9530\+\_\+\+F\+R\+E\+Q} \{ \hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca}{F\+R\+E\+Q\+\_\+0} = 0, 
+\hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7}{F\+R\+E\+Q\+\_\+1}
+ \}
+\item 
+enum \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9a}{P\+C\+A9530\+\_\+\+P\+W\+M} \{ \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{P\+W\+M\+\_\+0} = 0, 
+\hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703}{P\+W\+M\+\_\+1}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{pca9530_8h_abc69b1cb491825b0e425539994b188bb}{pca9530\+\_\+set\+\_\+freq} (enum \hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8}{P\+C\+A9530\+\_\+\+F\+R\+E\+Q} freq\+\_\+sel, uint8\+\_\+t freq)
+\item 
+uint8\+\_\+t \hyperlink{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53}{pca9530\+\_\+set\+\_\+pwm} (enum \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9a}{P\+C\+A9530\+\_\+\+P\+W\+M} pwm\+\_\+sel, uint8\+\_\+t pwm)
+\item 
+uint8\+\_\+t \hyperlink{pca9530_8h_a7abe5b75b4137ce2bd840a939d8b61d1}{pca9530\+\_\+config\+\_\+led} (enum \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E} led0\+\_\+state, enum \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E} led1\+\_\+state)
+\item 
+uint8\+\_\+t \hyperlink{pca9530_8h_a0504ea065814c638843035fe0559b24c}{pca9530\+\_\+read\+\_\+input} ()
+\item 
+uint8\+\_\+t \hyperlink{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3}{pca9530\+\_\+init} (const \hyperlink{pca9530_8h_a837a42b4ed8a83b5aee92843449537bf}{P\+C\+A9530} $\ast$config)
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{pca9530_8h_a554cc61fe4234ac4c4eafa0b4977175c}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T@{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T}}
+\index{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T@{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T~0}\label{pca9530_8h_a554cc61fe4234ac4c4eafa0b4977175c}
+
+
+Definiert in Zeile 15 der Datei pca9530.\+h.
+
+\hypertarget{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A\+D\+R@{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A\+D\+R}}
+\index{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A\+D\+R@{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A\+D\+R}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A\+D\+R~({\bf P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R} $\vert$ {\bf P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+A0\+\_\+\+B\+I\+T})}\label{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}
+
+
+Definiert in Zeile 16 der Datei pca9530.\+h.
+
+\hypertarget{pca9530_8h_a566fb06c05caecf304dfe9a0bb657b34}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R@{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R}}
+\index{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R@{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+C\+A9530\+\_\+\+I2\+C\+\_\+\+S\+T\+D\+\_\+\+A\+D\+R~0x60}\label{pca9530_8h_a566fb06c05caecf304dfe9a0bb657b34}
+
+
+Definiert in Zeile 14 der Datei pca9530.\+h.
+
+
+
+\subsection{Dokumentation der benutzerdefinierten Typen}
+\hypertarget{pca9530_8h_a837a42b4ed8a83b5aee92843449537bf}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530@{P\+C\+A9530}}
+\index{P\+C\+A9530@{P\+C\+A9530}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pca9530}  {\bf P\+C\+A9530}}\label{pca9530_8h_a837a42b4ed8a83b5aee92843449537bf}
+\hypertarget{pca9530_8h_ab385b8535f80ceababc3fd9d0f15b045}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+C\+T\+L@{P\+C\+A9530\+\_\+\+C\+T\+L}}
+\index{P\+C\+A9530\+\_\+\+C\+T\+L@{P\+C\+A9530\+\_\+\+C\+T\+L}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+C\+T\+L}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pca9530\+\_\+ctl}  {\bf P\+C\+A9530\+\_\+\+C\+T\+L}}\label{pca9530_8h_ab385b8535f80ceababc3fd9d0f15b045}
+\hypertarget{pca9530_8h_a2e7c59b702993415a25765895971bc16}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+I\+N@{P\+C\+A9530\+\_\+\+I\+N}}
+\index{P\+C\+A9530\+\_\+\+I\+N@{P\+C\+A9530\+\_\+\+I\+N}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pca9530\+\_\+in}  {\bf P\+C\+A9530\+\_\+\+I\+N}}\label{pca9530_8h_a2e7c59b702993415a25765895971bc16}
+\hypertarget{pca9530_8h_a10250afacff108ca56d8080a27aa91a0}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+S\+E\+L@{P\+C\+A9530\+\_\+\+S\+E\+L}}
+\index{P\+C\+A9530\+\_\+\+S\+E\+L@{P\+C\+A9530\+\_\+\+S\+E\+L}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+S\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pca9530\+\_\+sel}  {\bf P\+C\+A9530\+\_\+\+S\+E\+L}}\label{pca9530_8h_a10250afacff108ca56d8080a27aa91a0}
+
+
+\subsection{Dokumentation der Aufzählungstypen}
+\hypertarget{pca9530_8h_a12bddc4690ce327030f243e8d2767962}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+C\+T\+R\+L\+\_\+\+C\+M\+D@{P\+C\+A9530\+\_\+\+C\+T\+R\+L\+\_\+\+C\+M\+D}}
+\index{P\+C\+A9530\+\_\+\+C\+T\+R\+L\+\_\+\+C\+M\+D@{P\+C\+A9530\+\_\+\+C\+T\+R\+L\+\_\+\+C\+M\+D}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+C\+T\+R\+L\+\_\+\+C\+M\+D}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+C\+A9530\+\_\+\+C\+T\+R\+L\+\_\+\+C\+M\+D}}\label{pca9530_8h_a12bddc4690ce327030f243e8d2767962}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{I\+N\+P\+U\+T@{I\+N\+P\+U\+T}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!I\+N\+P\+U\+T@{I\+N\+P\+U\+T}}\item[{\em 
+\hypertarget{pca9530_8h_a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a}{}I\+N\+P\+U\+T\label{pca9530_8h_a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a}
+}]\index{P\+S\+C0@{P\+S\+C0}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+S\+C0@{P\+S\+C0}}\item[{\em 
+\hypertarget{pca9530_8h_a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45}{}P\+S\+C0\label{pca9530_8h_a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45}
+}]\index{P\+W\+M0@{P\+W\+M0}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+W\+M0@{P\+W\+M0}}\item[{\em 
+\hypertarget{pca9530_8h_a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc}{}P\+W\+M0\label{pca9530_8h_a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc}
+}]\index{P\+S\+C1@{P\+S\+C1}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+S\+C1@{P\+S\+C1}}\item[{\em 
+\hypertarget{pca9530_8h_a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3}{}P\+S\+C1\label{pca9530_8h_a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3}
+}]\index{P\+W\+M1@{P\+W\+M1}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+W\+M1@{P\+W\+M1}}\item[{\em 
+\hypertarget{pca9530_8h_a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a}{}P\+W\+M1\label{pca9530_8h_a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a}
+}]\index{L\+S0@{L\+S0}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!L\+S0@{L\+S0}}\item[{\em 
+\hypertarget{pca9530_8h_a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad}{}L\+S0\label{pca9530_8h_a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 19 der Datei pca9530.\+h.
+
+
+\begin{DoxyCode}
+19                       \{
+20     \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a}{INPUT} = 0,
+21     \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45}{PSC0},
+22     \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc}{PWM0},
+23     \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3}{PSC1},
+24     \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a}{PWM1},
+25     \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad}{LS0}
+26 \};
+\end{DoxyCode}
+\hypertarget{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+F\+R\+E\+Q@{P\+C\+A9530\+\_\+\+F\+R\+E\+Q}}
+\index{P\+C\+A9530\+\_\+\+F\+R\+E\+Q@{P\+C\+A9530\+\_\+\+F\+R\+E\+Q}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+F\+R\+E\+Q}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+C\+A9530\+\_\+\+F\+R\+E\+Q}}\label{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{F\+R\+E\+Q\+\_\+0@{F\+R\+E\+Q\+\_\+0}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!F\+R\+E\+Q\+\_\+0@{F\+R\+E\+Q\+\_\+0}}\item[{\em 
+\hypertarget{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca}{}F\+R\+E\+Q\+\_\+0\label{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca}
+}]\index{F\+R\+E\+Q\+\_\+1@{F\+R\+E\+Q\+\_\+1}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!F\+R\+E\+Q\+\_\+1@{F\+R\+E\+Q\+\_\+1}}\item[{\em 
+\hypertarget{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7}{}F\+R\+E\+Q\+\_\+1\label{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 35 der Datei pca9530.\+h.
+
+
+\begin{DoxyCode}
+35                   \{
+36     \hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca}{FREQ\_0} = 0,
+37     \hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7}{FREQ\_1}
+38 \};
+\end{DoxyCode}
+\hypertarget{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E@{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}}
+\index{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E@{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}}\label{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{L\+E\+D\+\_\+\+O\+F\+F@{L\+E\+D\+\_\+\+O\+F\+F}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!L\+E\+D\+\_\+\+O\+F\+F@{L\+E\+D\+\_\+\+O\+F\+F}}\item[{\em 
+\hypertarget{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40}{}L\+E\+D\+\_\+\+O\+F\+F\label{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40}
+}]\index{L\+E\+D\+\_\+\+O\+N@{L\+E\+D\+\_\+\+O\+N}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!L\+E\+D\+\_\+\+O\+N@{L\+E\+D\+\_\+\+O\+N}}\item[{\em 
+\hypertarget{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d}{}L\+E\+D\+\_\+\+O\+N\label{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d}
+}]\index{P\+W\+M0\+\_\+\+R\+A\+T\+E@{P\+W\+M0\+\_\+\+R\+A\+T\+E}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+W\+M0\+\_\+\+R\+A\+T\+E@{P\+W\+M0\+\_\+\+R\+A\+T\+E}}\item[{\em 
+\hypertarget{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932}{}P\+W\+M0\+\_\+\+R\+A\+T\+E\label{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932}
+}]\index{P\+W\+M1\+\_\+\+R\+A\+T\+E@{P\+W\+M1\+\_\+\+R\+A\+T\+E}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+W\+M1\+\_\+\+R\+A\+T\+E@{P\+W\+M1\+\_\+\+R\+A\+T\+E}}\item[{\em 
+\hypertarget{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248}{}P\+W\+M1\+\_\+\+R\+A\+T\+E\label{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 28 der Datei pca9530.\+h.
+
+
+\begin{DoxyCode}
+28                        \{
+29     \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40}{LED\_OFF} = 0,
+30     \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d}{LED\_ON},
+31     \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932}{PWM0\_RATE},
+32     \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248}{PWM1\_RATE}
+33 \};
+\end{DoxyCode}
+\hypertarget{pca9530_8h_abc74a5690ccc2a8341463459d2089d9a}{}\index{pca9530.\+h@{pca9530.\+h}!P\+C\+A9530\+\_\+\+P\+W\+M@{P\+C\+A9530\+\_\+\+P\+W\+M}}
+\index{P\+C\+A9530\+\_\+\+P\+W\+M@{P\+C\+A9530\+\_\+\+P\+W\+M}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{P\+C\+A9530\+\_\+\+P\+W\+M}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+C\+A9530\+\_\+\+P\+W\+M}}\label{pca9530_8h_abc74a5690ccc2a8341463459d2089d9a}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{P\+W\+M\+\_\+0@{P\+W\+M\+\_\+0}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+W\+M\+\_\+0@{P\+W\+M\+\_\+0}}\item[{\em 
+\hypertarget{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{}P\+W\+M\+\_\+0\label{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}
+}]\index{P\+W\+M\+\_\+1@{P\+W\+M\+\_\+1}!pca9530.\+h@{pca9530.\+h}}\index{pca9530.\+h@{pca9530.\+h}!P\+W\+M\+\_\+1@{P\+W\+M\+\_\+1}}\item[{\em 
+\hypertarget{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703}{}P\+W\+M\+\_\+1\label{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 40 der Datei pca9530.\+h.
+
+
+\begin{DoxyCode}
+40                  \{
+41     \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{PWM\_0} = 0,
+42     \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}
+43 \};
+\end{DoxyCode}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{pca9530_8h_a7abe5b75b4137ce2bd840a939d8b61d1}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+config\+\_\+led@{pca9530\+\_\+config\+\_\+led}}
+\index{pca9530\+\_\+config\+\_\+led@{pca9530\+\_\+config\+\_\+led}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{pca9530\+\_\+config\+\_\+led}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+config\+\_\+led (
+\begin{DoxyParamCaption}
+\item[{enum {\bf P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}}]{led0\+\_\+state, }
+\item[{enum {\bf P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}}]{led1\+\_\+state}
+\end{DoxyParamCaption}
+)}\label{pca9530_8h_a7abe5b75b4137ce2bd840a939d8b61d1}
+\hypertarget{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+init@{pca9530\+\_\+init}}
+\index{pca9530\+\_\+init@{pca9530\+\_\+init}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{pca9530\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{const {\bf P\+C\+A9530} $\ast$}]{config}
+\end{DoxyParamCaption}
+)}\label{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3}
+
+
+Definiert in Zeile 89 der Datei pca9530.\+c.
+
+
+\begin{DoxyCode}
+90 \{
+91     \hyperlink{settings_2radio__pin__mapping_8h_a409e291ea868dca09f79686002c82f32}{PWM\_RST\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_a36508b228f070be82688356057b9f0dc}{PWM\_RST\_PIN};
+92     \hyperlink{settings_2radio__pin__mapping_8h_ae732e7bffe90cf78db682ca427482fb5}{PWM\_RST\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a36508b228f070be82688356057b9f0dc}{PWM\_RST\_PIN};
+93 
+94     \hyperlink{pca9530_8c_a07bd06dbfcb216eedc1969aa04e19b53}{pca9530\_set\_pwm}(\hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{PWM\_0}, config->\hyperlink{structpca9530_a2fb4d580ed22ad326b72701b98038bdc}{pwm0});
+95     \hyperlink{pca9530_8c_a07bd06dbfcb216eedc1969aa04e19b53}{pca9530\_set\_pwm}(\hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}, config->\hyperlink{structpca9530_af1f85784c51fc6b57b6e713d160e6136}{pwm1});
+96     \hyperlink{pca9530_8c_abc69b1cb491825b0e425539994b188bb}{pca9530\_set\_freq}(\hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca}{FREQ\_0}, config->\hyperlink{structpca9530_a1a85040128a35d94e73a6d6b96aea658}{freq0});
+97     \hyperlink{pca9530_8c_abc69b1cb491825b0e425539994b188bb}{pca9530\_set\_freq}(\hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7}{FREQ\_1}, config->\hyperlink{structpca9530_a05652b55717263bec9a0d63ff6690969}{freq1});
+98     \hyperlink{pca9530_8c_a91089f6598b9a7b7d85171c4a731f1c1}{pca9530\_config\_leds}(config->\hyperlink{structpca9530_a3a42a3267d245b293db10c2cbb3330f9}{led0}, config->\hyperlink{structpca9530_a3ac265af8bbeb022cd8ad2f21247f6ac}{led1});
+99 
+100     \textcolor{keywordflow}{return} 0;
+101 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{pca9530_8h_a0504ea065814c638843035fe0559b24c}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+read\+\_\+input@{pca9530\+\_\+read\+\_\+input}}
+\index{pca9530\+\_\+read\+\_\+input@{pca9530\+\_\+read\+\_\+input}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{pca9530\+\_\+read\+\_\+input}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+read\+\_\+input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{pca9530_8h_a0504ea065814c638843035fe0559b24c}
+
+
+Definiert in Zeile 75 der Datei pca9530.\+c.
+
+
+\begin{DoxyCode}
+76 \{
+77     uint8\_t input = 0;
+78     \hyperlink{structpca9530__ctl}{PCA9530\_CTL} \hyperlink{structpca9530__ctl}{pca9530\_ctl};
+79 
+80     pca9530\_ctl.\hyperlink{structpca9530__ctl_a8782eaf4d6ff8b39d2ef058050c8a0e3}{AI} = 0;
+81     pca9530\_ctl.\hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS} = \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a}{INPUT};
+82 
+83     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}{PCA9530\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 1, pca9530\_ctl.
+      \hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS});
+84     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}{PCA9530\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &input);
+85 
+86     \textcolor{keywordflow}{return} input;
+87 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_a0504ea065814c638843035fe0559b24c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{pca9530_8h_abc69b1cb491825b0e425539994b188bb}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+set\+\_\+freq@{pca9530\+\_\+set\+\_\+freq}}
+\index{pca9530\+\_\+set\+\_\+freq@{pca9530\+\_\+set\+\_\+freq}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{pca9530\+\_\+set\+\_\+freq}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+set\+\_\+freq (
+\begin{DoxyParamCaption}
+\item[{enum {\bf P\+C\+A9530\+\_\+\+F\+R\+E\+Q}}]{freq\+\_\+sel, }
+\item[{uint8\+\_\+t}]{freq}
+\end{DoxyParamCaption}
+)}\label{pca9530_8h_abc69b1cb491825b0e425539994b188bb}
+
+
+Definiert in Zeile 11 der Datei pca9530.\+c.
+
+
+\begin{DoxyCode}
+12 \{
+13     int8\_t prescale = 0;
+14     \hyperlink{structpca9530__ctl}{PCA9530\_CTL} \hyperlink{structpca9530__ctl}{pca9530\_ctl};
+15 
+16     pca9530\_ctl.\hyperlink{structpca9530__ctl_a8782eaf4d6ff8b39d2ef058050c8a0e3}{AI} = 0;
+17 
+18     \textcolor{keywordflow}{switch}(freq\_sel) \{
+19     \textcolor{keywordflow}{case} \hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca}{FREQ\_0}:
+20         pca9530\_ctl.\hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS} = \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45}{PSC0};
+21         \textcolor{keywordflow}{break};
+22     \textcolor{keywordflow}{case} \hyperlink{pca9530_8h_a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7}{FREQ\_1}:
+23         pca9530\_ctl.\hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS} = \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3}{PSC1};
+24         \textcolor{keywordflow}{break};
+25     \textcolor{keywordflow}{default}:
+26         \textcolor{keywordflow}{return} 0xFF;
+27     \}
+28 
+29     prescale = (15200 / (int16\_t)freq) / 100 - 1;
+30 
+31     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}{PCA9530\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, pca9530\_ctl.
+      \hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS}, prescale);
+32     \textcolor{comment}{//i2c\_write\_var(PCA9530\_I2C\_ADR, STOP, 2, pca9530\_ctl.ADDRESS, prescale);}
+33 
+34     \textcolor{keywordflow}{return} 0;
+35 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_abc69b1cb491825b0e425539994b188bb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_abc69b1cb491825b0e425539994b188bb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+set\+\_\+pwm@{pca9530\+\_\+set\+\_\+pwm}}
+\index{pca9530\+\_\+set\+\_\+pwm@{pca9530\+\_\+set\+\_\+pwm}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{pca9530\+\_\+set\+\_\+pwm}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+set\+\_\+pwm (
+\begin{DoxyParamCaption}
+\item[{enum {\bf P\+C\+A9530\+\_\+\+P\+W\+M}}]{pwm\+\_\+sel, }
+\item[{uint8\+\_\+t}]{pwm}
+\end{DoxyParamCaption}
+)}\label{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53}
+
+
+Definiert in Zeile 37 der Datei pca9530.\+c.
+
+
+\begin{DoxyCode}
+38 \{
+39     \hyperlink{structpca9530__ctl}{PCA9530\_CTL} \hyperlink{structpca9530__ctl}{pca9530\_ctl};
+40 
+41     pca9530\_ctl.\hyperlink{structpca9530__ctl_a8782eaf4d6ff8b39d2ef058050c8a0e3}{AI} = 0;
+42 
+43     \textcolor{keywordflow}{switch}(pwm\_sel) \{
+44     \textcolor{keywordflow}{case} \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{PWM\_0}:
+45         pca9530\_ctl.\hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS} = \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc}{PWM0};
+46         \textcolor{keywordflow}{break};
+47     \textcolor{keywordflow}{case} \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703}{PWM\_1}:
+48         pca9530\_ctl.\hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS} = \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a}{PWM1};
+49         \textcolor{keywordflow}{break};
+50     \textcolor{keywordflow}{default}:
+51         \textcolor{keywordflow}{return} 0xFF;
+52     \}
+53 
+54     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}{PCA9530\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, pca9530\_ctl.
+      \hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS}, pwm);
+55 
+56     \textcolor{keywordflow}{return} 0;
+57 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53_icgraph}
+\end{center}
+\end{figure}
+
+

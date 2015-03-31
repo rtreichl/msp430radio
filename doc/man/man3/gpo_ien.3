@@ -1,0 +1,160 @@
+.TH "gpo_ien" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+gpo_ien \- Property 0x0001\&. GPO_IEN\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <si4735_cmd_prop\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBbyte\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbytes\fP [2]"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint16_t \fBSTCIEN\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fB__pad0__\fP:1"
+.br
+.RI "\fIReserved\&. \fP"
+.ti -1c
+.RI "   uint16_t \fBRDSIEN\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBRSQIEN\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fB__pad1__\fP:2"
+.br
+.RI "\fIReserved\&. \fP"
+.ti -1c
+.RI "   uint16_t \fBERRIEN\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBCTSIEN\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBSTCREP\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fB__pad2__\fP:1"
+.br
+.RI "\fIReserved\&. \fP"
+.ti -1c
+.RI "   uint16_t \fBRDSREP\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBRSQREP\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fB__pad3__\fP:4"
+.br
+.RI "\fIReserved\&. \fP"
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Property 0x0001\&. GPO_IEN\&. 
+
+Configures the sources for the GPO2/INT interrupt pin\&. Valid sources are the lower 8 bits of the STATUS byte,
+.br
+including CTS, ERR, RSQINT, RDSINT (Si4705/21/31/35/37/39/41/43/45/85 only), and STCINT bits\&. The corresponding
+.br
+bit is set before the interrupt occurs\&. The CTS bit (and optional interrupt) is set when it is safe to send the
+.br
+next command\&. The CTS interrupt enable (CTSIEN) can be set with this property and the POWER_UP command\&. The state
+.br
+of the CTSIEN bit set during the POWER_UP command can be read by reading this property and modified by writing this
+.br
+property\&. This property may only be set or read when in powerup mode\&. Errata:RSQIEN is non-functional on FMRX component 2\&.0\&.
+.PP
+Available in: All
+.PP
+Default: 0x0000 
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint16_t gpo_ien::__pad0__"
+
+.PP
+Reserved\&. 
+.SS "uint16_t gpo_ien::__pad1__"
+
+.PP
+Reserved\&. 
+.SS "uint16_t gpo_ien::__pad2__"
+
+.PP
+Reserved\&. 
+.SS "uint16_t gpo_ien::__pad3__"
+
+.PP
+Reserved\&. 
+.SS "uint16_t gpo_ien::byte"
+
+.SS "uint8_t gpo_ien::bytes[2]"
+
+.SS "gpo_ien::CTSIEN"
+
+.PP
+CTS Interrupt Enable\&. After PowerUp, this bit reflects the CTSIEN bit in ARG1 of PowerUp Command\&. 0 = No interrupt generated when CTS is set\&.
+.br
+1 = Interrupt generated when CTS is set\&. 
+.SS "gpo_ien::ERRIEN"
+
+.PP
+ERR Interrupt Enable\&. 0 = No interrupt generated when ERR is set (default)\&.
+.br
+1 = Interrupt generated when ERR is set\&. 
+.SS "gpo_ien::RDSIEN"
+
+.PP
+RDS Interrupt Enable (Si4705/21/31/35/37/39/41/43/45/85-C40 Only)\&. 0 = No interrupt generated when RDSINT is set (default)\&. 1 = Interrupt generated when RDSINT is set\&. 
+.SS "gpo_ien::RDSREP"
+
+.PP
+RDS Interrupt Repeat (Si4705/21/31/35/37/39/41/43/45/85-C40 Only)\&. 0 = No interrupt generated when RDSINT is already set (default)\&.
+.br
+1 = Interrupt generated even if RDSINT is already set\&. 
+.SS "gpo_ien::RSQIEN"
+
+.PP
+RSQ Interrupt Enable\&. 0 = No interrupt generated when RSQINT is set (default)\&.
+.br
+1 = Interrupt generated when RSQINT is set 
+.SS "gpo_ien::RSQREP"
+
+.PP
+RSQ Interrupt Repeat\&. 0 = No interrupt generated when RSQINT is already set (default)\&.
+.br
+1 = Interrupt generated even if RSQINT is already set\&. 
+.SS "gpo_ien::STCIEN"
+
+.PP
+RSQ Interrupt Enable\&. 0 = No interrupt generated when RSQINT is set (default)\&.
+.br
+1 = Interrupt generated when RSQINT is set 
+.SS "gpo_ien::STCREP"
+
+.PP
+STC Interrupt Repeat\&. 0 = No interrupt generated when STCINT is already set (default)\&.
+.br
+1 = Interrupt generated even if STCINT is already set\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

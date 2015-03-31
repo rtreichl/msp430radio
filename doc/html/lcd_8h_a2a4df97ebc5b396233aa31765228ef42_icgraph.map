@@ -1,0 +1,12 @@
+<map id="lcd_set_courser" name="lcd_set_courser">
+<area shape="rect" id="node2" href="$lcd_8c.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="168,107,281,133"/>
+<area shape="rect" id="node3" href="$lcd_8c.html#a312eed1baec275e185dc00b760de1356" title="lcd_init" alt="" coords="739,5,802,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1023,56,1073,83"/>
+<area shape="rect" id="node5" href="$menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d" title="menu_display" alt="" coords="545,107,648,133"/>
+<area shape="rect" id="node7" href="$menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" title="menu_scroll" alt="" coords="357,157,449,184"/>
+<area shape="rect" id="node10" href="$radio_8c.html#a51f5be293265eb7d6106c9181b357f96" title="radio_display_handler" alt="" coords="329,208,476,235"/>
+<area shape="rect" id="node6" href="$menu_2src_2menu_8c.html#a8509849c574fb30136ac9ec88081d47c" title="menu_handler" alt="" coords="872,107,975,133"/>
+<area shape="rect" id="node8" href="$menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946" title="menu_scroll_settings" alt="" coords="524,157,669,184"/>
+<area shape="rect" id="node9" href="$menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc" title="menu_function" alt="" coords="717,157,824,184"/>
+<area shape="rect" id="node11" href="$radio_8c.html#a921f25c9a84ad0ee0715bc7f5720ade4" title="radio_main" alt="" coords="554,208,639,235"/>
+</map>

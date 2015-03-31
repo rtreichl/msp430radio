@@ -1,0 +1,288 @@
+\hypertarget{rds_8c}{}\section{system/src/rds.c-\/\+Dateireferenz}
+\label{rds_8c}\index{system/src/rds.\+c@{system/src/rds.\+c}}
+{\ttfamily \#include $<$system/rds.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für rds.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rds_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rds_8c_a7d3450a025ce61ff8522b8a575d34a8f}{get\+\_\+rds\+\_\+data} (int $\ast$Radio\+\_\+\+States, char $\ast$Station\+\_\+\+Name, char $\ast$Radion\+\_\+\+Text)
+\item 
+uint8\+\_\+t \hyperlink{rds_8c_ad78635732ebd8ebf68f659b9b31e9635}{get\+\_\+signal\+\_\+qual} (uint8\+\_\+t $\ast$stats)
+\item 
+uint8\+\_\+t \hyperlink{rds_8c_ad4168f8a33d30a3526e416da5997baa9}{rds\+\_\+triggered} ()
+\item 
+void \hyperlink{rds_8c_a33e5a772a8a82d668cc39ebfd4ba37a4}{rds\+\_\+group\+\_\+4\+A} (\hyperlink{rds_8h_a81e0fb5b6d2d10818bd855ba8b948a14}{R\+D\+S} $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{rds_8c_a7d3450a025ce61ff8522b8a575d34a8f}{}\index{rds.\+c@{rds.\+c}!get\+\_\+rds\+\_\+data@{get\+\_\+rds\+\_\+data}}
+\index{get\+\_\+rds\+\_\+data@{get\+\_\+rds\+\_\+data}!rds.\+c@{rds.\+c}}
+\subsubsection[{get\+\_\+rds\+\_\+data}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+rds\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{Radio\+\_\+\+States, }
+\item[{char $\ast$}]{Station\+\_\+\+Name, }
+\item[{char $\ast$}]{Radion\+\_\+\+Text}
+\end{DoxyParamCaption}
+)}\label{rds_8c_a7d3450a025ce61ff8522b8a575d34a8f}
+
+
+Definiert in Zeile 10 der Datei rds.\+c.
+
+
+\begin{DoxyCode}
+11 \{
+12     \textcolor{comment}{//Radio States => [New Freq Bit, Station\_Present Bit, Radio\_Text\_Update Bit, 0 Bit, TP Bit, PTY 5 Bits,
+       TA Bit, M/S Bit, DI 4 Bits] LSB}
+13     uint8\_t pos;
+14     uint8\_t rds\_read\_byte[13];
+15     uint8\_t i;
+16     uint8\_t temp;
+17     \hyperlink{structrds}{RDS} *\hyperlink{structrds}{rds} = (\hyperlink{structrds}{RDS}*) (uint16\_t*) rds\_read\_byte;
+18     \textcolor{keywordtype}{char} tmp = 0, doit = 0;
+19     \textcolor{keyword}{static} \textcolor{keywordtype}{char} rds\_text\_count = 0, rds\_station\_count = 0;
+20     \textcolor{keywordflow}{if}(*Radio\_States & (1<<15))
+21     \{
+22         rds\_text\_count = 0;
+23         rds\_station\_count = 0;
+24         *Radio\_States &= ~0xF000;
+25     \}
+26     \textcolor{keywordflow}{if}(\hyperlink{rds_8c_ad4168f8a33d30a3526e416da5997baa9}{rds\_triggered}() & 0x04)
+27     \{
+28         \textcolor{keywordflow}{do}
+29         \{
+30             \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, 0x24, 0x01);
+31             \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 13, rds\_read\_byte);
+32             \textcolor{keywordflow}{for} (i = 4; i <= 10; i+=2) \{
+33                 temp = rds\_read\_byte[i];
+34                 rds\_read\_byte[i] = rds\_read\_byte[i+1];
+35                 rds\_read\_byte[i+1] = temp;
+36             \}
+37             \textcolor{keywordflow}{if}(rds->\hyperlink{structrds_a533130a85d028e42078891666dd6c6fc}{err}.\hyperlink{structerr_a22256b3ddf2070027c87504d1de20c2f}{BLEA} != 3 && rds->\hyperlink{structrds_a533130a85d028e42078891666dd6c6fc}{err}.\hyperlink{structerr_aadd978be8508790bbf25c9a488ea553c}{BLEB} != 3 && rds->
+      \hyperlink{structrds_a533130a85d028e42078891666dd6c6fc}{err}.\hyperlink{structerr_a279b7213c9f5034e0fa7aa8d9c2bc9a2}{BLEC} != 3 && rds->\hyperlink{structrds_a533130a85d028e42078891666dd6c6fc}{err}.\hyperlink{structerr_a3498d51c8fc84119a00242f7bb9b6719}{BLED} != 3)
+38             \{
+39                 \textcolor{keywordflow}{if} (rds->\hyperlink{structrds_ad8c59b1a87492b568b0bf85aef6f5f87}{block\_b}.\hyperlink{structblock__b_a9f692e9f76ee88348d426bcd4e9bc70b}{GROUP\_NUM} == 2)
+40                 \{
+41                     \hyperlink{structgroup__2a}{GROUP\_2A} *rds2 = (\hyperlink{structgroup__2a}{GROUP\_2A}*) &(rds->\hyperlink{structrds_a157b53b7e71fcc6afe0a4c664d7adb60}{pi});
+42                     pos =rds2->\hyperlink{structgroup__2a_ae783bd90764c8455228772c025c064e4}{B}*4;
+43                     \textcolor{keywordflow}{if}(++rds\_text\_count == 16)
+44                     \{
+45                         rds\_text\_count = 0;
+46                         *Radio\_States |= (1<<13);
+47                     \}
+48                     Radion\_Text[pos++] = rds2->\hyperlink{structgroup__2a_a51d200a5620dec8e6cd7a76c63d03ed1}{SEGMENT}[1];
+49                     Radion\_Text[pos++] = rds2->\hyperlink{structgroup__2a_a51d200a5620dec8e6cd7a76c63d03ed1}{SEGMENT}[0];
+50                     Radion\_Text[pos++] = rds2->\hyperlink{structgroup__2a_a51d200a5620dec8e6cd7a76c63d03ed1}{SEGMENT}[3];
+51                     Radion\_Text[pos] = rds2->\hyperlink{structgroup__2a_a51d200a5620dec8e6cd7a76c63d03ed1}{SEGMENT}[2];
+52                     Radion\_Text[65] = \textcolor{charliteral}{'\(\backslash\)0'};
+53                 \}
+54                 \textcolor{keywordflow}{if} (rds->\hyperlink{structrds_ad8c59b1a87492b568b0bf85aef6f5f87}{block\_b}.\hyperlink{structblock__b_a9f692e9f76ee88348d426bcd4e9bc70b}{GROUP\_NUM} == 4)
+55                 \{
+56                     \hyperlink{rds_8c_a33e5a772a8a82d668cc39ebfd4ba37a4}{rds\_group\_4A}(rds);
+57                 \}
+58                 \textcolor{keywordflow}{if} (rds->\hyperlink{structrds_ad8c59b1a87492b568b0bf85aef6f5f87}{block\_b}.\hyperlink{structblock__b_a9f692e9f76ee88348d426bcd4e9bc70b}{GROUP\_NUM} == 0)
+59                 \{
+60 
+61                     \textcolor{comment}{//*Radio\_States |= (rds\_read\_byte[6 + RDS\_BYTES\_OFFSET] & 0xFC)>>2; //TA Bit M/S Bit DI
+       4 Bits}
+62                     \hyperlink{structgroup__0a}{GROUP\_0A} *rds2 = (\hyperlink{structgroup__0a}{GROUP\_0A}*) &(rds->\hyperlink{structrds_a157b53b7e71fcc6afe0a4c664d7adb60}{pi});
+63                     \textcolor{comment}{//*Radio\_States |= (rds2->TA | rds2->MS | rds2->DI) >> 2;}
+64                     pos = rds2->\hyperlink{structgroup__0a_aa6fd8556e02ce89fed23057f1cb37e44}{CI}*2;
+65                     Station\_Name[pos++] = rds2->\hyperlink{structgroup__0a_a80447425671c19133df16d620705bb09}{PS\_NAME}[1];
+66                     Station\_Name[pos] = rds2->\hyperlink{structgroup__0a_a80447425671c19133df16d620705bb09}{PS\_NAME}[0];
+67                     Station\_Name[8] = \textcolor{charliteral}{'\(\backslash\)0'};
+68                     \textcolor{keywordflow}{if}(++rds\_station\_count == 4)
+69                     \{
+70                         rds\_station\_count = 0;
+71                         *Radio\_States |= (1<<14);
+72                     \}
+73                 \}
+74             \}
+75             \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(25);
+76             tmp = rds->\hyperlink{structrds_a7f4b3988a39d63bbb74e44a08285d9ef}{fifo}.\hyperlink{structfifo_a8f4ac68e6765f535c5abca00d2a32a89}{RDSFIFOUSED};
+77             \textcolor{keywordflow}{if}(tmp < 10 && doit == 0)
+78             \{
+79                 \textcolor{keywordflow}{break};
+80             \}
+81             \textcolor{keywordflow}{else}
+82             \{
+83                 doit = 1;
+84             \}
+85         \}
+86         \textcolor{keywordflow}{while}(tmp > 0);
+87     \}
+88     \textcolor{comment}{//*Radio\_States |= (rds\_read\_byte[5 + RDS\_BYTES\_OFFSET] & 0x07)<<9 | (rds\_read\_byte[6 +
+       RDS\_BYTES\_OFFSET] & 0xE0)<<1; //TP Bit PTY 5 Bits}
+89 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rds_8c_a7d3450a025ce61ff8522b8a575d34a8f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rds_8c_ad78635732ebd8ebf68f659b9b31e9635}{}\index{rds.\+c@{rds.\+c}!get\+\_\+signal\+\_\+qual@{get\+\_\+signal\+\_\+qual}}
+\index{get\+\_\+signal\+\_\+qual@{get\+\_\+signal\+\_\+qual}!rds.\+c@{rds.\+c}}
+\subsubsection[{get\+\_\+signal\+\_\+qual}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t get\+\_\+signal\+\_\+qual (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{stats}
+\end{DoxyParamCaption}
+)}\label{rds_8c_ad78635732ebd8ebf68f659b9b31e9635}
+
+
+Definiert in Zeile 91 der Datei rds.\+c.
+
+
+\begin{DoxyCode}
+92 \{
+93     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, 0x23, 0x00);
+94     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 8, stats);
+95     \textcolor{keywordflow}{return} 0;
+96 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rds_8c_ad78635732ebd8ebf68f659b9b31e9635_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rds_8c_a33e5a772a8a82d668cc39ebfd4ba37a4}{}\index{rds.\+c@{rds.\+c}!rds\+\_\+group\+\_\+4\+A@{rds\+\_\+group\+\_\+4\+A}}
+\index{rds\+\_\+group\+\_\+4\+A@{rds\+\_\+group\+\_\+4\+A}!rds.\+c@{rds.\+c}}
+\subsubsection[{rds\+\_\+group\+\_\+4\+A}]{\setlength{\rightskip}{0pt plus 5cm}void rds\+\_\+group\+\_\+4\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf R\+D\+S} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{rds_8c_a33e5a772a8a82d668cc39ebfd4ba37a4}
+
+
+Definiert in Zeile 106 der Datei rds.\+c.
+
+
+\begin{DoxyCode}
+107 \{
+108     \hyperlink{structgroup__4a}{GROUP\_4A} *data2 = (\hyperlink{structgroup__4a}{GROUP\_4A}*) &(data->\hyperlink{structrds_a157b53b7e71fcc6afe0a4c664d7adb60}{pi});
+109     \textcolor{keywordtype}{char} offset = 0;
+110     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} mdj = 0;
+111     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} m\_hour, m\_minute, m\_day, m\_month, m\_year;
+112     \textcolor{comment}{//unsigned char day\_per\_month[12] = \{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31\};}
+113     \textcolor{keywordtype}{int} temp;
+114 
+115     m\_day = 1;
+116     m\_month = 0;
+117     m\_year = 10;
+118 
+119     m\_minute = data2->\hyperlink{structgroup__4a_a4377c294f04582b75e2fcd4134fdeb46}{MINUTE};
+120     m\_hour = data2->\hyperlink{structgroup__4a_a20911a4551f89f8c37cc760f72ec2d4d}{HOUR\_L} + data2->\hyperlink{structgroup__4a_a2adde330ffff3e30d1ba194fdb0835cf}{HOUR\_H} * 16;
+121     offset = data2->\hyperlink{structgroup__4a_ad17cf07501152f576f64d6bf9d06b453}{TIME\_OFF};
+122     mdj = data2->\hyperlink{structgroup__4a_a41f1477fa1205c5f2c4135c43419f931}{DATE\_L} + (data2->\hyperlink{structgroup__4a_a3e79884699012bd2127da5d0d474072b}{DATE\_H} << 15);
+123 
+124     temp = mdj - 55198 + 1; \textcolor{comment}{//55198 = MDJ of 01.01.2010}
+125 
+126     \textcolor{keywordflow}{while}(temp > 0)
+127     \{
+128         m\_day = temp;
+129         m\_month++;
+130         \textcolor{keywordflow}{if} (m\_month == 13)
+131         \{
+132             m\_month = 1;
+133             m\_year++;
+134         \}
+135         temp -= \hyperlink{time_8c_a69c350a02f6261a0608b72af33ce375c}{month\_days}[m\_month-1];
+136     \}
+137     temp = m\_minute + 60 * m\_hour + 30 * offset;
+138     \textcolor{keywordflow}{if} (temp >= 1440)
+139     \{
+140         temp -= 1440;
+141         m\_day++;
+142     \}
+143     \textcolor{keywordflow}{if} (temp < 0)
+144     \{
+145         temp += 1440;
+146         m\_day--;
+147     \}
+148     m\_minute = temp%60;
+149     m\_hour = temp/60;
+150     \hyperlink{time_8c_a5db7b4e6e4e991e6730a118bff927c39}{time\_set}(m\_hour, m\_minute, m\_day, m\_month, m\_year, 0);
+151     \textcolor{comment}{//time\_date(m\_hour, m\_minute, m\_day, m\_month, m\_year, 1, 0, 0, 0);}
+152 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{rds_8c_a33e5a772a8a82d668cc39ebfd4ba37a4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{rds_8c_a33e5a772a8a82d668cc39ebfd4ba37a4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rds_8c_ad4168f8a33d30a3526e416da5997baa9}{}\index{rds.\+c@{rds.\+c}!rds\+\_\+triggered@{rds\+\_\+triggered}}
+\index{rds\+\_\+triggered@{rds\+\_\+triggered}!rds.\+c@{rds.\+c}}
+\subsubsection[{rds\+\_\+triggered}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t rds\+\_\+triggered (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{rds_8c_ad4168f8a33d30a3526e416da5997baa9}
+
+
+Definiert in Zeile 98 der Datei rds.\+c.
+
+
+\begin{DoxyCode}
+99 \{
+100     uint8\_t \hyperlink{structrds}{rds} = 0;
+101     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 1, 0x14);
+102     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &rds);
+103     \textcolor{keywordflow}{return} rds;
+104 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rds_8c_ad4168f8a33d30a3526e416da5997baa9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{rds_8c_ad4168f8a33d30a3526e416da5997baa9_icgraph}
+\end{center}
+\end{figure}
+
+

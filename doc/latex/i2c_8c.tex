@@ -1,0 +1,470 @@
+\hypertarget{i2c_8c}{}\section{driver/src/i2c.c-\/\+Dateireferenz}
+\label{i2c_8c}\index{driver/src/i2c.\+c@{driver/src/i2c.\+c}}
+{\ttfamily \#include $<$driver/i2c.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für i2c.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{i2c_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_i2_c___c_t_r_l}{I2\+C\+\_\+\+C\+T\+R\+L}
+\begin{DoxyCompactList}\small\item\em This struct inclued all necessaries for I2\+C module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{i2c_8c_a1ef889b72b844429bc81225d7b6f4f2e}{i2c\+\_\+init} (uint16\+\_\+t smclk\+\_\+freq, uint16\+\_\+t i2c\+\_\+freq)
+\begin{DoxyCompactList}\small\item\em Setup I2\+C with a defined clock based on given S\+M\+C\+K\+L. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{i2c_8c_a6691e5911f539e1e8178c6e983e8079a}{i2c\+\_\+write\+\_\+var} (uint8\+\_\+t addr, enum \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5}{I2\+C\+\_\+\+C\+R\+T\+L\+\_\+\+C\+M\+D} rept\+\_\+start, uint8\+\_\+t n\+\_\+args,...)
+\begin{DoxyCompactList}\small\item\em Transmits I2\+C commands with a variable length to a I2\+C slave. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978}{i2c\+\_\+write\+\_\+arr} (uint8\+\_\+t addr, enum \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5}{I2\+C\+\_\+\+C\+R\+T\+L\+\_\+\+C\+M\+D} rept\+\_\+start, uint8\+\_\+t n\+\_\+size, uint8\+\_\+t $\ast$Tx\+Data)
+\begin{DoxyCompactList}\small\item\em Transmits I2\+C command array to a I2\+C slave. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{i2c_8c_a620e4251e56f4961d8879a01a70f31bf}{i2c\+\_\+read} (uint8\+\_\+t addr, enum \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5}{I2\+C\+\_\+\+C\+R\+T\+L\+\_\+\+C\+M\+D} rept\+\_\+start, uint8\+\_\+t R\+X\+Bytes, uint8\+\_\+t $\ast$Rx\+Data)
+\begin{DoxyCompactList}\small\item\em Receives I2\+C commands until a N\+A\+C\+K is received or received Rx\+Bytes. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{i2c_8c_ad2d4889950ea1373a0ea88ba55b04ba8}{i2c\+\_\+get\+\_\+status} ()
+\item 
+\+\_\+\+\_\+interrupt void \hyperlink{i2c_8c_ace3c646aeda748bc89f1536876440b03}{U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+I\+S\+R} (void)
+\item 
+\+\_\+\+\_\+interrupt void \hyperlink{i2c_8c_a1c27b12dfd9998dbc915bee092a83447}{U\+S\+C\+I\+A\+B0\+R\+X\+\_\+\+I\+S\+R} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_i2_c___c_t_r_l}{I2\+C\+\_\+\+C\+T\+R\+L} \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c} = \{ .\hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{P\+Tx\+Data} = 0, .\hyperlink{structstatus}{status} = \hyperlink{i2c_8h_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18}{I\+D\+L\+E}, .Tx\+Byte\+Res = 0 \}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{P\+Tx\+Data} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{i2c_8c_ad2d4889950ea1373a0ea88ba55b04ba8}{}\index{i2c.\+c@{i2c.\+c}!i2c\+\_\+get\+\_\+status@{i2c\+\_\+get\+\_\+status}}
+\index{i2c\+\_\+get\+\_\+status@{i2c\+\_\+get\+\_\+status}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{i2c\+\_\+get\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t i2c\+\_\+get\+\_\+status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{i2c_8c_ad2d4889950ea1373a0ea88ba55b04ba8}
+\begin{DoxyReturn}{Rückgabe}
+Actuall state of I2\+C module. 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 166 der Datei i2c.\+c.
+
+
+\begin{DoxyCode}
+167 \{
+168     \textcolor{keywordflow}{return} \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status};
+169 \}
+\end{DoxyCode}
+\hypertarget{i2c_8c_a1ef889b72b844429bc81225d7b6f4f2e}{}\index{i2c.\+c@{i2c.\+c}!i2c\+\_\+init@{i2c\+\_\+init}}
+\index{i2c\+\_\+init@{i2c\+\_\+init}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{i2c\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t i2c\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{smclk\+\_\+freq, }
+\item[{uint16\+\_\+t}]{i2c\+\_\+freq}
+\end{DoxyParamCaption}
+)}\label{i2c_8c_a1ef889b72b844429bc81225d7b6f4f2e}
+
+
+Setup I2\+C with a defined clock based on given S\+M\+C\+K\+L. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em smclk\+\_\+freq} & Frequency of S\+M\+C\+L\+K clock in Hz \\
+\hline
+{\em i2c\+\_\+freq} & Frequency for I2\+C clock in Hz \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+error 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 25 der Datei i2c.\+c.
+
+
+\begin{DoxyCode}
+26 \{
+27     \textcolor{comment}{/* Reset USCI\_B0 */}
+28     UCB0CTL1 |= UCSWRST;
+29 
+30     \textcolor{comment}{/* Assign P1.6 and P1.7 to USIC\_B0 */}
+31     P1SEL |= BIT6 + BIT7;
+32     P1SEL2 |= BIT6 + BIT7;
+33 
+34     \textcolor{comment}{/* USCI\_B0 as I2C Master */}
+35     UCB0CTL0 = UCMST + UCMODE\_3 + UCSYNC;
+36 
+37     \textcolor{comment}{/* Set SMCLK as clock for USCI\_B0 */}
+38     UCB0CTL1 = UCSSEL\_2 + UCSWRST;
+39 
+40     \textcolor{comment}{/* Calculate prescaler for USCI\_B0 based on SMCLK freq and I2C freq  */}
+41     \textcolor{comment}{/*UCB0BR0 = 0x00FF & (uint16\_t)smclk\_freq/i2c\_freq;}
+42 \textcolor{comment}{    UCB0BR1 = (0xFF00 & (uint16\_t)smclk\_freq/i2c\_freq) >> 8;*/}
+43 
+44     UCB0BR0 = 0x14;
+45 
+46     \textcolor{comment}{/* Enable NACK interrupt */}
+47     UCB0I2CIE = UCNACKIE;
+48 
+49     \textcolor{comment}{/* Resume USCI\_B0 to normal operation state */}
+50     UCB0CTL1 &= ~UCSWRST;
+51 
+52     \textcolor{comment}{/* Enable gloabl interrupts */}
+53     \_\_enable\_interrupt();
+54 
+55     \textcolor{keywordflow}{return} 0;
+56 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{i2c_8c_a1ef889b72b844429bc81225d7b6f4f2e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{i2c_8c_a620e4251e56f4961d8879a01a70f31bf}{}\index{i2c.\+c@{i2c.\+c}!i2c\+\_\+read@{i2c\+\_\+read}}
+\index{i2c\+\_\+read@{i2c\+\_\+read}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{i2c\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t i2c\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{addr, }
+\item[{enum {\bf I2\+C\+\_\+\+C\+R\+T\+L\+\_\+\+C\+M\+D}}]{rept\+\_\+start, }
+\item[{uint8\+\_\+t}]{Rx\+Bytes, }
+\item[{uint8\+\_\+t $\ast$}]{Rx\+Data}
+\end{DoxyParamCaption}
+)}\label{i2c_8c_a620e4251e56f4961d8879a01a70f31bf}
+
+
+Receives I2\+C commands until a N\+A\+C\+K is received or received Rx\+Bytes. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em addr} & Slave Address in 7-\/bit format. \\
+\hline
+{\em rept\+\_\+start} & Command for stop or repeated start. \\
+\hline
+{\em Rx\+Bytes} & Number of receiving bytes. \\
+\hline
+{\em $\ast$\+Rx\+Data} & Pointer where received I2\+C commands are be writtn. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+error 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 125 der Datei i2c.\+c.
+
+
+\begin{DoxyCode}
+126 \{
+127     \textcolor{keywordflow}{while}(\hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status} != \hyperlink{i2c_8h_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18}{IDLE});
+128 
+129     \textcolor{comment}{/* Set slave address */}
+130     UCB0I2CSA = addr;
+131 
+132     \textcolor{comment}{/* Change pointer to given buffer */}
+133     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}{PRxData} = RxData;
+134     \textcolor{comment}{/* Load RX counter */}
+135     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{RxByteCtr} = RXBytes;
+136 
+137     \textcolor{comment}{/* Clear Interrupt */}
+138     IE2 = UCB0RXIE;
+139 
+140     \textcolor{comment}{/* configure receiver mode */}
+141     UCB0CTL1 &= ~UCTR;
+142 
+143     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status} = \hyperlink{i2c_8h_a8f12d82f4a490ef04de32baf91363d9ba563f8ed00490ea22ea2605d9571dada8}{RECEIVE};
+144 
+145     \textcolor{comment}{/* Send a start condition with read flag */}
+146     \textcolor{keywordflow}{if} ( \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{RxByteCtr} == 1 ) \{
+147         \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{RxByteCtr} = 0;
+148         \_\_disable\_interrupt();
+149         UCB0CTL1 |= UCTXSTT;
+150         \textcolor{keywordflow}{while}(UCB0CTL1 & UCTXSTT);
+151         UCB0CTL1 |= UCTXSTP;
+152         \_\_enable\_interrupt();
+153     \}
+154     \textcolor{keywordflow}{else} \{
+155         \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{RxByteCtr} -= 2;
+156         UCB0CTL1 |= UCTXSTT;
+157     \}
+158 
+159     \textcolor{keywordflow}{while}(UCB0STAT & UCBBUSY);
+160 
+161     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status} = \hyperlink{i2c_8h_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18}{IDLE};
+162 
+163     \textcolor{keywordflow}{return} 0;
+164 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{i2c_8c_a620e4251e56f4961d8879a01a70f31bf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978}{}\index{i2c.\+c@{i2c.\+c}!i2c\+\_\+write\+\_\+arr@{i2c\+\_\+write\+\_\+arr}}
+\index{i2c\+\_\+write\+\_\+arr@{i2c\+\_\+write\+\_\+arr}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{i2c\+\_\+write\+\_\+arr}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t i2c\+\_\+write\+\_\+arr (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{addr, }
+\item[{enum {\bf I2\+C\+\_\+\+C\+R\+T\+L\+\_\+\+C\+M\+D}}]{rept\+\_\+start, }
+\item[{uint8\+\_\+t}]{n\+\_\+size, }
+\item[{uint8\+\_\+t $\ast$}]{Tx\+Data}
+\end{DoxyParamCaption}
+)}\label{i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978}
+
+
+Transmits I2\+C command array to a I2\+C slave. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em addr} & Slave Address in 7-\/bit format. \\
+\hline
+{\em rept\+\_\+start} & Command for stop or repeated start. \\
+\hline
+{\em n\+\_\+size} & Number of transmitting bytes. \\
+\hline
+{\em $\ast$\+Tx\+Data} & Pointer to I2\+C command bytes to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+error 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 90 der Datei i2c.\+c.
+
+
+\begin{DoxyCode}
+91 \{
+92     \textcolor{comment}{/* Copy pointer from TxData */}
+93     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_af294cab6f89af5bd936b709e202c8421}{PTxData} = TxData;
+94 
+95     \textcolor{comment}{/* Set slave address */}
+96     UCB0I2CSA = addr;
+97 
+98     \textcolor{comment}{/* Set Transmit Interrupt */}
+99     IE2 = UCB0TXIE;
+100 
+101     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a374bcaa6a416b8601564a1053ddf78bb}{rept\_start} = rept\_start;
+102 
+103     \textcolor{comment}{/* Load TX byte counter */}
+104     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_aec22639ad7dc7eed52b3e116ea3223fe}{TxByteCtr} = n\_size;
+105 
+106     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status} = \hyperlink{i2c_8h_a8f12d82f4a490ef04de32baf91363d9bad208fa8c08969a9d78096817bf0a6377}{TRANSMIT};
+107 
+108     \textcolor{comment}{/* Send a start condition with write flag */}
+109     UCB0CTL1 |= UCTR + UCTXSTT;
+110 
+111     \textcolor{comment}{/* Wait until Transmition is complet */}
+112     \textcolor{keywordflow}{if}(rept\_start == \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}) \{
+113         \textcolor{keywordflow}{while}(UCB0STAT & UCBBUSY);
+114     \}
+115     \textcolor{keywordflow}{else} \{
+116         \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(10);
+117     \}
+118 
+119     \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status} = \hyperlink{i2c_8h_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18}{IDLE};
+120 
+121     \textcolor{keywordflow}{return} 0;
+122 
+123 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{i2c_8c_a6691e5911f539e1e8178c6e983e8079a}{}\index{i2c.\+c@{i2c.\+c}!i2c\+\_\+write\+\_\+var@{i2c\+\_\+write\+\_\+var}}
+\index{i2c\+\_\+write\+\_\+var@{i2c\+\_\+write\+\_\+var}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{i2c\+\_\+write\+\_\+var}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t i2c\+\_\+write\+\_\+var (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{addr, }
+\item[{enum {\bf I2\+C\+\_\+\+C\+R\+T\+L\+\_\+\+C\+M\+D}}]{rept\+\_\+start, }
+\item[{uint8\+\_\+t}]{n\+\_\+args, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{i2c_8c_a6691e5911f539e1e8178c6e983e8079a}
+
+
+Transmits I2\+C commands with a variable length to a I2\+C slave. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em addr} & Slave Address in 7-\/bit format. \\
+\hline
+{\em rept\+\_\+start} & Command for stop or repeated start. \\
+\hline
+{\em n\+\_\+args} & Number of command bytes. \\
+\hline
+{\em ...} & I2\+C command bytes to send. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+error 
+\end{DoxyReturn}
+
+
+Definiert in Zeile 58 der Datei i2c.\+c.
+
+
+\begin{DoxyCode}
+59 \{
+60     \textcolor{comment}{/* Wait until all transmitions and receptions done */}
+61     \textcolor{keywordflow}{while}( \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_ade818037fd6c985038ff29656089758d}{status} != \hyperlink{i2c_8h_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18}{IDLE});
+62 
+63     \textcolor{comment}{/* Reserve size of memory for transmit buffer if buffer is uninitialised*/}
+64     \textcolor{keywordflow}{if}(\hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{PTxData} == 0) \{
+65         \hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{PTxData} = (uint8\_t *) malloc(n\_args * \textcolor{keyword}{sizeof}(uint8\_t));
+66         \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a28b787f8db17314755d031d75ec38017}{TxByteRes} = n\_args;
+67     \}
+68     \textcolor{comment}{/* Reserve more memory if actual size not enough */}
+69     \textcolor{keywordflow}{else} \{
+70         \textcolor{keywordflow}{if}(\hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a28b787f8db17314755d031d75ec38017}{TxByteRes} < n\_args) \{
+71             \hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{PTxData} = (uint8\_t *) realloc(\hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{PTxData}, n\_args * \textcolor{keyword}{sizeof}(uint8\_t));
+72             \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a28b787f8db17314755d031d75ec38017}{TxByteRes} = n\_args;
+73         \}
+74     \}
+75 
+76     uint8\_t i = 0;
+77     va\_list ap;
+78 
+79     \textcolor{comment}{/* Read n\_args from function}
+80 \textcolor{comment}{     * Copy args to transmit buffer}
+81 \textcolor{comment}{     */}
+82     va\_start(ap, n\_args);
+83     \textcolor{keywordflow}{for}(i = 0; i < n\_args; i++)
+84         \hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{PTxData}[i] = va\_arg(ap, uint8\_t);
+85     va\_end(ap);
+86 
+87     \textcolor{keywordflow}{return} \hyperlink{i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978}{i2c\_write\_arr}(addr, rept\_start, n\_args, \hyperlink{i2c_8c_af294cab6f89af5bd936b709e202c8421}{PTxData});
+88 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{i2c_8c_a6691e5911f539e1e8178c6e983e8079a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{i2c_8c_a6691e5911f539e1e8178c6e983e8079a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{i2c_8c_a1c27b12dfd9998dbc915bee092a83447}{}\index{i2c.\+c@{i2c.\+c}!U\+S\+C\+I\+A\+B0\+R\+X\+\_\+\+I\+S\+R@{U\+S\+C\+I\+A\+B0\+R\+X\+\_\+\+I\+S\+R}}
+\index{U\+S\+C\+I\+A\+B0\+R\+X\+\_\+\+I\+S\+R@{U\+S\+C\+I\+A\+B0\+R\+X\+\_\+\+I\+S\+R}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{U\+S\+C\+I\+A\+B0\+R\+X\+\_\+\+I\+S\+R}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+interrupt void U\+S\+C\+I\+A\+B0\+R\+X\+\_\+\+I\+S\+R (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{i2c_8c_a1c27b12dfd9998dbc915bee092a83447}
+
+
+Definiert in Zeile 203 der Datei i2c.\+c.
+
+
+\begin{DoxyCode}
+204 \{
+205     \textcolor{keywordflow}{if}( UCB0STAT & UCNACKIFG) \{
+206         UCB0CTL1 |= UCTXSTP;
+207         UCB0STAT &= ~UCNACKIFG;
+208     \}
+209 \}
+\end{DoxyCode}
+\hypertarget{i2c_8c_ace3c646aeda748bc89f1536876440b03}{}\index{i2c.\+c@{i2c.\+c}!U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+I\+S\+R@{U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+I\+S\+R}}
+\index{U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+I\+S\+R@{U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+I\+S\+R}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+I\+S\+R}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+interrupt void U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+I\+S\+R (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{i2c_8c_ace3c646aeda748bc89f1536876440b03}
+
+
+Definiert in Zeile 172 der Datei i2c.\+c.
+
+
+\begin{DoxyCode}
+173 \{
+174     \textcolor{keywordflow}{if}(IFG2 & UCB0RXIFG) \{
+175         \textcolor{keywordflow}{if}( \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{RxByteCtr} == 0) \{
+176             UCB0CTL1 |= UCTXSTP;
+177             *(\hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}{PRxData}) = UCB0RXBUF;
+178             \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}{PRxData}++;
+179         \}
+180         \textcolor{keywordflow}{else} \{
+181             *(\hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}{PRxData}) = UCB0RXBUF;
+182             \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a3c8ed69cf31f6ee7aa513fe5f115ba92}{PRxData}++;
+183             \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a37e493c5b47477e45136924079fd9606}{RxByteCtr}--;
+184         \}
+185     \}
+186     \textcolor{keywordflow}{else} \{
+187         \textcolor{keywordflow}{if}( \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_aec22639ad7dc7eed52b3e116ea3223fe}{TxByteCtr} == 0) \{
+188             \textcolor{keywordflow}{if}( \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a374bcaa6a416b8601564a1053ddf78bb}{rept\_start} == \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}) \{
+189                 UCB0CTL1 |= UCTXSTP;
+190             \}
+191             IFG2 &= ~UCB0TXIFG;
+192             \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_a374bcaa6a416b8601564a1053ddf78bb}{rept\_start} = \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP};
+193         \}
+194         \textcolor{keywordflow}{else} \{
+195             UCB0TXBUF = *(\hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_af294cab6f89af5bd936b709e202c8421}{PTxData});
+196             \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_af294cab6f89af5bd936b709e202c8421}{PTxData}++;
+197             \hyperlink{i2c_8c_ac88c1666422f322663fc6c63434dba97}{i2c}.\hyperlink{struct_i2_c___c_t_r_l_aec22639ad7dc7eed52b3e116ea3223fe}{TxByteCtr}--;
+198         \}
+199     \}
+200 \}
+\end{DoxyCode}
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{i2c_8c_ac88c1666422f322663fc6c63434dba97}{}\index{i2c.\+c@{i2c.\+c}!i2c@{i2c}}
+\index{i2c@{i2c}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{i2c}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf I2\+C\+\_\+\+C\+T\+R\+L}  i2c = \{ .{\bf P\+Tx\+Data} = 0, .{\bf status} = {\bf I\+D\+L\+E}, .Tx\+Byte\+Res = 0 \}}\label{i2c_8c_ac88c1666422f322663fc6c63434dba97}
+\hypertarget{i2c_8c_af294cab6f89af5bd936b709e202c8421}{}\index{i2c.\+c@{i2c.\+c}!P\+Tx\+Data@{P\+Tx\+Data}}
+\index{P\+Tx\+Data@{P\+Tx\+Data}!i2c.\+c@{i2c.\+c}}
+\subsubsection[{P\+Tx\+Data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t$\ast$ P\+Tx\+Data = 0}\label{i2c_8c_af294cab6f89af5bd936b709e202c8421}
+
+
+Definiert in Zeile 23 der Datei i2c.\+c.
+

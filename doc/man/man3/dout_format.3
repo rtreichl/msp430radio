@@ -1,0 +1,114 @@
+.TH "dout_format" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dout_format \- Property 0x0102\&. DIGITAL_OUTPUT_FORMAT\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <si4735_cmd_prop\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBbyte\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbytes\fP [2]"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint16_t \fB__pad0__\fP: 8"
+.br
+.RI "\fIReserved\&. \fP"
+.ti -1c
+.RI "   uint16_t \fBOFALL\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBOMODE\fP:4"
+.br
+.ti -1c
+.RI "   uint16_t \fBOMONO\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBOSIZE\fP:2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Property 0x0102\&. DIGITAL_OUTPUT_FORMAT\&. 
+
+Configures the digital audio output format\&. Configuration options include DCLK edge, data format, force mono, and
+.br
+sample precision\&.
+.PP
+\fBNote:\fP
+.RS 4
+Available in: Si4705/06, Si4721/31/35/37/39, Si4730/34/36/38-D60 and later, Si4741/43/45, Si4784/85
+.br
+
+.br
+ Default: 0x0000
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DIGITAL_OUTPUT_FORMAT is supported in FM receive component 2\&.0 or later\&. 
+.RE
+.PP
+
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint16_t dout_format::__pad0__"
+
+.PP
+Reserved\&. 
+.SS "uint16_t dout_format::byte"
+
+.SS "uint8_t dout_format::bytes[2]"
+
+.SS "dout_format::OFALL"
+
+.PP
+Digital Output DCLK Edge\&. 0 = use DCLK rising edge
+.br
+1 = use DCLK falling edge 
+.SS "dout_format::OMODE"
+
+.PP
+Digital Output Mode\&. OMONO_0: 0000 = I2S
+.br
+OMONO_1: 0110 = Left-justified
+.br
+OMONO_2: 1000 = MSB at second DCLK after DFS pulse
+.br
+OMONO_3: 1100 = MSB at first DCLK after DFS pulse 
+.SS "dout_format::OMONO"
+
+.PP
+Digital Output Mono Mode\&. 0 = Use mono/stereo blend (per blend thresholds)
+.br
+1 = Force mono 
+.SS "dout_format::OSIZE"
+
+.PP
+Digital Output Audio Sample Precision\&. OSIZE_0 = 16-bits
+.br
+OSIZE_1 = 20-bits
+.br
+OSIZE_2 = 24-bits
+.br
+OSIZE_3 = 8-bits 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

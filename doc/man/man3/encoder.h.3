@@ -1,0 +1,197 @@
+.TH "driver/encoder.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/encoder.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <msp430\&.h>\fP
+.br
+\fC#include <settings\\radio_pin_mapping\&.h>\fP
+.br
+\fC#include <driver/external_interrupthandler\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTIME_FOR_LONG_PRESS\fP   1500"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_ROTARY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_PIN\fP   \fBEN1_A_IN\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_DIR\fP   \fBEN1_A_DIR\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_IFG\fP   \fBEN1_A_IFG\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_IES\fP   \fBEN1_A_IES\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_REN\fP   \fBEN1_A_REN\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_OUT\fP   \fBEN1_A_OUT\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_IE\fP   \fBEN1_A_IE\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_A\fP   \fBEN1_A_PIN\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_B\fP   \fBEN1_B_PIN\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_T\fP   \fBEN1_TAST_PIN\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_1_ROTARY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_PIN\fP   P2IN"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_DIR\fP   P2DIR"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_IFG\fP   P2IFG"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_IES\fP   P2IES"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_REN\fP   P2REN"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_OUT\fP   P2OUT"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_IE\fP   P2IE"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_A\fP   BIT0"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_B\fP   BIT1"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2_T\fP   BIT2"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBEncoder_Timer_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBencoder_interrupt\fP (void)"
+.br
+.ti -1c
+.RI "void \fBEncoder_1_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBEncoder_1_decoder\fP (void)"
+.br
+.ti -1c
+.RI "int16_t \fBEncoder_1_get_count\fP ()"
+.br
+.ti -1c
+.RI "void \fBEncoder_2_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBEncoder_2_decoder\fP (void)"
+.br
+.ti -1c
+.RI "int16_t \fBEncoder_2_get_count\fP ()"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ENCODER_1"
+
+.SS "#define ENCODER_1_A   \fBEN1_A_PIN\fP"
+
+.SS "#define ENCODER_1_B   \fBEN1_B_PIN\fP"
+
+.SS "#define ENCODER_1_DIR   \fBEN1_A_DIR\fP"
+
+.SS "#define ENCODER_1_IE   \fBEN1_A_IE\fP"
+
+.SS "#define ENCODER_1_IES   \fBEN1_A_IES\fP"
+
+.SS "#define ENCODER_1_IFG   \fBEN1_A_IFG\fP"
+
+.SS "#define ENCODER_1_OUT   \fBEN1_A_OUT\fP"
+
+.SS "#define ENCODER_1_PIN   \fBEN1_A_IN\fP"
+
+.SS "#define ENCODER_1_REN   \fBEN1_A_REN\fP"
+
+.SS "#define ENCODER_1_ROTARY   0"
+
+.SS "#define ENCODER_1_ROTARY   0"
+
+.SS "#define ENCODER_1_T   \fBEN1_TAST_PIN\fP"
+
+.SS "#define ENCODER_2"
+
+.SS "#define ENCODER_2_A   BIT0"
+
+.SS "#define ENCODER_2_B   BIT1"
+
+.SS "#define ENCODER_2_DIR   P2DIR"
+
+.SS "#define ENCODER_2_IE   P2IE"
+
+.SS "#define ENCODER_2_IES   P2IES"
+
+.SS "#define ENCODER_2_IFG   P2IFG"
+
+.SS "#define ENCODER_2_OUT   P2OUT"
+
+.SS "#define ENCODER_2_PIN   P2IN"
+
+.SS "#define ENCODER_2_REN   P2REN"
+
+.SS "#define ENCODER_2_T   BIT2"
+
+.SS "#define TIME_FOR_LONG_PRESS   1500"
+
+.SH "Function Documentation"
+.PP 
+.SS "void Encoder_1_decoder (void)"
+
+.SS "int16_t Encoder_1_get_count ()"
+
+.SS "void Encoder_1_init (void)"
+
+.SS "void Encoder_2_decoder (void)"
+
+.SS "int16_t Encoder_2_get_count ()"
+
+.SS "void Encoder_2_init (void)"
+
+.SS "void encoder_interrupt (void)"
+
+.SS "void Encoder_Timer_init (void)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

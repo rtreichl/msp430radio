@@ -1,0 +1,1202 @@
+.TH "si4735_cmd_prop.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+si4735_cmd_prop.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBint_status\fP"
+.br
+.ti -1c
+.RI "union \fBpower_up_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_tune_freq_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_seek_start_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_tune_status_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_tune_status_resp1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_status_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_status_resp1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_status_resp2\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_status_resp3\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_status_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_status_resp1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_status_resp2\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_status_resp12\fP"
+.br
+.ti -1c
+.RI "union \fBfm_agc_status_resp1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_agc_status_resp2\fP"
+.br
+.ti -1c
+.RI "union \fBfm_agc_override_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_agc_override_arg2\fP"
+.br
+.ti -1c
+.RI "union \fBfm_gpio_ctl_arg1\fP"
+.br
+.ti -1c
+.RI "union \fBfm_gpio_set_arg1\fP"
+.br
+.ti -1c
+.RI "struct \fBgpo_ien\fP"
+.br
+.RI "\fIProperty 0x0001\&. GPO_IEN\&. \fP"
+.ti -1c
+.RI "struct \fBdout_format\fP"
+.br
+.RI "\fIProperty 0x0102\&. DIGITAL_OUTPUT_FORMAT\&. \fP"
+.ti -1c
+.RI "union \fBrefclk_pre\fP"
+.br
+.ti -1c
+.RI "union \fBfm_deemphasis\fP"
+.br
+.ti -1c
+.RI "union \fBfm_channel_filter\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_stereo\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_mono\fP"
+.br
+.ti -1c
+.RI "union \fBfm_max_tune_err\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_int_source\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_snr_hi_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_snr_lo_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_rssi_hi_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_rssi_lo_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_multi_hi_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_multi_lo_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rsq_blend_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_soft_mute_rate\fP"
+.br
+.ti -1c
+.RI "union \fBfm_soft_mute_slope\fP"
+.br
+.ti -1c
+.RI "union \fBfm_soft_mute_max_att\fP"
+.br
+.ti -1c
+.RI "union \fBfm_soft_mute_snr_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_soft_mute_rel_rate\fP"
+.br
+.ti -1c
+.RI "union \fBfm_soft_mute_atk_rate\fP"
+.br
+.ti -1c
+.RI "union \fBfm_seek_freq_spacing\fP"
+.br
+.ti -1c
+.RI "union \fBfm_seek_tune_snr_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_seek_tune_rssi_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_int_source\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_int_fifo_count\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_config\fP"
+.br
+.ti -1c
+.RI "union \fBfm_rds_confidence\fP"
+.br
+.ti -1c
+.RI "union \fBfm_agc_atk_rate\fP"
+.br
+.ti -1c
+.RI "union \fBfm_agc_rel_rate\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_rssi_stero_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_rssi_mono_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_snr_stereo_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_snr_mono_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_multi_stereo_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_multi_mono_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_blend_max_stereo_sepa\fP"
+.br
+.ti -1c
+.RI "union \fBfm_hicut_snr_high_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_hicut_snr_low_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_hicut_multi_trigger_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_hicut_multi_end_thres\fP"
+.br
+.ti -1c
+.RI "union \fBfm_hicut_cutoff_freq\fP"
+.br
+.ti -1c
+.RI "union \fBrx_volume\fP"
+.br
+.ti -1c
+.RI "union \fBrx_hard_mute\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHB\fP(byte)   ((byte & 0xFF00) >> 8)"
+.br
+.ti -1c
+.RI "#define \fBLB\fP(byte)   (byte & 0x00FF)"
+.br
+.ti -1c
+.RI "#define \fBPOWER_UP\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBFUNC_0\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBFUNC_1\fP   0x0F"
+.br
+.ti -1c
+.RI "#define \fBOPMODE_0\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBOPMODE_1\fP   0x05"
+.br
+.ti -1c
+.RI "#define \fBOPMODE_2\fP   0x0B"
+.br
+.ti -1c
+.RI "#define \fBOPMODE_3\fP   0xB0"
+.br
+.ti -1c
+.RI "#define \fBOPMODE_4\fP   0xB5"
+.br
+.ti -1c
+.RI "#define \fBGET_REV\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBPOWER_DOWN\fP   0x11"
+.br
+.ti -1c
+.RI "#define \fBSET_PROPERTY\fP   0x12"
+.br
+.ti -1c
+.RI "#define \fBGET_PROPERTY\fP   0x13"
+.br
+.ti -1c
+.RI "#define \fBGET_INT_STATUS\fP   0x14"
+.br
+.ti -1c
+.RI "#define \fBFM_TUNE_FREQ\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBFM_SEEK_START\fP   0x21"
+.br
+.ti -1c
+.RI "#define \fBFM_TUNE_STATUS\fP   0x22"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_STATUS\fP   0x23"
+.br
+.ti -1c
+.RI "#define \fBFM_RDS_STATUS\fP   0x24"
+.br
+.ti -1c
+.RI "#define \fBFM_AGC_STATUS\fP   0x27"
+.br
+.ti -1c
+.RI "#define \fBFM_AGC_OVERRIDE\fP   0x28"
+.br
+.ti -1c
+.RI "#define \fBGPIO_CTL\fP   0x80"
+.br
+.ti -1c
+.RI "#define \fBGPIO_SET\fP   0x81"
+.br
+.ti -1c
+.RI "#define \fBGPO_IEN\fP   0x0001"
+.br
+.RI "\fIProperty for the FM/RDS Receiver (Si4704/05/06/2x/3x/4x/84/85), required struct \fBgpo_ien\fP\&. \fP"
+.ti -1c
+.RI "#define \fBDOUT_FORMAT\fP   0x0102"
+.br
+.RI "\fIProperty for the FM/RDS Receiver (Si4704/05/06/2x/3x/4x/84/85), required struct \fBdout_format\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOMODE_0\fP   0"
+.br
+.RI "\fIDigital Output Mode 0000 = I2Suse for \fBdout_format::OMODE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOMODE_1\fP   6"
+.br
+.RI "\fIDigital Output Mode 0110 = Left-justifieduse for \fBdout_format::OMODE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOMODE_2\fP   8"
+.br
+.RI "\fIDigital Output Mode 1000 = MSB at second DCLK after DFS pulse, use for \fBdout_format::OMODE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOMODE_3\fP   12"
+.br
+.RI "\fIDigital Output Mode 1100 = MSB at first DCLK after DFS pulse, use for \fBdout_format::OMODE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOSIZE_0\fP   0"
+.br
+.RI "\fIDigital Output Audio Sample Precision 0 = 16 bits, use for \fBdout_format::OSIZE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOSIZE_1\fP   1"
+.br
+.RI "\fIDigital Output Audio Sample Precision 1 = 20 bits, use for \fBdout_format::OSIZE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOSIZE_2\fP   2"
+.br
+.RI "\fIDigital Output Audio Sample Precision 2 = 24 bits, use for \fBdout_format::OSIZE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBOSIZE_3\fP   3"
+.br
+.RI "\fIDigital Output Audio Sample Precision 3 = 8 bits, use for \fBdout_format::OSIZE\fP\&. \fP"
+.ti -1c
+.RI "#define \fBDOUT_SAMPLE_RATE\fP   0x0104"
+.br
+.ti -1c
+.RI "#define \fBREFCLK_FREQ\fP   0x0201"
+.br
+.ti -1c
+.RI "#define \fBREFCLK_PRESCALE\fP   0x0202"
+.br
+.ti -1c
+.RI "#define \fBFM_DEEMPH\fP   0x1100"
+.br
+.ti -1c
+.RI "#define \fBDEEMPH_US\fP   2"
+.br
+.ti -1c
+.RI "#define \fBDEEMPH_EU\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFM_CH_FIL\fP   0x1102"
+.br
+.ti -1c
+.RI "#define \fBFM_FILTER_AUTO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBFM_FILTER_110KHZ\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFM_FILTER_84KHZ\fP   2"
+.br
+.ti -1c
+.RI "#define \fBFM_FILTER_60KHZ\fP   3"
+.br
+.ti -1c
+.RI "#define \fBFM_FILTER_40KHZ\fP   4"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_STEREO\fP   0x1105"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MONO\fP   0x1106"
+.br
+.ti -1c
+.RI "#define \fBFM_MAX_TUNE_ERR\fP   0x1108"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_INT_SOURCE\fP   0x1200"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_SNR_HI_THRES\fP   0x1201"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_SNR_LO_THRES\fP   0x1202"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_RSSI_HI_THRES\fP   0x1203"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_RSSI_LO_THRES\fP   0x1204"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_MULTI_HI_THRES\fP   0x1205"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_MULTI_LO_THRES\fP   0x1206"
+.br
+.ti -1c
+.RI "#define \fBFM_RSQ_BLEND_THRES\fP   0x1207"
+.br
+.ti -1c
+.RI "#define \fBFM_SOFT_MUTE_RATE\fP   0x1300"
+.br
+.ti -1c
+.RI "#define \fBFM_SOFT_MUTE_SLOPE\fP   0x1301"
+.br
+.ti -1c
+.RI "#define \fBFM_SOFT_MUTE_MAX_ATT\fP   0x1302"
+.br
+.ti -1c
+.RI "#define \fBFM_SOFT_MUTE_SNR_THRES\fP   0x1303"
+.br
+.ti -1c
+.RI "#define \fBFM_SOFT_MUTE_REL_RATE\fP   0x1301"
+.br
+.ti -1c
+.RI "#define \fBFM_SOFT_MUTE_ATK_RATE\fP   0x1305"
+.br
+.ti -1c
+.RI "#define \fBFM_SEEK_BAND_BOTTOM\fP   0x1400"
+.br
+.ti -1c
+.RI "#define \fBFM_SEEK_BAND_TOP\fP   0x1401"
+.br
+.ti -1c
+.RI "#define \fBFM_SEEK_FREQ_SPACING\fP   0x1402"
+.br
+.ti -1c
+.RI "#define \fBSKSPACE_5\fP   0x0005"
+.br
+.ti -1c
+.RI "#define \fBSKSPACE_10\fP   0x000A"
+.br
+.ti -1c
+.RI "#define \fBSKSPACE_20\fP   0x0014"
+.br
+.ti -1c
+.RI "#define \fBFM_SEEK_TUNE_SNR_THRES\fP   0x1403"
+.br
+.ti -1c
+.RI "#define \fBFM_SEEK_TUNE_RSSI_THRES\fP   0x1404"
+.br
+.ti -1c
+.RI "#define \fBFM_RDS_INT_SOURCE\fP   0x1500"
+.br
+.ti -1c
+.RI "#define \fBFM_RDS_INT_FIFO_COUNT\fP   0x1501"
+.br
+.ti -1c
+.RI "#define \fBFM_RDS_CONFIG\fP   0x1502"
+.br
+.ti -1c
+.RI "#define \fBBLETH_NO_ERR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBBLETH_1_2_ERR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBBLETH_3_5_ERR\fP   2"
+.br
+.ti -1c
+.RI "#define \fBBLETH_NO_CORR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBFM_RDS_CONFIDENCE\fP   0x1503"
+.br
+.ti -1c
+.RI "#define \fBFM_AGC_ATK_RATE\fP   0x1700"
+.br
+.ti -1c
+.RI "#define \fBFM_AGC_REL_RATE\fP   0x1701"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_RSSI_STEREO_THRES\fP   0x1800"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_RSSI_MONO_THRES\fP   0x1801"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_RSSI_ATK_RATE\fP   0x1802"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_RSSI_REL_RATE\fP   0x1803"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_SNR_STEREO_THRES\fP   0x1804"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_SNR_MONO_THRES\fP   0x1805"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_SNR_ATK_RATE\fP   0x1806"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_SNR_REL_RATE\fP   0x1807"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_STEREO_THRES\fP   0x1808"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_MONO_THRES\fP   0x1809"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_ATK_RATE\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_REL_RATE\fP   0x180B"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MAX_STEREO_SEPA\fP   0x180C"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_ATK_RATE\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_ATK_RATE\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_ATK_RATE\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_ATK_RATE\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_BLEND_MULTI_ATK_RATE\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_HICUT_SNR_HIGH_THRES\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_HICUT_SNR_LOW_THRES\fP   0x180A"
+.br
+.ti -1c
+.RI "#define \fBFM_HICUT_ATK_RATE\fP   0x1A02"
+.br
+.ti -1c
+.RI "#define \fBFM_HICUT_REL_RATE\fP   0x1A03"
+.br
+.ti -1c
+.RI "#define \fBFM_HICUT_MULTI_TRIGGER_THRES\fP   0x1A04"
+.br
+.ti -1c
+.RI "#define \fBFM_HICUT_MULTI_END_THRES\fP   0x1A05"
+.br
+.ti -1c
+.RI "#define \fBFM_HICUT_CUTOFF_FREQ\fP   0x1A06"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_AUTO_BW\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_2KHZ\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_3KHZ\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_4KHZ\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_5KHZ\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_6KHZ\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_8KHZ\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMAX_AUDIO_TRAN_FREQ_11KHZ\fP   7"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_DIS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_2KHZ\fP   1"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_3KHZ\fP   2"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_4KHZ\fP   3"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_5KHZ\fP   4"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_6KHZ\fP   5"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_8KHZ\fP   6"
+.br
+.ti -1c
+.RI "#define \fBHICUT_AUDIO_TRAN_FREQ_11KHZ\fP   7"
+.br
+.ti -1c
+.RI "#define \fBRX_VOLUME\fP   0x4000"
+.br
+.ti -1c
+.RI "#define \fBRX_HARD_MUTE\fP   0x4001"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef union \fBint_status\fP \fBINT_STATUS\fP"
+.br
+.ti -1c
+.RI "typedef union \fBpower_up_arg1\fP \fBPOWER_UP_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_tune_freq_arg1\fP \fBFM_TUNE_FREQ_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_seek_start_arg1\fP \fBFM_SEEK_START_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_tune_status_arg1\fP \fBFM_TUNE_STATUS_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_tune_status_resp1\fP \fBFM_TUNE_STATUS_RESP1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_status_arg1\fP \fBFM_RSQ_STATUS_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_status_resp1\fP \fBFM_RSQ_STATUS_RESP1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_status_resp2\fP \fBFM_RSQ_STATUS_RESP2_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_status_resp3\fP \fBFM_RSQ_STATUS_RESP3_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_status_arg1\fP \fBFM_RDS_STATUS_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_status_resp1\fP \fBFM_RDS_STATUS_RESP1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_status_resp2\fP \fBFM_RDS_STATUS_RESP2_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_status_resp12\fP \fBFM_RDS_STATUS_RESP12_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_agc_status_resp1\fP \fBFM_AGC_STATUS_RESP1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_agc_status_resp2\fP \fBFM_AGC_STATUS_RESP2_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_agc_override_arg1\fP \fBFM_AGC_OVERRIDE_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_agc_override_arg2\fP \fBFM_AGC_OVERRIDE_ARG2_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_gpio_ctl_arg1\fP \fBFM_GPIO_CTL_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_gpio_set_arg1\fP \fBFM_GPIO_SET_ARG1_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBgpo_ien\fP \fBGPO_IEN_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBdout_format\fP \fBDOUT_FORMAT_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBrefclk_pre\fP \fBREFCLK_PRESCALE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_deemphasis\fP \fBFM_DEEMPHASIS_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_channel_filter\fP \fBFM_CHANNEL_FILTER_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_stereo\fP \fBFM_BLEND_STEREO_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_mono\fP \fBFM_BLEND_MONO_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_max_tune_err\fP \fBFM_MAX_TUNE_ERR_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_int_source\fP \fBFM_RSQ_INT_SOURCE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_snr_hi_thres\fP \fBFM_RSQ_SNR_HI_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_snr_lo_thres\fP \fBFM_RSQ_SNR_LO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_rssi_hi_thres\fP \fBFM_RSQ_RSSI_HI_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_rssi_lo_thres\fP \fBFM_RSQ_RSSI_LO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_multi_hi_thres\fP \fBFM_RSQ_MULTI_HI_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_multi_lo_thres\fP \fBFM_RSQ_MULTI_LO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rsq_blend_thres\fP \fBFM_RSQ_BLEND_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_soft_mute_rate\fP \fBFM_SOFT_MUTE_RATE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_soft_mute_slope\fP \fBFM_SOFT_MUTE_SLOPE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_soft_mute_max_att\fP \fBFM_SOFT_MUTE_MAX_ATT_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_soft_mute_snr_thres\fP \fBFM_SOFT_MUTE_SNR_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_soft_mute_rel_rate\fP \fBFM_SOFT_MUTE_REL_RATE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_soft_mute_atk_rate\fP \fBFM_SOFT_MUTE_ATK_RATE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_seek_freq_spacing\fP \fBFM_SEEK_FREQ_SPACING_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_seek_tune_snr_thres\fP \fBFM_SEEK_TUNE_SNR_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_seek_tune_rssi_thres\fP \fBFM_SEEK_TUNE_RSSI_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_int_source\fP \fBFM_RDS_INT_SOURCE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_int_fifo_count\fP \fBFM_RDS_INT_FIFO_COUNT_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_config\fP \fBFM_RDS_CONFIG_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_rds_confidence\fP \fBFM_RDS_CONFIDENCE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_agc_atk_rate\fP \fBFM_AGC_ATK_RATE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_agc_rel_rate\fP \fBFM_AGC_REL_RATE_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_rssi_stero_thres\fP \fBFM_BLEND_RSSI_STEREO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_rssi_mono_thres\fP \fBFM_BLEND_RSSI_MONO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_snr_stereo_thres\fP \fBFM_BLEND_SNR_STEREO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_snr_mono_thres\fP \fBFM_BLEND_SNR_MONO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_multi_stereo_thres\fP \fBFM_BLEND_MULTI_STEREO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_multi_mono_thres\fP \fBFM_BLEND_MULTI_MONO_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_blend_max_stereo_sepa\fP \fBFM_BLEND_MAX_STEREO_SEPA_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_hicut_snr_high_thres\fP \fBFM_HICUT_SNR_HIGH_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_hicut_snr_low_thres\fP \fBFM_HICUT_SNR_LOW_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_hicut_multi_trigger_thres\fP \fBFM_HICUT_MULTI_TRIGGER_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_hicut_multi_end_thres\fP \fBFM_HICUT_MULTI_END_THRES_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBfm_hicut_cutoff_freq\fP \fBFM_HICUT_CUTOFF_FREQ_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBrx_volume\fP \fBRX_VOLUME_STC\fP"
+.br
+.ti -1c
+.RI "typedef union \fBrx_hard_mute\fP \fBRX_HARD_MUTE_STC\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BLETH_1_2_ERR   1"
+
+.SS "#define BLETH_3_5_ERR   2"
+
+.SS "#define BLETH_NO_CORR   3"
+
+.SS "#define BLETH_NO_ERR   0"
+
+.SS "#define DEEMPH_EU   1"
+
+.SS "#define DEEMPH_US   2"
+
+.SS "#define DOUT_FORMAT   0x0102"
+
+.PP
+Property for the FM/RDS Receiver (Si4704/05/06/2x/3x/4x/84/85), required struct \fBdout_format\fP\&. 
+.SS "#define DOUT_SAMPLE_RATE   0x0104"
+
+.SS "#define FM_AGC_ATK_RATE   0x1700"
+
+.SS "#define FM_AGC_OVERRIDE   0x28"
+
+.SS "#define FM_AGC_REL_RATE   0x1701"
+
+.SS "#define FM_AGC_STATUS   0x27"
+
+.SS "#define FM_BLEND_MAX_STEREO_SEPA   0x180C"
+
+.SS "#define FM_BLEND_MONO   0x1106"
+
+.SS "#define FM_BLEND_MULTI_ATK_RATE   0x180A"
+
+.SS "#define FM_BLEND_MULTI_ATK_RATE   0x180A"
+
+.SS "#define FM_BLEND_MULTI_ATK_RATE   0x180A"
+
+.SS "#define FM_BLEND_MULTI_ATK_RATE   0x180A"
+
+.SS "#define FM_BLEND_MULTI_ATK_RATE   0x180A"
+
+.SS "#define FM_BLEND_MULTI_ATK_RATE   0x180A"
+
+.SS "#define FM_BLEND_MULTI_MONO_THRES   0x1809"
+
+.SS "#define FM_BLEND_MULTI_REL_RATE   0x180B"
+
+.SS "#define FM_BLEND_MULTI_STEREO_THRES   0x1808"
+
+.SS "#define FM_BLEND_RSSI_ATK_RATE   0x1802"
+
+.SS "#define FM_BLEND_RSSI_MONO_THRES   0x1801"
+
+.SS "#define FM_BLEND_RSSI_REL_RATE   0x1803"
+
+.SS "#define FM_BLEND_RSSI_STEREO_THRES   0x1800"
+
+.SS "#define FM_BLEND_SNR_ATK_RATE   0x1806"
+
+.SS "#define FM_BLEND_SNR_MONO_THRES   0x1805"
+
+.SS "#define FM_BLEND_SNR_REL_RATE   0x1807"
+
+.SS "#define FM_BLEND_SNR_STEREO_THRES   0x1804"
+
+.SS "#define FM_BLEND_STEREO   0x1105"
+
+.SS "#define FM_CH_FIL   0x1102"
+
+.SS "#define FM_DEEMPH   0x1100"
+
+.SS "#define FM_FILTER_110KHZ   1"
+
+.SS "#define FM_FILTER_40KHZ   4"
+
+.SS "#define FM_FILTER_60KHZ   3"
+
+.SS "#define FM_FILTER_84KHZ   2"
+
+.SS "#define FM_FILTER_AUTO   0"
+
+.SS "#define FM_HICUT_ATK_RATE   0x1A02"
+
+.SS "#define FM_HICUT_CUTOFF_FREQ   0x1A06"
+
+.SS "#define FM_HICUT_MULTI_END_THRES   0x1A05"
+
+.SS "#define FM_HICUT_MULTI_TRIGGER_THRES   0x1A04"
+
+.SS "#define FM_HICUT_REL_RATE   0x1A03"
+
+.SS "#define FM_HICUT_SNR_HIGH_THRES   0x180A"
+
+.SS "#define FM_HICUT_SNR_LOW_THRES   0x180A"
+
+.SS "#define FM_MAX_TUNE_ERR   0x1108"
+
+.SS "#define FM_RDS_CONFIDENCE   0x1503"
+
+.SS "#define FM_RDS_CONFIG   0x1502"
+
+.SS "#define FM_RDS_INT_FIFO_COUNT   0x1501"
+
+.SS "#define FM_RDS_INT_SOURCE   0x1500"
+
+.SS "#define FM_RDS_STATUS   0x24"
+
+.SS "#define FM_RSQ_BLEND_THRES   0x1207"
+
+.SS "#define FM_RSQ_INT_SOURCE   0x1200"
+
+.SS "#define FM_RSQ_MULTI_HI_THRES   0x1205"
+
+.SS "#define FM_RSQ_MULTI_LO_THRES   0x1206"
+
+.SS "#define FM_RSQ_RSSI_HI_THRES   0x1203"
+
+.SS "#define FM_RSQ_RSSI_LO_THRES   0x1204"
+
+.SS "#define FM_RSQ_SNR_HI_THRES   0x1201"
+
+.SS "#define FM_RSQ_SNR_LO_THRES   0x1202"
+
+.SS "#define FM_RSQ_STATUS   0x23"
+
+.SS "#define FM_SEEK_BAND_BOTTOM   0x1400"
+
+.SS "#define FM_SEEK_BAND_TOP   0x1401"
+
+.SS "#define FM_SEEK_FREQ_SPACING   0x1402"
+
+.SS "#define FM_SEEK_START   0x21"
+
+.SS "#define FM_SEEK_TUNE_RSSI_THRES   0x1404"
+
+.SS "#define FM_SEEK_TUNE_SNR_THRES   0x1403"
+
+.SS "#define FM_SOFT_MUTE_ATK_RATE   0x1305"
+
+.SS "#define FM_SOFT_MUTE_MAX_ATT   0x1302"
+
+.SS "#define FM_SOFT_MUTE_RATE   0x1300"
+
+.SS "#define FM_SOFT_MUTE_REL_RATE   0x1301"
+
+.SS "#define FM_SOFT_MUTE_SLOPE   0x1301"
+
+.SS "#define FM_SOFT_MUTE_SNR_THRES   0x1303"
+
+.SS "#define FM_TUNE_FREQ   0x20"
+
+.SS "#define FM_TUNE_STATUS   0x22"
+
+.SS "#define FUNC_0   0x00"
+
+.SS "#define FUNC_1   0x0F"
+
+.SS "#define GET_INT_STATUS   0x14"
+
+.SS "#define GET_PROPERTY   0x13"
+
+.SS "#define GET_REV   0x10"
+
+.SS "#define GPIO_CTL   0x80"
+
+.SS "#define GPIO_SET   0x81"
+
+.SS "#define GPO_IEN   0x0001"
+
+.PP
+Property for the FM/RDS Receiver (Si4704/05/06/2x/3x/4x/84/85), required struct \fBgpo_ien\fP\&. 
+.SS "#define HB(byte)   ((byte & 0xFF00) >> 8)"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_11KHZ   7"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_2KHZ   1"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_3KHZ   2"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_4KHZ   3"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_5KHZ   4"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_6KHZ   5"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_8KHZ   6"
+
+.SS "#define HICUT_AUDIO_TRAN_FREQ_DIS   0"
+
+.SS "#define LB(byte)   (byte & 0x00FF)"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_11KHZ   7"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_2KHZ   1"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_3KHZ   2"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_4KHZ   3"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_5KHZ   4"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_6KHZ   5"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_8KHZ   6"
+
+.SS "#define MAX_AUDIO_TRAN_FREQ_AUTO_BW   0"
+
+.SS "#define OMODE_0   0"
+
+.PP
+Digital Output Mode 0000 = I2Suse for \fBdout_format::OMODE\fP\&. 
+.SS "#define OMODE_1   6"
+
+.PP
+Digital Output Mode 0110 = Left-justifieduse for \fBdout_format::OMODE\fP\&. 
+.SS "#define OMODE_2   8"
+
+.PP
+Digital Output Mode 1000 = MSB at second DCLK after DFS pulse, use for \fBdout_format::OMODE\fP\&. 
+.SS "#define OMODE_3   12"
+
+.PP
+Digital Output Mode 1100 = MSB at first DCLK after DFS pulse, use for \fBdout_format::OMODE\fP\&. 
+.SS "#define OPMODE_0   0x00"
+
+.SS "#define OPMODE_1   0x05"
+
+.SS "#define OPMODE_2   0x0B"
+
+.SS "#define OPMODE_3   0xB0"
+
+.SS "#define OPMODE_4   0xB5"
+
+.SS "#define OSIZE_0   0"
+
+.PP
+Digital Output Audio Sample Precision 0 = 16 bits, use for \fBdout_format::OSIZE\fP\&. 
+.SS "#define OSIZE_1   1"
+
+.PP
+Digital Output Audio Sample Precision 1 = 20 bits, use for \fBdout_format::OSIZE\fP\&. 
+.SS "#define OSIZE_2   2"
+
+.PP
+Digital Output Audio Sample Precision 2 = 24 bits, use for \fBdout_format::OSIZE\fP\&. 
+.SS "#define OSIZE_3   3"
+
+.PP
+Digital Output Audio Sample Precision 3 = 8 bits, use for \fBdout_format::OSIZE\fP\&. 
+.SS "#define POWER_DOWN   0x11"
+
+.SS "#define POWER_UP   0x01"
+
+.SS "#define REFCLK_FREQ   0x0201"
+
+.SS "#define REFCLK_PRESCALE   0x0202"
+
+.SS "#define RX_HARD_MUTE   0x4001"
+
+.SS "#define RX_VOLUME   0x4000"
+
+.SS "#define SET_PROPERTY   0x12"
+
+.SS "#define SKSPACE_10   0x000A"
+
+.SS "#define SKSPACE_20   0x0014"
+
+.SS "#define SKSPACE_5   0x0005"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef union \fBdout_format\fP  \fBDOUT_FORMAT_STC\fP"
+
+.SS "typedef union \fBfm_agc_atk_rate\fP  \fBFM_AGC_ATK_RATE_STC\fP"
+
+.SS "typedef union \fBfm_agc_override_arg1\fP  \fBFM_AGC_OVERRIDE_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_agc_override_arg2\fP  \fBFM_AGC_OVERRIDE_ARG2_STC\fP"
+
+.SS "typedef union \fBfm_agc_rel_rate\fP  \fBFM_AGC_REL_RATE_STC\fP"
+
+.SS "typedef union \fBfm_agc_status_resp1\fP  \fBFM_AGC_STATUS_RESP1_STC\fP"
+
+.SS "typedef union \fBfm_agc_status_resp2\fP  \fBFM_AGC_STATUS_RESP2_STC\fP"
+
+.SS "typedef union \fBfm_blend_max_stereo_sepa\fP  \fBFM_BLEND_MAX_STEREO_SEPA_STC\fP"
+
+.SS "typedef union \fBfm_blend_mono\fP  \fBFM_BLEND_MONO_STC\fP"
+
+.SS "typedef union \fBfm_blend_multi_mono_thres\fP  \fBFM_BLEND_MULTI_MONO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_blend_multi_stereo_thres\fP  \fBFM_BLEND_MULTI_STEREO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_blend_rssi_mono_thres\fP  \fBFM_BLEND_RSSI_MONO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_blend_rssi_stero_thres\fP  \fBFM_BLEND_RSSI_STEREO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_blend_snr_mono_thres\fP  \fBFM_BLEND_SNR_MONO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_blend_snr_stereo_thres\fP  \fBFM_BLEND_SNR_STEREO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_blend_stereo\fP  \fBFM_BLEND_STEREO_STC\fP"
+
+.SS "typedef union \fBfm_channel_filter\fP  \fBFM_CHANNEL_FILTER_STC\fP"
+
+.SS "typedef union \fBfm_deemphasis\fP  \fBFM_DEEMPHASIS_STC\fP"
+
+.SS "typedef union \fBfm_gpio_ctl_arg1\fP  \fBFM_GPIO_CTL_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_gpio_set_arg1\fP  \fBFM_GPIO_SET_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_hicut_cutoff_freq\fP  \fBFM_HICUT_CUTOFF_FREQ_STC\fP"
+
+.SS "typedef union \fBfm_hicut_multi_end_thres\fP  \fBFM_HICUT_MULTI_END_THRES_STC\fP"
+
+.SS "typedef union \fBfm_hicut_multi_trigger_thres\fP  \fBFM_HICUT_MULTI_TRIGGER_THRES_STC\fP"
+
+.SS "typedef union \fBfm_hicut_snr_high_thres\fP  \fBFM_HICUT_SNR_HIGH_THRES_STC\fP"
+
+.SS "typedef union \fBfm_hicut_snr_low_thres\fP  \fBFM_HICUT_SNR_LOW_THRES_STC\fP"
+
+.SS "typedef union \fBfm_max_tune_err\fP  \fBFM_MAX_TUNE_ERR_STC\fP"
+
+.SS "typedef union \fBfm_rds_confidence\fP  \fBFM_RDS_CONFIDENCE_STC\fP"
+
+.SS "typedef union \fBfm_rds_config\fP  \fBFM_RDS_CONFIG_STC\fP"
+
+.SS "typedef union \fBfm_rds_int_fifo_count\fP  \fBFM_RDS_INT_FIFO_COUNT_STC\fP"
+
+.SS "typedef union \fBfm_rds_int_source\fP  \fBFM_RDS_INT_SOURCE_STC\fP"
+
+.SS "typedef union \fBfm_rds_status_arg1\fP  \fBFM_RDS_STATUS_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_rds_status_resp12\fP  \fBFM_RDS_STATUS_RESP12_STC\fP"
+
+.SS "typedef union \fBfm_rds_status_resp1\fP  \fBFM_RDS_STATUS_RESP1_STC\fP"
+
+.SS "typedef union \fBfm_rds_status_resp2\fP  \fBFM_RDS_STATUS_RESP2_STC\fP"
+
+.SS "typedef union \fBfm_rsq_blend_thres\fP  \fBFM_RSQ_BLEND_THRES_STC\fP"
+
+.SS "typedef union \fBfm_rsq_int_source\fP  \fBFM_RSQ_INT_SOURCE_STC\fP"
+
+.SS "typedef union \fBfm_rsq_multi_hi_thres\fP  \fBFM_RSQ_MULTI_HI_THRES_STC\fP"
+
+.SS "typedef union \fBfm_rsq_multi_lo_thres\fP  \fBFM_RSQ_MULTI_LO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_rsq_rssi_hi_thres\fP  \fBFM_RSQ_RSSI_HI_THRES_STC\fP"
+
+.SS "typedef union \fBfm_rsq_rssi_lo_thres\fP  \fBFM_RSQ_RSSI_LO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_rsq_snr_hi_thres\fP  \fBFM_RSQ_SNR_HI_THRES_STC\fP"
+
+.SS "typedef union \fBfm_rsq_snr_lo_thres\fP  \fBFM_RSQ_SNR_LO_THRES_STC\fP"
+
+.SS "typedef union \fBfm_rsq_status_arg1\fP  \fBFM_RSQ_STATUS_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_rsq_status_resp1\fP  \fBFM_RSQ_STATUS_RESP1_STC\fP"
+
+.SS "typedef union \fBfm_rsq_status_resp2\fP  \fBFM_RSQ_STATUS_RESP2_STC\fP"
+
+.SS "typedef union \fBfm_rsq_status_resp3\fP  \fBFM_RSQ_STATUS_RESP3_STC\fP"
+
+.SS "typedef union \fBfm_seek_freq_spacing\fP  \fBFM_SEEK_FREQ_SPACING_STC\fP"
+
+.SS "typedef union \fBfm_seek_start_arg1\fP  \fBFM_SEEK_START_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_seek_tune_rssi_thres\fP  \fBFM_SEEK_TUNE_RSSI_THRES_STC\fP"
+
+.SS "typedef union \fBfm_seek_tune_snr_thres\fP  \fBFM_SEEK_TUNE_SNR_THRES_STC\fP"
+
+.SS "typedef union \fBfm_soft_mute_atk_rate\fP  \fBFM_SOFT_MUTE_ATK_RATE_STC\fP"
+
+.SS "typedef union \fBfm_soft_mute_max_att\fP  \fBFM_SOFT_MUTE_MAX_ATT_STC\fP"
+
+.SS "typedef union \fBfm_soft_mute_rate\fP  \fBFM_SOFT_MUTE_RATE_STC\fP"
+
+.SS "typedef union \fBfm_soft_mute_rel_rate\fP  \fBFM_SOFT_MUTE_REL_RATE_STC\fP"
+
+.SS "typedef union \fBfm_soft_mute_slope\fP  \fBFM_SOFT_MUTE_SLOPE_STC\fP"
+
+.SS "typedef union \fBfm_soft_mute_snr_thres\fP  \fBFM_SOFT_MUTE_SNR_THRES_STC\fP"
+
+.SS "typedef union \fBfm_tune_freq_arg1\fP  \fBFM_TUNE_FREQ_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_tune_status_arg1\fP  \fBFM_TUNE_STATUS_ARG1_STC\fP"
+
+.SS "typedef union \fBfm_tune_status_resp1\fP  \fBFM_TUNE_STATUS_RESP1_STC\fP"
+
+.SS "typedef union \fBgpo_ien\fP  \fBGPO_IEN_STC\fP"
+
+.SS "typedef union \fBint_status\fP  \fBINT_STATUS\fP"
+
+.SS "typedef union \fBpower_up_arg1\fP  \fBPOWER_UP_ARG1_STC\fP"
+
+.SS "typedef union \fBrefclk_pre\fP  \fBREFCLK_PRESCALE_STC\fP"
+
+.SS "typedef union \fBrx_hard_mute\fP  \fBRX_HARD_MUTE_STC\fP"
+
+.SS "typedef union \fBrx_volume\fP  \fBRX_VOLUME_STC\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

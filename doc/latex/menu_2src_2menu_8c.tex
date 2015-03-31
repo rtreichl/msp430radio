@@ -1,0 +1,441 @@
+\hypertarget{menu_2src_2menu_8c}{}\section{menu/src/menu.c-\/\+Dateireferenz}
+\label{menu_2src_2menu_8c}\index{menu/src/menu.\+c@{menu/src/menu.\+c}}
+{\ttfamily \#include $<$menu/menu.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für menu.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{menu_2src_2menu_8c_a7feaffb81b5835815adbc90d046b24aa}{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}~\textquotesingle{}l\textquotesingle{}
+\item 
+\#define \hyperlink{menu_2src_2menu_8c_a3c86ca09d645d897e51add9106255b9b}{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}~\textquotesingle{}k\textquotesingle{}
+\item 
+\#define \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+F\+R\+E\+E}~\textquotesingle{}f\textquotesingle{}
+\item 
+\#define \hyperlink{menu_2src_2menu_8c_a1c34fc6f48366ae6334736730fd9b0e7}{U\+P\+\_\+\+K\+E\+Y}~\textquotesingle{}w\textquotesingle{}
+\item 
+\#define \hyperlink{menu_2src_2menu_8c_a687b69f632086f6e1a03279964257c24}{D\+O\+W\+N\+\_\+\+K\+E\+Y}~\textquotesingle{}s\textquotesingle{}
+\item 
+\#define \hyperlink{menu_2src_2menu_8c_a1cc261de4fdcbf43464428947a52ce32}{R\+I\+G\+H\+T\+\_\+\+K\+E\+Y}~\textquotesingle{}d\textquotesingle{}
+\item 
+\#define \hyperlink{menu_2src_2menu_8c_a3cd87a710fd069baf487e7b44d01e1b9}{L\+E\+F\+T\+\_\+\+K\+E\+Y}~\textquotesingle{}a\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\+\_\+display} ()
+\item 
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\+\_\+function} (uint8\+\_\+t $\ast$encoder\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+count)
+\item 
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\+\_\+scroll\+\_\+settings} (uint8\+\_\+t $\ast$encoder\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+count)
+\item 
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}{menu\+\_\+scroll} (uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value})
+\item 
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c}{menu\+\_\+handler} (uint8\+\_\+t $\ast$encoder\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+count)
+\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} \mbox{[}8\mbox{]}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} $\ast$ \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\+\_\+entry} = \&\hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\+\_\+entry}
+\item 
+uint16\+\_\+t \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\+\_\+display\+\_\+selector} = \hyperlink{menu_2menu_8h_a13335c6ce94ec10a1b83f008f03b57d1}{M\+E\+N\+U\+\_\+\+M\+A\+I\+N\+\_\+\+E\+N\+T\+R\+Y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+F\+R\+E\+E@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+F\+R\+E\+E}}
+\index{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+F\+R\+E\+E@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+F\+R\+E\+E}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+F\+R\+E\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+F\+R\+E\+E~\textquotesingle{}f\textquotesingle{}}\label{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}
+
+
+Definiert in Zeile 20 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_a7feaffb81b5835815adbc90d046b24aa}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}}
+\index{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G~\textquotesingle{}l\textquotesingle{}}\label{menu_2src_2menu_8c_a7feaffb81b5835815adbc90d046b24aa}
+
+
+Definiert in Zeile 18 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_a3c86ca09d645d897e51add9106255b9b}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}}
+\index{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T~\textquotesingle{}k\textquotesingle{}}\label{menu_2src_2menu_8c_a3c86ca09d645d897e51add9106255b9b}
+
+
+Definiert in Zeile 19 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_a687b69f632086f6e1a03279964257c24}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!D\+O\+W\+N\+\_\+\+K\+E\+Y@{D\+O\+W\+N\+\_\+\+K\+E\+Y}}
+\index{D\+O\+W\+N\+\_\+\+K\+E\+Y@{D\+O\+W\+N\+\_\+\+K\+E\+Y}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{D\+O\+W\+N\+\_\+\+K\+E\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+O\+W\+N\+\_\+\+K\+E\+Y~\textquotesingle{}s\textquotesingle{}}\label{menu_2src_2menu_8c_a687b69f632086f6e1a03279964257c24}
+
+
+Definiert in Zeile 23 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_a3cd87a710fd069baf487e7b44d01e1b9}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!L\+E\+F\+T\+\_\+\+K\+E\+Y@{L\+E\+F\+T\+\_\+\+K\+E\+Y}}
+\index{L\+E\+F\+T\+\_\+\+K\+E\+Y@{L\+E\+F\+T\+\_\+\+K\+E\+Y}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{L\+E\+F\+T\+\_\+\+K\+E\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+E\+F\+T\+\_\+\+K\+E\+Y~\textquotesingle{}a\textquotesingle{}}\label{menu_2src_2menu_8c_a3cd87a710fd069baf487e7b44d01e1b9}
+
+
+Definiert in Zeile 25 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_a1cc261de4fdcbf43464428947a52ce32}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!R\+I\+G\+H\+T\+\_\+\+K\+E\+Y@{R\+I\+G\+H\+T\+\_\+\+K\+E\+Y}}
+\index{R\+I\+G\+H\+T\+\_\+\+K\+E\+Y@{R\+I\+G\+H\+T\+\_\+\+K\+E\+Y}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{R\+I\+G\+H\+T\+\_\+\+K\+E\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+I\+G\+H\+T\+\_\+\+K\+E\+Y~\textquotesingle{}d\textquotesingle{}}\label{menu_2src_2menu_8c_a1cc261de4fdcbf43464428947a52ce32}
+
+
+Definiert in Zeile 24 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_a1c34fc6f48366ae6334736730fd9b0e7}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!U\+P\+\_\+\+K\+E\+Y@{U\+P\+\_\+\+K\+E\+Y}}
+\index{U\+P\+\_\+\+K\+E\+Y@{U\+P\+\_\+\+K\+E\+Y}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{U\+P\+\_\+\+K\+E\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+P\+\_\+\+K\+E\+Y~\textquotesingle{}w\textquotesingle{}}\label{menu_2src_2menu_8c_a1c34fc6f48366ae6334736730fd9b0e7}
+
+
+Definiert in Zeile 22 der Datei menu.\+c.
+
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+display@{menu\+\_\+display}}
+\index{menu\+\_\+display@{menu\+\_\+display}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{menu\+\_\+display}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+display (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}
+
+
+Definiert in Zeile 32 der Datei menu.\+c.
+
+
+\begin{DoxyCode}
+33 \{
+34     \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} == \hyperlink{menu_2menu_8h_a4547235960691aec5d3f0952cc05b4fb}{MENU\_NO\_FUNC\_ENTRY}) \{
+35         \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a66676e2c3f7553b50a8c1d0c4e973734}{previous} != 0) \{
+36             \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a66676e2c3f7553b50a8c1d0c4e973734}{previous}->
+      \hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 1, 0, 0, 0);
+37         \}
+38         \textcolor{keywordflow}{else} \{
+39             \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_ac1b562fabcc9402003931e8351d6faf7}{parent}->
+      \hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 0, 0, 0, 0);
+40         \}
+41         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"~"}, 0, 1, 0, 0);
+42         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 1, 1, 0, 0);
+43         \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next} != 0) \{
+44             \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next}->
+      \hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 1, 2, 0, 0);
+45         \}
+46     \}
+47     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(0, 0, 0, 0, 1);
+48     \textcolor{keywordflow}{return} 0;
+49 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+function@{menu\+\_\+function}}
+\index{menu\+\_\+function@{menu\+\_\+function}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{menu\+\_\+function}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+count}
+\end{DoxyParamCaption}
+)}\label{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}
+
+
+Definiert in Zeile 51 der Datei menu.\+c.
+
+
+\begin{DoxyCode}
+52 \{
+53     \textcolor{keywordflow}{switch}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num}) \{
+54     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a747fe7911f209ee3f6bf6834aed989c3}{MENU\_FREQ\_ENTRY}:
+55         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
+56     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a1b6ff4cb0321d3c665859cd7c0ca3d7c}{MENU\_VOL\_ENTRY}:
+57         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
+58     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a09a38cec6cbb754c3ce721e7c729c545}{MENU\_CONT\_ENTRY}:
+59         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
+60     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_aa9d014ea80d95c7f32f2857d10481206}{MENU\_BRIG\_ENTRY}:
+61         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
+62     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a13335c6ce94ec10a1b83f008f03b57d1}{MENU\_MAIN\_ENTRY}:
+63         \textcolor{keywordflow}{return} \hyperlink{radio_8c_a921f25c9a84ad0ee0715bc7f5720ade4}{radio\_main}(encoder\_button, encoder\_count);
+64     \}
+65     \textcolor{keywordflow}{return} 0;
+66 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+handler@{menu\+\_\+handler}}
+\index{menu\+\_\+handler@{menu\+\_\+handler}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{menu\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+count}
+\end{DoxyParamCaption}
+)}\label{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c}
+
+
+Definiert in Zeile 105 der Datei menu.\+c.
+
+
+\begin{DoxyCode}
+106 \{
+107     \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} == 0) \{
+108         \textcolor{keywordflow}{if} (*encoder\_button == \hyperlink{menu_2src_2menu_8c_a7feaffb81b5835815adbc90d046b24aa}{BUTTON\_PRESS\_LONG}) \{
+109             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long} != 0) \{
+110                 \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+      \hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long};
+111             \}
+112             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num} != 0) \{
+113                 \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+      \hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num};
+114                 \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\_function}(0, 0);
+115                 \textcolor{keywordflow}{return} 0;
+116             \}
+117             *encoder\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
+118         \}
+119         \textcolor{keywordflow}{if} (*encoder\_button == \hyperlink{menu_2src_2menu_8c_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT}) \{
+120             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short} != 0) \{
+121                 \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+      \hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short};
+122             \}
+123             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num} != 0) \{
+124                 \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+      \hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num};
+125                 *encoder\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
+126                 \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\_function}(0, 0);
+127                 \textcolor{keywordflow}{return} 0;
+128             \}
+129             *encoder\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
+130         \}
+131         \textcolor{keywordflow}{if} (*encoder\_count != 0) \{
+132             \textcolor{keywordflow}{if}(*encoder\_count > 0) \{
+133                 \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next} != 0) \{
+134                     \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+      \hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next};
+135                 \}
+136             \}
+137             \textcolor{keywordflow}{if} (*encoder\_count < 0) \{
+138                 \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a66676e2c3f7553b50a8c1d0c4e973734}{previous} != 0) \{
+139                     \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+      \hyperlink{structmenu__entry_a66676e2c3f7553b50a8c1d0c4e973734}{previous};
+140                 \}
+141             \}
+142             *encoder\_count = 0;
+143         \}
+144         \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
+145     \}\textcolor{keywordflow}{else} \{
+146         uint8\_t ret = \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\_function}(encoder\_button, encoder\_count);
+147         \textcolor{keywordflow}{if} (ret  == 0xFF) \{     \textcolor{comment}{//Menu down wards}
+148             \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short};
+149             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
+150             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
+151         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ret == 0xFE) \{
+152             \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long};
+153             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
+154             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
+155         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ret == 0xFD) \{
+156             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
+157             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
+158         \}
+159     \}
+160     \textcolor{keywordflow}{return} 0;
+161 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+scroll@{menu\+\_\+scroll}}
+\index{menu\+\_\+scroll@{menu\+\_\+scroll}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{menu\+\_\+scroll}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+scroll (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\label{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}
+
+
+Definiert in Zeile 83 der Datei menu.\+c.
+
+
+\begin{DoxyCode}
+84 \{
+85     uint8\_t i = 0;
+86     \textcolor{keywordtype}{char} \textcolor{keywordtype}{string}[2];
+87 
+88     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"-"}, 0, 2, 0, 0);
+89     \textcolor{keywordflow}{for}(i = 1; i <= \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} / 5 && i <= 12; i++) \{
+90         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)5"}, 1 + i, 2, 0, 0);
+91     \}
+92     \textcolor{keywordflow}{if}(i <= 12) \{
+93         \textcolor{keywordtype}{string}[0] = \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} % 5;
+94         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{keywordtype}{string}, 1 + i, 2, 0, 0);
+95     \}
+96     i++;
+97     \textcolor{keywordflow}{for}(i = i; i <= 12; i++) \{
+98         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)0"}, 1 + i, 2, 0, 0);
+99     \}
+100     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"+"}, 14, 2, 0, 0);
+101 
+102     \textcolor{keywordflow}{return} 0;
+103 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+scroll\+\_\+settings@{menu\+\_\+scroll\+\_\+settings}}
+\index{menu\+\_\+scroll\+\_\+settings@{menu\+\_\+scroll\+\_\+settings}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{menu\+\_\+scroll\+\_\+settings}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+scroll\+\_\+settings (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+count}
+\end{DoxyParamCaption}
+)}\label{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}
+
+
+Definiert in Zeile 68 der Datei menu.\+c.
+
+
+\begin{DoxyCode}
+69 \{
+70     \textcolor{keyword}{static} uint8\_t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} = 0;
+71     \textcolor{keywordflow}{if}(value == 0) \{
+72         value = 23; \textcolor{comment}{//TODO load value from flash}
+73     \}
+74     \hyperlink{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}{menu\_scroll}(value);
+75     \textcolor{keywordflow}{if}(*encoder\_button == \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE}) \{
+76         \textcolor{comment}{//TODO store value to flash}
+77         value = 0;
+78         \textcolor{keywordflow}{return} 0xFF;
+79     \}
+80     \textcolor{keywordflow}{return} 0;
+81 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!actuall\+\_\+entry@{actuall\+\_\+entry}}
+\index{actuall\+\_\+entry@{actuall\+\_\+entry}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{actuall\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y}$\ast$ actuall\+\_\+entry = \&{\bf main\+\_\+entry}}\label{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}
+
+
+Definiert in Zeile 29 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+display\+\_\+selector@{menu\+\_\+display\+\_\+selector}}
+\index{menu\+\_\+display\+\_\+selector@{menu\+\_\+display\+\_\+selector}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{menu\+\_\+display\+\_\+selector}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t menu\+\_\+display\+\_\+selector = {\bf M\+E\+N\+U\+\_\+\+M\+A\+I\+N\+\_\+\+E\+N\+T\+R\+Y}}\label{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}
+
+
+Definiert in Zeile 30 der Datei menu.\+c.
+
+\hypertarget{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!value@{value}}
+\index{value@{value}!menu/src/menu.\+c@{menu/src/menu.\+c}}
+\subsubsection[{value}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t value\mbox{[}8\mbox{]}}\label{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}
+
+
+Definiert in Zeile 27 der Datei menu.\+c.
+

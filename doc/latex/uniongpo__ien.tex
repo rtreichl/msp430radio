@@ -1,0 +1,220 @@
+\hypertarget{uniongpo__ien}{}\section{gpo\+\_\+ien Strukturreferenz}
+\label{uniongpo__ien}\index{gpo\+\_\+ien@{gpo\+\_\+ien}}
+
+
+Property 0x0001. G\+P\+O\+\_\+\+I\+E\+N.  
+
+
+
+
+{\ttfamily \#include $<$si4735\+\_\+cmd\+\_\+prop.\+h$>$}
+
+\subsection*{Datenfelder}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{uniongpo__ien_ab0549c1b5ea980a02e7eab77e21fea49}{byte}
+\item 
+uint8\+\_\+t \hyperlink{uniongpo__ien_a46e4c05d20a047ec169f60d3167e912e}{bytes} \mbox{[}2\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint16\_t \hyperlink{uniongpo__ien_ad9adfb2ddca813d59dcc9361db43dcb3}{STCIEN}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_a77132c2c26a75f5b8751b235cda23828}{\_\_pad0\_\_}:1\\
+\>\>{\em Reserved. }\\
+\>uint16\_t \hyperlink{uniongpo__ien_ae79eafa6dcf4c70810372eee4930d5bc}{RDSIEN}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_a3f5edb9c295e1e92b34232c9f3a6cfa1}{RSQIEN}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_ab72e3a1f2f7db8695c60c658f5a0f11a}{\_\_pad1\_\_}:2\\
+\>\>{\em Reserved. }\\
+\>uint16\_t \hyperlink{uniongpo__ien_a0523a5e19216a16b04bb981453c60664}{ERRIEN}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_a7790e2a270c4400498be7ba34cfaac5e}{CTSIEN}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_a8a57a750de6cf1d2805c1c6895208811}{STCREP}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_a82701c5ec65a0fca9a84d8edc46a8192}{\_\_pad2\_\_}:1\\
+\>\>{\em Reserved. }\\
+\>uint16\_t \hyperlink{uniongpo__ien_ab3e7ebd5f6d308aa08db65fae6cd5ebe}{RDSREP}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_aabc41880837bbe6b1716b6708f4d5c8c}{RSQREP}:1\\
+\>uint16\_t \hyperlink{uniongpo__ien_a1b0a1a9de051f3174325808d959500f7}{\_\_pad3\_\_}:4\\
+\>\>{\em Reserved. }\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Property 0x0001. G\+P\+O\+\_\+\+I\+E\+N. 
+
+Configures the sources for the G\+P\+O2/\+I\+N\+T interrupt pin. Valid sources are the lower 8 bits of the S\+T\+A\+T\+U\+S byte,~\newline
+including C\+T\+S, E\+R\+R, R\+S\+Q\+I\+N\+T, R\+D\+S\+I\+N\+T (Si4705/21/31/35/37/39/41/43/45/85 only), and S\+T\+C\+I\+N\+T bits. The corresponding~\newline
+bit is set before the interrupt occurs. The C\+T\+S bit (and optional interrupt) is set when it is safe to send the~\newline
+next command. The C\+T\+S interrupt enable (C\+T\+S\+I\+E\+N) can be set with this property and the P\+O\+W\+E\+R\+\_\+\+U\+P command. The state~\newline
+of the C\+T\+S\+I\+E\+N bit set during the P\+O\+W\+E\+R\+\_\+\+U\+P command can be read by reading this property and modified by writing this~\newline
+property. This property may only be set or read when in powerup mode. Errata\+:R\+S\+Q\+I\+E\+N is non-\/functional on F\+M\+R\+X component 2.\+0.
+
+Available in\+: All
+
+Default\+: 0x0000 
+
+Definiert in Zeile 316 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{uniongpo__ien_a4c1b82d426b66a5db741791b4b28573d}{}\subsubsection[{"@41}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \} }\label{uniongpo__ien_a4c1b82d426b66a5db741791b4b28573d}
+\hypertarget{uniongpo__ien_a77132c2c26a75f5b8751b235cda23828}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{\+\_\+\+\_\+pad0\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+pad0\+\_\+\+\_\+}\label{uniongpo__ien_a77132c2c26a75f5b8751b235cda23828}
+
+
+Reserved. 
+
+
+
+Definiert in Zeile 321 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_ab72e3a1f2f7db8695c60c658f5a0f11a}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!\+\_\+\+\_\+pad1\+\_\+\+\_\+@{\+\_\+\+\_\+pad1\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad1\+\_\+\+\_\+@{\+\_\+\+\_\+pad1\+\_\+\+\_\+}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{\+\_\+\+\_\+pad1\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+pad1\+\_\+\+\_\+}\label{uniongpo__ien_ab72e3a1f2f7db8695c60c658f5a0f11a}
+
+
+Reserved. 
+
+
+
+Definiert in Zeile 324 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_a82701c5ec65a0fca9a84d8edc46a8192}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!\+\_\+\+\_\+pad2\+\_\+\+\_\+@{\+\_\+\+\_\+pad2\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad2\+\_\+\+\_\+@{\+\_\+\+\_\+pad2\+\_\+\+\_\+}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{\+\_\+\+\_\+pad2\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+pad2\+\_\+\+\_\+}\label{uniongpo__ien_a82701c5ec65a0fca9a84d8edc46a8192}
+
+
+Reserved. 
+
+
+
+Definiert in Zeile 328 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_a1b0a1a9de051f3174325808d959500f7}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!\+\_\+\+\_\+pad3\+\_\+\+\_\+@{\+\_\+\+\_\+pad3\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad3\+\_\+\+\_\+@{\+\_\+\+\_\+pad3\+\_\+\+\_\+}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{\+\_\+\+\_\+pad3\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+pad3\+\_\+\+\_\+}\label{uniongpo__ien_a1b0a1a9de051f3174325808d959500f7}
+
+
+Reserved. 
+
+
+
+Definiert in Zeile 331 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_ab0549c1b5ea980a02e7eab77e21fea49}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!byte@{byte}}
+\index{byte@{byte}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{byte}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t byte}\label{uniongpo__ien_ab0549c1b5ea980a02e7eab77e21fea49}
+
+
+Definiert in Zeile 317 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_a46e4c05d20a047ec169f60d3167e912e}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!bytes@{bytes}}
+\index{bytes@{bytes}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{bytes}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t bytes\mbox{[}2\mbox{]}}\label{uniongpo__ien_a46e4c05d20a047ec169f60d3167e912e}
+
+
+Definiert in Zeile 318 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_a7790e2a270c4400498be7ba34cfaac5e}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!C\+T\+S\+I\+E\+N@{C\+T\+S\+I\+E\+N}}
+\index{C\+T\+S\+I\+E\+N@{C\+T\+S\+I\+E\+N}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{C\+T\+S\+I\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}C\+T\+S\+I\+E\+N}\label{uniongpo__ien_a7790e2a270c4400498be7ba34cfaac5e}
+
+
+C\+T\+S Interrupt Enable. After Power\+Up, this bit reflects the C\+T\+S\+I\+E\+N bit in A\+R\+G1 of Power\+Up Command. 
+
+0 = No interrupt generated when C\+T\+S is set.~\newline
+1 = Interrupt generated when C\+T\+S is set. 
+
+Definiert in Zeile 326 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_a0523a5e19216a16b04bb981453c60664}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!E\+R\+R\+I\+E\+N@{E\+R\+R\+I\+E\+N}}
+\index{E\+R\+R\+I\+E\+N@{E\+R\+R\+I\+E\+N}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{E\+R\+R\+I\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}E\+R\+R\+I\+E\+N}\label{uniongpo__ien_a0523a5e19216a16b04bb981453c60664}
+
+
+E\+R\+R Interrupt Enable. 
+
+0 = No interrupt generated when E\+R\+R is set (default).~\newline
+1 = Interrupt generated when E\+R\+R is set. 
+
+Definiert in Zeile 325 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_ae79eafa6dcf4c70810372eee4930d5bc}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!R\+D\+S\+I\+E\+N@{R\+D\+S\+I\+E\+N}}
+\index{R\+D\+S\+I\+E\+N@{R\+D\+S\+I\+E\+N}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{R\+D\+S\+I\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}R\+D\+S\+I\+E\+N}\label{uniongpo__ien_ae79eafa6dcf4c70810372eee4930d5bc}
+
+
+R\+D\+S Interrupt Enable (Si4705/21/31/35/37/39/41/43/45/85-\/\+C40 Only). 
+
+0 = No interrupt generated when R\+D\+S\+I\+N\+T is set (default). 1 = Interrupt generated when R\+D\+S\+I\+N\+T is set. 
+
+Definiert in Zeile 322 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_ab3e7ebd5f6d308aa08db65fae6cd5ebe}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!R\+D\+S\+R\+E\+P@{R\+D\+S\+R\+E\+P}}
+\index{R\+D\+S\+R\+E\+P@{R\+D\+S\+R\+E\+P}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{R\+D\+S\+R\+E\+P}]{\setlength{\rightskip}{0pt plus 5cm}R\+D\+S\+R\+E\+P}\label{uniongpo__ien_ab3e7ebd5f6d308aa08db65fae6cd5ebe}
+
+
+R\+D\+S Interrupt Repeat (Si4705/21/31/35/37/39/41/43/45/85-\/\+C40 Only). 
+
+0 = No interrupt generated when R\+D\+S\+I\+N\+T is already set (default).~\newline
+1 = Interrupt generated even if R\+D\+S\+I\+N\+T is already set. 
+
+Definiert in Zeile 329 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_a3f5edb9c295e1e92b34232c9f3a6cfa1}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!R\+S\+Q\+I\+E\+N@{R\+S\+Q\+I\+E\+N}}
+\index{R\+S\+Q\+I\+E\+N@{R\+S\+Q\+I\+E\+N}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{R\+S\+Q\+I\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}R\+S\+Q\+I\+E\+N}\label{uniongpo__ien_a3f5edb9c295e1e92b34232c9f3a6cfa1}
+
+
+R\+S\+Q Interrupt Enable. 
+
+0 = No interrupt generated when R\+S\+Q\+I\+N\+T is set (default).~\newline
+1 = Interrupt generated when R\+S\+Q\+I\+N\+T is set 
+
+Definiert in Zeile 323 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_aabc41880837bbe6b1716b6708f4d5c8c}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!R\+S\+Q\+R\+E\+P@{R\+S\+Q\+R\+E\+P}}
+\index{R\+S\+Q\+R\+E\+P@{R\+S\+Q\+R\+E\+P}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{R\+S\+Q\+R\+E\+P}]{\setlength{\rightskip}{0pt plus 5cm}R\+S\+Q\+R\+E\+P}\label{uniongpo__ien_aabc41880837bbe6b1716b6708f4d5c8c}
+
+
+R\+S\+Q Interrupt Repeat. 
+
+0 = No interrupt generated when R\+S\+Q\+I\+N\+T is already set (default).~\newline
+1 = Interrupt generated even if R\+S\+Q\+I\+N\+T is already set. 
+
+Definiert in Zeile 330 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_ad9adfb2ddca813d59dcc9361db43dcb3}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!S\+T\+C\+I\+E\+N@{S\+T\+C\+I\+E\+N}}
+\index{S\+T\+C\+I\+E\+N@{S\+T\+C\+I\+E\+N}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{S\+T\+C\+I\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}S\+T\+C\+I\+E\+N}\label{uniongpo__ien_ad9adfb2ddca813d59dcc9361db43dcb3}
+
+
+R\+S\+Q Interrupt Enable. 
+
+0 = No interrupt generated when R\+S\+Q\+I\+N\+T is set (default).~\newline
+1 = Interrupt generated when R\+S\+Q\+I\+N\+T is set 
+
+Definiert in Zeile 320 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniongpo__ien_a8a57a750de6cf1d2805c1c6895208811}{}\index{gpo\+\_\+ien@{gpo\+\_\+ien}!S\+T\+C\+R\+E\+P@{S\+T\+C\+R\+E\+P}}
+\index{S\+T\+C\+R\+E\+P@{S\+T\+C\+R\+E\+P}!gpo\+\_\+ien@{gpo\+\_\+ien}}
+\subsubsection[{S\+T\+C\+R\+E\+P}]{\setlength{\rightskip}{0pt plus 5cm}S\+T\+C\+R\+E\+P}\label{uniongpo__ien_a8a57a750de6cf1d2805c1c6895208811}
+
+
+S\+T\+C Interrupt Repeat. 
+
+0 = No interrupt generated when S\+T\+C\+I\+N\+T is already set (default).~\newline
+1 = Interrupt generated even if S\+T\+C\+I\+N\+T is already set. 
+
+Definiert in Zeile 327 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+
+
+Die Dokumentation für diese Struktur wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+driver/include/\hyperlink{si4735__cmd__prop_8h}{si4735\+\_\+cmd\+\_\+prop.\+h}\end{DoxyCompactItemize}

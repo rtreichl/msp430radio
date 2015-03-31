@@ -1,0 +1,83 @@
+.TH "I2C_CTRL" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+I2C_CTRL \- This struct inclued all necessaries for I2C module\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fB__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "uint8_t \fBrept_start\fP: 1"
+.br
+.RI "\fIStores the value, if an repated start or stop will be send after performance on I2C\&. \fP"
+.ti -1c
+.RI "uint8_t \fBstatus\fP: 2"
+.br
+.RI "\fIStores the actual state of I2C module\&. \fP"
+.ti -1c
+.RI "uint8_t * \fBPTxData\fP"
+.br
+.RI "\fIPoiniter to be transmitting bytes\&. \fP"
+.ti -1c
+.RI "uint8_t \fBTxByteCtr\fP"
+.br
+.RI "\fINumber of to be transmitting bytes\&. \fP"
+.ti -1c
+.RI "uint8_t \fBTxByteRes\fP"
+.br
+.RI "\fINumber of reserved bytes on stash\&. \fP"
+.ti -1c
+.RI "uint8_t * \fBPRxData\fP"
+.br
+.RI "\fIPointer to be receiving bytes\&. \fP"
+.ti -1c
+.RI "uint8_t \fBRxByteCtr\fP"
+.br
+.RI "\fINumber of to be recieving bytes\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This struct inclued all necessaries for I2C module\&. 
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t I2C_CTRL::__pad0__"
+
+.SS "uint8_t* I2C_CTRL::PRxData"
+
+.PP
+Pointer to be receiving bytes\&. 
+.SS "uint8_t* I2C_CTRL::PTxData"
+
+.PP
+Poiniter to be transmitting bytes\&. 
+.SS "uint8_t I2C_CTRL::rept_start"
+
+.PP
+Stores the value, if an repated start or stop will be send after performance on I2C\&. 
+.SS "uint8_t I2C_CTRL::RxByteCtr"
+
+.PP
+Number of to be recieving bytes\&. 
+.SS "uint8_t I2C_CTRL::status"
+
+.PP
+Stores the actual state of I2C module\&. 
+.SS "uint8_t I2C_CTRL::TxByteCtr"
+
+.PP
+Number of to be transmitting bytes\&. 
+.SS "uint8_t I2C_CTRL::TxByteRes"
+
+.PP
+Number of reserved bytes on stash\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

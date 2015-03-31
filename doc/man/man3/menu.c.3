@@ -1,0 +1,103 @@
+.TH "Menu.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Menu.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <driver/encoder\&.h>\fP
+.br
+\fC#include <driver/lcd\&.h>\fP
+.br
+\fC#include <driver/si4735\&.h>\fP
+.br
+\fC#include <driver/i2c\&.h>\fP
+.br
+\fC#include <Timer\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include 'Radio\&.h'\fP
+.br
+\fC#include <driver/flash\&.h>\fP
+.br
+\fC#include 'Menu\&.h'\fP
+.br
+\fC#include 'string\&.h'\fP
+.br
+\fC#include <driver/tpa2016d2\&.h>\fP
+.br
+\fC#include <radio_new\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmenu\fP (void)"
+.br
+.ti -1c
+.RI "void \fBnull_befor_value\fP (char *string, char \fBvalue\fP, unsigned char pos)"
+.br
+.ti -1c
+.RI "void \fBtime_date\fP (unsigned char t_hour, unsigned char t_minute, unsigned char t_day, unsigned char t_month, unsigned char t_year, unsigned char update, unsigned char minute_up, char *s_time, char *s_date)"
+.br
+.ti -1c
+.RI "char \fBcheck_for_out_of_range\fP (signed char \fBvalue\fP, char modulo)"
+.br
+.ti -1c
+.RI "void \fBenter_standby\fP (void)"
+.br
+.ti -1c
+.RI "void \fBexit_standby\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "volatile unsigned char \fBencoder_1_button\fP"
+.br
+.ti -1c
+.RI "volatile unsigned char \fBencoder_2_button\fP"
+.br
+.ti -1c
+.RI "volatile unsigned char \fBsekunde\fP"
+.br
+.ti -1c
+.RI "volatile unsigned char \fBsec\fP"
+.br
+.ti -1c
+.RI "volatile unsigned char \fBposrt\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "char check_for_out_of_range (signed char value, char modulo)"
+
+.SS "void enter_standby (void)"
+
+.SS "void exit_standby (void)"
+
+.SS "void menu (void)"
+
+.SS "void null_befor_value (char * string, char value, unsigned char pos)"
+
+.SS "void time_date (unsigned char t_hour, unsigned char t_minute, unsigned char t_day, unsigned char t_month, unsigned char t_year, unsigned char update, unsigned char minute_up, char * s_time, char * s_date)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "volatile unsigned char encoder_1_button"
+
+.SS "volatile unsigned char encoder_2_button"
+
+.SS "volatile unsigned char posrt"
+
+.SS "volatile unsigned char sec"
+
+.SS "volatile unsigned char sekunde"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

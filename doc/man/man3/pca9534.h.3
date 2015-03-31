@@ -1,0 +1,114 @@
+.TH "driver/pca9534.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/pca9534.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <driver/i2c\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPCA9534_I2C_STD_ADR\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBPCA9534_I2C_A0_BIT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPCA9534_I2C_A1_BIT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPCA9534_I2C_A2_BIT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPCA9534_I2C_ADR\fP   (\fBPCA9534_I2C_STD_ADR\fP | \fBPCA9534_I2C_A0_BIT\fP | (\fBPCA9534_I2C_A1_BIT\fP << 1) | (\fBPCA9534_I2C_A2_BIT\fP << 2))"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBPCA9534_CTRL_CMD\fP { \fBIN\fP = 0, \fBOUTP\fP, \fBPOL_INV\fP, \fBCONFIG\fP }"
+.br
+.ti -1c
+.RI "enum \fBPCA9534_STAT\fP { \fBLOW\fP = 0, \fBHIGH\fP }"
+.br
+.ti -1c
+.RI "enum \fBPCA9534_CONF\fP { \fBCONF_OUTPUT\fP = 0, \fBCONF_INPUT\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBpca9534_output\fP (uint8_t byte)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9534_config\fP (uint8_t config)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9534_input\fP ()"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PCA9534_I2C_A0_BIT   0"
+
+.SS "#define PCA9534_I2C_A1_BIT   0"
+
+.SS "#define PCA9534_I2C_A2_BIT   0"
+
+.SS "#define PCA9534_I2C_ADR   (\fBPCA9534_I2C_STD_ADR\fP | \fBPCA9534_I2C_A0_BIT\fP | (\fBPCA9534_I2C_A1_BIT\fP << 1) | (\fBPCA9534_I2C_A2_BIT\fP << 2))"
+
+.SS "#define PCA9534_I2C_STD_ADR   0x20"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBPCA9534_CONF\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICONF_OUTPUT \fP\fP
+.TP
+\fB\fICONF_INPUT \fP\fP
+.SS "enum \fBPCA9534_CTRL_CMD\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIN \fP\fP
+.TP
+\fB\fIOUTP \fP\fP
+.TP
+\fB\fIPOL_INV \fP\fP
+.TP
+\fB\fICONFIG \fP\fP
+.SS "enum \fBPCA9534_STAT\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILOW \fP\fP
+.TP
+\fB\fIHIGH \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t pca9534_config (uint8_t config)"
+
+.SS "uint8_t pca9534_input ()"
+
+.SS "uint8_t pca9534_output (uint8_t byte)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

@@ -1,0 +1,176 @@
+.TH "driver/pca9530.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/pca9530.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <driver/i2c\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBpca9530_ctl\fP"
+.br
+.ti -1c
+.RI "struct \fBpca9530_in\fP"
+.br
+.ti -1c
+.RI "struct \fBpca9530_sel\fP"
+.br
+.ti -1c
+.RI "struct \fBpca9530\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPCA9530_I2C_STD_ADR\fP   0x60"
+.br
+.ti -1c
+.RI "#define \fBPCA9530_I2C_A0_BIT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPCA9530_I2C_ADR\fP   (\fBPCA9530_I2C_STD_ADR\fP | \fBPCA9530_I2C_A0_BIT\fP)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBpca9530_ctl\fP \fBPCA9530_CTL\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBpca9530_in\fP \fBPCA9530_IN\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBpca9530_sel\fP \fBPCA9530_SEL\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBpca9530\fP \fBPCA9530\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBPCA9530_CTRL_CMD\fP { \fBINPUT\fP = 0, \fBPSC0\fP, \fBPWM0\fP, \fBPSC1\fP, \fBPWM1\fP, \fBLS0\fP }"
+.br
+.ti -1c
+.RI "enum \fBPCA9530_LED_STATE\fP { \fBLED_OFF\fP = 0, \fBLED_ON\fP, \fBPWM0_RATE\fP, \fBPWM1_RATE\fP }"
+.br
+.ti -1c
+.RI "enum \fBPCA9530_FREQ\fP { \fBFREQ_0\fP = 0, \fBFREQ_1\fP }"
+.br
+.ti -1c
+.RI "enum \fBPCA9530_PWM\fP { \fBPWM_0\fP = 0, \fBPWM_1\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBpca9530_set_freq\fP (enum \fBPCA9530_FREQ\fP freq_sel, uint8_t freq)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_set_pwm\fP (enum \fBPCA9530_PWM\fP pwm_sel, uint8_t pwm)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_config_led\fP (enum \fBPCA9530_LED_STATE\fP led0_state, enum \fBPCA9530_LED_STATE\fP led1_state)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_read_input\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_init\fP (const \fBPCA9530\fP *config)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PCA9530_I2C_A0_BIT   0"
+
+.SS "#define PCA9530_I2C_ADR   (\fBPCA9530_I2C_STD_ADR\fP | \fBPCA9530_I2C_A0_BIT\fP)"
+
+.SS "#define PCA9530_I2C_STD_ADR   0x60"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBpca9530\fP  \fBPCA9530\fP"
+
+.SS "typedef struct \fBpca9530_ctl\fP  \fBPCA9530_CTL\fP"
+
+.SS "typedef struct \fBpca9530_in\fP  \fBPCA9530_IN\fP"
+
+.SS "typedef struct \fBpca9530_sel\fP  \fBPCA9530_SEL\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBPCA9530_CTRL_CMD\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIINPUT \fP\fP
+.TP
+\fB\fIPSC0 \fP\fP
+.TP
+\fB\fIPWM0 \fP\fP
+.TP
+\fB\fIPSC1 \fP\fP
+.TP
+\fB\fIPWM1 \fP\fP
+.TP
+\fB\fILS0 \fP\fP
+.SS "enum \fBPCA9530_FREQ\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIFREQ_0 \fP\fP
+.TP
+\fB\fIFREQ_1 \fP\fP
+.SS "enum \fBPCA9530_LED_STATE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILED_OFF \fP\fP
+.TP
+\fB\fILED_ON \fP\fP
+.TP
+\fB\fIPWM0_RATE \fP\fP
+.TP
+\fB\fIPWM1_RATE \fP\fP
+.SS "enum \fBPCA9530_PWM\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPWM_0 \fP\fP
+.TP
+\fB\fIPWM_1 \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t pca9530_config_led (enum \fBPCA9530_LED_STATE\fP led0_state, enum \fBPCA9530_LED_STATE\fP led1_state)"
+
+.SS "uint8_t pca9530_init (const \fBPCA9530\fP * config)"
+
+.SS "uint8_t pca9530_read_input ()"
+
+.SS "uint8_t pca9530_set_freq (enum \fBPCA9530_FREQ\fP freq_sel, uint8_t freq)"
+
+.SS "uint8_t pca9530_set_pwm (enum \fBPCA9530_PWM\fP pwm_sel, uint8_t pwm)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

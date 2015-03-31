@@ -1,0 +1,136 @@
+\hypertarget{uniondout__format}{}\section{dout\+\_\+format Strukturreferenz}
+\label{uniondout__format}\index{dout\+\_\+format@{dout\+\_\+format}}
+
+
+Property 0x0102. D\+I\+G\+I\+T\+A\+L\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+F\+O\+R\+M\+A\+T.  
+
+
+
+
+{\ttfamily \#include $<$si4735\+\_\+cmd\+\_\+prop.\+h$>$}
+
+\subsection*{Datenfelder}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{uniondout__format_ab0549c1b5ea980a02e7eab77e21fea49}{byte}
+\item 
+uint8\+\_\+t \hyperlink{uniondout__format_a46e4c05d20a047ec169f60d3167e912e}{bytes} \mbox{[}2\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint16\_t \hyperlink{uniondout__format_a77132c2c26a75f5b8751b235cda23828}{\_\_pad0\_\_}: 8\\
+\>\>{\em Reserved. }\\
+\>uint16\_t \hyperlink{uniondout__format_a8c5f2c1b3351eb9150cc41a003cff4df}{OFALL}:1\\
+\>uint16\_t \hyperlink{uniondout__format_a4d995054bef39e68df20343ec82ae5b9}{OMODE}:4\\
+\>uint16\_t \hyperlink{uniondout__format_a93761dc84dd5d349d8133cbd92a5f9b5}{OMONO}:1\\
+\>uint16\_t \hyperlink{uniondout__format_a7b03eaf984aaf8efadcedcfabd0df922}{OSIZE}:2\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Property 0x0102. D\+I\+G\+I\+T\+A\+L\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+F\+O\+R\+M\+A\+T. 
+
+Configures the digital audio output format. Configuration options include D\+C\+L\+K edge, data format, force mono, and~\newline
+sample precision.
+
+\begin{DoxyNote}{Zu beachten}
+Available in\+: Si4705/06, Si4721/31/35/37/39, Si4730/34/36/38-\/\+D60 and later, Si4741/43/45, Si4784/85~\newline
+~\newline
+ Default\+: 0x0000
+\end{DoxyNote}
+\begin{DoxyWarning}{Warnung}
+D\+I\+G\+I\+T\+A\+L\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+F\+O\+R\+M\+A\+T is supported in F\+M receive component 2.\+0 or later. 
+\end{DoxyWarning}
+
+
+Definiert in Zeile 416 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+
+
+\subsection{Dokumentation der Datenelemente}
+\hypertarget{uniondout__format_a040560dd5f1eb3229a6ef1ac567a73e4}{}\subsubsection[{"@43}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \} }\label{uniondout__format_a040560dd5f1eb3229a6ef1ac567a73e4}
+\hypertarget{uniondout__format_a77132c2c26a75f5b8751b235cda23828}{}\index{dout\+\_\+format@{dout\+\_\+format}!\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+pad0\+\_\+\+\_\+@{\+\_\+\+\_\+pad0\+\_\+\+\_\+}!dout\+\_\+format@{dout\+\_\+format}}
+\subsubsection[{\+\_\+\+\_\+pad0\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t \+\_\+\+\_\+pad0\+\_\+\+\_\+}\label{uniondout__format_a77132c2c26a75f5b8751b235cda23828}
+
+
+Reserved. 
+
+
+
+Definiert in Zeile 420 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniondout__format_ab0549c1b5ea980a02e7eab77e21fea49}{}\index{dout\+\_\+format@{dout\+\_\+format}!byte@{byte}}
+\index{byte@{byte}!dout\+\_\+format@{dout\+\_\+format}}
+\subsubsection[{byte}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t byte}\label{uniondout__format_ab0549c1b5ea980a02e7eab77e21fea49}
+
+
+Definiert in Zeile 417 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniondout__format_a46e4c05d20a047ec169f60d3167e912e}{}\index{dout\+\_\+format@{dout\+\_\+format}!bytes@{bytes}}
+\index{bytes@{bytes}!dout\+\_\+format@{dout\+\_\+format}}
+\subsubsection[{bytes}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t bytes\mbox{[}2\mbox{]}}\label{uniondout__format_a46e4c05d20a047ec169f60d3167e912e}
+
+
+Definiert in Zeile 418 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniondout__format_a8c5f2c1b3351eb9150cc41a003cff4df}{}\index{dout\+\_\+format@{dout\+\_\+format}!O\+F\+A\+L\+L@{O\+F\+A\+L\+L}}
+\index{O\+F\+A\+L\+L@{O\+F\+A\+L\+L}!dout\+\_\+format@{dout\+\_\+format}}
+\subsubsection[{O\+F\+A\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}O\+F\+A\+L\+L}\label{uniondout__format_a8c5f2c1b3351eb9150cc41a003cff4df}
+
+
+Digital Output D\+C\+L\+K Edge. 
+
+0 = use D\+C\+L\+K rising edge~\newline
+1 = use D\+C\+L\+K falling edge 
+
+Definiert in Zeile 421 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniondout__format_a4d995054bef39e68df20343ec82ae5b9}{}\index{dout\+\_\+format@{dout\+\_\+format}!O\+M\+O\+D\+E@{O\+M\+O\+D\+E}}
+\index{O\+M\+O\+D\+E@{O\+M\+O\+D\+E}!dout\+\_\+format@{dout\+\_\+format}}
+\subsubsection[{O\+M\+O\+D\+E}]{\setlength{\rightskip}{0pt plus 5cm}O\+M\+O\+D\+E}\label{uniondout__format_a4d995054bef39e68df20343ec82ae5b9}
+
+
+Digital Output Mode. 
+
+O\+M\+O\+N\+O\+\_\+0\+: 0000 = I2\+S~\newline
+O\+M\+O\+N\+O\+\_\+1\+: 0110 = Left-\/justified~\newline
+O\+M\+O\+N\+O\+\_\+2\+: 1000 = M\+S\+B at second D\+C\+L\+K after D\+F\+S pulse~\newline
+O\+M\+O\+N\+O\+\_\+3\+: 1100 = M\+S\+B at first D\+C\+L\+K after D\+F\+S pulse 
+
+Definiert in Zeile 422 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniondout__format_a93761dc84dd5d349d8133cbd92a5f9b5}{}\index{dout\+\_\+format@{dout\+\_\+format}!O\+M\+O\+N\+O@{O\+M\+O\+N\+O}}
+\index{O\+M\+O\+N\+O@{O\+M\+O\+N\+O}!dout\+\_\+format@{dout\+\_\+format}}
+\subsubsection[{O\+M\+O\+N\+O}]{\setlength{\rightskip}{0pt plus 5cm}O\+M\+O\+N\+O}\label{uniondout__format_a93761dc84dd5d349d8133cbd92a5f9b5}
+
+
+Digital Output Mono Mode. 
+
+0 = Use mono/stereo blend (per blend thresholds)~\newline
+1 = Force mono 
+
+Definiert in Zeile 423 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+\hypertarget{uniondout__format_a7b03eaf984aaf8efadcedcfabd0df922}{}\index{dout\+\_\+format@{dout\+\_\+format}!O\+S\+I\+Z\+E@{O\+S\+I\+Z\+E}}
+\index{O\+S\+I\+Z\+E@{O\+S\+I\+Z\+E}!dout\+\_\+format@{dout\+\_\+format}}
+\subsubsection[{O\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}O\+S\+I\+Z\+E}\label{uniondout__format_a7b03eaf984aaf8efadcedcfabd0df922}
+
+
+Digital Output Audio Sample Precision. 
+
+O\+S\+I\+Z\+E\+\_\+0 = 16-\/bits~\newline
+O\+S\+I\+Z\+E\+\_\+1 = 20-\/bits~\newline
+O\+S\+I\+Z\+E\+\_\+2 = 24-\/bits~\newline
+O\+S\+I\+Z\+E\+\_\+3 = 8-\/bits 
+
+Definiert in Zeile 424 der Datei si4735\+\_\+cmd\+\_\+prop.\+h.
+
+
+
+Die Dokumentation für diese Struktur wurde erzeugt aufgrund der Datei\+:\begin{DoxyCompactItemize}
+\item 
+driver/include/\hyperlink{si4735__cmd__prop_8h}{si4735\+\_\+cmd\+\_\+prop.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="i2c_write_var" name="i2c_write_var">
+<area shape="rect" id="node2" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="149,5,244,32"/>
+<area shape="rect" id="node3" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="292,5,399,32"/>
+</map>

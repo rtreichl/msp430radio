@@ -1,0 +1,109 @@
+.TH "radio_new.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+radio_new.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <radio_new\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBradio_stats\fP"
+.br
+.ti -1c
+.RI "union \fBradio_time\fP"
+.br
+.ti -1c
+.RI "struct \fBradio\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef union \fBradio_stats\fP \fBRADIO_STATS\fP"
+.br
+.ti -1c
+.RI "typedef union \fBradio_time\fP \fBRADIO_TIME\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBradio\fP \fBRADIO\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBradio_brightness\fP (uint8_t brightness)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_contrast\fP (uint8_t contrast)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_volume\fP (uint8_t volume)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_init\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_handler\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_tune_freq\fP (uint16_t freq)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_rds_decoder\fP ()"
+.br
+.ti -1c
+.RI "uint16_t \fBradio_seeking\fP (uint8_t up_down)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_store_station\fP (uint16_t freq, int8_t *name, uint8_t pos)"
+.br
+.ti -1c
+.RI "uint16_t \fBradio_read_station\fP (int8_t *name, uint8_t pos)"
+.br
+.ti -1c
+.RI "uint8_t \fBradio_auto_search\fP ()"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBradio\fP  \fBRADIO\fP"
+
+.SS "typedef union \fBradio_stats\fP  \fBRADIO_STATS\fP"
+
+.SS "typedef union \fBradio_time\fP  \fBRADIO_TIME\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t radio_auto_search ()"
+
+.SS "uint8_t radio_brightness (uint8_t brightness)"
+
+.SS "uint8_t radio_contrast (uint8_t contrast)"
+
+.SS "uint8_t radio_handler (void)"
+
+.SS "uint8_t radio_init (void)"
+
+.SS "uint8_t radio_rds_decoder ()"
+
+.SS "uint16_t radio_read_station (int8_t * name, uint8_t pos)"
+
+.SS "uint16_t radio_seeking (uint8_t up_down)"
+
+.SS "uint8_t radio_store_station (uint16_t freq, int8_t * name, uint8_t pos)"
+
+.SS "uint8_t radio_tune_freq (uint16_t freq)"
+
+.SS "uint8_t radio_volume (uint8_t volume)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

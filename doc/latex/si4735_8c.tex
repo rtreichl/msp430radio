@@ -1,0 +1,862 @@
+\hypertarget{si4735_8c}{}\section{driver/src/si4735.c-\/\+Dateireferenz}
+\label{si4735_8c}\index{driver/src/si4735.\+c@{driver/src/si4735.\+c}}
+{\ttfamily \#include $<$driver/si4735.\+h$>$}\\*
+{\ttfamily \#include $<$driver/include/si4735\+\_\+cmd\+\_\+prop.\+h$>$}\\*
+{\ttfamily \#include $<$settings/radio\+\_\+configuration.\+h$>$}\\*
+{\ttfamily \#include $<$driver/external\+\_\+interrupthandler.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für si4735.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{si4735_8c_aa3c7f5e3e8a8ee8afdcb8bc50f796dbd}{S\+I4735\+\_\+volume}~5
+\item 
+\#define \hyperlink{si4735_8c_a08ae678c45d19d0552c2ba5992cc6759}{S\+I4735\+\_\+volume\+\_\+start}~20
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\+\_\+get\+\_\+interrupt} (uint8\+\_\+t int\+\_\+number)
+\item 
+void \hyperlink{si4735_8c_aa1ede02a9aa025a1216b0f7d508175fe}{S\+I4735\+\_\+\+Power\+\_\+\+Up} (void)
+\item 
+void \hyperlink{si4735_8c_a308e802775b7187851410e50252a93e5}{S\+I4735\+\_\+\+Power\+\_\+\+Down} (void)
+\item 
+void \hyperlink{si4735_8c_ae5b4759577014db43ed84a83b991fa90}{S\+I4735\+\_\+\+Rx\+\_\+\+Hard\+\_\+\+Mute} (void)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_af19013498b2529c01dd96942c157647a}{si4735\+\_\+fm\+\_\+rds\+\_\+status} (uint8\+\_\+t statusonly, uint8\+\_\+t mtfifo, uint8\+\_\+t intack)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_a89613c1378ba6894efae537469783717}{si4735\+\_\+fm\+\_\+rsq\+\_\+status} (uint8\+\_\+t intack)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_ad8b515f4991303f8cac978410d736a03}{si4735\+\_\+fm\+\_\+tune\+\_\+status} (uint8\+\_\+t cancel, uint8\+\_\+t intack, uint8\+\_\+t $\ast$resp)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_af82ec28b536b1258ea4178108c61d5e9}{si4735\+\_\+fm\+\_\+tune\+\_\+freq} (uint16\+\_\+t frequency)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_a209bed933b0bdc8432e8dd082f2c7a71}{si4735\+\_\+get\+\_\+int\+\_\+status} ()
+\item 
+uint16\+\_\+t \hyperlink{si4735_8c_a5d54c5379f019b57f7d75d471791250c}{si4735\+\_\+get\+\_\+property} (uint16\+\_\+t property, uint16\+\_\+t $\ast$data)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\+\_\+set\+\_\+property} (uint16\+\_\+t property, uint16\+\_\+t data)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_a339846da787fb5a496df9252ca7dc9a5}{si4735\+\_\+fm\+\_\+seek\+\_\+start} (uint8\+\_\+t up\+\_\+down)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1}{si4735\+\_\+configure\+\_\+rds} (\hyperlink{si4735__cmd__prop_8h_af1a246e707b4baa13348741bc52be163}{F\+M\+\_\+\+R\+D\+S\+\_\+\+I\+N\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+S\+T\+C} rds\+\_\+int, \hyperlink{si4735__cmd__prop_8h_a0607ef99baee6088c8f9fe36fb80b62b}{F\+M\+\_\+\+R\+D\+S\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+C} rds\+\_\+config, \hyperlink{si4735__cmd__prop_8h_a48b0899f80d16adb4e48bf9cd57fbcb9}{F\+M\+\_\+\+R\+D\+S\+\_\+\+I\+N\+T\+\_\+\+F\+I\+F\+O\+\_\+\+C\+O\+U\+N\+T\+\_\+\+S\+T\+C} rds\+\_\+fifo)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e}{si4735\+\_\+configure\+\_\+seeking} (uint16\+\_\+t top\+\_\+freq, uint16\+\_\+t bot\+\_\+freq, uint8\+\_\+t freq\+\_\+spacing, uint8\+\_\+t snr, uint8\+\_\+t rssi)
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_af3b503b2287420efa94545306f5d71d9}{si4735\+\_\+wait\+\_\+for\+\_\+cts} ()
+\item 
+uint8\+\_\+t \hyperlink{si4735_8c_af498b2a210e73c87dab45c7809df33ff}{si4735\+\_\+wait\+\_\+for\+\_\+command\+\_\+completed} ()
+\item 
+void \hyperlink{si4735_8c_a876518b974a7128391e2ff86a597218f}{S\+I4735\+\_\+\+I\+N\+I\+T} (void)
+\item 
+void \hyperlink{si4735_8c_a08ce8e479825a0951c15968d2b14a222}{si4735\+\_\+interrupt} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\+\_\+interrupt}
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{si4735_8c_aa3c7f5e3e8a8ee8afdcb8bc50f796dbd}{}\index{si4735.\+c@{si4735.\+c}!S\+I4735\+\_\+volume@{S\+I4735\+\_\+volume}}
+\index{S\+I4735\+\_\+volume@{S\+I4735\+\_\+volume}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{S\+I4735\+\_\+volume}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I4735\+\_\+volume~5}\label{si4735_8c_aa3c7f5e3e8a8ee8afdcb8bc50f796dbd}
+
+
+Definiert in Zeile 20 der Datei si4735.\+c.
+
+\hypertarget{si4735_8c_a08ae678c45d19d0552c2ba5992cc6759}{}\index{si4735.\+c@{si4735.\+c}!S\+I4735\+\_\+volume\+\_\+start@{S\+I4735\+\_\+volume\+\_\+start}}
+\index{S\+I4735\+\_\+volume\+\_\+start@{S\+I4735\+\_\+volume\+\_\+start}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{S\+I4735\+\_\+volume\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I4735\+\_\+volume\+\_\+start~20}\label{si4735_8c_a08ae678c45d19d0552c2ba5992cc6759}
+
+
+Definiert in Zeile 21 der Datei si4735.\+c.
+
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+configure\+\_\+rds@{si4735\+\_\+configure\+\_\+rds}}
+\index{si4735\+\_\+configure\+\_\+rds@{si4735\+\_\+configure\+\_\+rds}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+configure\+\_\+rds}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+configure\+\_\+rds (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+M\+\_\+\+R\+D\+S\+\_\+\+I\+N\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+S\+T\+C}}]{rds\+\_\+int, }
+\item[{{\bf F\+M\+\_\+\+R\+D\+S\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+C}}]{rds\+\_\+config, }
+\item[{{\bf F\+M\+\_\+\+R\+D\+S\+\_\+\+I\+N\+T\+\_\+\+F\+I\+F\+O\+\_\+\+C\+O\+U\+N\+T\+\_\+\+S\+T\+C}}]{rds\+\_\+fifo}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1}
+
+
+Definiert in Zeile 128 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+129 \{
+130     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a8b7e6ccffb54cef940f3bd78d255bc36}{FM\_RDS\_INT\_SOURCE}, rds\_int.
+      \hyperlink{unionfm__rds__int__source_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
+131 
+132     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_afdc3800cf259f4c1acb254d1ad61f21b}{FM\_RDS\_INT\_FIFO\_COUNT}, rds\_fifo.
+      \hyperlink{unionfm__rds__int__fifo__count_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
+133 
+134     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_afbaa25e11748b1bd64456d3eae79fdee}{FM\_RDS\_CONFIG}, rds\_config.
+      \hyperlink{unionfm__rds__config_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
+135 
+136     \textcolor{keywordflow}{return} 0;
+137 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+configure\+\_\+seeking@{si4735\+\_\+configure\+\_\+seeking}}
+\index{si4735\+\_\+configure\+\_\+seeking@{si4735\+\_\+configure\+\_\+seeking}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+configure\+\_\+seeking}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+configure\+\_\+seeking (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{top\+\_\+freq, }
+\item[{uint16\+\_\+t}]{bot\+\_\+freq, }
+\item[{uint8\+\_\+t}]{freq\+\_\+spacing, }
+\item[{uint8\+\_\+t}]{snr, }
+\item[{uint8\+\_\+t}]{rssi}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e}
+
+
+Definiert in Zeile 139 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+140 \{
+141     \textcolor{comment}{//TODO setup bottom and top frequency for seeking}
+142     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a17c1d20d698569b77c2d00fb03fc905a}{FM\_SEEK\_BAND\_BOTTOM}, top\_freq);
+143 
+144     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_ae8f8164aecb98eb67811957866f7173a}{FM\_SEEK\_BAND\_TOP}, bot\_freq);
+145 
+146     \textcolor{comment}{//TODO implement a control on value for freqency space, snr and rssi only allowed values}
+147     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_ac5a0322f265c6a26f2eaa67b137a4e1e}{FM\_SEEK\_FREQ\_SPACING}, freq\_spacing);
+148 
+149     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a8159dc3f7948223302c72404f8b3b7df}{FM\_SEEK\_TUNE\_SNR\_THRES}, snr);
+150 
+151     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a855621fba4889ce1231a6eec81080d37}{FM\_SEEK\_TUNE\_RSSI\_THRES}, rssi);
+152     \textcolor{keywordflow}{return} 0;
+153 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_af19013498b2529c01dd96942c157647a}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+fm\+\_\+rds\+\_\+status@{si4735\+\_\+fm\+\_\+rds\+\_\+status}}
+\index{si4735\+\_\+fm\+\_\+rds\+\_\+status@{si4735\+\_\+fm\+\_\+rds\+\_\+status}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+fm\+\_\+rds\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+fm\+\_\+rds\+\_\+status (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{statusonly, }
+\item[{uint8\+\_\+t}]{mtfifo, }
+\item[{uint8\+\_\+t}]{intack}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_af19013498b2529c01dd96942c157647a}
+
+
+Definiert in Zeile 38 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+39 \{
+40     uint8\_t resp[13];
+41     \hyperlink{unionfm__rds__status__arg1}{FM\_RDS\_STATUS\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__rds__status__arg1_a696c0636e08a68f420bc7da0ae8aeed1}{STATUSONLY} = statusonly, .MTFIFO = 
+      mtfifo, .INTACK = intack\};
+42 
+43     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, \hyperlink{si4735__cmd__prop_8h_ac37ef03bb47367289779f5f9bc00b18f}{FM\_RDS\_STATUS}, arg1.
+      \hyperlink{unionfm__rds__status__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+44     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 13, resp);
+45 
+46     \textcolor{keywordflow}{return} resp[0];
+47 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_af19013498b2529c01dd96942c157647a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_a89613c1378ba6894efae537469783717}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+fm\+\_\+rsq\+\_\+status@{si4735\+\_\+fm\+\_\+rsq\+\_\+status}}
+\index{si4735\+\_\+fm\+\_\+rsq\+\_\+status@{si4735\+\_\+fm\+\_\+rsq\+\_\+status}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+fm\+\_\+rsq\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+fm\+\_\+rsq\+\_\+status (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{intack}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a89613c1378ba6894efae537469783717}
+
+
+Definiert in Zeile 49 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+50 \{
+51     uint8\_t resp[8];
+52     \hyperlink{unionfm__rsq__status__arg1}{FM\_RSQ\_STATUS\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__rsq__status__arg1_adf4f80d8fb205d6c93c6423d84d63d9c}{INTACK} = intack\};
+53 
+54     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, \hyperlink{si4735__cmd__prop_8h_a9b58aeaeabdad7b1525ccc31f5d0d201}{FM\_RSQ\_STATUS}, arg1.
+      \hyperlink{unionfm__rsq__status__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+55     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 8, resp);
+56 
+57     \textcolor{keywordflow}{return} resp[0];
+58 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a89613c1378ba6894efae537469783717_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_a339846da787fb5a496df9252ca7dc9a5}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+fm\+\_\+seek\+\_\+start@{si4735\+\_\+fm\+\_\+seek\+\_\+start}}
+\index{si4735\+\_\+fm\+\_\+seek\+\_\+start@{si4735\+\_\+fm\+\_\+seek\+\_\+start}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+fm\+\_\+seek\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+fm\+\_\+seek\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{up\+\_\+down}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a339846da787fb5a496df9252ca7dc9a5}
+
+
+Definiert in Zeile 115 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+116 \{
+117     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
+118     \hyperlink{unionfm__seek__start__arg1}{FM\_SEEK\_START\_ARG1\_STC} arg1 = \{.\hyperlink{unionfm__seek__start__arg1_a54afe228e11a8c6dabf9b5361f2054d8}{SEEKUP} = 0, .WRAP = 1\};
+119 
+120     arg1.\hyperlink{unionfm__seek__start__arg1_a54afe228e11a8c6dabf9b5361f2054d8}{SEEKUP} = up\_down;
+121     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, \hyperlink{si4735__cmd__prop_8h_a25ef5653fc9206ab83d8215c209e9922}{FM\_SEEK\_START}, arg1.
+      \hyperlink{unionfm__seek__start__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+122     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(7);
+123     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+124 
+125     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
+126 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a339846da787fb5a496df9252ca7dc9a5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a339846da787fb5a496df9252ca7dc9a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_af82ec28b536b1258ea4178108c61d5e9}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+fm\+\_\+tune\+\_\+freq@{si4735\+\_\+fm\+\_\+tune\+\_\+freq}}
+\index{si4735\+\_\+fm\+\_\+tune\+\_\+freq@{si4735\+\_\+fm\+\_\+tune\+\_\+freq}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+fm\+\_\+tune\+\_\+freq}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+fm\+\_\+tune\+\_\+freq (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{frequency}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_af82ec28b536b1258ea4178108c61d5e9}
+
+
+Definiert in Zeile 71 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+72 \{
+73     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
+74     \hyperlink{unionfm__tune__freq__arg1}{FM\_TUNE\_FREQ\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__tune__freq__arg1_af55f9b26a88028338a2a761649cf5407}{FREEZE} = 0, .FAST = 1\};
+75 
+76     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 5, \hyperlink{si4735__cmd__prop_8h_aa9acf37dc2ae6e26a01780d6d4e6dcc1}{FM\_TUNE\_FREQ}, arg1.
+      \hyperlink{unionfm__tune__freq__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte}, \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(frequency), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(frequency), 0x00);
+77     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(7);
+78     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+79 
+80     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
+81 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_af82ec28b536b1258ea4178108c61d5e9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_af82ec28b536b1258ea4178108c61d5e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_ad8b515f4991303f8cac978410d736a03}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+fm\+\_\+tune\+\_\+status@{si4735\+\_\+fm\+\_\+tune\+\_\+status}}
+\index{si4735\+\_\+fm\+\_\+tune\+\_\+status@{si4735\+\_\+fm\+\_\+tune\+\_\+status}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+fm\+\_\+tune\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+fm\+\_\+tune\+\_\+status (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{cancel, }
+\item[{uint8\+\_\+t}]{intack, }
+\item[{uint8\+\_\+t $\ast$}]{resp}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_ad8b515f4991303f8cac978410d736a03}
+
+
+Definiert in Zeile 60 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+61 \{
+62     \hyperlink{unionfm__tune__status__arg1}{FM\_TUNE\_STATUS\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__tune__status__arg1_ac030f6cac29ec43cc0457a01f7ea9f93}{CANCEL} = cancel, .INTACK = intack\};
+63 
+64     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, \hyperlink{si4735__cmd__prop_8h_a1c2be0c09ef2120b4e7b6d050a4a7735}{FM\_TUNE\_STATUS}, arg1.
+      \hyperlink{unionfm__tune__status__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+65     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
+66     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 8, resp);
+67 
+68     \textcolor{keywordflow}{return} resp[0];
+69 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_ad8b515f4991303f8cac978410d736a03_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_ad8b515f4991303f8cac978410d736a03_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_a209bed933b0bdc8432e8dd082f2c7a71}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+get\+\_\+int\+\_\+status@{si4735\+\_\+get\+\_\+int\+\_\+status}}
+\index{si4735\+\_\+get\+\_\+int\+\_\+status@{si4735\+\_\+get\+\_\+int\+\_\+status}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+get\+\_\+int\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+get\+\_\+int\+\_\+status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a209bed933b0bdc8432e8dd082f2c7a71}
+
+
+Definiert in Zeile 83 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+84 \{
+85     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
+86     \textcolor{comment}{//TODO check int pin from SI4735 via interrupt routin if interrupt availible read.}
+87     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 1, \hyperlink{si4735__cmd__prop_8h_ab34642df1357e9ee8ecd90913bdae01f}{GET\_INT\_STATUS});
+88     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+89 
+90     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
+91 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a209bed933b0bdc8432e8dd082f2c7a71_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+get\+\_\+interrupt@{si4735\+\_\+get\+\_\+interrupt}}
+\index{si4735\+\_\+get\+\_\+interrupt@{si4735\+\_\+get\+\_\+interrupt}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+get\+\_\+interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void si4735\+\_\+get\+\_\+interrupt (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{int\+\_\+number}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}
+
+
+Definiert in Zeile 271 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+272 \{
+273     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
+274     \textcolor{keywordflow}{while}(!\hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt});
+275     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 0;
+276     \textcolor{keywordflow}{if}(int\_number < 8)
+277     \textcolor{keywordflow}{while}(!\hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt});
+278     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 0;
+279     \textcolor{comment}{//\_delay\_us(10);}
+280     \textcolor{comment}{/*if(int\_number < 8) \{}
+281 \textcolor{comment}{        //\_delay\_ms(10);}
+282 \textcolor{comment}{        do \{}
+283 \textcolor{comment}{            i2c\_write\_var(I2C\_SI4735, REPT, 1, 0x14);}
+284 \textcolor{comment}{            i2c\_read(I2C\_SI4735, STOP, 1, &status.byte);}
+285 \textcolor{comment}{        \}}
+286 \textcolor{comment}{        while(status.byte == 0);}
+287 \textcolor{comment}{    \}*/}
+288     \textcolor{comment}{//return 1;}
+289 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_a5d54c5379f019b57f7d75d471791250c}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+get\+\_\+property@{si4735\+\_\+get\+\_\+property}}
+\index{si4735\+\_\+get\+\_\+property@{si4735\+\_\+get\+\_\+property}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+get\+\_\+property}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t si4735\+\_\+get\+\_\+property (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{property, }
+\item[{uint16\+\_\+t $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a5d54c5379f019b57f7d75d471791250c}
+
+
+Definiert in Zeile 93 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+94 \{
+95     uint8\_t resp[4];
+96 
+97     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 6, \hyperlink{si4735__cmd__prop_8h_a92cfecd26935c8864d65bbdc6031acb0}{SET\_PROPERTY}, 0x00, 
+      \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(property), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(property));
+98     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 4, resp);
+99 
+100     *data = ((resp[2] << 8) + (resp[3]));
+101 
+102     \textcolor{keywordflow}{return} resp[0];
+103 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a5d54c5379f019b57f7d75d471791250c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_a876518b974a7128391e2ff86a597218f}{}\index{si4735.\+c@{si4735.\+c}!S\+I4735\+\_\+\+I\+N\+I\+T@{S\+I4735\+\_\+\+I\+N\+I\+T}}
+\index{S\+I4735\+\_\+\+I\+N\+I\+T@{S\+I4735\+\_\+\+I\+N\+I\+T}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{S\+I4735\+\_\+\+I\+N\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}void S\+I4735\+\_\+\+I\+N\+I\+T (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a876518b974a7128391e2ff86a597218f}
+
+
+Definiert in Zeile 167 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+168 \{
+169    \textcolor{comment}{//SEN}
+170     \hyperlink{external__interrupthandler_8h_a1685394f9610006097ec45181e59563b}{ext\_interrupt\_create}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT}, 
+      \hyperlink{si4735_8c_a08ce8e479825a0951c15968d2b14a222}{si4735\_interrupt});
+171 
+172     \hyperlink{settings_2radio__pin__mapping_8h_aae9348f64c78c7d75a190020d89ee4f9}{SI\_RST\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
+173     \hyperlink{settings_2radio__pin__mapping_8h_a042af3e7ec9c7491e96bfc171c85541c}{SI\_EN\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_ac779ebbe7205d97f4f3840f31a1ac08d}{SI\_EN\_PIN};
+174 
+175     \hyperlink{settings_2radio__pin__mapping_8h_ade055bbc89ad301f8d4535236c10b7af}{SI\_RST\_OUT} &= ~\hyperlink{settings_2radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
+176     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(10);
+177     \hyperlink{settings_2radio__pin__mapping_8h_ade055bbc89ad301f8d4535236c10b7af}{SI\_RST\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
+178     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(10);
+179 
+180     \hyperlink{settings_2radio__pin__mapping_8h_a184aa1736ac6de1acb501ef552e19116}{SI\_EN\_OUT} &= ~\hyperlink{settings_2radio__pin__mapping_8h_ac779ebbe7205d97f4f3840f31a1ac08d}{SI\_EN\_PIN};
+181 
+182     \textcolor{comment}{// Clear Reset}
+183 
+184     \textcolor{comment}{// Set Reset}
+185 
+186     \textcolor{keyword}{const} \hyperlink{uniongpo__ien}{GPO\_IEN\_STC} \hyperlink{uniongpo__ien}{gpo\_ien} = \{
+187             .\hyperlink{uniongpo__ien_ad9adfb2ddca813d59dcc9361db43dcb3}{STCIEN} = 1,
+188             .CTSIEN = 1,
+189             .RDSIEN = 0,
+190             .RSQIEN = 0,
+191             .ERRIEN = 0,
+192             .STCREP = 0
+193     \};
+194 
+195     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
+196 
+197     \textcolor{comment}{//GPO2/INT}
+198     \hyperlink{settings_2radio__pin__mapping_8h_a71ae13c79ac62448a0e17b7dd85b0246}{SI\_INT\_REN} |= \hyperlink{settings_2radio__pin__mapping_8h_a8017d2aee2374296004b766d32cc0491}{SI\_INT\_PIN};
+199     \hyperlink{settings_2radio__pin__mapping_8h_a2597c2a3b7c045348347ebaf8ee98118}{SI\_INT\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a8017d2aee2374296004b766d32cc0491}{SI\_INT\_PIN};
+200 
+201     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
+202 
+203     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+204 
+205     \textcolor{comment}{/* Power\_up FM mode */}
+206     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 3,  0x01, 0xD0, 0x05);
+207     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
+208 
+209     \textcolor{comment}{/*activate and setting refclk to 32.768 kHz */}
+210     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_adb330b20b383f5f664a9b107edef0036}{REFCLK\_FREQ}, 0x8000);
+211 
+212     \textcolor{comment}{/* setup prescaler to 1 */}
+213     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a6b615b86f7870b616243b25cb5091933}{REFCLK\_PRESCALE}, 1);
+214 
+215     \textcolor{comment}{/* setting deemphasis to 50�s standart for europe */}
+216     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a1c7743943a1def297fe209d001d49c1e}{FM\_DEEMPH}, \hyperlink{si4735__cmd__prop_8h_afa8b508d6e40dc9c4f4430d46290a919}{DEEMPH\_EU});
+217 
+218 
+219     \textcolor{keyword}{const} \hyperlink{unionfm__rds__int__source}{FM\_RDS\_INT\_SOURCE\_STC} rds\_int = \{
+220             .\hyperlink{unionfm__rds__int__source_af44cb84a104f9c29f31b0ac4bd89a601}{RDSRECV} = 1,
+221             .RDSSYNCLOST = 0,
+222             .RDSSYNCFOUND = 0,
+223             .RDSNEWBLOCKA = 0,
+224             .RDSNEWBLOCKB = 0
+225     \};
+226 
+227     \textcolor{keyword}{const} \hyperlink{unionfm__rds__int__fifo__count}{FM\_RDS\_INT\_FIFO\_COUNT\_STC} rds\_fifo = \{
+228             .\hyperlink{unionfm__rds__int__fifo__count_a6273d3e5b093640f3492cb7eaad78cdc}{RDSFIFOCNT} = 10,
+229     \};
+230 
+231     \textcolor{keyword}{const} \hyperlink{unionfm__rds__config}{FM\_RDS\_CONFIG\_STC} rds\_config = \{
+232             .\hyperlink{unionfm__rds__config_ae061939e6d3519d4b231b9da2cab30e9}{BLETHA} = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+233             .BLETHB = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+234             .BLETHC = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+235             .BLETHD = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+236             .RDSEN = 1
+237     \};
+238 
+239     \hyperlink{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1}{si4735\_configure\_rds}(rds\_int, rds\_config, rds\_fifo);
+240 
+241     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a16b9c6d556c2db79e8742267daf63c83}{GPO\_IEN}, gpo\_ien.\hyperlink{uniongpo__ien_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
+242     \textcolor{comment}{//\_delay\_ms(10);}
+243 
+244     \textcolor{comment}{/* Tune to frequency 107,7 */}
+245     \hyperlink{si4735_8c_af82ec28b536b1258ea4178108c61d5e9}{si4735\_fm\_tune\_freq}(\hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ});
+246 
+247     \hyperlink{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e}{si4735\_configure\_seeking}(\hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}, 
+      \hyperlink{radio__configuration_8h_a84521b00c701ae970f07d6fa4c65bf1e}{RADIO\_TOP\_FREQ}, \hyperlink{radio__configuration_8h_a28422425adfe6f62b8c5f0b8b2952ca9}{RADIO\_SEEK\_FREQ\_SPACE}, 
+      \hyperlink{radio__configuration_8h_a321c7ff1de8c8984c5e2f910fb93eb8d}{RADIO\_VALID\_SNR}, \hyperlink{radio__configuration_8h_a3d0abde431e04f57b0828a482d81204f}{RADIO\_VALID\_RSSI});
+248 
+249     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(10);
+250 
+251     \hyperlink{si4735_8c_a339846da787fb5a496df9252ca7dc9a5}{si4735\_fm\_seek\_start}(1);
+252 
+253     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(2);
+254 
+255     \textcolor{comment}{/* Enable radio audio output with standart value */}
+256     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_aeb1de40ffb7cb51cf4a151f5d1b746d7}{RX\_VOLUME}, \hyperlink{si4735_8c_aa3c7f5e3e8a8ee8afdcb8bc50f796dbd}{SI4735\_volume});
+257     \textcolor{comment}{//i2c\_write\_var(I2C\_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735\_volume);}
+258 
+259     \textcolor{comment}{//uint8\_t resp[8];}
+260 
+261 
+262 
+263     \textcolor{comment}{//si4735\_fm\_tune\_status(0, 0, resp);}
+264 
+265     \textcolor{comment}{//si4735\_get\_interrupt(8);}
+266 
+267     \hyperlink{external__interrupthandler_8h_a67fb5781413cf5c193be332cc6e52209}{ext\_interrupt\_disable}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+268     \textcolor{comment}{//while((SI\_INT\_IN & SI\_INT\_PIN));}
+269 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a876518b974a7128391e2ff86a597218f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{si4735_8c_a876518b974a7128391e2ff86a597218f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_a08ce8e479825a0951c15968d2b14a222}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+interrupt@{si4735\+\_\+interrupt}}
+\index{si4735\+\_\+interrupt@{si4735\+\_\+interrupt}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void si4735\+\_\+interrupt (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a08ce8e479825a0951c15968d2b14a222}
+
+
+Definiert in Zeile 291 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+292 \{
+293     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 1;
+294 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{si4735_8c_a08ce8e479825a0951c15968d2b14a222_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_a308e802775b7187851410e50252a93e5}{}\index{si4735.\+c@{si4735.\+c}!S\+I4735\+\_\+\+Power\+\_\+\+Down@{S\+I4735\+\_\+\+Power\+\_\+\+Down}}
+\index{S\+I4735\+\_\+\+Power\+\_\+\+Down@{S\+I4735\+\_\+\+Power\+\_\+\+Down}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{S\+I4735\+\_\+\+Power\+\_\+\+Down}]{\setlength{\rightskip}{0pt plus 5cm}void S\+I4735\+\_\+\+Power\+\_\+\+Down (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_a308e802775b7187851410e50252a93e5}
+
+
+Definiert in Zeile 28 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+29 \{
+30     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, 0x11);
+31 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a308e802775b7187851410e50252a93e5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_aa1ede02a9aa025a1216b0f7d508175fe}{}\index{si4735.\+c@{si4735.\+c}!S\+I4735\+\_\+\+Power\+\_\+\+Up@{S\+I4735\+\_\+\+Power\+\_\+\+Up}}
+\index{S\+I4735\+\_\+\+Power\+\_\+\+Up@{S\+I4735\+\_\+\+Power\+\_\+\+Up}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{S\+I4735\+\_\+\+Power\+\_\+\+Up}]{\setlength{\rightskip}{0pt plus 5cm}void S\+I4735\+\_\+\+Power\+\_\+\+Up (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_aa1ede02a9aa025a1216b0f7d508175fe}
+
+
+Definiert in Zeile 23 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+24 \{
+25     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 3, 0x01, 0xD0, 0x05);
+26 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_aa1ede02a9aa025a1216b0f7d508175fe_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_ae5b4759577014db43ed84a83b991fa90}{}\index{si4735.\+c@{si4735.\+c}!S\+I4735\+\_\+\+Rx\+\_\+\+Hard\+\_\+\+Mute@{S\+I4735\+\_\+\+Rx\+\_\+\+Hard\+\_\+\+Mute}}
+\index{S\+I4735\+\_\+\+Rx\+\_\+\+Hard\+\_\+\+Mute@{S\+I4735\+\_\+\+Rx\+\_\+\+Hard\+\_\+\+Mute}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{S\+I4735\+\_\+\+Rx\+\_\+\+Hard\+\_\+\+Mute}]{\setlength{\rightskip}{0pt plus 5cm}void S\+I4735\+\_\+\+Rx\+\_\+\+Hard\+\_\+\+Mute (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_ae5b4759577014db43ed84a83b991fa90}
+
+
+Definiert in Zeile 33 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+34 \{
+35     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 6, 0x12, 0x00, 0x40, 0x01, 0x00, 0x00);
+36 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_ae5b4759577014db43ed84a83b991fa90_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+set\+\_\+property@{si4735\+\_\+set\+\_\+property}}
+\index{si4735\+\_\+set\+\_\+property@{si4735\+\_\+set\+\_\+property}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+set\+\_\+property}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+set\+\_\+property (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{property, }
+\item[{uint16\+\_\+t}]{data}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}
+
+
+Definiert in Zeile 105 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+106 \{
+107     \textcolor{comment}{//INT\_STATUS status;}
+108     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 6, \hyperlink{si4735__cmd__prop_8h_a92cfecd26935c8864d65bbdc6031acb0}{SET\_PROPERTY}, 0x00, 
+      \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(property), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(property), \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(data), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(data));
+109     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
+110 
+111     \textcolor{keywordflow}{return} 0;
+112     \textcolor{comment}{//TODO wait until command is proceed.}
+113 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{si4735_8c_af498b2a210e73c87dab45c7809df33ff}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+wait\+\_\+for\+\_\+command\+\_\+completed@{si4735\+\_\+wait\+\_\+for\+\_\+command\+\_\+completed}}
+\index{si4735\+\_\+wait\+\_\+for\+\_\+command\+\_\+completed@{si4735\+\_\+wait\+\_\+for\+\_\+command\+\_\+completed}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+wait\+\_\+for\+\_\+command\+\_\+completed}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+wait\+\_\+for\+\_\+command\+\_\+completed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_af498b2a210e73c87dab45c7809df33ff}
+
+
+Definiert in Zeile 161 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+162 \{
+163     \textcolor{comment}{//TODO Set timer to 10 ms only after this can be send next command}
+164     \textcolor{keywordflow}{return} 0;
+165 \}
+\end{DoxyCode}
+\hypertarget{si4735_8c_af3b503b2287420efa94545306f5d71d9}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+wait\+\_\+for\+\_\+cts@{si4735\+\_\+wait\+\_\+for\+\_\+cts}}
+\index{si4735\+\_\+wait\+\_\+for\+\_\+cts@{si4735\+\_\+wait\+\_\+for\+\_\+cts}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si4735\+\_\+wait\+\_\+for\+\_\+cts}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+wait\+\_\+for\+\_\+cts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{si4735_8c_af3b503b2287420efa94545306f5d71d9}
+
+
+Definiert in Zeile 155 der Datei si4735.\+c.
+
+
+\begin{DoxyCode}
+156 \{
+157     \textcolor{comment}{//TODO implement a function which wait so long until CTS was send}
+158     \textcolor{keywordflow}{return} 0;
+159 \}
+\end{DoxyCode}
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{}\index{si4735.\+c@{si4735.\+c}!si\+\_\+interrupt@{si\+\_\+interrupt}}
+\index{si\+\_\+interrupt@{si\+\_\+interrupt}!si4735.\+c@{si4735.\+c}}
+\subsubsection[{si\+\_\+interrupt}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\+\_\+t si\+\_\+interrupt}\label{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}
+
+
+Definiert in Zeile 16 der Datei si4735.\+c.
+

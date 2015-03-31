@@ -1,0 +1,119 @@
+.TH "driver/lcd.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/lcd.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <driver/pca9534\&.h>\fP
+.br
+\fC#include <driver/lcd_commands\&.h>\fP
+.br
+\fC#include <settings/radio_pin_mapping\&.h>\fP
+.br
+\fC#include <Timer\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLCD_ENABLE_HIGH\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBLCD_ENABLE_LOW\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBLCD_READ\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBLCD_WRITE\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBLCD_DATA\fP   0x40"
+.br
+.ti -1c
+.RI "#define \fBLCD_CMD\fP   0x00"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBlcd_init\fP (uint8_t contrast)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_write_char\fP (uint8_t chr)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_set_courser\fP (uint8_t x, uint8_t y)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_command\fP (uint8_t cmd)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_write_string\fP (const int8_t *str, uint8_t n_bytes)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_connect\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_generatechar\fP (uint8_t code, const uint8_t *data)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_bargraph\fP (uint8_t \fBvalue\fP)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_create_view\fP (const char *str, uint8_t x, uint8_t y, uint8_t flush)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_generatebargraph\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_contrast\fP (uint8_t contrast)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LCD_CMD   0x00"
+
+.SS "#define LCD_DATA   0x40"
+
+.SS "#define LCD_ENABLE_HIGH   0x10"
+
+.SS "#define LCD_ENABLE_LOW   0x00"
+
+.SS "#define LCD_READ   0x20"
+
+.SS "#define LCD_WRITE   0x00"
+
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t lcd_bargraph (uint8_t value)"
+
+.SS "uint8_t lcd_command (uint8_t cmd)"
+
+.SS "uint8_t lcd_connect ()"
+
+.SS "uint8_t lcd_contrast (uint8_t contrast)"
+
+.SS "uint8_t lcd_create_view (const char * str, uint8_t x, uint8_t y, uint8_t flush)"
+
+.SS "uint8_t lcd_generatebargraph ()"
+
+.SS "uint8_t lcd_generatechar (uint8_t code, const uint8_t * data)"
+
+.SS "uint8_t lcd_init (uint8_t contrast)"
+
+.SS "uint8_t lcd_set_courser (uint8_t x, uint8_t y)"
+
+.SS "uint8_t lcd_write_char (uint8_t chr)"
+
+.SS "uint8_t lcd_write_string (const int8_t * str, uint8_t n_bytes)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

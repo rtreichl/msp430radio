@@ -1,0 +1,47 @@
+.TH "driver/src/pca9530.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/src/pca9530.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <driver/pca9530\&.h>\fP
+.br
+\fC#include <settings/radio_pin_mapping\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBpca9530_set_freq\fP (enum \fBPCA9530_FREQ\fP freq_sel, uint8_t freq)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_set_pwm\fP (enum \fBPCA9530_PWM\fP pwm_sel, uint8_t pwm)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_config_leds\fP (enum \fBPCA9530_LED_STATE\fP led0_state, enum \fBPCA9530_LED_STATE\fP led1_state)"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_read_input\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBpca9530_init\fP (const \fBPCA9530\fP *config)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t pca9530_config_leds (enum \fBPCA9530_LED_STATE\fP led0_state, enum \fBPCA9530_LED_STATE\fP led1_state)"
+
+.SS "uint8_t pca9530_init (const \fBPCA9530\fP * config)"
+
+.SS "uint8_t pca9530_read_input ()"
+
+.SS "uint8_t pca9530_set_freq (enum \fBPCA9530_FREQ\fP freq_sel, uint8_t freq)"
+
+.SS "uint8_t pca9530_set_pwm (enum \fBPCA9530_PWM\fP pwm_sel, uint8_t pwm)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

@@ -1,0 +1,877 @@
+\hypertarget{menu__struct_8c}{}\section{menu/src/menu\+\_\+struct.c-\/\+Dateireferenz}
+\label{menu__struct_8c}\index{menu/src/menu\+\_\+struct.\+c@{menu/src/menu\+\_\+struct.\+c}}
+{\ttfamily \#include $<$menu/menu\+\_\+struct.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für menu\+\_\+struct.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu__struct_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{view\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{radio\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}{tatp\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_afb596a5162ee45c45e8cee37d3c15e51}{tatp\+\_\+on\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a27df2b2924ceb2b74877a1dbd8098eb0}{tatp\+\_\+off\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a77ef0bf235482c6ca69ee593f14c769b}{tatp\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a9b6e00d007197dd4e9f8703e171649a2}{volume\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}{freq\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a135e00e8f7635289e701b3d03887323a}{freq\+\_\+seeking\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_ae0f0960c12b5328f0e5a6196973d759f}{freq\+\_\+fixed\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a6e96d852f302001aa5017c126703356c}{freq\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a93f68e7e975f106d507aee7a7159d658}{radio\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a69a80d4baf42b6d7c7b939a928daa55c}{rds\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a331635dbe1a85000524b89021965aac2}{ptypi\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_ae1df7eaf4224e46171cbf74aaa95b587}{rsq\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a473d6c735cf7a1c9df8271cc4bf774df}{text\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a448818995f6fafe2804b006465bd6143}{contrast\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a8d1c64e39039537daef345947218a368}{brightness\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a7d62bb5291338deb05113be225655d6b}{brightness\+\_\+fixed\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_ae72b2e2b3f4c12c369527565c75a2f84}{brightness\+\_\+auto\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a14f8c8440b8ccd7ab39742344db6f259}{brightness\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_abcf47c2735541c7ff9718e4cdaf3acd0}{pop\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a14b53c016253d4271888a3c72b67a7e7}{classic\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a7e9ecceee2419fae947b4003ea91d806}{jazz\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a697c94fcc44c49a0c8ead9bca600fb52}{hiphop\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_ac9f4d55fc69cd633635598b95fe3b7fb}{rock\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_ae50e89dd0412709aeec192b8254c4602}{news\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_ab4cbcd0a222efd574b8ea5216fd79aa9}{audio\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a070256bd3ec472fc930a725f5799e523}{view\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{source\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_aa9e3ed22ff904d8da07fecf7c9a1b3f6}{fm\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a9c970d72d0ab063d43e8875b327e6ec0}{am\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a05124d2e348f61fa998c2552f2220d30}{linein\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_affc6e5290c0420a3728759234bc58596}{source\+\_\+return\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a6ee4e8a9d04886c063b9ad182039aba6}{reset\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a0a401e3d8d4eca7031c9690486ca37a6}{reset\+\_\+no\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a820b6b6375d46fc22ac6f5cade1ca504}{reset\+\_\+yes\+\_\+entry}
+\item 
+\hyperlink{menu__struct_8h_a45853b548639707f96af60b6fda1b6fa}{M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} \hyperlink{menu__struct_8c_a8e439e3e734d93fbf6d575e7acd73552}{main\+\_\+return\+\_\+entry}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{menu__struct_8c_a9c970d72d0ab063d43e8875b327e6ec0}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!am\+\_\+entry@{am\+\_\+entry}}
+\index{am\+\_\+entry@{am\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{am\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} am\+\_\+entry}\label{menu__struct_8c_a9c970d72d0ab063d43e8875b327e6ec0}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{source\_entry},
+    &\hyperlink{menu__struct_8c_a05124d2e348f61fa998c2552f2220d30}{linein\_entry},
+    &\hyperlink{menu__struct_8c_aa9e3ed22ff904d8da07fecf7c9a1b3f6}{fm\_entry},
+    \hyperlink{en_2language_8c_a04c7cfd9680e7497cef009e319d5b39a}{am\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 343 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!audio\+\_\+entry@{audio\+\_\+entry}}
+\index{audio\+\_\+entry@{audio\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{audio\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} audio\+\_\+entry}\label{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_abcf47c2735541c7ff9718e4cdaf3acd0}{pop\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\_entry},
+    &\hyperlink{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{source\_entry},
+    &\hyperlink{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{radio\_entry},
+    \hyperlink{en_2language_8c_ab18a4213e5d3d02d3181753411fa1c26}{audio\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 233 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_ab4cbcd0a222efd574b8ea5216fd79aa9}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!audio\+\_\+return\+\_\+entry@{audio\+\_\+return\+\_\+entry}}
+\index{audio\+\_\+return\+\_\+entry@{audio\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{audio\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} audio\+\_\+return\+\_\+entry}\label{menu__struct_8c_ab4cbcd0a222efd574b8ea5216fd79aa9}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_ae50e89dd0412709aeec192b8254c4602}{news\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 303 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_ae72b2e2b3f4c12c369527565c75a2f84}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!brightness\+\_\+auto\+\_\+entry@{brightness\+\_\+auto\+\_\+entry}}
+\index{brightness\+\_\+auto\+\_\+entry@{brightness\+\_\+auto\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{brightness\+\_\+auto\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} brightness\+\_\+auto\+\_\+entry}\label{menu__struct_8c_ae72b2e2b3f4c12c369527565c75a2f84}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8d1c64e39039537daef345947218a368}{brightness\_entry},
+    &\hyperlink{menu__struct_8c_a7d62bb5291338deb05113be225655d6b}{brightness\_fixed\_entry},
+    0,
+    \hyperlink{en_2language_8c_aefcb4f64cae8f94da0f27f79febc04e5}{auto\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 213 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a8d1c64e39039537daef345947218a368}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!brightness\+\_\+entry@{brightness\+\_\+entry}}
+\index{brightness\+\_\+entry@{brightness\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{brightness\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} brightness\+\_\+entry}\label{menu__struct_8c_a8d1c64e39039537daef345947218a368}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_ae72b2e2b3f4c12c369527565c75a2f84}{brightness\_auto\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{view\_entry},
+    &\hyperlink{menu__struct_8c_a070256bd3ec472fc930a725f5799e523}{view\_return\_entry},
+    &\hyperlink{menu__struct_8c_a448818995f6fafe2804b006465bd6143}{contrast\_entry},
+    \hyperlink{en_2language_8c_a43e04a1cf8a1ac51ce6e73724a9c1b29}{brightness\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 193 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a7d62bb5291338deb05113be225655d6b}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!brightness\+\_\+fixed\+\_\+entry@{brightness\+\_\+fixed\+\_\+entry}}
+\index{brightness\+\_\+fixed\+\_\+entry@{brightness\+\_\+fixed\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{brightness\+\_\+fixed\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} brightness\+\_\+fixed\+\_\+entry}\label{menu__struct_8c_a7d62bb5291338deb05113be225655d6b}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8d1c64e39039537daef345947218a368}{brightness\_entry},
+    &\hyperlink{menu__struct_8c_a14f8c8440b8ccd7ab39742344db6f259}{brightness\_return\_entry},
+    &\hyperlink{menu__struct_8c_ae72b2e2b3f4c12c369527565c75a2f84}{brightness\_auto\_entry},
+    \hyperlink{en_2language_8c_a4cdbcf76455b783d6b93f06f9a0fdebc}{fixed\_text},
+    \hyperlink{menu_2menu_8h_aa9d014ea80d95c7f32f2857d10481206}{MENU\_BRIG\_ENTRY},
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 203 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a14f8c8440b8ccd7ab39742344db6f259}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!brightness\+\_\+return\+\_\+entry@{brightness\+\_\+return\+\_\+entry}}
+\index{brightness\+\_\+return\+\_\+entry@{brightness\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{brightness\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} brightness\+\_\+return\+\_\+entry}\label{menu__struct_8c_a14f8c8440b8ccd7ab39742344db6f259}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a8d1c64e39039537daef345947218a368}{brightness\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_ae72b2e2b3f4c12c369527565c75a2f84}{brightness\_auto\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 223 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a14b53c016253d4271888a3c72b67a7e7}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!classic\+\_\+entry@{classic\+\_\+entry}}
+\index{classic\+\_\+entry@{classic\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{classic\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} classic\+\_\+entry}\label{menu__struct_8c_a14b53c016253d4271888a3c72b67a7e7}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    &\hyperlink{menu__struct_8c_a7e9ecceee2419fae947b4003ea91d806}{jazz\_entry},
+    &\hyperlink{menu__struct_8c_abcf47c2735541c7ff9718e4cdaf3acd0}{pop\_entry},
+    \hyperlink{en_2language_8c_ac21bf36c4170f95be4b4284c3c7b7654}{classic\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 253 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a448818995f6fafe2804b006465bd6143}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!contrast\+\_\+entry@{contrast\+\_\+entry}}
+\index{contrast\+\_\+entry@{contrast\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{contrast\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} contrast\+\_\+entry}\label{menu__struct_8c_a448818995f6fafe2804b006465bd6143}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\_entry},
+    &\hyperlink{menu__struct_8c_a8d1c64e39039537daef345947218a368}{brightness\_entry},
+    &\hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\_entry},
+    \hyperlink{en_2language_8c_aca24af743f57ff29b47ccce101d3e708}{contrast\_text},
+    \hyperlink{menu_2menu_8h_a09a38cec6cbb754c3ce721e7c729c545}{MENU\_CONT\_ENTRY},
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 183 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_aa9e3ed22ff904d8da07fecf7c9a1b3f6}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!fm\+\_\+entry@{fm\+\_\+entry}}
+\index{fm\+\_\+entry@{fm\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{fm\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} fm\+\_\+entry}\label{menu__struct_8c_aa9e3ed22ff904d8da07fecf7c9a1b3f6}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{source\_entry},
+    &\hyperlink{menu__struct_8c_a9c970d72d0ab063d43e8875b327e6ec0}{am\_entry},
+    0,
+    \hyperlink{en_2language_8c_a89de12d3b9184ca9e9129051c58c7c2f}{fm\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 333 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!freq\+\_\+entry@{freq\+\_\+entry}}
+\index{freq\+\_\+entry@{freq\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{freq\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} freq\+\_\+entry}\label{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a135e00e8f7635289e701b3d03887323a}{freq\_seeking\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{radio\_entry},
+    &\hyperlink{menu__struct_8c_a93f68e7e975f106d507aee7a7159d658}{radio\_return\_entry},
+    &\hyperlink{menu__struct_8c_a9b6e00d007197dd4e9f8703e171649a2}{volume\_entry},
+    \hyperlink{en_2language_8c_a43432eb1dd4df5a79adc138b69daf43c}{freq\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 83 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_ae0f0960c12b5328f0e5a6196973d759f}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!freq\+\_\+fixed\+\_\+entry@{freq\+\_\+fixed\+\_\+entry}}
+\index{freq\+\_\+fixed\+\_\+entry@{freq\+\_\+fixed\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{freq\+\_\+fixed\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} freq\+\_\+fixed\+\_\+entry}\label{menu__struct_8c_ae0f0960c12b5328f0e5a6196973d759f}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}{freq\_entry},
+    &\hyperlink{menu__struct_8c_a6e96d852f302001aa5017c126703356c}{freq\_return\_entry},
+    &\hyperlink{menu__struct_8c_a135e00e8f7635289e701b3d03887323a}{freq\_seeking\_entry},
+    \hyperlink{en_2language_8c_a4cdbcf76455b783d6b93f06f9a0fdebc}{fixed\_text},
+    \hyperlink{menu_2menu_8h_a747fe7911f209ee3f6bf6834aed989c3}{MENU\_FREQ\_ENTRY},
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 103 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a6e96d852f302001aa5017c126703356c}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!freq\+\_\+return\+\_\+entry@{freq\+\_\+return\+\_\+entry}}
+\index{freq\+\_\+return\+\_\+entry@{freq\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{freq\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} freq\+\_\+return\+\_\+entry}\label{menu__struct_8c_a6e96d852f302001aa5017c126703356c}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}{freq\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_ae0f0960c12b5328f0e5a6196973d759f}{freq\_fixed\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 113 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a135e00e8f7635289e701b3d03887323a}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!freq\+\_\+seeking\+\_\+entry@{freq\+\_\+seeking\+\_\+entry}}
+\index{freq\+\_\+seeking\+\_\+entry@{freq\+\_\+seeking\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{freq\+\_\+seeking\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} freq\+\_\+seeking\+\_\+entry}\label{menu__struct_8c_a135e00e8f7635289e701b3d03887323a}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}{freq\_entry},
+    &\hyperlink{menu__struct_8c_ae0f0960c12b5328f0e5a6196973d759f}{freq\_fixed\_entry},
+    0,
+    \hyperlink{en_2language_8c_add530b0adb31f15af33bedae9198cf14}{seeking\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 93 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a697c94fcc44c49a0c8ead9bca600fb52}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!hiphop\+\_\+entry@{hiphop\+\_\+entry}}
+\index{hiphop\+\_\+entry@{hiphop\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{hiphop\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} hiphop\+\_\+entry}\label{menu__struct_8c_a697c94fcc44c49a0c8ead9bca600fb52}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    &\hyperlink{menu__struct_8c_ac9f4d55fc69cd633635598b95fe3b7fb}{rock\_entry},
+    &\hyperlink{menu__struct_8c_a7e9ecceee2419fae947b4003ea91d806}{jazz\_entry},
+    \hyperlink{en_2language_8c_a02344c9db5d2bfd3c1ed00a19f7151b7}{hiphop\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 273 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a7e9ecceee2419fae947b4003ea91d806}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!jazz\+\_\+entry@{jazz\+\_\+entry}}
+\index{jazz\+\_\+entry@{jazz\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{jazz\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} jazz\+\_\+entry}\label{menu__struct_8c_a7e9ecceee2419fae947b4003ea91d806}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    &\hyperlink{menu__struct_8c_a697c94fcc44c49a0c8ead9bca600fb52}{hiphop\_entry},
+    &\hyperlink{menu__struct_8c_a14b53c016253d4271888a3c72b67a7e7}{classic\_entry},
+    \hyperlink{en_2language_8c_a0d245d33df0758d08633896ec08c88d0}{jazz\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 263 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a05124d2e348f61fa998c2552f2220d30}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!linein\+\_\+entry@{linein\+\_\+entry}}
+\index{linein\+\_\+entry@{linein\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{linein\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} linein\+\_\+entry}\label{menu__struct_8c_a05124d2e348f61fa998c2552f2220d30}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{source\_entry},
+    &\hyperlink{menu__struct_8c_affc6e5290c0420a3728759234bc58596}{source\_return\_entry},
+    &\hyperlink{menu__struct_8c_a9c970d72d0ab063d43e8875b327e6ec0}{am\_entry},
+    \hyperlink{en_2language_8c_ad818f1a110e64f4df2f9794fc8270aa4}{linein\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 353 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!main\+\_\+entry@{main\+\_\+entry}}
+\index{main\+\_\+entry@{main\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{main\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} main\+\_\+entry}\label{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{view\_entry},
+    0,
+    0,
+    0,
+    0,
+    \hyperlink{en_2language_8c_a1f5e1ca9a27a4e4ff01335ccff0cc3b5}{main\_text},
+    \hyperlink{menu_2menu_8h_a13335c6ce94ec10a1b83f008f03b57d1}{MENU\_MAIN\_ENTRY},
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 3 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a8e439e3e734d93fbf6d575e7acd73552}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!main\+\_\+return\+\_\+entry@{main\+\_\+return\+\_\+entry}}
+\index{main\+\_\+return\+\_\+entry@{main\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{main\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} main\+\_\+return\+\_\+entry}\label{menu__struct_8c_a8e439e3e734d93fbf6d575e7acd73552}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a6ee4e8a9d04886c063b9ad182039aba6}{reset\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 403 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_ae50e89dd0412709aeec192b8254c4602}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!news\+\_\+entry@{news\+\_\+entry}}
+\index{news\+\_\+entry@{news\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{news\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} news\+\_\+entry}\label{menu__struct_8c_ae50e89dd0412709aeec192b8254c4602}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    &\hyperlink{menu__struct_8c_ab4cbcd0a222efd574b8ea5216fd79aa9}{audio\_return\_entry},
+    &\hyperlink{menu__struct_8c_ac9f4d55fc69cd633635598b95fe3b7fb}{rock\_entry},
+    \hyperlink{en_2language_8c_a02929baca3905ef002d1148354be5a7d}{news\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 293 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_abcf47c2735541c7ff9718e4cdaf3acd0}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!pop\+\_\+entry@{pop\+\_\+entry}}
+\index{pop\+\_\+entry@{pop\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{pop\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} pop\+\_\+entry}\label{menu__struct_8c_abcf47c2735541c7ff9718e4cdaf3acd0}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    &\hyperlink{menu__struct_8c_a14b53c016253d4271888a3c72b67a7e7}{classic\_entry},
+    0,
+    \hyperlink{en_2language_8c_a1145571935124e24568ebb9380f33497}{pop\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 243 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a331635dbe1a85000524b89021965aac2}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!ptypi\+\_\+entry@{ptypi\+\_\+entry}}
+\index{ptypi\+\_\+entry@{ptypi\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{ptypi\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} ptypi\+\_\+entry}\label{menu__struct_8c_a331635dbe1a85000524b89021965aac2}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\_entry},
+    &\hyperlink{menu__struct_8c_ae1df7eaf4224e46171cbf74aaa95b587}{rsq\_entry},
+    &\hyperlink{menu__struct_8c_a69a80d4baf42b6d7c7b939a928daa55c}{rds\_entry},
+    \hyperlink{en_2language_8c_a38edda7768897bbbaa6dbc26342e8227}{ptypi\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 153 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!radio\+\_\+entry@{radio\+\_\+entry}}
+\index{radio\+\_\+entry@{radio\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{radio\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} radio\+\_\+entry}\label{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}{tatp\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\_entry},
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    &\hyperlink{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{view\_entry},
+    \hyperlink{en_2language_8c_a72720d2bbce2cc1f12baa44dcea8c53e}{radio\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 23 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a93f68e7e975f106d507aee7a7159d658}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!radio\+\_\+return\+\_\+entry@{radio\+\_\+return\+\_\+entry}}
+\index{radio\+\_\+return\+\_\+entry@{radio\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{radio\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} radio\+\_\+return\+\_\+entry}\label{menu__struct_8c_a93f68e7e975f106d507aee7a7159d658}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{radio\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}{freq\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 123 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a69a80d4baf42b6d7c7b939a928daa55c}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!rds\+\_\+entry@{rds\+\_\+entry}}
+\index{rds\+\_\+entry@{rds\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{rds\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} rds\+\_\+entry}\label{menu__struct_8c_a69a80d4baf42b6d7c7b939a928daa55c}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\_entry},
+    &\hyperlink{menu__struct_8c_a331635dbe1a85000524b89021965aac2}{ptypi\_entry},
+    0,
+    \hyperlink{en_2language_8c_a0c2fcf8291e21a204a4b1d6adac5bfc9}{rds\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 143 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a6ee4e8a9d04886c063b9ad182039aba6}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!reset\+\_\+entry@{reset\+\_\+entry}}
+\index{reset\+\_\+entry@{reset\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{reset\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} reset\+\_\+entry}\label{menu__struct_8c_a6ee4e8a9d04886c063b9ad182039aba6}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a0a401e3d8d4eca7031c9690486ca37a6}{reset\_no\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\_entry},
+    &\hyperlink{menu__struct_8c_a8e439e3e734d93fbf6d575e7acd73552}{main\_return\_entry},
+    &\hyperlink{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{source\_entry},
+    \hyperlink{en_2language_8c_a458c6fd4081a4c586fac1b0c87e03ba2}{reset\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 373 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a0a401e3d8d4eca7031c9690486ca37a6}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!reset\+\_\+no\+\_\+entry@{reset\+\_\+no\+\_\+entry}}
+\index{reset\+\_\+no\+\_\+entry@{reset\+\_\+no\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{reset\+\_\+no\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} reset\+\_\+no\+\_\+entry}\label{menu__struct_8c_a0a401e3d8d4eca7031c9690486ca37a6}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a6ee4e8a9d04886c063b9ad182039aba6}{reset\_entry},
+    &\hyperlink{menu__struct_8c_a820b6b6375d46fc22ac6f5cade1ca504}{reset\_yes\_entry},
+    0,
+    \hyperlink{en_2language_8c_a15a448b53c4fa79aaaba8f89ee9e4f5a}{no\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 383 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a820b6b6375d46fc22ac6f5cade1ca504}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!reset\+\_\+yes\+\_\+entry@{reset\+\_\+yes\+\_\+entry}}
+\index{reset\+\_\+yes\+\_\+entry@{reset\+\_\+yes\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{reset\+\_\+yes\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} reset\+\_\+yes\+\_\+entry}\label{menu__struct_8c_a820b6b6375d46fc22ac6f5cade1ca504}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a6ee4e8a9d04886c063b9ad182039aba6}{reset\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a0a401e3d8d4eca7031c9690486ca37a6}{reset\_no\_entry},
+    \hyperlink{en_2language_8c_a83ea7998dfd33ae7701f058ef284851c}{yes\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 393 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_ac9f4d55fc69cd633635598b95fe3b7fb}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!rock\+\_\+entry@{rock\+\_\+entry}}
+\index{rock\+\_\+entry@{rock\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{rock\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} rock\+\_\+entry}\label{menu__struct_8c_ac9f4d55fc69cd633635598b95fe3b7fb}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8852b1a36cb634f74a0e3279aa8d577d}{audio\_entry},
+    &\hyperlink{menu__struct_8c_ae50e89dd0412709aeec192b8254c4602}{news\_entry},
+    &\hyperlink{menu__struct_8c_a697c94fcc44c49a0c8ead9bca600fb52}{hiphop\_entry},
+    \hyperlink{en_2language_8c_ac7738abc53310605793242a4ac1483b4}{rock\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 283 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_ae1df7eaf4224e46171cbf74aaa95b587}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!rsq\+\_\+entry@{rsq\+\_\+entry}}
+\index{rsq\+\_\+entry@{rsq\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{rsq\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} rsq\+\_\+entry}\label{menu__struct_8c_ae1df7eaf4224e46171cbf74aaa95b587}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\_entry},
+    &\hyperlink{menu__struct_8c_a473d6c735cf7a1c9df8271cc4bf774df}{text\_return\_entry},
+    &\hyperlink{menu__struct_8c_a331635dbe1a85000524b89021965aac2}{ptypi\_entry},
+    \hyperlink{en_2language_8c_ad4e5d72d2747d3cb7b0350fa22a5e727}{rsq\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 163 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!source\+\_\+entry@{source\+\_\+entry}}
+\index{source\+\_\+entry@{source\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{source\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} source\+\_\+entry}\label{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_aa9e3ed22ff904d8da07fecf7c9a1b3f6}{fm\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\_entry},
+    &\hyperlink{menu__struct_8c_a6ee4e8a9d04886c063b9ad182039aba6}{reset\_entry},
+    &\hyperlink{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{view\_entry},
+    \hyperlink{en_2language_8c_ac6b3fe76b23f5a7e03b4b653252f55c3}{source\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 323 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_affc6e5290c0420a3728759234bc58596}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!source\+\_\+return\+\_\+entry@{source\+\_\+return\+\_\+entry}}
+\index{source\+\_\+return\+\_\+entry@{source\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{source\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} source\+\_\+return\+\_\+entry}\label{menu__struct_8c_affc6e5290c0420a3728759234bc58596}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_aba7820c0e8ab67ccb9fea53a5783b8b3}{source\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a05124d2e348f61fa998c2552f2220d30}{linein\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 363 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!tatp\+\_\+entry@{tatp\+\_\+entry}}
+\index{tatp\+\_\+entry@{tatp\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{tatp\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} tatp\+\_\+entry}\label{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_afb596a5162ee45c45e8cee37d3c15e51}{tatp\_on\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{radio\_entry},
+    &\hyperlink{menu__struct_8c_a9b6e00d007197dd4e9f8703e171649a2}{volume\_entry},
+    0,
+    \hyperlink{en_2language_8c_ae8d579cd434991e787fd51b9505557a8}{tatp\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 34 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a27df2b2924ceb2b74877a1dbd8098eb0}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!tatp\+\_\+off\+\_\+entry@{tatp\+\_\+off\+\_\+entry}}
+\index{tatp\+\_\+off\+\_\+entry@{tatp\+\_\+off\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{tatp\+\_\+off\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} tatp\+\_\+off\+\_\+entry}\label{menu__struct_8c_a27df2b2924ceb2b74877a1dbd8098eb0}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}{tatp\_entry},
+    &\hyperlink{menu__struct_8c_a77ef0bf235482c6ca69ee593f14c769b}{tatp\_return\_entry},
+    &\hyperlink{menu__struct_8c_afb596a5162ee45c45e8cee37d3c15e51}{tatp\_on\_entry},
+    \hyperlink{en_2language_8c_aacf6c7ae2a396fae9b3ca1de77a220cb}{off\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 53 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_afb596a5162ee45c45e8cee37d3c15e51}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!tatp\+\_\+on\+\_\+entry@{tatp\+\_\+on\+\_\+entry}}
+\index{tatp\+\_\+on\+\_\+entry@{tatp\+\_\+on\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{tatp\+\_\+on\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} tatp\+\_\+on\+\_\+entry}\label{menu__struct_8c_afb596a5162ee45c45e8cee37d3c15e51}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}{tatp\_entry},
+    &\hyperlink{menu__struct_8c_a27df2b2924ceb2b74877a1dbd8098eb0}{tatp\_off\_entry},
+    0,
+    \hyperlink{en_2language_8c_a7a06cd76fb8f71b85f9f1f5fc6c2b24b}{on\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 43 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a77ef0bf235482c6ca69ee593f14c769b}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!tatp\+\_\+return\+\_\+entry@{tatp\+\_\+return\+\_\+entry}}
+\index{tatp\+\_\+return\+\_\+entry@{tatp\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{tatp\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} tatp\+\_\+return\+\_\+entry}\label{menu__struct_8c_a77ef0bf235482c6ca69ee593f14c769b}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}{tatp\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a27df2b2924ceb2b74877a1dbd8098eb0}{tatp\_off\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 63 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!text\+\_\+entry@{text\+\_\+entry}}
+\index{text\+\_\+entry@{text\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{text\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} text\+\_\+entry}\label{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a69a80d4baf42b6d7c7b939a928daa55c}{rds\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{view\_entry},
+    &\hyperlink{menu__struct_8c_a448818995f6fafe2804b006465bd6143}{contrast\_entry},
+    0,
+    \hyperlink{en_2language_8c_a4ae60aaf5af096293adeba301621221f}{text\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 133 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a473d6c735cf7a1c9df8271cc4bf774df}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!text\+\_\+return\+\_\+entry@{text\+\_\+return\+\_\+entry}}
+\index{text\+\_\+return\+\_\+entry@{text\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{text\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} text\+\_\+return\+\_\+entry}\label{menu__struct_8c_a473d6c735cf7a1c9df8271cc4bf774df}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_ae1df7eaf4224e46171cbf74aaa95b587}{rsq\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 173 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!view\+\_\+entry@{view\+\_\+entry}}
+\index{view\+\_\+entry@{view\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{view\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} view\+\_\+entry}\label{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a8fc38b561a93fafb70d512237bc04a15}{text\_entry},
+    0,
+    &\hyperlink{menu__struct_8c_a25f7cd9057718668296a61f1b3bad6e5}{main\_entry},
+    &\hyperlink{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{radio\_entry},
+    0,
+    \hyperlink{en_2language_8c_af6f2eabd7837cc6d54144375e0574334}{view\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 13 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a070256bd3ec472fc930a725f5799e523}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!view\+\_\+return\+\_\+entry@{view\+\_\+return\+\_\+entry}}
+\index{view\+\_\+return\+\_\+entry@{view\+\_\+return\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{view\+\_\+return\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} view\+\_\+return\+\_\+entry}\label{menu__struct_8c_a070256bd3ec472fc930a725f5799e523}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    &\hyperlink{menu__struct_8c_a8ac8db7b30055d1bb5bb617d7ccfd4b4}{view\_entry},
+    0,
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a8d1c64e39039537daef345947218a368}{brightness\_entry},
+    \hyperlink{en_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\_text},
+    0,
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 313 der Datei menu\+\_\+struct.\+c.
+
+\hypertarget{menu__struct_8c_a9b6e00d007197dd4e9f8703e171649a2}{}\index{menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}!volume\+\_\+entry@{volume\+\_\+entry}}
+\index{volume\+\_\+entry@{volume\+\_\+entry}!menu\+\_\+struct.\+c@{menu\+\_\+struct.\+c}}
+\subsubsection[{volume\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+N\+U\+\_\+\+E\+N\+T\+R\+Y} volume\+\_\+entry}\label{menu__struct_8c_a9b6e00d007197dd4e9f8703e171649a2}
+{\bfseries Initialisierung\+:}
+\begin{DoxyCode}
+= \{
+    0,
+    0,
+    &\hyperlink{menu__struct_8c_a4bbc71a5c131a53de85751f1bb7e4470}{radio\_entry},
+    &\hyperlink{menu__struct_8c_a9ffff425569367b4fe995593b5f933d9}{freq\_entry},
+    &\hyperlink{menu__struct_8c_ae32a7a1775d51cd2063f93223ffd5b83}{tatp\_entry},
+    \hyperlink{en_2language_8c_a590ea532904407ae0e73a48ff15f7b61}{volume\_text},
+    \hyperlink{menu_2menu_8h_a1b6ff4cb0321d3c665859cd7c0ca3d7c}{MENU\_VOL\_ENTRY},
+\}
+\end{DoxyCode}
+
+
+Definiert in Zeile 73 der Datei menu\+\_\+struct.\+c.
+

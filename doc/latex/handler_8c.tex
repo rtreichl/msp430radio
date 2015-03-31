@@ -1,0 +1,78 @@
+\hypertarget{handler_8c}{}\section{system/src/handler.c-\/\+Dateireferenz}
+\label{handler_8c}\index{system/src/handler.\+c@{system/src/handler.\+c}}
+{\ttfamily \#include $<$system/handler.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für handler.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{handler_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{handler_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}~1000
+\item 
+\#define \hyperlink{handler_8c_a51c68c498627f53e5abb0a3415148b78}{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}~10
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{handler_8c_a4f639cde11f5cab70d795fd2f75c9d22}{handler} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{handler_8c_a51c68c498627f53e5abb0a3415148b78}{}\index{handler.\+c@{handler.\+c}!E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H@{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}}
+\index{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H@{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}!handler.\+c@{handler.\+c}}
+\subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H~10}\label{handler_8c_a51c68c498627f53e5abb0a3415148b78}
+
+
+Definiert in Zeile 22 der Datei handler.\+c.
+
+\hypertarget{handler_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{}\index{handler.\+c@{handler.\+c}!T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D@{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}}
+\index{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D@{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}!handler.\+c@{handler.\+c}}
+\subsubsection[{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D~1000}\label{handler_8c_aeef40d3fecdec58e4c8c0a51cc41a563}
+
+
+Definiert in Zeile 21 der Datei handler.\+c.
+
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{handler_8c_a4f639cde11f5cab70d795fd2f75c9d22}{}\index{handler.\+c@{handler.\+c}!handler@{handler}}
+\index{handler@{handler}!handler.\+c@{handler.\+c}}
+\subsubsection[{handler}]{\setlength{\rightskip}{0pt plus 5cm}void handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{handler_8c_a4f639cde11f5cab70d795fd2f75c9d22}
+
+
+Definiert in Zeile 24 der Datei handler.\+c.
+
+
+\begin{DoxyCode}
+25 \{
+26     \textcolor{comment}{//TODO collect all function for timer based and calling functions}
+27     \textcolor{keywordflow}{while}(1) \{
+28         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[0] >= \hyperlink{handler_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{TIME\_SECOND}) \{
+29             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[0] -= \hyperlink{handler_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{TIME\_SECOND};
+30             \textcolor{comment}{//call time\_update();}
+31         \}
+32         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] >= \hyperlink{handler_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH}) \{
+33             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] -= \hyperlink{handler_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH};
+34             \textcolor{comment}{//call encoder\_interrupt2();}
+35         \}
+36         \textcolor{comment}{/*if(encoder\_2 != 0 || encoder\_1 != 0 || encoder\_1\_button != 'f' || encoder\_2\_button != 'f') \{}
+37 \textcolor{comment}{            call menu\_handler}
+38 \textcolor{comment}{        \}}
+39 \textcolor{comment}{         */}
+40         \textcolor{comment}{//TODO check for rds interrupt and go on further functions}
+41         \textcolor{comment}{//TODO call all half second or on specified input aciton menu function}
+42         \textcolor{comment}{//TODO do all 0.1 messuarments on a valid channel}
+43         \textcolor{comment}{//TODO implement timers and eventtimers}
+44         \textcolor{comment}{//TODO polling encoder switches every 10 up to 20 milli seconds}
+45     \}
+46 \}
+\end{DoxyCode}

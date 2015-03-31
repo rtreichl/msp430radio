@@ -1,0 +1,341 @@
+\hypertarget{tpa2016d2_8h}{}\section{driver/tpa2016d2.h-\/\+Dateireferenz}
+\label{tpa2016d2_8h}\index{driver/tpa2016d2.\+h@{driver/tpa2016d2.\+h}}
+{\ttfamily \#include $<$msp430.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$driver/i2c.\+h$>$}\\*
+{\ttfamily \#include $<$settings/radio\+\_\+pin\+\_\+mapping.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Timer.\+h\char`\"{}}\\*
+Include-\/\+Abhängigkeitsdiagramm für tpa2016d2.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tpa2016d2_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{tpa2016d2_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2\+C\+\_\+\+A\+U\+D\+I\+O\+\_\+\+A\+M\+P}~0x58
+\item 
+\#define \hyperlink{tpa2016d2_8h_ac2c21fac97c921e7ab57843e0aeead27}{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+O\+R\+T}~P3\+O\+U\+T
+\item 
+\#define \hyperlink{tpa2016d2_8h_a5035f08465a3fa01ae75a28b5507b7e1}{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+I\+N}~B\+I\+T2
+\item 
+\#define \hyperlink{tpa2016d2_8h_a748f1e38944d06ed610b05e416e1a41f}{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+D\+D\+R}~P3\+D\+I\+R
+\end{DoxyCompactItemize}
+\subsection*{Aufzählungen}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89}{E\+Q\+U\+A\+L\+I\+Z\+E\+R} \{ \\*
+\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a061dcf4785583d8653942f2d252174fa}{P\+O\+P} = 0, 
+\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a5d5a8aa8f016711cf286fd27974f0298}{C\+L\+A\+S\+S\+I\+C}, 
+\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89abe6f1fd008b7070f5611e08345f569d4}{J\+A\+Z\+Z}, 
+\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a86d9b2fe4fc0b9b3fa1847bf70b1a327}{R\+A\+P\+\_\+\+H\+I\+P\+\_\+\+H\+O\+P}, 
+\\*
+\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89ab39e373af8c527684a4f0ded36bd961c}{R\+O\+C\+K}, 
+\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89aef5dfc874ef76ff6dc3d880f56eb63f8}{N\+E\+W\+S\+\_\+\+V\+O\+I\+C\+E}
+ \}
+\item 
+enum \hyperlink{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7}{A\+M\+P\+L\+I\+F\+I\+E\+R} \{ \hyperlink{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7ad590443978dc58d64aed5001f56efcdf}{R\+E\+L\+E\+A\+S\+E} = 0, 
+\hyperlink{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7a7690b021f467450541d8d89123429d40}{S\+H\+U\+T\+D\+O\+W\+N}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tpa2016d2_8h_a69f931d3974bd6188f078754326405d3}{Amplifier\+\_\+init} (uint8\+\_\+t Start\+\_\+\+Mode, int8\+\_\+t Start\+\_\+\+Gain)
+\item 
+void \hyperlink{tpa2016d2_8h_ac2888c9f56e491da52fea85f5d23c71c}{Amplifier\+\_\+\+Shutdown} (uint8\+\_\+t Shutdown)
+\item 
+void \hyperlink{tpa2016d2_8h_a6c015ab78caba6ea4a9de93ad7d97d65}{Amplifier\+\_\+\+Gain} (int8\+\_\+t Gain)
+\item 
+void \hyperlink{tpa2016d2_8h_a52781315d0f308dba4aee65a749da317}{Amplifier\+\_\+set\+\_\+equalizer\+\_\+mode} (uint8\+\_\+t Mode, int8\+\_\+t Gain)
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{tpa2016d2_8h_a748f1e38944d06ed610b05e416e1a41f}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+D\+D\+R@{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+D\+D\+R}}
+\index{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+D\+D\+R@{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+D\+D\+R}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+D\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+D\+D\+R~P3\+D\+I\+R}\label{tpa2016d2_8h_a748f1e38944d06ed610b05e416e1a41f}
+
+
+Definiert in Zeile 20 der Datei tpa2016d2.\+h.
+
+\hypertarget{tpa2016d2_8h_a5035f08465a3fa01ae75a28b5507b7e1}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+I\+N@{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+I\+N}}
+\index{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+I\+N@{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+I\+N}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+I\+N~B\+I\+T2}\label{tpa2016d2_8h_a5035f08465a3fa01ae75a28b5507b7e1}
+
+
+Definiert in Zeile 19 der Datei tpa2016d2.\+h.
+
+\hypertarget{tpa2016d2_8h_ac2c21fac97c921e7ab57843e0aeead27}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+O\+R\+T@{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+O\+R\+T}}
+\index{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+O\+R\+T@{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+O\+R\+T}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+O\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+U\+D\+I\+O\+\_\+\+S\+H\+U\+T\+\_\+\+D\+O\+W\+N\+\_\+\+P\+O\+R\+T~P3\+O\+U\+T}\label{tpa2016d2_8h_ac2c21fac97c921e7ab57843e0aeead27}
+
+
+Definiert in Zeile 18 der Datei tpa2016d2.\+h.
+
+\hypertarget{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!I2\+C\+\_\+\+A\+U\+D\+I\+O\+\_\+\+A\+M\+P@{I2\+C\+\_\+\+A\+U\+D\+I\+O\+\_\+\+A\+M\+P}}
+\index{I2\+C\+\_\+\+A\+U\+D\+I\+O\+\_\+\+A\+M\+P@{I2\+C\+\_\+\+A\+U\+D\+I\+O\+\_\+\+A\+M\+P}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{I2\+C\+\_\+\+A\+U\+D\+I\+O\+\_\+\+A\+M\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+A\+U\+D\+I\+O\+\_\+\+A\+M\+P~0x58}\label{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}
+
+
+Definiert in Zeile 17 der Datei tpa2016d2.\+h.
+
+
+
+\subsection{Dokumentation der Aufzählungstypen}
+\hypertarget{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!A\+M\+P\+L\+I\+F\+I\+E\+R@{A\+M\+P\+L\+I\+F\+I\+E\+R}}
+\index{A\+M\+P\+L\+I\+F\+I\+E\+R@{A\+M\+P\+L\+I\+F\+I\+E\+R}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{A\+M\+P\+L\+I\+F\+I\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf A\+M\+P\+L\+I\+F\+I\+E\+R}}\label{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{R\+E\+L\+E\+A\+S\+E@{R\+E\+L\+E\+A\+S\+E}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!R\+E\+L\+E\+A\+S\+E@{R\+E\+L\+E\+A\+S\+E}}\item[{\em 
+\hypertarget{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7ad590443978dc58d64aed5001f56efcdf}{}R\+E\+L\+E\+A\+S\+E\label{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7ad590443978dc58d64aed5001f56efcdf}
+}]\index{S\+H\+U\+T\+D\+O\+W\+N@{S\+H\+U\+T\+D\+O\+W\+N}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!S\+H\+U\+T\+D\+O\+W\+N@{S\+H\+U\+T\+D\+O\+W\+N}}\item[{\em 
+\hypertarget{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7a7690b021f467450541d8d89123429d40}{}S\+H\+U\+T\+D\+O\+W\+N\label{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7a7690b021f467450541d8d89123429d40}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 24 der Datei tpa2016d2.\+h.
+
+
+\begin{DoxyCode}
+24 \{\hyperlink{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7ad590443978dc58d64aed5001f56efcdf}{RELEASE} = 0, \hyperlink{tpa2016d2_8h_aa769aca8c887ab41c73dd6f936a0b1c7a7690b021f467450541d8d89123429d40}{SHUTDOWN}\};
+\end{DoxyCode}
+\hypertarget{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!E\+Q\+U\+A\+L\+I\+Z\+E\+R@{E\+Q\+U\+A\+L\+I\+Z\+E\+R}}
+\index{E\+Q\+U\+A\+L\+I\+Z\+E\+R@{E\+Q\+U\+A\+L\+I\+Z\+E\+R}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{E\+Q\+U\+A\+L\+I\+Z\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf E\+Q\+U\+A\+L\+I\+Z\+E\+R}}\label{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{P\+O\+P@{P\+O\+P}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!P\+O\+P@{P\+O\+P}}\item[{\em 
+\hypertarget{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a061dcf4785583d8653942f2d252174fa}{}P\+O\+P\label{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a061dcf4785583d8653942f2d252174fa}
+}]\index{C\+L\+A\+S\+S\+I\+C@{C\+L\+A\+S\+S\+I\+C}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!C\+L\+A\+S\+S\+I\+C@{C\+L\+A\+S\+S\+I\+C}}\item[{\em 
+\hypertarget{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a5d5a8aa8f016711cf286fd27974f0298}{}C\+L\+A\+S\+S\+I\+C\label{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a5d5a8aa8f016711cf286fd27974f0298}
+}]\index{J\+A\+Z\+Z@{J\+A\+Z\+Z}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!J\+A\+Z\+Z@{J\+A\+Z\+Z}}\item[{\em 
+\hypertarget{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89abe6f1fd008b7070f5611e08345f569d4}{}J\+A\+Z\+Z\label{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89abe6f1fd008b7070f5611e08345f569d4}
+}]\index{R\+A\+P\+\_\+\+H\+I\+P\+\_\+\+H\+O\+P@{R\+A\+P\+\_\+\+H\+I\+P\+\_\+\+H\+O\+P}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!R\+A\+P\+\_\+\+H\+I\+P\+\_\+\+H\+O\+P@{R\+A\+P\+\_\+\+H\+I\+P\+\_\+\+H\+O\+P}}\item[{\em 
+\hypertarget{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a86d9b2fe4fc0b9b3fa1847bf70b1a327}{}R\+A\+P\+\_\+\+H\+I\+P\+\_\+\+H\+O\+P\label{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a86d9b2fe4fc0b9b3fa1847bf70b1a327}
+}]\index{R\+O\+C\+K@{R\+O\+C\+K}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!R\+O\+C\+K@{R\+O\+C\+K}}\item[{\em 
+\hypertarget{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89ab39e373af8c527684a4f0ded36bd961c}{}R\+O\+C\+K\label{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89ab39e373af8c527684a4f0ded36bd961c}
+}]\index{N\+E\+W\+S\+\_\+\+V\+O\+I\+C\+E@{N\+E\+W\+S\+\_\+\+V\+O\+I\+C\+E}!tpa2016d2.\+h@{tpa2016d2.\+h}}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!N\+E\+W\+S\+\_\+\+V\+O\+I\+C\+E@{N\+E\+W\+S\+\_\+\+V\+O\+I\+C\+E}}\item[{\em 
+\hypertarget{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89aef5dfc874ef76ff6dc3d880f56eb63f8}{}N\+E\+W\+S\+\_\+\+V\+O\+I\+C\+E\label{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89aef5dfc874ef76ff6dc3d880f56eb63f8}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 22 der Datei tpa2016d2.\+h.
+
+
+\begin{DoxyCode}
+22 \{\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a061dcf4785583d8653942f2d252174fa}{POP} = 0, \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a5d5a8aa8f016711cf286fd27974f0298}{CLASSIC}, \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89abe6f1fd008b7070f5611e08345f569d4}{JAZZ}, \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a86d9b2fe4fc0b9b3fa1847bf70b1a327}{RAP\_HIP\_HOP}, \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89ab39e373af8c527684a4f0ded36bd961c}{ROCK}, 
+      \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89aef5dfc874ef76ff6dc3d880f56eb63f8}{NEWS\_VOICE}\};
+\end{DoxyCode}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{tpa2016d2_8h_a6c015ab78caba6ea4a9de93ad7d97d65}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!Amplifier\+\_\+\+Gain@{Amplifier\+\_\+\+Gain}}
+\index{Amplifier\+\_\+\+Gain@{Amplifier\+\_\+\+Gain}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{Amplifier\+\_\+\+Gain}]{\setlength{\rightskip}{0pt plus 5cm}void Amplifier\+\_\+\+Gain (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t}]{Gain}
+\end{DoxyParamCaption}
+)}\label{tpa2016d2_8h_a6c015ab78caba6ea4a9de93ad7d97d65}
+
+
+Definiert in Zeile 35 der Datei tpa2016d2.\+c.
+
+
+\begin{DoxyCode}
+36 \{
+37     \textcolor{comment}{// Check gain value for valid range}
+38     \textcolor{keywordflow}{if}(Gain > 30)
+39         Gain = 30;
+40     \textcolor{keywordflow}{if}(Gain < -28)
+41         Gain = -28;
+42 
+43     \textcolor{comment}{// Send new gain to amplifier}
+44     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 0x05,(Gain & 0x3F));
+45 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tpa2016d2_8h_a6c015ab78caba6ea4a9de93ad7d97d65_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tpa2016d2_8h_a69f931d3974bd6188f078754326405d3}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!Amplifier\+\_\+init@{Amplifier\+\_\+init}}
+\index{Amplifier\+\_\+init@{Amplifier\+\_\+init}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{Amplifier\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void Amplifier\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{Start\+\_\+\+Mode, }
+\item[{int8\+\_\+t}]{Start\+\_\+\+Gain}
+\end{DoxyParamCaption}
+)}\label{tpa2016d2_8h_a69f931d3974bd6188f078754326405d3}
+
+
+Definiert in Zeile 9 der Datei tpa2016d2.\+c.
+
+
+\begin{DoxyCode}
+10 \{
+11     \textcolor{comment}{// Enable Amplifier by pulling SDZ high}
+12     \hyperlink{settings_2radio__pin__mapping_8h_a5a9262edd58c8c722edb7a9b14c1e4e6}{AMP\_SHUTDOWN\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_a06ef892acbaf7877c229e9c69f4f0fb1}{AMP\_SHUTDOWN\_PIN};
+13     \hyperlink{settings_2radio__pin__mapping_8h_afcf9213afeb6d7831329725437d5bcd4}{AMP\_SHUTDOWN\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a06ef892acbaf7877c229e9c69f4f0fb1}{AMP\_SHUTDOWN\_PIN};
+14 
+15     \textcolor{comment}{// Wait some time before configure Amplifier}
+16     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(5);
+17 
+18 
+19     \textcolor{comment}{// Enable Amplifier with R/L speaker enabled}
+20     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 0x01, 0xC1);
+21 
+22     \textcolor{comment}{// Wait some time before continue with configure}
+23     \_\_delay\_cycles(800);
+24 
+25     \textcolor{comment}{// configure exended configuration}
+26     \hyperlink{tpa2016d2_8c_a52781315d0f308dba4aee65a749da317}{Amplifier\_set\_equalizer\_mode}(Start\_Mode, Start\_Gain);
+27 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tpa2016d2_8h_a69f931d3974bd6188f078754326405d3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{tpa2016d2_8h_a69f931d3974bd6188f078754326405d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tpa2016d2_8h_a52781315d0f308dba4aee65a749da317}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!Amplifier\+\_\+set\+\_\+equalizer\+\_\+mode@{Amplifier\+\_\+set\+\_\+equalizer\+\_\+mode}}
+\index{Amplifier\+\_\+set\+\_\+equalizer\+\_\+mode@{Amplifier\+\_\+set\+\_\+equalizer\+\_\+mode}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{Amplifier\+\_\+set\+\_\+equalizer\+\_\+mode}]{\setlength{\rightskip}{0pt plus 5cm}void Amplifier\+\_\+set\+\_\+equalizer\+\_\+mode (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{Mode, }
+\item[{int8\+\_\+t}]{Gain}
+\end{DoxyParamCaption}
+)}\label{tpa2016d2_8h_a52781315d0f308dba4aee65a749da317}
+
+
+Definiert in Zeile 47 der Datei tpa2016d2.\+c.
+
+
+\begin{DoxyCode}
+48 \{
+49     \textcolor{comment}{// Check gain value for valid range}
+50     \textcolor{keywordflow}{if}(Gain > 30)
+51         Gain = 30;
+52     \textcolor{keywordflow}{if}(Gain < -28)
+53         Gain = -28;
+54     \textcolor{keywordflow}{switch}(Mode) \{
+55     \textcolor{keywordflow}{case} 0:
+56         \textcolor{comment}{// POP}
+57         \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 7, 0x02, 0x03, 0x08, 0x0A, (Gain &
+       0x3F), 0x3C, 0xC2);
+58         \textcolor{keywordflow}{break};
+59     \textcolor{keywordflow}{case} 1:
+60         \textcolor{comment}{// CLASSIC}
+61         \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 7, 0x02, 0x02, 0x07, 0x0A, (Gain &
+       0x3F), 0x3D, 0xC1);
+62         \textcolor{keywordflow}{break};
+63     \textcolor{keywordflow}{case} 2:
+64         \textcolor{comment}{// JAZZ}
+65         \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 7, 0x02, 0x06, 0x14, 0x00, (Gain &
+       0x3F), 0x3D, 0xC1);
+66         \textcolor{keywordflow}{break};
+67     \textcolor{keywordflow}{case} 3:
+68         \textcolor{comment}{// RAP HIP HOP}
+69         \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 7, 0x02, 0x01, 0x0A, 0x00, (Gain &
+       0x3F), 0x3C, 0xC2);
+70         \textcolor{keywordflow}{break};
+71     \textcolor{keywordflow}{case} 4:
+72         \textcolor{comment}{// ROCK}
+73         \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 7, 0x02, 0x03, 0x19, 0x00, (Gain &
+       0x3F), 0x3D, 0xC1);
+74         \textcolor{keywordflow}{break};
+75     \textcolor{keywordflow}{case} 5:
+76         \textcolor{comment}{// NEWS VOICE}
+77         \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 7, 0x02, 0x02, 0x0A, 0x00, (Gain &
+       0x3F), 0x3E, 0xC2);
+78         \textcolor{keywordflow}{break};
+79     \}
+80 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tpa2016d2_8h_a52781315d0f308dba4aee65a749da317_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tpa2016d2_8h_a52781315d0f308dba4aee65a749da317_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tpa2016d2_8h_ac2888c9f56e491da52fea85f5d23c71c}{}\index{tpa2016d2.\+h@{tpa2016d2.\+h}!Amplifier\+\_\+\+Shutdown@{Amplifier\+\_\+\+Shutdown}}
+\index{Amplifier\+\_\+\+Shutdown@{Amplifier\+\_\+\+Shutdown}!tpa2016d2.\+h@{tpa2016d2.\+h}}
+\subsubsection[{Amplifier\+\_\+\+Shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void Amplifier\+\_\+\+Shutdown (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{Shutdown}
+\end{DoxyParamCaption}
+)}\label{tpa2016d2_8h_ac2888c9f56e491da52fea85f5d23c71c}
+
+
+Definiert in Zeile 29 der Datei tpa2016d2.\+c.
+
+
+\begin{DoxyCode}
+30 \{
+31     \textcolor{comment}{// Send command to amplifier}
+32     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{tpa2016d2_8h_aeaacce3515e1a70628cbc5679559fcdf}{I2C\_AUDIO\_AMP}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, 0x01, 0xC3 | Shutdown<<5);
+33 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tpa2016d2_8h_ac2888c9f56e491da52fea85f5d23c71c_cgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,166 @@
+.TH "driver/src/i2c.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/src/i2c.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <driver/i2c\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBI2C_CTRL\fP"
+.br
+.RI "\fIThis struct inclued all necessaries for I2C module\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBi2c_init\fP (uint16_t smclk_freq, uint16_t i2c_freq)"
+.br
+.RI "\fISetup I2C with a defined clock based on given SMCKL\&. \fP"
+.ti -1c
+.RI "uint8_t \fBi2c_write_var\fP (uint8_t addr, enum \fBI2C_CRTL_CMD\fP rept_start, uint8_t n_args,\&.\&.\&.)"
+.br
+.RI "\fITransmits I2C commands with a variable length to a I2C slave\&. \fP"
+.ti -1c
+.RI "uint8_t \fBi2c_write_arr\fP (uint8_t addr, enum \fBI2C_CRTL_CMD\fP rept_start, uint8_t n_size, uint8_t *TxData)"
+.br
+.RI "\fITransmits I2C command array to a I2C slave\&. \fP"
+.ti -1c
+.RI "uint8_t \fBi2c_read\fP (uint8_t addr, enum \fBI2C_CRTL_CMD\fP rept_start, uint8_t RXBytes, uint8_t *RxData)"
+.br
+.RI "\fIReceives I2C commands until a NACK is received or received RxBytes\&. \fP"
+.ti -1c
+.RI "uint8_t \fBi2c_get_status\fP ()"
+.br
+.ti -1c
+.RI "__interrupt void \fBUSCIAB0TX_ISR\fP (void)"
+.br
+.ti -1c
+.RI "__interrupt void \fBUSCIAB0RX_ISR\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "struct \fBI2C_CTRL\fP \fBi2c\fP = { \&.\fBPTxData\fP = 0, \&.\fBstatus\fP = \fBIDLE\fP, \&.TxByteRes = 0 }"
+.br
+.ti -1c
+.RI "uint8_t * \fBPTxData\fP = 0"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t i2c_get_status ()"
+
+.PP
+\fBReturns:\fP
+.RS 4
+Actuall state of I2C module\&. 
+.RE
+.PP
+
+.SS "uint8_t i2c_init (uint16_t smclk_freq, uint16_t i2c_freq)"
+
+.PP
+Setup I2C with a defined clock based on given SMCKL\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsmclk_freq\fP Frequency of SMCLK clock in Hz 
+.br
+\fIi2c_freq\fP Frequency for I2C clock in Hz 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+error 
+.RE
+.PP
+
+.SS "uint8_t i2c_read (uint8_t addr, enum \fBI2C_CRTL_CMD\fP rept_start, uint8_t RxBytes, uint8_t * RxData)"
+
+.PP
+Receives I2C commands until a NACK is received or received RxBytes\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP Slave Address in 7-bit format\&. 
+.br
+\fIrept_start\fP Command for stop or repeated start\&. 
+.br
+\fIRxBytes\fP Number of receiving bytes\&. 
+.br
+\fI*RxData\fP Pointer where received I2C commands are be writtn\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+error 
+.RE
+.PP
+
+.SS "uint8_t i2c_write_arr (uint8_t addr, enum \fBI2C_CRTL_CMD\fP rept_start, uint8_t n_size, uint8_t * TxData)"
+
+.PP
+Transmits I2C command array to a I2C slave\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP Slave Address in 7-bit format\&. 
+.br
+\fIrept_start\fP Command for stop or repeated start\&. 
+.br
+\fIn_size\fP Number of transmitting bytes\&. 
+.br
+\fI*TxData\fP Pointer to I2C command bytes to send\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+error 
+.RE
+.PP
+
+.SS "uint8_t i2c_write_var (uint8_t addr, enum \fBI2C_CRTL_CMD\fP rept_start, uint8_t n_args,  \&.\&.\&.)"
+
+.PP
+Transmits I2C commands with a variable length to a I2C slave\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP Slave Address in 7-bit format\&. 
+.br
+\fIrept_start\fP Command for stop or repeated start\&. 
+.br
+\fIn_args\fP Number of command bytes\&. 
+.br
+\fI\&.\&.\&.\fP I2C command bytes to send\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+error 
+.RE
+.PP
+
+.SS "__interrupt void USCIAB0RX_ISR (void)"
+
+.SS "__interrupt void USCIAB0TX_ISR (void)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBI2C_CTRL\fP  i2c = { \&.\fBPTxData\fP = 0, \&.\fBstatus\fP = \fBIDLE\fP, \&.TxByteRes = 0 }"
+
+.SS "uint8_t* PTxData = 0"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

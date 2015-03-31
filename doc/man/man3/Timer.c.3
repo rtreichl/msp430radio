@@ -1,0 +1,73 @@
+.TH "Timer.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Timer.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <msp430\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <settings/radio_configuration\&.h>\fP
+.br
+\fC#include 'Timer\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTIMER_COUNTS\fP   10"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbasic_clock_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtimer_init\fP ()"
+.br
+.ti -1c
+.RI "__interrupt void \fBTimer_A1\fP (void)"
+.br
+.ti -1c
+.RI "void \fB_delay_ms\fP (int ms)"
+.br
+.ti -1c
+.RI "void \fB_delay_us\fP (int us)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "volatile uint16_t \fBtimer_count\fP [\fBTIMER_COUNTS\fP]"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define TIMER_COUNTS   10"
+
+.SH "Function Documentation"
+.PP 
+.SS "void _delay_ms (int ms)"
+
+.SS "void _delay_us (int us)"
+
+.SS "void basic_clock_init (void)"
+
+.SS "__interrupt void Timer_A1 (void)"
+
+.SS "void timer_init ()"
+
+.SH "Variable Documentation"
+.PP 
+.SS "volatile uint16_t timer_count[\fBTIMER_COUNTS\fP]"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

@@ -1,0 +1,83 @@
+.TH "driver/src/external_interrupthandler.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/src/external_interrupthandler.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <driver/external_interrupthandler\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBENCODER_1\fP"
+.br
+.ti -1c
+.RI "#define \fBENCODER_2\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef volatile void(* \fBptrfunc\fP) ()"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBext_interrupt_create\fP (uint8_t int_number, void(*ptrfunction)())"
+.br
+.ti -1c
+.RI "uint8_t \fBext_interrupt_delete\fP (uint8_t int_number)"
+.br
+.ti -1c
+.RI "uint8_t \fBext_interrupt_enable\fP (uint8_t int_number)"
+.br
+.ti -1c
+.RI "uint8_t \fBext_interrupt_disable\fP (uint8_t int_number)"
+.br
+.ti -1c
+.RI "__interrupt void \fBPort12_interrupts\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBptrfunc\fP \fBext_int_handler\fP [16] = {0}"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ENCODER_1"
+
+.SS "#define ENCODER_2"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef volatile void(* ptrfunc) ()"
+
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t ext_interrupt_create (uint8_t int_number, void(*)() ptrfunction)"
+
+.SS "uint8_t ext_interrupt_delete (uint8_t int_number)"
+
+.SS "uint8_t ext_interrupt_disable (uint8_t int_number)"
+
+.SS "uint8_t ext_interrupt_enable (uint8_t int_number)"
+
+.SS "__interrupt void Port12_interrupts (void)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "\fBptrfunc\fP ext_int_handler[16] = {0}"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

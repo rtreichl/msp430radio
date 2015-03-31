@@ -1,0 +1,54 @@
+.TH "Radio.c" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Radio.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Radio\&.h'\fP
+.br
+\fC#include <driver/i2c\&.h>\fP
+.br
+\fC#include <driver/si4735\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include 'Timer\&.h'\fP
+.br
+\fC#include 'Menu\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBget_rds_data\fP (int *Radio_States, char *Station_Name, char *Radion_Text)"
+.br
+.ti -1c
+.RI "uint8_t \fBget_signal_qual\fP (uint8_t *stats)"
+.br
+.ti -1c
+.RI "uint8_t \fBrds_triggered\fP ()"
+.br
+.ti -1c
+.RI "void \fBrds_group_4A\fP (\fBRDS\fP *data)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void get_rds_data (int * Radio_States, char * Station_Name, char * Radion_Text)"
+
+.SS "uint8_t get_signal_qual (uint8_t * stats)"
+
+.SS "void rds_group_4A (\fBRDS\fP * data)"
+
+.SS "uint8_t rds_triggered ()"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

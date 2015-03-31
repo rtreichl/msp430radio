@@ -1,0 +1,98 @@
+.TH "Menu.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Menu.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_ZERO_LVL\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMAX_FIRST_LVL\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMAX_SECOND_LVL\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMAX_THIRD_LVL\fP   4"
+.br
+.ti -1c
+.RI "#define \fBBLEND_OUT_AFTER\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAMPLIFIER_GAIN\fP   15"
+.br
+.ti -1c
+.RI "#define \fBBUTTON_PRESS_LONG\fP   0x6C"
+.br
+.ti -1c
+.RI "#define \fBBUTTON_PRESS_SHORT\fP   0x6B"
+.br
+.ti -1c
+.RI "#define \fBBUTTON_FREE\fP   0x66"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmenu\fP (void)"
+.br
+.ti -1c
+.RI "void \fBnull_befor_value\fP (char *string, char \fBvalue\fP, unsigned char pos)"
+.br
+.ti -1c
+.RI "void \fBtime_date\fP (unsigned char t_hour, unsigned char t_minute, unsigned char t_day, unsigned char t_month, unsigned char t_year, unsigned char update, unsigned char minute_up, char *s_time, char *s_date)"
+.br
+.ti -1c
+.RI "void \fBenter_standby\fP (void)"
+.br
+.ti -1c
+.RI "void \fBexit_standby\fP (void)"
+.br
+.ti -1c
+.RI "char \fBcheck_for_out_of_range\fP (signed char \fBvalue\fP, char modulo)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AMPLIFIER_GAIN   15"
+
+.SS "#define BLEND_OUT_AFTER   3"
+
+.SS "#define BUTTON_FREE   0x66"
+
+.SS "#define BUTTON_PRESS_LONG   0x6C"
+
+.SS "#define BUTTON_PRESS_SHORT   0x6B"
+
+.SS "#define MAX_FIRST_LVL   6"
+
+.SS "#define MAX_SECOND_LVL   6"
+
+.SS "#define MAX_THIRD_LVL   4"
+
+.SS "#define MAX_ZERO_LVL   4"
+
+.SH "Function Documentation"
+.PP 
+.SS "char check_for_out_of_range (signed char value, char modulo)"
+
+.SS "void enter_standby (void)"
+
+.SS "void exit_standby (void)"
+
+.SS "void menu (void)"
+
+.SS "void null_befor_value (char * string, char value, unsigned char pos)"
+
+.SS "void time_date (unsigned char t_hour, unsigned char t_minute, unsigned char t_day, unsigned char t_month, unsigned char t_year, unsigned char update, unsigned char minute_up, char * s_time, char * s_date)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

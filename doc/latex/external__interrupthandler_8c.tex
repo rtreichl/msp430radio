@@ -1,0 +1,244 @@
+\hypertarget{external__interrupthandler_8c}{}\section{driver/src/external\+\_\+interrupthandler.c-\/\+Dateireferenz}
+\label{external__interrupthandler_8c}\index{driver/src/external\+\_\+interrupthandler.\+c@{driver/src/external\+\_\+interrupthandler.\+c}}
+{\ttfamily \#include $<$driver/external\+\_\+interrupthandler.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für external\+\_\+interrupthandler.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{external__interrupthandler_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{external__interrupthandler_8c_afa27376b249650ab2cd2dab80a3aab63}{E\+N\+C\+O\+D\+E\+R\+\_\+1}
+\item 
+\#define \hyperlink{external__interrupthandler_8c_a78849ac345e48bff75267b242183df07}{E\+N\+C\+O\+D\+E\+R\+\_\+2}
+\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef volatile void($\ast$ \hyperlink{external__interrupthandler_8c_a49f7f660c4305c86e6dc6da9cdc7a570}{ptrfunc}) ()
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{external__interrupthandler_8c_a1685394f9610006097ec45181e59563b}{ext\+\_\+interrupt\+\_\+create} (uint8\+\_\+t int\+\_\+number, void($\ast$ptrfunction)())
+\item 
+uint8\+\_\+t \hyperlink{external__interrupthandler_8c_a4ee6aefa1d9150a49f8560d46f46603c}{ext\+\_\+interrupt\+\_\+delete} (uint8\+\_\+t int\+\_\+number)
+\item 
+uint8\+\_\+t \hyperlink{external__interrupthandler_8c_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\+\_\+interrupt\+\_\+enable} (uint8\+\_\+t int\+\_\+number)
+\item 
+uint8\+\_\+t \hyperlink{external__interrupthandler_8c_a67fb5781413cf5c193be332cc6e52209}{ext\+\_\+interrupt\+\_\+disable} (uint8\+\_\+t int\+\_\+number)
+\item 
+\+\_\+\+\_\+interrupt void \hyperlink{external__interrupthandler_8c_aefd153e4f77a70a4100ecbef1e9ad366}{Port12\+\_\+interrupts} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{external__interrupthandler_8c_a49f7f660c4305c86e6dc6da9cdc7a570}{ptrfunc} \hyperlink{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{ext\+\_\+int\+\_\+handler} \mbox{[}16\mbox{]} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{external__interrupthandler_8c_afa27376b249650ab2cd2dab80a3aab63}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!E\+N\+C\+O\+D\+E\+R\+\_\+1@{E\+N\+C\+O\+D\+E\+R\+\_\+1}}
+\index{E\+N\+C\+O\+D\+E\+R\+\_\+1@{E\+N\+C\+O\+D\+E\+R\+\_\+1}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1}\label{external__interrupthandler_8c_afa27376b249650ab2cd2dab80a3aab63}
+
+
+Definiert in Zeile 10 der Datei external\+\_\+interrupthandler.\+c.
+
+\hypertarget{external__interrupthandler_8c_a78849ac345e48bff75267b242183df07}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!E\+N\+C\+O\+D\+E\+R\+\_\+2@{E\+N\+C\+O\+D\+E\+R\+\_\+2}}
+\index{E\+N\+C\+O\+D\+E\+R\+\_\+2@{E\+N\+C\+O\+D\+E\+R\+\_\+2}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2}\label{external__interrupthandler_8c_a78849ac345e48bff75267b242183df07}
+
+
+Definiert in Zeile 11 der Datei external\+\_\+interrupthandler.\+c.
+
+
+
+\subsection{Dokumentation der benutzerdefinierten Typen}
+\hypertarget{external__interrupthandler_8c_a49f7f660c4305c86e6dc6da9cdc7a570}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!ptrfunc@{ptrfunc}}
+\index{ptrfunc@{ptrfunc}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{ptrfunc}]{\setlength{\rightskip}{0pt plus 5cm}typedef volatile void($\ast$ ptrfunc) ()}\label{external__interrupthandler_8c_a49f7f660c4305c86e6dc6da9cdc7a570}
+
+
+Definiert in Zeile 13 der Datei external\+\_\+interrupthandler.\+c.
+
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{external__interrupthandler_8c_a1685394f9610006097ec45181e59563b}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!ext\+\_\+interrupt\+\_\+create@{ext\+\_\+interrupt\+\_\+create}}
+\index{ext\+\_\+interrupt\+\_\+create@{ext\+\_\+interrupt\+\_\+create}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{ext\+\_\+interrupt\+\_\+create}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t ext\+\_\+interrupt\+\_\+create (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{int\+\_\+number, }
+\item[{void($\ast$)()}]{ptrfunction}
+\end{DoxyParamCaption}
+)}\label{external__interrupthandler_8c_a1685394f9610006097ec45181e59563b}
+
+
+Definiert in Zeile 16 der Datei external\+\_\+interrupthandler.\+c.
+
+
+\begin{DoxyCode}
+17 \{
+18     \textcolor{keywordflow}{if}(int\_number > 15) \{
+19         \textcolor{keywordflow}{return} 0xFF;
+20     \}
+21     \hyperlink{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{ext\_int\_handler}[int\_number] = (\hyperlink{external__interrupthandler_8c_a49f7f660c4305c86e6dc6da9cdc7a570}{ptrfunc})ptrfunction;
+22 
+23     \textcolor{keywordflow}{return} 0;
+24 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{external__interrupthandler_8c_a1685394f9610006097ec45181e59563b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{external__interrupthandler_8c_a4ee6aefa1d9150a49f8560d46f46603c}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!ext\+\_\+interrupt\+\_\+delete@{ext\+\_\+interrupt\+\_\+delete}}
+\index{ext\+\_\+interrupt\+\_\+delete@{ext\+\_\+interrupt\+\_\+delete}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{ext\+\_\+interrupt\+\_\+delete}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t ext\+\_\+interrupt\+\_\+delete (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{int\+\_\+number}
+\end{DoxyParamCaption}
+)}\label{external__interrupthandler_8c_a4ee6aefa1d9150a49f8560d46f46603c}
+
+
+Definiert in Zeile 26 der Datei external\+\_\+interrupthandler.\+c.
+
+
+\begin{DoxyCode}
+27 \{
+28     \textcolor{keywordflow}{if}(int\_number > 15) \{
+29         \textcolor{keywordflow}{return} 0xFF;
+30     \}
+31     \hyperlink{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{ext\_int\_handler}[int\_number] = 0;
+32 
+33     \textcolor{keywordflow}{return} 0;
+34 \}
+\end{DoxyCode}
+\hypertarget{external__interrupthandler_8c_a67fb5781413cf5c193be332cc6e52209}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!ext\+\_\+interrupt\+\_\+disable@{ext\+\_\+interrupt\+\_\+disable}}
+\index{ext\+\_\+interrupt\+\_\+disable@{ext\+\_\+interrupt\+\_\+disable}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{ext\+\_\+interrupt\+\_\+disable}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t ext\+\_\+interrupt\+\_\+disable (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{int\+\_\+number}
+\end{DoxyParamCaption}
+)}\label{external__interrupthandler_8c_a67fb5781413cf5c193be332cc6e52209}
+
+
+Definiert in Zeile 49 der Datei external\+\_\+interrupthandler.\+c.
+
+
+\begin{DoxyCode}
+50 \{
+51     \textcolor{keywordflow}{if}(int\_number/8) \{
+52         P1IE &= ~(1 << int\_number % 8);
+53     \}
+54     \textcolor{keywordflow}{else} \{
+55         P2IE &= ~(1 << int\_number % 8);
+56     \}
+57     \textcolor{keywordflow}{return} 0;
+58 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{external__interrupthandler_8c_a67fb5781413cf5c193be332cc6e52209_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{external__interrupthandler_8c_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!ext\+\_\+interrupt\+\_\+enable@{ext\+\_\+interrupt\+\_\+enable}}
+\index{ext\+\_\+interrupt\+\_\+enable@{ext\+\_\+interrupt\+\_\+enable}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{ext\+\_\+interrupt\+\_\+enable}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t ext\+\_\+interrupt\+\_\+enable (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{int\+\_\+number}
+\end{DoxyParamCaption}
+)}\label{external__interrupthandler_8c_a345dfb9a7e177c5da6eb9dc5b3c82bc9}
+
+
+Definiert in Zeile 36 der Datei external\+\_\+interrupthandler.\+c.
+
+
+\begin{DoxyCode}
+37 \{
+38     \textcolor{keywordflow}{if}(int\_number/8) \{
+39         P2IFG &= ~(1 << (int\_number % 8));
+40         P2IE |= (1 << (int\_number % 8));
+41     \}
+42     \textcolor{keywordflow}{else} \{
+43         P1IFG &= ~(1 << (int\_number % 8));
+44         P1IE |= (1 << (int\_number % 8));
+45     \}
+46     \textcolor{keywordflow}{return} 0;
+47 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{external__interrupthandler_8c_a345dfb9a7e177c5da6eb9dc5b3c82bc9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{external__interrupthandler_8c_aefd153e4f77a70a4100ecbef1e9ad366}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!Port12\+\_\+interrupts@{Port12\+\_\+interrupts}}
+\index{Port12\+\_\+interrupts@{Port12\+\_\+interrupts}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{Port12\+\_\+interrupts}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+interrupt void Port12\+\_\+interrupts (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{external__interrupthandler_8c_aefd153e4f77a70a4100ecbef1e9ad366}
+
+
+Definiert in Zeile 62 der Datei external\+\_\+interrupthandler.\+c.
+
+
+\begin{DoxyCode}
+63 \{
+64     uint8\_t i;
+65     uint8\_t pin;
+66 
+67     \textcolor{keywordflow}{if}(P1IFG != 0) \{
+68         \textcolor{keywordflow}{for}(i = 0, pin = P1IFG; pin > 0; i++) \{
+69             \textcolor{keywordflow}{if}(\hyperlink{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{ext\_int\_handler}[i] != 0 && (pin & 0x01)) \{
+70                 \hyperlink{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{ext\_int\_handler}[i]();
+71             \}
+72             pin >>= 1;
+73         \}
+74         P1IFG = 0;
+75     \}
+76 
+77     \textcolor{keywordflow}{if}(P2IFG != 0) \{
+78         \textcolor{keywordflow}{for}(i = 8, pin = P2IFG; pin > 0; i++) \{
+79             \textcolor{keywordflow}{if}(\hyperlink{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{ext\_int\_handler}[i] != 0 && (pin & 0x01)) \{
+80                 \hyperlink{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{ext\_int\_handler}[i]();
+81             \}
+82             pin >>= 1;
+83         \}
+84         P2IFG = 0;
+85     \}
+86 \}
+\end{DoxyCode}
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}{}\index{external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}!ext\+\_\+int\+\_\+handler@{ext\+\_\+int\+\_\+handler}}
+\index{ext\+\_\+int\+\_\+handler@{ext\+\_\+int\+\_\+handler}!external\+\_\+interrupthandler.\+c@{external\+\_\+interrupthandler.\+c}}
+\subsubsection[{ext\+\_\+int\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ptrfunc} ext\+\_\+int\+\_\+handler\mbox{[}16\mbox{]} = \{0\}}\label{external__interrupthandler_8c_ac6a491a811bf236b0743231661f43b10}
+
+
+Definiert in Zeile 14 der Datei external\+\_\+interrupthandler.\+c.
+

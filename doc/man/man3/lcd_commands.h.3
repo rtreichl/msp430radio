@@ -1,0 +1,192 @@
+.TH "driver/lcd_commands.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/lcd_commands.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLCD_SHIFT_RIGHT\fP   0x1C"
+.br
+.ti -1c
+.RI "#define \fBLCD_SHIFT_LEFT\fP   0x18"
+.br
+.ti -1c
+.RI "#define \fBLCD_RESET_COURSER\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBLCD_ADRESS_LINE_1\fP   0x80"
+.br
+.ti -1c
+.RI "#define \fBLCD_ADRESS_LINE_2\fP   0x90"
+.br
+.ti -1c
+.RI "#define \fBLCD_ADRESS_LINE_3\fP   0xA0"
+.br
+.ti -1c
+.RI "#define \fBLCD_ADRESS_LINE_4\fP   0xD4"
+.br
+.ti -1c
+.RI "#define \fBLCD_CLEAR_SCREEN\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBLCD_ENTRY_MODE_SET\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBLCD_COURSER_INKREMENT\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBLCD_DISPLAY_CONTE_MOVE\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBLCD_DISPLAY_CONTROL\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBLCD_DISPLAY_ON\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBLCD_COURSER_ON\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBLCD_COURSER_BLINK\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBLCD_FUNCTION_SET\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBLCD_8BTI_MODE\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBLCD_5x10_FONT\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBLCD_2_LINE_INST_1\fP   0x09"
+.br
+.ti -1c
+.RI "#define \fBLCD_INST_0\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBLCD_SET_CGADR\fP   0x40"
+.br
+.ti -1c
+.RI "#define \fBLCD_BIAS_SET\fP   0x14"
+.br
+.ti -1c
+.RI "#define \fBLCD_BIAS_1_4\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBLCD_3_LINE\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBLCD_POWER_CONTROL\fP   0x50"
+.br
+.ti -1c
+.RI "#define \fBLCD_ICON_ON\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBLCD_BOOSTER_ON\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBLCD_CONTRAST_1\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBLCD_FOLLOWER_CONTROL\fP   0x60"
+.br
+.ti -1c
+.RI "#define \fBLCD_FOLLOWER_CIRCUT_ON\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBLCD_AMPLIFFED_RATIO\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBLCD_CONTRAST_SET\fP   0x70"
+.br
+.ti -1c
+.RI "#define \fBLCD_CONTRAST_2\fP   0x0C"
+.br
+.ti -1c
+.RI "#define \fBLCD_LOWER_BYTE\fP(byte)   (byte & 0x0f)"
+.br
+.ti -1c
+.RI "#define \fBLCD_HIGHER_BYTE\fP(byte)   ((byte>>4) & 0x0f)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LCD_2_LINE_INST_1   0x09"
+
+.SS "#define LCD_3_LINE   0x01"
+
+.SS "#define LCD_5x10_FONT   0x04"
+
+.SS "#define LCD_8BTI_MODE   0x10"
+
+.SS "#define LCD_ADRESS_LINE_1   0x80"
+
+.SS "#define LCD_ADRESS_LINE_2   0x90"
+
+.SS "#define LCD_ADRESS_LINE_3   0xA0"
+
+.SS "#define LCD_ADRESS_LINE_4   0xD4"
+
+.SS "#define LCD_AMPLIFFED_RATIO   0x04"
+
+.SS "#define LCD_BIAS_1_4   0x08"
+
+.SS "#define LCD_BIAS_SET   0x14"
+
+.SS "#define LCD_BOOSTER_ON   0x04"
+
+.SS "#define LCD_CLEAR_SCREEN   0x01"
+
+.SS "#define LCD_CONTRAST_1   0x00"
+
+.SS "#define LCD_CONTRAST_2   0x0C"
+
+.SS "#define LCD_CONTRAST_SET   0x70"
+
+.SS "#define LCD_COURSER_BLINK   0x01"
+
+.SS "#define LCD_COURSER_INKREMENT   0x02"
+
+.SS "#define LCD_COURSER_ON   0x02"
+
+.SS "#define LCD_DISPLAY_CONTE_MOVE   0x01"
+
+.SS "#define LCD_DISPLAY_CONTROL   0x08"
+
+.SS "#define LCD_DISPLAY_ON   0x04"
+
+.SS "#define LCD_ENTRY_MODE_SET   0x04"
+
+.SS "#define LCD_FOLLOWER_CIRCUT_ON   0x08"
+
+.SS "#define LCD_FOLLOWER_CONTROL   0x60"
+
+.SS "#define LCD_FUNCTION_SET   0x20"
+
+.SS "#define LCD_HIGHER_BYTE(byte)   ((byte>>4) & 0x0f)"
+
+.SS "#define LCD_ICON_ON   0x08"
+
+.SS "#define LCD_INST_0   0x08"
+
+.SS "#define LCD_LOWER_BYTE(byte)   (byte & 0x0f)"
+
+.SS "#define LCD_POWER_CONTROL   0x50"
+
+.SS "#define LCD_RESET_COURSER   0x02"
+
+.SS "#define LCD_SET_CGADR   0x40"
+
+.SS "#define LCD_SHIFT_LEFT   0x18"
+
+.SS "#define LCD_SHIFT_RIGHT   0x1C"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

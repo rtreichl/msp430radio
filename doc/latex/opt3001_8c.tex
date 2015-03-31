@@ -1,0 +1,58 @@
+\hypertarget{opt3001_8c}{}\section{driver/src/opt3001.c-\/\+Dateireferenz}
+\label{opt3001_8c}\index{driver/src/opt3001.\+c@{driver/src/opt3001.\+c}}
+{\ttfamily \#include $<$driver/opt3001.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für opt3001.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{opt3001_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{opt3001_8c_aa8a9fdc2038276e9df003249409cefaa}{opt3001\+\_\+init} (\hyperlink{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}{O\+P\+T3001\+\_\+\+S\+T\+C} config)
+\item 
+uint8\+\_\+t \hyperlink{opt3001_8c_a4910f99caac4b6293a33627107cb7e82}{opt3001\+\_\+get\+\_\+value} (uint32\+\_\+t $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{opt3001_8c_a4910f99caac4b6293a33627107cb7e82}{}\index{opt3001.\+c@{opt3001.\+c}!opt3001\+\_\+get\+\_\+value@{opt3001\+\_\+get\+\_\+value}}
+\index{opt3001\+\_\+get\+\_\+value@{opt3001\+\_\+get\+\_\+value}!opt3001.\+c@{opt3001.\+c}}
+\subsubsection[{opt3001\+\_\+get\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t opt3001\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{opt3001_8c_a4910f99caac4b6293a33627107cb7e82}
+
+
+Definiert in Zeile 16 der Datei opt3001.\+c.
+
+
+\begin{DoxyCode}
+17 \{
+18     uint16\_t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value};
+19     \textcolor{comment}{/* Get actual value over I2C and combine higher byte and lower byte */}
+20     \textcolor{comment}{//*data = float\_to\_int(value);}
+21     \textcolor{keywordflow}{return} 0;
+22 \}
+\end{DoxyCode}
+\hypertarget{opt3001_8c_aa8a9fdc2038276e9df003249409cefaa}{}\index{opt3001.\+c@{opt3001.\+c}!opt3001\+\_\+init@{opt3001\+\_\+init}}
+\index{opt3001\+\_\+init@{opt3001\+\_\+init}!opt3001.\+c@{opt3001.\+c}}
+\subsubsection[{opt3001\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t opt3001\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+T3001\+\_\+\+S\+T\+C}}]{config}
+\end{DoxyParamCaption}
+)}\label{opt3001_8c_aa8a9fdc2038276e9df003249409cefaa}
+
+
+Definiert in Zeile 10 der Datei opt3001.\+c.
+
+
+\begin{DoxyCode}
+11 \{
+12     \textcolor{comment}{/* Some I2C writes for first configuration on OPT3001 */}
+13     \textcolor{keywordflow}{return} 0;
+14 \}
+\end{DoxyCode}

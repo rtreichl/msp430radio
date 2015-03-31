@@ -1,0 +1,161 @@
+\hypertarget{_radio_8h}{}\section{Radio.\+h File Reference}
+\label{_radio_8h}\index{Radio.\+h@{Radio.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structstatus}{status}
+\item 
+struct \hyperlink{structinfo}{info}
+\item 
+struct \hyperlink{structsync}{sync}
+\item 
+struct \hyperlink{structfifo}{fifo}
+\item 
+struct \hyperlink{structerr}{err}
+\item 
+struct \hyperlink{structgroup__0a}{group\+\_\+0a}
+\item 
+struct \hyperlink{structgroup__0b}{group\+\_\+0b}
+\item 
+struct \hyperlink{structgroup__2a}{group\+\_\+2a}
+\item 
+struct \hyperlink{structgroup__2b}{group\+\_\+2b}
+\item 
+struct \hyperlink{structgroup__1b}{group\+\_\+1b}
+\item 
+struct \hyperlink{structgroup__1a}{group\+\_\+1a}
+\item 
+struct \hyperlink{structgroup__4a}{group\+\_\+4a}
+\item 
+struct \hyperlink{structblock__b}{block\+\_\+b}
+\item 
+struct \hyperlink{structpi}{pi}
+\item 
+struct \hyperlink{structrds}{rds}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structstatus}{status} \hyperlink{_radio_8h_ada2ef00c464f9ae8ec73e127ea6a4520}{S\+T\+A\+T\+U\+S}
+\item 
+typedef struct \hyperlink{structinfo}{info} \hyperlink{_radio_8h_a4d0cac7fd06c1f9b01c6a67516c95cfb}{I\+N\+F\+O}
+\item 
+typedef struct \hyperlink{structsync}{sync} \hyperlink{_radio_8h_a09f25e919a775a5955c4fb87155e2762}{S\+Y\+N\+C}
+\item 
+typedef struct \hyperlink{structfifo}{fifo} \hyperlink{_radio_8h_a632395f1ea2941b14cb3baef84705059}{F\+I\+F\+O}
+\item 
+typedef struct \hyperlink{structerr}{err} \hyperlink{_radio_8h_aa7225a8602f1106cb23bf648d85efb2c}{E\+R\+R}
+\item 
+typedef struct \hyperlink{structgroup__0a}{group\+\_\+0a} \hyperlink{_radio_8h_aef18b47083d2359562cfb461abaeb506}{G\+R\+O\+U\+P\+\_\+0\+A}
+\item 
+typedef struct \hyperlink{structgroup__0b}{group\+\_\+0b} \hyperlink{_radio_8h_acaf58e320b7e8650ce7e6b08e2c7bae6}{G\+R\+O\+U\+P\+\_\+0\+B}
+\item 
+typedef struct \hyperlink{structgroup__2a}{group\+\_\+2a} \hyperlink{_radio_8h_a0ec95853c4e1324ddba45808cbd59c7e}{G\+R\+O\+U\+P\+\_\+2\+A}
+\item 
+typedef struct \hyperlink{structgroup__2b}{group\+\_\+2b} \hyperlink{_radio_8h_a5efde26f48e56fb2c2d6191e0758c3af}{G\+R\+O\+U\+P\+\_\+2\+B}
+\item 
+typedef struct \hyperlink{structgroup__1b}{group\+\_\+1b} \hyperlink{_radio_8h_a070776b406aa790898c610c4b702f534}{G\+R\+O\+U\+P\+\_\+1\+B}
+\item 
+typedef struct \hyperlink{structgroup__1a}{group\+\_\+1a} \hyperlink{_radio_8h_acfe247c102e1dbe1a43ca964459cc4a8}{G\+R\+O\+U\+P\+\_\+1\+A}
+\item 
+typedef struct \hyperlink{structgroup__4a}{group\+\_\+4a} \hyperlink{_radio_8h_a2a61b4fe5d6bf17f32b8c744a5e4888a}{G\+R\+O\+U\+P\+\_\+4\+A}
+\item 
+typedef struct \hyperlink{structblock__b}{block\+\_\+b} \hyperlink{_radio_8h_acde5bba1b29ae92f2d1c088cbc0e40bd}{B\+L\+O\+C\+K\+\_\+\+B}
+\item 
+typedef struct \hyperlink{structpi}{pi} \hyperlink{_radio_8h_a1b009a3588683496b542b777653e6c21}{P\+I}
+\item 
+typedef struct \hyperlink{structrds}{rds} \hyperlink{_radio_8h_a81e0fb5b6d2d10818bd855ba8b948a14}{R\+D\+S}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_radio_8h_a7d3450a025ce61ff8522b8a575d34a8f}{get\+\_\+rds\+\_\+data} (int $\ast$Radio\+\_\+\+States, char $\ast$Station\+\_\+\+Name, char $\ast$Radion\+\_\+\+Text)
+\item 
+uint8\+\_\+t \hyperlink{_radio_8h_ad4168f8a33d30a3526e416da5997baa9}{rds\+\_\+triggered} ()
+\item 
+uint8\+\_\+t \hyperlink{_radio_8h_af5afa3b7a5eeb81ac2ef45044acb8fc5}{get\+\_\+signal\+\_\+qual} ()
+\item 
+void \hyperlink{_radio_8h_a33e5a772a8a82d668cc39ebfd4ba37a4}{rds\+\_\+group\+\_\+4\+A} (\hyperlink{_radio_8h_a81e0fb5b6d2d10818bd855ba8b948a14}{R\+D\+S} $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_radio_8h_acde5bba1b29ae92f2d1c088cbc0e40bd}{}\index{Radio.\+h@{Radio.\+h}!B\+L\+O\+C\+K\+\_\+\+B@{B\+L\+O\+C\+K\+\_\+\+B}}
+\index{B\+L\+O\+C\+K\+\_\+\+B@{B\+L\+O\+C\+K\+\_\+\+B}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{B\+L\+O\+C\+K\+\_\+\+B}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf block\+\_\+b}  {\bf B\+L\+O\+C\+K\+\_\+\+B}}\label{_radio_8h_acde5bba1b29ae92f2d1c088cbc0e40bd}
+\hypertarget{_radio_8h_aa7225a8602f1106cb23bf648d85efb2c}{}\index{Radio.\+h@{Radio.\+h}!E\+R\+R@{E\+R\+R}}
+\index{E\+R\+R@{E\+R\+R}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf err}  {\bf E\+R\+R}}\label{_radio_8h_aa7225a8602f1106cb23bf648d85efb2c}
+\hypertarget{_radio_8h_a632395f1ea2941b14cb3baef84705059}{}\index{Radio.\+h@{Radio.\+h}!F\+I\+F\+O@{F\+I\+F\+O}}
+\index{F\+I\+F\+O@{F\+I\+F\+O}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{F\+I\+F\+O}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf fifo}  {\bf F\+I\+F\+O}}\label{_radio_8h_a632395f1ea2941b14cb3baef84705059}
+\hypertarget{_radio_8h_aef18b47083d2359562cfb461abaeb506}{}\index{Radio.\+h@{Radio.\+h}!G\+R\+O\+U\+P\+\_\+0\+A@{G\+R\+O\+U\+P\+\_\+0\+A}}
+\index{G\+R\+O\+U\+P\+\_\+0\+A@{G\+R\+O\+U\+P\+\_\+0\+A}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{G\+R\+O\+U\+P\+\_\+0\+A}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf group\+\_\+0a}  {\bf G\+R\+O\+U\+P\+\_\+0\+A}}\label{_radio_8h_aef18b47083d2359562cfb461abaeb506}
+\hypertarget{_radio_8h_acaf58e320b7e8650ce7e6b08e2c7bae6}{}\index{Radio.\+h@{Radio.\+h}!G\+R\+O\+U\+P\+\_\+0\+B@{G\+R\+O\+U\+P\+\_\+0\+B}}
+\index{G\+R\+O\+U\+P\+\_\+0\+B@{G\+R\+O\+U\+P\+\_\+0\+B}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{G\+R\+O\+U\+P\+\_\+0\+B}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf group\+\_\+0b}  {\bf G\+R\+O\+U\+P\+\_\+0\+B}}\label{_radio_8h_acaf58e320b7e8650ce7e6b08e2c7bae6}
+\hypertarget{_radio_8h_acfe247c102e1dbe1a43ca964459cc4a8}{}\index{Radio.\+h@{Radio.\+h}!G\+R\+O\+U\+P\+\_\+1\+A@{G\+R\+O\+U\+P\+\_\+1\+A}}
+\index{G\+R\+O\+U\+P\+\_\+1\+A@{G\+R\+O\+U\+P\+\_\+1\+A}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{G\+R\+O\+U\+P\+\_\+1\+A}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf group\+\_\+1a}  {\bf G\+R\+O\+U\+P\+\_\+1\+A}}\label{_radio_8h_acfe247c102e1dbe1a43ca964459cc4a8}
+\hypertarget{_radio_8h_a070776b406aa790898c610c4b702f534}{}\index{Radio.\+h@{Radio.\+h}!G\+R\+O\+U\+P\+\_\+1\+B@{G\+R\+O\+U\+P\+\_\+1\+B}}
+\index{G\+R\+O\+U\+P\+\_\+1\+B@{G\+R\+O\+U\+P\+\_\+1\+B}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{G\+R\+O\+U\+P\+\_\+1\+B}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf group\+\_\+1b}  {\bf G\+R\+O\+U\+P\+\_\+1\+B}}\label{_radio_8h_a070776b406aa790898c610c4b702f534}
+\hypertarget{_radio_8h_a0ec95853c4e1324ddba45808cbd59c7e}{}\index{Radio.\+h@{Radio.\+h}!G\+R\+O\+U\+P\+\_\+2\+A@{G\+R\+O\+U\+P\+\_\+2\+A}}
+\index{G\+R\+O\+U\+P\+\_\+2\+A@{G\+R\+O\+U\+P\+\_\+2\+A}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{G\+R\+O\+U\+P\+\_\+2\+A}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf group\+\_\+2a}  {\bf G\+R\+O\+U\+P\+\_\+2\+A}}\label{_radio_8h_a0ec95853c4e1324ddba45808cbd59c7e}
+\hypertarget{_radio_8h_a5efde26f48e56fb2c2d6191e0758c3af}{}\index{Radio.\+h@{Radio.\+h}!G\+R\+O\+U\+P\+\_\+2\+B@{G\+R\+O\+U\+P\+\_\+2\+B}}
+\index{G\+R\+O\+U\+P\+\_\+2\+B@{G\+R\+O\+U\+P\+\_\+2\+B}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{G\+R\+O\+U\+P\+\_\+2\+B}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf group\+\_\+2b}  {\bf G\+R\+O\+U\+P\+\_\+2\+B}}\label{_radio_8h_a5efde26f48e56fb2c2d6191e0758c3af}
+\hypertarget{_radio_8h_a2a61b4fe5d6bf17f32b8c744a5e4888a}{}\index{Radio.\+h@{Radio.\+h}!G\+R\+O\+U\+P\+\_\+4\+A@{G\+R\+O\+U\+P\+\_\+4\+A}}
+\index{G\+R\+O\+U\+P\+\_\+4\+A@{G\+R\+O\+U\+P\+\_\+4\+A}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{G\+R\+O\+U\+P\+\_\+4\+A}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf group\+\_\+4a}  {\bf G\+R\+O\+U\+P\+\_\+4\+A}}\label{_radio_8h_a2a61b4fe5d6bf17f32b8c744a5e4888a}
+\hypertarget{_radio_8h_a4d0cac7fd06c1f9b01c6a67516c95cfb}{}\index{Radio.\+h@{Radio.\+h}!I\+N\+F\+O@{I\+N\+F\+O}}
+\index{I\+N\+F\+O@{I\+N\+F\+O}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{I\+N\+F\+O}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf info}  {\bf I\+N\+F\+O}}\label{_radio_8h_a4d0cac7fd06c1f9b01c6a67516c95cfb}
+\hypertarget{_radio_8h_a1b009a3588683496b542b777653e6c21}{}\index{Radio.\+h@{Radio.\+h}!P\+I@{P\+I}}
+\index{P\+I@{P\+I}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{P\+I}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pi}  {\bf P\+I}}\label{_radio_8h_a1b009a3588683496b542b777653e6c21}
+\hypertarget{_radio_8h_a81e0fb5b6d2d10818bd855ba8b948a14}{}\index{Radio.\+h@{Radio.\+h}!R\+D\+S@{R\+D\+S}}
+\index{R\+D\+S@{R\+D\+S}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{R\+D\+S}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf rds}  {\bf R\+D\+S}}\label{_radio_8h_a81e0fb5b6d2d10818bd855ba8b948a14}
+\hypertarget{_radio_8h_ada2ef00c464f9ae8ec73e127ea6a4520}{}\index{Radio.\+h@{Radio.\+h}!S\+T\+A\+T\+U\+S@{S\+T\+A\+T\+U\+S}}
+\index{S\+T\+A\+T\+U\+S@{S\+T\+A\+T\+U\+S}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{S\+T\+A\+T\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf status}  {\bf S\+T\+A\+T\+U\+S}}\label{_radio_8h_ada2ef00c464f9ae8ec73e127ea6a4520}
+\hypertarget{_radio_8h_a09f25e919a775a5955c4fb87155e2762}{}\index{Radio.\+h@{Radio.\+h}!S\+Y\+N\+C@{S\+Y\+N\+C}}
+\index{S\+Y\+N\+C@{S\+Y\+N\+C}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{S\+Y\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf sync}  {\bf S\+Y\+N\+C}}\label{_radio_8h_a09f25e919a775a5955c4fb87155e2762}
+
+
+\subsection{Function Documentation}
+\hypertarget{_radio_8h_a7d3450a025ce61ff8522b8a575d34a8f}{}\index{Radio.\+h@{Radio.\+h}!get\+\_\+rds\+\_\+data@{get\+\_\+rds\+\_\+data}}
+\index{get\+\_\+rds\+\_\+data@{get\+\_\+rds\+\_\+data}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{get\+\_\+rds\+\_\+data}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+rds\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{Radio\+\_\+\+States, }
+\item[{char $\ast$}]{Station\+\_\+\+Name, }
+\item[{char $\ast$}]{Radion\+\_\+\+Text}
+\end{DoxyParamCaption}
+)}\label{_radio_8h_a7d3450a025ce61ff8522b8a575d34a8f}
+\hypertarget{_radio_8h_af5afa3b7a5eeb81ac2ef45044acb8fc5}{}\index{Radio.\+h@{Radio.\+h}!get\+\_\+signal\+\_\+qual@{get\+\_\+signal\+\_\+qual}}
+\index{get\+\_\+signal\+\_\+qual@{get\+\_\+signal\+\_\+qual}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{get\+\_\+signal\+\_\+qual}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t get\+\_\+signal\+\_\+qual (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_radio_8h_af5afa3b7a5eeb81ac2ef45044acb8fc5}
+\hypertarget{_radio_8h_a33e5a772a8a82d668cc39ebfd4ba37a4}{}\index{Radio.\+h@{Radio.\+h}!rds\+\_\+group\+\_\+4\+A@{rds\+\_\+group\+\_\+4\+A}}
+\index{rds\+\_\+group\+\_\+4\+A@{rds\+\_\+group\+\_\+4\+A}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{rds\+\_\+group\+\_\+4\+A}]{\setlength{\rightskip}{0pt plus 5cm}void rds\+\_\+group\+\_\+4\+A (
+\begin{DoxyParamCaption}
+\item[{{\bf R\+D\+S} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{_radio_8h_a33e5a772a8a82d668cc39ebfd4ba37a4}
+\hypertarget{_radio_8h_ad4168f8a33d30a3526e416da5997baa9}{}\index{Radio.\+h@{Radio.\+h}!rds\+\_\+triggered@{rds\+\_\+triggered}}
+\index{rds\+\_\+triggered@{rds\+\_\+triggered}!Radio.\+h@{Radio.\+h}}
+\subsubsection[{rds\+\_\+triggered}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t rds\+\_\+triggered (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_radio_8h_ad4168f8a33d30a3526e416da5997baa9}

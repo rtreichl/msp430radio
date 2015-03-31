@@ -1,0 +1,79 @@
+\hypertarget{_timer_8c}{}\section{Timer.\+c File Reference}
+\label{_timer_8c}\index{Timer.\+c@{Timer.\+c}}
+{\ttfamily \#include $<$msp430.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$settings/radio\+\_\+configuration.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Timer.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_timer_8c_a7f642963dfed522de51d21e18b8e088e}{T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S}~10
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_timer_8c_ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6}{basic\+\_\+clock\+\_\+init} (void)
+\item 
+void \hyperlink{_timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c}{timer\+\_\+init} ()
+\item 
+\+\_\+\+\_\+interrupt void \hyperlink{_timer_8c_aa78fdf57c4b2709d621ef1a59895c8bd}{Timer\+\_\+\+A1} (void)
+\item 
+void \hyperlink{_timer_8c_a641004ec4066b5d26e2874c1993cbbb7}{\+\_\+delay\+\_\+ms} (int ms)
+\item 
+void \hyperlink{_timer_8c_a63c0fd3940f3034a21729b73ab621488}{\+\_\+delay\+\_\+us} (int us)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint16\+\_\+t \hyperlink{_timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\+\_\+count} \mbox{[}\hyperlink{_timer_8c_a7f642963dfed522de51d21e18b8e088e}{T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_timer_8c_a7f642963dfed522de51d21e18b8e088e}{}\index{Timer.\+c@{Timer.\+c}!T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S@{T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S}}
+\index{T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S@{T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S}!Timer.\+c@{Timer.\+c}}
+\subsubsection[{T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S~10}\label{_timer_8c_a7f642963dfed522de51d21e18b8e088e}
+
+
+\subsection{Function Documentation}
+\hypertarget{_timer_8c_a641004ec4066b5d26e2874c1993cbbb7}{}\index{Timer.\+c@{Timer.\+c}!\+\_\+delay\+\_\+ms@{\+\_\+delay\+\_\+ms}}
+\index{\+\_\+delay\+\_\+ms@{\+\_\+delay\+\_\+ms}!Timer.\+c@{Timer.\+c}}
+\subsubsection[{\+\_\+delay\+\_\+ms}]{\setlength{\rightskip}{0pt plus 5cm}void \+\_\+delay\+\_\+ms (
+\begin{DoxyParamCaption}
+\item[{int}]{ms}
+\end{DoxyParamCaption}
+)}\label{_timer_8c_a641004ec4066b5d26e2874c1993cbbb7}
+\hypertarget{_timer_8c_a63c0fd3940f3034a21729b73ab621488}{}\index{Timer.\+c@{Timer.\+c}!\+\_\+delay\+\_\+us@{\+\_\+delay\+\_\+us}}
+\index{\+\_\+delay\+\_\+us@{\+\_\+delay\+\_\+us}!Timer.\+c@{Timer.\+c}}
+\subsubsection[{\+\_\+delay\+\_\+us}]{\setlength{\rightskip}{0pt plus 5cm}void \+\_\+delay\+\_\+us (
+\begin{DoxyParamCaption}
+\item[{int}]{us}
+\end{DoxyParamCaption}
+)}\label{_timer_8c_a63c0fd3940f3034a21729b73ab621488}
+\hypertarget{_timer_8c_ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6}{}\index{Timer.\+c@{Timer.\+c}!basic\+\_\+clock\+\_\+init@{basic\+\_\+clock\+\_\+init}}
+\index{basic\+\_\+clock\+\_\+init@{basic\+\_\+clock\+\_\+init}!Timer.\+c@{Timer.\+c}}
+\subsubsection[{basic\+\_\+clock\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void basic\+\_\+clock\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_timer_8c_ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6}
+\hypertarget{_timer_8c_aa78fdf57c4b2709d621ef1a59895c8bd}{}\index{Timer.\+c@{Timer.\+c}!Timer\+\_\+\+A1@{Timer\+\_\+\+A1}}
+\index{Timer\+\_\+\+A1@{Timer\+\_\+\+A1}!Timer.\+c@{Timer.\+c}}
+\subsubsection[{Timer\+\_\+\+A1}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+interrupt void Timer\+\_\+\+A1 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_timer_8c_aa78fdf57c4b2709d621ef1a59895c8bd}
+\hypertarget{_timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c}{}\index{Timer.\+c@{Timer.\+c}!timer\+\_\+init@{timer\+\_\+init}}
+\index{timer\+\_\+init@{timer\+\_\+init}!Timer.\+c@{Timer.\+c}}
+\subsubsection[{timer\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void timer\+\_\+init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{}\index{Timer.\+c@{Timer.\+c}!timer\+\_\+count@{timer\+\_\+count}}
+\index{timer\+\_\+count@{timer\+\_\+count}!Timer.\+c@{Timer.\+c}}
+\subsubsection[{timer\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint16\+\_\+t timer\+\_\+count\mbox{[}{\bf T\+I\+M\+E\+R\+\_\+\+C\+O\+U\+N\+T\+S}\mbox{]}}\label{_timer_8c_ab6610e73cf6ab96714447222bd0c7bca}

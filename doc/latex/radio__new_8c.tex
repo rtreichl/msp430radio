@@ -1,0 +1,141 @@
+\hypertarget{radio__new_8c}{}\section{radio\+\_\+new.\+c File Reference}
+\label{radio__new_8c}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+{\ttfamily \#include $<$radio\+\_\+new.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionradio__stats}{radio\+\_\+stats}
+\item 
+union \hyperlink{unionradio__time}{radio\+\_\+time}
+\item 
+struct \hyperlink{structradio}{radio}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef union \hyperlink{unionradio__stats}{radio\+\_\+stats} \hyperlink{radio__new_8c_ae099a9ce2efff176217a72a5e6f49201}{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+S}
+\item 
+typedef union \hyperlink{unionradio__time}{radio\+\_\+time} \hyperlink{radio__new_8c_ac7e33308a29d050685268228c3d77909}{R\+A\+D\+I\+O\+\_\+\+T\+I\+M\+E}
+\item 
+typedef struct \hyperlink{structradio}{radio} \hyperlink{radio__new_8c_a2e4f7894262df4981eeffa04d51e4206}{R\+A\+D\+I\+O}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_a8d795d5e8b1acf8b2d97bfee82d90ca1}{radio\+\_\+brightness} (uint8\+\_\+t brightness)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_af40ef5734842d7237918116e2decd3c0}{radio\+\_\+contrast} (uint8\+\_\+t contrast)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_afb52516b50bf1098e28be670e369b6cd}{radio\+\_\+volume} (uint8\+\_\+t volume)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_a73891e3d7fd64a696ee21088f62ce1c2}{radio\+\_\+init} (void)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_a2b9bd921a646c44e82ed2e97cb0ec8dc}{radio\+\_\+handler} (void)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_a6d652e9d0f1c54bfe9ec73fe2605b706}{radio\+\_\+tune\+\_\+freq} (uint16\+\_\+t freq)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_ac7f244a5f525336681c64639834eec17}{radio\+\_\+rds\+\_\+decoder} ()
+\item 
+uint16\+\_\+t \hyperlink{radio__new_8c_aee6321b512830d482a2fc164cf11f9e9}{radio\+\_\+seeking} (uint8\+\_\+t up\+\_\+down)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_ab8b5a7b9b4ca94260ab8802217721bda}{radio\+\_\+store\+\_\+station} (uint16\+\_\+t freq, int8\+\_\+t $\ast$name, uint8\+\_\+t pos)
+\item 
+uint16\+\_\+t \hyperlink{radio__new_8c_acd8105d0e43e2e4801375554df271689}{radio\+\_\+read\+\_\+station} (int8\+\_\+t $\ast$name, uint8\+\_\+t pos)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8c_ac96da2886aec92b299b27b500761564c}{radio\+\_\+auto\+\_\+search} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{radio__new_8c_a2e4f7894262df4981eeffa04d51e4206}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!R\+A\+D\+I\+O@{R\+A\+D\+I\+O}}
+\index{R\+A\+D\+I\+O@{R\+A\+D\+I\+O}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{R\+A\+D\+I\+O}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf radio}  {\bf R\+A\+D\+I\+O}}\label{radio__new_8c_a2e4f7894262df4981eeffa04d51e4206}
+\hypertarget{radio__new_8c_ae099a9ce2efff176217a72a5e6f49201}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+S@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+S}}
+\index{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+S@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+S}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}typedef union {\bf radio\+\_\+stats}  {\bf R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+S}}\label{radio__new_8c_ae099a9ce2efff176217a72a5e6f49201}
+\hypertarget{radio__new_8c_ac7e33308a29d050685268228c3d77909}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!R\+A\+D\+I\+O\+\_\+\+T\+I\+M\+E@{R\+A\+D\+I\+O\+\_\+\+T\+I\+M\+E}}
+\index{R\+A\+D\+I\+O\+\_\+\+T\+I\+M\+E@{R\+A\+D\+I\+O\+\_\+\+T\+I\+M\+E}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+T\+I\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}typedef union {\bf radio\+\_\+time}  {\bf R\+A\+D\+I\+O\+\_\+\+T\+I\+M\+E}}\label{radio__new_8c_ac7e33308a29d050685268228c3d77909}
+
+
+\subsection{Function Documentation}
+\hypertarget{radio__new_8c_ac96da2886aec92b299b27b500761564c}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+auto\+\_\+search@{radio\+\_\+auto\+\_\+search}}
+\index{radio\+\_\+auto\+\_\+search@{radio\+\_\+auto\+\_\+search}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+auto\+\_\+search}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+auto\+\_\+search (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_ac96da2886aec92b299b27b500761564c}
+\hypertarget{radio__new_8c_a8d795d5e8b1acf8b2d97bfee82d90ca1}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+brightness@{radio\+\_\+brightness}}
+\index{radio\+\_\+brightness@{radio\+\_\+brightness}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+brightness}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+brightness (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{brightness}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_a8d795d5e8b1acf8b2d97bfee82d90ca1}
+\hypertarget{radio__new_8c_af40ef5734842d7237918116e2decd3c0}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+contrast@{radio\+\_\+contrast}}
+\index{radio\+\_\+contrast@{radio\+\_\+contrast}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+contrast}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+contrast (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{contrast}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_af40ef5734842d7237918116e2decd3c0}
+\hypertarget{radio__new_8c_a2b9bd921a646c44e82ed2e97cb0ec8dc}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+handler@{radio\+\_\+handler}}
+\index{radio\+\_\+handler@{radio\+\_\+handler}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_a2b9bd921a646c44e82ed2e97cb0ec8dc}
+\hypertarget{radio__new_8c_a73891e3d7fd64a696ee21088f62ce1c2}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+init@{radio\+\_\+init}}
+\index{radio\+\_\+init@{radio\+\_\+init}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_a73891e3d7fd64a696ee21088f62ce1c2}
+\hypertarget{radio__new_8c_ac7f244a5f525336681c64639834eec17}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+rds\+\_\+decoder@{radio\+\_\+rds\+\_\+decoder}}
+\index{radio\+\_\+rds\+\_\+decoder@{radio\+\_\+rds\+\_\+decoder}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+rds\+\_\+decoder}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+rds\+\_\+decoder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_ac7f244a5f525336681c64639834eec17}
+\hypertarget{radio__new_8c_acd8105d0e43e2e4801375554df271689}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+read\+\_\+station@{radio\+\_\+read\+\_\+station}}
+\index{radio\+\_\+read\+\_\+station@{radio\+\_\+read\+\_\+station}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+read\+\_\+station}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t radio\+\_\+read\+\_\+station (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t $\ast$}]{name, }
+\item[{uint8\+\_\+t}]{pos}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_acd8105d0e43e2e4801375554df271689}
+\hypertarget{radio__new_8c_aee6321b512830d482a2fc164cf11f9e9}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+seeking@{radio\+\_\+seeking}}
+\index{radio\+\_\+seeking@{radio\+\_\+seeking}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+seeking}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t radio\+\_\+seeking (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{up\+\_\+down}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_aee6321b512830d482a2fc164cf11f9e9}
+\hypertarget{radio__new_8c_ab8b5a7b9b4ca94260ab8802217721bda}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}}
+\index{radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+store\+\_\+station}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+store\+\_\+station (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{freq, }
+\item[{int8\+\_\+t $\ast$}]{name, }
+\item[{uint8\+\_\+t}]{pos}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_ab8b5a7b9b4ca94260ab8802217721bda}
+\hypertarget{radio__new_8c_a6d652e9d0f1c54bfe9ec73fe2605b706}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+tune\+\_\+freq@{radio\+\_\+tune\+\_\+freq}}
+\index{radio\+\_\+tune\+\_\+freq@{radio\+\_\+tune\+\_\+freq}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+tune\+\_\+freq}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+tune\+\_\+freq (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{freq}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_a6d652e9d0f1c54bfe9ec73fe2605b706}
+\hypertarget{radio__new_8c_afb52516b50bf1098e28be670e369b6cd}{}\index{radio\+\_\+new.\+c@{radio\+\_\+new.\+c}!radio\+\_\+volume@{radio\+\_\+volume}}
+\index{radio\+\_\+volume@{radio\+\_\+volume}!radio\+\_\+new.\+c@{radio\+\_\+new.\+c}}
+\subsubsection[{radio\+\_\+volume}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+volume (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{volume}
+\end{DoxyParamCaption}
+)}\label{radio__new_8c_afb52516b50bf1098e28be670e369b6cd}

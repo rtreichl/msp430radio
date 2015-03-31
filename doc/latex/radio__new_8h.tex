@@ -1,0 +1,74 @@
+\hypertarget{radio__new_8h}{}\section{radio\+\_\+new.\+h File Reference}
+\label{radio__new_8h}\index{radio\+\_\+new.\+h@{radio\+\_\+new.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$driver/pca9530.\+h$>$}\\*
+{\ttfamily \#include $<$libs/log\+\_\+exp\+\_\+table.\+h$>$}\\*
+{\ttfamily \#include $<$driver/si4735.\+h$>$}\\*
+{\ttfamily \#include $<$si4735\+\_\+cmd\+\_\+prop.\+h$>$}\\*
+{\ttfamily \#include $<$driver/external\+\_\+interrupthandler.\+h$>$}\\*
+{\ttfamily \#include $<$driver/lcd.\+h$>$}\\*
+{\ttfamily \#include $<$driver/flash.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Timer.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$settings/radio\+\_\+configuration.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}{radio\+\_\+brightness} (uint8\+\_\+t brightness)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8h_af40ef5734842d7237918116e2decd3c0}{radio\+\_\+contrast} (uint8\+\_\+t contrast)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8h_afb52516b50bf1098e28be670e369b6cd}{radio\+\_\+volume} (uint8\+\_\+t volume)
+\item 
+uint16\+\_\+t \hyperlink{radio__new_8h_aee6321b512830d482a2fc164cf11f9e9}{radio\+\_\+seeking} (uint8\+\_\+t up\+\_\+down)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8h_a6d652e9d0f1c54bfe9ec73fe2605b706}{radio\+\_\+tune\+\_\+freq} (uint16\+\_\+t freq)
+\item 
+uint8\+\_\+t \hyperlink{radio__new_8h_ab8b5a7b9b4ca94260ab8802217721bda}{radio\+\_\+store\+\_\+station} (uint16\+\_\+t freq, int8\+\_\+t $\ast$name, uint8\+\_\+t pos)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{radio__new_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}{}\index{radio\+\_\+new.\+h@{radio\+\_\+new.\+h}!radio\+\_\+brightness@{radio\+\_\+brightness}}
+\index{radio\+\_\+brightness@{radio\+\_\+brightness}!radio\+\_\+new.\+h@{radio\+\_\+new.\+h}}
+\subsubsection[{radio\+\_\+brightness}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+brightness (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{brightness}
+\end{DoxyParamCaption}
+)}\label{radio__new_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}
+\hypertarget{radio__new_8h_af40ef5734842d7237918116e2decd3c0}{}\index{radio\+\_\+new.\+h@{radio\+\_\+new.\+h}!radio\+\_\+contrast@{radio\+\_\+contrast}}
+\index{radio\+\_\+contrast@{radio\+\_\+contrast}!radio\+\_\+new.\+h@{radio\+\_\+new.\+h}}
+\subsubsection[{radio\+\_\+contrast}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+contrast (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{contrast}
+\end{DoxyParamCaption}
+)}\label{radio__new_8h_af40ef5734842d7237918116e2decd3c0}
+\hypertarget{radio__new_8h_aee6321b512830d482a2fc164cf11f9e9}{}\index{radio\+\_\+new.\+h@{radio\+\_\+new.\+h}!radio\+\_\+seeking@{radio\+\_\+seeking}}
+\index{radio\+\_\+seeking@{radio\+\_\+seeking}!radio\+\_\+new.\+h@{radio\+\_\+new.\+h}}
+\subsubsection[{radio\+\_\+seeking}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t radio\+\_\+seeking (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{up\+\_\+down}
+\end{DoxyParamCaption}
+)}\label{radio__new_8h_aee6321b512830d482a2fc164cf11f9e9}
+\hypertarget{radio__new_8h_ab8b5a7b9b4ca94260ab8802217721bda}{}\index{radio\+\_\+new.\+h@{radio\+\_\+new.\+h}!radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}}
+\index{radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}!radio\+\_\+new.\+h@{radio\+\_\+new.\+h}}
+\subsubsection[{radio\+\_\+store\+\_\+station}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+store\+\_\+station (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{freq, }
+\item[{int8\+\_\+t $\ast$}]{name, }
+\item[{uint8\+\_\+t}]{pos}
+\end{DoxyParamCaption}
+)}\label{radio__new_8h_ab8b5a7b9b4ca94260ab8802217721bda}
+\hypertarget{radio__new_8h_a6d652e9d0f1c54bfe9ec73fe2605b706}{}\index{radio\+\_\+new.\+h@{radio\+\_\+new.\+h}!radio\+\_\+tune\+\_\+freq@{radio\+\_\+tune\+\_\+freq}}
+\index{radio\+\_\+tune\+\_\+freq@{radio\+\_\+tune\+\_\+freq}!radio\+\_\+new.\+h@{radio\+\_\+new.\+h}}
+\subsubsection[{radio\+\_\+tune\+\_\+freq}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+tune\+\_\+freq (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{freq}
+\end{DoxyParamCaption}
+)}\label{radio__new_8h_a6d652e9d0f1c54bfe9ec73fe2605b706}
+\hypertarget{radio__new_8h_afb52516b50bf1098e28be670e369b6cd}{}\index{radio\+\_\+new.\+h@{radio\+\_\+new.\+h}!radio\+\_\+volume@{radio\+\_\+volume}}
+\index{radio\+\_\+volume@{radio\+\_\+volume}!radio\+\_\+new.\+h@{radio\+\_\+new.\+h}}
+\subsubsection[{radio\+\_\+volume}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+volume (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{volume}
+\end{DoxyParamCaption}
+)}\label{radio__new_8h_afb52516b50bf1098e28be670e369b6cd}

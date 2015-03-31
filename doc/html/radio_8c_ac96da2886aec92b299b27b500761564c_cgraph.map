@@ -1,0 +1,14 @@
+<map id="radio_auto_search" name="radio_auto_search">
+<area shape="rect" id="node2" href="$si4735_8h.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="339,5,481,32"/>
+<area shape="rect" id="node8" href="$radio_8c.html#aee6321b512830d482a2fc164cf11f9e9" title="radio_seeking" alt="" coords="181,132,284,159"/>
+<area shape="rect" id="node13" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="727,208,813,235"/>
+<area shape="rect" id="node3" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="557,107,653,133"/>
+<area shape="rect" id="node6" href="$si4735_8c.html#aad8341b5b19aa8f962a6b9b940d77960" title="si4735_get_interrupt" alt="" coords="536,157,675,184"/>
+<area shape="rect" id="node7" href="$i2c_8h.html#a6dd896b0c82d1aa91a1a8155b41c4566" title="Receives I2C commands until a NACK is received or received RxBytes. " alt="" coords="570,208,641,235"/>
+<area shape="rect" id="node4" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="723,132,817,159"/>
+<area shape="rect" id="node5" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="865,171,972,197"/>
+<area shape="rect" id="node9" href="$external__interrupthandler_8h.html#a345dfb9a7e177c5da6eb9dc5b3c82bc9" title="ext_interrupt_enable" alt="" coords="341,56,479,83"/>
+<area shape="rect" id="node10" href="$si4735_8h.html#a339846da787fb5a496df9252ca7dc9a5" title="si4735_fm_seek_start" alt="" coords="335,157,485,184"/>
+<area shape="rect" id="node11" href="$si4735_8h.html#ad8b515f4991303f8cac978410d736a03" title="si4735_fm_tune_status" alt="" coords="332,208,488,235"/>
+<area shape="rect" id="node12" href="$external__interrupthandler_8h.html#a67fb5781413cf5c193be332cc6e52209" title="ext_interrupt_disable" alt="" coords="339,107,481,133"/>
+</map>

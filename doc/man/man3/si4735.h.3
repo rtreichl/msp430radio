@@ -1,0 +1,167 @@
+.TH "driver/si4735.h" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+driver/si4735.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <driver/i2c\&.h>\fP
+.br
+\fC#include <Timer\&.h>\fP
+.br
+\fC#include <settings/radio_pin_mapping\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2C_SI4735\fP   0x11"
+.br
+.ti -1c
+.RI "#define \fBSI4735_VOLUME_MAX\fP   63"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSI4735_Power_Up\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Power_Down\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Refclk_Freq\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_RX_Volume\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Fm_Deemphasis\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Rx_Hard_Mute\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_FM_RDS_INT_SOURCE\fP ()"
+.br
+.ti -1c
+.RI "void \fBSI4735_FM_RDS_INT_FIFO_COUNT\fP ()"
+.br
+.ti -1c
+.RI "void \fBSI4735_FM_RDS_CONFIG\fP ()"
+.br
+.ti -1c
+.RI "void \fBSI4735_Fm_Seek_Band_Bottom\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Fm_Seek_Band_Top\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Fm_Tune_Freq\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Fm_Tune_Status\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_seek_Down\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_seek_Up\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_INIT\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Start_Volume\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Set_Volume\fP (signed char Volume)"
+.br
+.ti -1c
+.RI "void \fBSI4735_Fm_Tune_Freq_2\fP (unsigned int Frequenz)"
+.br
+.ti -1c
+.RI "void \fBsi4735_interrupt\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBsi4735_configure_seeking\fP (uint16_t top_freq, uint16_t bot_freq, uint8_t freq_spacing, uint8_t snr, uint8_t rssi)"
+.br
+.ti -1c
+.RI "uint8_t \fBsi4735_set_property\fP (uint16_t property, uint16_t data)"
+.br
+.ti -1c
+.RI "uint8_t \fBsi4735_fm_seek_start\fP (uint8_t up_down)"
+.br
+.ti -1c
+.RI "uint8_t \fBsi4735_fm_tune_status\fP (uint8_t cancel, uint8_t intack, uint8_t *resp)"
+.br
+.ti -1c
+.RI "uint8_t \fBsi4735_fm_tune_freq\fP (uint16_t frequency)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define I2C_SI4735   0x11"
+
+.SS "#define SI4735_VOLUME_MAX   63"
+
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t si4735_configure_seeking (uint16_t top_freq, uint16_t bot_freq, uint8_t freq_spacing, uint8_t snr, uint8_t rssi)"
+
+.SS "void SI4735_Fm_Deemphasis (void)"
+
+.SS "void SI4735_FM_RDS_CONFIG ()"
+
+.SS "void SI4735_FM_RDS_INT_FIFO_COUNT ()"
+
+.SS "void SI4735_FM_RDS_INT_SOURCE ()"
+
+.SS "void SI4735_Fm_Seek_Band_Bottom (void)"
+
+.SS "void SI4735_Fm_Seek_Band_Top (void)"
+
+.SS "uint8_t si4735_fm_seek_start (uint8_t up_down)"
+
+.SS "void SI4735_Fm_Tune_Freq (void)"
+
+.SS "uint8_t si4735_fm_tune_freq (uint16_t frequency)"
+
+.SS "void SI4735_Fm_Tune_Freq_2 (unsigned int Frequenz)"
+
+.SS "void SI4735_Fm_Tune_Status (void)"
+
+.SS "uint8_t si4735_fm_tune_status (uint8_t cancel, uint8_t intack, uint8_t * resp)"
+
+.SS "void SI4735_INIT (void)"
+
+.SS "void si4735_interrupt (void)"
+
+.SS "void SI4735_Power_Down (void)"
+
+.SS "void SI4735_Power_Up (void)"
+
+.SS "void SI4735_Refclk_Freq (void)"
+
+.SS "void SI4735_Rx_Hard_Mute (void)"
+
+.SS "void SI4735_RX_Volume (void)"
+
+.SS "void SI4735_seek_Down (void)"
+
+.SS "void SI4735_seek_Up (void)"
+
+.SS "uint8_t si4735_set_property (uint16_t property, uint16_t data)"
+
+.SS "void SI4735_Set_Volume (signed char Volume)"
+
+.SS "void SI4735_Start_Volume (void)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.

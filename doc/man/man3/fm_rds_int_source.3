@@ -1,0 +1,79 @@
+.TH "fm_rds_int_source" 3 "Thu Mar 26 2015" "Version V2.0" "FHFM-Radio" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+fm_rds_int_source \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <si4735_cmd_prop\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBbyte\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBbytes\fP [2]"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint16_t \fBRDSRECV\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBRDSSYNCLOST\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBRDSSYNCFOUND\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fB__pad0__\fP:1"
+.br
+.RI "\fIReserved\&. \fP"
+.ti -1c
+.RI "   uint16_t \fBRDSNEWBLOCKA\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fBRDSNEWBLOCKB\fP:1"
+.br
+.ti -1c
+.RI "   uint16_t \fB__pad1__\fP:10"
+.br
+.RI "\fIReserved\&. \fP"
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint16_t fm_rds_int_source::__pad0__"
+
+.PP
+Reserved\&. 
+.SS "uint16_t fm_rds_int_source::__pad1__"
+
+.PP
+Reserved\&. 
+.SS "uint16_t fm_rds_int_source::byte"
+
+.SS "uint8_t fm_rds_int_source::bytes[2]"
+
+.SS "uint16_t fm_rds_int_source::RDSNEWBLOCKA"
+
+.SS "uint16_t fm_rds_int_source::RDSNEWBLOCKB"
+
+.SS "uint16_t fm_rds_int_source::RDSRECV"
+
+.SS "uint16_t fm_rds_int_source::RDSSYNCFOUND"
+
+.SS "uint16_t fm_rds_int_source::RDSSYNCLOST"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FHFM-Radio from the source code\&.
