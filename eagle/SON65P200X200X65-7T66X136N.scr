@@ -1,0 +1,144 @@
+# Library Script
+#
+# PCB Libraries
+SET WIRE_BEND 2;
+Grid mm;
+SET COLOR_LAYER 29 3
+SET COLOR_LAYER 31 11
+SET COLOR_LAYER 39 13
+SET COLOR_LAYER 40 5
+SET COLOR_LAYER 51 6
+SET COLOR_LAYER 52 6
+SET FILL_LAYER 29 9
+SET FILL_LAYER 31 1
+SET FILL_LAYER 39 1
+SET FILL_LAYER 40 1
+SET FILL_LAYER 51 1
+SET FILL_LAYER 52 1
+Layer 1 Top;
+Layer 16 Bottom;
+Layer 17 Pads;
+Layer 18 Vias;
+Layer 19 Unrouted;
+Layer 20 Dimension;
+Layer 21 tPlace;
+Layer 22 bPlace;
+Layer 23 tOrigins;
+Layer 24 bOrigins;
+Layer 25 tNames;
+Layer 26 bNames;
+Layer 27 tValues;
+Layer 28 bValues;
+Layer 29 tStop;
+Layer 30 bStop;
+Layer 31 tCream;
+Layer 32 bCream;
+Layer 33 tFinish;
+Layer 34 bFinish;
+Layer 35 tGlue;
+Layer 36 bGlue;
+Layer 37 tTest;
+Layer 38 bTest;
+Layer 39 tKeepout;
+Layer 40 bKeepout;
+Layer 41 tRestrict;
+Layer 42 bRestrict;
+Layer 43 vRestrict;
+Layer 44 Drills;
+Layer 45 Holes;
+Layer 46 Milling;
+Layer 47 Measures;
+Layer 48 Document;
+Layer 49 Reference;
+Layer 51 tDocu;
+Layer 52 bDocu;
+
+Edit SON65P200X200X65-7T66X136N.pac;
+Description 'Small Outline No-Lead (SON with Tab), 0.65 mm pitch;6 pin,2.00 mm L X 2.00 mm W X 0.65 mm H body<p><i>PCB Libraries Packages</i>';
+Layer 1;
+SMD '1' 0.74 0.27 -100 R270 NOCREAM NOSTOP (-0.65 -0.995);
+SMD '2' 0.74 0.27 -100 R270 NOCREAM NOSTOP (0 -0.995);
+SMD '3' 0.74 0.27 -100 R270 NOCREAM NOSTOP (0.65 -0.995);
+SMD '4' 0.74 0.27 -100 R90 NOCREAM NOSTOP (0.65 0.995);
+SMD '5' 0.74 0.27 -100 R90 NOCREAM NOSTOP (0 0.995);
+SMD '6' 0.74 0.27 -100 R90 NOCREAM NOSTOP (-0.65 0.995);
+SMD '7' 0.26 0.96 -0 R90 NOCREAM NOSTOP (0 0);
+Layer 29;
+Polygon 0.01 (-0.785 -0.995) (-0.785 -0.76) -180 (-0.515 -0.76) (-0.515 -1.23)\
+             -180 (-0.785 -1.23) (-0.785 -0.995);
+Layer 31;
+Polygon 0.01 (-0.785 -0.995) (-0.785 -0.76) -180 (-0.515 -0.76) (-0.515 -1.23)\
+             -180 (-0.785 -1.23) (-0.785 -0.995);
+Layer 29;
+Polygon 0.01 (-0.135 -0.995) (-0.135 -0.76) -180 (0.135 -0.76) (0.135 -1.23)\
+             -180 (-0.135 -1.23) (-0.135 -0.995);
+Layer 31;
+Polygon 0.01 (-0.135 -0.995) (-0.135 -0.76) -180 (0.135 -0.76) (0.135 -1.23)\
+             -180 (-0.135 -1.23) (-0.135 -0.995);
+Layer 29;
+Polygon 0.01 (0.515 -0.995) (0.515 -0.76) -180 (0.785 -0.76) (0.785 -1.23)\
+             -180 (0.515 -1.23) (0.515 -0.995);
+Layer 31;
+Polygon 0.01 (0.515 -0.995) (0.515 -0.76) -180 (0.785 -0.76) (0.785 -1.23)\
+             -180 (0.515 -1.23) (0.515 -0.995);
+Layer 29;
+Polygon 0.01 (0.785 0.995) (0.785 0.76) -180 (0.515 0.76) (0.515 1.23)\
+             -180 (0.785 1.23) (0.785 0.995);
+Layer 31;
+Polygon 0.01 (0.785 0.995) (0.785 0.76) -180 (0.515 0.76) (0.515 1.23)\
+             -180 (0.785 1.23) (0.785 0.995);
+Layer 29;
+Polygon 0.01 (0.135 0.995) (0.135 0.76) -180 (-0.135 0.76) (-0.135 1.23)\
+             -180 (0.135 1.23) (0.135 0.995);
+Layer 31;
+Polygon 0.01 (0.135 0.995) (0.135 0.76) -180 (-0.135 0.76) (-0.135 1.23)\
+             -180 (0.135 1.23) (0.135 0.995);
+Layer 29;
+Polygon 0.01 (-0.515 0.995) (-0.515 0.76) -180 (-0.785 0.76) (-0.785 1.23)\
+             -180 (-0.515 1.23) (-0.515 0.995);
+Layer 31;
+Polygon 0.01 (-0.515 0.995) (-0.515 0.76) -180 (-0.785 0.76) (-0.785 1.23)\
+             -180 (-0.515 1.23) (-0.515 0.995);
+Layer 1;
+Polygon 0.01 (0.68 -0.33) (-0.48 -0.33) (-0.68 -0.13) (-0.68 0.33)\
+             (0.68 0.33) (0.68 -0.33);
+Layer 29;
+Polygon 0.01 (0.68 -0.33) (-0.48 -0.33) (-0.68 -0.13) (-0.68 0.33)\
+             (0.68 0.33) (0.68 -0.33);
+Layer 31;
+Polygon 0.01 (0.59 -0.205) (0.04 -0.205) (0.04 0.205) (0.59 0.205)\
+             (0.59 -0.205);
+Polygon 0.01 (-0.04 -0.205) (-0.59 -0.205) (-0.59 0.205) (-0.04 0.205)\
+             (-0.04 -0.205);
+Layer 39;
+Wire 0.05 (-1.3 -1.62) (-1.3 1.62) (1.3 1.62) (1.3 -1.62)\
+          (-1.3 -1.62);
+Circle 0.05 (0 0) (0.25 0);
+Wire 0.05 (0 0.35) (0 -0.35);
+Wire 0.05 (-0.35 0) (0.35 0);
+Layer 51;
+Wire 0.001 (-1.05 -1.05) (-1.05 1.05) (1.05 1.05) (1.05 -1.05)\
+           (-1.05 -1.05);
+Layer 21;
+Circle 0.2 (-0.65 -1.685) (-0.55 -1.685);
+Layer 51;
+Wire 0.12 (1.05 -1.05) (-0.35 -1.05) (-1.05 -0.35) (-1.05 1.05)\
+          (1.05 1.05) (1.05 -1.05);
+Layer 21;
+Wire 0.12 (-1.11 0.99) (-1.11 -1.305);
+Wire 0.12 (1.11 0.99) (1.11 -0.99);
+Layer 51;
+Change Size 1.62;
+Change Ratio 10;
+Change Font Fixed;
+Text '>NAME' R0 (0 0);
+Layer 25;
+Change Size 1.2;
+Change Ratio 10;
+Change Font Vector;
+Text '>NAME' R0 (0 0);
+Layer 27;
+Change Size 1.2;
+Change Ratio 10;
+Change Font Vector;
+Text '>VALUE' R0 (0 0);
