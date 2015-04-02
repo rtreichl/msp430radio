@@ -141,7 +141,9 @@ uint8_t radio_volume(int8_t *volume)
 		*volume = 0;
 	}
 	tmp_volume = ((int16_t)(*volume) * SI4735_VOLUME_MAX) / 100;
+	ext_interrupt_enable(SI_INT_INT);
 	si4735_set_property(RX_VOLUME, tmp_volume);
+	ext_interrupt_disable(SI_INT_INT);
 	_delay_ms(10);
 	return 0;
 }
@@ -338,7 +340,9 @@ uint8_t radio_value_to_string(char *str, int16_t value, uint8_t size, uint8_t ba
 
 uint8_t radio_tune_freq(uint16_t freq)
 {
+	ext_interrupt_enable(SI_INT_INT);
 	si4735_fm_tune_freq(freq);
+	ext_interrupt_disable(SI_INT_INT);
 	return 0;
 }
 
