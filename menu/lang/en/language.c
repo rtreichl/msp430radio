@@ -35,6 +35,13 @@ const char on_text[] = "On";
 const char off_text[] = "Off";
 const char main_text[] = "Settings";
 
+const char abort_text[] = "Abort";
+const char station_list_text[] = "Stations list";
+const char station_store_text[] = "Store Station";
+const char seeking_up_text[] = "Seeking up";
+const char seeking_down_text[] = "Seeking down";
+const char auto_search_text[] = "Auto search";
+
 const char pty_0[] = "None PTY";
 const char pty_1[] = "News";
 const char pty_2[] = "Current Affairs";

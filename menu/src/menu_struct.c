@@ -2,7 +2,7 @@
 
 MENU_ENTRY main_entry = {
 	&view_entry,
-	0,
+	&station_list_entry,
 	0,
 	0,
 	0,
@@ -406,6 +406,66 @@ MENU_ENTRY main_return_entry = {
 	0,
 	0,
 	&reset_entry,
+	return_text,
+	0,
+};
+
+MENU_ENTRY station_list_entry = {
+	0,
+	0,
+	&main_entry,
+	&seeking_up_entry,
+	0,
+	station_list_text,
+	0,
+};
+
+MENU_ENTRY seeking_up_entry = {
+	0,
+	0,
+	&main_entry,
+	&seeking_down_entry,
+	&station_list_entry,
+	seeking_up_text,
+	0,
+};
+
+MENU_ENTRY seeking_down_entry = {
+	0,
+	0,
+	&main_entry,
+	&station_store_entry,
+	&seeking_up_entry,
+	return_text,
+	seeking_down_text,
+};
+
+MENU_ENTRY station_store_entry = {
+	0,
+	0,
+	&main_entry,
+	&seeking_down_entry,
+	&auto_search_entry,
+	station_store_text,
+	0,
+};
+
+MENU_ENTRY auto_search_entry = {
+	0,
+	0,
+	&main_entry,
+	&main_long_return_entry,
+	&station_store_entry,
+	auto_search_text,
+	0,
+};
+
+MENU_ENTRY main_long_return_entry = {
+	&main_entry,
+	0,
+	0,
+	0,
+	&auto_search_entry,
 	return_text,
 	0,
 };
