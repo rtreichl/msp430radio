@@ -28,6 +28,9 @@
 #define RADIO_PIPTY_VIEW 2
 #define VALID 1
 #define NOT_VALID 0
+#define SOURCE_FM 0
+#define SOURCE_AM 1
+#define SOURCE_LINEIN 2
 
 #define Start_up_1 		"HS-Rosenheim"
 #define	Shift_left_1	2
@@ -52,6 +55,7 @@ typedef struct radio_status {
 	uint16_t display_mode:2;
 	uint16_t audio_mute:1;
 	uint16_t :4;
+	uint16_t source_select:2;
 } RADIO_STATUS;
 
 typedef struct radio_rsq {

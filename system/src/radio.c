@@ -25,6 +25,8 @@ uint8_t radio_init()
 	basic_clock_init();
 	timer_init();
 	i2c_init (400,10);
+	AUDIO_SW_LINE_DIR |= AUDIO_SW_LINE_PIN;
+	AUDIO_SW_GND_DIR |= AUDIO_SW_GND_PIN;
 	radio.station_freq = 10770;
 	radio.status.audio_mute = 0;
 	radio.status.display_mode = 0;
@@ -56,6 +58,24 @@ uint8_t radio_brightness(uint8_t brightness)
 	return 0;
 }
 
+uint8_t radio_source_select() {
+	switch(radio.status.source_select) {
+	case SOURCE_FM:
+		AUDIO_SW_LINE_OUT &= ~AUDIO_SW_LINE_PIN;
+		AUDIO_SW_GND_OUT &= ~AUDIO_SW_GND_PIN;
+		//TODO Implement switch si4735 to FM only when AM mode is implemented else just switch audio switch
+		break;
+	case SOURCE_AM:
+		AUDIO_SW_LINE_OUT &= ~AUDIO_SW_LINE_PIN;
+		AUDIO_SW_GND_OUT &= ~AUDIO_SW_GND_PIN;
+		//TODO Implement switch si4735 to AM only when AM mode is implemented else just do nothing else
+		break;
+	case SOURCE_LINEIN:
+		AUDIO_SW_LINE_OUT |= AUDIO_SW_LINE_PIN;
+		AUDIO_SW_GND_OUT |= AUDIO_SW_GND_PIN;
+		//TODO set si4735 in powerdown modus only if ta/tp mode is off else poll flag and swith to si4735 for duration ta flag is set
+	}
+}
 uint8_t radio_contrast(uint8_t contrast)
 {
 	if(contrast > 100) {
