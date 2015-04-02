@@ -20,6 +20,7 @@
 #include <driver/timer.h>
 #include <driver/encoder.h>
 #include <menu/lang/language.h>
+#include <menu/menu.h>
 #include <settings/radio_configuration.h>
 #include <system/time.h>
 
@@ -53,8 +54,8 @@ typedef struct radio_status {
 	uint16_t freq_valid:1;
 	uint16_t scroll_text:4;
 	uint16_t display_mode:2;
-	uint16_t audio_mute:1;
-	uint16_t :4;
+	uint16_t audio_status:2;
+	uint16_t equalizer_mode:3;
 	uint16_t source_select:2;
 } RADIO_STATUS;
 

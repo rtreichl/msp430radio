@@ -10,6 +10,7 @@
 RADIO radio;
 
 #define AUDIO_MUTE 1
+#define AUDIO_VOLUME 2
 
 const PCA9530 pca9530_config = {
 	76,
@@ -28,7 +29,7 @@ uint8_t radio_init()
 	AUDIO_SW_LINE_DIR |= AUDIO_SW_LINE_PIN;
 	AUDIO_SW_GND_DIR |= AUDIO_SW_GND_PIN;
 	radio.station_freq = 10770;
-	radio.status.audio_mute = 0;
+	radio.status.audio_status = 0;
 	radio.status.display_mode = 0;
 	radio.volume = 30;
 	radio.brightness = 80;
