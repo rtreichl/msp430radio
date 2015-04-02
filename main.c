@@ -35,24 +35,27 @@
 #define ENCODER_TAST_REFRESH	10
 #define	TIME_SECOND	60000
 
-volatile unsigned char sekunde = 0;
-volatile unsigned char posrt = 0;
-volatile unsigned char sec = 240;
+extern volatile unsigned char encoder_1_button, encoder_2_button;
 
-extern volatile unsigned char encoder_1_button, encoder_2_button, sekunde, sec , posrt;
+#define DISPLAY_REFRESH 500
 
 int main (void)
 {
 	WDTCTL = WDTPW + WDTHOLD;
 	radio_init();
-	int8_t en_counter2;
+	int8_t en_counter1 = 0;
+	int8_t en_counter2 = 0;
 	time_set(18,29,27,2,16,0);
 
 	while(1)
 	{
 		//menu();
 		en_counter2 +=  Encoder_2_get_count();
-		menu_handler(&encoder_2_button, &en_counter2);
+		en_counter1 +=  Encoder_1_get_count();
+		if(encoder_1_button != BUTTON_FREE || en_counter1 != 0 || encoder_2_button != BUTTON_FREE || en_counter2 != 0 || timer_count[4] >= DISPLAY_REFRESH) {
+			menu_handler(&encoder_1_button, &en_counter1, &encoder_2_button, &en_counter2);
+			timer_count[4] = 0;
+		}
 		if(timer_count[1] >= ENCODER_TAST_REFRESH) {
 		timer_count[1] -= ENCODER_TAST_REFRESH;
 		encoder_interrupt2();
@@ -68,17 +71,7 @@ int main (void)
 }
 
 #pragma vector=WDT_VECTOR
-__interrupt void watchdog_timer(void)
-{
-	if((sekunde++)%2 == 0)		//wenn eine Halbe sekunde vergangen ist schiebe den Text um eins weiter
-		if(posrt++ == 78)		//wenn der Text durch geshiftet ist fange von vorne wieder an
-			posrt = 0;
-	if(++sec >= 240)			//wenn eine Minute vorbei ist dann setze den zähler zurück und erhöhe die Minute um eins
-	{
-		sec = 0;
-		//time_date(0, 0, 0, 0, 0, 0, 1, 0, 0);
-	}
-}
+__interrupt void watchdog_timer(void){}
 
 //Nicht benutzte Interrupt Vectoren
 
