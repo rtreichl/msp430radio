@@ -340,7 +340,7 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 	}
 	else {
 		/* copy string on given position */
-		while(*str != 0 && pos < 48 ) {//&& num > 0) {
+		while(*str != 0 && pos < 48 && str != 0) {//&& num > 0) {
 			lcd_view[pos++] = *(str++);
 			//num--;
 		}
