@@ -85,7 +85,7 @@ typedef struct radio {
 uint8_t radio_brightness(uint8_t brightness);
 uint8_t radio_contrast(uint8_t contrast);
 uint8_t radio_volume(int8_t *volume);
-uint8_t radio_display_handler(void);
+uint8_t radio_display_handler(uint8_t blend_scroll);
 uint16_t radio_seeking(uint8_t up_down);
 uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_init();

@@ -205,7 +205,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 
 #define RADIO_TEXT_SCROLL 500
 
-uint8_t radio_display_handler(void)
+uint8_t radio_display_handler(uint8_t blend_scroll)
 {
 	char tmp_string[9];
 	switch(radio.status.display_mode) {
@@ -254,13 +254,27 @@ uint8_t radio_display_handler(void)
 		lcd_create_view(tmp_string, 0, 0, 0, 0);
 		lcd_create_view("MHz", 5, 0, 0, 0); //TODO add this to a String table
 	}
+	switch (radio.status.audio_status) {
+	case AUDIO_MUTE:
+		lcd_create_view("\7÷", 0, 1, 0, 0);
+		break;
+	case AUDIO_VOLUME:
+		radio_value_to_string(tmp_string, radio.volume, 3, 10);
+		lcd_create_view(tmp_string, 2, 1, 0, 0);
+		lcd_create_view("%", 5, 1, 0, 0);
+		lcd_create_view("\7=", 0, 1, 0, 0);
+		radio.status.audio_status = 0;
+		break;
+	default:
+		lcd_create_view("\7û", 0, 1, 0, 0);	//Audio normal
+		break;
+
+	}
+	if(blend_scroll != 0) {
+		menu_scroll(blend_scroll);
+	}
 	time_to_str(tmp_string);
 	lcd_create_view("\6", 10, 0, 0, 0); //TODO \6 add this to lcd symbols
-	if(radio.status.audio_mute == AUDIO_MUTE) {
-		lcd_create_view("\7÷", 0, 1, 0, 0);
-	} else {
-		lcd_create_view("\7û", 0, 1, 0, 0);	//Audio normal
-	}
 	lcd_create_view(tmp_string,  11, 0, 0, 1);
 
 	//TODO new radio handler which controll all for radio time and interupt based.
