@@ -146,55 +146,60 @@ uint8_t radio_volume(int8_t *volume)
 	return 0;
 }
 
-uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)
+uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
-	uint8_t encoder_right_button = BUTTON_FREE;
-	int8_t encoder_right_count = 0;
+	uint8_t tmp_value = 0;
 
-	if(*encoder_left_count != 0) {
-		if(*encoder_left_count < 0 && radio.volume > 0) {
+	if(*encoder_right_count != 0) {
+		if(*encoder_right_count < 0 && radio.volume > 0) {
 			radio.volume--;
-			radio_volume(&(radio.volume));
-			*encoder_left_count = 0;
 		}
-		else if(*encoder_left_count > 0 && radio.volume < 100) {
+		else if(*encoder_right_count > 0 && radio.volume < 100) {
 			radio.volume++;
-			radio_volume(&(radio.volume));
-			*encoder_left_count = 0;
 		}
+		radio_volume(&(radio.volume));
+		radio.status.audio_status = AUDIO_VOLUME;
+		tmp_value = radio.volume;
+		*encoder_right_count = 0;
 	}
 
-	if(encoder_right_count != 0) {
-		if(encoder_right_count < 0 && radio.station_freq > 0) {
-			radio.station_freq--;
-			encoder_right_count = 0;
+	if(*encoder_left_count != 0) {
+		if(*encoder_left_count < 0 && radio.station_freq > RADIO_BOT_FREQ) {
+			radio.station_freq -= 10;
 		}
-		else if(encoder_right_count > 0 && radio.station_freq < 100) {
-			radio.station_freq++;
-			encoder_right_count = 0;
+		else if(*encoder_left_count > 0 && radio.station_freq < RADIO_TOP_FREQ) {
+			radio.station_freq += 10;
 		}
+		radio_tune_freq(radio.station_freq);
+		tmp_value = ((radio.station_freq - RADIO_BOT_FREQ) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
+		*encoder_left_count = 0;
+	}
+	if(*encoder_right_button == BUTTON_PRESS_SHORT)
+	{
+		*encoder_right_button = BUTTON_FREE;
+		return 0xFF;
+	}
+	if(*encoder_right_button == BUTTON_PRESS_LONG)
+	{
+		*encoder_right_button = BUTTON_FREE;
+		return 0xFF;
 	}
 	if(*encoder_left_button == BUTTON_PRESS_SHORT)
 	{
 		*encoder_left_button = BUTTON_FREE;
-		return 0xFF;
+		if(radio.status.audio_status == AUDIO_MUTE) {
+			radio.status.audio_status = 0;
+		} else {
+			radio.status.audio_status = AUDIO_MUTE;
+		}
+		//radio_mute
 	}
 	if(*encoder_left_button == BUTTON_PRESS_LONG)
 	{
 		*encoder_left_button = BUTTON_FREE;
-		return 0xFF;
-	}
-	if(encoder_right_button == BUTTON_PRESS_SHORT)
-	{
-		encoder_right_button = BUTTON_FREE;
-		//radio_mute
-	}
-	if(encoder_right_button == BUTTON_PRESS_LONG)
-	{
-		encoder_right_button = BUTTON_FREE;
 		//radio_standby
 	}
-	radio_display_handler();
+	radio_display_handler(tmp_value);
 	return 0;
 }
 
