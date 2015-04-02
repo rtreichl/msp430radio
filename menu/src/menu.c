@@ -49,20 +49,21 @@ uint8_t menu_display()
 	return 0;
 }
 
-uint8_t menu_function(uint8_t *encoder_button, int8_t *encoder_count)
+uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	switch(actuall_entry->entry_num) {
 	case MENU_FREQ_ENTRY:
-		return menu_scroll_settings(encoder_button, encoder_count);
+		return menu_scroll_settings(encoder_right_button, encoder_right_count);
 	case MENU_VOL_ENTRY:
-		return menu_scroll_settings(encoder_button, encoder_count);
+		return menu_scroll_settings(encoder_right_button, encoder_right_count);
 	case MENU_CONT_ENTRY:
-		return menu_scroll_settings(encoder_button, encoder_count);
+		return menu_scroll_settings(encoder_right_button, encoder_right_count);
 	case MENU_BRIG_ENTRY:
-		return menu_scroll_settings(encoder_button, encoder_count);
+		return menu_scroll_settings(encoder_right_button, encoder_right_count);
 	case MENU_MAIN_ENTRY:
-		return radio_main(encoder_button, encoder_count);
+		return radio_main(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
 	}
+	//*encoder_right_button = BUTTON_FREE;
 	return 0;
 }
 
@@ -116,48 +117,50 @@ uint8_t menu_scroll(uint8_t value)
 	return 0;
 }
 
-uint8_t menu_handler(uint8_t *encoder_button, int8_t *encoder_count)
+uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	if (menu_display_selector == 0) {
-		if (*encoder_button == BUTTON_PRESS_LONG) {
+		*encoder_left_count = 0;
+		*encoder_left_button = BUTTON_PRESS_FREE;
+		if (*encoder_right_button == BUTTON_PRESS_LONG) {
 			if (actuall_entry->child_long != 0) {
 				actuall_entry = actuall_entry->child_long;
 			}
 			if (actuall_entry->entry_num != 0) {
 				menu_display_selector = actuall_entry->entry_num;
-				menu_function(0, 0);
+				menu_function(0, 0, 0, 0);
 				return 0;
 			}
-			*encoder_button = BUTTON_PRESS_FREE;
+			*encoder_right_button = BUTTON_PRESS_FREE;
 		}
-		if (*encoder_button == BUTTON_PRESS_SHORT) {
+		if (*encoder_right_button == BUTTON_PRESS_SHORT) {
 			if (actuall_entry->child_short != 0) {
 				actuall_entry = actuall_entry->child_short;
 			}
 			if (actuall_entry->entry_num != 0) {
 				menu_display_selector = actuall_entry->entry_num;
-				*encoder_button = BUTTON_PRESS_FREE;
-				menu_function(0, 0);
+				*encoder_right_button = BUTTON_PRESS_FREE;
+				menu_function(0, 0, 0, 0);
 				return 0;
 			}
-			*encoder_button = BUTTON_PRESS_FREE;
+			*encoder_right_button = BUTTON_PRESS_FREE;
 		}
-		if (*encoder_count != 0) {
-			if(*encoder_count > 0) {
+		if (*encoder_right_count != 0) {
+			if(*encoder_right_count > 0) {
 				if (actuall_entry->next != 0) {
 					actuall_entry = actuall_entry->next;
 				}
 			}
-			if (*encoder_count < 0) {
+			if (*encoder_right_count < 0) {
 				if (actuall_entry->previous != 0) {
 					actuall_entry = actuall_entry->previous;
 				}
 			}
-			*encoder_count = 0;
+			*encoder_right_count = 0;
 		}
 		menu_display();
 	}else {
-		uint8_t ret = menu_function(encoder_button, encoder_count);
+		uint8_t ret = menu_function(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
 		if (ret  == 0xFF) {		//Menu down wards
 			actuall_entry = actuall_entry->child_short;
 			menu_display_selector = 0;
