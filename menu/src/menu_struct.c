@@ -147,7 +147,7 @@ MENU_ENTRY rds_entry = {
 	&ptypi_entry,
 	0,
 	rds_text,
-	0,
+	RADIO_RDS_VIEW_ENTRY,
 };
 
 MENU_ENTRY ptypi_entry = {
@@ -157,7 +157,7 @@ MENU_ENTRY ptypi_entry = {
 	&rsq_entry,
 	&rds_entry,
 	ptypi_text,
-	0,
+	RADIO_PIPTY_VIEW_ENTRY,
 };
 
 MENU_ENTRY rsq_entry = {
@@ -167,7 +167,7 @@ MENU_ENTRY rsq_entry = {
 	&text_return_entry,
 	&ptypi_entry,
 	rsq_text,
-	0,
+	RADIO_RSQ_VIEW_ENTRY,
 };
 
 MENU_ENTRY text_return_entry = {
@@ -247,7 +247,7 @@ MENU_ENTRY pop_entry = {
 	&classic_entry,
 	0,
 	pop_text,
-	0,
+	AUDIO_POP_ENTRY,
 };
 
 MENU_ENTRY classic_entry = {
@@ -257,7 +257,7 @@ MENU_ENTRY classic_entry = {
 	&jazz_entry,
 	&pop_entry,
 	classic_text,
-	0,
+	AUDIO_CLASSIC_ENTRY,
 };
 
 MENU_ENTRY jazz_entry = {
@@ -267,7 +267,7 @@ MENU_ENTRY jazz_entry = {
 	&hiphop_entry,
 	&classic_entry,
 	jazz_text,
-	0,
+	AUDIO_JAZZ_ENTRY,
 };
 
 MENU_ENTRY hiphop_entry = {
@@ -277,7 +277,7 @@ MENU_ENTRY hiphop_entry = {
 	&rock_entry,
 	&jazz_entry,
 	hiphop_text,
-	0,
+	AUDIO_HIPHOP_ENTRY,
 };
 
 MENU_ENTRY rock_entry = {
@@ -287,7 +287,7 @@ MENU_ENTRY rock_entry = {
 	&news_entry,
 	&hiphop_entry,
 	rock_text,
-	0,
+	AUDIO_ROCK_ENTRY,
 };
 
 MENU_ENTRY news_entry = {
@@ -297,7 +297,7 @@ MENU_ENTRY news_entry = {
 	&audio_return_entry,
 	&rock_entry,
 	news_text,
-	0,
+	AUDIO_NEWS_ENTRY,
 };
 
 MENU_ENTRY audio_return_entry = {
@@ -337,7 +337,7 @@ MENU_ENTRY fm_entry = {
 	&am_entry,
 	0,
 	fm_text,
-	0,
+	SOURCE_FM,
 };
 
 MENU_ENTRY am_entry = {
@@ -347,7 +347,7 @@ MENU_ENTRY am_entry = {
 	&linein_entry,
 	&fm_entry,
 	am_text,
-	0,
+	SOURCE_AM,
 };
 
 MENU_ENTRY linein_entry = {
@@ -357,7 +357,7 @@ MENU_ENTRY linein_entry = {
 	&source_return_entry,
 	&am_entry,
 	linein_text,
-	0,
+	SOURCE_LINEIN,
 };
 
 MENU_ENTRY source_return_entry = {
