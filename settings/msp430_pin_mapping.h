@@ -9,7 +9,7 @@
 #define EN2_A			2.0
 #define EN2_B			2.1
 #define EN2_TAST		2.2
-#define AUIDO_SW_GND	3.2
+#define AUDIO_SW_GND	3.2
 #define AUDIO_SW_LINE	3.3
 #define PCA_ON_OFF		2.4
 #define PCA_INT			2.5
