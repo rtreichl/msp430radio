@@ -49,10 +49,10 @@ uint8_t ext_interrupt_enable(uint8_t int_number)
 uint8_t ext_interrupt_disable(uint8_t int_number)
 {
 	if(int_number/8) {
-		P1IE &= ~(1 << int_number % 8);
+		P2IE &= ~(1 << int_number % 8);
 	}
 	else {
-		P2IE &= ~(1 << int_number % 8);
+		P1IE &= ~(1 << int_number % 8);
 	}
 	return 0;
 }
