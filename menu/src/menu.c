@@ -74,6 +74,8 @@ uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, 
 uint8_t menu_scroll_settings(uint8_t *encoder_button, int8_t *encoder_count)
 {
 	static int8_t value = 0;
+	char tmp_string[4];
+
 	if(value == 0) {
 		value = 23; //TODO load value from flash
 	}
@@ -87,7 +89,12 @@ uint8_t menu_scroll_settings(uint8_t *encoder_button, int8_t *encoder_count)
 	} else if (value < 0) {
 		value = 0;
 	}
+	lcd_create_view(actuall_entry->child_short->text, 0, 0, 0, 0);
+	radio_value_to_string(tmp_string, value, 3, 10);
+	lcd_create_view(tmp_string, 0, 1, 0, 0);
+	lcd_create_view("%", 3, 1, 0, 0);
 	*encoder_count = 0;
+
 	menu_scroll((value * 60) / 100);
 	if(*encoder_button == BUTTON_PRESS_SHORT) {
 		//TODO store value to flash
