@@ -145,6 +145,25 @@ uint8_t radio_source_select() {
 		//TODO set si4735 in powerdown modus only if ta/tp mode is off else poll flag and swith to si4735 for duration ta flag is set
 	}
 	return 0;
+
+uint8_t radio_equalizer(uint8_t entry_num)
+{
+	switch(entry_num) {
+	case AUDIO_ROCK_ENTRY:
+		radio.status.equalizer_mode = ROCK;
+	case AUDIO_POP_ENTRY:
+		radio.status.equalizer_mode = POP;
+	case AUDIO_HIPHOP_ENTRY:
+		radio.status.equalizer_mode = RAP_HIP_HOP;
+	case AUDIO_NEWS_ENTRY:
+		radio.status.equalizer_mode = NEWS_VOICE;
+	case AUDIO_CLASSIC_ENTRY:
+		radio.status.equalizer_mode = CLASSIC;;
+	case AUDIO_JAZZ_ENTRY:
+		radio.status.equalizer_mode = JAZZ;
+	}
+	Amplifier_set_equalizer_mode(radio.status.equalizer_mode, AMPLIFIER_GAIN);
+	return 0xFD;
 }
 
 uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
