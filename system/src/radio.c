@@ -72,6 +72,7 @@ uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_co
 	}
 	return 0;
 }
+
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	if(*encoder_right_count != 0) {	//TODO move to own funciton.
@@ -112,58 +113,58 @@ uint8_t radio_source_select() {
 		AUDIO_SW_GND_OUT |= AUDIO_SW_GND_PIN;
 		//TODO set si4735 in powerdown modus only if ta/tp mode is off else poll flag and swith to si4735 for duration ta flag is set
 	}
+	return 0;
 }
 
-uint8_t radio_display_view(uint8_t entry_num) //TODO rename to radio_settings
+uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
 {
 	switch(entry_num) {
 	case RADIO_RDS_VIEW_ENTRY:
 		radio.status.display_mode = RADIO_RDS_VIEW;
-		break;
+		return 0xFD;
 	case RADIO_RSQ_VIEW_ENTRY:
 		radio.status.display_mode = RADIO_RSQ_VIEW;
-		break;
+		return 0xFD;
 	case RADIO_PIPTY_VIEW_ENTRY:
 		radio.status.display_mode = RADIO_PIPTY_VIEW;
-		break;
+		return 0xFD;
 	case AUDIO_ROCK_ENTRY:
 		radio.status.equalizer_mode = ROCK;
-		break;
+		return 0xFD;
 	case AUDIO_POP_ENTRY:
 		radio.status.equalizer_mode = POP;
-		break;
+		return 0xFD;
 	case AUDIO_HIPHOP_ENTRY:
 		radio.status.equalizer_mode = RAP_HIP_HOP;
-		break;
+		return 0xFD;
 	case AUDIO_NEWS_ENTRY:
 		radio.status.equalizer_mode = NEWS_VOICE;
-		break;
+		return 0xFD;
 	case AUDIO_CLASSIC_ENTRY:
 		radio.status.equalizer_mode = CLASSIC;
-		break;
+		return 0xFD;
 	case AUDIO_JAZZ_ENTRY:
 		radio.status.equalizer_mode = JAZZ;
-		break;
+		return 0xFD;
 	case SOURCE_AM_ENTRY:
 		radio.status.source_select = SOURCE_AM;
-		break;
+		return 0xFD;
 	case SOURCE_FM_ENTRY:
 		radio.status.source_select = SOURCE_FM;
-		break;
+		return 0xFD;
 	case SOURCE_LINEIN_ENTRY:
 		radio.status.source_select = SOURCE_LINEIN;
-		break;
+		return 0xFD;
 	case MENU_BRIG_ENTRY:
 		return radio_brightness(encoder_right_button, encoder_right_count);
 	case MENU_CONT_ENTRY:
 		return radio_contrast(encoder_right_button, encoder_right_count);
 	default:
+		*encoder_right_button = BUTTON_FREE;
+		*encoder_right_count = 0;
 		return 0xFD;
 	}
 	//TODO store value to flash
-	return 0xFD;
-}
-
 	return 0;
 }
 
