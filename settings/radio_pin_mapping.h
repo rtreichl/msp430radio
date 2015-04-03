@@ -140,14 +140,14 @@
 #define EN2_TAST_SEL2			P2SEL2
 #define EN2_TAST_REN			P2REN
 
-/* defines for AUIDO_SW_GND on PORT: 3. PIN: 2. */ 
-#define AUIDO_SW_GND_PIN		BIT2
-#define AUIDO_SW_GND_IN			P3IN
-#define AUIDO_SW_GND_OUT		P3OUT
-#define AUIDO_SW_GND_DIR		P3DIR
-#define AUIDO_SW_GND_SEL		P3SEL
-#define AUIDO_SW_GND_SEL2		P3SEL2
-#define AUIDO_SW_GND_REN		P3REN
+/* defines for AUDIO_SW_GND on PORT: 3. PIN: 2. */ 
+#define AUDIO_SW_GND_PIN		BIT2
+#define AUDIO_SW_GND_IN			P3IN
+#define AUDIO_SW_GND_OUT		P3OUT
+#define AUDIO_SW_GND_DIR		P3DIR
+#define AUDIO_SW_GND_SEL		P3SEL
+#define AUDIO_SW_GND_SEL2		P3SEL2
+#define AUDIO_SW_GND_REN		P3REN
 
 /* defines for AUDIO_SW_LINE on PORT: 3. PIN: 3. */ 
 #define AUDIO_SW_LINE_PIN		BIT3
