@@ -96,6 +96,37 @@ uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 	return 0;
 }
 
+uint8_t radio_volume(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t setting)
+{
+	static int8_t tmp_volume = 0;
+	if(tmp_volume == 0 && setting == 1) {
+		tmp_volume = radio.volume;
+	}
+	if(*encoder_right_count != 0) {	//TODO move to own funciton.
+		if(*encoder_right_count > 0 && radio.volume < RADIO_VOLUME_MAX) {
+			radio.volume += RADIO_VOLUME_STEP;
+		}
+		else if(*encoder_right_count < 0 && radio.volume> RADIO_VOLUME_MIN) {
+			radio.volume -= RADIO_VOLUME_STEP;
+		}
+		radio_set_volume(&(radio.volume));
+		*encoder_right_count = 0;
+	}
+	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
+		*encoder_right_button = BUTTON_FREE;
+		if(tmp_volume != 0) {
+			radio.volume = tmp_volume;
+			//TODO Store Value
+			tmp_volume = 0;
+			radio_set_volume(&(radio.volume));
+		}
+		return 0xFD;
+	}
+	else {
+		menu_scroll_settings(radio.volume);
+	}
+	return 0;
+}
 uint8_t radio_source_select() {
 	switch(radio.status.source_select) {
 	case SOURCE_FM:
@@ -159,6 +190,8 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 		return radio_brightness(encoder_right_button, encoder_right_count);
 	case MENU_CONT_ENTRY:
 		return radio_contrast(encoder_right_button, encoder_right_count);
+	case MENU_VOL_ENTRY:
+		return radio_volume(encoder_right_button, encoder_right_count, 1);
 	default:
 		*encoder_right_button = BUTTON_FREE;
 		*encoder_right_count = 0;
@@ -168,7 +201,7 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 	return 0;
 }
 
-uint8_t radio_volume(int8_t *volume)
+uint8_t radio_set_volume(int8_t *volume)
 {
 	uint8_t tmp_volume;
 	if(*volume > 100) {
@@ -195,7 +228,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		else if(*encoder_right_count > 0 && radio.volume < 100) {
 			radio.volume++;
 		}
-		radio_volume(&(radio.volume));
+		radio_set_volume(&(radio.volume));
 		radio.status.audio_status = AUDIO_VOLUME;
 		tmp_value = radio.volume;
 		*encoder_right_count = 0;
