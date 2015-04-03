@@ -55,53 +55,29 @@ uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, 
 	case RADIO_RDS_VIEW_ENTRY:
 	case RADIO_RSQ_VIEW_ENTRY:
 	case RADIO_PIPTY_VIEW_ENTRY:
-		return radio_display_view(actuall_entry->entry_num);
+		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 	case MENU_FREQ_ENTRY:
-		return menu_scroll_settings(encoder_right_button, encoder_right_count);
+		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 	case MENU_VOL_ENTRY:
-		return menu_scroll_settings(encoder_right_button, encoder_right_count);
+		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 	case MENU_CONT_ENTRY:
-		return menu_scroll_settings(encoder_right_button, encoder_right_count);
+		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 	case MENU_BRIG_ENTRY:
-		return menu_scroll_settings(encoder_right_button, encoder_right_count);
+		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 	case MENU_MAIN_ENTRY:
 		return radio_main(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
 	}
-	//*encoder_right_button = BUTTON_FREE;
 	return 0;
 }
 
-uint8_t menu_scroll_settings(uint8_t *encoder_button, int8_t *encoder_count)
+uint8_t menu_scroll_settings(uint8_t value)
 {
-	static int8_t value = 0;
 	char tmp_string[4];
-
-	if(value == 0) {
-		value = 23; //TODO load value from flash
-	}
-	if(*encoder_count > 0) {
-		value++;
-	} else if(*encoder_count < 0) {
-		value--;
-	}
-	if(value > 100) {
-		value = 100;
-	} else if (value < 0) {
-		value = 0;
-	}
-	lcd_create_view(actuall_entry->child_short->text, 0, 0, 0, 0);
+	lcd_create_view(actuall_entry->text, 0, 0, 0, 0);
 	radio_value_to_string(tmp_string, value, 3, 10);
 	lcd_create_view(tmp_string, 0, 1, 0, 0);
-	lcd_create_view("%", 3, 1, 0, 0);
-	*encoder_count = 0;
-
-	menu_scroll((value * 60) / 100);
-	if(*encoder_button == BUTTON_PRESS_SHORT) {
-		//TODO store value to flash
-		*encoder_button = BUTTON_FREE;
-		value = 0;
-		return 0xFD;
-	}
+	menu_scroll(value);
+	lcd_create_view("%", 3, 1, 0, 1);
 	return 0;
 }
 
