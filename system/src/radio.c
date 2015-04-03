@@ -127,24 +127,32 @@ uint8_t radio_volume(uint8_t *encoder_right_button, int8_t *encoder_right_count,
 	}
 	return 0;
 }
-uint8_t radio_source_select() {
-	switch(radio.status.source_select) {
-	case SOURCE_FM:
+
+uint8_t radio_source_select(uint8_t entry_num) {
+	AUDIO_SW_LINE_DIR |= AUDIO_SW_LINE_PIN;
+	AUDIO_SW_GND_DIR |= AUDIO_SW_GND_PIN;
+	switch(entry_num) {
+	default:
+	case SOURCE_FM_ENTRY:
+		radio.status.source_select = SOURCE_FM;
 		AUDIO_SW_LINE_OUT &= ~AUDIO_SW_LINE_PIN;
 		AUDIO_SW_GND_OUT &= ~AUDIO_SW_GND_PIN;
 		//TODO Implement switch si4735 to FM only when AM mode is implemented else just switch audio switch
 		break;
-	case SOURCE_AM:
+	case SOURCE_AM_ENTRY:
+		radio.status.source_select = SOURCE_AM;
 		AUDIO_SW_LINE_OUT &= ~AUDIO_SW_LINE_PIN;
 		AUDIO_SW_GND_OUT &= ~AUDIO_SW_GND_PIN;
 		//TODO Implement switch si4735 to AM only when AM mode is implemented else just do nothing else
 		break;
-	case SOURCE_LINEIN:
+	case SOURCE_LINEIN_ENTRY:
+		radio.status.source_select = SOURCE_LINEIN;
 		AUDIO_SW_LINE_OUT |= AUDIO_SW_LINE_PIN;
 		AUDIO_SW_GND_OUT |= AUDIO_SW_GND_PIN;
 		//TODO set si4735 in powerdown modus only if ta/tp mode is off else poll flag and swith to si4735 for duration ta flag is set
 	}
-	return 0;
+	return 0xFD;
+}
 
 uint8_t radio_equalizer(uint8_t entry_num)
 {

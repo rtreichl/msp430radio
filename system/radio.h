@@ -95,6 +95,7 @@ typedef struct radio {
 	RADIO_RSQ rsq;
 } RADIO;
 
+uint8_t radio_source_select(uint8_t entry_num);
 uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_set_volume(int8_t *volume);
