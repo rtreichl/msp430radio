@@ -325,7 +325,7 @@ MENU_ENTRY source_entry = {
 	0,
 	&main_entry,
 	&reset_entry,
-	&view_entry,
+	&audio_entry,
 	source_text,
 	0,
 };
@@ -436,16 +436,16 @@ MENU_ENTRY seeking_down_entry = {
 	&main_entry,
 	&station_store_entry,
 	&seeking_up_entry,
-	return_text,
 	seeking_down_text,
+	0,
 };
 
 MENU_ENTRY station_store_entry = {
 	0,
 	0,
 	&main_entry,
-	&seeking_down_entry,
 	&auto_search_entry,
+	&seeking_down_entry,
 	station_store_text,
 	0,
 };
