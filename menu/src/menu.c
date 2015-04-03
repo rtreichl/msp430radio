@@ -51,23 +51,12 @@ uint8_t menu_display()
 
 uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
-	switch(actuall_entry->entry_num) {
-	case RADIO_RDS_VIEW_ENTRY:
-	case RADIO_RSQ_VIEW_ENTRY:
-	case RADIO_PIPTY_VIEW_ENTRY:
-		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
-	case MENU_FREQ_ENTRY:
-		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
-	case MENU_VOL_ENTRY:
-		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
-	case MENU_CONT_ENTRY:
-		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
-	case MENU_BRIG_ENTRY:
-		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
-	case MENU_MAIN_ENTRY:
+	if(actuall_entry->entry_num == MENU_MAIN_ENTRY) {
 		return radio_main(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
 	}
-	return 0;
+	else {
+		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
+	}
 }
 
 uint8_t menu_scroll_settings(uint8_t value)
