@@ -26,8 +26,8 @@ uint8_t radio_init()
 	basic_clock_init();
 	timer_init();
 	i2c_init (400,10);
-	AUDIO_SW_LINE_DIR |= AUDIO_SW_LINE_PIN;
-	AUDIO_SW_GND_DIR |= AUDIO_SW_GND_PIN;
+	//AUDIO_SW_LINE_DIR |= AUDIO_SW_LINE_PIN;
+	//AUDIO_SW_GND_DIR |= AUDIO_SW_GND_PIN;
 	radio.station_freq = 10770;
 	radio.status.audio_status = 0;
 	radio.status.display_mode = 0;
