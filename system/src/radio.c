@@ -36,7 +36,8 @@ uint8_t radio_init()
 	radio.contrast = 40;
 	//TODOload values from flash
 	pca9530_init(&pca9530_config);
-	radio_brightness(radio.brightness);
+	pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.brightness)]);
+	//radio_brightness(radio.brightness);
 	lcd_init(radio.contrast / RADIO_CONTRAST_STEP);
 	lcd_create_view(Start_up_1, Shift_left_1, 0, 0, 0);
 	lcd_create_view(Start_up_2, Shift_left_2, 1, 0, 0);
@@ -49,10 +50,28 @@ uint8_t radio_init()
 	return 0;
 }
 
-uint8_t radio_brightness(uint8_t brightness)
+uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
-	if(brightness > 100) {
-		return 0xFF;
+	if(*encoder_right_count != 0) {	//TODO move to own funciton.
+		if(*encoder_right_count > 0 && radio.brightness < RADIO_BRIGHTNESS_MAX) {
+			radio.brightness += RADIO_BRIGHTNESS_STEP;
+		}
+		else if(*encoder_right_count < 0 && radio.brightness > RADIO_BRIGHTNESS_MIN){
+			radio.brightness -= RADIO_BRIGHTNESS_STEP;
+		}
+		pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.brightness)]);
+		*encoder_right_count = 0;
+	}
+	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
+		*encoder_right_button = BUTTON_FREE;
+		//TODO Store Value
+		return 0xFD;
+	}
+	else {
+		menu_scroll_settings(radio.brightness);
+	}
+	return 0;
+}
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	if(*encoder_right_count != 0) {	//TODO move to own funciton.
@@ -134,6 +153,8 @@ uint8_t radio_display_view(uint8_t entry_num) //TODO rename to radio_settings
 	case SOURCE_LINEIN_ENTRY:
 		radio.status.source_select = SOURCE_LINEIN;
 		break;
+	case MENU_BRIG_ENTRY:
+		return radio_brightness(encoder_right_button, encoder_right_count);
 	case MENU_CONT_ENTRY:
 		return radio_contrast(encoder_right_button, encoder_right_count);
 	default:

@@ -42,9 +42,14 @@
 
 #define AMPLIFIER_GAIN 15
 
+#define RADIO_BRIGHTNESS_MAX 100
+#define RADIO_BRIGHTNESS_MIN 0
+#define RADIO_BRIGHTNESS_STEP 1
+
 #define RADIO_CONTRAST_MAX 100
 #define RADIO_CONTRAST_MIN 0
 #define RADIO_CONTRAST_STEP 10
+
 #define BUTTON_PRESS_LONG 'l'
 #define BUTTON_PRESS_SHORT 'k'
 #define BUTTON_FREE 'f'
@@ -79,14 +84,14 @@ typedef struct radio_rds {
 typedef struct radio {
 	uint16_t station_freq;
 	int8_t  volume;
-	uint8_t brightness;
+	int8_t brightness;
 	int8_t contrast;
 	RADIO_STATUS status;
 	RADIO_RDS rds;
 	RADIO_RSQ rsq;
 } RADIO;
 
-uint8_t radio_brightness(uint8_t brightness);
+uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_volume(int8_t *volume);
 uint8_t radio_display_handler(uint8_t blend_scroll);
