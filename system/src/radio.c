@@ -160,32 +160,20 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 		radio.status.display_mode = RADIO_PIPTY_VIEW;
 		return 0xFD;
 	case AUDIO_ROCK_ENTRY:
-		radio.status.equalizer_mode = ROCK;
-		return 0xFD;
 	case AUDIO_POP_ENTRY:
-		radio.status.equalizer_mode = POP;
-		return 0xFD;
 	case AUDIO_HIPHOP_ENTRY:
-		radio.status.equalizer_mode = RAP_HIP_HOP;
-		return 0xFD;
 	case AUDIO_NEWS_ENTRY:
-		radio.status.equalizer_mode = NEWS_VOICE;
-		return 0xFD;
 	case AUDIO_CLASSIC_ENTRY:
-		radio.status.equalizer_mode = CLASSIC;
-		return 0xFD;
 	case AUDIO_JAZZ_ENTRY:
-		radio.status.equalizer_mode = JAZZ;
-		return 0xFD;
+		*encoder_right_button = BUTTON_FREE;
+		*encoder_right_count = 0;
+		return radio_equalizer(entry_num);
 	case SOURCE_AM_ENTRY:
-		radio.status.source_select = SOURCE_AM;
-		return 0xFD;
 	case SOURCE_FM_ENTRY:
-		radio.status.source_select = SOURCE_FM;
-		return 0xFD;
 	case SOURCE_LINEIN_ENTRY:
-		radio.status.source_select = SOURCE_LINEIN;
-		return 0xFD;
+		*encoder_right_button = BUTTON_FREE;
+		*encoder_right_count = 0;
+		return radio_source_select(entry_num);
 	case MENU_BRIG_ENTRY:
 		return radio_brightness(encoder_right_button, encoder_right_count);
 	case MENU_CONT_ENTRY:
@@ -197,8 +185,6 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 		*encoder_right_count = 0;
 		return 0xFD;
 	}
-	//TODO store value to flash
-	return 0;
 }
 
 uint8_t radio_set_volume(int8_t *volume)
@@ -253,7 +239,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	if(*encoder_right_button == BUTTON_PRESS_LONG)
 	{
 		*encoder_right_button = BUTTON_FREE;
-		return 0xFF;
+		return 0xFE;
 	}
 	if(*encoder_left_button == BUTTON_PRESS_SHORT)
 	{
