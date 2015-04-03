@@ -26,25 +26,24 @@ uint8_t radio_init()
 	basic_clock_init();
 	timer_init();
 	i2c_init (400,10);
-	//AUDIO_SW_LINE_DIR |= AUDIO_SW_LINE_PIN;
-	//AUDIO_SW_GND_DIR |= AUDIO_SW_GND_PIN;
 	radio.station_freq = 10770;
 	radio.status.audio_status = 0;
 	radio.status.display_mode = 0;
 	radio.volume = 30;
+	radio.status.source_select = SOURCE_FM;
 	radio.brightness = 80;
 	radio.contrast = 40;
 	//TODOload values from flash
 	pca9530_init(&pca9530_config);
 	pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.brightness)]);
-	//radio_brightness(radio.brightness);
+	radio_source_select(0);
 	lcd_init(radio.contrast / RADIO_CONTRAST_STEP);
 	lcd_create_view(Start_up_1, Shift_left_1, 0, 0, 0);
 	lcd_create_view(Start_up_2, Shift_left_2, 1, 0, 0);
 	lcd_create_view(Start_up_3, Shift_left_3, 2, 0, 1);
 	Amplifier_init(POP,AMPLIFIER_GAIN);
 	SI4735_INIT();
-	radio_volume(&(radio.volume));
+	radio_set_volume(&(radio.volume));
 	Encoder_1_init();
 	Encoder_2_init();
 	return 0;
