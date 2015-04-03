@@ -14,7 +14,7 @@
 #include <driver/external_interrupthandler.h>
 
 void Encoder_Timer_init(void);
-#define TIME_FOR_LONG_PRESS 1500
+#define TIME_FOR_LONG_PRESS 150
 
 #define ENCODER_1	//Enable Encoder 1
 #define ENCODER_2	//Enable Encoder 2
