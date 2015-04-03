@@ -56,5 +56,12 @@ extern MENU_ENTRY reset_no_entry;
 extern MENU_ENTRY reset_yes_entry;
 extern MENU_ENTRY view_return_entry;
 extern MENU_ENTRY main_return_entry;
+extern MENU_ENTRY auto_search_entry;
+extern MENU_ENTRY main_long_return_entry;
+extern MENU_ENTRY seeking_up_entry;
+extern MENU_ENTRY seeking_down_entry;
+extern MENU_ENTRY station_list_entry;
+extern MENU_ENTRY station_store_entry;
+
 
 #endif /* _MENU_STRUCT_H_ */
