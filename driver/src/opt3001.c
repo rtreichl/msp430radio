@@ -7,16 +7,30 @@
 
 #include <driver/opt3001.h>
 
-uint8_t opt3001_init(OPT3001_STC config)
+uint8_t opt3001_init(OPT3001_STC *config)
 {
+	i2c_write_var(OPT3001_I2C_ADR, STOP, 3, OPT3001_CONFIG_REG, config->config); //TODO split in high and low byte
+	i2c_write_var(OPT3001_I2C_ADR, STOP, 3, OPT3001_L_LIMIT_REG, config->low_limit); //TODO split in high and low byte
+	i2c_write_var(OPT3001_I2C_ADR, STOP, 3, OPT3001_H_LIMIT_REG, config->high_limit); //TODO split in high and low byte
 	/* Some I2C writes for first configuration on OPT3001 */
 	return 0;
 }
 
 uint8_t opt3001_get_value(uint32_t *data)
 {
-	uint16_t value;
+	union {
+		uint8_t bytes[2];
+		uint16_t byte;
+	}value;
+
+	uint8_t resp[2];
+
+	i2c_write_var(OPT3001_I2C_ADR, REPT, 1, OPT3001_RESULT_REG);
+	i2c_read(OPT3001_I2C_ADR, STOP, 2, resp);
+
+	value.bytes[0] = resp[1];
+	value.bytes[1] = resp[0];
 	/* Get actual value over I2C and combine higher byte and lower byte */
-	//*data = float_to_int(value);
+	*data = ((value.byte & 0x0FFFF) << ((value.byte & 0xF000) >> 12));
 	return 0;
 }
