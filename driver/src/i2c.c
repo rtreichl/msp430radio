@@ -113,7 +113,7 @@ uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size
 		while(UCB0STAT & UCBBUSY);
 	}
 	else {
-		_delay_ten_us(10);
+		_delay_ten_us(20);
 	}
 
 	i2c.status = IDLE;
