@@ -46,9 +46,8 @@ uint8_t si4735_fm_rds_status(uint8_t statusonly, uint8_t mtfifo, uint8_t intack)
 	return resp[0];
 }
 
-uint8_t si4735_fm_rsq_status(uint8_t intack)
+uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp)
 {
-	uint8_t resp[8];
 	FM_RSQ_STATUS_ARG1_STC arg1 = { .INTACK = intack};
 
 	i2c_write_var(I2C_SI4735, REPT, 2, FM_RSQ_STATUS, arg1.byte);

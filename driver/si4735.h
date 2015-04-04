@@ -67,4 +67,6 @@
 
 	uint8_t si4735_fm_tune_freq(uint16_t frequency);
 
+	uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp);
+
 #endif /* SI4735_H_ */
