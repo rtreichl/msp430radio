@@ -7,7 +7,7 @@
 
 #include <system/rds.h>
 
-void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)                 //nur Sender-Stationsnamen auslesen
+void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslesen
 {
 	//Radio States => [New Freq Bit, Station_Present Bit, Radio_Text_Update Bit, 0 Bit, TP Bit, PTY 5 Bits, TA Bit, M/S Bit, DI 4 Bits] LSB
 	uint8_t pos;
@@ -16,12 +16,14 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 	uint8_t temp;
 	RDS *rds = (RDS*) (uint16_t*) rds_read_byte;
 	char tmp = 0, doit = 0;
-	static char rds_text_count = 0, rds_station_count = 0;
-	if(*Radio_States & (1<<15))
+	static uint8_t rds_text_count = 0, rds_station_count = 0;
+	if(radio->status.freq_valid == 0)
 	{
 		rds_text_count = 0;
 		rds_station_count = 0;
-		*Radio_States &= ~0xF000;
+		radio->status.name_valid = 0;
+		radio->status.text_valid = 0;
+		radio->status.freq_valid = VALID;
 	}
 	if(rds_triggered() & 0x04)
 	{
@@ -43,13 +45,13 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 					if(++rds_text_count == 16)
 					{
 						rds_text_count = 0;
-						*Radio_States |= (1<<13);
+						radio->status.text_valid = VALID;
 					}
-					Radion_Text[pos++] = rds2->SEGMENT[1];
-					Radion_Text[pos++] = rds2->SEGMENT[0];
-					Radion_Text[pos++] = rds2->SEGMENT[3];
-					Radion_Text[pos] = rds2->SEGMENT[2];
-					Radion_Text[65] = '\0';
+					radio->rds.text[pos++] = rds2->SEGMENT[1];
+					radio->rds.text[pos++] = rds2->SEGMENT[0];
+					radio->rds.text[pos++] = rds2->SEGMENT[3];
+					radio->rds.text[pos] = rds2->SEGMENT[2];
+					radio->rds.text[64] = '\0';
 				}
 				if (rds->block_b.GROUP_NUM == 4)
 				{
@@ -62,13 +64,13 @@ void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text)     
 					GROUP_0A *rds2 = (GROUP_0A*) &(rds->pi);
 					//*Radio_States |= (rds2->TA | rds2->MS | rds2->DI) >> 2;
 					pos = rds2->CI*2;
-					Station_Name[pos++] = rds2->PS_NAME[1];
-					Station_Name[pos] = rds2->PS_NAME[0];
-					Station_Name[8] = '\0';
+					radio->rds.name[pos++] = rds2->PS_NAME[1];
+					radio->rds.name[pos] = rds2->PS_NAME[0];
+					radio->rds.name[8] = '\0';
 					if(++rds_station_count == 4)
 					{
 						rds_station_count = 0;
-						*Radio_States |= (1<<14);
+						radio->status.name_valid = VALID;
 					}
 				}
 			}
@@ -99,9 +101,9 @@ uint8_t rds_triggered()
 void rds_group_4A(RDS *data)
 {
 	GROUP_4A *data2 = (GROUP_4A*) &(data->pi);
-	char offset = 0;
-	unsigned int mdj = 0;
-	unsigned char m_hour, m_minute, m_day, m_month, m_year;
+	uint8_t offset = 0;
+	uint16_t mdj = 0;
+	uint8_t m_hour, m_minute, m_day, m_month, m_year;
 	//unsigned char day_per_month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	int temp;
 
