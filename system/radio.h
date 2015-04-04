@@ -62,13 +62,13 @@ typedef struct radio_status {
 	uint16_t station_valid:1;
 	uint16_t text_valid:1;
 	uint16_t time_valid:1;
-	uint16_t name_valid:1;
-	uint16_t freq_valid:1;
-	uint16_t scroll_text:4;
+	uint16_t scroll_text:6;
 	uint16_t display_mode:2;
 	uint16_t audio_status:2;
 	uint16_t equalizer_mode:3;
 	uint16_t source_select:2;
+	uint16_t freq_valid:1;
+	uint16_t name_valid:1;
 } RADIO_STATUS;
 
 typedef struct radio_rsq {
@@ -94,6 +94,8 @@ typedef struct radio {
 	RADIO_RDS rds;
 	RADIO_RSQ rsq;
 } RADIO;
+
+extern RADIO radio;
 
 uint8_t radio_source_select(uint8_t entry_num);
 uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count);

@@ -295,15 +295,14 @@ uint8_t radio_display_handler(uint8_t blend_scroll)
 	case RADIO_RDS_VIEW:
 		if(timer_count[2] >= RADIO_TEXT_SCROLL) {
 			timer_count[2] -= RADIO_TEXT_SCROLL;
+			if(radio.status.text_valid == VALID)
 			if(radio.status.scroll_text < 15) {
-				//lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text, 0);
+				lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text + 1, 0);
 			}
 			else {
-				//lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
+				lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
 			}
-			if(++radio.status.scroll_text >= 64) {
-				radio.status.scroll_text = 0;
-			}
+			radio.status.scroll_text++;
 		}
 		date_to_str(tmp_string);
 		lcd_create_view(tmp_string,  8, 1, 0, 0);
