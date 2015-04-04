@@ -30,10 +30,14 @@
 #include "Menu.h"
 #include <menu/menu.h>
 #include <system/radio.h>
+#include <system/rsq.h>
+#include <system/rds.h>
 #include <driver/timer.h>
 
 #define ENCODER_TAST_REFRESH	10
-#define	TIME_SECOND	60000
+#define	TIME_MINUTE	60000
+#define RSQ_UPDATE	1000
+#define RDS_UPDATE	200
 
 extern volatile unsigned char encoder_1_button, encoder_2_button;
 
@@ -57,12 +61,20 @@ int main (void)
 			timer_count[4] = 0;
 		}
 		if(timer_count[1] >= ENCODER_TAST_REFRESH) {
-		timer_count[1] -= ENCODER_TAST_REFRESH;
-		encoder_interrupt2();
+			timer_count[1] -= ENCODER_TAST_REFRESH;
+			encoder_interrupt2();
 		}
-		if(timer_count[3] >= TIME_SECOND) {
-		timer_count[3] -= TIME_SECOND;
-		time_date_update();
+		if(timer_count[3] >= TIME_MINUTE) {
+			timer_count[3] -= TIME_MINUTE;
+			time_date_update();
+		}
+		if(timer_count[6] >= RSQ_UPDATE) {
+			rsq_update(&radio);
+			timer_count[6] -= RSQ_UPDATE;
+		}
+		if(timer_count[7] >= RDS_UPDATE) { //TODO Rework to interrupt base system
+			rds_update(&radio);
+			timer_count[7] -= RDS_UPDATE;
 		}
 		//encoder_2_button = 'f';
 		//en_counter2 = 0;
