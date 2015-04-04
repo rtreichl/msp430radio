@@ -28,7 +28,7 @@ uint8_t radio_init()
 	i2c_init (400,10);
 	radio.station_freq = 10770;
 	radio.status.audio_status = 0;
-	radio.status.display_mode = 0;
+	radio.status.display_mode = RADIO_RDS_VIEW;
 	radio.volume = 30;
 	radio.status.source_select = SOURCE_FM;
 	radio.brightness = 80;
@@ -253,6 +253,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		else if(*encoder_left_count > 0 && radio.station_freq < RADIO_TOP_FREQ) {
 			radio.station_freq += 10;
 		}
+		radio.status.freq_valid = 0;
 		radio_tune_freq(radio.station_freq);
 		tmp_value = ((radio.station_freq - RADIO_BOT_FREQ) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
 		*encoder_left_count = 0;
