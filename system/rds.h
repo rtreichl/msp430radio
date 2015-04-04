@@ -13,6 +13,7 @@
 #include <driver/si4735.h>
 #include <system/time.h>
 #include <driver/timer.h>
+#include <system/radio.h>
 
 //#define RDS_BYTES_OFFSET 2
 
@@ -170,7 +171,7 @@ typedef struct rds {
 	ERR		err;
 } RDS;
 
-void get_rds_data(int *Radio_States, char *Station_Name, char *Radion_Text);
+void rds_update(RADIO *radio);
 uint8_t rds_triggered();
 uint8_t get_signal_qual();
 
