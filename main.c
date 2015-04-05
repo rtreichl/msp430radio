@@ -38,6 +38,7 @@
 #define	TIME_MINUTE	60000
 #define RSQ_UPDATE	1000
 #define RDS_UPDATE	200
+#define RADIO_TEXT_SCROLL 500
 
 extern volatile unsigned char encoder_1_button, encoder_2_button;
 
@@ -75,6 +76,10 @@ int main (void)
 		if(timer_count[7] >= RDS_UPDATE) { //TODO Rework to interrupt base system
 			rds_update(&radio);
 			timer_count[7] -= RDS_UPDATE;
+		}
+		if(timer_count[2] >= RADIO_TEXT_SCROLL) {
+			radio.status.scroll_text++;
+			timer_count[2] -= RADIO_TEXT_SCROLL;
 		}
 		//encoder_2_button = 'f';
 		//en_counter2 = 0;
