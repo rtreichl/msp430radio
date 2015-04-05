@@ -287,51 +287,24 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	return 0;
 }
 
-
-uint8_t radio_display_handler(uint8_t blend_scroll)
+uint8_t radio_rds_view()
 {
 	char tmp_string[9];
-	switch(radio.status.display_mode) {
-	case RADIO_RDS_VIEW:
-			if(radio.status.text_valid == VALID)
-			if(radio.status.scroll_text < 15) {
-				lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text + 1, 0);
-			}
-			else {
-				lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
-			}
-		date_to_str(tmp_string);
-		lcd_create_view(tmp_string,  8, 1, 0, 0);
-		break;
-	case RADIO_RSQ_VIEW:
-		radio_value_to_string(tmp_string, radio.rsq.rssi, 3, 10);
-		lcd_create_view(tmp_string, 9, 1, 0, 0);
-		lcd_create_view("dBuV", 12, 1, 0, 0);
-		radio_value_to_string(tmp_string, radio.rsq.snr, 3, 10);
-		lcd_create_view(tmp_string, 0, 2, 0, 0);
-		lcd_create_view("dB", 3, 2, 0, 0);
-		radio_value_to_string(tmp_string, radio.rsq.multi, 3 ,10);
-		lcd_create_view(tmp_string, 6, 2, 0, 0);
-		lcd_create_view("%", 9, 2, 0, 0);
-		radio_value_to_string(tmp_string, radio.rsq.freq_off, 3, 10);
-		lcd_create_view(tmp_string, 10, 2, 0, 0);
-		lcd_create_view("kHz", 13, 2, 0, 0);
-		break;
-	case RADIO_PIPTY_VIEW:
-		radio_value_to_string(tmp_string, radio.rds.pi, 4, 16);
-		lcd_create_view("PI:", 9, 1, 0, 0);
-		lcd_create_view(tmp_string, 12, 1, 0, 0);
-		lcd_create_view(pty_text[radio.rds.pty], 0, 2, 0, 0);
-		break;
-	}
-	if(radio.status.name_valid == VALID) {
-		lcd_create_view(radio.rds.name, 0, 0, 0, 0);
+	if(radio.status.text_valid == VALID)
+	if(radio.status.scroll_text < 15) {
+		lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text + 1, 0);
 	}
 	else {
-		radio_freq_to_string(tmp_string, radio.station_freq);
-		lcd_create_view(tmp_string, 0, 0, 0, 0);
-		lcd_create_view("MHz", 5, 0, 0, 0); //TODO add this to a String table
+		lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
 	}
+	date_to_str(tmp_string);
+	lcd_create_view(tmp_string,  8, 1, 0, 0);
+	return 0;
+}
+
+uint8_t radio_volume_view()
+{
+	char tmp_string[9];
 	switch (radio.status.audio_status) {
 	case AUDIO_MUTE:
 		lcd_create_view("\7÷", 0, 1, 0, 0);
@@ -348,9 +321,65 @@ uint8_t radio_display_handler(uint8_t blend_scroll)
 		break;
 
 	}
+	return 0;
+}
+
+uint8_t radio_rsq_view()
+{
+	char tmp_string[9];
+	radio_value_to_string(tmp_string, radio.rsq.rssi, 3, 10);
+	lcd_create_view(tmp_string, 9, 1, 0, 0);
+	lcd_create_view("dBuV", 12, 1, 0, 0);
+	radio_value_to_string(tmp_string, radio.rsq.snr, 3, 10);
+	lcd_create_view(tmp_string, 0, 2, 0, 0);
+	lcd_create_view("dB", 3, 2, 0, 0);
+	radio_value_to_string(tmp_string, radio.rsq.multi, 3 ,10);
+	lcd_create_view(tmp_string, 6, 2, 0, 0);
+	lcd_create_view("%", 9, 2, 0, 0);
+	radio_value_to_string(tmp_string, radio.rsq.freq_off, 3, 10);
+	lcd_create_view(tmp_string, 10, 2, 0, 0);
+	lcd_create_view("kHz", 13, 2, 0, 0);
+	return 0;
+}
+
+uint8_t radio_pipty_view()
+{
+	char tmp_string[9];
+	radio_value_to_string(tmp_string, radio.rds.pi, 4, 16);
+	lcd_create_view("PI:", 9, 1, 0, 0);
+	lcd_create_view(tmp_string, 12, 1, 0, 0);
+	lcd_create_view(pty_text[radio.rds.pty], 0, 2, 0, 0);
+	return 0;
+}
+
+uint8_t radio_display_handler(uint8_t blend_scroll)
+{
+	char tmp_string[9];
+	switch(radio.status.display_mode) {
+	case RADIO_RDS_VIEW:
+		radio_rds_view();
+		break;
+	case RADIO_RSQ_VIEW:
+		radio_rsq_view();
+		break;
+	case RADIO_PIPTY_VIEW:
+		radio_pipty_view();
+		break;
+	}
+
+	if(radio.status.name_valid == VALID) {
+		lcd_create_view(radio.rds.name, 0, 0, 0, 0);
+	}
+	else {
+		radio_freq_to_string(tmp_string, radio.station_freq);
+		lcd_create_view(tmp_string, 0, 0, 0, 0);
+		lcd_create_view("MHz", 5, 0, 0, 0); //TODO add this to a String table
+	}
+	radio_volume_view();
 	if(blend_scroll != 0) {
 		menu_scroll(blend_scroll);
 	}
+
 	time_to_str(tmp_string);
 	lcd_create_view("\6", 10, 0, 0, 0); //TODO \6 add this to lcd symbols
 	lcd_create_view(tmp_string,  11, 0, 0, 1);
