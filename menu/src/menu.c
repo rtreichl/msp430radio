@@ -76,7 +76,7 @@ uint8_t menu_scroll(uint8_t value)
 	char string[2];
 	value = (value * 60) / 100;
 
-	lcd_create_view("-", 0, 2, 0, 0);
+	lcd_create_view("- ", 0, 2, 0, 0);
 	for(i = 1; i <= value / 5 && i <= 12; i++) {
 		lcd_create_view("\5", 1 + i, 2, 0, 0);
 	}
