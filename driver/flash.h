@@ -17,8 +17,8 @@
 #include <string.h>
 #include <msp430.h>
 
-uint8_t store_data_to_flash (void *data, uint8_t size, uint16_t pos);
-uint8_t read_flash(void *data, uint8_t size, uint8_t pos);
-void erase_flash(uint8_t *Flash_ptr);
+uint8_t flash_store(void *data, uint8_t size, uint16_t pos);
+uint8_t flash_read(void *data, uint8_t size, uint8_t pos);
+void flash_erase(uint8_t *Flash_ptr);
 
 #endif /* FLASH_H_ */
