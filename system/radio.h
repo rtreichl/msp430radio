@@ -22,6 +22,8 @@
 #include <menu/lang/language.h>
 #include <menu/menu.h>
 #include <settings/radio_configuration.h>
+#include <system/station_list.h>
+//#include <system/rds.h>
 #include <system/time.h>
 
 #define RADIO_RDS_VIEW 0
@@ -58,17 +60,41 @@
 #define BUTTON_PRESS_SHORT 'k'
 #define BUTTON_FREE 'f'
 
+#define RADIO_STATION_NAME_STORE_ADR 0x1000
+#define RADIO_STATION_NAME_STORE_SIZE 8
+#define RADIO_STATION_FREQ_STORE_ADR 0x1070
+#define RADIO_STATION_FREQ_STORE_SIZE 2
+
+#define RADIO_BRIGHTNESS_STORE_ADR 0x108C
+#define RADIO_BRIGHTNESS_STORE_SIZE 1
+#define RADIO_CONTRAST_STORE_ADR 0x108D
+#define RADIO_CONTRAST_STORE_SIZE 1
+#define RADIO_VIEW_STORE_ADR 0x108E
+#define RADIO_VIEW_STORE_SIZE 1
+#define RADIO_SOURCE_STORE_ADR	0x108F
+#define RADIO_SOURCE_STORE_SIZE 1
+#define RADIO_EQUALIZER_STORE_ADR 0x1090
+#define RADIO_EQUALIZER_STORE_SIZE 1
+#define RADIO_VOLUME_STORE_ADR 0x1091
+#define RADIO_VOLUME_STORE_SIZE 1
+#define RADIO_TA_STORE_ADR 0X1092
+#define RADIO_TA_STORE_SIZE 1
+#define RADIO_FREQENCY_STORE_ADR 0X1093
+#define RADIO_FREQENCY_STORE_SIZE 2
+
+//TODO add a setting area for store
+
 typedef struct radio_status {
 	uint16_t station_valid:1;
 	uint16_t text_valid:1;
 	uint16_t time_valid:1;
-	uint16_t scroll_text:6;
 	uint16_t display_mode:2;
 	uint16_t audio_status:2;
 	uint16_t equalizer_mode:3;
 	uint16_t source_select:2;
 	uint16_t freq_valid:1;
 	uint16_t name_valid:1;
+	uint8_t scroll_text;
 } RADIO_STATUS;
 
 typedef struct radio_rsq {
@@ -81,8 +107,12 @@ typedef struct radio_rsq {
 typedef struct radio_rds {
 	char 	name[9];
 	char	text[65];
-	uint8_t pty;
 	uint16_t pi;
+	uint16_t pty:5;
+	uint16_t ta:1;
+	uint16_t tp:1;
+	uint16_t ms:1;
+	uint16_t di:4;
 } RADIO_RDS;
 
 typedef struct radio {
@@ -97,7 +127,10 @@ typedef struct radio {
 
 extern RADIO radio;
 
+uint8_t radio_station_list_display(uint8_t action);
+uint8_t radio_station_list(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t action) ;
 uint8_t radio_source_select(uint8_t entry_num);
+uint8_t radio_hex_to_string(char *str, uint16_t value, uint8_t size);
 uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_set_volume(int8_t *volume);
@@ -110,6 +143,7 @@ uint8_t radio_init();
 uint8_t radio_tune_freq(uint16_t freq);
 uint8_t radio_freq_to_string(char *str, uint16_t freq);
 uint8_t radio_value_to_string(char *str, int16_t value, uint8_t size, uint8_t base);
-uint8_t radio_store_station(uint16_t freq, int8_t *name, uint8_t pos);
+uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos);
+uint8_t radio_auto_search();
 
 #endif /* RADIO_NEW_H_ */
