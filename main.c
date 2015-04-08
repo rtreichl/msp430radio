@@ -27,11 +27,10 @@
 #include <driver/lcd.h>
 #include <driver/encoder.h>
 #include <driver/timer.h>
-#include "Menu.h"
 #include <menu/menu.h>
-#include <system/radio.h>
 #include <system/rsq.h>
 #include <system/rds.h>
+#include <system/radio.h>
 #include <driver/timer.h>
 
 #define ENCODER_TAST_REFRESH	10
@@ -40,7 +39,7 @@
 #define RDS_UPDATE	200
 #define RADIO_TEXT_SCROLL 500
 
-extern volatile unsigned char encoder_1_button, encoder_2_button;
+extern volatile uint8_t encoder_1_button, encoder_2_button;
 
 #define DISPLAY_REFRESH 500
 
@@ -79,6 +78,9 @@ int main (void)
 		}
 		if(timer_count[2] >= RADIO_TEXT_SCROLL) {
 			radio.status.scroll_text++;
+			if(radio.status.scroll_text == 80) {
+				radio.status.scroll_text = 0;
+			}
 			timer_count[2] -= RADIO_TEXT_SCROLL;
 		}
 		//encoder_2_button = 'f';
