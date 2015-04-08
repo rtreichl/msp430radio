@@ -7,7 +7,7 @@
 //Variables from Encoder 1
 volatile uint16_t encoder_1_count = 0;							//Shows the actual value from Encoder 1
 volatile int8_t encoder_1_last = 0;									//Last state from Encoder 1
-volatile int8_t encoder_1_button = 'f';									//Button Value for Menu
+volatile uint8_t encoder_1_button = 'f';									//Button Value for Menu
 volatile int8_t encoder_1_state = 0;									//Button Value for State mashine in Encoder
 volatile int16_t count_button_1 = 0;									//
 
@@ -18,7 +18,7 @@ volatile int16_t count_button_1 = 0;									//
 //Variables from Encoder 2
 volatile uint16_t encoder_2_count = 0;							//Shows the actual value from Encoder 2
 volatile int8_t encoder_2_last = 0;									//Last state from Encoder 2
-volatile int8_t encoder_2_button = 'f';
+volatile uint8_t encoder_2_button = 'f';
 volatile int8_t encoder_2_state = 0;
 volatile int16_t count_button_2 = 0;
 
