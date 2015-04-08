@@ -7,6 +7,7 @@
 #include <driver/encoder.h>
 #include <menu/lang/language.h>
 #include <menu/menu_struct.h>
+#include <libs/string.h>
 
 #define MENU_NO_FUNC_ENTRY 0
 #define MENU_FREQ_ENTRY	1
