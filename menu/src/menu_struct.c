@@ -1,19 +1,29 @@
 #include <menu/menu_struct.h>
 
-MENU_ENTRY main_entry = {
-	&view_entry,
+MENU_ENTRY * const menu_long_entry = &view_entry;
+MENU_ENTRY * const menu_short_entry = &station_list_entry;
+
+MENU_ENTRY main_long_entry = {
 	&station_list_entry,
 	0,
 	0,
 	0,
-	main_text,
+	main_long_text,
+	MENU_MAIN_ENTRY,
+};
+
+MENU_ENTRY main_short_entry = {
+	&view_entry,
+	0,
+	0,
+	0,
+	main_short_text,
 	MENU_MAIN_ENTRY,
 };
 
 MENU_ENTRY view_entry = {
 	&text_entry,
-	0,
-	&main_entry,
+	&main_long_entry,
 	&radio_entry,
 	0,
 	view_text,
@@ -22,8 +32,7 @@ MENU_ENTRY view_entry = {
 
 MENU_ENTRY radio_entry = {
 	&tatp_entry,
-	0,
-	&main_entry,
+	&main_long_entry,
 	&audio_entry,
 	&view_entry,
 	radio_text,
@@ -33,7 +42,6 @@ MENU_ENTRY radio_entry = {
 
 MENU_ENTRY tatp_entry = {
 	&tatp_on_entry,
-	0,
 	&radio_entry,
 	&volume_entry,
 	0,
@@ -41,7 +49,6 @@ MENU_ENTRY tatp_entry = {
 	0,
 };
 MENU_ENTRY tatp_on_entry = {
-	0,
 	0,
 	&tatp_entry,
 	&tatp_off_entry,
@@ -51,7 +58,6 @@ MENU_ENTRY tatp_on_entry = {
 };
 
 MENU_ENTRY tatp_off_entry = {
-	0,
 	0,
 	&tatp_entry,
 	&tatp_return_entry,
@@ -64,14 +70,12 @@ MENU_ENTRY tatp_return_entry = {
 	&tatp_entry,
 	0,
 	0,
-	0,
 	&tatp_off_entry,
 	return_text,
 	0,
 };
 
 MENU_ENTRY volume_entry = {
-	0,
 	0,
 	&radio_entry,
 	&freq_entry,
@@ -82,7 +86,6 @@ MENU_ENTRY volume_entry = {
 
 MENU_ENTRY freq_entry = {
 	&freq_seeking_entry,
-	0,
 	&radio_entry,
 	&radio_return_entry,
 	&volume_entry,
@@ -92,7 +95,6 @@ MENU_ENTRY freq_entry = {
 
 MENU_ENTRY freq_seeking_entry = {
 	0,
-	0,
 	&freq_entry,
 	&freq_fixed_entry,
 	0,
@@ -101,7 +103,6 @@ MENU_ENTRY freq_seeking_entry = {
 };
 
 MENU_ENTRY freq_fixed_entry = {
-	0,
 	0,
 	&freq_entry,
 	&freq_return_entry,
@@ -114,7 +115,6 @@ MENU_ENTRY freq_return_entry = {
 	&freq_entry,
 	0,
 	0,
-	0,
 	&freq_fixed_entry,
 	return_text,
 	0,
@@ -124,7 +124,6 @@ MENU_ENTRY radio_return_entry = {
 	&radio_entry,
 	0,
 	0,
-	0,
 	&freq_entry,
 	return_text,
 	0,
@@ -132,7 +131,6 @@ MENU_ENTRY radio_return_entry = {
 
 MENU_ENTRY text_entry = {
 	&rds_entry,
-	0,
 	&view_entry,
 	&contrast_entry,
 	0,
@@ -141,7 +139,6 @@ MENU_ENTRY text_entry = {
 };
 
 MENU_ENTRY rds_entry = {
-	0,
 	0,
 	&text_entry,
 	&ptypi_entry,
@@ -152,7 +149,6 @@ MENU_ENTRY rds_entry = {
 
 MENU_ENTRY ptypi_entry = {
 	0,
-	0,
 	&text_entry,
 	&rsq_entry,
 	&rds_entry,
@@ -161,7 +157,6 @@ MENU_ENTRY ptypi_entry = {
 };
 
 MENU_ENTRY rsq_entry = {
-	0,
 	0,
 	&text_entry,
 	&text_return_entry,
@@ -174,14 +169,12 @@ MENU_ENTRY text_return_entry = {
 	&text_entry,
 	0,
 	0,
-	0,
 	&rsq_entry,
 	return_text,
 	0,
 };
 
 MENU_ENTRY contrast_entry = {
-	0,
 	0,
 	&text_entry,
 	&brightness_entry,
@@ -192,7 +185,6 @@ MENU_ENTRY contrast_entry = {
 
 MENU_ENTRY brightness_entry = {
 	&brightness_auto_entry,
-	0,
 	&view_entry,
 	&view_return_entry,
 	&contrast_entry,
@@ -202,7 +194,6 @@ MENU_ENTRY brightness_entry = {
 
 MENU_ENTRY brightness_fixed_entry = {
 	0,
-	0,
 	&brightness_entry,
 	&brightness_return_entry,
 	&brightness_auto_entry,
@@ -211,7 +202,6 @@ MENU_ENTRY brightness_fixed_entry = {
 };
 
 MENU_ENTRY brightness_auto_entry = {
-	0,
 	0,
 	&brightness_entry,
 	&brightness_fixed_entry,
@@ -224,7 +214,6 @@ MENU_ENTRY brightness_return_entry = {
 	&brightness_entry,
 	0,
 	0,
-	0,
 	&brightness_auto_entry,
 	return_text,
 	0,
@@ -232,8 +221,7 @@ MENU_ENTRY brightness_return_entry = {
 
 MENU_ENTRY audio_entry = {
 	&pop_entry,
-	0,
-	&main_entry,
+	&main_long_entry,
 	&source_entry,
 	&radio_entry,
 	audio_text,
@@ -241,7 +229,6 @@ MENU_ENTRY audio_entry = {
 };
 
 MENU_ENTRY pop_entry = {
-	0,
 	0,
 	&audio_entry,
 	&classic_entry,
@@ -252,7 +239,6 @@ MENU_ENTRY pop_entry = {
 
 MENU_ENTRY classic_entry = {
 	0,
-	0,
 	&audio_entry,
 	&jazz_entry,
 	&pop_entry,
@@ -261,7 +247,6 @@ MENU_ENTRY classic_entry = {
 };
 
 MENU_ENTRY jazz_entry = {
-	0,
 	0,
 	&audio_entry,
 	&hiphop_entry,
@@ -272,7 +257,6 @@ MENU_ENTRY jazz_entry = {
 
 MENU_ENTRY hiphop_entry = {
 	0,
-	0,
 	&audio_entry,
 	&rock_entry,
 	&jazz_entry,
@@ -282,7 +266,6 @@ MENU_ENTRY hiphop_entry = {
 
 MENU_ENTRY rock_entry = {
 	0,
-	0,
 	&audio_entry,
 	&news_entry,
 	&hiphop_entry,
@@ -291,7 +274,6 @@ MENU_ENTRY rock_entry = {
 };
 
 MENU_ENTRY news_entry = {
-	0,
 	0,
 	&audio_entry,
 	&audio_return_entry,
@@ -304,7 +286,6 @@ MENU_ENTRY audio_return_entry = {
 	&audio_entry,
 	0,
 	0,
-	0,
 	&news_entry,
 	return_text,
 	0,
@@ -314,7 +295,6 @@ MENU_ENTRY view_return_entry = {
 	&view_entry,
 	0,
 	0,
-	0,
 	&brightness_entry,
 	return_text,
 	0,
@@ -322,8 +302,7 @@ MENU_ENTRY view_return_entry = {
 
 MENU_ENTRY source_entry = {
 	&fm_entry,
-	0,
-	&main_entry,
+	&main_long_entry,
 	&reset_entry,
 	&audio_entry,
 	source_text,
@@ -331,7 +310,6 @@ MENU_ENTRY source_entry = {
 };
 
 MENU_ENTRY fm_entry = {
-	0,
 	0,
 	&source_entry,
 	&am_entry,
@@ -342,7 +320,6 @@ MENU_ENTRY fm_entry = {
 
 MENU_ENTRY am_entry = {
 	0,
-	0,
 	&source_entry,
 	&linein_entry,
 	&fm_entry,
@@ -351,7 +328,6 @@ MENU_ENTRY am_entry = {
 };
 
 MENU_ENTRY linein_entry = {
-	0,
 	0,
 	&source_entry,
 	&source_return_entry,
@@ -364,7 +340,6 @@ MENU_ENTRY source_return_entry = {
 	&source_entry,
 	0,
 	0,
-	0,
 	&linein_entry,
 	return_text,
 	0,
@@ -372,16 +347,14 @@ MENU_ENTRY source_return_entry = {
 
 MENU_ENTRY reset_entry = {
 	&reset_no_entry,
-	0,
-	&main_entry,
-	&main_return_entry,
+	&main_long_entry,
+	&main_long_return_entry,
 	&source_entry,
 	reset_text,
 	0,
 };
 
 MENU_ENTRY reset_no_entry = {
-	0,
 	0,
 	&reset_entry,
 	&reset_yes_entry,
@@ -392,7 +365,6 @@ MENU_ENTRY reset_no_entry = {
 
 MENU_ENTRY reset_yes_entry = {
 	0,
-	0,
 	&reset_entry,
 	0,
 	&reset_no_entry,
@@ -400,9 +372,8 @@ MENU_ENTRY reset_yes_entry = {
 	0,
 };
 
-MENU_ENTRY main_return_entry = {
-	&main_entry,
-	0,
+MENU_ENTRY main_long_return_entry = {
+	&main_long_entry,
 	0,
 	0,
 	&reset_entry,
@@ -412,57 +383,51 @@ MENU_ENTRY main_return_entry = {
 
 MENU_ENTRY station_list_entry = {
 	0,
-	0,
-	&main_entry,
+	&main_short_entry,
 	&seeking_up_entry,
 	0,
 	station_list_text,
-	0,
+	STATION_VIEW,
 };
 
 MENU_ENTRY seeking_up_entry = {
 	0,
-	0,
-	&main_entry,
+	&main_short_entry,
 	&seeking_down_entry,
 	&station_list_entry,
 	seeking_up_text,
-	0,
+	SEEKING_UP,
 };
 
 MENU_ENTRY seeking_down_entry = {
 	0,
-	0,
-	&main_entry,
+	&main_short_entry,
 	&station_store_entry,
 	&seeking_up_entry,
 	seeking_down_text,
-	0,
+	SEEKING_DOWN,
 };
 
 MENU_ENTRY station_store_entry = {
 	0,
-	0,
-	&main_entry,
+	&main_short_entry,
 	&auto_search_entry,
 	&seeking_down_entry,
 	station_store_text,
-	0,
+	STORE_STATION,
 };
 
 MENU_ENTRY auto_search_entry = {
 	0,
-	0,
-	&main_entry,
-	&main_long_return_entry,
+	&main_short_entry,
+	&main_short_return_entry,
 	&station_store_entry,
 	auto_search_text,
-	0,
+	AUTO_SEARCH,
 };
 
-MENU_ENTRY main_long_return_entry = {
-	&main_entry,
-	0,
+MENU_ENTRY main_short_return_entry = {
+	&main_short_entry,
 	0,
 	0,
 	&auto_search_entry,

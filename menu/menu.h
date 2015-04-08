@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <driver/lcd.h>
 #include <system/radio.h>
+#include <driver/encoder.h>
 #include <menu/lang/language.h>
 #include <menu/menu_struct.h>
 
@@ -24,11 +25,22 @@
 #define AUDIO_NEWS_ENTRY 14
 #define SOURCE_AM_ENTRY 15
 #define SOURCE_FM_ENTRY 16
-#define SOURCE_LINEIN_ENTRY  17
+#define SOURCE_LINEIN_ENTRY 17
+#define SEEKING_UP 18
+#define SEEKING_DOWN 19
+#define STORE_STATION 20
+#define STATION_VIEW 21
+#define AUTO_SEARCH 22
 
+#define LONG_INTO_MENU 0xFF
+#define SHORT_INTO_MENU 0xFE
+#define SHORT_UP_TO_CHILD 0xFD
+#define SHORT_UP_TO_PARENT 0xFC
+#define STAY_ON_MENU_POINT 0x00
 
-
-
+#define BUTTON_PRESS_LONG 'l'
+#define BUTTON_PRESS_SHORT 'k'
+#define BUTTON_PRESS_FREE 'f'
 
 uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t menu_scroll(uint8_t value);

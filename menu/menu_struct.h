@@ -4,8 +4,7 @@
 #include "menu.h"
 
 typedef const struct menu_entry {
-	const struct menu_entry *child_short;
-	const struct menu_entry *child_long;
+	const struct menu_entry *child;
 	const struct menu_entry *parent;
 	const struct menu_entry *next;
 	const struct menu_entry *previous;
@@ -13,7 +12,8 @@ typedef const struct menu_entry {
 	const uint16_t entry_num;
 } MENU_ENTRY;
 
-extern MENU_ENTRY main_entry;
+extern MENU_ENTRY main_long_entry;
+extern MENU_ENTRY main_short_entry;
 extern MENU_ENTRY view_entry;
 extern MENU_ENTRY radio_entry;
 extern MENU_ENTRY freq_entry;
@@ -55,7 +55,7 @@ extern MENU_ENTRY reset_entry;
 extern MENU_ENTRY reset_no_entry;
 extern MENU_ENTRY reset_yes_entry;
 extern MENU_ENTRY view_return_entry;
-extern MENU_ENTRY main_return_entry;
+extern MENU_ENTRY main_short_return_entry;
 extern MENU_ENTRY auto_search_entry;
 extern MENU_ENTRY main_long_return_entry;
 extern MENU_ENTRY seeking_up_entry;
@@ -63,5 +63,7 @@ extern MENU_ENTRY seeking_down_entry;
 extern MENU_ENTRY station_list_entry;
 extern MENU_ENTRY station_store_entry;
 
+extern MENU_ENTRY * const menu_short_entry;
+extern MENU_ENTRY * const menu_long_entry;
 
 #endif /* _MENU_STRUCT_H_ */
