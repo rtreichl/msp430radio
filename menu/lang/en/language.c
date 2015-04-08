@@ -42,6 +42,9 @@ const char seeking_up_text[] = "Seeking up";
 const char seeking_down_text[] = "Seeking down";
 const char auto_search_text[] = "Auto search";
 
+const char save_text[] = "Store";
+const char choose_text[] = "Selection";
+
 const char pty_0[] = "None PTY";
 const char pty_1[] = "News";
 const char pty_2[] = "Current Affairs";

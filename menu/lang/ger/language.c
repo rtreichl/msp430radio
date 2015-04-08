@@ -33,7 +33,8 @@ const char yes_text[] = "Ja";
 const char no_text[] = "Nein";
 const char on_text[] = "An";
 const char off_text[] = "Aus";
-const char main_text[] = "Einstellungen";
+const char main_long_text[] = "Einstellungen";
+const char main_short_text[] = "Sender";
 
 const char abort_text[] = "Abbrechen";
 const char station_list_text[] = "Senderliste";
@@ -41,6 +42,9 @@ const char station_store_text[] = "Einspeichern";
 const char seeking_up_text[] = "Suche aufwärts";
 const char seeking_down_text[] = "Suche abwärts";
 const char auto_search_text[] = "Autosuchlauf";
+
+const char save_text[] = "Speichern";
+const char choose_text[] = "Auswahl";
 
 const char pty_0[] = "Kein PTY";
 const char pty_1[] = "Nachrichten";
