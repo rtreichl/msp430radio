@@ -5,8 +5,8 @@
  *      Author: Richard
  */
 
-#ifndef SYSTEM_STATION_LIST_H_
-#define SYSTEM_STATION_LIST_H_
+#ifndef SYSTEM_STATION_LIST_STRUCT_H_
+#define SYSTEM_STATION_LIST_STRUCT_H_
 
 #include <stdint.h>
 #include <system/radio.h>
@@ -34,4 +34,4 @@ extern STATION_LIST station_12;
 extern STATION_LIST station_13;
 extern STATION_LIST station_14;
 
-#endif /* SYSTEM_STATION_LIST_H_ */
+#endif /* SYSTEM_STATION_LIST_STRUCT_H_ */

@@ -6,7 +6,7 @@
  */
 
 
-#include <system/station_list.h>
+#include <system/station_list_struct.h>
 
 STATION_LIST station_1 = {
 		&station_2,
