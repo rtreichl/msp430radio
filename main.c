@@ -9,20 +9,12 @@
  *   			schleifen durch Timer ersetzen
  */
 
-#define I2C_LCD_BAUDRATE			40
-
-
-
 #include <msp430.h>
-#include <msp430g2553.h>
 #include <intrinsics.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdint.h>
 #include "driver/i2c.h"
 #include <driver/si4735.h>
 #include <driver/pca9530.h>
-//#include "AudioSwitch.h"
 #include <driver/tpa2016d2.h>
 #include <driver/lcd.h>
 #include <driver/encoder.h>
@@ -49,7 +41,7 @@ int main (void)
 	radio_init();
 	int8_t en_counter1 = 0;
 	int8_t en_counter2 = 0;
-	time_set(18,29,27,2,16,0);
+	time_set_time(18,29,27,2,16,0);
 
 	while(1)
 	{
@@ -66,7 +58,7 @@ int main (void)
 		}
 		if(timer_count[3] >= TIME_MINUTE) {
 			timer_count[3] -= TIME_MINUTE;
-			time_date_update();
+			time_update();
 		}
 		if(timer_count[6] >= RSQ_UPDATE) {
 			rsq_update(&radio);
@@ -83,8 +75,6 @@ int main (void)
 			}
 			timer_count[2] -= RADIO_TEXT_SCROLL;
 		}
-		//encoder_2_button = 'f';
-		//en_counter2 = 0;
 	}
 
 }
