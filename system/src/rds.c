@@ -152,6 +152,6 @@ void rds_group_4A(RDS *data)
 	}
 	m_minute = temp%60;
 	m_hour = temp/60;
-	time_set(m_hour, m_minute, m_day, m_month, m_year, 0);
+	time_set_time(m_hour, m_minute, m_day, m_month, m_year, 0);
 	//time_date(m_hour, m_minute, m_day, m_month, m_year, 1, 0, 0, 0);
 }

@@ -167,7 +167,6 @@ typedef struct rds {
 
 void rds_update(RADIO *radio);
 uint8_t rds_triggered();
-uint8_t get_signal_qual();
 
 void rds_group_4A(RDS *data);
 
