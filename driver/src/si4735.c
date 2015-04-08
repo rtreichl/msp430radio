@@ -70,7 +70,7 @@ uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack, uint8_t *resp)
 uint8_t si4735_fm_tune_freq(uint16_t frequency)
 {
 	INT_STATUS status;
-	FM_TUNE_FREQ_ARG1_STC arg1 = { .FREEZE = 0, .FAST = 1};
+	FM_TUNE_FREQ_ARG1_STC arg1 = { .FREEZE = 0, .FAST = 0};
 
 	i2c_write_var(I2C_SI4735, STOP, 5, FM_TUNE_FREQ, arg1.byte, HB(frequency), LB(frequency), 0x00);
 	si4735_get_interrupt(7);
@@ -269,7 +269,7 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 
 void si4735_get_interrupt(uint8_t int_number)
 {
-	INT_STATUS status;
+	//INT_STATUS status;
 	while(!si_interrupt);
 	si_interrupt = 0;
 	if(int_number < 8)
