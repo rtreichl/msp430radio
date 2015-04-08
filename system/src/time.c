@@ -30,7 +30,7 @@ const uint8_t month_days[12] = {
 		31
 };
 
-uint8_t time_set(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid)
+uint8_t time_set_time(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid)
 {
 	time_date.hour_one = hour % 10;
 	time_date.hour_ten = hour / 10;
@@ -45,7 +45,7 @@ uint8_t time_set(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8
 	return 0;
 }
 
-uint8_t time_to_str(char *str)
+uint8_t time_time_to_array(char *str)
 {
 	str[0] = time_date.hour_ten + '0';
 	str[1] = time_date.hour_one + '0';
@@ -57,7 +57,7 @@ uint8_t time_to_str(char *str)
 	return 0;
 }
 
-uint8_t date_to_str(char *str)
+uint8_t time_date_to_array(char *str)
 {
 	str[0] = time_date.day_ten + '0';
 	str[1] = time_date.day_one + '0';
@@ -72,7 +72,7 @@ uint8_t date_to_str(char *str)
 	return 0;
 }
 
-void time_date_update()
+void time_update()
 {
 
 	time_date.minute_one++;

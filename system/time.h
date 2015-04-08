@@ -25,9 +25,9 @@ typedef struct time_date {
 
 extern const uint8_t month_days[];
 
-void time_date_update();
-uint8_t date_to_str(char *str);
-uint8_t time_to_str(char *str);
-uint8_t time_set(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid);
+void time_update();
+uint8_t time_date_to_array(char *str);
+uint8_t time_time_to_array(char *str);
+uint8_t time_set_time(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid);
 
 #endif /* SYSTEM_TIME_H_ */
