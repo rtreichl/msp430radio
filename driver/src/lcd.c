@@ -335,7 +335,7 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 	}
 
 	/* if string is empty determinat string on given position */
-	if(*str == 0) {
+	if(*str == 0 && num == 48) {
 		lcd_view[pos] = 0;
 	}
 	else {
