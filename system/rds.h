@@ -154,18 +154,12 @@ typedef struct block_b {
 	uint16_t GROUP_NUM:4;
 } BLOCK_B;
 
-typedef struct pi {
-	uint16_t PROGRAMM_REF_NUM:8;
-	uint16_t AREA_CODE:4;
-	uint16_t COUNTRY_CODE:4;
-} PI;
-
 typedef struct rds {
 	STATUS 	status;
 	INFO	info;
 	SYNC	sync;
 	FIFO	fifo;
-	PI		pi;
+	uint16_t	pi;
 	BLOCK_B block_b;
 	uint8_t block[4];
 	ERR		err;

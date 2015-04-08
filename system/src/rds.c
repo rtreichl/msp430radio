@@ -62,6 +62,13 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 
 					//*Radio_States |= (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xFC)>>2;	//TA Bit M/S Bit DI 4 Bits
 					GROUP_0A *rds2 = (GROUP_0A*) &(rds->pi);
+
+					radio->rds.di &= ~(1 << rds2->CI);
+					radio->rds.di |= ~((1 & rds2->DI)<< rds2->CI);
+
+					radio->rds.ms = rds2->MS;
+					radio->rds.ta = rds2->TA;
+
 					//*Radio_States |= (rds2->TA | rds2->MS | rds2->DI) >> 2;
 					pos = rds2->CI*2;
 					radio->rds.name[pos++] = rds2->PS_NAME[1];
@@ -74,7 +81,10 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 					}
 				}
 			}
-			_delay_ten_us(25);
+			radio->rds.pty = rds->block_b.PTY;
+			radio->rds.pi = rds->pi;
+			radio->rds.tp = rds->block_b.TP;
+			_delay_ten_us(5);
 			tmp = rds->fifo.RDSFIFOUSED;
 			if(tmp < 10 && doit == 0)
 			{
