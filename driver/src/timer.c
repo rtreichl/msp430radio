@@ -33,6 +33,8 @@ void basic_clock_init(void)
 	BCSCTL1 |= DIVA_2;						  // ACLK dived by 8
 	BCSCTL2 = SELM_0 | DIVM_0 | DIVS_3;
 	BCSCTL3 = LFXT1S_0 | XCAP_0;
+
+	FCTL2 = FWKEY + FSSEL_2 + 0x05;             // MCLK/3 for Flash Timing Generator
 }
 /*
 uint8_t create_timer(uint8_t mode, uint8_t s, uint8_t ms)
