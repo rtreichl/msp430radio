@@ -23,6 +23,8 @@
 #include <menu/menu.h>
 #include <settings/radio_configuration.h>
 #include <system/station_list.h>
+#include <system/radio_display.h>
+#include <libs/string.h>
 //#include <system/rds.h>
 #include <system/time.h>
 
@@ -59,6 +61,9 @@
 #define BUTTON_PRESS_LONG 'l'
 #define BUTTON_PRESS_SHORT 'k'
 #define BUTTON_FREE 'f'
+
+#define AUDIO_MUTE 1
+#define AUDIO_VOLUME 2
 
 #define RADIO_STATION_NAME_STORE_ADR 0x1000
 #define RADIO_STATION_NAME_STORE_SIZE 8
@@ -127,22 +132,16 @@ typedef struct radio {
 
 extern RADIO radio;
 
-uint8_t radio_station_list_display(uint8_t action);
-uint8_t radio_station_list(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t action) ;
 uint8_t radio_source_select(uint8_t entry_num);
-uint8_t radio_hex_to_string(char *str, uint16_t value, uint8_t size);
 uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_set_volume(int8_t *volume);
-uint8_t radio_display_handler(uint8_t blend_scroll);
 uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 uint8_t radio_volume(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t setting);
 uint16_t radio_seeking(uint8_t up_down);
 uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_init();
 uint8_t radio_tune_freq(uint16_t freq);
-uint8_t radio_freq_to_string(char *str, uint16_t freq);
-uint8_t radio_value_to_string(char *str, int16_t value, uint8_t size, uint8_t base);
 uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos);
 uint8_t radio_auto_search();
 
