@@ -37,22 +37,15 @@
 #define SOURCE_AM 1
 #define SOURCE_LINEIN 2
 
-#define Start_up_1 		"HS-Rosenheim"
-#define	Shift_left_1	2
-#define	Start_up_2		"FM/AM  Radio"
-#define	Shift_left_2	2
-#define Start_up_3		"Version 1.00"
-#define	Shift_left_3	2
+#define AMPLIFIER_GAIN 6
 
-#define AMPLIFIER_GAIN 15
-
-#define RADIO_BRIGHTNESS_MAX 100
+#define RADIO_BRIGHTNESS_MAX 50
 #define RADIO_BRIGHTNESS_MIN 0
 #define RADIO_BRIGHTNESS_STEP 1
 
-#define RADIO_CONTRAST_MAX 100
+#define RADIO_CONTRAST_MAX 10
 #define RADIO_CONTRAST_MIN 0
-#define RADIO_CONTRAST_STEP 10
+#define RADIO_CONTRAST_STEP 1
 
 #define RADIO_VOLUME_MAX 100
 #define RADIO_VOLUME_MIN 0
@@ -70,9 +63,8 @@
 #define RADIO_STATION_FREQ_STORE_ADR 0x1070
 #define RADIO_STATION_FREQ_STORE_SIZE 2
 
-#define RADIO_BRIGHTNESS_STORE_ADR 0x108C
-#define RADIO_BRIGHTNESS_STORE_SIZE 1
-#define RADIO_CONTRAST_STORE_ADR 0x108D
+#define RADIO_SETTINGS_STORE_ADR 0x108C
+/*#define RADIO_CONTRAST_STORE_ADR 0x108D
 #define RADIO_CONTRAST_STORE_SIZE 1
 #define RADIO_VIEW_STORE_ADR 0x108E
 #define RADIO_VIEW_STORE_SIZE 1
@@ -85,20 +77,18 @@
 #define RADIO_TA_STORE_ADR 0X1092
 #define RADIO_TA_STORE_SIZE 1
 #define RADIO_FREQENCY_STORE_ADR 0X1093
-#define RADIO_FREQENCY_STORE_SIZE 2
+#define RADIO_FREQENCY_STORE_SIZE 2*/
 
 //TODO add a setting area for store
 
 typedef struct radio_status {
-	uint16_t station_valid:1;
-	uint16_t text_valid:1;
-	uint16_t time_valid:1;
-	uint16_t display_mode:2;
-	uint16_t audio_status:2;
-	uint16_t equalizer_mode:3;
-	uint16_t source_select:2;
-	uint16_t freq_valid:1;
-	uint16_t name_valid:1;
+	uint8_t station_valid:1;
+	uint8_t text_valid:1;
+	uint8_t time_valid:1;
+	uint8_t audio_status:2;
+	uint8_t freq_valid:1;
+	uint8_t name_valid:1;
+	uint8_t :1;
 	uint8_t scroll_text;
 } RADIO_STATUS;
 
@@ -120,14 +110,23 @@ typedef struct radio_rds {
 	uint16_t di:4;
 } RADIO_RDS;
 
+typedef struct radio_settings {
+	uint32_t display_view:2;
+	uint32_t contrast:4;
+	uint32_t brightness:6;
+	uint32_t ta_tp:1;
+	uint32_t equalizer:3;
+	uint32_t source:2;
+	uint32_t volume:7;
+	uint32_t volume_ta:7;
+	uint16_t frequency;
+} RADIO_SETTINGS;
+
 typedef struct radio {
-	uint16_t station_freq;
-	int8_t  volume;
-	int8_t brightness;
-	int8_t contrast;
 	RADIO_STATUS status;
 	RADIO_RDS rds;
 	RADIO_RSQ rsq;
+	RADIO_SETTINGS settings;
 } RADIO;
 
 extern RADIO radio;
@@ -135,7 +134,7 @@ extern RADIO radio;
 uint8_t radio_source_select(uint8_t entry_num);
 uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count);
-uint8_t radio_set_volume(int8_t *volume);
+uint8_t radio_set_volume(int8_t volume);
 uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 uint8_t radio_volume(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t setting);
 uint16_t radio_seeking(uint8_t up_down);
@@ -144,5 +143,8 @@ uint8_t radio_init();
 uint8_t radio_tune_freq(uint16_t freq);
 uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos);
 uint8_t radio_auto_search();
+uint8_t radio_store_settings(uint8_t freq, uint8_t volume);
+uint8_t radio_load_settings();
+uint8_t radio_frequency(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 
 #endif /* RADIO_NEW_H_ */

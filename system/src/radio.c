@@ -25,24 +25,31 @@ uint8_t radio_init()
 	basic_clock_init();
 	timer_init();
 	i2c_init (400,10);
-	radio.station_freq = 10770;
-	radio.status.audio_status = 0;
-	radio.status.display_mode = RADIO_RDS_VIEW;
-	radio.volume = 30;
-	radio.status.source_select = SOURCE_FM;
-	radio.brightness = 80;
-	radio.contrast = 40;
+
+	/*radio.status.audio_status = 0;
+
+	radio.settings.frequency = 10770;
+	radio.settings.display_view = RADIO_RDS_VIEW;
+	radio.settings.volume = 30;
+	radio.settings.equalizer = POP;
+	radio.settings.source = SOURCE_FM;
+	radio.settings.brightness = 25;
+	radio.settings.contrast = 6;*/
+
 	//TODOload values from flash
+
+	radio_load_settings();
+
 	pca9530_init(&pca9530_config);
-	pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.brightness)]);
+	pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.settings.brightness * 2)]);
 	radio_source_select(0);
-	lcd_init(radio.contrast / RADIO_CONTRAST_STEP);
-	lcd_create_view(Start_up_1, Shift_left_1, 0, 0, 0);
-	lcd_create_view(Start_up_2, Shift_left_2, 1, 0, 0);
-	lcd_create_view(Start_up_3, Shift_left_3, 2, 0, 1);
-	tpa2016d2_init(POP,AMPLIFIER_GAIN);
+	lcd_init(radio.settings.contrast);
+	lcd_create_view(startup_line_1, 2, 0, 0, 0);
+	lcd_create_view(startup_line_2, 2, 1, 0, 0);
+	lcd_create_view(startup_line_3, 2, 2, 0, 1);
+	tpa2016d2_init(radio.settings.equalizer,AMPLIFIER_GAIN);
 	SI4735_INIT();
-	radio_set_volume(&(radio.volume));
+	radio_set_volume(radio.settings.volume);
 	Encoder_1_init();
 	Encoder_2_init();
 	return 0;
@@ -51,22 +58,22 @@ uint8_t radio_init()
 uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	if(*encoder_right_count != 0) {
-		if(*encoder_right_count > 0 && radio.brightness < RADIO_BRIGHTNESS_MAX) {
-			radio.brightness += RADIO_BRIGHTNESS_STEP;
+		if(*encoder_right_count > 0 && radio.settings.brightness < RADIO_BRIGHTNESS_MAX) {
+			radio.settings.brightness += RADIO_BRIGHTNESS_STEP;
 		}
-		else if(*encoder_right_count < 0 && radio.brightness > RADIO_BRIGHTNESS_MIN){
-			radio.brightness -= RADIO_BRIGHTNESS_STEP;
+		else if(*encoder_right_count < 0 && radio.settings.brightness > RADIO_BRIGHTNESS_MIN){
+			radio.settings.brightness -= RADIO_BRIGHTNESS_STEP;
 		}
-		pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.brightness)]);
+		pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.settings.brightness * 2)]);
 		*encoder_right_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
 		*encoder_right_button = BUTTON_FREE;
-		flash_store(&(radio.brightness), RADIO_BRIGHTNESS_STORE_SIZE, RADIO_BRIGHTNESS_STORE_ADR);
+		radio_store_settings(0, 0);
 		return SHORT_UP_TO_CHILD;
 	}
 	else {
-		menu_scroll_settings(radio.brightness);
+		menu_scroll_settings(radio.settings.brightness * 2);
 	}
 	return STAY_ON_MENU_POINT;
 }
@@ -74,22 +81,22 @@ uint8_t radio_brightness(uint8_t *encoder_right_button, int8_t *encoder_right_co
 uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	if(*encoder_right_count != 0) {
-		if(*encoder_right_count > 0 && radio.contrast < RADIO_CONTRAST_MAX) {
-			radio.contrast += RADIO_CONTRAST_STEP;
+		if(*encoder_right_count > 0 && radio.settings.contrast < RADIO_CONTRAST_MAX) {
+			radio.settings.contrast += RADIO_CONTRAST_STEP;
 		}
-		else if(*encoder_right_count < 0 && radio.contrast > RADIO_CONTRAST_MIN) {
-			radio.contrast -= RADIO_CONTRAST_STEP;
+		else if(*encoder_right_count < 0 && radio.settings.contrast > RADIO_CONTRAST_MIN) {
+			radio.settings.contrast -= RADIO_CONTRAST_STEP;
 		}
-		lcd_contrast(radio.contrast / RADIO_CONTRAST_STEP);
+		lcd_contrast(radio.settings.contrast / RADIO_CONTRAST_STEP);
 		*encoder_right_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
 		*encoder_right_button = BUTTON_FREE;
-		flash_store(&(radio.contrast), RADIO_CONTRAST_STORE_SIZE, RADIO_CONTRAST_STORE_ADR);
+		radio_store_settings(0, 0);
 		return SHORT_UP_TO_CHILD;
 	}
 	else {
-		menu_scroll_settings(radio.contrast);
+		menu_scroll_settings(radio.settings.contrast * 10);
 	}
 	return STAY_ON_MENU_POINT;
 }
@@ -97,31 +104,38 @@ uint8_t radio_contrast(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 uint8_t radio_volume(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t setting)
 {
 	static int8_t tmp_volume = 0;
-	if(tmp_volume == 0 && setting == 1) {
-		tmp_volume = radio.volume;
+	if(tmp_volume == 0 && setting != 0) {
+		tmp_volume = radio.settings.volume;
+		//TODO load volumes from store place
 	}
 	if(*encoder_right_count != 0) {
-		if(*encoder_right_count > 0 && radio.volume < RADIO_VOLUME_MAX) {
-			radio.volume += RADIO_VOLUME_STEP;
+		if(*encoder_right_count > 0 && radio.settings.volume < RADIO_VOLUME_MAX) {
+			radio.settings.volume += RADIO_VOLUME_STEP;
 		}
-		else if(*encoder_right_count < 0 && radio.volume> RADIO_VOLUME_MIN) {
-			radio.volume -= RADIO_VOLUME_STEP;
+		else if(*encoder_right_count < 0 && radio.settings.volume > RADIO_VOLUME_MIN) {
+			radio.settings.volume -= RADIO_VOLUME_STEP;
 		}
-		radio_set_volume(&(radio.volume));
+		radio_set_volume(radio.settings.volume);
 		*encoder_right_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
 		*encoder_right_button = BUTTON_FREE;
 		if(tmp_volume != 0) {
-			radio.volume = tmp_volume;
-			flash_store(&(radio.volume), RADIO_VOLUME_STORE_SIZE, RADIO_VOLUME_STORE_ADR);
+			if(setting == MENU_VOL_START_ENTRY) {
+				radio_store_settings(0, 1);
+			}
+			else if(setting == MENU_VOL_TA_ENTRY) {
+				radio.settings.volume_ta = radio.settings.volume;
+				radio_store_settings(0, 0);
+			}
+			radio.settings.volume = tmp_volume;
 			tmp_volume = 0;
-			radio_set_volume(&(radio.volume));
+			radio_set_volume(radio.settings.volume);
 		}
 		return SHORT_UP_TO_CHILD;
 	}
 	else {
-		menu_scroll_settings(radio.volume);
+		menu_scroll_settings(radio.settings.volume);
 	}
 	return STAY_ON_MENU_POINT;
 }
@@ -132,24 +146,24 @@ uint8_t radio_source_select(uint8_t entry_num) {
 	switch(entry_num) {
 	default:
 	case SOURCE_FM_ENTRY:
-		radio.status.source_select = SOURCE_FM;
+		radio.settings.source = SOURCE_FM;
 		AUDIO_SW_LINE_OUT &= ~AUDIO_SW_LINE_PIN;
 		AUDIO_SW_GND_OUT &= ~AUDIO_SW_GND_PIN;
 		//TODO Implement switch si4735 to FM only when AM mode is implemented else just switch audio switch
 		break;
 	case SOURCE_AM_ENTRY:
-		radio.status.source_select = SOURCE_AM;
+		radio.settings.source = SOURCE_AM;
 		AUDIO_SW_LINE_OUT &= ~AUDIO_SW_LINE_PIN;
 		AUDIO_SW_GND_OUT &= ~AUDIO_SW_GND_PIN;
 		//TODO Implement switch si4735 to AM only when AM mode is implemented else just do nothing else
 		break;
 	case SOURCE_LINEIN_ENTRY:
-		radio.status.source_select = SOURCE_LINEIN;
+		radio.settings.source = SOURCE_LINEIN;
 		AUDIO_SW_LINE_OUT |= AUDIO_SW_LINE_PIN;
 		AUDIO_SW_GND_OUT |= AUDIO_SW_GND_PIN;
 		//TODO set si4735 in powerdown modus only if ta/tp mode is off else poll flag and swith to si4735 for duration ta flag is set
 	}
-	//flash_store(&(radio.status.source_select), RADIO_SOURCE_STORE_SIZE, RADIO_SOURCE_STORE_ADR);
+	radio_store_settings(0, 0);
 	return SHORT_UP_TO_PARENT;
 }
 
@@ -157,20 +171,20 @@ uint8_t radio_equalizer(uint8_t entry_num)
 {
 	switch(entry_num) {
 	case AUDIO_ROCK_ENTRY:
-		radio.status.equalizer_mode = ROCK;
+		radio.settings.equalizer = ROCK;
 	case AUDIO_POP_ENTRY:
-		radio.status.equalizer_mode = POP;
+		radio.settings.equalizer = POP;
 	case AUDIO_HIPHOP_ENTRY:
-		radio.status.equalizer_mode = RAP_HIP_HOP;
+		radio.settings.equalizer = RAP_HIP_HOP;
 	case AUDIO_NEWS_ENTRY:
-		radio.status.equalizer_mode = NEWS_VOICE;
+		radio.settings.equalizer = NEWS_VOICE;
 	case AUDIO_CLASSIC_ENTRY:
-		radio.status.equalizer_mode = CLASSIC;;
+		radio.settings.equalizer = CLASSIC;;
 	case AUDIO_JAZZ_ENTRY:
-		radio.status.equalizer_mode = JAZZ;
+		radio.settings.equalizer = JAZZ;
 	}
-	tpa2016d2_equalizer_mode(radio.status.equalizer_mode, AMPLIFIER_GAIN);
-	//flash_store(&(radio.status.equalizer_mode), RADIO_EQUALIZER_STORE_SIZE, RADIO_EQUALIZER_STORE_ADR);
+	tpa2016d2_equalizer_mode(radio.settings.equalizer, AMPLIFIER_GAIN);
+	radio_store_settings(0, 0);
 	return SHORT_UP_TO_PARENT;
 }
 
@@ -178,16 +192,16 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 {
 	switch(entry_num) {
 	case RADIO_RDS_VIEW_ENTRY:
-		radio.status.display_mode = RADIO_RDS_VIEW;
-		//flash_store(&(radio.status.display_mode), RADIO_VIEW_STORE_SIZE, RADIO_VIEW_STORE_ADR);
+		radio.settings.display_view = RADIO_RDS_VIEW;
+		radio_store_settings(0, 0);
 		return SHORT_UP_TO_PARENT;
 	case RADIO_RSQ_VIEW_ENTRY:
-		radio.status.display_mode = RADIO_RSQ_VIEW;
-		//flash_store(&(radio.status.display_mode), RADIO_VIEW_STORE_SIZE, RADIO_VIEW_STORE_ADR);
+		radio.settings.display_view = RADIO_RSQ_VIEW;
+		radio_store_settings(0, 0);
 		return SHORT_UP_TO_PARENT;
 	case RADIO_PIPTY_VIEW_ENTRY:
-		radio.status.display_mode = RADIO_PIPTY_VIEW;
-		//flash_store(&(radio.status.display_mode), RADIO_VIEW_STORE_SIZE, RADIO_VIEW_STORE_ADR);
+		radio.settings.display_view = RADIO_PIPTY_VIEW;
+		radio_store_settings(0, 0);
 		return SHORT_UP_TO_PARENT;
 	case AUDIO_ROCK_ENTRY:
 	case AUDIO_POP_ENTRY:
@@ -208,13 +222,14 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 		return radio_brightness(encoder_right_button, encoder_right_count);
 	case MENU_CONT_ENTRY:
 		return radio_contrast(encoder_right_button, encoder_right_count);
-	case MENU_VOL_ENTRY:
-		return radio_volume(encoder_right_button, encoder_right_count, 1);
+	case MENU_VOL_START_ENTRY:
+	case MENU_VOL_TA_ENTRY:
+		return radio_volume(encoder_right_button, encoder_right_count, entry_num);
 	case SEEKING_UP:
-		radio.station_freq = radio_seeking(1);
+		radio.settings.frequency = radio_seeking(1);
 		return SHORT_UP_TO_PARENT;
 	case SEEKING_DOWN:
-		radio.station_freq = radio_seeking(0);
+		radio.settings.frequency = radio_seeking(0);
 		return SHORT_UP_TO_PARENT;
 	case STORE_STATION:
 	case STATION_VIEW:
@@ -222,6 +237,10 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 	case AUTO_SEARCH:
 		radio_auto_search();
 		return SHORT_UP_TO_PARENT;
+	case MENU_FREQ_SEEK_DOWN_ENTRY:
+	case MENU_FREQ_SEEK_UP_ENTRY:
+	case MENU_FREQ_CHOOSE_ENTRY:
+		return radio_frequency(encoder_right_button, encoder_right_count, entry_num);
 	default:
 		*encoder_right_button = BUTTON_FREE;
 		*encoder_right_count = 0;
@@ -229,15 +248,74 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 	}
 }
 
-uint8_t radio_set_volume(int8_t *volume)
+
+uint8_t radio_frequency(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
+{
+	uint16_t tmp_freq = 0;
+	tmp_freq = radio.settings.frequency;
+	if(entry_num == MENU_FREQ_SEEK_UP_ENTRY) {
+		radio.settings.frequency = 0;
+		radio_store_settings(1, 0);
+		radio.settings.frequency = tmp_freq;
+		return SHORT_UP_TO_PARENT;
+	}
+	else if(entry_num ==  MENU_FREQ_SEEK_DOWN_ENTRY) {
+		radio.settings.frequency = 0xFFFF;
+		radio_store_settings(1, 0);
+		radio.settings.frequency = tmp_freq;
+		return SHORT_UP_TO_PARENT;
+	}
+	else {
+		uint8_t ret = station_list_handler(encoder_right_button, encoder_right_count, entry_num);
+		radio.settings.frequency = tmp_freq;
+		return ret;
+	}
+}
+
+#define RADIO_STORE_VALUE 1
+
+uint8_t radio_store_settings(uint8_t freq, uint8_t volume)
+{
+	uint16_t tmp_frequency = 0;
+	uint8_t tmp_volume = 0;
+	RADIO_SETTINGS tmp_settings;
+	flash_read(&tmp_settings, sizeof(tmp_settings), RADIO_SETTINGS_STORE_ADR);
+	if(freq != RADIO_STORE_VALUE) {
+		tmp_frequency = radio.settings.frequency;
+		radio.settings.frequency = tmp_settings.frequency;
+	}
+	if(volume != RADIO_STORE_VALUE) {
+		tmp_volume = radio.settings.volume;
+		radio.settings.volume = tmp_settings.volume;
+	}
+
+	flash_store(&(radio.settings), sizeof(radio.settings), RADIO_SETTINGS_STORE_ADR);
+
+	if(freq != RADIO_STORE_VALUE) {
+		radio.settings.frequency = tmp_frequency;
+	}
+
+	if(volume != RADIO_STORE_VALUE) {
+		radio.settings.volume = tmp_volume;
+	}
+	return 0;
+}
+
+uint8_t radio_load_settings()
+{
+	flash_read(&radio.settings, sizeof(radio.settings), RADIO_SETTINGS_STORE_ADR);
+	return 0;
+}
+
+uint8_t radio_set_volume(int8_t volume)
 {
 	uint8_t tmp_volume;
-	if(*volume > 100) {
-		*volume = 100;
-	} else if(*volume < 0) {
-		*volume = 0;
+	if(volume > 100) {
+		volume = 100;
+	} else if(volume < 0) {
+		volume = 0;
 	}
-	tmp_volume = ((int16_t)(*volume) * SI4735_VOLUME_MAX) / 100;
+	tmp_volume = ((int16_t)(volume) * SI4735_VOLUME_MAX) / 100;
 	ext_interrupt_enable(SI_INT_INT);
 	si4735_set_property(RX_VOLUME, tmp_volume);
 	ext_interrupt_disable(SI_INT_INT);
@@ -250,28 +328,34 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	uint8_t tmp_value = 0;
 
 	if(*encoder_right_count != 0) { //move to radio_volume and
-		if(*encoder_right_count < 0 && radio.volume > 0) {
-			radio.volume--;
+		if(*encoder_right_count < 0 && radio.settings.volume > 0) {
+			radio.settings.volume--;
 		}
-		else if(*encoder_right_count > 0 && radio.volume < 100) {
-			radio.volume++;
+		else if(*encoder_right_count > 0 && radio.settings.volume < 100) {
+			radio.settings.volume++;
 		}
-		radio_set_volume(&(radio.volume));
+		radio_set_volume(radio.settings.volume);
 		radio.status.audio_status = AUDIO_VOLUME;
-		tmp_value = radio.volume;
+		tmp_value = radio.settings.volume;
 		*encoder_right_count = 0;
 	}
 
 	if(*encoder_left_count != 0) {
-		if(*encoder_left_count < 0 && radio.station_freq > RADIO_BOT_FREQ) {
-			radio.station_freq -= 10;
+		if(*encoder_left_count < 0) {
+			radio.settings.frequency -= 10;
 		}
-		else if(*encoder_left_count > 0 && radio.station_freq < RADIO_TOP_FREQ) {
-			radio.station_freq += 10;
+		else if(*encoder_left_count > 0) {
+			radio.settings.frequency += 10;
 		}
 		radio.status.freq_valid = 0;
-		radio_tune_freq(radio.station_freq);
-		tmp_value = ((radio.station_freq - RADIO_BOT_FREQ) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
+		if(radio.settings.frequency < RADIO_BOT_FREQ){
+			radio.settings.frequency = RADIO_TOP_FREQ;
+		}
+		if(radio.settings.frequency > RADIO_TOP_FREQ){
+			radio.settings.frequency = RADIO_BOT_FREQ;
+		}
+		radio_tune_freq(radio.settings.frequency);
+		tmp_value = ((radio.settings.frequency - RADIO_BOT_FREQ) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
 		*encoder_left_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_PRESS_SHORT)
@@ -353,25 +437,41 @@ uint8_t radio_auto_search()
 {
 	uint8_t station = 0;
 	uint16_t freq = 0;
+	uint16_t try_rds = 0;
+	uint8_t percentage = 0;
+	char tmp_string[4];
 	do {
 		//TODO seek up to next channel
-		radio.station_freq = radio_seeking(1);
+		radio.settings.frequency = radio_seeking(1);
 		if(station == 0) {
-			freq = radio.station_freq;
+			freq = radio.settings.frequency;
 		}
 		else {
-			if(freq == radio.station_freq){
+			if(freq == radio.settings.frequency){
 				break;
 			}
 		}
 		radio.status.freq_valid = 0;
+
+		if(radio.settings.frequency < freq) {
+			percentage = ((freq - radio.settings.frequency) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
+		}
+		else {
+			percentage = ((radio.settings.frequency - freq) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
+		}
+
+		lcd_create_view(auto_search_text, 0, 0, 0, 0);
+		lcd_create_view(progress_text, 0, 1, 0, 0);
+		string_int_to_array(tmp_string, percentage, 3, 10);
+		lcd_create_view(tmp_string, 12, 1, 0, 0);
+		lcd_create_view("%", 15, 1, 0, 1);
+
 		do {
-			_delay_ms(5);
+			_delay_ms(2);
 			rds_update(&radio);
-		}while(radio.status.name_valid != VALID);
-
-		radio_store_station(&(radio.station_freq), radio.rds.name, station);
-
+		}while(radio.status.name_valid != VALID && try_rds++ < 3000);
+		try_rds = 0;
+		radio_store_station(&(radio.settings.frequency), radio.rds.name, station);
 		station++;
 
 		// TODO Description for rds implementation, rds data will always be taken over handler if he get´s valids rds blocks.

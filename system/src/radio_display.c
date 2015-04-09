@@ -15,7 +15,7 @@ uint8_t radio_display_speaker()
 		lcd_create_view("\7÷", 0, 1, 0, 0);
 		break;
 	case AUDIO_VOLUME:
-		string_int_to_array(tmp_string, radio.volume, 3, 10);
+		string_int_to_array(tmp_string, radio.settings.volume, 3, 10);
 		lcd_create_view(tmp_string, 1, 1, 0, 0);
 		lcd_create_view("%", 4, 1, 0, 0);
 		lcd_create_view("\7", 0, 1, 0, 0);
@@ -74,7 +74,7 @@ uint8_t radio_display_rsq()
 uint8_t radio_display_handler(uint8_t blend_scroll)
 {
 	char tmp_string[9];
-	switch(radio.status.display_mode) {
+	switch(radio.settings.display_view) {
 	case RADIO_RDS_VIEW:
 		radio_display_rds();
 		break;
@@ -90,7 +90,7 @@ uint8_t radio_display_handler(uint8_t blend_scroll)
 		lcd_create_view(radio.rds.name, 0, 0, 0, 0);
 	}
 	else {
-		string_fixedpoint_to_array(tmp_string, radio.station_freq);
+		string_fixedpoint_to_array(tmp_string, radio.settings.frequency);
 		lcd_create_view(tmp_string, 0, 0, 0, 0);
 		lcd_create_view("MHz", 5, 0, 0, 0); //TODO add this to a String table
 	}
