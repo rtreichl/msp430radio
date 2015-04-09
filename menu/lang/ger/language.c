@@ -4,16 +4,17 @@
 
 const char view_text[] = "Anzeige";
 const char radio_text[] = "Radio";
-const char tatp_text[] = "TA/TP";
-const char volume_text[] = "Lautstärke";
-const char freq_text[] = "Frequenz";
-const char text_text[] = "Anzeige Style";
+const char tatp_text[] = "Verkehrsfunk";
+const char volume_ta_text[] = "Verkehrsf.-Vol.";
+const char volume_start_text[] = "Einschalt-Vol.";
+const char freq_text[] = "Start-Sender";
+const char text_text[] = "Anzeige Option";
 const char rds_text[] = "Radio Text";
 const char ptypi_text[] = "PTY/PI";
 const char rsq_text[] = "Radio Qualität";
 const char contrast_text[] = "Kontrast";
 const char brightness_text[] = "Helligkeit";
-const char fixed_text[] = "Manuel";
+const char fixed_text[] = "Manuell";
 const char auto_text[] = "Auto";
 const char audio_text[] = "Equlizer";
 const char pop_text[] = "Pop";
@@ -27,7 +28,6 @@ const char fm_text[] = "FM Audio";
 const char am_text[] = "AM Audio";
 const char linein_text[] = "Line-In";
 const char return_text[] = "Zurück";
-const char seeking_text[] = "Suchlauf";
 const char reset_text[] = "Werkszustand";
 const char yes_text[] = "Ja";
 const char no_text[] = "Nein";
@@ -45,6 +45,12 @@ const char auto_search_text[] = "Autosuchlauf";
 
 const char save_text[] = "Speichern";
 const char choose_text[] = "Auswahl";
+
+const char progress_text[] = "Fortschirtt:";
+
+const char startup_line_1[] = "HS-Rosenheim";
+const char startup_line_2[] = "FM/AM  Radio";
+const char startup_line_3[] = "Version 3.00";
 
 const char pty_0[] = "Kein PTY";
 const char pty_1[] = "Nachrichten";

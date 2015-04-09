@@ -4,16 +4,17 @@
 
 const char view_text[] = "View";
 const char radio_text[] = "Radio";
-const char tatp_text[] = "TA/TP";
-const char volume_text[] = "Volume";
-const char freq_text[] = "Frequency";
-const char text_text[] = "View style";
+const char tatp_text[] = "Traffic Msg.";
+const char volume_ta_text[] = "T.M. Volume";
+const char volume_start_text[] = "Startup Volume";
+const char freq_text[] = "Start Station";
+const char text_text[] = "Display options";
 const char rds_text[] = "Radio Text";
 const char ptypi_text[] = "PTY/PI";
 const char rsq_text[] = "Radio Quality";
 const char contrast_text[] = "Contrast";
 const char brightness_text[] = "Brightness";
-const char fixed_text[] = "Manuel";
+const char fixed_text[] = "Manuell";
 const char auto_text[] = "Auto";
 const char audio_text[] = "Equlizer";
 const char pop_text[] = "Pop";
@@ -27,7 +28,6 @@ const char fm_text[] = "FM Audio";
 const char am_text[] = "AM Audio";
 const char linein_text[] = "Line-In";
 const char return_text[] = "Return";
-const char seeking_text[] = "Seeking";
 const char reset_text[] = "Factory state";
 const char yes_text[] = "Yes";
 const char no_text[] = "No";
@@ -38,12 +38,18 @@ const char main_text[] = "Settings";
 const char abort_text[] = "Abort";
 const char station_list_text[] = "Stations list";
 const char station_store_text[] = "Store Station";
-const char seeking_up_text[] = "Seeking up";
-const char seeking_down_text[] = "Seeking down";
+const char seeking_up_text[] = "Seek up";
+const char seeking_down_text[] = "Seek down";
 const char auto_search_text[] = "Auto search";
 
 const char save_text[] = "Store";
 const char choose_text[] = "Selection";
+
+const char progress_text[] = "Progress:";
+
+const char startup_line_1[] = "HS-Rosenheim";
+const char startup_line_2[] = "FM/AM  Radio";
+const char startup_line_3[] = "Version 3.00";
 
 const char pty_0[] = "None PTY";
 const char pty_1[] = "News";

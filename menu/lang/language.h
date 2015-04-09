@@ -9,7 +9,8 @@
 extern const char view_text[];
 extern const char radio_text[];
 extern const char tatp_text[];
-extern const char volume_text[];
+extern const char volume_start_text[];
+extern const char volume_ta_text[];
 extern const char freq_text[];
 extern const char text_text[];
 extern const char rds_text[];
@@ -49,6 +50,12 @@ extern const char auto_search_text[];
 
 extern const char save_text[];
 extern const char choose_text[];
+
+extern const char progress_text[];
+
+extern const char startup_line_1[];
+extern const char startup_line_2[];
+extern const char startup_line_3[];
 
 extern const char * const pty_text[];
 

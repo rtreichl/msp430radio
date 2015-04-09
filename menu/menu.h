@@ -10,8 +10,8 @@
 #include <libs/string.h>
 
 #define MENU_NO_FUNC_ENTRY 0
-#define MENU_FREQ_ENTRY	1
-#define MENU_VOL_ENTRY	2
+#define MENU_FREQ_CHOOSE_ENTRY	1
+#define MENU_VOL_START_ENTRY	2
 #define MENU_CONT_ENTRY	3
 #define MENU_BRIG_ENTRY	4
 #define MENU_MAIN_ENTRY 5
@@ -32,6 +32,9 @@
 #define STORE_STATION 20
 #define STATION_VIEW 21
 #define AUTO_SEARCH 22
+#define MENU_VOL_TA_ENTRY	23
+#define MENU_FREQ_SEEK_DOWN_ENTRY 24
+#define MENU_FREQ_SEEK_UP_ENTRY 25
 
 #define LONG_INTO_MENU 0xFF
 #define SHORT_INTO_MENU 0xFE

@@ -4,7 +4,7 @@ MENU_ENTRY * const menu_long_entry = &view_entry;
 MENU_ENTRY * const menu_short_entry = &station_list_entry;
 
 MENU_ENTRY main_long_entry = {
-	&station_list_entry,
+	&view_entry,
 	0,
 	0,
 	0,
@@ -13,7 +13,7 @@ MENU_ENTRY main_long_entry = {
 };
 
 MENU_ENTRY main_short_entry = {
-	&view_entry,
+	&station_list_entry,
 	0,
 	0,
 	0,
@@ -43,7 +43,7 @@ MENU_ENTRY radio_entry = {
 MENU_ENTRY tatp_entry = {
 	&tatp_on_entry,
 	&radio_entry,
-	&volume_entry,
+	&volume_start_entry,
 	0,
 	tatp_text,
 	0,
@@ -75,40 +75,59 @@ MENU_ENTRY tatp_return_entry = {
 	0,
 };
 
-MENU_ENTRY volume_entry = {
+MENU_ENTRY volume_start_entry = {
+	0,
+	&radio_entry,
+	&volume_ta_entry,
+	&tatp_entry,
+	volume_start_text,
+	MENU_VOL_START_ENTRY,
+};
+
+MENU_ENTRY volume_ta_entry = {
 	0,
 	&radio_entry,
 	&freq_entry,
-	&tatp_entry,
-	volume_text,
-	MENU_VOL_ENTRY,
+	&volume_start_entry,
+	volume_ta_text,
+	MENU_VOL_TA_ENTRY,
 };
 
+
 MENU_ENTRY freq_entry = {
-	&freq_seeking_entry,
+	&freq_seek_up_entry,
 	&radio_entry,
 	&radio_return_entry,
-	&volume_entry,
+	&volume_ta_entry,
 	freq_text,
 	0,
 };
 
-MENU_ENTRY freq_seeking_entry = {
+MENU_ENTRY freq_seek_up_entry = {
+	0,
+	&freq_entry,
+	&freq_seek_down_entry,
+	0,
+	seeking_up_text,
+	MENU_FREQ_SEEK_UP_ENTRY,
+};
+
+MENU_ENTRY freq_seek_down_entry = {
 	0,
 	&freq_entry,
 	&freq_fixed_entry,
-	0,
-	seeking_text,
-	0,
+	&freq_seek_up_entry,
+	seeking_down_text,
+	MENU_FREQ_SEEK_DOWN_ENTRY,
 };
 
 MENU_ENTRY freq_fixed_entry = {
 	0,
 	&freq_entry,
 	&freq_return_entry,
-	&freq_seeking_entry,
-	fixed_text,
-	MENU_FREQ_ENTRY,
+	&freq_seek_down_entry,
+	choose_text,
+	MENU_FREQ_CHOOSE_ENTRY,
 };
 
 MENU_ENTRY freq_return_entry = {
@@ -315,7 +334,7 @@ MENU_ENTRY fm_entry = {
 	&am_entry,
 	0,
 	fm_text,
-	SOURCE_FM,
+	SOURCE_FM_ENTRY,
 };
 
 MENU_ENTRY am_entry = {
@@ -324,7 +343,7 @@ MENU_ENTRY am_entry = {
 	&linein_entry,
 	&fm_entry,
 	am_text,
-	SOURCE_AM,
+	SOURCE_AM_ENTRY,
 };
 
 MENU_ENTRY linein_entry = {
@@ -333,7 +352,7 @@ MENU_ENTRY linein_entry = {
 	&source_return_entry,
 	&am_entry,
 	linein_text,
-	SOURCE_LINEIN,
+	SOURCE_LINEIN_ENTRY,
 };
 
 MENU_ENTRY source_return_entry = {
