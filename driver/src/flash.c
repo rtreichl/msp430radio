@@ -21,13 +21,13 @@ uint8_t flash_store(void *data, uint8_t size, uint16_t pos)
 
 	switch(pos / FLASH_SEG_SIZE) {
 		case 0:
-			flash_read(seg_store, (uint8_t)FLASH_SEG_SIZE, 0);
+			flash_read(seg_store, (uint8_t)FLASH_SEG_SIZE, FLASH_ADR_START);
 			break;
 		case 1:
-			flash_read(seg_store, (uint8_t)FLASH_SEG_SIZE, (uint8_t)FLASH_SEG_SIZE);
+			flash_read(seg_store, (uint8_t)FLASH_SEG_SIZE, FLASH_ADR_START + FLASH_SEG_SIZE);
 			break;
 		case 2:
-			flash_read(seg_store, (uint8_t)FLASH_SEG_SIZE, 2 * (uint8_t)FLASH_SEG_SIZE);
+			flash_read(seg_store, (uint8_t)FLASH_SEG_SIZE, FLASH_ADR_START + 2 * FLASH_SEG_SIZE);
 			break;
 		default:
 			return 0xFE;
@@ -60,9 +60,11 @@ uint8_t flash_store(void *data, uint8_t size, uint16_t pos)
 	return 0;
 }
 
-uint8_t flash_read(void *data, uint8_t size, uint8_t pos)
+uint8_t flash_read(void *data, uint8_t size, uint16_t pos)
 {
-	memcpy(data, (int8_t *)FLASH_ADR_START + pos, size);
+	uint8_t *Flash_ptr = 0;
+	Flash_ptr = (uint8_t *)pos;
+	memcpy(data, Flash_ptr, size);
 	return 0;
 }
 
