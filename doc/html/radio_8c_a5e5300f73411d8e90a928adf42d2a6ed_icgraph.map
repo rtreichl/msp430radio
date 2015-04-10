@@ -1,0 +1,9 @@
+<map id="radio_store_station" name="radio_store_station">
+<area shape="rect" id="node2" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="368,5,496,32"/>
+<area shape="rect" id="node7" href="$station__list_8h.html#a5b16204c2b6824ce89364d614f074b20" title="station_list_handler" alt="" coords="185,56,320,83"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="544,56,647,83"/>
+<area shape="rect" id="node4" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="695,56,801,83"/>
+<area shape="rect" id="node5" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="849,56,952,83"/>
+<area shape="rect" id="node6" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1000,56,1051,83"/>
+<area shape="rect" id="node8" href="$radio_8c.html#aae41d271062b3f94cccf4fb5996b04a2" title="radio_frequency" alt="" coords="375,107,489,133"/>
+</map>

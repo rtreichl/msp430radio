@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/system/station_list_struct.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('station__list__struct_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">station_list_struct.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="station__list__struct_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * station_list.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 07.04.2015</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richard</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef SYSTEM_STATION_LIST_STRUCT_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SYSTEM_STATION_LIST_STRUCT_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio_8h.html">system/radio.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structstation__list.html">   14</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">struct </span><a class="code" href="structstation__list.html">station_list</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structstation__list.html#aaf7e88858b6e1e91f04c50ce118be602">   15</a></span>&#160;    <span class="keyword">const</span> <span class="keyword">struct </span><a class="code" href="structstation__list.html">station_list</a> *<a class="code" href="structstation__list.html#aaf7e88858b6e1e91f04c50ce118be602">next</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structstation__list.html#ae039c5ce88254ad89cea9170a5f3b740">   16</a></span>&#160;    <span class="keyword">const</span> <span class="keyword">struct </span><a class="code" href="structstation__list.html">station_list</a> *<a class="code" href="structstation__list.html#ae039c5ce88254ad89cea9170a5f3b740">previous</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structstation__list.html#a0c8c7380b4e3197fe0b821b4a6dfbec9">   17</a></span>&#160;    <span class="keyword">const</span> uint16_t *<a class="code" href="structstation__list.html#a0c8c7380b4e3197fe0b821b4a6dfbec9">freq</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structstation__list.html#a16343090e80c4472521560f30113d96c">   18</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="structstation__list.html#a16343090e80c4472521560f30113d96c">text</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structstation__list.html#aab8c201217e885e0ee4e61820a289c0c">   19</a></span>&#160;    uint8_t <a class="code" href="structstation__list.html#aab8c201217e885e0ee4e61820a289c0c">entry_num</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}<a class="code" href="station__list__struct_8h.html#a9f9640aacded935b12c479669123dc02">STATION_LIST</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#aed28d5d6ff2cc894854ecc6fbacfae76">station_1</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a975e612434ba9b8f7a0925465ca06e0c">station_2</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a1a2ee714f98b0926178ac3e23fcb67f1">station_3</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a0d01dece72c337dca8aaed89d5d90828">station_4</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a112b4f4a30a6cb400b22f7cd53d4ea97">station_5</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a83b82bde662361422111236c9d4518a6">station_6</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a2478f4bcac825a2937f6403ce17f26f2">station_7</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#aa12e857edaba93b4f1f6499550788485">station_8</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a66db907c5ec3efb7412b85acfc91031b">station_9</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a86b4c5a19f2eaf61a7d85e962d0de862">station_10</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#acf5c64f9cad3cdf54491cac09a0909bd">station_11</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a92439b366ddf622544fd58932a0dd808">station_12</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a386979efb5e28961e46598ded9128b97">station_13</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">extern</span> <a class="code" href="structstation__list.html">STATION_LIST</a> <a class="code" href="station__list__struct_8h.html#a438e658d519580aafa48c7516d797a47">station_14</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SYSTEM_STATION_LIST_STRUCT_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="structstation__list_html_aaf7e88858b6e1e91f04c50ce118be602"><div class="ttname"><a href="structstation__list.html#aaf7e88858b6e1e91f04c50ce118be602">station_list::next</a></div><div class="ttdeci">const struct station_list * next</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8h_source.html#l00015">station_list_struct.h:15</a></div></div>
+<div class="ttc" id="structstation__list_html"><div class="ttname"><a href="structstation__list.html">station_list</a></div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8h_source.html#l00014">station_list_struct.h:14</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a438e658d519580aafa48c7516d797a47"><div class="ttname"><a href="station__list__struct_8h.html#a438e658d519580aafa48c7516d797a47">station_14</a></div><div class="ttdeci">STATION_LIST station_14</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00115">station_list_struct.c:115</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a975e612434ba9b8f7a0925465ca06e0c"><div class="ttname"><a href="station__list__struct_8h.html#a975e612434ba9b8f7a0925465ca06e0c">station_2</a></div><div class="ttdeci">STATION_LIST station_2</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00019">station_list_struct.c:19</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a386979efb5e28961e46598ded9128b97"><div class="ttname"><a href="station__list__struct_8h.html#a386979efb5e28961e46598ded9128b97">station_13</a></div><div class="ttdeci">STATION_LIST station_13</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00107">station_list_struct.c:107</a></div></div>
+<div class="ttc" id="radio_8h_html"><div class="ttname"><a href="radio_8h.html">radio.h</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a0d01dece72c337dca8aaed89d5d90828"><div class="ttname"><a href="station__list__struct_8h.html#a0d01dece72c337dca8aaed89d5d90828">station_4</a></div><div class="ttdeci">STATION_LIST station_4</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00035">station_list_struct.c:35</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a92439b366ddf622544fd58932a0dd808"><div class="ttname"><a href="station__list__struct_8h.html#a92439b366ddf622544fd58932a0dd808">station_12</a></div><div class="ttdeci">STATION_LIST station_12</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00099">station_list_struct.c:99</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a2478f4bcac825a2937f6403ce17f26f2"><div class="ttname"><a href="station__list__struct_8h.html#a2478f4bcac825a2937f6403ce17f26f2">station_7</a></div><div class="ttdeci">STATION_LIST station_7</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00059">station_list_struct.c:59</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_aed28d5d6ff2cc894854ecc6fbacfae76"><div class="ttname"><a href="station__list__struct_8h.html#aed28d5d6ff2cc894854ecc6fbacfae76">station_1</a></div><div class="ttdeci">STATION_LIST station_1</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00011">station_list_struct.c:11</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a66db907c5ec3efb7412b85acfc91031b"><div class="ttname"><a href="station__list__struct_8h.html#a66db907c5ec3efb7412b85acfc91031b">station_9</a></div><div class="ttdeci">STATION_LIST station_9</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00075">station_list_struct.c:75</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a1a2ee714f98b0926178ac3e23fcb67f1"><div class="ttname"><a href="station__list__struct_8h.html#a1a2ee714f98b0926178ac3e23fcb67f1">station_3</a></div><div class="ttdeci">STATION_LIST station_3</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00027">station_list_struct.c:27</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a83b82bde662361422111236c9d4518a6"><div class="ttname"><a href="station__list__struct_8h.html#a83b82bde662361422111236c9d4518a6">station_6</a></div><div class="ttdeci">STATION_LIST station_6</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00051">station_list_struct.c:51</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a86b4c5a19f2eaf61a7d85e962d0de862"><div class="ttname"><a href="station__list__struct_8h.html#a86b4c5a19f2eaf61a7d85e962d0de862">station_10</a></div><div class="ttdeci">STATION_LIST station_10</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00083">station_list_struct.c:83</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_acf5c64f9cad3cdf54491cac09a0909bd"><div class="ttname"><a href="station__list__struct_8h.html#acf5c64f9cad3cdf54491cac09a0909bd">station_11</a></div><div class="ttdeci">STATION_LIST station_11</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00091">station_list_struct.c:91</a></div></div>
+<div class="ttc" id="structstation__list_html_aab8c201217e885e0ee4e61820a289c0c"><div class="ttname"><a href="structstation__list.html#aab8c201217e885e0ee4e61820a289c0c">station_list::entry_num</a></div><div class="ttdeci">uint8_t entry_num</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8h_source.html#l00019">station_list_struct.h:19</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_aa12e857edaba93b4f1f6499550788485"><div class="ttname"><a href="station__list__struct_8h.html#aa12e857edaba93b4f1f6499550788485">station_8</a></div><div class="ttdeci">STATION_LIST station_8</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00067">station_list_struct.c:67</a></div></div>
+<div class="ttc" id="structstation__list_html_a16343090e80c4472521560f30113d96c"><div class="ttname"><a href="structstation__list.html#a16343090e80c4472521560f30113d96c">station_list::text</a></div><div class="ttdeci">const char * text</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8h_source.html#l00018">station_list_struct.h:18</a></div></div>
+<div class="ttc" id="structstation__list_html_a0c8c7380b4e3197fe0b821b4a6dfbec9"><div class="ttname"><a href="structstation__list.html#a0c8c7380b4e3197fe0b821b4a6dfbec9">station_list::freq</a></div><div class="ttdeci">const uint16_t * freq</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8h_source.html#l00017">station_list_struct.h:17</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a112b4f4a30a6cb400b22f7cd53d4ea97"><div class="ttname"><a href="station__list__struct_8h.html#a112b4f4a30a6cb400b22f7cd53d4ea97">station_5</a></div><div class="ttdeci">STATION_LIST station_5</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8c_source.html#l00043">station_list_struct.c:43</a></div></div>
+<div class="ttc" id="station__list__struct_8h_html_a9f9640aacded935b12c479669123dc02"><div class="ttname"><a href="station__list__struct_8h.html#a9f9640aacded935b12c479669123dc02">STATION_LIST</a></div><div class="ttdeci">const struct station_list STATION_LIST</div></div>
+<div class="ttc" id="structstation__list_html_ae039c5ce88254ad89cea9170a5f3b740"><div class="ttname"><a href="structstation__list.html#ae039c5ce88254ad89cea9170a5f3b740">station_list::previous</a></div><div class="ttdeci">const struct station_list * previous</div><div class="ttdef"><b>Definition:</b> <a href="station__list__struct_8h_source.html#l00016">station_list_struct.h:16</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="station__list__struct_8h.html">station_list_struct.h</a></li>
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

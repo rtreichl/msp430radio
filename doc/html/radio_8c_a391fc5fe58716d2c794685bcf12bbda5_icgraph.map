@@ -1,7 +1,12 @@
 <map id="radio_value_to_string" name="radio_value_to_string">
-<area shape="rect" id="node2" href="$radio_8c.html#a51f5be293265eb7d6106c9181b357f96" title="radio_display_handler" alt="" coords="196,5,343,32"/>
-<area shape="rect" id="node3" href="$radio_8c.html#a921f25c9a84ad0ee0715bc7f5720ade4" title="radio_main" alt="" coords="391,5,476,32"/>
-<area shape="rect" id="node4" href="$menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc" title="menu_function" alt="" coords="524,5,631,32"/>
-<area shape="rect" id="node5" href="$menu_2src_2menu_8c.html#a8509849c574fb30136ac9ec88081d47c" title="menu_handler" alt="" coords="679,5,781,32"/>
-<area shape="rect" id="node6" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="829,5,880,32"/>
+<area shape="rect" id="node2" href="$menu_2src_2menu_8c.html#a5621c1bf312de029f43808bf02dc52e3" title="menu_scroll_settings" alt="" coords="197,81,342,108"/>
+<area shape="rect" id="node10" href="$radio_8c.html#aa568d26c43f1503a5f31c86aab080591" title="radio_display_handler" alt="" coords="196,132,343,159"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a9dd33606330e2225b425000341cf4688" title="radio_brightness" alt="" coords="391,5,508,32"/>
+<area shape="rect" id="node8" href="$radio_8c.html#aaf3f53dfebe8da71fbe4c457ffda6714" title="radio_contrast" alt="" coords="397,56,501,83"/>
+<area shape="rect" id="node9" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="401,107,498,133"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="556,69,659,96"/>
+<area shape="rect" id="node5" href="$menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="707,101,813,128"/>
+<area shape="rect" id="node6" href="$menu_2src_2menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="861,101,964,128"/>
+<area shape="rect" id="node7" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1012,101,1063,128"/>
+<area shape="rect" id="node11" href="$radio_8c.html#a5f7fcd9e9755fb5e22175a4ad74a5456" title="radio_main" alt="" coords="565,132,650,159"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="pca9530_config_leds" name="pca9530_config_leds">
 <area shape="rect" id="node2" href="$pca9530_8c.html#ae2f44601e0bbf4c0b7bbdb127def81c3" title="pca9530_init" alt="" coords="196,5,291,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="339,5,389,32"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="339,5,413,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="461,5,512,32"/>
 </map>

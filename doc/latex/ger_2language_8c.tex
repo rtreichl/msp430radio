@@ -1,11 +1,11 @@
-\hypertarget{ger_2language_8c}{}\section{menu/lang/ger/language.c-\/\+Dateireferenz}
-\label{ger_2language_8c}\index{menu/lang/ger/language.\+c@{menu/lang/ger/language.\+c}}
+\hypertarget{ger_2language_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/menu/lang/ger/language.c-\/\+Dateireferenz}
+\label{ger_2language_8c}\index{D\+:/\+G\+I\+T/fhradiov2/menu/lang/ger/language.\+c@{D\+:/\+G\+I\+T/fhradiov2/menu/lang/ger/language.\+c}}
 {\ttfamily \#include $<$menu/lang/language.\+h$>$}\\*
 Include-\/\+AbhÃ¤ngigkeitsdiagramm fÃ¼r language.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=208pt]{ger_2language_8c__incl}
+\includegraphics[width=192pt]{ger_2language_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Variablen}
@@ -15,17 +15,19 @@ const char \hyperlink{ger_2language_8c_af6f2eabd7837cc6d54144375e0574334}{view\+
 \item 
 const char \hyperlink{ger_2language_8c_a72720d2bbce2cc1f12baa44dcea8c53e}{radio\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Radio\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_ae8d579cd434991e787fd51b9505557a8}{tatp\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}T\+A/T\+P\char`\"{}
+const char \hyperlink{ger_2language_8c_ae8d579cd434991e787fd51b9505557a8}{tatp\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Verkehrsfunk\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_a590ea532904407ae0e73a48ff15f7b61}{volume\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Lautstärke\char`\"{}
+const char \hyperlink{ger_2language_8c_aff519424a4ec7ffa220894133ed82a54}{volume\+\_\+ta\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Verkehrsf.-\/Vol.\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_a43432eb1dd4df5a79adc138b69daf43c}{freq\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Frequenz\char`\"{}
+const char \hyperlink{ger_2language_8c_a002ae61eda6e06e3f3978e72679fcce0}{volume\+\_\+start\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Einschalt-\/Vol.\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_a4ae60aaf5af096293adeba301621221f}{text\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Anzeige Style\char`\"{}
+const char \hyperlink{ger_2language_8c_a43432eb1dd4df5a79adc138b69daf43c}{freq\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Start-\/Sender\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_a4ae60aaf5af096293adeba301621221f}{text\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Anzeige Option\char`\"{}
 \item 
 const char \hyperlink{ger_2language_8c_a0c2fcf8291e21a204a4b1d6adac5bfc9}{rds\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Radio Text\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_a38edda7768897bbbaa6dbc26342e8227}{ptypi\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}P\+T\+Y/\hyperlink{rds_8h_a1b009a3588683496b542b777653e6c21}{P\+I}\char`\"{}
+const char \hyperlink{ger_2language_8c_a38edda7768897bbbaa6dbc26342e8227}{ptypi\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}P\+T\+Y/P\+I\char`\"{}
 \item 
 const char \hyperlink{ger_2language_8c_ad4e5d72d2747d3cb7b0350fa22a5e727}{rsq\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Radio Qualität\char`\"{}
 \item 
@@ -33,7 +35,7 @@ const char \hyperlink{ger_2language_8c_aca24af743f57ff29b47ccce101d3e708}{contra
 \item 
 const char \hyperlink{ger_2language_8c_a43e04a1cf8a1ac51ce6e73724a9c1b29}{brightness\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Helligkeit\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_a4cdbcf76455b783d6b93f06f9a0fdebc}{fixed\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Manuel\char`\"{}
+const char \hyperlink{ger_2language_8c_a4cdbcf76455b783d6b93f06f9a0fdebc}{fixed\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Manuell\char`\"{}
 \item 
 const char \hyperlink{ger_2language_8c_aefcb4f64cae8f94da0f27f79febc04e5}{auto\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Auto\char`\"{}
 \item 
@@ -61,8 +63,6 @@ const char \hyperlink{ger_2language_8c_ad818f1a110e64f4df2f9794fc8270aa4}{linein
 \item 
 const char \hyperlink{ger_2language_8c_a449cff7602d8aeb4deee489d729b6532}{return\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Zurück\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_add530b0adb31f15af33bedae9198cf14}{seeking\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Suchlauf\char`\"{}
-\item 
 const char \hyperlink{ger_2language_8c_a458c6fd4081a4c586fac1b0c87e03ba2}{reset\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Werkszustand\char`\"{}
 \item 
 const char \hyperlink{ger_2language_8c_a83ea7998dfd33ae7701f058ef284851c}{yes\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Ja\char`\"{}
@@ -73,7 +73,33 @@ const char \hyperlink{ger_2language_8c_a7a06cd76fb8f71b85f9f1f5fc6c2b24b}{on\+\_
 \item 
 const char \hyperlink{ger_2language_8c_aacf6c7ae2a396fae9b3ca1de77a220cb}{off\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Aus\char`\"{}
 \item 
-const char \hyperlink{ger_2language_8c_a1f5e1ca9a27a4e4ff01335ccff0cc3b5}{main\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Einstellungen\char`\"{}
+const char \hyperlink{ger_2language_8c_ace8b5bb69f21865bdfa409266b72e11a}{main\+\_\+long\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Einstellungen\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_a8cca3f62898cee8b64727099433aee60}{main\+\_\+short\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Sender\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_ac8ba9726862753e511056ac72016e899}{abort\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Abbrechen\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_ab27169d991c98df4844ce167495a5b7d}{station\+\_\+list\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Senderliste\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_ac6b5ab1791eed6b84d7d83fed39ea9e4}{station\+\_\+store\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Einspeichern\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_a673c430ddd0c1eac4bd0be4318c87579}{seeking\+\_\+up\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Suche aufwärts\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_afafe3c547fb7aa5ef0bd4ce4986a9724}{seeking\+\_\+down\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Suche abwärts\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_a7fb56950f448ef8f84f5e3073b1abd41}{auto\+\_\+search\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Autosuchlauf\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_abb08ae38c3fbff8e1524270e6f01a4e4}{save\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Speichern\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_a351a1e772e70acc94f2a6d81e7b61270}{choose\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Auswahl\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_af9c05251c5f8a74f6b5fe3c1149c9c19}{progress\+\_\+text} \mbox{[}$\,$\mbox{]} = \char`\"{}Fortschirtt\+:\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_a33040240a86028e9c49ec2e973e99b56}{startup\+\_\+line\+\_\+1} \mbox{[}$\,$\mbox{]} = \char`\"{}H\+S-\/Rosenheim\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_a71122f7107aff19ff86b1361daf4be62}{startup\+\_\+line\+\_\+2} \mbox{[}$\,$\mbox{]} = \char`\"{}F\+M/A\+M Radio\char`\"{}
+\item 
+const char \hyperlink{ger_2language_8c_aedbc56215039b511317a243dda98ca37}{startup\+\_\+line\+\_\+3} \mbox{[}$\,$\mbox{]} = \char`\"{}Version 3.\+00\char`\"{}
 \item 
 const char \hyperlink{ger_2language_8c_ac8599321e94bcf7698a53a6e7e7bdb12}{pty\+\_\+0} \mbox{[}$\,$\mbox{]} = \char`\"{}Kein P\+T\+Y\char`\"{}
 \item 
@@ -144,103 +170,131 @@ const char $\ast$const \hyperlink{ger_2language_8c_a3b73dbc74a0be6db2cdbf3b376fd
 
 
 \subsection{Variablen-\/\+Dokumentation}
+\hypertarget{ger_2language_8c_ac8ba9726862753e511056ac72016e899}{}\index{ger/language.\+c@{ger/language.\+c}!abort\+\_\+text@{abort\+\_\+text}}
+\index{abort\+\_\+text@{abort\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{abort\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char abort\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Abbrechen\char`\"{}}\label{ger_2language_8c_ac8ba9726862753e511056ac72016e899}
+
+
+Definiert in Zeile 39 der Datei language.\+c.
+
 \hypertarget{ger_2language_8c_a04c7cfd9680e7497cef009e319d5b39a}{}\index{ger/language.\+c@{ger/language.\+c}!am\+\_\+text@{am\+\_\+text}}
 \index{am\+\_\+text@{am\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{am\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char am\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}A\+M Audio\char`\"{}}\label{ger_2language_8c_a04c7cfd9680e7497cef009e319d5b39a}
 
 
-Definiert in Zeile 27 der Datei language.\+c.
+Definiert in Zeile 28 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ab18a4213e5d3d02d3181753411fa1c26}{}\index{ger/language.\+c@{ger/language.\+c}!audio\+\_\+text@{audio\+\_\+text}}
 \index{audio\+\_\+text@{audio\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{audio\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char audio\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Equlizer\char`\"{}}\label{ger_2language_8c_ab18a4213e5d3d02d3181753411fa1c26}
 
 
-Definiert in Zeile 18 der Datei language.\+c.
+Definiert in Zeile 19 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_a7fb56950f448ef8f84f5e3073b1abd41}{}\index{ger/language.\+c@{ger/language.\+c}!auto\+\_\+search\+\_\+text@{auto\+\_\+search\+\_\+text}}
+\index{auto\+\_\+search\+\_\+text@{auto\+\_\+search\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{auto\+\_\+search\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char auto\+\_\+search\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Autosuchlauf\char`\"{}}\label{ger_2language_8c_a7fb56950f448ef8f84f5e3073b1abd41}
+
+
+Definiert in Zeile 44 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_aefcb4f64cae8f94da0f27f79febc04e5}{}\index{ger/language.\+c@{ger/language.\+c}!auto\+\_\+text@{auto\+\_\+text}}
 \index{auto\+\_\+text@{auto\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{auto\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char auto\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Auto\char`\"{}}\label{ger_2language_8c_aefcb4f64cae8f94da0f27f79febc04e5}
 
 
-Definiert in Zeile 17 der Datei language.\+c.
+Definiert in Zeile 18 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a43e04a1cf8a1ac51ce6e73724a9c1b29}{}\index{ger/language.\+c@{ger/language.\+c}!brightness\+\_\+text@{brightness\+\_\+text}}
 \index{brightness\+\_\+text@{brightness\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{brightness\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char brightness\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Helligkeit\char`\"{}}\label{ger_2language_8c_a43e04a1cf8a1ac51ce6e73724a9c1b29}
 
 
-Definiert in Zeile 15 der Datei language.\+c.
+Definiert in Zeile 16 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_a351a1e772e70acc94f2a6d81e7b61270}{}\index{ger/language.\+c@{ger/language.\+c}!choose\+\_\+text@{choose\+\_\+text}}
+\index{choose\+\_\+text@{choose\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{choose\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char choose\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Auswahl\char`\"{}}\label{ger_2language_8c_a351a1e772e70acc94f2a6d81e7b61270}
+
+
+Definiert in Zeile 47 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ac21bf36c4170f95be4b4284c3c7b7654}{}\index{ger/language.\+c@{ger/language.\+c}!classic\+\_\+text@{classic\+\_\+text}}
 \index{classic\+\_\+text@{classic\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{classic\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char classic\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Klassik\char`\"{}}\label{ger_2language_8c_ac21bf36c4170f95be4b4284c3c7b7654}
 
 
-Definiert in Zeile 20 der Datei language.\+c.
+Definiert in Zeile 21 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_aca24af743f57ff29b47ccce101d3e708}{}\index{ger/language.\+c@{ger/language.\+c}!contrast\+\_\+text@{contrast\+\_\+text}}
 \index{contrast\+\_\+text@{contrast\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{contrast\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char contrast\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Kontrast\char`\"{}}\label{ger_2language_8c_aca24af743f57ff29b47ccce101d3e708}
 
 
-Definiert in Zeile 14 der Datei language.\+c.
+Definiert in Zeile 15 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a4cdbcf76455b783d6b93f06f9a0fdebc}{}\index{ger/language.\+c@{ger/language.\+c}!fixed\+\_\+text@{fixed\+\_\+text}}
 \index{fixed\+\_\+text@{fixed\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{fixed\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char fixed\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Manuel\char`\"{}}\label{ger_2language_8c_a4cdbcf76455b783d6b93f06f9a0fdebc}
+\subsubsection[{fixed\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char fixed\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Manuell\char`\"{}}\label{ger_2language_8c_a4cdbcf76455b783d6b93f06f9a0fdebc}
 
 
-Definiert in Zeile 16 der Datei language.\+c.
+Definiert in Zeile 17 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a89de12d3b9184ca9e9129051c58c7c2f}{}\index{ger/language.\+c@{ger/language.\+c}!fm\+\_\+text@{fm\+\_\+text}}
 \index{fm\+\_\+text@{fm\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{fm\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char fm\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}F\+M Audio\char`\"{}}\label{ger_2language_8c_a89de12d3b9184ca9e9129051c58c7c2f}
 
 
-Definiert in Zeile 26 der Datei language.\+c.
+Definiert in Zeile 27 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a43432eb1dd4df5a79adc138b69daf43c}{}\index{ger/language.\+c@{ger/language.\+c}!freq\+\_\+text@{freq\+\_\+text}}
 \index{freq\+\_\+text@{freq\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{freq\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char freq\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Frequenz\char`\"{}}\label{ger_2language_8c_a43432eb1dd4df5a79adc138b69daf43c}
+\subsubsection[{freq\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char freq\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Start-\/Sender\char`\"{}}\label{ger_2language_8c_a43432eb1dd4df5a79adc138b69daf43c}
 
 
-Definiert in Zeile 9 der Datei language.\+c.
+Definiert in Zeile 10 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a02344c9db5d2bfd3c1ed00a19f7151b7}{}\index{ger/language.\+c@{ger/language.\+c}!hiphop\+\_\+text@{hiphop\+\_\+text}}
 \index{hiphop\+\_\+text@{hiphop\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{hiphop\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char hiphop\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Hip-\/Hop\char`\"{}}\label{ger_2language_8c_a02344c9db5d2bfd3c1ed00a19f7151b7}
 
 
-Definiert in Zeile 22 der Datei language.\+c.
+Definiert in Zeile 23 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a0d245d33df0758d08633896ec08c88d0}{}\index{ger/language.\+c@{ger/language.\+c}!jazz\+\_\+text@{jazz\+\_\+text}}
 \index{jazz\+\_\+text@{jazz\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{jazz\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char jazz\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Jazz\char`\"{}}\label{ger_2language_8c_a0d245d33df0758d08633896ec08c88d0}
 
 
-Definiert in Zeile 21 der Datei language.\+c.
+Definiert in Zeile 22 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ad818f1a110e64f4df2f9794fc8270aa4}{}\index{ger/language.\+c@{ger/language.\+c}!linein\+\_\+text@{linein\+\_\+text}}
 \index{linein\+\_\+text@{linein\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{linein\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char linein\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Line-\/In\char`\"{}}\label{ger_2language_8c_ad818f1a110e64f4df2f9794fc8270aa4}
 
 
-Definiert in Zeile 28 der Datei language.\+c.
+Definiert in Zeile 29 der Datei language.\+c.
 
-\hypertarget{ger_2language_8c_a1f5e1ca9a27a4e4ff01335ccff0cc3b5}{}\index{ger/language.\+c@{ger/language.\+c}!main\+\_\+text@{main\+\_\+text}}
-\index{main\+\_\+text@{main\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{main\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char main\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Einstellungen\char`\"{}}\label{ger_2language_8c_a1f5e1ca9a27a4e4ff01335ccff0cc3b5}
+\hypertarget{ger_2language_8c_ace8b5bb69f21865bdfa409266b72e11a}{}\index{ger/language.\+c@{ger/language.\+c}!main\+\_\+long\+\_\+text@{main\+\_\+long\+\_\+text}}
+\index{main\+\_\+long\+\_\+text@{main\+\_\+long\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{main\+\_\+long\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char main\+\_\+long\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Einstellungen\char`\"{}}\label{ger_2language_8c_ace8b5bb69f21865bdfa409266b72e11a}
 
 
 Definiert in Zeile 36 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_a8cca3f62898cee8b64727099433aee60}{}\index{ger/language.\+c@{ger/language.\+c}!main\+\_\+short\+\_\+text@{main\+\_\+short\+\_\+text}}
+\index{main\+\_\+short\+\_\+text@{main\+\_\+short\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{main\+\_\+short\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char main\+\_\+short\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Sender\char`\"{}}\label{ger_2language_8c_a8cca3f62898cee8b64727099433aee60}
+
+
+Definiert in Zeile 37 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a02929baca3905ef002d1148354be5a7d}{}\index{ger/language.\+c@{ger/language.\+c}!news\+\_\+text@{news\+\_\+text}}
 \index{news\+\_\+text@{news\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{news\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char news\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}News/Voice\char`\"{}}\label{ger_2language_8c_a02929baca3905ef002d1148354be5a7d}
 
 
-Definiert in Zeile 24 der Datei language.\+c.
+Definiert in Zeile 25 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a15a448b53c4fa79aaaba8f89ee9e4f5a}{}\index{ger/language.\+c@{ger/language.\+c}!no\+\_\+text@{no\+\_\+text}}
 \index{no\+\_\+text@{no\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
@@ -268,245 +322,252 @@ Definiert in Zeile 34 der Datei language.\+c.
 \subsubsection[{pop\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char pop\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Pop\char`\"{}}\label{ger_2language_8c_a1145571935124e24568ebb9380f33497}
 
 
-Definiert in Zeile 19 der Datei language.\+c.
+Definiert in Zeile 20 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_af9c05251c5f8a74f6b5fe3c1149c9c19}{}\index{ger/language.\+c@{ger/language.\+c}!progress\+\_\+text@{progress\+\_\+text}}
+\index{progress\+\_\+text@{progress\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{progress\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char progress\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Fortschirtt\+:\char`\"{}}\label{ger_2language_8c_af9c05251c5f8a74f6b5fe3c1149c9c19}
+
+
+Definiert in Zeile 49 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ac8599321e94bcf7698a53a6e7e7bdb12}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+0@{pty\+\_\+0}}
 \index{pty\+\_\+0@{pty\+\_\+0}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+0}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+0\mbox{[}$\,$\mbox{]} = \char`\"{}Kein P\+T\+Y\char`\"{}}\label{ger_2language_8c_ac8599321e94bcf7698a53a6e7e7bdb12}
 
 
-Definiert in Zeile 38 der Datei language.\+c.
+Definiert in Zeile 55 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a4623222a755a97bf85bf50f21cb8c2e5}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+1@{pty\+\_\+1}}
 \index{pty\+\_\+1@{pty\+\_\+1}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+1\mbox{[}$\,$\mbox{]} = \char`\"{}Nachrichten\char`\"{}}\label{ger_2language_8c_a4623222a755a97bf85bf50f21cb8c2e5}
 
 
-Definiert in Zeile 39 der Datei language.\+c.
+Definiert in Zeile 56 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a78b5cd4b82583a7846168751a19ca187}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+10@{pty\+\_\+10}}
 \index{pty\+\_\+10@{pty\+\_\+10}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+10}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+10\mbox{[}$\,$\mbox{]} = \char`\"{}Pop Musik\char`\"{}}\label{ger_2language_8c_a78b5cd4b82583a7846168751a19ca187}
 
 
-Definiert in Zeile 48 der Datei language.\+c.
+Definiert in Zeile 65 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_afebfe7639eb844310932229c8136b49a}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+11@{pty\+\_\+11}}
 \index{pty\+\_\+11@{pty\+\_\+11}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+11}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+11\mbox{[}$\,$\mbox{]} = \char`\"{}Rock Musik\char`\"{}}\label{ger_2language_8c_afebfe7639eb844310932229c8136b49a}
 
 
-Definiert in Zeile 49 der Datei language.\+c.
+Definiert in Zeile 66 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a03b461bf43749d0d3637d631cc364c16}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+12@{pty\+\_\+12}}
 \index{pty\+\_\+12@{pty\+\_\+12}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+12}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+12\mbox{[}$\,$\mbox{]} = \char`\"{}Unterhalt Musik\char`\"{}}\label{ger_2language_8c_a03b461bf43749d0d3637d631cc364c16}
 
 
-Definiert in Zeile 50 der Datei language.\+c.
+Definiert in Zeile 67 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a6e9d8fb19515abebed62eb9a1ba8a40e}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+13@{pty\+\_\+13}}
 \index{pty\+\_\+13@{pty\+\_\+13}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+13}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+13\mbox{[}$\,$\mbox{]} = \char`\"{}Leichte Klassik\char`\"{}}\label{ger_2language_8c_a6e9d8fb19515abebed62eb9a1ba8a40e}
 
 
-Definiert in Zeile 51 der Datei language.\+c.
+Definiert in Zeile 68 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a72b7656e652491d5b3dd2c7b6cfb042b}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+14@{pty\+\_\+14}}
 \index{pty\+\_\+14@{pty\+\_\+14}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+14}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+14\mbox{[}$\,$\mbox{]} = \char`\"{}Ernste Klassik\char`\"{}}\label{ger_2language_8c_a72b7656e652491d5b3dd2c7b6cfb042b}
 
 
-Definiert in Zeile 52 der Datei language.\+c.
+Definiert in Zeile 69 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a1c15fac03769eb6f2a4f4ce76b91ea00}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+15@{pty\+\_\+15}}
 \index{pty\+\_\+15@{pty\+\_\+15}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+15}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+15\mbox{[}$\,$\mbox{]} = \char`\"{}Spezielle Musik\char`\"{}}\label{ger_2language_8c_a1c15fac03769eb6f2a4f4ce76b91ea00}
 
 
-Definiert in Zeile 53 der Datei language.\+c.
+Definiert in Zeile 70 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a2a7aa6e4ec64a868fe6ea97eaedc865a}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+16@{pty\+\_\+16}}
 \index{pty\+\_\+16@{pty\+\_\+16}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+16}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+16\mbox{[}$\,$\mbox{]} = \char`\"{}Wetter\char`\"{}}\label{ger_2language_8c_a2a7aa6e4ec64a868fe6ea97eaedc865a}
 
 
-Definiert in Zeile 54 der Datei language.\+c.
+Definiert in Zeile 71 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a214e99d4693b01acfb08c3c405e9279d}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+17@{pty\+\_\+17}}
 \index{pty\+\_\+17@{pty\+\_\+17}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+17}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+17\mbox{[}$\,$\mbox{]} = \char`\"{}Wirtschaft\char`\"{}}\label{ger_2language_8c_a214e99d4693b01acfb08c3c405e9279d}
 
 
-Definiert in Zeile 55 der Datei language.\+c.
+Definiert in Zeile 72 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ae34e119b714624d1e432995e8c00b2a8}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+18@{pty\+\_\+18}}
 \index{pty\+\_\+18@{pty\+\_\+18}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+18}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+18\mbox{[}$\,$\mbox{]} = \char`\"{}Kinderprogramm\char`\"{}}\label{ger_2language_8c_ae34e119b714624d1e432995e8c00b2a8}
 
 
-Definiert in Zeile 56 der Datei language.\+c.
+Definiert in Zeile 73 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a544d831463ccf964614aebb4374315f8}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+19@{pty\+\_\+19}}
 \index{pty\+\_\+19@{pty\+\_\+19}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+19}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+19\mbox{[}$\,$\mbox{]} = \char`\"{}Soziales\char`\"{}}\label{ger_2language_8c_a544d831463ccf964614aebb4374315f8}
 
 
-Definiert in Zeile 57 der Datei language.\+c.
+Definiert in Zeile 74 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ade3b9cd6c4f109b490762c501a473498}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+2@{pty\+\_\+2}}
 \index{pty\+\_\+2@{pty\+\_\+2}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+2\mbox{[}$\,$\mbox{]} = \char`\"{}Aktuelle Info\char`\"{}}\label{ger_2language_8c_ade3b9cd6c4f109b490762c501a473498}
 
 
-Definiert in Zeile 40 der Datei language.\+c.
+Definiert in Zeile 57 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ab4ca0d00b233c88edf4860c6697ed5eb}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+20@{pty\+\_\+20}}
 \index{pty\+\_\+20@{pty\+\_\+20}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+20}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+20\mbox{[}$\,$\mbox{]} = \char`\"{}Religion\char`\"{}}\label{ger_2language_8c_ab4ca0d00b233c88edf4860c6697ed5eb}
 
 
-Definiert in Zeile 58 der Datei language.\+c.
+Definiert in Zeile 75 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_abcf239b9e897884f491f49e00319ddc1}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+21@{pty\+\_\+21}}
 \index{pty\+\_\+21@{pty\+\_\+21}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+21}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+21\mbox{[}$\,$\mbox{]} = \char`\"{}Anrufsendung\char`\"{}}\label{ger_2language_8c_abcf239b9e897884f491f49e00319ddc1}
 
 
-Definiert in Zeile 59 der Datei language.\+c.
+Definiert in Zeile 76 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_aa0e8ebbb4a5f72a92e6a702cbb40f6af}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+22@{pty\+\_\+22}}
 \index{pty\+\_\+22@{pty\+\_\+22}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+22}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+22\mbox{[}$\,$\mbox{]} = \char`\"{}Reiseinformation\char`\"{}}\label{ger_2language_8c_aa0e8ebbb4a5f72a92e6a702cbb40f6af}
 
 
-Definiert in Zeile 60 der Datei language.\+c.
+Definiert in Zeile 77 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a1f263316de79353c6e7b5953203996ba}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+23@{pty\+\_\+23}}
 \index{pty\+\_\+23@{pty\+\_\+23}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+23}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+23\mbox{[}$\,$\mbox{]} = \char`\"{}Freizeit\char`\"{}}\label{ger_2language_8c_a1f263316de79353c6e7b5953203996ba}
 
 
-Definiert in Zeile 61 der Datei language.\+c.
+Definiert in Zeile 78 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a1a3ab364af7c737374ea96a1b6264281}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+24@{pty\+\_\+24}}
 \index{pty\+\_\+24@{pty\+\_\+24}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+24}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+24\mbox{[}$\,$\mbox{]} = \char`\"{}Jazz\char`\"{}}\label{ger_2language_8c_a1a3ab364af7c737374ea96a1b6264281}
 
 
-Definiert in Zeile 62 der Datei language.\+c.
+Definiert in Zeile 79 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_aa49e7038268b0d81a539de45736798fa}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+25@{pty\+\_\+25}}
 \index{pty\+\_\+25@{pty\+\_\+25}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+25}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+25\mbox{[}$\,$\mbox{]} = \char`\"{}Country Musik\char`\"{}}\label{ger_2language_8c_aa49e7038268b0d81a539de45736798fa}
 
 
-Definiert in Zeile 63 der Datei language.\+c.
+Definiert in Zeile 80 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_af086054bfb67266175b87704e675533e}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+26@{pty\+\_\+26}}
 \index{pty\+\_\+26@{pty\+\_\+26}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+26}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+26\mbox{[}$\,$\mbox{]} = \char`\"{}Landesmusik\char`\"{}}\label{ger_2language_8c_af086054bfb67266175b87704e675533e}
 
 
-Definiert in Zeile 64 der Datei language.\+c.
+Definiert in Zeile 81 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a2f30ec6f77a891950ca621fb9c38a648}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+27@{pty\+\_\+27}}
 \index{pty\+\_\+27@{pty\+\_\+27}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+27}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+27\mbox{[}$\,$\mbox{]} = \char`\"{}Oldies Musik\char`\"{}}\label{ger_2language_8c_a2f30ec6f77a891950ca621fb9c38a648}
 
 
-Definiert in Zeile 65 der Datei language.\+c.
+Definiert in Zeile 82 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a22ae89eac749de92579655c59d2b5126}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+28@{pty\+\_\+28}}
 \index{pty\+\_\+28@{pty\+\_\+28}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+28}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+28\mbox{[}$\,$\mbox{]} = \char`\"{}Folkore\char`\"{}}\label{ger_2language_8c_a22ae89eac749de92579655c59d2b5126}
 
 
-Definiert in Zeile 66 der Datei language.\+c.
+Definiert in Zeile 83 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a6f7ac81ce486db401aabd986310adf5b}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+29@{pty\+\_\+29}}
 \index{pty\+\_\+29@{pty\+\_\+29}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+29}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+29\mbox{[}$\,$\mbox{]} = \char`\"{}Feature\char`\"{}}\label{ger_2language_8c_a6f7ac81ce486db401aabd986310adf5b}
 
 
-Definiert in Zeile 67 der Datei language.\+c.
+Definiert in Zeile 84 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a88159221660b73a891ed4547f9ab1217}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+3@{pty\+\_\+3}}
 \index{pty\+\_\+3@{pty\+\_\+3}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+3}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+3\mbox{[}$\,$\mbox{]} = \char`\"{}Service Programm\char`\"{}}\label{ger_2language_8c_a88159221660b73a891ed4547f9ab1217}
 
 
-Definiert in Zeile 41 der Datei language.\+c.
+Definiert in Zeile 58 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_acb60593ab63eefe3919be34f762fbeec}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+30@{pty\+\_\+30}}
 \index{pty\+\_\+30@{pty\+\_\+30}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+30}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+30\mbox{[}$\,$\mbox{]} = \char`\"{}Alarm Test\char`\"{}}\label{ger_2language_8c_acb60593ab63eefe3919be34f762fbeec}
 
 
-Definiert in Zeile 68 der Datei language.\+c.
+Definiert in Zeile 85 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ab81fab98239cf5cd29df27657e582c27}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+31@{pty\+\_\+31}}
 \index{pty\+\_\+31@{pty\+\_\+31}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+31}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+31\mbox{[}$\,$\mbox{]} = \char`\"{}Alarm! Alarm!\char`\"{}}\label{ger_2language_8c_ab81fab98239cf5cd29df27657e582c27}
 
 
-Definiert in Zeile 69 der Datei language.\+c.
+Definiert in Zeile 86 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a04593bbbb653becbcd29998028ce5fbb}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+4@{pty\+\_\+4}}
 \index{pty\+\_\+4@{pty\+\_\+4}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+4}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+4\mbox{[}$\,$\mbox{]} = \char`\"{}Sport\char`\"{}}\label{ger_2language_8c_a04593bbbb653becbcd29998028ce5fbb}
 
 
-Definiert in Zeile 42 der Datei language.\+c.
+Definiert in Zeile 59 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ab0ed1827c7fa1670b21d20eccc0f199e}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+5@{pty\+\_\+5}}
 \index{pty\+\_\+5@{pty\+\_\+5}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+5}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+5\mbox{[}$\,$\mbox{]} = \char`\"{}Bildung\char`\"{}}\label{ger_2language_8c_ab0ed1827c7fa1670b21d20eccc0f199e}
 
 
-Definiert in Zeile 43 der Datei language.\+c.
+Definiert in Zeile 60 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_aa507d796708f7ee6864f78aeafd49d69}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+6@{pty\+\_\+6}}
 \index{pty\+\_\+6@{pty\+\_\+6}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+6}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+6\mbox{[}$\,$\mbox{]} = \char`\"{}Hörspiel + Lit\char`\"{}}\label{ger_2language_8c_aa507d796708f7ee6864f78aeafd49d69}
 
 
-Definiert in Zeile 44 der Datei language.\+c.
+Definiert in Zeile 61 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a32e1751a125648b3c172f6e5798cc2b4}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+7@{pty\+\_\+7}}
 \index{pty\+\_\+7@{pty\+\_\+7}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+7}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+7\mbox{[}$\,$\mbox{]} = \char`\"{}Kultur+Gesellsch\char`\"{}}\label{ger_2language_8c_a32e1751a125648b3c172f6e5798cc2b4}
 
 
-Definiert in Zeile 45 der Datei language.\+c.
+Definiert in Zeile 62 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a7713d7722b06eaf0a8ac579509fb1b56}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+8@{pty\+\_\+8}}
 \index{pty\+\_\+8@{pty\+\_\+8}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+8}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+8\mbox{[}$\,$\mbox{]} = \char`\"{}Wissenschaft\char`\"{}}\label{ger_2language_8c_a7713d7722b06eaf0a8ac579509fb1b56}
 
 
-Definiert in Zeile 46 der Datei language.\+c.
+Definiert in Zeile 63 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a8b432395d0971c2d8ffee0948942a416}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+9@{pty\+\_\+9}}
 \index{pty\+\_\+9@{pty\+\_\+9}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+9}]{\setlength{\rightskip}{0pt plus 5cm}const char pty\+\_\+9\mbox{[}$\,$\mbox{]} = \char`\"{}Unterhaltung\char`\"{}}\label{ger_2language_8c_a8b432395d0971c2d8ffee0948942a416}
 
 
-Definiert in Zeile 47 der Datei language.\+c.
+Definiert in Zeile 64 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a3b73dbc74a0be6db2cdbf3b376fdce98}{}\index{ger/language.\+c@{ger/language.\+c}!pty\+\_\+text@{pty\+\_\+text}}
 \index{pty\+\_\+text@{pty\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{pty\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ const pty\+\_\+text\mbox{[}$\,$\mbox{]}}\label{ger_2language_8c_a3b73dbc74a0be6db2cdbf3b376fdce98}
 
 
-Definiert in Zeile 71 der Datei language.\+c.
+Definiert in Zeile 88 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a38edda7768897bbbaa6dbc26342e8227}{}\index{ger/language.\+c@{ger/language.\+c}!ptypi\+\_\+text@{ptypi\+\_\+text}}
 \index{ptypi\+\_\+text@{ptypi\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{ptypi\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char ptypi\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}P\+T\+Y/{\bf P\+I}\char`\"{}}\label{ger_2language_8c_a38edda7768897bbbaa6dbc26342e8227}
+\subsubsection[{ptypi\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char ptypi\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}P\+T\+Y/P\+I\char`\"{}}\label{ger_2language_8c_a38edda7768897bbbaa6dbc26342e8227}
 
 
-Definiert in Zeile 12 der Datei language.\+c.
+Definiert in Zeile 13 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a72720d2bbce2cc1f12baa44dcea8c53e}{}\index{ger/language.\+c@{ger/language.\+c}!radio\+\_\+text@{radio\+\_\+text}}
 \index{radio\+\_\+text@{radio\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
@@ -520,7 +581,7 @@ Definiert in Zeile 6 der Datei language.\+c.
 \subsubsection[{rds\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char rds\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Radio Text\char`\"{}}\label{ger_2language_8c_a0c2fcf8291e21a204a4b1d6adac5bfc9}
 
 
-Definiert in Zeile 11 der Datei language.\+c.
+Definiert in Zeile 12 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a458c6fd4081a4c586fac1b0c87e03ba2}{}\index{ger/language.\+c@{ger/language.\+c}!reset\+\_\+text@{reset\+\_\+text}}
 \index{reset\+\_\+text@{reset\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
@@ -534,49 +595,98 @@ Definiert in Zeile 31 der Datei language.\+c.
 \subsubsection[{return\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char return\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Zurück\char`\"{}}\label{ger_2language_8c_a449cff7602d8aeb4deee489d729b6532}
 
 
-Definiert in Zeile 29 der Datei language.\+c.
+Definiert in Zeile 30 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ac7738abc53310605793242a4ac1483b4}{}\index{ger/language.\+c@{ger/language.\+c}!rock\+\_\+text@{rock\+\_\+text}}
 \index{rock\+\_\+text@{rock\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{rock\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char rock\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Rock\char`\"{}}\label{ger_2language_8c_ac7738abc53310605793242a4ac1483b4}
 
 
-Definiert in Zeile 23 der Datei language.\+c.
+Definiert in Zeile 24 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ad4e5d72d2747d3cb7b0350fa22a5e727}{}\index{ger/language.\+c@{ger/language.\+c}!rsq\+\_\+text@{rsq\+\_\+text}}
 \index{rsq\+\_\+text@{rsq\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{rsq\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char rsq\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Radio Qualität\char`\"{}}\label{ger_2language_8c_ad4e5d72d2747d3cb7b0350fa22a5e727}
 
 
-Definiert in Zeile 13 der Datei language.\+c.
+Definiert in Zeile 14 der Datei language.\+c.
 
-\hypertarget{ger_2language_8c_add530b0adb31f15af33bedae9198cf14}{}\index{ger/language.\+c@{ger/language.\+c}!seeking\+\_\+text@{seeking\+\_\+text}}
-\index{seeking\+\_\+text@{seeking\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{seeking\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char seeking\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Suchlauf\char`\"{}}\label{ger_2language_8c_add530b0adb31f15af33bedae9198cf14}
+\hypertarget{ger_2language_8c_abb08ae38c3fbff8e1524270e6f01a4e4}{}\index{ger/language.\+c@{ger/language.\+c}!save\+\_\+text@{save\+\_\+text}}
+\index{save\+\_\+text@{save\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{save\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char save\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Speichern\char`\"{}}\label{ger_2language_8c_abb08ae38c3fbff8e1524270e6f01a4e4}
 
 
-Definiert in Zeile 30 der Datei language.\+c.
+Definiert in Zeile 46 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_afafe3c547fb7aa5ef0bd4ce4986a9724}{}\index{ger/language.\+c@{ger/language.\+c}!seeking\+\_\+down\+\_\+text@{seeking\+\_\+down\+\_\+text}}
+\index{seeking\+\_\+down\+\_\+text@{seeking\+\_\+down\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{seeking\+\_\+down\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char seeking\+\_\+down\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Suche abwärts\char`\"{}}\label{ger_2language_8c_afafe3c547fb7aa5ef0bd4ce4986a9724}
+
+
+Definiert in Zeile 43 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_a673c430ddd0c1eac4bd0be4318c87579}{}\index{ger/language.\+c@{ger/language.\+c}!seeking\+\_\+up\+\_\+text@{seeking\+\_\+up\+\_\+text}}
+\index{seeking\+\_\+up\+\_\+text@{seeking\+\_\+up\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{seeking\+\_\+up\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char seeking\+\_\+up\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Suche aufwärts\char`\"{}}\label{ger_2language_8c_a673c430ddd0c1eac4bd0be4318c87579}
+
+
+Definiert in Zeile 42 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ac6b3fe76b23f5a7e03b4b653252f55c3}{}\index{ger/language.\+c@{ger/language.\+c}!source\+\_\+text@{source\+\_\+text}}
 \index{source\+\_\+text@{source\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
 \subsubsection[{source\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char source\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Quelle\char`\"{}}\label{ger_2language_8c_ac6b3fe76b23f5a7e03b4b653252f55c3}
 
 
-Definiert in Zeile 25 der Datei language.\+c.
+Definiert in Zeile 26 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_a33040240a86028e9c49ec2e973e99b56}{}\index{ger/language.\+c@{ger/language.\+c}!startup\+\_\+line\+\_\+1@{startup\+\_\+line\+\_\+1}}
+\index{startup\+\_\+line\+\_\+1@{startup\+\_\+line\+\_\+1}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{startup\+\_\+line\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}const char startup\+\_\+line\+\_\+1\mbox{[}$\,$\mbox{]} = \char`\"{}H\+S-\/Rosenheim\char`\"{}}\label{ger_2language_8c_a33040240a86028e9c49ec2e973e99b56}
+
+
+Definiert in Zeile 51 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_a71122f7107aff19ff86b1361daf4be62}{}\index{ger/language.\+c@{ger/language.\+c}!startup\+\_\+line\+\_\+2@{startup\+\_\+line\+\_\+2}}
+\index{startup\+\_\+line\+\_\+2@{startup\+\_\+line\+\_\+2}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{startup\+\_\+line\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}const char startup\+\_\+line\+\_\+2\mbox{[}$\,$\mbox{]} = \char`\"{}F\+M/A\+M Radio\char`\"{}}\label{ger_2language_8c_a71122f7107aff19ff86b1361daf4be62}
+
+
+Definiert in Zeile 52 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_aedbc56215039b511317a243dda98ca37}{}\index{ger/language.\+c@{ger/language.\+c}!startup\+\_\+line\+\_\+3@{startup\+\_\+line\+\_\+3}}
+\index{startup\+\_\+line\+\_\+3@{startup\+\_\+line\+\_\+3}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{startup\+\_\+line\+\_\+3}]{\setlength{\rightskip}{0pt plus 5cm}const char startup\+\_\+line\+\_\+3\mbox{[}$\,$\mbox{]} = \char`\"{}Version 3.\+00\char`\"{}}\label{ger_2language_8c_aedbc56215039b511317a243dda98ca37}
+
+
+Definiert in Zeile 53 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_ab27169d991c98df4844ce167495a5b7d}{}\index{ger/language.\+c@{ger/language.\+c}!station\+\_\+list\+\_\+text@{station\+\_\+list\+\_\+text}}
+\index{station\+\_\+list\+\_\+text@{station\+\_\+list\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{station\+\_\+list\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char station\+\_\+list\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Senderliste\char`\"{}}\label{ger_2language_8c_ab27169d991c98df4844ce167495a5b7d}
+
+
+Definiert in Zeile 40 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_ac6b5ab1791eed6b84d7d83fed39ea9e4}{}\index{ger/language.\+c@{ger/language.\+c}!station\+\_\+store\+\_\+text@{station\+\_\+store\+\_\+text}}
+\index{station\+\_\+store\+\_\+text@{station\+\_\+store\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{station\+\_\+store\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char station\+\_\+store\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Einspeichern\char`\"{}}\label{ger_2language_8c_ac6b5ab1791eed6b84d7d83fed39ea9e4}
+
+
+Definiert in Zeile 41 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_ae8d579cd434991e787fd51b9505557a8}{}\index{ger/language.\+c@{ger/language.\+c}!tatp\+\_\+text@{tatp\+\_\+text}}
 \index{tatp\+\_\+text@{tatp\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{tatp\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char tatp\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}T\+A/T\+P\char`\"{}}\label{ger_2language_8c_ae8d579cd434991e787fd51b9505557a8}
+\subsubsection[{tatp\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char tatp\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Verkehrsfunk\char`\"{}}\label{ger_2language_8c_ae8d579cd434991e787fd51b9505557a8}
 
 
 Definiert in Zeile 7 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_a4ae60aaf5af096293adeba301621221f}{}\index{ger/language.\+c@{ger/language.\+c}!text\+\_\+text@{text\+\_\+text}}
 \index{text\+\_\+text@{text\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{text\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char text\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Anzeige Style\char`\"{}}\label{ger_2language_8c_a4ae60aaf5af096293adeba301621221f}
+\subsubsection[{text\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char text\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Anzeige Option\char`\"{}}\label{ger_2language_8c_a4ae60aaf5af096293adeba301621221f}
 
 
-Definiert in Zeile 10 der Datei language.\+c.
+Definiert in Zeile 11 der Datei language.\+c.
 
 \hypertarget{ger_2language_8c_af6f2eabd7837cc6d54144375e0574334}{}\index{ger/language.\+c@{ger/language.\+c}!view\+\_\+text@{view\+\_\+text}}
 \index{view\+\_\+text@{view\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
@@ -585,9 +695,16 @@ Definiert in Zeile 10 der Datei language.\+c.
 
 Definiert in Zeile 5 der Datei language.\+c.
 
-\hypertarget{ger_2language_8c_a590ea532904407ae0e73a48ff15f7b61}{}\index{ger/language.\+c@{ger/language.\+c}!volume\+\_\+text@{volume\+\_\+text}}
-\index{volume\+\_\+text@{volume\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
-\subsubsection[{volume\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char volume\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Lautstärke\char`\"{}}\label{ger_2language_8c_a590ea532904407ae0e73a48ff15f7b61}
+\hypertarget{ger_2language_8c_a002ae61eda6e06e3f3978e72679fcce0}{}\index{ger/language.\+c@{ger/language.\+c}!volume\+\_\+start\+\_\+text@{volume\+\_\+start\+\_\+text}}
+\index{volume\+\_\+start\+\_\+text@{volume\+\_\+start\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{volume\+\_\+start\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char volume\+\_\+start\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Einschalt-\/Vol.\char`\"{}}\label{ger_2language_8c_a002ae61eda6e06e3f3978e72679fcce0}
+
+
+Definiert in Zeile 9 der Datei language.\+c.
+
+\hypertarget{ger_2language_8c_aff519424a4ec7ffa220894133ed82a54}{}\index{ger/language.\+c@{ger/language.\+c}!volume\+\_\+ta\+\_\+text@{volume\+\_\+ta\+\_\+text}}
+\index{volume\+\_\+ta\+\_\+text@{volume\+\_\+ta\+\_\+text}!ger/language.\+c@{ger/language.\+c}}
+\subsubsection[{volume\+\_\+ta\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}const char volume\+\_\+ta\+\_\+text\mbox{[}$\,$\mbox{]} = \char`\"{}Verkehrsf.-\/Vol.\char`\"{}}\label{ger_2language_8c_aff519424a4ec7ffa220894133ed82a54}
 
 
 Definiert in Zeile 8 der Datei language.\+c.

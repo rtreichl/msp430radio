@@ -1,10 +1,7 @@
-\hypertarget{main_8c}{}\section{main.\+c-\/\+Dateireferenz}
-\label{main_8c}\index{main.\+c@{main.\+c}}
+\hypertarget{main_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/main.c-\/\+Dateireferenz}
+\label{main_8c}\index{D\+:/\+G\+I\+T/fhradiov2/main.\+c@{D\+:/\+G\+I\+T/fhradiov2/main.\+c}}
 {\ttfamily \#include $<$msp430.\+h$>$}\\*
-{\ttfamily \#include $<$msp430g2553.\+h$>$}\\*
 {\ttfamily \#include $<$intrinsics.\+h$>$}\\*
-{\ttfamily \#include $<$stdio.\+h$>$}\\*
-{\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}driver/i2c.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$driver/si4735.\+h$>$}\\*
@@ -13,10 +10,12 @@
 {\ttfamily \#include $<$driver/lcd.\+h$>$}\\*
 {\ttfamily \#include $<$driver/encoder.\+h$>$}\\*
 {\ttfamily \#include $<$driver/timer.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}Menu.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$menu/menu.\+h$>$}\\*
+{\ttfamily \#include $<$system/rsq.\+h$>$}\\*
+{\ttfamily \#include $<$system/rds.\+h$>$}\\*
 {\ttfamily \#include $<$system/radio.\+h$>$}\\*
-Include-\/\+AbhÃ¤ngigkeitsdiagramm fÃ¼r main.\+c\+:\nopagebreak
+Include-\/\+AbhÃ¤ngigkeitsdiagramm fÃ¼r main.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,25 +25,17 @@ Include-\/\+AbhÃ¤ngigkeitsdiagramm fÃ¼r main.\+c\+:\nopagebreak
 \subsection*{Makrodefinitionen}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{main_8c_af3c1307352d3c5b5af59308a27d99e20}{Start\+\_\+up\+\_\+1}~\char`\"{}H\+S-\/Rosenheim\char`\"{}
-\item 
-\#define \hyperlink{main_8c_a27880e6390e74bb887ff28ea5219c236}{Shift\+\_\+left\+\_\+1}~2
-\item 
-\#define \hyperlink{main_8c_ac65ae8c972d0a0bc79c92a9a86f42bca}{Start\+\_\+up\+\_\+2}~\char`\"{}F\+M/A\+M  Radio\char`\"{}
-\item 
-\#define \hyperlink{main_8c_a2cf60f1ad08b90df2c15b9c1538695c3}{Shift\+\_\+left\+\_\+2}~2
-\item 
-\#define \hyperlink{main_8c_a4f8d0ad81295d82703aa8027809baa2e}{Start\+\_\+up\+\_\+3}~\char`\"{}Version 1.\+00\char`\"{}
-\item 
-\#define \hyperlink{main_8c_a69cba99591eddc71733ec607e4c4f7e1}{Shift\+\_\+left\+\_\+3}~2
-\item 
-\#define \hyperlink{main_8c_a4d7fbb94327ffafbe77b9d8a431678c5}{I2\+C\+\_\+\+L\+C\+D\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E}~40
-\item 
-\#define \hyperlink{main_8c_af92ed4044fdaecd437ed070ac7cd2cc1}{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}~15
-\item 
 \#define \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}~10
 \item 
-\#define \hyperlink{main_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}~50
+\#define \hyperlink{main_8c_a69475c50be8454c72c570b417481e3bf}{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}~60000
+\item 
+\#define \hyperlink{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}~1000
+\item 
+\#define \hyperlink{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}~200
+\item 
+\#define \hyperlink{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}~500
+\item 
+\#define \hyperlink{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}~500
 \end{DoxyCompactItemize}
 \subsection*{Funktionen}
 \begin{DoxyCompactItemize}
@@ -64,88 +55,54 @@ int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 \subsection*{Variablen}
 \begin{DoxyCompactItemize}
 \item 
-volatile unsigned char \hyperlink{main_8c_ac723ce2b286bd00ce163c6b70c7d0aad}{sekunde} = 0
+volatile uint8\+\_\+t \hyperlink{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{encoder\+\_\+1\+\_\+button}
 \item 
-volatile unsigned char \hyperlink{main_8c_a8f9b0d4cedf4b5f149480065587cf0a0}{posrt} = 0
-\item 
-volatile unsigned char \hyperlink{main_8c_a4443d493dc6ffee94dc4a481e71d42ce}{sec} = 240
-\item 
-volatile unsigned char \hyperlink{main_8c_af94c77e710906df50727ec7124938591}{encoder\+\_\+1\+\_\+button}
-\item 
-volatile unsigned char \hyperlink{main_8c_aacf07313c39ea54932c883b978bee19d}{encoder\+\_\+2\+\_\+button}
+volatile uint8\+\_\+t \hyperlink{main_8c_a6e37070ff4088436f306e79beedacf1d}{encoder\+\_\+2\+\_\+button}
 \end{DoxyCompactItemize}
 
 
 \subsection{Makro-\/\+Dokumentation}
-\hypertarget{main_8c_af92ed4044fdaecd437ed070ac7cd2cc1}{}\index{main.\+c@{main.\+c}!A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N@{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}}
-\index{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N@{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}!main.\+c@{main.\+c}}
-\subsubsection[{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N~15}\label{main_8c_af92ed4044fdaecd437ed070ac7cd2cc1}
+\hypertarget{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}{}\index{main.\+c@{main.\+c}!D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H@{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}}
+\index{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H@{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}!main.\+c@{main.\+c}}
+\subsubsection[{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H~500}\label{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}
 
 
-Definiert in Zeile 41 der Datei main.\+c.
+Definiert in Zeile 36 der Datei main.\+c.
 
 \hypertarget{main_8c_a51c68c498627f53e5abb0a3415148b78}{}\index{main.\+c@{main.\+c}!E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H@{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H@{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}!main.\+c@{main.\+c}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H~10}\label{main_8c_a51c68c498627f53e5abb0a3415148b78}
 
 
-Definiert in Zeile 43 der Datei main.\+c.
+Definiert in Zeile 28 der Datei main.\+c.
 
-\hypertarget{main_8c_a4d7fbb94327ffafbe77b9d8a431678c5}{}\index{main.\+c@{main.\+c}!I2\+C\+\_\+\+L\+C\+D\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E@{I2\+C\+\_\+\+L\+C\+D\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E}}
-\index{I2\+C\+\_\+\+L\+C\+D\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E@{I2\+C\+\_\+\+L\+C\+D\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E}!main.\+c@{main.\+c}}
-\subsubsection[{I2\+C\+\_\+\+L\+C\+D\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+L\+C\+D\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E~40}\label{main_8c_a4d7fbb94327ffafbe77b9d8a431678c5}
-
-
-Definiert in Zeile 18 der Datei main.\+c.
-
-\hypertarget{main_8c_a27880e6390e74bb887ff28ea5219c236}{}\index{main.\+c@{main.\+c}!Shift\+\_\+left\+\_\+1@{Shift\+\_\+left\+\_\+1}}
-\index{Shift\+\_\+left\+\_\+1@{Shift\+\_\+left\+\_\+1}!main.\+c@{main.\+c}}
-\subsubsection[{Shift\+\_\+left\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}\#define Shift\+\_\+left\+\_\+1~2}\label{main_8c_a27880e6390e74bb887ff28ea5219c236}
+\hypertarget{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{}\index{main.\+c@{main.\+c}!R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L@{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}}
+\index{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L@{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}!main.\+c@{main.\+c}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L~500}\label{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}
 
 
-Definiert in Zeile 12 der Datei main.\+c.
+Definiert in Zeile 32 der Datei main.\+c.
 
-\hypertarget{main_8c_a2cf60f1ad08b90df2c15b9c1538695c3}{}\index{main.\+c@{main.\+c}!Shift\+\_\+left\+\_\+2@{Shift\+\_\+left\+\_\+2}}
-\index{Shift\+\_\+left\+\_\+2@{Shift\+\_\+left\+\_\+2}!main.\+c@{main.\+c}}
-\subsubsection[{Shift\+\_\+left\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}\#define Shift\+\_\+left\+\_\+2~2}\label{main_8c_a2cf60f1ad08b90df2c15b9c1538695c3}
-
-
-Definiert in Zeile 14 der Datei main.\+c.
-
-\hypertarget{main_8c_a69cba99591eddc71733ec607e4c4f7e1}{}\index{main.\+c@{main.\+c}!Shift\+\_\+left\+\_\+3@{Shift\+\_\+left\+\_\+3}}
-\index{Shift\+\_\+left\+\_\+3@{Shift\+\_\+left\+\_\+3}!main.\+c@{main.\+c}}
-\subsubsection[{Shift\+\_\+left\+\_\+3}]{\setlength{\rightskip}{0pt plus 5cm}\#define Shift\+\_\+left\+\_\+3~2}\label{main_8c_a69cba99591eddc71733ec607e4c4f7e1}
+\hypertarget{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{}\index{main.\+c@{main.\+c}!R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E@{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}}
+\index{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E@{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}!main.\+c@{main.\+c}}
+\subsubsection[{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E~200}\label{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}
 
 
-Definiert in Zeile 16 der Datei main.\+c.
+Definiert in Zeile 31 der Datei main.\+c.
 
-\hypertarget{main_8c_af3c1307352d3c5b5af59308a27d99e20}{}\index{main.\+c@{main.\+c}!Start\+\_\+up\+\_\+1@{Start\+\_\+up\+\_\+1}}
-\index{Start\+\_\+up\+\_\+1@{Start\+\_\+up\+\_\+1}!main.\+c@{main.\+c}}
-\subsubsection[{Start\+\_\+up\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}\#define Start\+\_\+up\+\_\+1~\char`\"{}H\+S-\/Rosenheim\char`\"{}}\label{main_8c_af3c1307352d3c5b5af59308a27d99e20}
-
-
-Definiert in Zeile 11 der Datei main.\+c.
-
-\hypertarget{main_8c_ac65ae8c972d0a0bc79c92a9a86f42bca}{}\index{main.\+c@{main.\+c}!Start\+\_\+up\+\_\+2@{Start\+\_\+up\+\_\+2}}
-\index{Start\+\_\+up\+\_\+2@{Start\+\_\+up\+\_\+2}!main.\+c@{main.\+c}}
-\subsubsection[{Start\+\_\+up\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}\#define Start\+\_\+up\+\_\+2~\char`\"{}F\+M/A\+M  Radio\char`\"{}}\label{main_8c_ac65ae8c972d0a0bc79c92a9a86f42bca}
+\hypertarget{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{}\index{main.\+c@{main.\+c}!R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E@{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}}
+\index{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E@{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}!main.\+c@{main.\+c}}
+\subsubsection[{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E~1000}\label{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}
 
 
-Definiert in Zeile 13 der Datei main.\+c.
+Definiert in Zeile 30 der Datei main.\+c.
 
-\hypertarget{main_8c_a4f8d0ad81295d82703aa8027809baa2e}{}\index{main.\+c@{main.\+c}!Start\+\_\+up\+\_\+3@{Start\+\_\+up\+\_\+3}}
-\index{Start\+\_\+up\+\_\+3@{Start\+\_\+up\+\_\+3}!main.\+c@{main.\+c}}
-\subsubsection[{Start\+\_\+up\+\_\+3}]{\setlength{\rightskip}{0pt plus 5cm}\#define Start\+\_\+up\+\_\+3~\char`\"{}Version 1.\+00\char`\"{}}\label{main_8c_a4f8d0ad81295d82703aa8027809baa2e}
-
-
-Definiert in Zeile 15 der Datei main.\+c.
-
-\hypertarget{main_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{}\index{main.\+c@{main.\+c}!T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D@{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}}
-\index{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D@{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}!main.\+c@{main.\+c}}
-\subsubsection[{T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+\_\+\+S\+E\+C\+O\+N\+D~50}\label{main_8c_aeef40d3fecdec58e4c8c0a51cc41a563}
+\hypertarget{main_8c_a69475c50be8454c72c570b417481e3bf}{}\index{main.\+c@{main.\+c}!T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E@{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}}
+\index{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E@{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}!main.\+c@{main.\+c}}
+\subsubsection[{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E~60000}\label{main_8c_a69475c50be8454c72c570b417481e3bf}
 
 
-Definiert in Zeile 44 der Datei main.\+c.
+Definiert in Zeile 29 der Datei main.\+c.
 
 
 
@@ -159,11 +116,11 @@ Definiert in Zeile 44 der Datei main.\+c.
 )}\label{main_8c_a4f6d2de9adc9099d5b104c344de49331}
 
 
-Definiert in Zeile 154 der Datei main.\+c.
+Definiert in Zeile 96 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-154 \{\}
+96 \{\}
 \end{DoxyCode}
 \hypertarget{main_8c_abd54c16e5c59153cccd22fd779121b78}{}\index{main.\+c@{main.\+c}!comp@{comp}}
 \index{comp@{comp}!main.\+c@{main.\+c}}
@@ -174,11 +131,11 @@ Definiert in Zeile 154 der Datei main.\+c.
 )}\label{main_8c_abd54c16e5c59153cccd22fd779121b78}
 
 
-Definiert in Zeile 156 der Datei main.\+c.
+Definiert in Zeile 98 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-156 \{\}
+98 \{\}
 \end{DoxyCode}
 \hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{}\index{main.\+c@{main.\+c}!main@{main}}
 \index{main@{main}!main.\+c@{main.\+c}}
@@ -189,90 +146,60 @@ Definiert in Zeile 156 der Datei main.\+c.
 )}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}
 
 
-Definiert in Zeile 52 der Datei main.\+c.
+Definiert in Zeile 38 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-53 \{
-54     \hyperlink{timer_8c_ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6}{basic\_clock\_init}();
-55     \hyperlink{timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c}{timer\_init}();
-56     \hyperlink{i2c_8h_a1ef889b72b844429bc81225d7b6f4f2e}{i2c\_init} (400,10);
-57     WDTCTL = WDTPW + WDTHOLD;
-58 
-59     \textcolor{comment}{//WDTCTL = WDT\_ARST\_1000;                  // WDT 250ms, ACLK, interval timer}
-60     \textcolor{comment}{//IE1 |= WDTIE;                         //WDT Interupt Enable}
-61     \textcolor{comment}{//\_EINT();}
-62     \textcolor{comment}{//while(1);}
-63     \textcolor{comment}{//Warte bis alles mit Spannung versorgt ist und Empfangsbereit ist}
-64     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(100);
-65 
-66     \textcolor{keyword}{const} \hyperlink{structpca9530}{PCA9530} config = \{
-67         76,
-68         0,
-69         1,
-70         127,
-71         \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932}{PWM0\_RATE},
-72         \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248}{PWM1\_RATE}
-73     \};
-74 
-75     \hyperlink{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3}{pca9530\_init}(&config);
-76 
-77     \hyperlink{lcd_8h_a312eed1baec275e185dc00b760de1356}{lcd\_init}(4);                            \textcolor{comment}{//LCD Init}
-78 
-79     \hyperlink{radio_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}{radio\_brightness}(90);
-80 
-81     \textcolor{comment}{//Clear Display}
-82 
-83     \textcolor{comment}{//i2c\_lcd\_write\_char('x');}
-84 
-85     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{main_8c_af3c1307352d3c5b5af59308a27d99e20}{Start\_up\_1}, \hyperlink{main_8c_a27880e6390e74bb887ff28ea5219c236}{Shift\_left\_1}, 0, 0, 0);
-86     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{main_8c_ac65ae8c972d0a0bc79c92a9a86f42bca}{Start\_up\_2}, \hyperlink{main_8c_a2cf60f1ad08b90df2c15b9c1538695c3}{Shift\_left\_2}, 1, 0, 0);
-87     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{main_8c_a4f8d0ad81295d82703aa8027809baa2e}{Start\_up\_3}, \hyperlink{main_8c_a69cba99591eddc71733ec607e4c4f7e1}{Shift\_left\_3}, 2, 0, 1);
-88     \textcolor{comment}{//i2c\_lcd\_brightnes(511);}
-89     \textcolor{comment}{//Setze den Input auf den SI4735}
-90     \textcolor{comment}{//AudioSwitch(RADIO\_LEFT,RADIO\_RIGHT);}
-91 
-92     \textcolor{comment}{// Initialisiert den Radiochip}
-93     \hyperlink{si4735_8h_a876518b974a7128391e2ff86a597218f}{SI4735\_INIT}();
-94 
-95     \textcolor{comment}{//Schalte den Verstärker mit Default Werten ein}
-96     \hyperlink{tpa2016d2_8c_a69f931d3974bd6188f078754326405d3}{Amplifier\_init}(\hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a061dcf4785583d8653942f2d252174fa}{POP},\hyperlink{main_8c_af92ed4044fdaecd437ed070ac7cd2cc1}{AMPLIFIER\_GAIN});
-97 
-98     \textcolor{comment}{//SI4735\_Set\_Volume(20);}
-99 
-100     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(30);
-101 
-102     \textcolor{comment}{//SI4735\_Fm\_Tune\_Status();}
-103 
-104     \hyperlink{encoder_8h_a1b09f480da15d565de0b4acf37f40199}{Encoder\_1\_init}();
-105     \hyperlink{encoder_8h_af947b4bf6e9bc6d5b580609d046789da}{Encoder\_2\_init}();
-106     \hyperlink{encoder_8h_af5a0c9bea9a0da18fa1c123af8f2877c}{Encoder\_Timer\_init}();
-107 
-108     int8\_t en\_counter2;
-109     \hyperlink{time_8c_a5db7b4e6e4e991e6730a118bff927c39}{time\_set}(18,29,27,2,16,0);
-110 
-111     \textcolor{keywordflow}{while}(1)
-112     \{
-113         \textcolor{comment}{//menu();}
-114       en\_counter2 +=  \hyperlink{encoder_8h_a17708354c0e76c0422398f8dcd50dfea}{Encoder\_2\_get\_count}();
-115       \hyperlink{menu_2menu_8h_a6318b145070101f83aff3809f465b571}{menu\_handler}(&\hyperlink{main_8c_aacf07313c39ea54932c883b978bee19d}{encoder\_2\_button}, &en\_counter2);
-116       \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] >= \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH}) \{
-117         \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] -= \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH};
-118         \hyperlink{encoder_8h_a136248fd00f8429933544a54b030aef9}{encoder\_interrupt2}();
-119       \}
-120       \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[3] >= \hyperlink{main_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{TIME\_SECOND}) \{
-121         \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[3] -= \hyperlink{main_8c_aeef40d3fecdec58e4c8c0a51cc41a563}{TIME\_SECOND};
-122         \hyperlink{time_8c_a903573b04a7af98d20ef909f40e40fe2}{time\_date\_update}();
-123       \}
-124       \textcolor{comment}{//encoder\_2\_button = 'f';}
-125       \textcolor{comment}{//en\_counter2 = 0;}
-126     \}
-127 
-128 \}
+39 \{
+40     WDTCTL = WDTPW + WDTHOLD;
+41     \hyperlink{radio_8h_a3a1de7e31aabba6e408a633c130e618a}{radio\_init}();
+42     int8\_t en\_counter1 = 0;
+43     int8\_t en\_counter2 = 0;
+44     \hyperlink{time_8c_a6b341bdccd1c2c5503da84093f12e145}{time\_set\_time}(18,29,27,2,16,0);
+45 
+46     \textcolor{keywordflow}{while}(1)
+47     \{
+48         \textcolor{comment}{//menu();}
+49         en\_counter2 +=  \hyperlink{encoder_8h_a17708354c0e76c0422398f8dcd50dfea}{Encoder\_2\_get\_count}();
+50         en\_counter1 +=  \hyperlink{encoder_8h_a7a39090bb6f1d88f9371e44f4923194b}{Encoder\_1\_get\_count}();
+51         \textcolor{keywordflow}{if}(\hyperlink{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{encoder\_1\_button} != \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE} || en\_counter1 != 0 || 
+      \hyperlink{main_8c_a6e37070ff4088436f306e79beedacf1d}{encoder\_2\_button} != \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE} || en\_counter2 != 0 || 
+      \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[4] >= \hyperlink{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}{DISPLAY\_REFRESH}) \{
+52             \hyperlink{menu_8h_aaf2a075d3159f7eeab42012941a3437f}{menu\_handler}(&\hyperlink{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{encoder\_1\_button}, &en\_counter1, &
+      \hyperlink{main_8c_a6e37070ff4088436f306e79beedacf1d}{encoder\_2\_button}, &en\_counter2);
+53             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[4] = 0;
+54         \}
+55         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] >= \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH}) \{
+56             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] -= \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH};
+57             \hyperlink{encoder_8h_a136248fd00f8429933544a54b030aef9}{encoder\_interrupt2}();
+58         \}
+59         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[3] >= \hyperlink{main_8c_a69475c50be8454c72c570b417481e3bf}{TIME\_MINUTE}) \{
+60             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[3] -= \hyperlink{main_8c_a69475c50be8454c72c570b417481e3bf}{TIME\_MINUTE};
+61             \hyperlink{time_8c_acbfa3c65c807be82221cbebc7ac63224}{time\_update}();
+62         \}
+63         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[6] >= \hyperlink{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{RSQ\_UPDATE}) \{
+64             \hyperlink{rsq_8h_adc26e0d94e8ebd7ba62fa4f628a15f6d}{rsq\_update}(&\hyperlink{structradio}{radio});
+65             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[6] -= \hyperlink{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{RSQ\_UPDATE};
+66         \}
+67         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[7] >= \hyperlink{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{RDS\_UPDATE}) \{ \textcolor{comment}{//TODO Rework to interrupt base system}
+68             \hyperlink{rds_8h_a1c031719ba892045c773dc035058870f}{rds\_update}(&\hyperlink{structradio}{radio});
+69             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[7] -= \hyperlink{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{RDS\_UPDATE};
+70         \}
+71         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[2] >= \hyperlink{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{RADIO\_TEXT\_SCROLL}) \{
+72             \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text}++;
+73             \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} == 80) \{
+74                 \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} = 0;
+75             \}
+76             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[2] -= \hyperlink{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{RADIO\_TEXT\_SCROLL};
+77         \}
+78     \}
+79 
+80 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -290,11 +217,11 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 )}\label{main_8c_acee0e2dfb77ceffb9d8ec17b46d4e5b6}
 
 
-Definiert in Zeile 146 der Datei main.\+c.
+Definiert in Zeile 88 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-146 \{\}
+88 \{\}
 \end{DoxyCode}
 \hypertarget{main_8c_a216cec8d9bdb8960632a7ef3b1b283fe}{}\index{main.\+c@{main.\+c}!tim1@{tim1}}
 \index{tim1@{tim1}!main.\+c@{main.\+c}}
@@ -305,11 +232,11 @@ Definiert in Zeile 146 der Datei main.\+c.
 )}\label{main_8c_a216cec8d9bdb8960632a7ef3b1b283fe}
 
 
-Definiert in Zeile 148 der Datei main.\+c.
+Definiert in Zeile 90 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-148 \{\}
+90 \{\}
 \end{DoxyCode}
 \hypertarget{main_8c_ac6e80bdf33b7d96bf2ed52ecbf08423a}{}\index{main.\+c@{main.\+c}!watchdog\+\_\+timer@{watchdog\+\_\+timer}}
 \index{watchdog\+\_\+timer@{watchdog\+\_\+timer}!main.\+c@{main.\+c}}
@@ -320,58 +247,18 @@ Definiert in Zeile 148 der Datei main.\+c.
 )}\label{main_8c_ac6e80bdf33b7d96bf2ed52ecbf08423a}
 
 
-Definiert in Zeile 131 der Datei main.\+c.
+Definiert in Zeile 83 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-132 \{
-133     \textcolor{keywordflow}{if}((\hyperlink{main_8c_ac723ce2b286bd00ce163c6b70c7d0aad}{sekunde}++)%2 == 0)       \textcolor{comment}{//wenn eine Halbe sekunde vergangen ist schiebe den Text um eins
-       weiter}
-134         \textcolor{keywordflow}{if}(\hyperlink{main_8c_a8f9b0d4cedf4b5f149480065587cf0a0}{posrt}++ == 78)      \textcolor{comment}{//wenn der Text durch geshiftet ist fange von vorne wieder an}
-135             \hyperlink{main_8c_a8f9b0d4cedf4b5f149480065587cf0a0}{posrt} = 0;
-136     \textcolor{keywordflow}{if}(++\hyperlink{main_8c_a4443d493dc6ffee94dc4a481e71d42ce}{sec} >= 240)         \textcolor{comment}{//wenn eine Minute vorbei ist dann setze den zähler zurück und erhöhe die Minute um
-       eins}
-137     \{
-138         \hyperlink{main_8c_a4443d493dc6ffee94dc4a481e71d42ce}{sec} = 0;
-139         \textcolor{comment}{//time\_date(0, 0, 0, 0, 0, 0, 1, 0, 0);}
-140     \}
-141 \}
+83 \{\}
 \end{DoxyCode}
 
 
 \subsection{Variablen-\/\+Dokumentation}
-\hypertarget{main_8c_af94c77e710906df50727ec7124938591}{}\index{main.\+c@{main.\+c}!encoder\+\_\+1\+\_\+button@{encoder\+\_\+1\+\_\+button}}
+\hypertarget{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{}\index{main.\+c@{main.\+c}!encoder\+\_\+1\+\_\+button@{encoder\+\_\+1\+\_\+button}}
 \index{encoder\+\_\+1\+\_\+button@{encoder\+\_\+1\+\_\+button}!main.\+c@{main.\+c}}
-\subsubsection[{encoder\+\_\+1\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char encoder\+\_\+1\+\_\+button}\label{main_8c_af94c77e710906df50727ec7124938591}
-
-
-Definiert in Zeile 10 der Datei encoder.\+c.
-
-\hypertarget{main_8c_aacf07313c39ea54932c883b978bee19d}{}\index{main.\+c@{main.\+c}!encoder\+\_\+2\+\_\+button@{encoder\+\_\+2\+\_\+button}}
+\subsubsection[{encoder\+\_\+1\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\+\_\+t encoder\+\_\+1\+\_\+button}\label{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}
+\hypertarget{main_8c_a6e37070ff4088436f306e79beedacf1d}{}\index{main.\+c@{main.\+c}!encoder\+\_\+2\+\_\+button@{encoder\+\_\+2\+\_\+button}}
 \index{encoder\+\_\+2\+\_\+button@{encoder\+\_\+2\+\_\+button}!main.\+c@{main.\+c}}
-\subsubsection[{encoder\+\_\+2\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char encoder\+\_\+2\+\_\+button}\label{main_8c_aacf07313c39ea54932c883b978bee19d}
-
-
-Definiert in Zeile 21 der Datei encoder.\+c.
-
-\hypertarget{main_8c_a8f9b0d4cedf4b5f149480065587cf0a0}{}\index{main.\+c@{main.\+c}!posrt@{posrt}}
-\index{posrt@{posrt}!main.\+c@{main.\+c}}
-\subsubsection[{posrt}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char posrt = 0}\label{main_8c_a8f9b0d4cedf4b5f149480065587cf0a0}
-
-
-Definiert in Zeile 47 der Datei main.\+c.
-
-\hypertarget{main_8c_a4443d493dc6ffee94dc4a481e71d42ce}{}\index{main.\+c@{main.\+c}!sec@{sec}}
-\index{sec@{sec}!main.\+c@{main.\+c}}
-\subsubsection[{sec}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char sec = 240}\label{main_8c_a4443d493dc6ffee94dc4a481e71d42ce}
-
-
-Definiert in Zeile 48 der Datei main.\+c.
-
-\hypertarget{main_8c_ac723ce2b286bd00ce163c6b70c7d0aad}{}\index{main.\+c@{main.\+c}!sekunde@{sekunde}}
-\index{sekunde@{sekunde}!main.\+c@{main.\+c}}
-\subsubsection[{sekunde}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char sekunde = 0}\label{main_8c_ac723ce2b286bd00ce163c6b70c7d0aad}
-
-
-Definiert in Zeile 46 der Datei main.\+c.
-
+\subsubsection[{encoder\+\_\+2\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\+\_\+t encoder\+\_\+2\+\_\+button}\label{main_8c_a6e37070ff4088436f306e79beedacf1d}

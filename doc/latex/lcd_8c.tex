@@ -1,7 +1,8 @@
-\hypertarget{lcd_8c}{}\section{driver/src/lcd.c-\/\+Dateireferenz}
-\label{lcd_8c}\index{driver/src/lcd.\+c@{driver/src/lcd.\+c}}
+\hypertarget{lcd_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/driver/src/lcd.c-\/\+Dateireferenz}
+\label{lcd_8c}\index{D\+:/\+G\+I\+T/fhradiov2/driver/src/lcd.\+c@{D\+:/\+G\+I\+T/fhradiov2/driver/src/lcd.\+c}}
 {\ttfamily \#include $<$driver/lcd.\+h$>$}\\*
-Include-\/\+Abhängigkeitsdiagramm für lcd.\+c\+:\nopagebreak
+Include-\/\+Abhängigkeitsdiagramm für lcd.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -78,7 +79,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -126,7 +128,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=264pt]{lcd_8c_ab99e48ab8689dcb1205c4c7c97bd9956_icgraph}
+\includegraphics[width=350pt]{lcd_8c_ab99e48ab8689dcb1205c4c7c97bd9956_icgraph}
 \end{center}
 \end{figure}
 
@@ -165,19 +167,19 @@ Definiert in Zeile 315 der Datei lcd.\+c.
 330 
 331     pos = x + y * 16;
 332 
-333     \textcolor{comment}{/*if(num == 0) \{}
-334 \textcolor{comment}{        num = 48;}
-335 \textcolor{comment}{    \}*/}
+333     \textcolor{keywordflow}{if}(num == 0) \{
+334         num = 48;
+335     \}
 336 
 337     \textcolor{comment}{/* if string is empty determinat string on given position */}
-338     \textcolor{keywordflow}{if}(str == 0) \{
-339         lcd\_view[48] = 0;
+338     \textcolor{keywordflow}{if}(*str == 0 && num == 48) \{
+339         lcd\_view[pos] = 0;
 340     \}
 341     \textcolor{keywordflow}{else} \{
 342         \textcolor{comment}{/* copy string on given position */}
-343         \textcolor{keywordflow}{while}(*str != 0 && pos < 48 ) \{\textcolor{comment}{//&& num > 0) \{}
+343         \textcolor{keywordflow}{while}(*str != 0 && pos < 48 && str != 0 && num > 0) \{\textcolor{comment}{//&& num > 0) \{}
 344             lcd\_view[pos++] = *(str++);
-345             \textcolor{comment}{//num--;}
+345             num--;
 346         \}
 347     \}
 348 
@@ -217,7 +219,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -357,7 +360,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=347pt]{lcd_8c_a6b9abf6cd27026b67144523ffbef4916_icgraph}
+\includegraphics[width=350pt]{lcd_8c_a6b9abf6cd27026b67144523ffbef4916_icgraph}
 \end{center}
 \end{figure}
 
@@ -428,9 +431,9 @@ Definiert in Zeile 12 der Datei lcd.\+c.
 13 \{
 14 
 15     \textcolor{comment}{// Activate PCA9534}
-16     \hyperlink{settings_2radio__pin__mapping_8h_a131b17b16bb25a95f17f81423722dcb1}{PCA\_ON\_OFF\_SEL} &= (~\hyperlink{settings_2radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN});
-17     \hyperlink{settings_2radio__pin__mapping_8h_aca9911d61d5202bad563d5f748782548}{PCA\_ON\_OFF\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN};
-18     \hyperlink{settings_2radio__pin__mapping_8h_abd6e55737a7d5e65b8582d647b103f8e}{PCA\_ON\_OFF\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN};
+16     \hyperlink{radio__pin__mapping_8h_a131b17b16bb25a95f17f81423722dcb1}{PCA\_ON\_OFF\_SEL} &= (~\hyperlink{radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN});
+17     \hyperlink{radio__pin__mapping_8h_aca9911d61d5202bad563d5f748782548}{PCA\_ON\_OFF\_DIR} |= \hyperlink{radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN};
+18     \hyperlink{radio__pin__mapping_8h_abd6e55737a7d5e65b8582d647b103f8e}{PCA\_ON\_OFF\_OUT} |= \hyperlink{radio__pin__mapping_8h_a24dbe611147513e518aaa1b1034e19d9}{PCA\_ON\_OFF\_PIN};
 19 
 20 
 21     \textcolor{comment}{// Go in default state}
@@ -499,7 +502,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=201pt]{lcd_8c_a312eed1baec275e185dc00b760de1356_icgraph}
+\includegraphics[width=293pt]{lcd_8c_a312eed1baec275e185dc00b760de1356_icgraph}
 \end{center}
 \end{figure}
 
@@ -572,7 +575,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -892,7 +896,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

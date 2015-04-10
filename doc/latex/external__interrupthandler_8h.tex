@@ -1,9 +1,10 @@
-\hypertarget{external__interrupthandler_8h}{}\section{driver/external\+\_\+interrupthandler.h-\/\+Dateireferenz}
-\label{external__interrupthandler_8h}\index{driver/external\+\_\+interrupthandler.\+h@{driver/external\+\_\+interrupthandler.\+h}}
+\hypertarget{external__interrupthandler_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/driver/external\+\_\+interrupthandler.h-\/\+Dateireferenz}
+\label{external__interrupthandler_8h}\index{D\+:/\+G\+I\+T/fhradiov2/driver/external\+\_\+interrupthandler.\+h@{D\+:/\+G\+I\+T/fhradiov2/driver/external\+\_\+interrupthandler.\+h}}
 {\ttfamily \#include $<$msp430.\+h$>$}\\*
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 {\ttfamily \#include $<$settings/radio\+\_\+pin\+\_\+mapping.\+h$>$}\\*
-Include-\/\+Abhängigkeitsdiagramm für external\+\_\+interrupthandler.\+h\+:\nopagebreak
+Include-\/\+Abhängigkeitsdiagramm für external\+\_\+interrupthandler.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -102,17 +103,18 @@ Definiert in Zeile 49 der Datei external\+\_\+interrupthandler.\+c.
 \begin{DoxyCode}
 50 \{
 51     \textcolor{keywordflow}{if}(int\_number/8) \{
-52         P1IE &= ~(1 << int\_number % 8);
+52         P2IE &= ~(1 << int\_number % 8);
 53     \}
 54     \textcolor{keywordflow}{else} \{
-55         P2IE &= ~(1 << int\_number % 8);
+55         P1IE &= ~(1 << int\_number % 8);
 56     \}
 57     \textcolor{keywordflow}{return} 0;
 58 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -148,7 +150,8 @@ Definiert in Zeile 36 der Datei external\+\_\+interrupthandler.\+c.
 \end{DoxyCode}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

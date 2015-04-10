@@ -1,19 +1,25 @@
-\hypertarget{radio_8h}{}\section{system/radio.h-\/\+Dateireferenz}
-\label{radio_8h}\index{system/radio.\+h@{system/radio.\+h}}
+\hypertarget{radio_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/system/radio.h-\/\+Dateireferenz}
+\label{radio_8h}\index{D\+:/\+G\+I\+T/fhradiov2/system/radio.\+h@{D\+:/\+G\+I\+T/fhradiov2/system/radio.\+h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 {\ttfamily \#include $<$driver/pca9530.\+h$>$}\\*
 {\ttfamily \#include $<$libs/log\+\_\+exp\+\_\+table.\+h$>$}\\*
 {\ttfamily \#include $<$driver/si4735.\+h$>$}\\*
 {\ttfamily \#include $<$driver/include/si4735\+\_\+cmd\+\_\+prop.\+h$>$}\\*
 {\ttfamily \#include $<$driver/external\+\_\+interrupthandler.\+h$>$}\\*
+{\ttfamily \#include $<$driver/tpa2016d2.\+h$>$}\\*
 {\ttfamily \#include $<$driver/lcd.\+h$>$}\\*
 {\ttfamily \#include $<$driver/flash.\+h$>$}\\*
 {\ttfamily \#include $<$driver/timer.\+h$>$}\\*
 {\ttfamily \#include $<$driver/encoder.\+h$>$}\\*
 {\ttfamily \#include $<$menu/lang/language.\+h$>$}\\*
+{\ttfamily \#include $<$menu/menu.\+h$>$}\\*
 {\ttfamily \#include $<$settings/radio\+\_\+configuration.\+h$>$}\\*
+{\ttfamily \#include $<$system/station\+\_\+list.\+h$>$}\\*
+{\ttfamily \#include $<$system/radio\+\_\+display.\+h$>$}\\*
+{\ttfamily \#include $<$libs/string.\+h$>$}\\*
 {\ttfamily \#include $<$system/time.\+h$>$}\\*
-Include-\/\+Abh채ngigkeitsdiagramm f체r radio.\+h\+:\nopagebreak
+Include-\/\+Abh채ngigkeitsdiagramm f체r radio.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,7 +30,7 @@ Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enth채lt\+:\no
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{radio_8h__dep__incl}
+\includegraphics[width=350pt]{radio_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Datenstrukturen}
@@ -35,6 +41,8 @@ struct \hyperlink{structradio__status}{radio\+\_\+status}
 struct \hyperlink{structradio__rsq}{radio\+\_\+rsq}
 \item 
 struct \hyperlink{structradio__rds}{radio\+\_\+rds}
+\item 
+struct \hyperlink{structradio__settings}{radio\+\_\+settings}
 \item 
 struct \hyperlink{structradio}{radio}
 \end{DoxyCompactItemize}
@@ -51,11 +59,51 @@ struct \hyperlink{structradio}{radio}
 \item 
 \#define \hyperlink{radio_8h_a72695d31382ba5334881ad3407393642}{N\+O\+T\+\_\+\+V\+A\+L\+I\+D}~0
 \item 
+\#define \hyperlink{radio_8h_a9e7a21d5bccf1729d5b46f9f9f5f9c26}{S\+O\+U\+R\+C\+E\+\_\+\+F\+M}~0
+\item 
+\#define \hyperlink{radio_8h_aea883aea91ad122afd73fd627eafd34a}{S\+O\+U\+R\+C\+E\+\_\+\+A\+M}~1
+\item 
+\#define \hyperlink{radio_8h_a5d9dbdbe329668b29eb0c4d820fbc82f}{S\+O\+U\+R\+C\+E\+\_\+\+L\+I\+N\+E\+I\+N}~2
+\item 
+\#define \hyperlink{radio_8h_af92ed4044fdaecd437ed070ac7cd2cc1}{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}~6
+\item 
+\#define \hyperlink{radio_8h_a11588a0c6047fcfe43bb00ba8e750d42}{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+A\+X}~50
+\item 
+\#define \hyperlink{radio_8h_aae7d4a5d2184f9f3d62486432a668be5}{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+I\+N}~0
+\item 
+\#define \hyperlink{radio_8h_a152ffe9f4099cb6256124ef87f2a5813}{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+S\+T\+E\+P}~1
+\item 
+\#define \hyperlink{radio_8h_a971aea8fb933f5b56bd1215cbc734736}{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+A\+X}~10
+\item 
+\#define \hyperlink{radio_8h_a8179ee44198d263259432b392db916a2}{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+I\+N}~0
+\item 
+\#define \hyperlink{radio_8h_a3ad824f27b930de2e11857d29ddd003c}{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+S\+T\+E\+P}~1
+\item 
+\#define \hyperlink{radio_8h_af2bf5f03ca0b46368bcdc8de4466c0eb}{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+A\+X}~100
+\item 
+\#define \hyperlink{radio_8h_ae267b915054d707b13f2ea6bb143b506}{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+I\+N}~0
+\item 
+\#define \hyperlink{radio_8h_ae7b78fb9948dccf5053129c05e790b3f}{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+S\+T\+E\+P}~1
+\item 
 \#define \hyperlink{radio_8h_a7feaffb81b5835815adbc90d046b24aa}{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}~\textquotesingle{}l\textquotesingle{}
 \item 
 \#define \hyperlink{radio_8h_a3c86ca09d645d897e51add9106255b9b}{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}~\textquotesingle{}k\textquotesingle{}
 \item 
 \#define \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{B\+U\+T\+T\+O\+N\+\_\+\+F\+R\+E\+E}~\textquotesingle{}f\textquotesingle{}
+\item 
+\#define \hyperlink{radio_8h_ac7e359f72aff03a55779034835ce9240}{A\+U\+D\+I\+O\+\_\+\+M\+U\+T\+E}~1
+\item 
+\#define \hyperlink{radio_8h_ab9dc5a11c1311b173b2bda125e571107}{A\+U\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E}~2
+\item 
+\#define \hyperlink{radio_8h_ab4103f5bd07b36785d220fe005dc65e3}{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}~0x1000
+\item 
+\#define \hyperlink{radio_8h_aed5209d4f73a4a25770bde0149625689}{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}~8
+\item 
+\#define \hyperlink{radio_8h_a079cd45a1bbfedfbb94ebd6560eaf902}{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}~0x1070
+\item 
+\#define \hyperlink{radio_8h_a6c8d7f12aa8f30e4e8ee25eae8edebd7}{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}~2
+\item 
+\#define \hyperlink{radio_8h_ae8a3bf59b7d1412dc23f9bd56041acb6}{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}~0x108\+C
 \end{DoxyCompactItemize}
 \subsection*{Typdefinitionen}
 \begin{DoxyCompactItemize}
@@ -66,85 +114,246 @@ typedef struct \hyperlink{structradio__rsq}{radio\+\_\+rsq} \hyperlink{radio_8h_
 \item 
 typedef struct \hyperlink{structradio__rds}{radio\+\_\+rds} \hyperlink{radio_8h_a45097f726be0f44e9afecd5102888dbd}{R\+A\+D\+I\+O\+\_\+\+R\+D\+S}
 \item 
+typedef struct \hyperlink{structradio__settings}{radio\+\_\+settings} \hyperlink{radio_8h_a7ad276cb3b26c8610e25b52c55d8fab6}{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S}
+\item 
 typedef struct \hyperlink{structradio}{radio} \hyperlink{radio_8h_a2e4f7894262df4981eeffa04d51e4206}{R\+A\+D\+I\+O}
 \end{DoxyCompactItemize}
 \subsection*{Funktionen}
 \begin{DoxyCompactItemize}
 \item 
-uint8\+\_\+t \hyperlink{radio_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}{radio\+\_\+brightness} (uint8\+\_\+t brightness)
+uint8\+\_\+t \hyperlink{radio_8h_afb3cb0ce160c3403d9306d936667fb64}{radio\+\_\+source\+\_\+select} (uint8\+\_\+t entry\+\_\+num)
 \item 
-uint8\+\_\+t \hyperlink{radio_8h_af40ef5734842d7237918116e2decd3c0}{radio\+\_\+contrast} (uint8\+\_\+t contrast)
+uint8\+\_\+t \hyperlink{radio_8h_a9dd33606330e2225b425000341cf4688}{radio\+\_\+brightness} (uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count)
 \item 
-uint8\+\_\+t \hyperlink{radio_8h_afb52516b50bf1098e28be670e369b6cd}{radio\+\_\+volume} (uint8\+\_\+t volume)
+uint8\+\_\+t \hyperlink{radio_8h_aaf3f53dfebe8da71fbe4c457ffda6714}{radio\+\_\+contrast} (uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count)
+\item 
+uint8\+\_\+t \hyperlink{radio_8h_aead0d199e23b8cc254924b96b017210b}{radio\+\_\+set\+\_\+volume} (int8\+\_\+t volume)
+\item 
+uint8\+\_\+t \hyperlink{radio_8h_a832a684fc60104296fc975a7608f92b4}{radio\+\_\+settings} (uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\item 
+uint8\+\_\+t \hyperlink{radio_8h_afce06a210fd84b9acb905e8ab81feaeb}{radio\+\_\+volume} (uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t setting)
 \item 
 uint16\+\_\+t \hyperlink{radio_8h_aee6321b512830d482a2fc164cf11f9e9}{radio\+\_\+seeking} (uint8\+\_\+t up\+\_\+down)
 \item 
+uint8\+\_\+t \hyperlink{radio_8h_a5f7fcd9e9755fb5e22175a4ad74a5456}{radio\+\_\+main} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count)
+\item 
+uint8\+\_\+t \hyperlink{radio_8h_a3a1de7e31aabba6e408a633c130e618a}{radio\+\_\+init} ()
+\item 
 uint8\+\_\+t \hyperlink{radio_8h_a6d652e9d0f1c54bfe9ec73fe2605b706}{radio\+\_\+tune\+\_\+freq} (uint16\+\_\+t freq)
 \item 
-uint8\+\_\+t \hyperlink{radio_8h_a132f2b55edd4f21141501c9e9a1c7b00}{radio\+\_\+freq\+\_\+to\+\_\+string} (char $\ast$str, uint16\+\_\+t freq)
+uint8\+\_\+t \hyperlink{radio_8h_a5e5300f73411d8e90a928adf42d2a6ed}{radio\+\_\+store\+\_\+station} (uint16\+\_\+t $\ast$freq, char $\ast$name, uint8\+\_\+t pos)
 \item 
-uint8\+\_\+t \hyperlink{radio_8h_a391fc5fe58716d2c794685bcf12bbda5}{radio\+\_\+value\+\_\+to\+\_\+string} (char $\ast$str, int16\+\_\+t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value}, uint8\+\_\+t size, uint8\+\_\+t base)
+uint8\+\_\+t \hyperlink{radio_8h_ac96da2886aec92b299b27b500761564c}{radio\+\_\+auto\+\_\+search} ()
 \item 
-uint8\+\_\+t \hyperlink{radio_8h_ab8b5a7b9b4ca94260ab8802217721bda}{radio\+\_\+store\+\_\+station} (uint16\+\_\+t freq, int8\+\_\+t $\ast$name, uint8\+\_\+t pos)
+uint8\+\_\+t \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\+\_\+store\+\_\+settings} (uint8\+\_\+t freq, uint8\+\_\+t volume)
+\item 
+uint8\+\_\+t \hyperlink{radio_8h_a3a59bda16d899217789edbce203bf043}{radio\+\_\+load\+\_\+settings} ()
+\item 
+uint8\+\_\+t \hyperlink{radio_8h_aae41d271062b3f94cccf4fb5996b04a2}{radio\+\_\+frequency} (uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{radio_8h_a2e4f7894262df4981eeffa04d51e4206}{R\+A\+D\+I\+O} \hyperlink{radio_8h_a54bdd6b246e5471f818dea611ddc3fea}{radio}
 \end{DoxyCompactItemize}
 
 
 \subsection{Makro-\/\+Dokumentation}
+\hypertarget{radio_8h_af92ed4044fdaecd437ed070ac7cd2cc1}{}\index{radio.\+h@{radio.\+h}!A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N@{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}}
+\index{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N@{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}!radio.\+h@{radio.\+h}}
+\subsubsection[{A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+M\+P\+L\+I\+F\+I\+E\+R\+\_\+\+G\+A\+I\+N~6}\label{radio_8h_af92ed4044fdaecd437ed070ac7cd2cc1}
+
+
+Definiert in Zeile 40 der Datei radio.\+h.
+
+\hypertarget{radio_8h_ac7e359f72aff03a55779034835ce9240}{}\index{radio.\+h@{radio.\+h}!A\+U\+D\+I\+O\+\_\+\+M\+U\+T\+E@{A\+U\+D\+I\+O\+\_\+\+M\+U\+T\+E}}
+\index{A\+U\+D\+I\+O\+\_\+\+M\+U\+T\+E@{A\+U\+D\+I\+O\+\_\+\+M\+U\+T\+E}!radio.\+h@{radio.\+h}}
+\subsubsection[{A\+U\+D\+I\+O\+\_\+\+M\+U\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+U\+D\+I\+O\+\_\+\+M\+U\+T\+E~1}\label{radio_8h_ac7e359f72aff03a55779034835ce9240}
+
+
+Definiert in Zeile 58 der Datei radio.\+h.
+
+\hypertarget{radio_8h_ab9dc5a11c1311b173b2bda125e571107}{}\index{radio.\+h@{radio.\+h}!A\+U\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E@{A\+U\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E}}
+\index{A\+U\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E@{A\+U\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E}!radio.\+h@{radio.\+h}}
+\subsubsection[{A\+U\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+U\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E~2}\label{radio_8h_ab9dc5a11c1311b173b2bda125e571107}
+
+
+Definiert in Zeile 59 der Datei radio.\+h.
+
 \hypertarget{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{}\index{radio.\+h@{radio.\+h}!B\+U\+T\+T\+O\+N\+\_\+\+F\+R\+E\+E@{B\+U\+T\+T\+O\+N\+\_\+\+F\+R\+E\+E}}
 \index{B\+U\+T\+T\+O\+N\+\_\+\+F\+R\+E\+E@{B\+U\+T\+T\+O\+N\+\_\+\+F\+R\+E\+E}!radio.\+h@{radio.\+h}}
 \subsubsection[{B\+U\+T\+T\+O\+N\+\_\+\+F\+R\+E\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+T\+T\+O\+N\+\_\+\+F\+R\+E\+E~\textquotesingle{}f\textquotesingle{}}\label{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}
 
 
-Definiert in Zeile 33 der Datei radio.\+h.
+Definiert in Zeile 56 der Datei radio.\+h.
 
 \hypertarget{radio_8h_a7feaffb81b5835815adbc90d046b24aa}{}\index{radio.\+h@{radio.\+h}!B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}}
 \index{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}!radio.\+h@{radio.\+h}}
 \subsubsection[{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+L\+O\+N\+G~\textquotesingle{}l\textquotesingle{}}\label{radio_8h_a7feaffb81b5835815adbc90d046b24aa}
 
 
-Definiert in Zeile 31 der Datei radio.\+h.
+Definiert in Zeile 54 der Datei radio.\+h.
 
 \hypertarget{radio_8h_a3c86ca09d645d897e51add9106255b9b}{}\index{radio.\+h@{radio.\+h}!B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}}
 \index{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T@{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}!radio.\+h@{radio.\+h}}
 \subsubsection[{B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+T\+T\+O\+N\+\_\+\+P\+R\+E\+S\+S\+\_\+\+S\+H\+O\+R\+T~\textquotesingle{}k\textquotesingle{}}\label{radio_8h_a3c86ca09d645d897e51add9106255b9b}
 
 
-Definiert in Zeile 32 der Datei radio.\+h.
+Definiert in Zeile 55 der Datei radio.\+h.
 
 \hypertarget{radio_8h_a72695d31382ba5334881ad3407393642}{}\index{radio.\+h@{radio.\+h}!N\+O\+T\+\_\+\+V\+A\+L\+I\+D@{N\+O\+T\+\_\+\+V\+A\+L\+I\+D}}
 \index{N\+O\+T\+\_\+\+V\+A\+L\+I\+D@{N\+O\+T\+\_\+\+V\+A\+L\+I\+D}!radio.\+h@{radio.\+h}}
 \subsubsection[{N\+O\+T\+\_\+\+V\+A\+L\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+T\+\_\+\+V\+A\+L\+I\+D~0}\label{radio_8h_a72695d31382ba5334881ad3407393642}
 
 
-Definiert in Zeile 29 der Datei radio.\+h.
+Definiert in Zeile 35 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a11588a0c6047fcfe43bb00ba8e750d42}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+A\+X@{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+A\+X}}
+\index{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+A\+X@{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+A\+X}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+A\+X~50}\label{radio_8h_a11588a0c6047fcfe43bb00ba8e750d42}
+
+
+Definiert in Zeile 42 der Datei radio.\+h.
+
+\hypertarget{radio_8h_aae7d4a5d2184f9f3d62486432a668be5}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+I\+N@{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+I\+N}}
+\index{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+I\+N@{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+I\+N}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+M\+I\+N~0}\label{radio_8h_aae7d4a5d2184f9f3d62486432a668be5}
+
+
+Definiert in Zeile 43 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a152ffe9f4099cb6256124ef87f2a5813}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+S\+T\+E\+P@{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+S\+T\+E\+P}}
+\index{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+S\+T\+E\+P@{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+S\+T\+E\+P}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+S\+T\+E\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+B\+R\+I\+G\+H\+T\+N\+E\+S\+S\+\_\+\+S\+T\+E\+P~1}\label{radio_8h_a152ffe9f4099cb6256124ef87f2a5813}
+
+
+Definiert in Zeile 44 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a971aea8fb933f5b56bd1215cbc734736}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+A\+X@{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+A\+X}}
+\index{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+A\+X@{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+A\+X}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+A\+X~10}\label{radio_8h_a971aea8fb933f5b56bd1215cbc734736}
+
+
+Definiert in Zeile 46 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a8179ee44198d263259432b392db916a2}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+I\+N@{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+I\+N}}
+\index{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+I\+N@{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+I\+N}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+M\+I\+N~0}\label{radio_8h_a8179ee44198d263259432b392db916a2}
+
+
+Definiert in Zeile 47 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a3ad824f27b930de2e11857d29ddd003c}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+S\+T\+E\+P@{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+S\+T\+E\+P}}
+\index{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+S\+T\+E\+P@{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+S\+T\+E\+P}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+S\+T\+E\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+C\+O\+N\+T\+R\+A\+S\+T\+\_\+\+S\+T\+E\+P~1}\label{radio_8h_a3ad824f27b930de2e11857d29ddd003c}
+
+
+Definiert in Zeile 48 der Datei radio.\+h.
 
 \hypertarget{radio_8h_a6b0b4c694735693e43bac65eeca05a30}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+P\+I\+P\+T\+Y\+\_\+\+V\+I\+E\+W@{R\+A\+D\+I\+O\+\_\+\+P\+I\+P\+T\+Y\+\_\+\+V\+I\+E\+W}}
 \index{R\+A\+D\+I\+O\+\_\+\+P\+I\+P\+T\+Y\+\_\+\+V\+I\+E\+W@{R\+A\+D\+I\+O\+\_\+\+P\+I\+P\+T\+Y\+\_\+\+V\+I\+E\+W}!radio.\+h@{radio.\+h}}
 \subsubsection[{R\+A\+D\+I\+O\+\_\+\+P\+I\+P\+T\+Y\+\_\+\+V\+I\+E\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+P\+I\+P\+T\+Y\+\_\+\+V\+I\+E\+W~2}\label{radio_8h_a6b0b4c694735693e43bac65eeca05a30}
 
 
-Definiert in Zeile 27 der Datei radio.\+h.
+Definiert in Zeile 33 der Datei radio.\+h.
 
 \hypertarget{radio_8h_ad826646e122735a715e4735bdc636481}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+R\+D\+S\+\_\+\+V\+I\+E\+W@{R\+A\+D\+I\+O\+\_\+\+R\+D\+S\+\_\+\+V\+I\+E\+W}}
 \index{R\+A\+D\+I\+O\+\_\+\+R\+D\+S\+\_\+\+V\+I\+E\+W@{R\+A\+D\+I\+O\+\_\+\+R\+D\+S\+\_\+\+V\+I\+E\+W}!radio.\+h@{radio.\+h}}
 \subsubsection[{R\+A\+D\+I\+O\+\_\+\+R\+D\+S\+\_\+\+V\+I\+E\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+R\+D\+S\+\_\+\+V\+I\+E\+W~0}\label{radio_8h_ad826646e122735a715e4735bdc636481}
 
 
-Definiert in Zeile 25 der Datei radio.\+h.
+Definiert in Zeile 31 der Datei radio.\+h.
 
 \hypertarget{radio_8h_a843a840a345827331202139180dfc415}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+R\+S\+Q\+\_\+\+V\+I\+E\+W@{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q\+\_\+\+V\+I\+E\+W}}
 \index{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q\+\_\+\+V\+I\+E\+W@{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q\+\_\+\+V\+I\+E\+W}!radio.\+h@{radio.\+h}}
 \subsubsection[{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q\+\_\+\+V\+I\+E\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+R\+S\+Q\+\_\+\+V\+I\+E\+W~1}\label{radio_8h_a843a840a345827331202139180dfc415}
 
 
-Definiert in Zeile 26 der Datei radio.\+h.
+Definiert in Zeile 32 der Datei radio.\+h.
+
+\hypertarget{radio_8h_ae8a3bf59b7d1412dc23f9bd56041acb6}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R@{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}}
+\index{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R@{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R~0x108\+C}\label{radio_8h_ae8a3bf59b7d1412dc23f9bd56041acb6}
+
+
+Definiert in Zeile 66 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a079cd45a1bbfedfbb94ebd6560eaf902}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}}
+\index{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R~0x1070}\label{radio_8h_a079cd45a1bbfedfbb94ebd6560eaf902}
+
+
+Definiert in Zeile 63 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a6c8d7f12aa8f30e4e8ee25eae8edebd7}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}}
+\index{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E~2}\label{radio_8h_a6c8d7f12aa8f30e4e8ee25eae8edebd7}
+
+
+Definiert in Zeile 64 der Datei radio.\+h.
+
+\hypertarget{radio_8h_ab4103f5bd07b36785d220fe005dc65e3}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}}
+\index{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+A\+D\+R~0x1000}\label{radio_8h_ab4103f5bd07b36785d220fe005dc65e3}
+
+
+Definiert in Zeile 61 der Datei radio.\+h.
+
+\hypertarget{radio_8h_aed5209d4f73a4a25770bde0149625689}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}}
+\index{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+I\+O\+N\+\_\+\+N\+A\+M\+E\+\_\+\+S\+T\+O\+R\+E\+\_\+\+S\+I\+Z\+E~8}\label{radio_8h_aed5209d4f73a4a25770bde0149625689}
+
+
+Definiert in Zeile 62 der Datei radio.\+h.
+
+\hypertarget{radio_8h_af2bf5f03ca0b46368bcdc8de4466c0eb}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+A\+X@{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+A\+X}}
+\index{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+A\+X@{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+A\+X}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+A\+X~100}\label{radio_8h_af2bf5f03ca0b46368bcdc8de4466c0eb}
+
+
+Definiert in Zeile 50 der Datei radio.\+h.
+
+\hypertarget{radio_8h_ae267b915054d707b13f2ea6bb143b506}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+I\+N@{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+I\+N}}
+\index{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+I\+N@{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+I\+N}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+M\+I\+N~0}\label{radio_8h_ae267b915054d707b13f2ea6bb143b506}
+
+
+Definiert in Zeile 51 der Datei radio.\+h.
+
+\hypertarget{radio_8h_ae7b78fb9948dccf5053129c05e790b3f}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+S\+T\+E\+P@{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+S\+T\+E\+P}}
+\index{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+S\+T\+E\+P@{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+S\+T\+E\+P}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+S\+T\+E\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+S\+T\+E\+P~1}\label{radio_8h_ae7b78fb9948dccf5053129c05e790b3f}
+
+
+Definiert in Zeile 52 der Datei radio.\+h.
+
+\hypertarget{radio_8h_aea883aea91ad122afd73fd627eafd34a}{}\index{radio.\+h@{radio.\+h}!S\+O\+U\+R\+C\+E\+\_\+\+A\+M@{S\+O\+U\+R\+C\+E\+\_\+\+A\+M}}
+\index{S\+O\+U\+R\+C\+E\+\_\+\+A\+M@{S\+O\+U\+R\+C\+E\+\_\+\+A\+M}!radio.\+h@{radio.\+h}}
+\subsubsection[{S\+O\+U\+R\+C\+E\+\_\+\+A\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+O\+U\+R\+C\+E\+\_\+\+A\+M~1}\label{radio_8h_aea883aea91ad122afd73fd627eafd34a}
+
+
+Definiert in Zeile 37 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a9e7a21d5bccf1729d5b46f9f9f5f9c26}{}\index{radio.\+h@{radio.\+h}!S\+O\+U\+R\+C\+E\+\_\+\+F\+M@{S\+O\+U\+R\+C\+E\+\_\+\+F\+M}}
+\index{S\+O\+U\+R\+C\+E\+\_\+\+F\+M@{S\+O\+U\+R\+C\+E\+\_\+\+F\+M}!radio.\+h@{radio.\+h}}
+\subsubsection[{S\+O\+U\+R\+C\+E\+\_\+\+F\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+O\+U\+R\+C\+E\+\_\+\+F\+M~0}\label{radio_8h_a9e7a21d5bccf1729d5b46f9f9f5f9c26}
+
+
+Definiert in Zeile 36 der Datei radio.\+h.
+
+\hypertarget{radio_8h_a5d9dbdbe329668b29eb0c4d820fbc82f}{}\index{radio.\+h@{radio.\+h}!S\+O\+U\+R\+C\+E\+\_\+\+L\+I\+N\+E\+I\+N@{S\+O\+U\+R\+C\+E\+\_\+\+L\+I\+N\+E\+I\+N}}
+\index{S\+O\+U\+R\+C\+E\+\_\+\+L\+I\+N\+E\+I\+N@{S\+O\+U\+R\+C\+E\+\_\+\+L\+I\+N\+E\+I\+N}!radio.\+h@{radio.\+h}}
+\subsubsection[{S\+O\+U\+R\+C\+E\+\_\+\+L\+I\+N\+E\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+O\+U\+R\+C\+E\+\_\+\+L\+I\+N\+E\+I\+N~2}\label{radio_8h_a5d9dbdbe329668b29eb0c4d820fbc82f}
+
+
+Definiert in Zeile 38 der Datei radio.\+h.
 
 \hypertarget{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}{}\index{radio.\+h@{radio.\+h}!V\+A\+L\+I\+D@{V\+A\+L\+I\+D}}
 \index{V\+A\+L\+I\+D@{V\+A\+L\+I\+D}!radio.\+h@{radio.\+h}}
 \subsubsection[{V\+A\+L\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+A\+L\+I\+D~1}\label{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}
 
 
-Definiert in Zeile 28 der Datei radio.\+h.
+Definiert in Zeile 34 der Datei radio.\+h.
 
 
 
@@ -158,41 +367,177 @@ Definiert in Zeile 28 der Datei radio.\+h.
 \hypertarget{radio_8h_ab4334359915ce423f1ca752a4384a70f}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+R\+S\+Q@{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q}}
 \index{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q@{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q}!radio.\+h@{radio.\+h}}
 \subsubsection[{R\+A\+D\+I\+O\+\_\+\+R\+S\+Q}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf radio\+\_\+rsq}  {\bf R\+A\+D\+I\+O\+\_\+\+R\+S\+Q}}\label{radio_8h_ab4334359915ce423f1ca752a4384a70f}
+\hypertarget{radio_8h_a7ad276cb3b26c8610e25b52c55d8fab6}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S@{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S}}
+\index{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S@{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S}!radio.\+h@{radio.\+h}}
+\subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf radio\+\_\+settings}  {\bf R\+A\+D\+I\+O\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S}}\label{radio_8h_a7ad276cb3b26c8610e25b52c55d8fab6}
 \hypertarget{radio_8h_a903525b4070dadc3575c79be7341f94c}{}\index{radio.\+h@{radio.\+h}!R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+U\+S@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+U\+S}}
 \index{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+U\+S@{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+U\+S}!radio.\+h@{radio.\+h}}
 \subsubsection[{R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf radio\+\_\+status}  {\bf R\+A\+D\+I\+O\+\_\+\+S\+T\+A\+T\+U\+S}}\label{radio_8h_a903525b4070dadc3575c79be7341f94c}
 
 
 \subsection{Dokumentation der Funktionen}
-\hypertarget{radio_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+brightness@{radio\+\_\+brightness}}
+\hypertarget{radio_8h_ac96da2886aec92b299b27b500761564c}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+auto\+\_\+search@{radio\+\_\+auto\+\_\+search}}
+\index{radio\+\_\+auto\+\_\+search@{radio\+\_\+auto\+\_\+search}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+auto\+\_\+search}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+auto\+\_\+search (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{radio_8h_ac96da2886aec92b299b27b500761564c}
+
+
+Definiert in Zeile 436 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+437 \{
+438     uint8\_t station = 0;
+439     uint16\_t freq = 0;
+440     uint16\_t try\_rds = 0;
+441     uint8\_t percentage = 0;
+442     \textcolor{keywordtype}{char} tmp\_string[4];
+443     \textcolor{keywordflow}{do} \{
+444         \textcolor{comment}{//TODO seek up to next channel}
+445         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = \hyperlink{radio_8c_aee6321b512830d482a2fc164cf11f9e9}{radio\_seeking}(1);
+446         \textcolor{keywordflow}{if}(station == 0) \{
+447             freq = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency};
+448         \}
+449         \textcolor{keywordflow}{else} \{
+450             \textcolor{keywordflow}{if}(freq == \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency})\{
+451                 \textcolor{keywordflow}{break};
+452             \}
+453         \}
+454         \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a3e502e1dcdc44fc044b4f4b43f35a19a}{freq\_valid} = 0;
+455 
+456         \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} < freq) \{
+457             percentage = ((freq - \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency}) * 10) / ((
+      \hyperlink{radio__configuration_8h_a84521b00c701ae970f07d6fa4c65bf1e}{RADIO\_TOP\_FREQ} - \hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}) / 10);
+458         \}
+459         \textcolor{keywordflow}{else} \{
+460             percentage = ((\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} - freq) * 10) / ((
+      \hyperlink{radio__configuration_8h_a84521b00c701ae970f07d6fa4c65bf1e}{RADIO\_TOP\_FREQ} - \hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}) / 10);
+461         \}
+462 
+463         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_a7fb56950f448ef8f84f5e3073b1abd41}{auto\_search\_text}, 0, 0, 0, 0);
+464         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_af9c05251c5f8a74f6b5fe3c1149c9c19}{progress\_text}, 0, 1, 0, 0);
+465         \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, percentage, 3, 10);
+466         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 12, 1, 0, 0);
+467         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"%"}, 15, 1, 0, 1);
+468 
+469         \textcolor{keywordflow}{do} \{
+470             \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(2);
+471             \hyperlink{radio_8c_a1c031719ba892045c773dc035058870f}{rds\_update}(&\hyperlink{structradio}{radio});
+472         \}\textcolor{keywordflow}{while}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a88955dc0fd5d9169c68603ba777b643f}{name\_valid} != \hyperlink{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}{VALID} && try\_rds++ < 3000);
+473         try\_rds = 0;
+474         \hyperlink{radio_8c_a5e5300f73411d8e90a928adf42d2a6ed}{radio\_store\_station}(&(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency}), \hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a00c5e915306c0baea463b99ba6c09c4f}{name}, station);
+475         station++;
+476 
+477         \textcolor{comment}{// TODO Description for rds implementation, rds data will always be taken over handler if he get큦
+       valids rds blocks.}
+478         \textcolor{comment}{/* The rds\_function gives back several stats like rds station name valid, rds programm text valid.
+       Also it will handle}
+479 \textcolor{comment}{         * after a radio station name got valid it will not be readed out again. To get a vaild radio
+       station name there should}
+480 \textcolor{comment}{         * be two or three time the same name from rds, after this i could be said that the radio station
+       name is valid.}
+481 \textcolor{comment}{         * Syncronization of the Clock should be all ways checked for valid this could be happen by
+       checking time difference}
+482 \textcolor{comment}{         * from one time to the other. The time difference should be counted after first time was gotten.
+       The gap between the}
+483 \textcolor{comment}{         * first and second valid time should be the difference, which was counted during this. For a valid
+       rds text there should}
+484 \textcolor{comment}{         * be two times the same. After that the function should be polling for a new radio text indicator.}
+485 \textcolor{comment}{         */}
+486 
+487         \textcolor{comment}{//TODO implement a better way to get rds data with a valid condition}
+488 
+489     \} \textcolor{keywordflow}{while}(1);\textcolor{comment}{//TODO do it untill top seek frequency is reached or station storage is full.}
+490     \textcolor{comment}{//TODO Display list of founded Stations with a return mark on bottom.}
+491     \textcolor{comment}{//TODO Go to first valid Station.}
+492     \textcolor{comment}{//TODO mute SI4735 => go to lowest possible frequency => configure valid signal => start seeking up =>
+       wait valid channel interrupt => wait for valid rds information only station name => overwrite rom with new
+       channel data => seek up agian}
+493     \textcolor{comment}{//                                                                                          |                                                                                                                                           
+      |}
+494     \textcolor{comment}{//                                                                                          
+      ------------
+      --------------------------------------------------------------------------------------------------------------------------------- => until highest frequency is reached}
+495     \textcolor{keywordflow}{return} 0;
+496 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_ac96da2886aec92b299b27b500761564c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_ac96da2886aec92b299b27b500761564c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_a9dd33606330e2225b425000341cf4688}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+brightness@{radio\+\_\+brightness}}
 \index{radio\+\_\+brightness@{radio\+\_\+brightness}!radio.\+h@{radio.\+h}}
 \subsubsection[{radio\+\_\+brightness}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+brightness (
 \begin{DoxyParamCaption}
-\item[{uint8\+\_\+t}]{brightness}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count}
 \end{DoxyParamCaption}
-)}\label{radio_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}
+)}\label{radio_8h_a9dd33606330e2225b425000341cf4688}
 
 
-Definiert in Zeile 27 der Datei radio.\+c.
+Definiert in Zeile 58 der Datei radio.\+c.
 
 
 \begin{DoxyCode}
-28 \{
-29     \textcolor{keywordflow}{if}(brightness > 100) \{
-30         \textcolor{keywordflow}{return} 0xFF;
-31     \}
-32     \hyperlink{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53}{pca9530\_set\_pwm}(\hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{PWM\_0}, 256-\hyperlink{log__exp__table_8h_a71ee5f65e427eb1ea25f1796b045dbed}{exp\_table}[brightness]);
-33     \textcolor{comment}{//pca9530\_set\_pwm(PWM\_0,brightness);}
-34     \textcolor{keywordflow}{return} 0;
-35 \}
+59 \{
+60     \textcolor{keywordflow}{if}(*encoder\_right\_count != 0) \{
+61         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0 && \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} < 
+      \hyperlink{radio_8h_a11588a0c6047fcfe43bb00ba8e750d42}{RADIO\_BRIGHTNESS\_MAX}) \{
+62             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} += 
+      \hyperlink{radio_8h_a152ffe9f4099cb6256124ef87f2a5813}{RADIO\_BRIGHTNESS\_STEP};
+63         \}
+64         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_right\_count < 0 && radio.settings.brightness > 
+      \hyperlink{radio_8h_aae7d4a5d2184f9f3d62486432a668be5}{RADIO\_BRIGHTNESS\_MIN})\{
+65             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} -= 
+      \hyperlink{radio_8h_a152ffe9f4099cb6256124ef87f2a5813}{RADIO\_BRIGHTNESS\_STEP};
+66         \}
+67         \hyperlink{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53}{pca9530\_set\_pwm}(\hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{PWM\_0}, 256-\hyperlink{log__exp__table_8h_a71ee5f65e427eb1ea25f1796b045dbed}{exp\_table}[(uint8\_t)(
+      \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} * 2)]);
+68         *encoder\_right\_count = 0;
+69     \}
+70     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{menu_8h_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT}) \{
+71         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+72         \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+73         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+74     \}
+75     \textcolor{keywordflow}{else} \{
+76         \hyperlink{menu_8h_a5621c1bf312de029f43808bf02dc52e3}{menu\_scroll\_settings}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} * 2);
+77     \}
+78     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a8b824d49a014ff557c81c2e336202ebe}{STAY\_ON\_MENU\_POINT};
+79 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{radio_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1_cgraph}
+\includegraphics[width=350pt]{radio_8h_a9dd33606330e2225b425000341cf4688_cgraph}
 \end{center}
 \end{figure}
 
@@ -203,82 +548,351 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{radio_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1_icgraph}
+\includegraphics[width=350pt]{radio_8h_a9dd33606330e2225b425000341cf4688_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{radio_8h_af40ef5734842d7237918116e2decd3c0}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+contrast@{radio\+\_\+contrast}}
+\hypertarget{radio_8h_aaf3f53dfebe8da71fbe4c457ffda6714}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+contrast@{radio\+\_\+contrast}}
 \index{radio\+\_\+contrast@{radio\+\_\+contrast}!radio.\+h@{radio.\+h}}
 \subsubsection[{radio\+\_\+contrast}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+contrast (
 \begin{DoxyParamCaption}
-\item[{uint8\+\_\+t}]{contrast}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count}
 \end{DoxyParamCaption}
-)}\label{radio_8h_af40ef5734842d7237918116e2decd3c0}
+)}\label{radio_8h_aaf3f53dfebe8da71fbe4c457ffda6714}
 
 
-Definiert in Zeile 37 der Datei radio.\+c.
+Definiert in Zeile 81 der Datei radio.\+c.
 
 
 \begin{DoxyCode}
-38 \{
-39     \textcolor{keywordflow}{if}(contrast > 100) \{
-40         \textcolor{keywordflow}{return} 0xFF;
-41     \}
-42     \hyperlink{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956}{lcd\_contrast}((contrast * 32) / 100);
-43     \textcolor{keywordflow}{return} 0;
-44 \}
+82 \{
+83     \textcolor{keywordflow}{if}(*encoder\_right\_count != 0) \{
+84         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0 && \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} < 
+      \hyperlink{radio_8h_a971aea8fb933f5b56bd1215cbc734736}{RADIO\_CONTRAST\_MAX}) \{
+85             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} += \hyperlink{radio_8h_a3ad824f27b930de2e11857d29ddd003c}{RADIO\_CONTRAST\_STEP};
+86         \}
+87         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_right\_count < 0 && radio.settings.contrast > 
+      \hyperlink{radio_8h_a8179ee44198d263259432b392db916a2}{RADIO\_CONTRAST\_MIN}) \{
+88             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} -= \hyperlink{radio_8h_a3ad824f27b930de2e11857d29ddd003c}{RADIO\_CONTRAST\_STEP};
+89         \}
+90         \hyperlink{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956}{lcd\_contrast}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} / 
+      \hyperlink{radio_8h_a3ad824f27b930de2e11857d29ddd003c}{RADIO\_CONTRAST\_STEP});
+91         *encoder\_right\_count = 0;
+92     \}
+93     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{menu_8h_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT}) \{
+94         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+95         \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+96         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+97     \}
+98     \textcolor{keywordflow}{else} \{
+99         \hyperlink{menu_8h_a5621c1bf312de029f43808bf02dc52e3}{menu\_scroll\_settings}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} * 10);
+100     \}
+101     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a8b824d49a014ff557c81c2e336202ebe}{STAY\_ON\_MENU\_POINT};
+102 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{radio_8h_af40ef5734842d7237918116e2decd3c0_cgraph}
+\includegraphics[width=350pt]{radio_8h_aaf3f53dfebe8da71fbe4c457ffda6714_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{radio_8h_a132f2b55edd4f21141501c9e9a1c7b00}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+freq\+\_\+to\+\_\+string@{radio\+\_\+freq\+\_\+to\+\_\+string}}
-\index{radio\+\_\+freq\+\_\+to\+\_\+string@{radio\+\_\+freq\+\_\+to\+\_\+string}!radio.\+h@{radio.\+h}}
-\subsubsection[{radio\+\_\+freq\+\_\+to\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+freq\+\_\+to\+\_\+string (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{str, }
-\item[{uint16\+\_\+t}]{freq}
-\end{DoxyParamCaption}
-)}\label{radio_8h_a132f2b55edd4f21141501c9e9a1c7b00}
-
-
-Definiert in Zeile 188 der Datei radio.\+c.
-
-
-\begin{DoxyCode}
-189 \{
-190     uint8\_t count = 0;
-191     freq /= 10;
-192     str[0] = \textcolor{charliteral}{' '};
-193     str[5] = 0;
-194     str += 4;
-195     \textcolor{keywordflow}{while} (freq > 0) \{
-196         *str = freq % 10 + \textcolor{charliteral}{'0'};
-197         str--;
-198         freq /= 10;
-199         \textcolor{keywordflow}{if} (count++ == 0) \{
-200             *str = \textcolor{charliteral}{'.'};
-201             str--;
-202         \}
-203     \}
-204     \textcolor{keywordflow}{return} 0;
-205 \}
-\end{DoxyCode}
 
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{radio_8h_a132f2b55edd4f21141501c9e9a1c7b00_icgraph}
+\includegraphics[width=350pt]{radio_8h_aaf3f53dfebe8da71fbe4c457ffda6714_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_aae41d271062b3f94cccf4fb5996b04a2}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+frequency@{radio\+\_\+frequency}}
+\index{radio\+\_\+frequency@{radio\+\_\+frequency}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+frequency}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+frequency (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio_8h_aae41d271062b3f94cccf4fb5996b04a2}
+
+
+Definiert in Zeile 252 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+253 \{
+254     uint16\_t tmp\_freq = 0;
+255     tmp\_freq = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency};
+256     \textcolor{keywordflow}{if}(entry\_num == \hyperlink{menu_8h_ade9ef61f79ef2baf563238cf23c43aa0}{MENU\_FREQ\_SEEK\_UP\_ENTRY}) \{
+257         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = 0;
+258         \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(1, 0);
+259         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_freq;
+260         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+261     \}
+262     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(entry\_num ==  \hyperlink{menu_8h_acae827e168a0fe9a03fe9a71a20f6077}{MENU\_FREQ\_SEEK\_DOWN\_ENTRY}) \{
+263         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = 0xFFFF;
+264         \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(1, 0);
+265         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_freq;
+266         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+267     \}
+268     \textcolor{keywordflow}{else} \{
+269         uint8\_t ret = \hyperlink{station__list_8c_a5b16204c2b6824ce89364d614f074b20}{station\_list\_handler}(encoder\_right\_button, encoder\_right\_count, 
+      entry\_num);
+270         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_freq;
+271         \textcolor{keywordflow}{return} ret;
+272     \}
+273 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_aae41d271062b3f94cccf4fb5996b04a2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_aae41d271062b3f94cccf4fb5996b04a2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_a3a1de7e31aabba6e408a633c130e618a}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+init@{radio\+\_\+init}}
+\index{radio\+\_\+init@{radio\+\_\+init}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{radio_8h_a3a1de7e31aabba6e408a633c130e618a}
+
+
+Definiert in Zeile 23 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+24 \{
+25     \hyperlink{timer_8c_ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6}{basic\_clock\_init}();
+26     \hyperlink{timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c}{timer\_init}();
+27     \hyperlink{i2c_8h_a1ef889b72b844429bc81225d7b6f4f2e}{i2c\_init} (400,10);
+28 
+29     \textcolor{comment}{/*radio.status.audio\_status = 0;}
+30 \textcolor{comment}{}
+31 \textcolor{comment}{    radio.settings.frequency = 10770;}
+32 \textcolor{comment}{    radio.settings.display\_view = RADIO\_RDS\_VIEW;}
+33 \textcolor{comment}{    radio.settings.volume = 30;}
+34 \textcolor{comment}{    radio.settings.equalizer = POP;}
+35 \textcolor{comment}{    radio.settings.source = SOURCE\_FM;}
+36 \textcolor{comment}{    radio.settings.brightness = 25;}
+37 \textcolor{comment}{    radio.settings.contrast = 6;*/}
+38 
+39     \textcolor{comment}{//TODOload values from flash}
+40 
+41     \hyperlink{radio_8c_a3a59bda16d899217789edbce203bf043}{radio\_load\_settings}();
+42 
+43     \hyperlink{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3}{pca9530\_init}(&\hyperlink{radio_8c_a53a968e95bf48f457eddabce1afe9971}{pca9530\_config});
+44     \hyperlink{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53}{pca9530\_set\_pwm}(\hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740}{PWM\_0}, 256-\hyperlink{log__exp__table_8h_a71ee5f65e427eb1ea25f1796b045dbed}{exp\_table}[(uint8\_t)(
+      \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} * 2)]);
+45     \hyperlink{radio_8c_afb3cb0ce160c3403d9306d936667fb64}{radio\_source\_select}(0);
+46     \hyperlink{lcd_8h_a312eed1baec275e185dc00b760de1356}{lcd\_init}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast});
+47     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_a33040240a86028e9c49ec2e973e99b56}{startup\_line\_1}, 2, 0, 0, 0);
+48     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_a71122f7107aff19ff86b1361daf4be62}{startup\_line\_2}, 2, 1, 0, 0);
+49     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_aedbc56215039b511317a243dda98ca37}{startup\_line\_3}, 2, 2, 0, 1);
+50     \hyperlink{tpa2016d2_8c_a8d3c252b2c26623c72958d1d77bc0cf9}{tpa2016d2\_init}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer},
+      \hyperlink{radio_8h_af92ed4044fdaecd437ed070ac7cd2cc1}{AMPLIFIER\_GAIN});
+51     \hyperlink{si4735_8h_a876518b974a7128391e2ff86a597218f}{SI4735\_INIT}();
+52     \hyperlink{radio_8c_aead0d199e23b8cc254924b96b017210b}{radio\_set\_volume}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+53     \hyperlink{encoder_8h_a1b09f480da15d565de0b4acf37f40199}{Encoder\_1\_init}();
+54     \hyperlink{encoder_8h_af947b4bf6e9bc6d5b580609d046789da}{Encoder\_2\_init}();
+55     \textcolor{keywordflow}{return} 0;
+56 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a3a1de7e31aabba6e408a633c130e618a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{radio_8h_a3a1de7e31aabba6e408a633c130e618a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_a3a59bda16d899217789edbce203bf043}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+load\+\_\+settings@{radio\+\_\+load\+\_\+settings}}
+\index{radio\+\_\+load\+\_\+settings@{radio\+\_\+load\+\_\+settings}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+load\+\_\+settings}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+load\+\_\+settings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{radio_8h_a3a59bda16d899217789edbce203bf043}
+
+
+Definiert in Zeile 304 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+305 \{
+306     \hyperlink{flash_8h_ad9d8a7cadb959b139fea7654d539714a}{flash\_read}(&\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}, \textcolor{keyword}{sizeof}(\hyperlink{structradio}{radio}.
+      \hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}), \hyperlink{radio_8h_ae8a3bf59b7d1412dc23f9bd56041acb6}{RADIO\_SETTINGS\_STORE\_ADR});
+307     \textcolor{keywordflow}{return} 0;
+308 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{radio_8h_a3a59bda16d899217789edbce203bf043_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{radio_8h_a3a59bda16d899217789edbce203bf043_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_a5f7fcd9e9755fb5e22175a4ad74a5456}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+main@{radio\+\_\+main}}
+\index{radio\+\_\+main@{radio\+\_\+main}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+main}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+main (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count}
+\end{DoxyParamCaption}
+)}\label{radio_8h_a5f7fcd9e9755fb5e22175a4ad74a5456}
+
+
+Definiert in Zeile 326 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+327 \{
+328     uint8\_t tmp\_value = 0;
+329 
+330     \textcolor{keywordflow}{if}(*encoder\_right\_count != 0) \{ \textcolor{comment}{//move to radio\_volume and}
+331         \textcolor{keywordflow}{if}(*encoder\_right\_count < 0 && radio.settings.volume > 0) \{
+332             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume}--;
+333         \}
+334         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_right\_count > 0 && \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} < 100) \{
+335             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume}++;
+336         \}
+337         \hyperlink{radio_8c_aead0d199e23b8cc254924b96b017210b}{radio\_set\_volume}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+338         \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status} = \hyperlink{radio_8h_ab9dc5a11c1311b173b2bda125e571107}{AUDIO\_VOLUME};
+339         tmp\_value = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+340         *encoder\_right\_count = 0;
+341     \}
+342 
+343     \textcolor{keywordflow}{if}(*encoder\_left\_count != 0) \{
+344         \textcolor{keywordflow}{if}(*encoder\_left\_count < 0) \{
+345             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} -= 10;
+346         \}
+347         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_left\_count > 0) \{
+348             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} += 10;
+349         \}
+350         \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a3e502e1dcdc44fc044b4f4b43f35a19a}{freq\_valid} = 0;
+351         \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} < \hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ})\{
+352             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = \hyperlink{radio__configuration_8h_a84521b00c701ae970f07d6fa4c65bf1e}{RADIO\_TOP\_FREQ};
+353         \}
+354         \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} > \hyperlink{radio__configuration_8h_a84521b00c701ae970f07d6fa4c65bf1e}{RADIO\_TOP\_FREQ})\{
+355             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = \hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ};
+356         \}
+357         \hyperlink{radio_8c_a6d652e9d0f1c54bfe9ec73fe2605b706}{radio\_tune\_freq}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency});
+358         tmp\_value = ((\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} - 
+      \hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}) * 10) / ((\hyperlink{radio__configuration_8h_a84521b00c701ae970f07d6fa4c65bf1e}{RADIO\_TOP\_FREQ} - 
+      \hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}) / 10);
+359         *encoder\_left\_count = 0;
+360     \}
+361     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{menu_8h_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT})
+362     \{
+363         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+364         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a574802ac545032f67153282c9ff9e4db}{SHORT\_INTO\_MENU};
+365     \}
+366     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{menu_8h_a7feaffb81b5835815adbc90d046b24aa}{BUTTON\_PRESS\_LONG})
+367     \{
+368         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+369         \textcolor{keywordflow}{return} \hyperlink{menu_8h_ab15dd92ee38ecc6cd07fa4eeb21a0a9f}{LONG\_INTO\_MENU};
+370     \}
+371     \textcolor{keywordflow}{if}(*encoder\_left\_button == \hyperlink{menu_8h_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT})
+372     \{
+373         *encoder\_left\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+374         \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status} == \hyperlink{radio_8h_ac7e359f72aff03a55779034835ce9240}{AUDIO\_MUTE}) \{
+375             \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status} = 0;
+376         \} \textcolor{keywordflow}{else} \{
+377             \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status} = \hyperlink{radio_8h_ac7e359f72aff03a55779034835ce9240}{AUDIO\_MUTE};
+378         \}
+379         \textcolor{comment}{//radio\_mute}
+380     \}
+381     \textcolor{keywordflow}{if}(*encoder\_left\_button == \hyperlink{menu_8h_a7feaffb81b5835815adbc90d046b24aa}{BUTTON\_PRESS\_LONG})
+382     \{
+383         *encoder\_left\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+384         \textcolor{comment}{//radio\_standby}
+385     \}
+386     \hyperlink{radio__display_8h_aa568d26c43f1503a5f31c86aab080591}{radio\_display\_handler}(tmp\_value);
+387     \textcolor{keywordflow}{return} 0;
+388 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a5f7fcd9e9755fb5e22175a4ad74a5456_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a5f7fcd9e9755fb5e22175a4ad74a5456_icgraph}
 \end{center}
 \end{figure}
 
@@ -292,19 +906,21 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{radio_8h_aee6321b512830d482a2fc164cf11f9e9}
 
 
-Definiert in Zeile 255 der Datei radio.\+c.
+Definiert in Zeile 398 der Datei radio.\+c.
 
 
 \begin{DoxyCode}
-256 \{
-257     uint8\_t resp[8];
-258     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
-259     \hyperlink{si4735_8h_a339846da787fb5a496df9252ca7dc9a5}{si4735\_fm\_seek\_start}(up\_down);
-260     \hyperlink{si4735_8h_ad8b515f4991303f8cac978410d736a03}{si4735\_fm\_tune\_status}(0, 1, resp);
-261     \hyperlink{external__interrupthandler_8h_a67fb5781413cf5c193be332cc6e52209}{ext\_interrupt\_disable}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
-262 
-263     \textcolor{keywordflow}{return} (resp[2] << 8) + resp[3];
-264 \}
+399 \{
+400     uint8\_t resp[8];
+401     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+402     \hyperlink{si4735_8h_a339846da787fb5a496df9252ca7dc9a5}{si4735\_fm\_seek\_start}(up\_down);
+403     \hyperlink{si4735_8h_ad8b515f4991303f8cac978410d736a03}{si4735\_fm\_tune\_status}(0, 1, resp);
+404     \hyperlink{external__interrupthandler_8h_a67fb5781413cf5c193be332cc6e52209}{ext\_interrupt\_disable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+405 
+406     \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a3e502e1dcdc44fc044b4f4b43f35a19a}{freq\_valid} = 0;
+407 
+408     \textcolor{keywordflow}{return} (resp[2] << 8) + resp[3];
+409 \}
 \end{DoxyCode}
 
 
@@ -323,43 +939,348 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=289pt]{radio_8h_aee6321b512830d482a2fc164cf11f9e9_icgraph}
+\includegraphics[width=350pt]{radio_8h_aee6321b512830d482a2fc164cf11f9e9_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{radio_8h_ab8b5a7b9b4ca94260ab8802217721bda}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}}
-\index{radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}!radio.\+h@{radio.\+h}}
-\subsubsection[{radio\+\_\+store\+\_\+station}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+store\+\_\+station (
+\hypertarget{radio_8h_aead0d199e23b8cc254924b96b017210b}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+set\+\_\+volume@{radio\+\_\+set\+\_\+volume}}
+\index{radio\+\_\+set\+\_\+volume@{radio\+\_\+set\+\_\+volume}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+set\+\_\+volume}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+set\+\_\+volume (
 \begin{DoxyParamCaption}
-\item[{uint16\+\_\+t}]{freq, }
-\item[{int8\+\_\+t $\ast$}]{name, }
-\item[{uint8\+\_\+t}]{pos}
+\item[{int8\+\_\+t}]{volume}
 \end{DoxyParamCaption}
-)}\label{radio_8h_ab8b5a7b9b4ca94260ab8802217721bda}
+)}\label{radio_8h_aead0d199e23b8cc254924b96b017210b}
 
 
-Definiert in Zeile 266 der Datei radio.\+c.
+Definiert in Zeile 310 der Datei radio.\+c.
 
 
 \begin{DoxyCode}
-267 \{
-268 
-269     uint8\_t t\_freq[2];
-270     t\_freq[0] = (freq & 0x00FF);
-271     t\_freq[1] = ((freq & 0xFF00) >> 8);
-272     \hyperlink{flash_8h_aece8757a70bfb964ca3de0302924c3fd}{store\_data\_to\_flash}(name, 8, pos * 8);
-273     \hyperlink{flash_8h_aece8757a70bfb964ca3de0302924c3fd}{store\_data\_to\_flash}(t\_freq, 2, pos * 2 + 128);
-274     \textcolor{keywordflow}{return} 0;
-275 \}
+311 \{
+312     uint8\_t tmp\_volume;
+313     \textcolor{keywordflow}{if}(volume > 100) \{
+314         volume = 100;
+315     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(volume < 0) \{
+316         volume = 0;
+317     \}
+318     tmp\_volume = ((int16\_t)(volume) * \hyperlink{si4735_8h_aff4d74114fdab395c3ec16b39504a72f}{SI4735\_VOLUME\_MAX}) / 100;
+319     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+320     \hyperlink{si4735_8h_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_aeb1de40ffb7cb51cf4a151f5d1b746d7}{RX\_VOLUME}, tmp\_volume);
+321     \hyperlink{external__interrupthandler_8h_a67fb5781413cf5c193be332cc6e52209}{ext\_interrupt\_disable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+322     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(10);
+323     \textcolor{keywordflow}{return} 0;
+324 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{radio_8h_ab8b5a7b9b4ca94260ab8802217721bda_cgraph}
+\includegraphics[width=350pt]{radio_8h_aead0d199e23b8cc254924b96b017210b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_aead0d199e23b8cc254924b96b017210b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_a832a684fc60104296fc975a7608f92b4}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+settings@{radio\+\_\+settings}}
+\index{radio\+\_\+settings@{radio\+\_\+settings}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+settings}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t {\bf radio\+\_\+settings} (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio_8h_a832a684fc60104296fc975a7608f92b4}
+
+
+Definiert in Zeile 191 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+192 \{
+193     \textcolor{keywordflow}{switch}(entry\_num) \{
+194     \textcolor{keywordflow}{case} \hyperlink{menu_8h_af74b8a826a42006eea334555edf0a1bb}{RADIO\_RDS\_VIEW\_ENTRY}:
+195         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view} = \hyperlink{radio_8h_ad826646e122735a715e4735bdc636481}{RADIO\_RDS\_VIEW};
+196         \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+197         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+198     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a828cf311e0673575a4ea3b250e569a9c}{RADIO\_RSQ\_VIEW\_ENTRY}:
+199         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view} = \hyperlink{radio_8h_a843a840a345827331202139180dfc415}{RADIO\_RSQ\_VIEW};
+200         \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+201         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+202     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ab6f01fe31e2cf4425ba9f37ca586b055}{RADIO\_PIPTY\_VIEW\_ENTRY}:
+203         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view} = \hyperlink{radio_8h_a6b0b4c694735693e43bac65eeca05a30}{RADIO\_PIPTY\_VIEW};
+204         \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+205         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+206     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a32c4ba4e9d26097a95a2d6d0e2fae19a}{AUDIO\_ROCK\_ENTRY}:
+207     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a41f4c2e80487ed2422d44f3ff16affa8}{AUDIO\_POP\_ENTRY}:
+208     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a6c103aa4955ff3995d89334ed0b0a1e0}{AUDIO\_HIPHOP\_ENTRY}:
+209     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aeac602646ed0bd9ba1a81440d5c7c241}{AUDIO\_NEWS\_ENTRY}:
+210     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a76dd6e73df6dfa83574943bf0a975d5f}{AUDIO\_CLASSIC\_ENTRY}:
+211     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a878e8f0591a3cdf568e9a465adcf5665}{AUDIO\_JAZZ\_ENTRY}:
+212         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+213         *encoder\_right\_count = 0;
+214         \textcolor{keywordflow}{return} \hyperlink{radio_8c_aaaca9764d77849b9d1aeae47e691bf75}{radio\_equalizer}(entry\_num);
+215     \textcolor{keywordflow}{case} \hyperlink{menu_8h_acef5569f62eb924ce3a4dd3f7dbf44d7}{SOURCE\_AM\_ENTRY}:
+216     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a8f128b413404cd409a8438505c1d39f1}{SOURCE\_FM\_ENTRY}:
+217     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aa3a25b6121aea818d2efb2ee9741a83c}{SOURCE\_LINEIN\_ENTRY}:
+218         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+219         *encoder\_right\_count = 0;
+220         \textcolor{keywordflow}{return} \hyperlink{radio_8c_afb3cb0ce160c3403d9306d936667fb64}{radio\_source\_select}(entry\_num);
+221     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aa9d014ea80d95c7f32f2857d10481206}{MENU\_BRIG\_ENTRY}:
+222         \textcolor{keywordflow}{return} \hyperlink{radio_8c_a9dd33606330e2225b425000341cf4688}{radio\_brightness}(encoder\_right\_button, encoder\_right\_count);
+223     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a09a38cec6cbb754c3ce721e7c729c545}{MENU\_CONT\_ENTRY}:
+224         \textcolor{keywordflow}{return} \hyperlink{radio_8c_aaf3f53dfebe8da71fbe4c457ffda6714}{radio\_contrast}(encoder\_right\_button, encoder\_right\_count);
+225     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aef2bcd296a3d49fb80d0e345205f98c0}{MENU\_VOL\_START\_ENTRY}:
+226     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ae14ae7acebfbb08bf1028c9b22b94c8d}{MENU\_VOL\_TA\_ENTRY}:
+227         \textcolor{keywordflow}{return} \hyperlink{radio_8c_afce06a210fd84b9acb905e8ab81feaeb}{radio\_volume}(encoder\_right\_button, encoder\_right\_count, entry\_num);
+228     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a5ce85b23810c89e86194609529dfc4fc}{SEEKING\_UP}:
+229         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = \hyperlink{radio_8c_aee6321b512830d482a2fc164cf11f9e9}{radio\_seeking}(1);
+230         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+231     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ab039e76a9fdf467e69291cfbb67f234f}{SEEKING\_DOWN}:
+232         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = \hyperlink{radio_8c_aee6321b512830d482a2fc164cf11f9e9}{radio\_seeking}(0);
+233         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+234     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a8aa0e8b09d71b943d72e05d755b0827d}{STORE\_STATION}:
+235     \textcolor{keywordflow}{case} \hyperlink{menu_8h_acf4538b0bd65dd4d5e3530aaeb264a18}{STATION\_VIEW}:
+236         \textcolor{keywordflow}{return} \hyperlink{station__list_8c_a5b16204c2b6824ce89364d614f074b20}{station\_list\_handler}(encoder\_right\_button, encoder\_right\_count, 
+      entry\_num);
+237     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ab12bdd916b4cbe4809be313f58f2ab28}{AUTO\_SEARCH}:
+238         \hyperlink{radio_8c_ac96da2886aec92b299b27b500761564c}{radio\_auto\_search}();
+239         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+240     \textcolor{keywordflow}{case} \hyperlink{menu_8h_acae827e168a0fe9a03fe9a71a20f6077}{MENU\_FREQ\_SEEK\_DOWN\_ENTRY}:
+241     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ade9ef61f79ef2baf563238cf23c43aa0}{MENU\_FREQ\_SEEK\_UP\_ENTRY}:
+242     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a79a0b72d2ebbee89c0757cc582d5accd}{MENU\_FREQ\_CHOOSE\_ENTRY}:
+243         \textcolor{keywordflow}{return} \hyperlink{radio_8c_aae41d271062b3f94cccf4fb5996b04a2}{radio\_frequency}(encoder\_right\_button, encoder\_right\_count, entry\_num);
+244     \textcolor{keywordflow}{default}:
+245         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+246         *encoder\_right\_count = 0;
+247         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+248     \}
+249 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a832a684fc60104296fc975a7608f92b4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a832a684fc60104296fc975a7608f92b4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_afb3cb0ce160c3403d9306d936667fb64}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+source\+\_\+select@{radio\+\_\+source\+\_\+select}}
+\index{radio\+\_\+source\+\_\+select@{radio\+\_\+source\+\_\+select}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+source\+\_\+select}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+source\+\_\+select (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio_8h_afb3cb0ce160c3403d9306d936667fb64}
+
+
+Definiert in Zeile 143 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+143                                                \{
+144     \hyperlink{radio__pin__mapping_8h_ac22ca934df4c870f7eb1ec41990e451d}{AUDIO\_SW\_LINE\_DIR} |= \hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+145     \hyperlink{radio__pin__mapping_8h_adecc7a0efe6f3f5702a8a29aa0fc72bb}{AUDIO\_SW\_GND\_DIR} |= \hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+146     \textcolor{keywordflow}{switch}(entry\_num) \{
+147     \textcolor{keywordflow}{default}:
+148     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a8f128b413404cd409a8438505c1d39f1}{SOURCE\_FM\_ENTRY}:
+149         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_acced9a05ed6f381d74d67de65d66fa3b}{source} = \hyperlink{radio_8h_a9e7a21d5bccf1729d5b46f9f9f5f9c26}{SOURCE\_FM};
+150         \hyperlink{radio__pin__mapping_8h_a68ecfdd082fecba564d175bf9b148a55}{AUDIO\_SW\_LINE\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+151         \hyperlink{radio__pin__mapping_8h_a954fca99d0829539fe16678808393e57}{AUDIO\_SW\_GND\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+152         \textcolor{comment}{//TODO Implement switch si4735 to FM only when AM mode is implemented else just switch audio switch}
+153         \textcolor{keywordflow}{break};
+154     \textcolor{keywordflow}{case} \hyperlink{menu_8h_acef5569f62eb924ce3a4dd3f7dbf44d7}{SOURCE\_AM\_ENTRY}:
+155         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_acced9a05ed6f381d74d67de65d66fa3b}{source} = \hyperlink{radio_8h_aea883aea91ad122afd73fd627eafd34a}{SOURCE\_AM};
+156         \hyperlink{radio__pin__mapping_8h_a68ecfdd082fecba564d175bf9b148a55}{AUDIO\_SW\_LINE\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+157         \hyperlink{radio__pin__mapping_8h_a954fca99d0829539fe16678808393e57}{AUDIO\_SW\_GND\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+158         \textcolor{comment}{//TODO Implement switch si4735 to AM only when AM mode is implemented else just do nothing else}
+159         \textcolor{keywordflow}{break};
+160     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aa3a25b6121aea818d2efb2ee9741a83c}{SOURCE\_LINEIN\_ENTRY}:
+161         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_acced9a05ed6f381d74d67de65d66fa3b}{source} = \hyperlink{radio_8h_a5d9dbdbe329668b29eb0c4d820fbc82f}{SOURCE\_LINEIN};
+162         \hyperlink{radio__pin__mapping_8h_a68ecfdd082fecba564d175bf9b148a55}{AUDIO\_SW\_LINE\_OUT} |= \hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+163         \hyperlink{radio__pin__mapping_8h_a954fca99d0829539fe16678808393e57}{AUDIO\_SW\_GND\_OUT} |= \hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+164         \textcolor{comment}{//TODO set si4735 in powerdown modus only if ta/tp mode is off else poll flag and swith to si4735
+       for duration ta flag is set}
+165     \}
+166     \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+167     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+168 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_afb3cb0ce160c3403d9306d936667fb64_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_afb3cb0ce160c3403d9306d936667fb64_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+store\+\_\+settings@{radio\+\_\+store\+\_\+settings}}
+\index{radio\+\_\+store\+\_\+settings@{radio\+\_\+store\+\_\+settings}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+store\+\_\+settings}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+store\+\_\+settings (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{freq, }
+\item[{uint8\+\_\+t}]{volume}
+\end{DoxyParamCaption}
+)}\label{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}
+
+
+Definiert in Zeile 277 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+278 \{
+279     uint16\_t tmp\_frequency = 0;
+280     uint8\_t tmp\_volume = 0;
+281     \hyperlink{structradio__settings}{RADIO\_SETTINGS} tmp\_settings;
+282     \hyperlink{flash_8h_ad9d8a7cadb959b139fea7654d539714a}{flash\_read}(&tmp\_settings, \textcolor{keyword}{sizeof}(tmp\_settings), 
+      \hyperlink{radio_8h_ae8a3bf59b7d1412dc23f9bd56041acb6}{RADIO\_SETTINGS\_STORE\_ADR});
+283     \textcolor{keywordflow}{if}(freq != \hyperlink{radio_8c_a6b75acc4d1fb67318c316d5c3426781f}{RADIO\_STORE\_VALUE}) \{
+284         tmp\_frequency = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency};
+285         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_settings.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency};
+286     \}
+287     \textcolor{keywordflow}{if}(volume != \hyperlink{radio_8c_a6b75acc4d1fb67318c316d5c3426781f}{RADIO\_STORE\_VALUE}) \{
+288         tmp\_volume = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+289         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} = tmp\_settings.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+290     \}
+291 
+292     \hyperlink{flash_8h_a936ded19cea6a94beca2b32349a9ac2c}{flash\_store}(&(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}), \textcolor{keyword}{sizeof}(\hyperlink{structradio}{radio}.
+      \hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}), \hyperlink{radio_8h_ae8a3bf59b7d1412dc23f9bd56041acb6}{RADIO\_SETTINGS\_STORE\_ADR});
+293 
+294     \textcolor{keywordflow}{if}(freq != \hyperlink{radio_8c_a6b75acc4d1fb67318c316d5c3426781f}{RADIO\_STORE\_VALUE}) \{
+295         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_frequency;
+296     \}
+297 
+298     \textcolor{keywordflow}{if}(volume != \hyperlink{radio_8c_a6b75acc4d1fb67318c316d5c3426781f}{RADIO\_STORE\_VALUE}) \{
+299         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} = tmp\_volume;
+300     \}
+301     \textcolor{keywordflow}{return} 0;
+302 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a477656bb91c200d15ddbe6cffcd04c53_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a477656bb91c200d15ddbe6cffcd04c53_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_a5e5300f73411d8e90a928adf42d2a6ed}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}}
+\index{radio\+\_\+store\+\_\+station@{radio\+\_\+store\+\_\+station}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+store\+\_\+station}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+store\+\_\+station (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t $\ast$}]{freq, }
+\item[{char $\ast$}]{name, }
+\item[{uint8\+\_\+t}]{pos}
+\end{DoxyParamCaption}
+)}\label{radio_8h_a5e5300f73411d8e90a928adf42d2a6ed}
+
+
+Definiert in Zeile 411 der Datei radio.\+c.
+
+
+\begin{DoxyCode}
+412 \{
+413     \textcolor{keywordtype}{char} tmp\_string[8];
+414     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a88955dc0fd5d9169c68603ba777b643f}{name\_valid} != \hyperlink{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}{VALID}) \{
+415         \hyperlink{string_8c_a0e45f80d2057e44647b21fd530fe185d}{string\_fixedpoint\_to\_array}(tmp\_string, *freq);
+416         tmp\_string[5] = \textcolor{charliteral}{'M'};
+417         tmp\_string[6] = \textcolor{charliteral}{'H'};
+418         tmp\_string[7] = \textcolor{charliteral}{'z'};
+419         \hyperlink{flash_8h_a936ded19cea6a94beca2b32349a9ac2c}{flash\_store}(tmp\_string, \hyperlink{radio_8h_aed5209d4f73a4a25770bde0149625689}{RADIO\_STATION\_NAME\_STORE\_SIZE}, 
+      \hyperlink{radio_8h_ab4103f5bd07b36785d220fe005dc65e3}{RADIO\_STATION\_NAME\_STORE\_ADR} + 
+      \hyperlink{radio_8h_aed5209d4f73a4a25770bde0149625689}{RADIO\_STATION\_NAME\_STORE\_SIZE} * pos);
+420     \}
+421     \textcolor{keywordflow}{else} \{
+422         \hyperlink{flash_8h_a936ded19cea6a94beca2b32349a9ac2c}{flash\_store}(name, \hyperlink{radio_8h_aed5209d4f73a4a25770bde0149625689}{RADIO\_STATION\_NAME\_STORE\_SIZE}, 
+      \hyperlink{radio_8h_ab4103f5bd07b36785d220fe005dc65e3}{RADIO\_STATION\_NAME\_STORE\_ADR} + 
+      \hyperlink{radio_8h_aed5209d4f73a4a25770bde0149625689}{RADIO\_STATION\_NAME\_STORE\_SIZE} * pos);
+423     \}
+424     \hyperlink{flash_8h_a936ded19cea6a94beca2b32349a9ac2c}{flash\_store}(freq, \hyperlink{radio_8h_a6c8d7f12aa8f30e4e8ee25eae8edebd7}{RADIO\_STATION\_FREQ\_STORE\_SIZE}, 
+      \hyperlink{radio_8h_a079cd45a1bbfedfbb94ebd6560eaf902}{RADIO\_STATION\_FREQ\_STORE\_ADR} + 
+      \hyperlink{radio_8h_a6c8d7f12aa8f30e4e8ee25eae8edebd7}{RADIO\_STATION\_FREQ\_STORE\_SIZE} * pos);
+425     \textcolor{keywordflow}{return} 0;
+426 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a5e5300f73411d8e90a928adf42d2a6ed_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a5e5300f73411d8e90a928adf42d2a6ed_icgraph}
 \end{center}
 \end{figure}
 
@@ -373,14 +1294,16 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 )}\label{radio_8h_a6d652e9d0f1c54bfe9ec73fe2605b706}
 
 
-Definiert in Zeile 243 der Datei radio.\+c.
+Definiert in Zeile 390 der Datei radio.\+c.
 
 
 \begin{DoxyCode}
-244 \{
-245     \hyperlink{si4735_8h_af82ec28b536b1258ea4178108c61d5e9}{si4735\_fm\_tune\_freq}(freq);
-246     \textcolor{keywordflow}{return} 0;
-247 \}
+391 \{
+392     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+393     \hyperlink{si4735_8h_af82ec28b536b1258ea4178108c61d5e9}{si4735\_fm\_tune\_freq}(freq);
+394     \hyperlink{external__interrupthandler_8h_a67fb5781413cf5c193be332cc6e52209}{ext\_interrupt\_disable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+395     \textcolor{keywordflow}{return} 0;
+396 \}
 \end{DoxyCode}
 
 
@@ -393,99 +1316,105 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{radio_8h_a391fc5fe58716d2c794685bcf12bbda5}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+value\+\_\+to\+\_\+string@{radio\+\_\+value\+\_\+to\+\_\+string}}
-\index{radio\+\_\+value\+\_\+to\+\_\+string@{radio\+\_\+value\+\_\+to\+\_\+string}!radio.\+h@{radio.\+h}}
-\subsubsection[{radio\+\_\+value\+\_\+to\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+value\+\_\+to\+\_\+string (
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_a6d652e9d0f1c54bfe9ec73fe2605b706_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio_8h_afce06a210fd84b9acb905e8ab81feaeb}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+volume@{radio\+\_\+volume}}
+\index{radio\+\_\+volume@{radio\+\_\+volume}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio\+\_\+volume}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+volume (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{str, }
-\item[{int16\+\_\+t}]{value, }
-\item[{uint8\+\_\+t}]{size, }
-\item[{uint8\+\_\+t}]{base}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{setting}
 \end{DoxyParamCaption}
-)}\label{radio_8h_a391fc5fe58716d2c794685bcf12bbda5}
+)}\label{radio_8h_afce06a210fd84b9acb905e8ab81feaeb}
 
 
-Definiert in Zeile 207 der Datei radio.\+c.
+Definiert in Zeile 104 der Datei radio.\+c.
 
 
 \begin{DoxyCode}
-208 \{
-209     uint8\_t tmp\_sign = 0;
-210     str[size] = 0;
-211     str += size - 1;
-212     \textcolor{keywordflow}{if}(\hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} == 0) \{
-213         *str = \textcolor{charliteral}{'0'};
-214         str--;
-215     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} < 0) \{
-216         tmp\_sign = 1;
-217         \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} = (uint16\_t)(-1 * \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value});
-218     \}
-219 
-220     \textcolor{keywordflow}{while} (size > 0) \{
-221         \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} != 0) \{
-222             *str = \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} % base + \textcolor{charliteral}{'0'};
-223             \textcolor{keywordflow}{if} (*str > \textcolor{charliteral}{'9'}) \{
-224                 *str += \textcolor{charliteral}{'A'} - \textcolor{charliteral}{'9'} - 1;
-225             \}
-226             \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} /= base;
-227         \}
-228         \textcolor{keywordflow}{else} \{
-229             \textcolor{keywordflow}{if}(tmp\_sign == 1) \{
-230                 *str = \textcolor{charliteral}{'-'};
-231                 tmp\_sign = 0;
-232             \} \textcolor{keywordflow}{else} \{
-233                 *str = \textcolor{charliteral}{' '};
-234             \}
-235         \}
-236         str--;
-237         size--;
-238 
-239     \}
-240     \textcolor{keywordflow}{return} 0;
-241 \}
+105 \{
+106     \textcolor{keyword}{static} int8\_t tmp\_volume = 0;
+107     \textcolor{keywordflow}{if}(tmp\_volume == 0 && setting != 0) \{
+108         tmp\_volume = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+109         \textcolor{comment}{//TODO load volumes from store place}
+110     \}
+111     \textcolor{keywordflow}{if}(*encoder\_right\_count != 0) \{
+112         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0 && \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} < 
+      \hyperlink{radio_8h_af2bf5f03ca0b46368bcdc8de4466c0eb}{RADIO\_VOLUME\_MAX}) \{
+113             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} += \hyperlink{radio_8h_ae7b78fb9948dccf5053129c05e790b3f}{RADIO\_VOLUME\_STEP};
+114         \}
+115         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_right\_count < 0 && radio.settings.volume > 
+      \hyperlink{radio_8h_ae267b915054d707b13f2ea6bb143b506}{RADIO\_VOLUME\_MIN}) \{
+116             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} -= \hyperlink{radio_8h_ae7b78fb9948dccf5053129c05e790b3f}{RADIO\_VOLUME\_STEP};
+117         \}
+118         \hyperlink{radio_8c_aead0d199e23b8cc254924b96b017210b}{radio\_set\_volume}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+119         *encoder\_right\_count = 0;
+120     \}
+121     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{menu_8h_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT}) \{
+122         *encoder\_right\_button = \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+123         \textcolor{keywordflow}{if}(tmp\_volume != 0) \{
+124             \textcolor{keywordflow}{if}(setting == \hyperlink{menu_8h_aef2bcd296a3d49fb80d0e345205f98c0}{MENU\_VOL\_START\_ENTRY}) \{
+125                 \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 1);
+126             \}
+127             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(setting == \hyperlink{menu_8h_ae14ae7acebfbb08bf1028c9b22b94c8d}{MENU\_VOL\_TA\_ENTRY}) \{
+128                 \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a22b4bf888b705c01b6914d4caaed08dd}{volume\_ta} = \hyperlink{structradio}{radio}.
+      \hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+129                 \hyperlink{radio_8c_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+130             \}
+131             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} = tmp\_volume;
+132             tmp\_volume = 0;
+133             \hyperlink{radio_8c_aead0d199e23b8cc254924b96b017210b}{radio\_set\_volume}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+134         \}
+135         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+136     \}
+137     \textcolor{keywordflow}{else} \{
+138         \hyperlink{menu_8h_a5621c1bf312de029f43808bf02dc52e3}{menu\_scroll\_settings}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+139     \}
+140     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a8b824d49a014ff557c81c2e336202ebe}{STAY\_ON\_MENU\_POINT};
+141 \}
 \end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio_8h_afce06a210fd84b9acb905e8ab81feaeb_cgraph}
+\end{center}
+\end{figure}
+
+
 
 
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{radio_8h_a391fc5fe58716d2c794685bcf12bbda5_icgraph}
+\includegraphics[width=350pt]{radio_8h_afce06a210fd84b9acb905e8ab81feaeb_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{radio_8h_afb52516b50bf1098e28be670e369b6cd}{}\index{radio.\+h@{radio.\+h}!radio\+\_\+volume@{radio\+\_\+volume}}
-\index{radio\+\_\+volume@{radio\+\_\+volume}!radio.\+h@{radio.\+h}}
-\subsubsection[{radio\+\_\+volume}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+volume (
-\begin{DoxyParamCaption}
-\item[{uint8\+\_\+t}]{volume}
-\end{DoxyParamCaption}
-)}\label{radio_8h_afb52516b50bf1098e28be670e369b6cd}
 
 
-Definiert in Zeile 46 der Datei radio.\+c.
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{radio_8h_a54bdd6b246e5471f818dea611ddc3fea}{}\index{radio.\+h@{radio.\+h}!radio@{radio}}
+\index{radio@{radio}!radio.\+h@{radio.\+h}}
+\subsubsection[{radio}]{\setlength{\rightskip}{0pt plus 5cm}{\bf R\+A\+D\+I\+O} {\bf radio}}\label{radio_8h_a54bdd6b246e5471f818dea611ddc3fea}
 
 
-\begin{DoxyCode}
-47 \{
-48     \textcolor{keywordflow}{if}(volume > 100) \{
-49         \textcolor{keywordflow}{return} 0xFF;
-50     \}
-51     \textcolor{comment}{//volume = ((uint16\_t)volume * SI4735\_VOLUME\_MAX) / 100;}
-52     \hyperlink{si4735_8h_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_aeb1de40ffb7cb51cf4a151f5d1b746d7}{RX\_VOLUME}, volume);
-53     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(10);
-54     \textcolor{keywordflow}{return} 0;
-55 \}
-\end{DoxyCode}
-
-
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{radio_8h_afb52516b50bf1098e28be670e369b6cd_cgraph}
-\end{center}
-\end{figure}
-
+Definiert in Zeile 10 der Datei radio.\+c.
 

@@ -5,7 +5,7 @@ var si4735_8c =
     [ "si4735_configure_rds", "si4735_8c.html#a9ef54c7d16dee6f0878f06847caa43d1", null ],
     [ "si4735_configure_seeking", "si4735_8c.html#af6037be0045d62ab73bf8e6c3802bd8e", null ],
     [ "si4735_fm_rds_status", "si4735_8c.html#af19013498b2529c01dd96942c157647a", null ],
-    [ "si4735_fm_rsq_status", "si4735_8c.html#a89613c1378ba6894efae537469783717", null ],
+    [ "si4735_fm_rsq_status", "si4735_8c.html#a01d768567b59b2f9c8900a233fdd4d41", null ],
     [ "si4735_fm_seek_start", "si4735_8c.html#a339846da787fb5a496df9252ca7dc9a5", null ],
     [ "si4735_fm_tune_freq", "si4735_8c.html#af82ec28b536b1258ea4178108c61d5e9", null ],
     [ "si4735_fm_tune_status", "si4735_8c.html#ad8b515f4991303f8cac978410d736a03", null ],

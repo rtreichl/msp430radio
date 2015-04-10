@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: driver/lcd.h-Dateireferenz</title>
+<title>FH Radio: D:/GIT/fhradiov2/driver/lcd.h-Dateireferenz</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -114,17 +114,18 @@ $(document).ready(function(){initNavTree('lcd_8h.html','');});
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="pca9534_8h_source.html">driver/pca9534.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="lcd__commands_8h_source.html">driver/include/lcd_commands.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="settings_2radio__pin__mapping_8h_source.html">settings/radio_pin_mapping.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="radio__pin__mapping_8h_source.html">settings/radio_pin_mapping.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="timer_8h_source.html">driver/timer.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include-Abhängigkeitsdiagramm für lcd.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h__incl.svg" width="591" height="515"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h__incl.svg" width="591" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h__dep__incl.svg" width="550" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h__dep__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="lcd_8h_source.html">gehe zum Quellcode dieser Datei</a></p>
@@ -160,7 +161,7 @@ Funktionen</h2></td></tr>
 <tr class="separator:a782f2bf84393a90f55c040d08c84b06d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5d817278ad99ea7420d6240c7e6cba6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#ac5d817278ad99ea7420d6240c7e6cba6">lcd_generatechar</a> (uint8_t code, const uint8_t *data)</td></tr>
 <tr class="separator:ac5d817278ad99ea7420d6240c7e6cba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a737d0616c3643d82d1a612a5a667d709"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a737d0616c3643d82d1a612a5a667d709">lcd_bargraph</a> (uint8_t <a class="el" href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a>)</td></tr>
+<tr class="memitem:a737d0616c3643d82d1a612a5a667d709"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a737d0616c3643d82d1a612a5a667d709">lcd_bargraph</a> (uint8_t value)</td></tr>
 <tr class="separator:a737d0616c3643d82d1a612a5a667d709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd63fb85d212730fa4fcbcbeeccd231e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a> (const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)</td></tr>
 <tr class="separator:acd63fb85d212730fa4fcbcbeeccd231e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -303,7 +304,7 @@ Funktionen</h2></td></tr>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
 <div class="ttc" id="i2c_8h_html_a6691e5911f539e1e8178c6e983e8079a"><div class="ttname"><a href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a></div><div class="ttdeci">uint8_t i2c_write_var(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_args,...)</div><div class="ttdoc">Transmits I2C commands with a variable length to a I2C slave. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00058">i2c.c:58</a></div></div>
-<div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00117">timer.c:117</a></div></div>
+<div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00119">timer.c:119</a></div></div>
 <div class="ttc" id="pca9534_8h_html_a327d2e2bdf4be4cf7155f21f093b9aae"><div class="ttname"><a href="pca9534_8h.html#a327d2e2bdf4be4cf7155f21f093b9aae">PCA9534_I2C_ADR</a></div><div class="ttdeci">#define PCA9534_I2C_ADR</div><div class="ttdef"><b>Definition:</b> <a href="pca9534_8h_source.html#l00018">pca9534.h:18</a></div></div>
 <div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00034">i2c.h:34</a></div></div>
 </div><!-- fragment -->
@@ -317,7 +318,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h_a41e4f70e7f07bd5333b929ed8f9df77f_icgraph.svg" width="100%" height="501"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h_a41e4f70e7f07bd5333b929ed8f9df77f_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -378,7 +380,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956_icgraph.svg" width="256" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </p>
 
@@ -444,19 +446,19 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    pos = x + y * 16;</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">/*if(num == 0) {</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">        num = 48;</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">    }*/</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span>(num == 0) {</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        num = 48;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="comment">/* if string is empty determinat string on given position */</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span>(str == 0) {</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        lcd_view[48] = 0;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span>(*str == 0 &amp;&amp; num == 48) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        lcd_view[pos] = 0;</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="comment">/* copy string on given position */</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">while</span>(*str != 0 &amp;&amp; pos &lt; 48 ) {<span class="comment">//&amp;&amp; num &gt; 0) {</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">while</span>(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {<span class="comment">//&amp;&amp; num &gt; 0) {</span></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            lcd_view[pos++] = *(str++);</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <span class="comment">//num--;</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            num--;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        }</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    }</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
@@ -495,7 +497,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e_icgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -627,7 +630,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h_a6b9abf6cd27026b67144523ffbef4916_icgraph.svg" width="367" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h_a6b9abf6cd27026b67144523ffbef4916_icgraph.svg" width="490" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -685,7 +688,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h_ac5d817278ad99ea7420d6240c7e6cba6_icgraph.svg" width="536" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h_ac5d817278ad99ea7420d6240c7e6cba6_icgraph.svg" width="659" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -709,9 +712,9 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Activate PCA9534</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="settings_2radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a> &amp;= (~<a class="code" href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="settings_2radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a> |= <a class="code" href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="settings_2radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a> |= <a class="code" href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a> &amp;= (~<a class="code" href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a> |= <a class="code" href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a> |= <a class="code" href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// Go in default state</span></div>
@@ -759,10 +762,8 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 <div class="ttc" id="lcd_8c_html_acd63fb85d212730fa4fcbcbeeccd231e"><div class="ttname"><a href="lcd_8c.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a></div><div class="ttdeci">uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00315">lcd.c:315</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_aca9911d61d5202bad563d5f748782548"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a></div><div class="ttdeci">#define PCA_ON_OFF_DIR</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00165">radio_pin_mapping.h:165</a></div></div>
 <div class="ttc" id="lcd_8c_html_a6b9abf6cd27026b67144523ffbef4916"><div class="ttname"><a href="lcd_8c.html#a6b9abf6cd27026b67144523ffbef4916">lcd_generatebargraph</a></div><div class="ttdeci">uint8_t lcd_generatebargraph()</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00213">lcd.c:213</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a350fda109811fb23bfaf6ef763c31b9b"><div class="ttname"><a href="lcd__commands_8h.html#a350fda109811fb23bfaf6ef763c31b9b">LCD_RESET_COURSER</a></div><div class="ttdeci">#define LCD_RESET_COURSER</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00013">lcd_commands.h:13</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_a131b17b16bb25a95f17f81423722dcb1"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a></div><div class="ttdeci">#define PCA_ON_OFF_SEL</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00170">radio_pin_mapping.h:170</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_ae5e77a91b0fef0c36af29424a1ee2da1"><div class="ttname"><a href="lcd__commands_8h.html#ae5e77a91b0fef0c36af29424a1ee2da1">LCD_ENTRY_MODE_SET</a></div><div class="ttdeci">#define LCD_ENTRY_MODE_SET</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00019">lcd_commands.h:19</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_aa16d1fe8c9651f81c3f1649e57bc870c"><div class="ttname"><a href="lcd__commands_8h.html#aa16d1fe8c9651f81c3f1649e57bc870c">LCD_BIAS_SET</a></div><div class="ttdeci">#define LCD_BIAS_SET</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00032">lcd_commands.h:32</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_ac547b969070db1798702062faca30c6e"><div class="ttname"><a href="lcd__commands_8h.html#ac547b969070db1798702062faca30c6e">LCD_CLEAR_SCREEN</a></div><div class="ttdeci">#define LCD_CLEAR_SCREEN</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00018">lcd_commands.h:18</a></div></div>
@@ -772,7 +773,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="ttc" id="lcd__commands_8h_html_a77febe1793148d377a47feafd8f00f2a"><div class="ttname"><a href="lcd__commands_8h.html#a77febe1793148d377a47feafd8f00f2a">LCD_INST_0</a></div><div class="ttdeci">#define LCD_INST_0</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00030">lcd_commands.h:30</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_aa7170591c5c6954165b8f1b6c94bdcea"><div class="ttname"><a href="lcd__commands_8h.html#aa7170591c5c6954165b8f1b6c94bdcea">LCD_FOLLOWER_CIRCUT_ON</a></div><div class="ttdeci">#define LCD_FOLLOWER_CIRCUT_ON</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00040">lcd_commands.h:40</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_af05126b3001c839af73fdbc7e2b0940e"><div class="ttname"><a href="lcd__commands_8h.html#af05126b3001c839af73fdbc7e2b0940e">LCD_AMPLIFFED_RATIO</a></div><div class="ttdeci">#define LCD_AMPLIFFED_RATIO</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00041">lcd_commands.h:41</a></div></div>
-<div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00117">timer.c:117</a></div></div>
+<div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00119">timer.c:119</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a09afb8c9876350b83530222841b6b4ca"><div class="ttname"><a href="lcd__commands_8h.html#a09afb8c9876350b83530222841b6b4ca">LCD_POWER_CONTROL</a></div><div class="ttdeci">#define LCD_POWER_CONTROL</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00035">lcd_commands.h:35</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_af685b6108573c92216437b1a512c6a72"><div class="ttname"><a href="lcd__commands_8h.html#af685b6108573c92216437b1a512c6a72">LCD_3_LINE</a></div><div class="ttdeci">#define LCD_3_LINE</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00034">lcd_commands.h:34</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_aa182b257140f187c7ceb85761802a6d4"><div class="ttname"><a href="lcd__commands_8h.html#aa182b257140f187c7ceb85761802a6d4">LCD_FOLLOWER_CONTROL</a></div><div class="ttdeci">#define LCD_FOLLOWER_CONTROL</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00039">lcd_commands.h:39</a></div></div>
@@ -781,12 +782,14 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="ttc" id="lcd__commands_8h_html_a6e5a50c1f9f21c012e6d44ebcd5fd65f"><div class="ttname"><a href="lcd__commands_8h.html#a6e5a50c1f9f21c012e6d44ebcd5fd65f">LCD_COURSER_INKREMENT</a></div><div class="ttdeci">#define LCD_COURSER_INKREMENT</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00020">lcd_commands.h:20</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_af8ec7e043a3b67ee423b97783d08aeb1"><div class="ttname"><a href="lcd__commands_8h.html#af8ec7e043a3b67ee423b97783d08aeb1">LCD_FUNCTION_SET</a></div><div class="ttdeci">#define LCD_FUNCTION_SET</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00026">lcd_commands.h:26</a></div></div>
 <div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00034">i2c.h:34</a></div></div>
-<div class="ttc" id="timer_8c_html_a3c56af3315c2461dec5ced585a5f84db"><div class="ttname"><a href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a></div><div class="ttdeci">void _delay_ten_us(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00123">timer.c:123</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_aca9911d61d5202bad563d5f748782548"><div class="ttname"><a href="radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a></div><div class="ttdeci">#define PCA_ON_OFF_DIR</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00165">radio_pin_mapping.h:165</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_abd6e55737a7d5e65b8582d647b103f8e"><div class="ttname"><a href="radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a></div><div class="ttdeci">#define PCA_ON_OFF_OUT</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00164">radio_pin_mapping.h:164</a></div></div>
+<div class="ttc" id="timer_8c_html_a3c56af3315c2461dec5ced585a5f84db"><div class="ttname"><a href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a></div><div class="ttdeci">void _delay_ten_us(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00125">timer.c:125</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_a131b17b16bb25a95f17f81423722dcb1"><div class="ttname"><a href="radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a></div><div class="ttdeci">#define PCA_ON_OFF_SEL</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00170">radio_pin_mapping.h:170</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a3e0a4be625c4ed54cf0257a3b526ea00"><div class="ttname"><a href="lcd__commands_8h.html#a3e0a4be625c4ed54cf0257a3b526ea00">LCD_BIAS_1_4</a></div><div class="ttdeci">#define LCD_BIAS_1_4</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00033">lcd_commands.h:33</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_a24dbe611147513e518aaa1b1034e19d9"><div class="ttname"><a href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a></div><div class="ttdeci">#define PCA_ON_OFF_PIN</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00162">radio_pin_mapping.h:162</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a2dc0a014e84d69016cc4785bbc1fb3ac"><div class="ttname"><a href="lcd__commands_8h.html#a2dc0a014e84d69016cc4785bbc1fb3ac">LCD_CONTRAST_SET</a></div><div class="ttdeci">#define LCD_CONTRAST_SET</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00042">lcd_commands.h:42</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_add84145ade06b4f96934b7f1ed712e50"><div class="ttname"><a href="lcd__commands_8h.html#add84145ade06b4f96934b7f1ed712e50">LCD_2_LINE_INST_1</a></div><div class="ttdeci">#define LCD_2_LINE_INST_1</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00029">lcd_commands.h:29</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_a24dbe611147513e518aaa1b1034e19d9"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a></div><div class="ttdeci">#define PCA_ON_OFF_PIN</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00162">radio_pin_mapping.h:162</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_abd6e55737a7d5e65b8582d647b103f8e"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a></div><div class="ttdeci">#define PCA_ON_OFF_OUT</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00164">radio_pin_mapping.h:164</a></div></div>
 </div><!-- fragment -->
 <p><div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
@@ -798,7 +801,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h_a312eed1baec275e185dc00b760de1356_icgraph.svg" width="172" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="lcd_8h_a312eed1baec275e185dc00b760de1356_icgraph.svg" width="295" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
 
@@ -868,7 +871,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <p><div class="dynheader">
 Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h_a2a4df97ebc5b396233aa31765228ef42_icgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="lcd_8h_a2a4df97ebc5b396233aa31765228ef42_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </p>
 
@@ -916,7 +920,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div class="ttc" id="pca9534_8h_html_a327d2e2bdf4be4cf7155f21f093b9aae"><div class="ttname"><a href="pca9534_8h.html#a327d2e2bdf4be4cf7155f21f093b9aae">PCA9534_I2C_ADR</a></div><div class="ttdeci">#define PCA9534_I2C_ADR</div><div class="ttdef"><b>Definition:</b> <a href="pca9534_8h_source.html#l00018">pca9534.h:18</a></div></div>
 <div class="ttc" id="lcd_8h_html_a25e9d818788f36ed74d7c4579f87f2a6"><div class="ttname"><a href="lcd_8h.html#a25e9d818788f36ed74d7c4579f87f2a6">LCD_DATA</a></div><div class="ttdeci">#define LCD_DATA</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8h_source.html#l00023">lcd.h:23</a></div></div>
 <div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00034">i2c.h:34</a></div></div>
-<div class="ttc" id="timer_8c_html_a3c56af3315c2461dec5ced585a5f84db"><div class="ttname"><a href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a></div><div class="ttdeci">void _delay_ten_us(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00123">timer.c:123</a></div></div>
+<div class="ttc" id="timer_8c_html_a3c56af3315c2461dec5ced585a5f84db"><div class="ttname"><a href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a></div><div class="ttdeci">void _delay_ten_us(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00125">timer.c:125</a></div></div>
 <div class="ttc" id="lcd_8h_html_a0cbc0c73a8326693dcae8ceac5c7b71b"><div class="ttname"><a href="lcd_8h.html#a0cbc0c73a8326693dcae8ceac5c7b71b">LCD_ENABLE_LOW</a></div><div class="ttdeci">#define LCD_ENABLE_LOW</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8h_source.html#l00020">lcd.h:20</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_afb9a52fe082bc759811cbc78af93e5be"><div class="ttname"><a href="lcd__commands_8h.html#afb9a52fe082bc759811cbc78af93e5be">LCD_LOWER_BYTE</a></div><div class="ttdeci">#define LCD_LOWER_BYTE(byte)</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00045">lcd_commands.h:45</a></div></div>
 </div><!-- fragment -->
@@ -968,7 +972,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="lcd_8h.html">lcd.h</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:30 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

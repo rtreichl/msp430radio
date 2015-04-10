@@ -1,6 +1,6 @@
 var flash_8c =
 [
-    [ "erase_flash", "flash_8c.html#ac9bcd5ed27bda651ccaa0b4a39730202", null ],
-    [ "read_flash", "flash_8c.html#a410eac820c90fe099aa8ed2600d133ce", null ],
-    [ "store_data_to_flash", "flash_8c.html#aece8757a70bfb964ca3de0302924c3fd", null ]
+    [ "flash_erase", "flash_8c.html#a4b761d1814aa17114267763d71266513", null ],
+    [ "flash_read", "flash_8c.html#ad9d8a7cadb959b139fea7654d539714a", null ],
+    [ "flash_store", "flash_8c.html#a936ded19cea6a94beca2b32349a9ac2c", null ]
 ];

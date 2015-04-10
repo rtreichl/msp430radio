@@ -1,7 +1,7 @@
 var tpa2016d2_8c =
 [
-    [ "Amplifier_Gain", "tpa2016d2_8c.html#a6c015ab78caba6ea4a9de93ad7d97d65", null ],
-    [ "Amplifier_init", "tpa2016d2_8c.html#a69f931d3974bd6188f078754326405d3", null ],
-    [ "Amplifier_set_equalizer_mode", "tpa2016d2_8c.html#a52781315d0f308dba4aee65a749da317", null ],
-    [ "Amplifier_Shutdown", "tpa2016d2_8c.html#ac2888c9f56e491da52fea85f5d23c71c", null ]
+    [ "tpa2016d2_equalizer_mode", "tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd", null ],
+    [ "tpa2016d2_gain", "tpa2016d2_8c.html#af89d4e10e90526a1fe89449d18776a66", null ],
+    [ "tpa2016d2_init", "tpa2016d2_8c.html#a8d3c252b2c26623c72958d1d77bc0cf9", null ],
+    [ "tpa2016d2_shutdown", "tpa2016d2_8c.html#abd9d0aa3479e3dd782cdf627c1d54df1", null ]
 ];

@@ -1,5 +1,5 @@
-\hypertarget{timer_8c}{}\section{driver/src/timer.c-\/\+Dateireferenz}
-\label{timer_8c}\index{driver/src/timer.\+c@{driver/src/timer.\+c}}
+\hypertarget{timer_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/driver/src/timer.c-\/\+Dateireferenz}
+\label{timer_8c}\index{D\+:/\+G\+I\+T/fhradiov2/driver/src/timer.\+c@{D\+:/\+G\+I\+T/fhradiov2/driver/src/timer.\+c}}
 {\ttfamily \#include $<$driver/timer.\+h$>$}\\*
 Include-\/\+Abhängigkeitsdiagramm für timer.\+c\+:\nopagebreak
 \begin{figure}[H]
@@ -42,14 +42,14 @@ volatile uint16\+\_\+t \hyperlink{timer_8c_a6dac6c02f96e5e61d72b31f3f75a82d2}{ti
 )}\label{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}
 
 
-Definiert in Zeile 117 der Datei timer.\+c.
+Definiert in Zeile 119 der Datei timer.\+c.
 
 
 \begin{DoxyCode}
-118 \{
-119     delay *= 100;
-120     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(delay);
-121 \}
+120 \{
+121     delay *= 100;
+122     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(delay);
+123 \}
 \end{DoxyCode}
 
 
@@ -64,7 +64,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -82,20 +83,21 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{timer_8c_a3c56af3315c2461dec5ced585a5f84db}
 
 
-Definiert in Zeile 123 der Datei timer.\+c.
+Definiert in Zeile 125 der Datei timer.\+c.
 
 
 \begin{DoxyCode}
-124 \{
-125     \hyperlink{timer_8c_a6dac6c02f96e5e61d72b31f3f75a82d2}{timer\_delay} = 0;
-126     TA1CCTL0 |= CCIE;
-127     \textcolor{keywordflow}{while}(\hyperlink{timer_8c_a6dac6c02f96e5e61d72b31f3f75a82d2}{timer\_delay} < delay);
-128     TA1CCTL0 &= ~CCIE;
-129 \}
+126 \{
+127     \hyperlink{timer_8c_a6dac6c02f96e5e61d72b31f3f75a82d2}{timer\_delay} = 0;
+128     TA1CCTL0 |= CCIE;
+129     \textcolor{keywordflow}{while}(\hyperlink{timer_8c_a6dac6c02f96e5e61d72b31f3f75a82d2}{timer\_delay} < delay);
+130     TA1CCTL0 &= ~CCIE;
+131 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -127,7 +129,9 @@ Definiert in Zeile 25 der Datei timer.\+c.
 33     BCSCTL1 |= DIVA\_2;                        \textcolor{comment}{// ACLK dived by 8}
 34     BCSCTL2 = SELM\_0 | DIVM\_0 | DIVS\_3;
 35     BCSCTL3 = LFXT1S\_0 | XCAP\_0;
-36 \}
+36 
+37     FCTL2 = FWKEY + FSSEL\_2 + 0x05;             \textcolor{comment}{// MCLK/3 for Flash Timing Generator}
+38 \}
 \end{DoxyCode}
 
 
@@ -135,7 +139,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=240pt]{timer_8c_ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6_icgraph}
+\includegraphics[width=332pt]{timer_8c_ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6_icgraph}
 \end{center}
 \end{figure}
 
@@ -149,16 +153,16 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{timer_8c_abd56b9af5c5095f207b79b18e07c547c}
 
 
-Definiert in Zeile 103 der Datei timer.\+c.
+Definiert in Zeile 105 der Datei timer.\+c.
 
 
 \begin{DoxyCode}
-104 \{
-105     uint8\_t i;
-106     \textcolor{keywordflow}{for}(i = 0; i < \hyperlink{timer_8h_a7f642963dfed522de51d21e18b8e088e}{TIMER\_COUNTS}; i++) \{
-107         \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[i]++;
-108     \}
-109 \}
+106 \{
+107     uint8\_t i;
+108     \textcolor{keywordflow}{for}(i = 0; i < \hyperlink{timer_8h_a7f642963dfed522de51d21e18b8e088e}{TIMER\_COUNTS}; i++) \{
+109         \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[i]++;
+110     \}
+111 \}
 \end{DoxyCode}
 \hypertarget{timer_8c_aa78fdf57c4b2709d621ef1a59895c8bd}{}\index{timer.\+c@{timer.\+c}!Timer\+\_\+\+A1@{Timer\+\_\+\+A1}}
 \index{Timer\+\_\+\+A1@{Timer\+\_\+\+A1}!timer.\+c@{timer.\+c}}
@@ -169,13 +173,13 @@ Definiert in Zeile 103 der Datei timer.\+c.
 )}\label{timer_8c_aa78fdf57c4b2709d621ef1a59895c8bd}
 
 
-Definiert in Zeile 112 der Datei timer.\+c.
+Definiert in Zeile 114 der Datei timer.\+c.
 
 
 \begin{DoxyCode}
-113 \{
-114     \hyperlink{timer_8c_a6dac6c02f96e5e61d72b31f3f75a82d2}{timer\_delay}++;
-115 \}
+115 \{
+116     \hyperlink{timer_8c_a6dac6c02f96e5e61d72b31f3f75a82d2}{timer\_delay}++;
+117 \}
 \end{DoxyCode}
 \hypertarget{timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c}{}\index{timer.\+c@{timer.\+c}!timer\+\_\+init@{timer\+\_\+init}}
 \index{timer\+\_\+init@{timer\+\_\+init}!timer.\+c@{timer.\+c}}
@@ -186,22 +190,22 @@ Definiert in Zeile 112 der Datei timer.\+c.
 )}\label{timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c}
 
 
-Definiert in Zeile 88 der Datei timer.\+c.
+Definiert in Zeile 90 der Datei timer.\+c.
 
 
 \begin{DoxyCode}
-89 \{
-90     TA0CCTL0 |= CCIE;           \textcolor{comment}{//enable interrupt on compare}
-91     TA0CTL = TASSEL\_2 | ID\_2;   \textcolor{comment}{//SMCLK 2 MHz dived by 8 are 500 kHz = 2 us per count}
-92     TA0CCR0 = 500;              \textcolor{comment}{//500 counts are 1 ms for interrupt}
-93     TA0CTL |= MC\_1;             \textcolor{comment}{//up-mode counts up to TACCR0 and restart*/}
-94 
-95     \textcolor{comment}{//TA1CCTL0 |= CCIE;         //enable interrupt on compare}
-96     TA1CTL = TASSEL\_2;          \textcolor{comment}{//SMCLK 2 MHz = 500ns per count}
-97     TA1CCR0 = 20;               \textcolor{comment}{//500 counts are 10 us for interrupt}
-98     TA1CTL |= MC\_1;             \textcolor{comment}{//up-mode counts up to TACCR0 and restart}
-99 
-100 \}
+91 \{
+92     TA0CCTL0 |= CCIE;           \textcolor{comment}{//enable interrupt on compare}
+93     TA0CTL = TASSEL\_2 | ID\_2;   \textcolor{comment}{//SMCLK 2 MHz dived by 8 are 500 kHz = 2 us per count}
+94     TA0CCR0 = 500;              \textcolor{comment}{//500 counts are 1 ms for interrupt}
+95     TA0CTL |= MC\_1;             \textcolor{comment}{//up-mode counts up to TACCR0 and restart*/}
+96 
+97     \textcolor{comment}{//TA1CCTL0 |= CCIE;         //enable interrupt on compare}
+98     TA1CTL = TASSEL\_2;          \textcolor{comment}{//SMCLK 2 MHz = 500ns per count}
+99     TA1CCR0 = 20;               \textcolor{comment}{//500 counts are 10 us for interrupt}
+100     TA1CTL |= MC\_1;             \textcolor{comment}{//up-mode counts up to TACCR0 and restart}
+101 
+102 \}
 \end{DoxyCode}
 
 
@@ -209,7 +213,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=210pt]{timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c_icgraph}
+\includegraphics[width=302pt]{timer_8c_a896a4c37c6ecf8868ef0dc758e5a598c_icgraph}
 \end{center}
 \end{figure}
 

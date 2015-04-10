@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: driver/encoder.h Quellcode</title>
+<title>FH Radio: D:/GIT/fhradiov2/driver/encoder.h Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,11 +120,11 @@ $(document).ready(function(){initNavTree('encoder_8h_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;msp430.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="settings_2radio__pin__mapping_8h.html">settings\radio_pin_mapping.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio__pin__mapping_8h.html">settings\radio_pin_mapping.h</a>&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="external__interrupthandler_8h.html">driver/external_interrupthandler.h</a>&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="encoder_8h.html#af5a0c9bea9a0da18fa1c123af8f2877c">Encoder_Timer_init</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="encoder_8h.html#a66fa07b195f2bbfb79187fb92fe09d89">   17</a></span>&#160;<span class="preprocessor">#define TIME_FOR_LONG_PRESS 1500</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="encoder_8h.html#a66fa07b195f2bbfb79187fb92fe09d89">   17</a></span>&#160;<span class="preprocessor">#define TIME_FOR_LONG_PRESS 150</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="encoder_8h.html#afa27376b249650ab2cd2dab80a3aab63">   19</a></span>&#160;<span class="preprocessor">#define ENCODER_1   //Enable Encoder 1</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="encoder_8h.html#a78849ac345e48bff75267b242183df07">   20</a></span>&#160;<span class="preprocessor">#define ENCODER_2   //Enable Encoder 2</span></div>
@@ -178,24 +178,24 @@ $(document).ready(function(){initNavTree('encoder_8h_source.html','');});
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ENCODER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="encoder_8h_html_a136248fd00f8429933544a54b030aef9"><div class="ttname"><a href="encoder_8h.html#a136248fd00f8429933544a54b030aef9">encoder_interrupt2</a></div><div class="ttdeci">void encoder_interrupt2(void)</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00207">encoder.c:207</a></div></div>
+<div class="ttc" id="encoder_8h_html_a136248fd00f8429933544a54b030aef9"><div class="ttname"><a href="encoder_8h.html#a136248fd00f8429933544a54b030aef9">encoder_interrupt2</a></div><div class="ttdeci">void encoder_interrupt2(void)</div></div>
 <div class="ttc" id="external__interrupthandler_8h_html"><div class="ttname"><a href="external__interrupthandler_8h.html">external_interrupthandler.h</a></div></div>
-<div class="ttc" id="encoder_8h_html_a17708354c0e76c0422398f8dcd50dfea"><div class="ttname"><a href="encoder_8h.html#a17708354c0e76c0422398f8dcd50dfea">Encoder_2_get_count</a></div><div class="ttdeci">int16_t Encoder_2_get_count()</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00123">encoder.c:123</a></div></div>
-<div class="ttc" id="encoder_8h_html_a7a39090bb6f1d88f9371e44f4923194b"><div class="ttname"><a href="encoder_8h.html#a7a39090bb6f1d88f9371e44f4923194b">Encoder_1_get_count</a></div><div class="ttdeci">int16_t Encoder_1_get_count()</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00037">encoder.c:37</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html">radio_pin_mapping.h</a></div></div>
-<div class="ttc" id="encoder_8h_html_af5a0c9bea9a0da18fa1c123af8f2877c"><div class="ttname"><a href="encoder_8h.html#af5a0c9bea9a0da18fa1c123af8f2877c">Encoder_Timer_init</a></div><div class="ttdeci">void Encoder_Timer_init(void)</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00027">encoder.c:27</a></div></div>
-<div class="ttc" id="encoder_8h_html_afcb65d25ec031240b72ae3a51c1e9b4a"><div class="ttname"><a href="encoder_8h.html#afcb65d25ec031240b72ae3a51c1e9b4a">Encoder_1_decoder</a></div><div class="ttdeci">void Encoder_1_decoder(void)</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00056">encoder.c:56</a></div></div>
-<div class="ttc" id="encoder_8h_html_a271ca5c0624ed124f6398f408d1f3017"><div class="ttname"><a href="encoder_8h.html#a271ca5c0624ed124f6398f408d1f3017">encoder_interrupt</a></div><div class="ttdeci">void encoder_interrupt(void)</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00246">encoder.c:246</a></div></div>
-<div class="ttc" id="encoder_8h_html_a1b09f480da15d565de0b4acf37f40199"><div class="ttname"><a href="encoder_8h.html#a1b09f480da15d565de0b4acf37f40199">Encoder_1_init</a></div><div class="ttdeci">void Encoder_1_init(void)</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00082">encoder.c:82</a></div></div>
-<div class="ttc" id="encoder_8h_html_a81332b0a52a42a7a7b134228f9bb3848"><div class="ttname"><a href="encoder_8h.html#a81332b0a52a42a7a7b134228f9bb3848">Encoder_2_decoder</a></div><div class="ttdeci">void Encoder_2_decoder(void)</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00142">encoder.c:142</a></div></div>
-<div class="ttc" id="encoder_8h_html_af947b4bf6e9bc6d5b580609d046789da"><div class="ttname"><a href="encoder_8h.html#af947b4bf6e9bc6d5b580609d046789da">Encoder_2_init</a></div><div class="ttdeci">void Encoder_2_init(void)</div><div class="ttdef"><b>Definition:</b> <a href="encoder_8c_source.html#l00166">encoder.c:166</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html"><div class="ttname"><a href="radio__pin__mapping_8h.html">radio_pin_mapping.h</a></div></div>
+<div class="ttc" id="encoder_8h_html_a17708354c0e76c0422398f8dcd50dfea"><div class="ttname"><a href="encoder_8h.html#a17708354c0e76c0422398f8dcd50dfea">Encoder_2_get_count</a></div><div class="ttdeci">int16_t Encoder_2_get_count()</div></div>
+<div class="ttc" id="encoder_8h_html_a7a39090bb6f1d88f9371e44f4923194b"><div class="ttname"><a href="encoder_8h.html#a7a39090bb6f1d88f9371e44f4923194b">Encoder_1_get_count</a></div><div class="ttdeci">int16_t Encoder_1_get_count()</div></div>
+<div class="ttc" id="encoder_8h_html_af5a0c9bea9a0da18fa1c123af8f2877c"><div class="ttname"><a href="encoder_8h.html#af5a0c9bea9a0da18fa1c123af8f2877c">Encoder_Timer_init</a></div><div class="ttdeci">void Encoder_Timer_init(void)</div></div>
+<div class="ttc" id="encoder_8h_html_afcb65d25ec031240b72ae3a51c1e9b4a"><div class="ttname"><a href="encoder_8h.html#afcb65d25ec031240b72ae3a51c1e9b4a">Encoder_1_decoder</a></div><div class="ttdeci">void Encoder_1_decoder(void)</div></div>
+<div class="ttc" id="encoder_8h_html_a271ca5c0624ed124f6398f408d1f3017"><div class="ttname"><a href="encoder_8h.html#a271ca5c0624ed124f6398f408d1f3017">encoder_interrupt</a></div><div class="ttdeci">void encoder_interrupt(void)</div></div>
+<div class="ttc" id="encoder_8h_html_a1b09f480da15d565de0b4acf37f40199"><div class="ttname"><a href="encoder_8h.html#a1b09f480da15d565de0b4acf37f40199">Encoder_1_init</a></div><div class="ttdeci">void Encoder_1_init(void)</div></div>
+<div class="ttc" id="encoder_8h_html_a81332b0a52a42a7a7b134228f9bb3848"><div class="ttname"><a href="encoder_8h.html#a81332b0a52a42a7a7b134228f9bb3848">Encoder_2_decoder</a></div><div class="ttdeci">void Encoder_2_decoder(void)</div></div>
+<div class="ttc" id="encoder_8h_html_af947b4bf6e9bc6d5b580609d046789da"><div class="ttname"><a href="encoder_8h.html#af947b4bf6e9bc6d5b580609d046789da">Encoder_2_init</a></div><div class="ttdeci">void Encoder_2_init(void)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="encoder_8h.html">encoder.h</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

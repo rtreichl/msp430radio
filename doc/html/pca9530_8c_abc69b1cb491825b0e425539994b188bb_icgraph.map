@@ -1,4 +1,5 @@
 <map id="pca9530_set_freq" name="pca9530_set_freq">
 <area shape="rect" id="node2" href="$pca9530_8c.html#ae2f44601e0bbf4c0b7bbdb127def81c3" title="pca9530_init" alt="" coords="177,5,272,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="320,5,371,32"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="320,5,395,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="443,5,493,32"/>
 </map>

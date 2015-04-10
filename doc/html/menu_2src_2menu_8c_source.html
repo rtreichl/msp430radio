@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: menu/src/menu.c Quellcode</title>
+<title>FH Radio: D:/GIT/fhradiov2/menu/src/menu.c Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -148,155 +148,146 @@ $(document).ready(function(){initNavTree('menu_2src_2menu_8c_source.html','');})
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(actuall_entry-&gt;<a class="code" href="structmenu__entry.html#ac1b562fabcc9402003931e8351d6faf7">parent</a>-&gt;<a class="code" href="structmenu__entry.html#a16343090e80c4472521560f30113d96c">text</a>, 0, 0, 0, 0);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;~&quot;</span>, 0, 1, 0, 0);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">//lcd_create_view(&quot;~&quot;, 0, 1, 0, 0);</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a16343090e80c4472521560f30113d96c">text</a>, 1, 1, 0, 0);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a8667330bb5cb56772e88abd901064211">next</a> != 0) {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a8667330bb5cb56772e88abd901064211">next</a>-&gt;<a class="code" href="structmenu__entry.html#a16343090e80c4472521560f30113d96c">text</a>, 1, 2, 0, 0);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(0, 0, 0, 0, 1);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc">   51</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc">menu_function</a>(uint8_t *encoder_button, int8_t *encoder_count)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">switch</span>(actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a>) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="menu_2menu_8h.html#a747fe7911f209ee3f6bf6834aed989c3">MENU_FREQ_ENTRY</a>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946">menu_scroll_settings</a>(encoder_button, encoder_count);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="menu_2menu_8h.html#a1b6ff4cb0321d3c665859cd7c0ca3d7c">MENU_VOL_ENTRY</a>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946">menu_scroll_settings</a>(encoder_button, encoder_count);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="menu_2menu_8h.html#a09a38cec6cbb754c3ce721e7c729c545">MENU_CONT_ENTRY</a>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946">menu_scroll_settings</a>(encoder_button, encoder_count);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="menu_2menu_8h.html#aa9d014ea80d95c7f32f2857d10481206">MENU_BRIG_ENTRY</a>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946">menu_scroll_settings</a>(encoder_button, encoder_count);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="menu_2menu_8h.html#a13335c6ce94ec10a1b83f008f03b57d1">MENU_MAIN_ENTRY</a>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="radio_8c.html#a921f25c9a84ad0ee0715bc7f5720ade4">radio_main</a>(encoder_button, encoder_count);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946">   68</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946">menu_scroll_settings</a>(uint8_t *encoder_button, int8_t *encoder_count)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> uint8_t <a class="code" href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a> = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>(value == 0) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        value = 23; <span class="comment">//TODO load value from flash</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a>(value);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(*encoder_button == <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">//TODO store value to flash</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        value = 0;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> 0xFF;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">   83</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a>(uint8_t <a class="code" href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    uint8_t i = 0;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">char</span> <span class="keywordtype">string</span>[2];</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;-&quot;</span>, 0, 2, 0, 0);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">for</span>(i = 1; i &lt;= value / 5 &amp;&amp; i &lt;= 12; i++) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;\5&quot;</span>, 1 + i, 2, 0, 0);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span>(i &lt;= 12) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">string</span>[0] = value % 5;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="keywordtype">string</span>, 1 + i, 2, 0, 0);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    i++;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">for</span>(i = i; i &lt;= 12; i++) {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;\0&quot;</span>, 1 + i, 2, 0, 0);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;+&quot;</span>, 14, 2, 0, 0);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#a8509849c574fb30136ac9ec88081d47c">  105</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#a8509849c574fb30136ac9ec88081d47c">menu_handler</a>(uint8_t *encoder_button, int8_t *encoder_count)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> == 0) {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> (*encoder_button == <a class="code" href="menu_2src_2menu_8c.html#a7feaffb81b5835815adbc90d046b24aa">BUTTON_PRESS_LONG</a>) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a79da8f2d51ac63708f7f8f41b56d0102">child_long</a> != 0) {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a79da8f2d51ac63708f7f8f41b56d0102">child_long</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a> != 0) {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc">menu_function</a>(0, 0);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            *encoder_button = <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span> (*encoder_button == <a class="code" href="menu_2src_2menu_8c.html#a3c86ca09d645d897e51add9106255b9b">BUTTON_PRESS_SHORT</a>) {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a759c31dc71a94a9bbafdc849d2db5c1a">child_short</a> != 0) {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a759c31dc71a94a9bbafdc849d2db5c1a">child_short</a>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a> != 0) {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a>;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                *encoder_button = <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc">menu_function</a>(0, 0);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            *encoder_button = <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">if</span> (*encoder_count != 0) {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordflow">if</span>(*encoder_count &gt; 0) {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a8667330bb5cb56772e88abd901064211">next</a> != 0) {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a8667330bb5cb56772e88abd901064211">next</a>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keywordflow">if</span> (*encoder_count &lt; 0) {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a66676e2c3f7553b50a8c1d0c4e973734">previous</a> != 0) {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                    actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a66676e2c3f7553b50a8c1d0c4e973734">previous</a>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            *encoder_count = 0;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a>();</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }<span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        uint8_t ret = <a class="code" href="menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc">menu_function</a>(encoder_button, encoder_count);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span> (ret  == 0xFF) {     <span class="comment">//Menu down wards</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a759c31dc71a94a9bbafdc849d2db5c1a">child_short</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;~&quot;</span>, 0, 1, 0, 1);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa">   52</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa">menu_function</a>(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span>(actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a> == <a class="code" href="menu_2menu_8h.html#a13335c6ce94ec10a1b83f008f03b57d1">MENU_MAIN_ENTRY</a>) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="radio_8h.html#a5f7fcd9e9755fb5e22175a4ad74a5456">radio_main</a>(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="radio_8h.html#a832a684fc60104296fc975a7608f92b4">radio_settings</a>(encoder_right_button, encoder_right_count, actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#a5621c1bf312de029f43808bf02dc52e3">   62</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#a5621c1bf312de029f43808bf02dc52e3">menu_scroll_settings</a>(uint8_t <a class="code" href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">char</span> tmp_string[4];</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a16343090e80c4472521560f30113d96c">text</a>, 0, 0, 0, 0);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="radio_8h.html#a391fc5fe58716d2c794685bcf12bbda5">radio_value_to_string</a>(tmp_string, value, 3, 10);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(tmp_string, 0, 1, 0, 0);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a>(value);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;%&quot;</span>, 3, 1, 0, 1);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">   73</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a>(uint8_t <a class="code" href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a>)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    uint8_t i = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">char</span> <span class="keywordtype">string</span>[2];</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    value = (value * 60) / 100;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;-&quot;</span>, 0, 2, 0, 0);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">for</span>(i = 1; i &lt;= value / 5 &amp;&amp; i &lt;= 12; i++) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;\5&quot;</span>, 1 + i, 2, 0, 0);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span>(i &lt;= 12) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">string</span>[0] = value % 5;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="keywordtype">string</span>, 1 + i, 2, 0, 0);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    i++;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">for</span>(i = i; i &lt;= 12; i++) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot;\0&quot;</span>, 1 + i, 2, 0, 0);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="stringliteral">&quot; +&quot;</span>, 14, 2, 0, 0);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="menu_2src_2menu_8c.html#aaf2a075d3159f7eeab42012941a3437f">   96</a></span>&#160;uint8_t <a class="code" href="menu_2src_2menu_8c.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a>(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> == 0) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        *encoder_left_count = 0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        *encoder_left_button = <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span> (*encoder_right_button == <a class="code" href="menu_2src_2menu_8c.html#a7feaffb81b5835815adbc90d046b24aa">BUTTON_PRESS_LONG</a>) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a79da8f2d51ac63708f7f8f41b56d0102">child_long</a> != 0) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a79da8f2d51ac63708f7f8f41b56d0102">child_long</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a> != 0) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa">menu_function</a>(0, 0, 0, 0);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            *encoder_right_button = <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> (*encoder_right_button == <a class="code" href="menu_2src_2menu_8c.html#a3c86ca09d645d897e51add9106255b9b">BUTTON_PRESS_SHORT</a>) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a759c31dc71a94a9bbafdc849d2db5c1a">child_short</a> != 0) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a759c31dc71a94a9bbafdc849d2db5c1a">child_short</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a> != 0) {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">entry_num</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                *encoder_right_button = <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <a class="code" href="menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa">menu_function</a>(0, 0, 0, 0);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            *encoder_right_button = <a class="code" href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> (*encoder_right_count != 0) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">if</span>(*encoder_right_count &gt; 0) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a8667330bb5cb56772e88abd901064211">next</a> != 0) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a8667330bb5cb56772e88abd901064211">next</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">if</span> (*encoder_right_count &lt; 0) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="keywordflow">if</span> (actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a66676e2c3f7553b50a8c1d0c4e973734">previous</a> != 0) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a66676e2c3f7553b50a8c1d0c4e973734">previous</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            *encoder_right_count = 0;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a>();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }<span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        uint8_t ret = <a class="code" href="menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa">menu_function</a>(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">if</span> (ret  == 0xFF) {     <span class="comment">//Menu down wards</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a759c31dc71a94a9bbafdc849d2db5c1a">child_short</a>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = 0;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a>();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ret == 0xFE) {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a79da8f2d51ac63708f7f8f41b56d0102">child_long</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = 0;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a>();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ret == 0xFD) {</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = 0;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a>();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ret == 0xFE) {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            actuall_entry = actuall_entry-&gt;<a class="code" href="structmenu__entry.html#a79da8f2d51ac63708f7f8f41b56d0102">child_long</a>;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = 0;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a>();</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ret == 0xFD) {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a> = 0;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <a class="code" href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a>();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
-<div class="ttc" id="menu_2src_2menu_8c_html_a6e158a5dda1d308b5a56ee88538eb0fc"><div class="ttname"><a href="menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc">menu_function</a></div><div class="ttdeci">uint8_t menu_function(uint8_t *encoder_button, int8_t *encoder_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00051">menu.c:51</a></div></div>
-<div class="ttc" id="menu_2menu_8h_html_a747fe7911f209ee3f6bf6834aed989c3"><div class="ttname"><a href="menu_2menu_8h.html#a747fe7911f209ee3f6bf6834aed989c3">MENU_FREQ_ENTRY</a></div><div class="ttdeci">#define MENU_FREQ_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00010">menu.h:10</a></div></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
 <div class="ttc" id="menu_2src_2menu_8c_html_ae2ea62f35463775125657c143256e10b"><div class="ttname"><a href="menu_2src_2menu_8c.html#ae2ea62f35463775125657c143256e10b">BUTTON_PRESS_FREE</a></div><div class="ttdeci">#define BUTTON_PRESS_FREE</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00020">menu.c:20</a></div></div>
-<div class="ttc" id="menu_2menu_8h_html_a1b6ff4cb0321d3c665859cd7c0ca3d7c"><div class="ttname"><a href="menu_2menu_8h.html#a1b6ff4cb0321d3c665859cd7c0ca3d7c">MENU_VOL_ENTRY</a></div><div class="ttdeci">#define MENU_VOL_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00011">menu.h:11</a></div></div>
+<div class="ttc" id="radio_8h_html_a391fc5fe58716d2c794685bcf12bbda5"><div class="ttname"><a href="radio_8h.html#a391fc5fe58716d2c794685bcf12bbda5">radio_value_to_string</a></div><div class="ttdeci">uint8_t radio_value_to_string(char *str, int16_t value, uint8_t size, uint8_t base)</div><div class="ttdef"><b>Definition:</b> <a href="radio_8c_source.html#l00386">radio.c:386</a></div></div>
+<div class="ttc" id="menu_2src_2menu_8c_html_a5621c1bf312de029f43808bf02dc52e3"><div class="ttname"><a href="menu_2src_2menu_8c.html#a5621c1bf312de029f43808bf02dc52e3">menu_scroll_settings</a></div><div class="ttdeci">uint8_t menu_scroll_settings(uint8_t value)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00062">menu.c:62</a></div></div>
 <div class="ttc" id="menu_2menu_8h_html"><div class="ttname"><a href="menu_2menu_8h.html">menu.h</a></div></div>
 <div class="ttc" id="menu_2src_2menu_8c_html_a7feaffb81b5835815adbc90d046b24aa"><div class="ttname"><a href="menu_2src_2menu_8c.html#a7feaffb81b5835815adbc90d046b24aa">BUTTON_PRESS_LONG</a></div><div class="ttdeci">#define BUTTON_PRESS_LONG</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00018">menu.c:18</a></div></div>
+<div class="ttc" id="radio_8h_html_a5f7fcd9e9755fb5e22175a4ad74a5456"><div class="ttname"><a href="radio_8h.html#a5f7fcd9e9755fb5e22175a4ad74a5456">radio_main</a></div><div class="ttdeci">uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdef"><b>Definition:</b> <a href="radio_8c_source.html#l00232">radio.c:232</a></div></div>
 <div class="ttc" id="menu_2src_2menu_8c_html_a3c86ca09d645d897e51add9106255b9b"><div class="ttname"><a href="menu_2src_2menu_8c.html#a3c86ca09d645d897e51add9106255b9b">BUTTON_PRESS_SHORT</a></div><div class="ttdeci">#define BUTTON_PRESS_SHORT</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00019">menu.c:19</a></div></div>
-<div class="ttc" id="menu_2src_2menu_8c_html_a503ed2007daa6f20b2f748eedbcb8494"><div class="ttname"><a href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a></div><div class="ttdeci">uint8_t menu_scroll(uint8_t value)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00083">menu.c:83</a></div></div>
+<div class="ttc" id="menu_2src_2menu_8c_html_a503ed2007daa6f20b2f748eedbcb8494"><div class="ttname"><a href="menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a></div><div class="ttdeci">uint8_t menu_scroll(uint8_t value)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00073">menu.c:73</a></div></div>
 <div class="ttc" id="structmenu__entry_html_a8667330bb5cb56772e88abd901064211"><div class="ttname"><a href="structmenu__entry.html#a8667330bb5cb56772e88abd901064211">menu_entry::next</a></div><div class="ttdeci">const struct menu_entry * next</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00010">menu_struct.h:10</a></div></div>
-<div class="ttc" id="menu_2src_2menu_8c_html_a8509849c574fb30136ac9ec88081d47c"><div class="ttname"><a href="menu_2src_2menu_8c.html#a8509849c574fb30136ac9ec88081d47c">menu_handler</a></div><div class="ttdeci">uint8_t menu_handler(uint8_t *encoder_button, int8_t *encoder_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00105">menu.c:105</a></div></div>
+<div class="ttc" id="menu_2src_2menu_8c_html_aaf2a075d3159f7eeab42012941a3437f"><div class="ttname"><a href="menu_2src_2menu_8c.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a></div><div class="ttdeci">uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00096">menu.c:96</a></div></div>
 <div class="ttc" id="menu_2src_2menu_8c_html_a5ca9d2cf65ffedfb30889ee21a6f7f3d"><div class="ttname"><a href="menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d">menu_display</a></div><div class="ttdeci">uint8_t menu_display()</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00032">menu.c:32</a></div></div>
 <div class="ttc" id="menu__struct_8h_html_a25f7cd9057718668296a61f1b3bad6e5"><div class="ttname"><a href="menu__struct_8h.html#a25f7cd9057718668296a61f1b3bad6e5">main_entry</a></div><div class="ttdeci">MENU_ENTRY main_entry</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8c_source.html#l00003">menu_struct.c:3</a></div></div>
-<div class="ttc" id="menu_2menu_8h_html_aa9d014ea80d95c7f32f2857d10481206"><div class="ttname"><a href="menu_2menu_8h.html#aa9d014ea80d95c7f32f2857d10481206">MENU_BRIG_ENTRY</a></div><div class="ttdeci">#define MENU_BRIG_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00013">menu.h:13</a></div></div>
 <div class="ttc" id="structmenu__entry_html_aead51ebe631627145d52a84b2d92e240"><div class="ttname"><a href="structmenu__entry.html#aead51ebe631627145d52a84b2d92e240">menu_entry::entry_num</a></div><div class="ttdeci">const uint16_t entry_num</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00013">menu_struct.h:13</a></div></div>
-<div class="ttc" id="radio_8c_html_a921f25c9a84ad0ee0715bc7f5720ade4"><div class="ttname"><a href="radio_8c.html#a921f25c9a84ad0ee0715bc7f5720ade4">radio_main</a></div><div class="ttdeci">uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count)</div><div class="ttdef"><b>Definition:</b> <a href="radio_8c_source.html#l00057">radio.c:57</a></div></div>
 <div class="ttc" id="menu_2src_2menu_8c_html_af03ddd7e03f284d4d1f0bbabc26fd67d"><div class="ttname"><a href="menu_2src_2menu_8c.html#af03ddd7e03f284d4d1f0bbabc26fd67d">menu_display_selector</a></div><div class="ttdeci">uint16_t menu_display_selector</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00030">menu.c:30</a></div></div>
-<div class="ttc" id="menu_2menu_8h_html_a4547235960691aec5d3f0952cc05b4fb"><div class="ttname"><a href="menu_2menu_8h.html#a4547235960691aec5d3f0952cc05b4fb">MENU_NO_FUNC_ENTRY</a></div><div class="ttdeci">#define MENU_NO_FUNC_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00009">menu.h:9</a></div></div>
+<div class="ttc" id="menu_2menu_8h_html_a4547235960691aec5d3f0952cc05b4fb"><div class="ttname"><a href="menu_2menu_8h.html#a4547235960691aec5d3f0952cc05b4fb">MENU_NO_FUNC_ENTRY</a></div><div class="ttdeci">#define MENU_NO_FUNC_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00010">menu.h:10</a></div></div>
 <div class="ttc" id="structmenu__entry_html_a66676e2c3f7553b50a8c1d0c4e973734"><div class="ttname"><a href="structmenu__entry.html#a66676e2c3f7553b50a8c1d0c4e973734">menu_entry::previous</a></div><div class="ttdeci">const struct menu_entry * previous</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00011">menu_struct.h:11</a></div></div>
 <div class="ttc" id="structmenu__entry_html_a79da8f2d51ac63708f7f8f41b56d0102"><div class="ttname"><a href="structmenu__entry.html#a79da8f2d51ac63708f7f8f41b56d0102">menu_entry::child_long</a></div><div class="ttdeci">const struct menu_entry * child_long</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00008">menu_struct.h:8</a></div></div>
+<div class="ttc" id="menu_2src_2menu_8c_html_a5d9c190838195d7872fc7067269e20fa"><div class="ttname"><a href="menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa">menu_function</a></div><div class="ttdeci">uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00052">menu.c:52</a></div></div>
 <div class="ttc" id="structmenu__entry_html"><div class="ttname"><a href="structmenu__entry.html">menu_entry</a></div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00006">menu_struct.h:6</a></div></div>
 <div class="ttc" id="structmenu__entry_html_a759c31dc71a94a9bbafdc849d2db5c1a"><div class="ttname"><a href="structmenu__entry.html#a759c31dc71a94a9bbafdc849d2db5c1a">menu_entry::child_short</a></div><div class="ttdeci">const struct menu_entry * child_short</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00007">menu_struct.h:7</a></div></div>
-<div class="ttc" id="menu_2src_2menu_8c_html_a024aeffbbf4583410c047ad3a6c80946"><div class="ttname"><a href="menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946">menu_scroll_settings</a></div><div class="ttdeci">uint8_t menu_scroll_settings(uint8_t *encoder_button, int8_t *encoder_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00068">menu.c:68</a></div></div>
 <div class="ttc" id="structmenu__entry_html_ac1b562fabcc9402003931e8351d6faf7"><div class="ttname"><a href="structmenu__entry.html#ac1b562fabcc9402003931e8351d6faf7">menu_entry::parent</a></div><div class="ttdeci">const struct menu_entry * parent</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00009">menu_struct.h:9</a></div></div>
-<div class="ttc" id="menu_2menu_8h_html_a13335c6ce94ec10a1b83f008f03b57d1"><div class="ttname"><a href="menu_2menu_8h.html#a13335c6ce94ec10a1b83f008f03b57d1">MENU_MAIN_ENTRY</a></div><div class="ttdeci">#define MENU_MAIN_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00014">menu.h:14</a></div></div>
+<div class="ttc" id="radio_8h_html_a832a684fc60104296fc975a7608f92b4"><div class="ttname"><a href="radio_8h.html#a832a684fc60104296fc975a7608f92b4">radio_settings</a></div><div class="ttdeci">uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)</div><div class="ttdef"><b>Definition:</b> <a href="radio_8c_source.html#l00176">radio.c:176</a></div></div>
+<div class="ttc" id="menu_2menu_8h_html_a13335c6ce94ec10a1b83f008f03b57d1"><div class="ttname"><a href="menu_2menu_8h.html#a13335c6ce94ec10a1b83f008f03b57d1">MENU_MAIN_ENTRY</a></div><div class="ttdeci">#define MENU_MAIN_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00015">menu.h:15</a></div></div>
 <div class="ttc" id="menu_2src_2menu_8c_html_af1134c9cc08a4b934ab479ee7388b544"><div class="ttname"><a href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a></div><div class="ttdeci">int16_t value[8]</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00027">menu.c:27</a></div></div>
 <div class="ttc" id="lcd_8h_html_acd63fb85d212730fa4fcbcbeeccd231e"><div class="ttname"><a href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a></div><div class="ttdeci">uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00315">lcd.c:315</a></div></div>
 <div class="ttc" id="menu_2src_2menu_8c_html_ab6b6625d571381d5f930d84c651b5b68"><div class="ttname"><a href="menu_2src_2menu_8c.html#ab6b6625d571381d5f930d84c651b5b68">actuall_entry</a></div><div class="ttdeci">MENU_ENTRY * actuall_entry</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00029">menu.c:29</a></div></div>
-<div class="ttc" id="menu_2menu_8h_html_a09a38cec6cbb754c3ce721e7c729c545"><div class="ttname"><a href="menu_2menu_8h.html#a09a38cec6cbb754c3ce721e7c729c545">MENU_CONT_ENTRY</a></div><div class="ttdeci">#define MENU_CONT_ENTRY</div><div class="ttdef"><b>Definition:</b> <a href="menu_2menu_8h_source.html#l00012">menu.h:12</a></div></div>
 <div class="ttc" id="structmenu__entry_html_a16343090e80c4472521560f30113d96c"><div class="ttname"><a href="structmenu__entry.html#a16343090e80c4472521560f30113d96c">menu_entry::text</a></div><div class="ttdeci">const char * text</div><div class="ttdef"><b>Definition:</b> <a href="menu__struct_8h_source.html#l00012">menu_struct.h:12</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -304,7 +295,7 @@ $(document).ready(function(){initNavTree('menu_2src_2menu_8c_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_baddde578d762c90c1d949a22a636838.html">menu</a></li><li class="navelem"><a class="el" href="dir_e8b29995d8f8a4b3dca266266c9ccbde.html">src</a></li><li class="navelem"><a class="el" href="menu_2src_2menu_8c.html">menu.c</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="footer">Erzeugt am Sam Apr 4 2015 20:54:41 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

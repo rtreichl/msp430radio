@@ -1,3 +1,18 @@
-<map id="Menu.h" name="Menu.h">
-<area shape="rect" id="node2" href="$main_8c.html" title="main.c" alt="" coords="7,80,69,107"/>
+<map id="D:/GIT/fhradiov2/menu/menu.h" name="D:/GIT/fhradiov2/menu/menu.h">
+<area shape="rect" id="node2" href="$main_8c.html" title="D:/GIT/fhradiov2/main.c" alt="" coords="793,281,949,307"/>
+<area shape="rect" id="node3" href="$menu__struct_8h.html" title="D:/GIT/fhradiov2/menu\l/menu_struct.h" alt="" coords="1077,95,1227,136"/>
+<area shape="rect" id="node5" href="$menu_8c.html" title="D:/GIT/fhradiov2/menu\l/src/menu.c" alt="" coords="1251,95,1400,136"/>
+<area shape="rect" id="node6" href="$radio_8h.html" title="D:/GIT/fhradiov2/system\l/radio.h" alt="" coords="549,95,709,136"/>
+<area shape="rect" id="node4" href="$menu__struct_8c.html" title="D:/GIT/fhradiov2/menu\l/src/menu_struct.c" alt="" coords="1077,184,1227,225"/>
+<area shape="rect" id="node7" href="$radio__display_8h.html" title="D:/GIT/fhradiov2/system\l/radio_display.h" alt="" coords="5,184,165,225"/>
+<area shape="rect" id="node9" href="$rds_8h.html" title="D:/GIT/fhradiov2/system\l/rds.h" alt="" coords="608,184,768,225"/>
+<area shape="rect" id="node11" href="$rsq_8h.html" title="D:/GIT/fhradiov2/system\l/rsq.h" alt="" coords="843,184,1003,225"/>
+<area shape="rect" id="node13" href="$radio_8c.html" title="D:/GIT/fhradiov2/system\l/src/radio.c" alt="" coords="189,184,349,225"/>
+<area shape="rect" id="node14" href="$station__list__struct_8h.html" title="D:/GIT/fhradiov2/system\l/station_list_struct.h" alt="" coords="373,184,533,225"/>
+<area shape="rect" id="node8" href="$radio__display_8c.html" title="D:/GIT/fhradiov2/system\l/src/radio_display.c" alt="" coords="5,273,165,315"/>
+<area shape="rect" id="node10" href="$rds_8c.html" title="D:/GIT/fhradiov2/system\l/src/rds.c" alt="" coords="608,273,768,315"/>
+<area shape="rect" id="node12" href="$rsq_8c.html" title="D:/GIT/fhradiov2/system\l/src/rsq.c" alt="" coords="973,273,1133,315"/>
+<area shape="rect" id="node15" href="$station__list__struct_8c.html" title="D:/GIT/fhradiov2/system\l/src/station_list_struct.c" alt="" coords="237,273,400,315"/>
+<area shape="rect" id="node16" href="$station__list_8h.html" title="D:/GIT/fhradiov2/system\l/station_list.h" alt="" coords="424,273,584,315"/>
+<area shape="rect" id="node17" href="$station__list_8c.html" title="D:/GIT/fhradiov2/system\l/src/station_list.c" alt="" coords="424,363,584,404"/>
 </map>

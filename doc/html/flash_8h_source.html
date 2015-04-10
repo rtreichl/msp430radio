@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: driver/flash.h Quellcode</title>
+<title>FH Radio: D:/GIT/fhradiov2/driver/flash.h Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -124,24 +124,25 @@ $(document).ready(function(){initNavTree('flash_8h_source.html','');});
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="string_8h.html">string.h</a>&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;msp430.h&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;uint8_t <a class="code" href="flash_8h.html#aece8757a70bfb964ca3de0302924c3fd">store_data_to_flash</a> (int8_t *data, uint8_t size, uint8_t pos);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;uint8_t <a class="code" href="flash_8h.html#a410eac820c90fe099aa8ed2600d133ce">read_flash</a>(int8_t *data, uint8_t size, uint8_t pos);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="flash_8h.html#ac9bcd5ed27bda651ccaa0b4a39730202">erase_flash</a>(uint8_t *Flash_ptr);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;uint8_t <a class="code" href="flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c">flash_store</a>(<span class="keywordtype">void</span> *data, uint8_t size, uint16_t pos);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;uint8_t <a class="code" href="flash_8h.html#ad9d8a7cadb959b139fea7654d539714a">flash_read</a>(<span class="keywordtype">void</span> *data, uint8_t size, uint16_t pos);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="flash_8h.html#a4b761d1814aa17114267763d71266513">flash_erase</a>(uint8_t *Flash_ptr);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FLASH_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="flash_8h_html_a410eac820c90fe099aa8ed2600d133ce"><div class="ttname"><a href="flash_8h.html#a410eac820c90fe099aa8ed2600d133ce">read_flash</a></div><div class="ttdeci">uint8_t read_flash(int8_t *data, uint8_t size, uint8_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="flash_8c_source.html#l00057">flash.c:57</a></div></div>
-<div class="ttc" id="flash_8h_html_aece8757a70bfb964ca3de0302924c3fd"><div class="ttname"><a href="flash_8h.html#aece8757a70bfb964ca3de0302924c3fd">store_data_to_flash</a></div><div class="ttdeci">uint8_t store_data_to_flash(int8_t *data, uint8_t size, uint8_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="flash_8c_source.html#l00011">flash.c:11</a></div></div>
-<div class="ttc" id="flash_8h_html_ac9bcd5ed27bda651ccaa0b4a39730202"><div class="ttname"><a href="flash_8h.html#ac9bcd5ed27bda651ccaa0b4a39730202">erase_flash</a></div><div class="ttdeci">void erase_flash(uint8_t *Flash_ptr)</div><div class="ttdef"><b>Definition:</b> <a href="flash_8c_source.html#l00063">flash.c:63</a></div></div>
+<div class="ttc" id="string_8h_html"><div class="ttname"><a href="string_8h.html">string.h</a></div></div>
+<div class="ttc" id="flash_8h_html_a936ded19cea6a94beca2b32349a9ac2c"><div class="ttname"><a href="flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c">flash_store</a></div><div class="ttdeci">uint8_t flash_store(void *data, uint8_t size, uint16_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="flash_8c_source.html#l00011">flash.c:11</a></div></div>
+<div class="ttc" id="flash_8h_html_ad9d8a7cadb959b139fea7654d539714a"><div class="ttname"><a href="flash_8h.html#ad9d8a7cadb959b139fea7654d539714a">flash_read</a></div><div class="ttdeci">uint8_t flash_read(void *data, uint8_t size, uint16_t pos)</div><div class="ttdef"><b>Definition:</b> <a href="flash_8c_source.html#l00063">flash.c:63</a></div></div>
+<div class="ttc" id="flash_8h_html_a4b761d1814aa17114267763d71266513"><div class="ttname"><a href="flash_8h.html#a4b761d1814aa17114267763d71266513">flash_erase</a></div><div class="ttdeci">void flash_erase(uint8_t *Flash_ptr)</div><div class="ttdef"><b>Definition:</b> <a href="flash_8c_source.html#l00071">flash.c:71</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="flash_8h.html">flash.h</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -42,5 +42,5 @@ var searchData=
   ['lcd_5fshift_5fleft',['LCD_SHIFT_LEFT',['../lcd__commands_8h.html#a941377571f34b9d898b61ce89f10226d',1,'lcd_commands.h']]],
   ['lcd_5fshift_5fright',['LCD_SHIFT_RIGHT',['../lcd__commands_8h.html#a8ab3108396a0d33dbf7f3ab6477ba01d',1,'lcd_commands.h']]],
   ['lcd_5fwrite',['LCD_WRITE',['../lcd_8h.html#ac83c798c669ca46b417ecc89c6ad37fe',1,'lcd.h']]],
-  ['left_5fkey',['LEFT_KEY',['../menu_2src_2menu_8c.html#a3cd87a710fd069baf487e7b44d01e1b9',1,'menu.c']]]
+  ['long_5finto_5fmenu',['LONG_INTO_MENU',['../menu_8h.html#ab15dd92ee38ecc6cd07fa4eeb21a0a9f',1,'menu.h']]]
 ];

@@ -1,0 +1,187 @@
+\hypertarget{string_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/libs/string.h-\/\+Dateireferenz}
+\label{string_8h}\index{D\+:/\+G\+I\+T/fhradiov2/libs/string.\+h@{D\+:/\+G\+I\+T/fhradiov2/libs/string.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für string.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{string_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{string_8h_a0e45f80d2057e44647b21fd530fe185d}{string\+\_\+fixedpoint\+\_\+to\+\_\+array} (char $\ast$str, uint16\+\_\+t freq)
+\item 
+uint8\+\_\+t \hyperlink{string_8h_a29d88799b460e9bf31c5b6bcd3cd5ba3}{string\+\_\+hex\+\_\+to\+\_\+array} (char $\ast$str, uint16\+\_\+t value, uint8\+\_\+t size)
+\item 
+uint8\+\_\+t \hyperlink{string_8h_a82b1b882cf97ff40344f87bd1473e9d0}{string\+\_\+int\+\_\+to\+\_\+array} (char $\ast$str, int16\+\_\+t value, uint8\+\_\+t size, uint8\+\_\+t base)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{string_8h_a0e45f80d2057e44647b21fd530fe185d}{}\index{string.\+h@{string.\+h}!string\+\_\+fixedpoint\+\_\+to\+\_\+array@{string\+\_\+fixedpoint\+\_\+to\+\_\+array}}
+\index{string\+\_\+fixedpoint\+\_\+to\+\_\+array@{string\+\_\+fixedpoint\+\_\+to\+\_\+array}!string.\+h@{string.\+h}}
+\subsubsection[{string\+\_\+fixedpoint\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t string\+\_\+fixedpoint\+\_\+to\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{uint16\+\_\+t}]{freq}
+\end{DoxyParamCaption}
+)}\label{string_8h_a0e45f80d2057e44647b21fd530fe185d}
+
+
+Definiert in Zeile 9 der Datei string.\+c.
+
+
+\begin{DoxyCode}
+10 \{
+11     uint8\_t count = 0;
+12     freq /= 10;
+13     str[0] = \textcolor{charliteral}{' '};
+14     str[5] = 0;
+15     str += 4;
+16     \textcolor{keywordflow}{while} (freq > 0) \{
+17         *str = freq % 10 + \textcolor{charliteral}{'0'};
+18         str--;
+19         freq /= 10;
+20         \textcolor{keywordflow}{if} (count++ == 0) \{
+21             *str = \textcolor{charliteral}{'.'};
+22             str--;
+23         \}
+24     \}
+25     \textcolor{keywordflow}{return} 0;
+26 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8h_a0e45f80d2057e44647b21fd530fe185d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{string_8h_a29d88799b460e9bf31c5b6bcd3cd5ba3}{}\index{string.\+h@{string.\+h}!string\+\_\+hex\+\_\+to\+\_\+array@{string\+\_\+hex\+\_\+to\+\_\+array}}
+\index{string\+\_\+hex\+\_\+to\+\_\+array@{string\+\_\+hex\+\_\+to\+\_\+array}!string.\+h@{string.\+h}}
+\subsubsection[{string\+\_\+hex\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t string\+\_\+hex\+\_\+to\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{uint16\+\_\+t}]{value, }
+\item[{uint8\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{string_8h_a29d88799b460e9bf31c5b6bcd3cd5ba3}
+
+
+Definiert in Zeile 28 der Datei string.\+c.
+
+
+\begin{DoxyCode}
+29 \{
+30     str[size] = 0;
+31     str += size - 1;
+32     \textcolor{keywordflow}{if}(value == 0) \{
+33         *str = \textcolor{charliteral}{'0'};
+34         str--;
+35     \}
+36     \textcolor{keywordflow}{while} (size > 0) \{
+37         \textcolor{keywordflow}{if} (value != 0) \{
+38             *str = value % 16 + \textcolor{charliteral}{'0'};
+39             \textcolor{keywordflow}{if} (*str > \textcolor{charliteral}{'9'}) \{
+40                 *str += \textcolor{charliteral}{'A'} - \textcolor{charliteral}{'9'} - 1;
+41             \}
+42             value /= 16;
+43         \}
+44         \textcolor{keywordflow}{else} \{
+45             *str = \textcolor{charliteral}{' '};
+46         \}
+47         str--;
+48         size--;
+49 
+50     \}
+51     \textcolor{keywordflow}{return} 0;
+52 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8h_a29d88799b460e9bf31c5b6bcd3cd5ba3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{string_8h_a82b1b882cf97ff40344f87bd1473e9d0}{}\index{string.\+h@{string.\+h}!string\+\_\+int\+\_\+to\+\_\+array@{string\+\_\+int\+\_\+to\+\_\+array}}
+\index{string\+\_\+int\+\_\+to\+\_\+array@{string\+\_\+int\+\_\+to\+\_\+array}!string.\+h@{string.\+h}}
+\subsubsection[{string\+\_\+int\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t string\+\_\+int\+\_\+to\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{int16\+\_\+t}]{value, }
+\item[{uint8\+\_\+t}]{size, }
+\item[{uint8\+\_\+t}]{base}
+\end{DoxyParamCaption}
+)}\label{string_8h_a82b1b882cf97ff40344f87bd1473e9d0}
+
+
+Definiert in Zeile 54 der Datei string.\+c.
+
+
+\begin{DoxyCode}
+55 \{
+56     uint8\_t tmp\_sign = 0;
+57     str[size] = 0;
+58     str += size - 1;
+59     \textcolor{keywordflow}{if}(value == 0) \{
+60         *str = \textcolor{charliteral}{'0'};
+61         str--;
+62     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value < 0) \{
+63         tmp\_sign = 1;
+64         value = (uint16\_t)(-1 * value);
+65     \}
+66 
+67     \textcolor{keywordflow}{while} (size > 0) \{
+68         \textcolor{keywordflow}{if} (value != 0) \{
+69             *str = value % base + \textcolor{charliteral}{'0'};
+70             \textcolor{keywordflow}{if} (*str > \textcolor{charliteral}{'9'}) \{
+71                 *str += \textcolor{charliteral}{'A'} - \textcolor{charliteral}{'9'} - 1;
+72             \}
+73             value /= base;
+74         \}
+75         \textcolor{keywordflow}{else} \{
+76             \textcolor{keywordflow}{if}(tmp\_sign == 1) \{
+77                 *str = \textcolor{charliteral}{'-'};
+78                 tmp\_sign = 0;
+79             \} \textcolor{keywordflow}{else} \{
+80                 *str = \textcolor{charliteral}{' '};
+81             \}
+82         \}
+83         str--;
+84         size--;
+85 
+86     \}
+87     \textcolor{keywordflow}{return} 0;
+88 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8h_a82b1b882cf97ff40344f87bd1473e9d0_icgraph}
+\end{center}
+\end{figure}
+
+

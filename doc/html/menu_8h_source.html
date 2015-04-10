@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: Menu.h Quellcode</title>
+<title>FH Radio: D:/GIT/fhradiov2/menu/menu.h Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,51 +105,82 @@ $(document).ready(function(){initNavTree('menu_8h_source.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Menu.h</div>  </div>
+<div class="title">menu.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="menu_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Menu.h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 02.01.2014</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richi</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef MENU_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define MENU_H_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="menu_8h.html#a6713a43a73a6b7d28ca978420e938095">   11</a></span>&#160;<span class="preprocessor">#define MAX_ZERO_LVL 4</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="menu_8h.html#af23aca541b4878f322c055073aaf013d">   12</a></span>&#160;<span class="preprocessor">#define MAX_FIRST_LVL 6</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="menu_8h.html#ad2b699dedbdc6fd2e85961416d5a2960">   13</a></span>&#160;<span class="preprocessor">#define MAX_SECOND_LVL 6</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="menu_8h.html#ad543f42f4b79ce6764915b4d5aa2d3c0">   14</a></span>&#160;<span class="preprocessor">#define MAX_THIRD_LVL 4</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="menu_8h.html#a5284afe8812fcd43785e74f274414a30">   15</a></span>&#160;<span class="preprocessor">#define BLEND_OUT_AFTER 3 //(3-1)*250ms</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="menu_8h.html#af92ed4044fdaecd437ed070ac7cd2cc1">   16</a></span>&#160;<span class="preprocessor">#define AMPLIFIER_GAIN 15</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*#define BUTTON_PRESS_LONG 0x6C</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">#define BUTTON_PRESS_SHORT 0x6B</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">#define BUTTON_FREE 0x66*/</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#ad16e5e62f3579a7048e6b981b172885e">menu</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#a3732a14e0e1c7d723b3795f7f7191867">null_befor_value</a>(<span class="keywordtype">char</span> *<span class="keywordtype">string</span> ,<span class="keywordtype">char</span> <a class="code" href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pos);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#a38acc9da7fff461e2fe43656461a6f7c">time_date</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> t_hour, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> t_minute, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> t_day, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> t_month, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> t_year, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> update, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> minute_up, <span class="keywordtype">char</span> *s_time, <span class="keywordtype">char</span> *s_date);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#a2f2ee4e5416214cd0890934dfe99fe75">enter_standby</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="menu_8h.html#a650d041467e55664fc316fcc192c0c7a">exit_standby</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">char</span> <a class="code" href="menu_8h.html#ad7f0cc444ea3d3502e6ce4c918635787">check_for_out_of_range</a>(<span class="keywordtype">signed</span> <span class="keywordtype">char</span> <a class="code" href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a>,<span class="keywordtype">char</span> modulo);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MENU_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="menu_8h_html_a650d041467e55664fc316fcc192c0c7a"><div class="ttname"><a href="menu_8h.html#a650d041467e55664fc316fcc192c0c7a">exit_standby</a></div><div class="ttdeci">void exit_standby(void)</div></div>
-<div class="ttc" id="menu_8h_html_a38acc9da7fff461e2fe43656461a6f7c"><div class="ttname"><a href="menu_8h.html#a38acc9da7fff461e2fe43656461a6f7c">time_date</a></div><div class="ttdeci">void time_date(unsigned char t_hour, unsigned char t_minute, unsigned char t_day, unsigned char t_month, unsigned char t_year, unsigned char update, unsigned char minute_up, char *s_time, char *s_date)</div></div>
-<div class="ttc" id="menu_8h_html_a3732a14e0e1c7d723b3795f7f7191867"><div class="ttname"><a href="menu_8h.html#a3732a14e0e1c7d723b3795f7f7191867">null_befor_value</a></div><div class="ttdeci">void null_befor_value(char *string, char value, unsigned char pos)</div></div>
-<div class="ttc" id="menu_8h_html_a2f2ee4e5416214cd0890934dfe99fe75"><div class="ttname"><a href="menu_8h.html#a2f2ee4e5416214cd0890934dfe99fe75">enter_standby</a></div><div class="ttdeci">void enter_standby(void)</div></div>
-<div class="ttc" id="menu_8h_html_ad7f0cc444ea3d3502e6ce4c918635787"><div class="ttname"><a href="menu_8h.html#ad7f0cc444ea3d3502e6ce4c918635787">check_for_out_of_range</a></div><div class="ttdeci">char check_for_out_of_range(signed char value, char modulo)</div></div>
-<div class="ttc" id="menu_2src_2menu_8c_html_af1134c9cc08a4b934ab479ee7388b544"><div class="ttname"><a href="menu_2src_2menu_8c.html#af1134c9cc08a4b934ab479ee7388b544">value</a></div><div class="ttdeci">int16_t value[8]</div><div class="ttdef"><b>Definition:</b> <a href="menu_2src_2menu_8c_source.html#l00027">menu.c:27</a></div></div>
-<div class="ttc" id="menu_8h_html_ad16e5e62f3579a7048e6b981b172885e"><div class="ttname"><a href="menu_8h.html#ad16e5e62f3579a7048e6b981b172885e">menu</a></div><div class="ttdeci">void menu(void)</div></div>
+<a href="menu_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _MENU_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _MENU_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="lcd_8h.html">driver/lcd.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio_8h.html">system/radio.h</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="encoder_8h.html">driver/encoder.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="language_8h.html">menu/lang/language.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="menu__struct_8h.html">menu/menu_struct.h</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="string_8h.html">libs/string.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="menu_8h.html#a4547235960691aec5d3f0952cc05b4fb">   12</a></span>&#160;<span class="preprocessor">#define MENU_NO_FUNC_ENTRY 0</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="menu_8h.html#a79a0b72d2ebbee89c0757cc582d5accd">   13</a></span>&#160;<span class="preprocessor">#define MENU_FREQ_CHOOSE_ENTRY  1</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="menu_8h.html#aef2bcd296a3d49fb80d0e345205f98c0">   14</a></span>&#160;<span class="preprocessor">#define MENU_VOL_START_ENTRY    2</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="menu_8h.html#a09a38cec6cbb754c3ce721e7c729c545">   15</a></span>&#160;<span class="preprocessor">#define MENU_CONT_ENTRY 3</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="menu_8h.html#aa9d014ea80d95c7f32f2857d10481206">   16</a></span>&#160;<span class="preprocessor">#define MENU_BRIG_ENTRY 4</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="menu_8h.html#a13335c6ce94ec10a1b83f008f03b57d1">   17</a></span>&#160;<span class="preprocessor">#define MENU_MAIN_ENTRY 5</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="menu_8h.html#af74b8a826a42006eea334555edf0a1bb">   18</a></span>&#160;<span class="preprocessor">#define RADIO_RDS_VIEW_ENTRY 6</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="menu_8h.html#a828cf311e0673575a4ea3b250e569a9c">   19</a></span>&#160;<span class="preprocessor">#define RADIO_RSQ_VIEW_ENTRY 7</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="menu_8h.html#ab6f01fe31e2cf4425ba9f37ca586b055">   20</a></span>&#160;<span class="preprocessor">#define RADIO_PIPTY_VIEW_ENTRY 8</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="menu_8h.html#a41f4c2e80487ed2422d44f3ff16affa8">   21</a></span>&#160;<span class="preprocessor">#define AUDIO_POP_ENTRY 9</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="menu_8h.html#a32c4ba4e9d26097a95a2d6d0e2fae19a">   22</a></span>&#160;<span class="preprocessor">#define AUDIO_ROCK_ENTRY 10</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="menu_8h.html#a76dd6e73df6dfa83574943bf0a975d5f">   23</a></span>&#160;<span class="preprocessor">#define AUDIO_CLASSIC_ENTRY 11</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="menu_8h.html#a878e8f0591a3cdf568e9a465adcf5665">   24</a></span>&#160;<span class="preprocessor">#define AUDIO_JAZZ_ENTRY 12</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="menu_8h.html#a6c103aa4955ff3995d89334ed0b0a1e0">   25</a></span>&#160;<span class="preprocessor">#define AUDIO_HIPHOP_ENTRY 13</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="menu_8h.html#aeac602646ed0bd9ba1a81440d5c7c241">   26</a></span>&#160;<span class="preprocessor">#define AUDIO_NEWS_ENTRY 14</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="menu_8h.html#acef5569f62eb924ce3a4dd3f7dbf44d7">   27</a></span>&#160;<span class="preprocessor">#define SOURCE_AM_ENTRY 15</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="menu_8h.html#a8f128b413404cd409a8438505c1d39f1">   28</a></span>&#160;<span class="preprocessor">#define SOURCE_FM_ENTRY 16</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="menu_8h.html#aa3a25b6121aea818d2efb2ee9741a83c">   29</a></span>&#160;<span class="preprocessor">#define SOURCE_LINEIN_ENTRY 17</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="menu_8h.html#a5ce85b23810c89e86194609529dfc4fc">   30</a></span>&#160;<span class="preprocessor">#define SEEKING_UP 18</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="menu_8h.html#ab039e76a9fdf467e69291cfbb67f234f">   31</a></span>&#160;<span class="preprocessor">#define SEEKING_DOWN 19</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="menu_8h.html#a8aa0e8b09d71b943d72e05d755b0827d">   32</a></span>&#160;<span class="preprocessor">#define STORE_STATION 20</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="menu_8h.html#acf4538b0bd65dd4d5e3530aaeb264a18">   33</a></span>&#160;<span class="preprocessor">#define STATION_VIEW 21</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="menu_8h.html#ab12bdd916b4cbe4809be313f58f2ab28">   34</a></span>&#160;<span class="preprocessor">#define AUTO_SEARCH 22</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="menu_8h.html#ae14ae7acebfbb08bf1028c9b22b94c8d">   35</a></span>&#160;<span class="preprocessor">#define MENU_VOL_TA_ENTRY   23</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="menu_8h.html#acae827e168a0fe9a03fe9a71a20f6077">   36</a></span>&#160;<span class="preprocessor">#define MENU_FREQ_SEEK_DOWN_ENTRY 24</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="menu_8h.html#ade9ef61f79ef2baf563238cf23c43aa0">   37</a></span>&#160;<span class="preprocessor">#define MENU_FREQ_SEEK_UP_ENTRY 25</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="menu_8h.html#ab15dd92ee38ecc6cd07fa4eeb21a0a9f">   39</a></span>&#160;<span class="preprocessor">#define LONG_INTO_MENU 0xFF</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="menu_8h.html#a574802ac545032f67153282c9ff9e4db">   40</a></span>&#160;<span class="preprocessor">#define SHORT_INTO_MENU 0xFE</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="menu_8h.html#a1d0f862e0369534e78bee68a5a52bac2">   41</a></span>&#160;<span class="preprocessor">#define SHORT_UP_TO_CHILD 0xFD</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="menu_8h.html#a2e4dd416e1c891a80d8bdcf588f1a5ca">   42</a></span>&#160;<span class="preprocessor">#define SHORT_UP_TO_PARENT 0xFC</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="menu_8h.html#a8b824d49a014ff557c81c2e336202ebe">   43</a></span>&#160;<span class="preprocessor">#define STAY_ON_MENU_POINT 0x00</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="menu_8h.html#a7feaffb81b5835815adbc90d046b24aa">   45</a></span>&#160;<span class="preprocessor">#define BUTTON_PRESS_LONG &#39;l&#39;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="menu_8h.html#a3c86ca09d645d897e51add9106255b9b">   46</a></span>&#160;<span class="preprocessor">#define BUTTON_PRESS_SHORT &#39;k&#39;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="menu_8h.html#ae2ea62f35463775125657c143256e10b">   47</a></span>&#160;<span class="preprocessor">#define BUTTON_PRESS_FREE &#39;f&#39;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;uint8_t <a class="code" href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a>(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;uint8_t <a class="code" href="menu_8h.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a>(uint8_t value);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;uint8_t <a class="code" href="menu_8h.html#af2b732dd8f9b40f4b0bfff691db45ad5">menu_main</a>(uint8_t *encoder_button, int8_t *encoder_count);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;uint8_t <a class="code" href="menu_8h.html#a5621c1bf312de029f43808bf02dc52e3">menu_scroll_settings</a>(uint8_t value);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;uint8_t <a class="code" href="menu_8h.html#a5d9c190838195d7872fc7067269e20fa">menu_function</a>(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _MENU_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="string_8h_html"><div class="ttname"><a href="string_8h.html">string.h</a></div></div>
+<div class="ttc" id="radio_8h_html"><div class="ttname"><a href="radio_8h.html">radio.h</a></div></div>
+<div class="ttc" id="menu_8h_html_a503ed2007daa6f20b2f748eedbcb8494"><div class="ttname"><a href="menu_8h.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a></div><div class="ttdeci">uint8_t menu_scroll(uint8_t value)</div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00054">menu.c:54</a></div></div>
+<div class="ttc" id="menu__struct_8h_html"><div class="ttname"><a href="menu__struct_8h.html">menu_struct.h</a></div></div>
+<div class="ttc" id="menu_8h_html_aaf2a075d3159f7eeab42012941a3437f"><div class="ttname"><a href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a></div><div class="ttdeci">uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00077">menu.c:77</a></div></div>
+<div class="ttc" id="language_8h_html"><div class="ttname"><a href="language_8h.html">language.h</a></div></div>
+<div class="ttc" id="lcd_8h_html"><div class="ttname"><a href="lcd_8h.html">lcd.h</a></div></div>
+<div class="ttc" id="encoder_8h_html"><div class="ttname"><a href="encoder_8h.html">encoder.h</a></div></div>
+<div class="ttc" id="menu_8h_html_a5d9c190838195d7872fc7067269e20fa"><div class="ttname"><a href="menu_8h.html#a5d9c190838195d7872fc7067269e20fa">menu_function</a></div><div class="ttdeci">uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00033">menu.c:33</a></div></div>
+<div class="ttc" id="menu_8h_html_af2b732dd8f9b40f4b0bfff691db45ad5"><div class="ttname"><a href="menu_8h.html#af2b732dd8f9b40f4b0bfff691db45ad5">menu_main</a></div><div class="ttdeci">uint8_t menu_main(uint8_t *encoder_button, int8_t *encoder_count)</div></div>
+<div class="ttc" id="menu_8h_html_a5621c1bf312de029f43808bf02dc52e3"><div class="ttname"><a href="menu_8h.html#a5621c1bf312de029f43808bf02dc52e3">menu_scroll_settings</a></div><div class="ttdeci">uint8_t menu_scroll_settings(uint8_t value)</div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00043">menu.c:43</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="menu_8h.html">Menu.h</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="navelem"><a class="el" href="dir_baddde578d762c90c1d949a22a636838.html">menu</a></li><li class="navelem"><a class="el" href="menu_8h.html">menu.h</a></li>
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

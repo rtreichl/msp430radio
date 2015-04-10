@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: driver/src/lcd.c Quellcode</title>
+<title>FH Radio: D:/GIT/fhradiov2/driver/src/lcd.c Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -123,9 +123,9 @@ $(document).ready(function(){initNavTree('lcd_8c_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Activate PCA9534</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="settings_2radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a> &amp;= (~<a class="code" href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="settings_2radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a> |= <a class="code" href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="settings_2radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a> |= <a class="code" href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a> &amp;= (~<a class="code" href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a> |= <a class="code" href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a> |= <a class="code" href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// Go in default state</span></div>
@@ -439,19 +439,19 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
     pos = x + y * 16;
 
-    /*if(num == 0) {
+    if(num == 0) {
         num = 48;
-    }*/
+    }
 
     /* if string is empty determinat string on given position */
-    if(str == 0) {
-        lcd_view[48] = 0;
+    if(*str == 0 &amp;&amp; num == 48) {
+        lcd_view[pos] = 0;
     }
     else {
         /* copy string on given position */
-        while(*str != 0 &amp;&amp; pos &lt; 48 ) {//&amp;&amp; num &gt; 0) {
+        while(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {//&amp;&amp; num &gt; 0) {
             lcd_view[pos++] = *(str++);
-            //num--;
+            num--;
         }
     }
 
@@ -698,19 +698,19 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
     pos = x + y * 16;
 
-    /*if(num == 0) {
+    if(num == 0) {
         num = 48;
-    }*/
+    }
 
     /* if string is empty determinat string on given position */
-    if(str == 0) {
-        lcd_view[48] = 0;
+    if(*str == 0 &amp;&amp; num == 48) {
+        lcd_view[pos] = 0;
     }
     else {
         /* copy string on given position */
-        while(*str != 0 &amp;&amp; pos &lt; 48 ) {//&amp;&amp; num &gt; 0) {
+        while(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {//&amp;&amp; num &gt; 0) {
             lcd_view[pos++] = *(str++);
-            //num--;
+            num--;
         }
     }
 
@@ -953,19 +953,19 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
     pos = x + y * 16;
 
-    /*if(num == 0) {
+    if(num == 0) {
         num = 48;
-    }*/
+    }
 
     /* if string is empty determinat string on given position */
-    if(str == 0) {
-        lcd_view[48] = 0;
+    if(*str == 0 &amp;&amp; num == 48) {
+        lcd_view[pos] = 0;
     }
     else {
         /* copy string on given position */
-        while(*str != 0 &amp;&amp; pos &lt; 48 ) {//&amp;&amp; num &gt; 0) {
+        while(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {//&amp;&amp; num &gt; 0) {
             lcd_view[pos++] = *(str++);
-            //num--;
+            num--;
         }
     }
 
@@ -1204,19 +1204,19 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
     pos = x + y * 16;
 
-    /*if(num == 0) {
+    if(num == 0) {
         num = 48;
-    }*/
+    }
 
     /* if string is empty determinat string on given position */
-    if(str == 0) {
-        lcd_view[48] = 0;
+    if(*str == 0 &amp;&amp; num == 48) {
+        lcd_view[pos] = 0;
     }
     else {
         /* copy string on given position */
-        while(*str != 0 &amp;&amp; pos &lt; 48 ) {//&amp;&amp; num &gt; 0) {
+        while(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {//&amp;&amp; num &gt; 0) {
             lcd_view[pos++] = *(str++);
-            //num--;
+            num--;
         }
     }
 
@@ -1451,19 +1451,19 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
     pos = x + y * 16;
 
-    /*if(num == 0) {
+    if(num == 0) {
         num = 48;
-    }*/
+    }
 
     /* if string is empty determinat string on given position */
-    if(str == 0) {
-        lcd_view[48] = 0;
+    if(*str == 0 &amp;&amp; num == 48) {
+        lcd_view[pos] = 0;
     }
     else {
         /* copy string on given position */
-        while(*str != 0 &amp;&amp; pos &lt; 48 ) {//&amp;&amp; num &gt; 0) {
+        while(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {//&amp;&amp; num &gt; 0) {
             lcd_view[pos++] = *(str++);
-            //num--;
+            num--;
         }
     }
 
@@ -1694,19 +1694,19 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
     pos = x + y * 16;
 
-    /*if(num == 0) {
+    if(num == 0) {
         num = 48;
-    }*/
+    }
 
     /* if string is empty determinat string on given position */
-    if(str == 0) {
-        lcd_view[48] = 0;
+    if(*str == 0 &amp;&amp; num == 48) {
+        lcd_view[pos] = 0;
     }
     else {
         /* copy string on given position */
-        while(*str != 0 &amp;&amp; pos &lt; 48 ) {//&amp;&amp; num &gt; 0) {
+        while(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {//&amp;&amp; num &gt; 0) {
             lcd_view[pos++] = *(str++);
-            //num--;
+            num--;
         }
     }
 
@@ -1934,19 +1934,19 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    pos = x + y * 16;</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="comment">/*if(num == 0) {</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">        num = 48;</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">    }*/</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span>(num == 0) {</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        num = 48;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="comment">/* if string is empty determinat string on given position */</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span>(str == 0) {</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        lcd_view[48] = 0;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span>(*str == 0 &amp;&amp; num == 48) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        lcd_view[pos] = 0;</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="comment">/* copy string on given position */</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">while</span>(*str != 0 &amp;&amp; pos &lt; 48 ) {<span class="comment">//&amp;&amp; num &gt; 0) {</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">while</span>(*str != 0 &amp;&amp; pos &lt; 48 &amp;&amp; str != 0 &amp;&amp; num &gt; 0) {<span class="comment">//&amp;&amp; num &gt; 0) {</span></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            lcd_view[pos++] = *(str++);</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <span class="comment">//num--;</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            num--;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        }</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    }</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
@@ -1974,10 +1974,8 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;}</div>
 <div class="ttc" id="lcd_8c_html_ac5d817278ad99ea7420d6240c7e6cba6"><div class="ttname"><a href="lcd_8c.html#ac5d817278ad99ea7420d6240c7e6cba6">lcd_generatechar</a></div><div class="ttdeci">uint8_t lcd_generatechar(uint8_t code, const uint8_t *data)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00198">lcd.c:198</a></div></div>
 <div class="ttc" id="lcd_8c_html_acd63fb85d212730fa4fcbcbeeccd231e"><div class="ttname"><a href="lcd_8c.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a></div><div class="ttdeci">uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00315">lcd.c:315</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_aca9911d61d5202bad563d5f748782548"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a></div><div class="ttdeci">#define PCA_ON_OFF_DIR</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00165">radio_pin_mapping.h:165</a></div></div>
 <div class="ttc" id="lcd_8c_html_a6b9abf6cd27026b67144523ffbef4916"><div class="ttname"><a href="lcd_8c.html#a6b9abf6cd27026b67144523ffbef4916">lcd_generatebargraph</a></div><div class="ttdeci">uint8_t lcd_generatebargraph()</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00213">lcd.c:213</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a350fda109811fb23bfaf6ef763c31b9b"><div class="ttname"><a href="lcd__commands_8h.html#a350fda109811fb23bfaf6ef763c31b9b">LCD_RESET_COURSER</a></div><div class="ttdeci">#define LCD_RESET_COURSER</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00013">lcd_commands.h:13</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_a131b17b16bb25a95f17f81423722dcb1"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a></div><div class="ttdeci">#define PCA_ON_OFF_SEL</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00170">radio_pin_mapping.h:170</a></div></div>
 <div class="ttc" id="lcd_8h_html_a0092100866584e3511716fbf8e39c11f"><div class="ttname"><a href="lcd_8h.html#a0092100866584e3511716fbf8e39c11f">LCD_ENABLE_HIGH</a></div><div class="ttdeci">#define LCD_ENABLE_HIGH</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8h_source.html#l00019">lcd.h:19</a></div></div>
 <div class="ttc" id="lcd_8c_html_a2a4df97ebc5b396233aa31765228ef42"><div class="ttname"><a href="lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42">lcd_set_courser</a></div><div class="ttdeci">uint8_t lcd_set_courser(uint8_t x, uint8_t y)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00173">lcd.c:173</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_ae5e77a91b0fef0c36af29424a1ee2da1"><div class="ttname"><a href="lcd__commands_8h.html#ae5e77a91b0fef0c36af29424a1ee2da1">LCD_ENTRY_MODE_SET</a></div><div class="ttdeci">#define LCD_ENTRY_MODE_SET</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00019">lcd_commands.h:19</a></div></div>
@@ -1991,7 +1989,7 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 <div class="ttc" id="lcd__commands_8h_html_a77febe1793148d377a47feafd8f00f2a"><div class="ttname"><a href="lcd__commands_8h.html#a77febe1793148d377a47feafd8f00f2a">LCD_INST_0</a></div><div class="ttdeci">#define LCD_INST_0</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00030">lcd_commands.h:30</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_aa7170591c5c6954165b8f1b6c94bdcea"><div class="ttname"><a href="lcd__commands_8h.html#aa7170591c5c6954165b8f1b6c94bdcea">LCD_FOLLOWER_CIRCUT_ON</a></div><div class="ttdeci">#define LCD_FOLLOWER_CIRCUT_ON</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00040">lcd_commands.h:40</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_af05126b3001c839af73fdbc7e2b0940e"><div class="ttname"><a href="lcd__commands_8h.html#af05126b3001c839af73fdbc7e2b0940e">LCD_AMPLIFFED_RATIO</a></div><div class="ttdeci">#define LCD_AMPLIFFED_RATIO</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00041">lcd_commands.h:41</a></div></div>
-<div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00117">timer.c:117</a></div></div>
+<div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00119">timer.c:119</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a09afb8c9876350b83530222841b6b4ca"><div class="ttname"><a href="lcd__commands_8h.html#a09afb8c9876350b83530222841b6b4ca">LCD_POWER_CONTROL</a></div><div class="ttdeci">#define LCD_POWER_CONTROL</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00035">lcd_commands.h:35</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_afd4bb10e8cc3368a80abe3ef75d92c39"><div class="ttname"><a href="lcd__commands_8h.html#afd4bb10e8cc3368a80abe3ef75d92c39">LCD_HIGHER_BYTE</a></div><div class="ttdeci">#define LCD_HIGHER_BYTE(byte)</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00046">lcd_commands.h:46</a></div></div>
 <div class="ttc" id="lcd_8c_html_a1a22a2c5cd6e0e4e06977a2f78a7ab08"><div class="ttname"><a href="lcd_8c.html#a1a22a2c5cd6e0e4e06977a2f78a7ab08">lcd_write_char</a></div><div class="ttdeci">uint8_t lcd_write_char(uint8_t symbol)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00076">lcd.c:76</a></div></div>
@@ -2007,25 +2005,27 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 <div class="ttc" id="lcd__commands_8h_html_af8ec7e043a3b67ee423b97783d08aeb1"><div class="ttname"><a href="lcd__commands_8h.html#af8ec7e043a3b67ee423b97783d08aeb1">LCD_FUNCTION_SET</a></div><div class="ttdeci">#define LCD_FUNCTION_SET</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00026">lcd_commands.h:26</a></div></div>
 <div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00034">i2c.h:34</a></div></div>
 <div class="ttc" id="lcd_8h_html"><div class="ttname"><a href="lcd_8h.html">lcd.h</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_aca9911d61d5202bad563d5f748782548"><div class="ttname"><a href="radio__pin__mapping_8h.html#aca9911d61d5202bad563d5f748782548">PCA_ON_OFF_DIR</a></div><div class="ttdeci">#define PCA_ON_OFF_DIR</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00165">radio_pin_mapping.h:165</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_ad3c37e4453c7f7ba2d5220f9d8fa8502"><div class="ttname"><a href="lcd__commands_8h.html#ad3c37e4453c7f7ba2d5220f9d8fa8502">LCD_ADRESS_LINE_1</a></div><div class="ttdeci">#define LCD_ADRESS_LINE_1</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00014">lcd_commands.h:14</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a467510be8265e0cc87ce3e4110f9e75e"><div class="ttname"><a href="lcd__commands_8h.html#a467510be8265e0cc87ce3e4110f9e75e">LCD_ADRESS_LINE_4</a></div><div class="ttdeci">#define LCD_ADRESS_LINE_4</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00017">lcd_commands.h:17</a></div></div>
-<div class="ttc" id="timer_8c_html_a3c56af3315c2461dec5ced585a5f84db"><div class="ttname"><a href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a></div><div class="ttdeci">void _delay_ten_us(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00123">timer.c:123</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_abd6e55737a7d5e65b8582d647b103f8e"><div class="ttname"><a href="radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a></div><div class="ttdeci">#define PCA_ON_OFF_OUT</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00164">radio_pin_mapping.h:164</a></div></div>
+<div class="ttc" id="timer_8c_html_a3c56af3315c2461dec5ced585a5f84db"><div class="ttname"><a href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a></div><div class="ttdeci">void _delay_ten_us(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00125">timer.c:125</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_a131b17b16bb25a95f17f81423722dcb1"><div class="ttname"><a href="radio__pin__mapping_8h.html#a131b17b16bb25a95f17f81423722dcb1">PCA_ON_OFF_SEL</a></div><div class="ttdeci">#define PCA_ON_OFF_SEL</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00170">radio_pin_mapping.h:170</a></div></div>
 <div class="ttc" id="lcd_8c_html_ab99e48ab8689dcb1205c4c7c97bd9956"><div class="ttname"><a href="lcd_8c.html#ab99e48ab8689dcb1205c4c7c97bd9956">lcd_contrast</a></div><div class="ttdeci">uint8_t lcd_contrast(uint8_t contrast)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00066">lcd.c:66</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a3e0a4be625c4ed54cf0257a3b526ea00"><div class="ttname"><a href="lcd__commands_8h.html#a3e0a4be625c4ed54cf0257a3b526ea00">LCD_BIAS_1_4</a></div><div class="ttdeci">#define LCD_BIAS_1_4</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00033">lcd_commands.h:33</a></div></div>
 <div class="ttc" id="lcd_8h_html_a0cbc0c73a8326693dcae8ceac5c7b71b"><div class="ttname"><a href="lcd_8h.html#a0cbc0c73a8326693dcae8ceac5c7b71b">LCD_ENABLE_LOW</a></div><div class="ttdeci">#define LCD_ENABLE_LOW</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8h_source.html#l00020">lcd.h:20</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_a24dbe611147513e518aaa1b1034e19d9"><div class="ttname"><a href="radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a></div><div class="ttdeci">#define PCA_ON_OFF_PIN</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00162">radio_pin_mapping.h:162</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a2dc0a014e84d69016cc4785bbc1fb3ac"><div class="ttname"><a href="lcd__commands_8h.html#a2dc0a014e84d69016cc4785bbc1fb3ac">LCD_CONTRAST_SET</a></div><div class="ttdeci">#define LCD_CONTRAST_SET</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00042">lcd_commands.h:42</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_add84145ade06b4f96934b7f1ed712e50"><div class="ttname"><a href="lcd__commands_8h.html#add84145ade06b4f96934b7f1ed712e50">LCD_2_LINE_INST_1</a></div><div class="ttdeci">#define LCD_2_LINE_INST_1</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00029">lcd_commands.h:29</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_a357f0824fb224d0925d6ca5230585814"><div class="ttname"><a href="lcd__commands_8h.html#a357f0824fb224d0925d6ca5230585814">LCD_ADRESS_LINE_2</a></div><div class="ttdeci">#define LCD_ADRESS_LINE_2</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00015">lcd_commands.h:15</a></div></div>
 <div class="ttc" id="lcd__commands_8h_html_afb9a52fe082bc759811cbc78af93e5be"><div class="ttname"><a href="lcd__commands_8h.html#afb9a52fe082bc759811cbc78af93e5be">LCD_LOWER_BYTE</a></div><div class="ttdeci">#define LCD_LOWER_BYTE(byte)</div><div class="ttdef"><b>Definition:</b> <a href="lcd__commands_8h_source.html#l00045">lcd_commands.h:45</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_a24dbe611147513e518aaa1b1034e19d9"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#a24dbe611147513e518aaa1b1034e19d9">PCA_ON_OFF_PIN</a></div><div class="ttdeci">#define PCA_ON_OFF_PIN</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00162">radio_pin_mapping.h:162</a></div></div>
-<div class="ttc" id="settings_2radio__pin__mapping_8h_html_abd6e55737a7d5e65b8582d647b103f8e"><div class="ttname"><a href="settings_2radio__pin__mapping_8h.html#abd6e55737a7d5e65b8582d647b103f8e">PCA_ON_OFF_OUT</a></div><div class="ttdeci">#define PCA_ON_OFF_OUT</div><div class="ttdef"><b>Definition:</b> <a href="settings_2radio__pin__mapping_8h_source.html#l00164">radio_pin_mapping.h:164</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="dir_a73e662009d191b54bc30e34ae038220.html">src</a></li><li class="navelem"><a class="el" href="lcd_8c.html">lcd.c</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

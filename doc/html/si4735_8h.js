@@ -7,6 +7,7 @@ var si4735_8h =
     [ "SI4735_FM_RDS_CONFIG", "si4735_8h.html#af3efe7a124c0457f4a63d46018956695", null ],
     [ "SI4735_FM_RDS_INT_FIFO_COUNT", "si4735_8h.html#a44655632a38eeb700c13dbd2e10dd35c", null ],
     [ "SI4735_FM_RDS_INT_SOURCE", "si4735_8h.html#ac49dacb391ada8ba8fae82a8597ff9de", null ],
+    [ "si4735_fm_rsq_status", "si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41", null ],
     [ "SI4735_Fm_Seek_Band_Bottom", "si4735_8h.html#a5cc7aff2697433e1b4d29abc94035ccf", null ],
     [ "SI4735_Fm_Seek_Band_Top", "si4735_8h.html#a576f24e76b49006f3b9bf9a986b8815e", null ],
     [ "si4735_fm_seek_start", "si4735_8h.html#a339846da787fb5a496df9252ca7dc9a5", null ],

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: system/time.h Quellcode</title>
+<title>FH Radio: D:/GIT/fhradiov2/system/time.h Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -135,10 +135,10 @@ $(document).ready(function(){initNavTree('time_8h_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> uint8_t <a class="code" href="time_8h.html#acad1ff586b95cc545cb891657e66b069">month_days</a>[];</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="time_8h.html#a903573b04a7af98d20ef909f40e40fe2">time_date_update</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;uint8_t <a class="code" href="time_8h.html#a38be5ccb6a78c3b5cebed5ff341ed4f9">date_to_str</a>(<span class="keywordtype">char</span> *str);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;uint8_t <a class="code" href="time_8h.html#a12eef8136a835e1bbe52bcf02789e706">time_to_str</a>(<span class="keywordtype">char</span> *str);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;uint8_t <a class="code" href="time_8h.html#a5db7b4e6e4e991e6730a118bff927c39">time_set</a>(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="time_8h.html#acbfa3c65c807be82221cbebc7ac63224">time_update</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;uint8_t <a class="code" href="time_8h.html#a4c9e3c34eea90bf15a804da6ee4ad638">time_date_to_array</a>(<span class="keywordtype">char</span> *str);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;uint8_t <a class="code" href="time_8h.html#aa90db1275cec05113ad9a5041f6f8293">time_time_to_array</a>(<span class="keywordtype">char</span> *str);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;uint8_t <a class="code" href="time_8h.html#a6b341bdccd1c2c5503da84093f12e145">time_set_time</a>(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SYSTEM_TIME_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="structtime__date_html_aeb047e7931fb6cd6e4c751d8143c16a4"><div class="ttname"><a href="structtime__date.html#aeb047e7931fb6cd6e4c751d8143c16a4">time_date::minute_one</a></div><div class="ttdeci">uint32_t minute_one</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00014">time.h:14</a></div></div>
@@ -146,25 +146,25 @@ $(document).ready(function(){initNavTree('time_8h_source.html','');});
 <div class="ttc" id="structtime__date_html_a55217c761921c4b4443fb1d4dee3f564"><div class="ttname"><a href="structtime__date.html#a55217c761921c4b4443fb1d4dee3f564">time_date::year_one</a></div><div class="ttdeci">uint32_t year_one</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00022">time.h:22</a></div></div>
 <div class="ttc" id="structtime__date_html_a338fe5a5db873c63189f9c98bf0376fc"><div class="ttname"><a href="structtime__date.html#a338fe5a5db873c63189f9c98bf0376fc">time_date::hour_one</a></div><div class="ttdeci">uint32_t hour_one</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00016">time.h:16</a></div></div>
 <div class="ttc" id="structtime__date_html_a124f7250b4c2e15669a832132940840d"><div class="ttname"><a href="structtime__date.html#a124f7250b4c2e15669a832132940840d">time_date::year_ten</a></div><div class="ttdeci">uint32_t year_ten</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00023">time.h:23</a></div></div>
+<div class="ttc" id="time_8h_html_acbfa3c65c807be82221cbebc7ac63224"><div class="ttname"><a href="time_8h.html#acbfa3c65c807be82221cbebc7ac63224">time_update</a></div><div class="ttdeci">void time_update()</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00075">time.c:75</a></div></div>
 <div class="ttc" id="structtime__date_html_a7315167bc0969310bcaedee5699243e5"><div class="ttname"><a href="structtime__date.html#a7315167bc0969310bcaedee5699243e5">time_date::hour_ten</a></div><div class="ttdeci">uint32_t hour_ten</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00017">time.h:17</a></div></div>
-<div class="ttc" id="time_8h_html_a38be5ccb6a78c3b5cebed5ff341ed4f9"><div class="ttname"><a href="time_8h.html#a38be5ccb6a78c3b5cebed5ff341ed4f9">date_to_str</a></div><div class="ttdeci">uint8_t date_to_str(char *str)</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00060">time.c:60</a></div></div>
 <div class="ttc" id="time_8h_html_ae9c204f639ab68d07dc1c027f3542663"><div class="ttname"><a href="time_8h.html#ae9c204f639ab68d07dc1c027f3542663">TIME_DATE</a></div><div class="ttdeci">struct time_date TIME_DATE</div></div>
 <div class="ttc" id="time_8h_html_acad1ff586b95cc545cb891657e66b069"><div class="ttname"><a href="time_8h.html#acad1ff586b95cc545cb891657e66b069">month_days</a></div><div class="ttdeci">const uint8_t month_days[]</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00018">time.c:18</a></div></div>
-<div class="ttc" id="time_8h_html_a12eef8136a835e1bbe52bcf02789e706"><div class="ttname"><a href="time_8h.html#a12eef8136a835e1bbe52bcf02789e706">time_to_str</a></div><div class="ttdeci">uint8_t time_to_str(char *str)</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00048">time.c:48</a></div></div>
+<div class="ttc" id="time_8h_html_aa90db1275cec05113ad9a5041f6f8293"><div class="ttname"><a href="time_8h.html#aa90db1275cec05113ad9a5041f6f8293">time_time_to_array</a></div><div class="ttdeci">uint8_t time_time_to_array(char *str)</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00048">time.c:48</a></div></div>
 <div class="ttc" id="structtime__date_html_aa49ac5f823611c03f3c3723f12047cfc"><div class="ttname"><a href="structtime__date.html#aa49ac5f823611c03f3c3723f12047cfc">time_date::day_one</a></div><div class="ttdeci">uint32_t day_one</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00018">time.h:18</a></div></div>
-<div class="ttc" id="time_8h_html_a5db7b4e6e4e991e6730a118bff927c39"><div class="ttname"><a href="time_8h.html#a5db7b4e6e4e991e6730a118bff927c39">time_set</a></div><div class="ttdeci">uint8_t time_set(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid)</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00033">time.c:33</a></div></div>
 <div class="ttc" id="structtime__date_html_a2659c12e8307db4c98ce9cb1bf53bc0e"><div class="ttname"><a href="structtime__date.html#a2659c12e8307db4c98ce9cb1bf53bc0e">time_date::minute_ten</a></div><div class="ttdeci">uint32_t minute_ten</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00015">time.h:15</a></div></div>
 <div class="ttc" id="structtime__date_html_afadd8a2137e5a4d272d63e02386c2bd8"><div class="ttname"><a href="structtime__date.html#afadd8a2137e5a4d272d63e02386c2bd8">time_date::month_ten</a></div><div class="ttdeci">uint32_t month_ten</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00021">time.h:21</a></div></div>
 <div class="ttc" id="structtime__date_html_a6ad3129035cd14cf22da6e4a1fecf018"><div class="ttname"><a href="structtime__date.html#a6ad3129035cd14cf22da6e4a1fecf018">time_date::month_one</a></div><div class="ttdeci">uint32_t month_one</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00020">time.h:20</a></div></div>
+<div class="ttc" id="time_8h_html_a4c9e3c34eea90bf15a804da6ee4ad638"><div class="ttname"><a href="time_8h.html#a4c9e3c34eea90bf15a804da6ee4ad638">time_date_to_array</a></div><div class="ttdeci">uint8_t time_date_to_array(char *str)</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00060">time.c:60</a></div></div>
 <div class="ttc" id="structtime__date_html_af252ce7a893acb93c32d07d0330f900d"><div class="ttname"><a href="structtime__date.html#af252ce7a893acb93c32d07d0330f900d">time_date::day_ten</a></div><div class="ttdeci">uint32_t day_ten</div><div class="ttdef"><b>Definition:</b> <a href="time_8h_source.html#l00019">time.h:19</a></div></div>
-<div class="ttc" id="time_8h_html_a903573b04a7af98d20ef909f40e40fe2"><div class="ttname"><a href="time_8h.html#a903573b04a7af98d20ef909f40e40fe2">time_date_update</a></div><div class="ttdeci">void time_date_update()</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00075">time.c:75</a></div></div>
+<div class="ttc" id="time_8h_html_a6b341bdccd1c2c5503da84093f12e145"><div class="ttname"><a href="time_8h.html#a6b341bdccd1c2c5503da84093f12e145">time_set_time</a></div><div class="ttdeci">uint8_t time_set_time(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid)</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00033">time.c:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="time_8h.html">time.h</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

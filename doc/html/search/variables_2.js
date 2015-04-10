@@ -14,7 +14,7 @@ var searchData=
   ['blethd',['BLETHD',['../unionfm__rds__config.html#aa256d0f762bc9c1ba9fd6f9ee0047d4e',1,'fm_rds_config']]],
   ['block',['block',['../structrds.html#af966591bcdc65611d3f9ec47cd36d52a',1,'rds']]],
   ['block_5fb',['block_b',['../structrds.html#ad8c59b1a87492b568b0bf85aef6f5f87',1,'rds']]],
-  ['brightness',['brightness',['../structradio.html#a837c871f200f8c3d19d0c7f2e031ffc4',1,'radio']]],
+  ['brightness',['brightness',['../structradio__settings.html#af4cd243fe91e6ef111857d8d7938707f',1,'radio_settings']]],
   ['brightness_5fauto_5fentry',['brightness_auto_entry',['../menu__struct_8h.html#ae72b2e2b3f4c12c369527565c75a2f84',1,'brightness_auto_entry():&#160;menu_struct.c'],['../menu__struct_8c.html#ae72b2e2b3f4c12c369527565c75a2f84',1,'brightness_auto_entry():&#160;menu_struct.c']]],
   ['brightness_5fentry',['brightness_entry',['../menu__struct_8h.html#a8d1c64e39039537daef345947218a368',1,'brightness_entry():&#160;menu_struct.c'],['../menu__struct_8c.html#a8d1c64e39039537daef345947218a368',1,'brightness_entry():&#160;menu_struct.c']]],
   ['brightness_5ffixed_5fentry',['brightness_fixed_entry',['../menu__struct_8h.html#a7d62bb5291338deb05113be225655d6b',1,'brightness_fixed_entry():&#160;menu_struct.c'],['../menu__struct_8c.html#a7d62bb5291338deb05113be225655d6b',1,'brightness_fixed_entry():&#160;menu_struct.c']]],

@@ -1,0 +1,17 @@
+<map id="flash_store" name="flash_store">
+<area shape="rect" id="node2" href="$radio_8c.html#a477656bb91c200d15ddbe6cffcd04c53" title="radio_store_settings" alt="" coords="139,208,277,235"/>
+<area shape="rect" id="node15" href="$radio_8c.html#a5e5300f73411d8e90a928adf42d2a6ed" title="radio_store_station" alt="" coords="142,56,274,83"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a9dd33606330e2225b425000341cf4688" title="radio_brightness" alt="" coords="519,208,636,235"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="695,233,797,260"/>
+<area shape="rect" id="node8" href="$radio_8c.html#aaf3f53dfebe8da71fbe4c457ffda6714" title="radio_contrast" alt="" coords="525,309,629,336"/>
+<area shape="rect" id="node9" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="344,360,441,387"/>
+<area shape="rect" id="node10" href="$radio_8c.html#afb3cb0ce160c3403d9306d936667fb64" title="radio_source_select" alt="" coords="508,411,647,437"/>
+<area shape="rect" id="node12" href="$radio_8c.html#aaaca9764d77849b9d1aeae47e691bf75" title="radio_equalizer" alt="" coords="338,157,447,184"/>
+<area shape="rect" id="node13" href="$radio_8c.html#aae41d271062b3f94cccf4fb5996b04a2" title="radio_frequency" alt="" coords="521,107,634,133"/>
+<area shape="rect" id="node14" href="$station__list_8h.html#a5b16204c2b6824ce89364d614f074b20" title="station_list_handler" alt="" coords="325,56,460,83"/>
+<area shape="rect" id="node5" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="845,263,952,289"/>
+<area shape="rect" id="node6" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="1000,288,1103,315"/>
+<area shape="rect" id="node7" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1151,320,1201,347"/>
+<area shape="rect" id="node11" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="861,357,936,384"/>
+<area shape="rect" id="node16" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="329,5,457,32"/>
+</map>

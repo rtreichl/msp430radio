@@ -1,0 +1,14 @@
+<map id="flash_read" name="flash_read">
+<area shape="rect" id="node2" href="$flash_8c.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="156,81,241,108"/>
+<area shape="rect" id="node13" href="$radio_8c.html#acd8105d0e43e2e4801375554df271689" title="radio_read_station" alt="" coords="135,132,263,159"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a9dd33606330e2225b425000341cf4688" title="radio_brightness" alt="" coords="499,5,617,32"/>
+<area shape="rect" id="node8" href="$radio_8c.html#aaf3f53dfebe8da71fbe4c457ffda6714" title="radio_contrast" alt="" coords="325,56,429,83"/>
+<area shape="rect" id="node9" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="328,107,425,133"/>
+<area shape="rect" id="node10" href="$radio_8c.html#a5e5300f73411d8e90a928adf42d2a6ed" title="radio_store_station" alt="" coords="311,157,443,184"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="673,107,776,133"/>
+<area shape="rect" id="node5" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="824,107,931,133"/>
+<area shape="rect" id="node6" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="979,107,1081,133"/>
+<area shape="rect" id="node7" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1129,107,1180,133"/>
+<area shape="rect" id="node11" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="494,157,622,184"/>
+<area shape="rect" id="node12" href="$station__list_8h.html#a5b16204c2b6824ce89364d614f074b20" title="station_list_handler" alt="" coords="491,208,625,235"/>
+</map>

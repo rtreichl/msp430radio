@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nmi',['nmi',['../main_8c.html#acee0e2dfb77ceffb9d8ec17b46d4e5b6',1,'main.c']]],
-  ['null_5fbefor_5fvalue',['null_befor_value',['../menu_8h.html#a3732a14e0e1c7d723b3795f7f7191867',1,'Menu.h']]]
+  ['opt3001_5fget_5fvalue',['opt3001_get_value',['../opt3001_8c.html#a4910f99caac4b6293a33627107cb7e82',1,'opt3001.c']]],
+  ['opt3001_5finit',['opt3001_init',['../opt3001_8c.html#adc4f87c7b66e9137a35d55e0dc405bf9',1,'opt3001.c']]]
 ];

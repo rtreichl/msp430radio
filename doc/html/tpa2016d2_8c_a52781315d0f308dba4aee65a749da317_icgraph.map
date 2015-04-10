@@ -1,4 +1,9 @@
 <map id="Amplifier_set_equalizer_mode" name="Amplifier_set_equalizer_mode">
-<area shape="rect" id="node2" href="$tpa2016d2_8h.html#a69f931d3974bd6188f078754326405d3" title="Amplifier_init" alt="" coords="248,5,344,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="392,5,443,32"/>
+<area shape="rect" id="node2" href="$tpa2016d2_8h.html#a69f931d3974bd6188f078754326405d3" title="Amplifier_init" alt="" coords="255,5,351,32"/>
+<area shape="rect" id="node5" href="$radio_8c.html#aaaca9764d77849b9d1aeae47e691bf75" title="radio_equalizer" alt="" coords="248,56,357,83"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="572,5,647,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="861,31,912,57"/>
+<area shape="rect" id="node6" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="405,56,508,83"/>
+<area shape="rect" id="node7" href="$menu_2src_2menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="556,56,663,83"/>
+<area shape="rect" id="node8" href="$menu_2src_2menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="711,56,813,83"/>
 </map>

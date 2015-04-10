@@ -1,18 +1,19 @@
-\hypertarget{opt3001_8h}{}\section{driver/opt3001.h-\/\+Dateireferenz}
-\label{opt3001_8h}\index{driver/opt3001.\+h@{driver/opt3001.\+h}}
+\hypertarget{opt3001_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/driver/opt3001.h-\/\+Dateireferenz}
+\label{opt3001_8h}\index{D\+:/\+G\+I\+T/fhradiov2/driver/opt3001.\+h@{D\+:/\+G\+I\+T/fhradiov2/driver/opt3001.\+h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$driver/i2c.\+h$>$}\\*
 Include-\/\+Abhängigkeitsdiagramm für opt3001.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=165pt]{opt3001_8h__incl}
+\includegraphics[width=350pt]{opt3001_8h__incl}
 \end{center}
 \end{figure}
 Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{opt3001_8h__dep__incl}
+\includegraphics[width=190pt]{opt3001_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Datenstrukturen}
@@ -23,25 +24,38 @@ struct \hyperlink{structopt3001__stc}{opt3001\+\_\+stc}
 \subsection*{Makrodefinitionen}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{opt3001_8h_a888795c8dd85321e189306fbc88b4510}{float\+\_\+to\+\_\+int}(\hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value})~((\hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} 0x0\+F\+F\+F\+F) $<$$<$ ((value \& 0x\+F000) $>$$>$ 12))
+\#define \hyperlink{opt3001_8h_a83c0046a2cb83309917ed6ec6b3e5b2b}{O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N}~0x00
+\item 
+\#define \hyperlink{opt3001_8h_a062f509618661c8536b62d247856583e}{O\+P\+T3001\+\_\+\+V\+D\+D\+\_\+\+P\+I\+N}~0x01
+\item 
+\#define \hyperlink{opt3001_8h_a57a9cfe5fcae1cdb426399f4f3ac8fb4}{O\+P\+T3001\+\_\+\+S\+D\+A\+\_\+\+P\+I\+N}~0x02
+\item 
+\#define \hyperlink{opt3001_8h_a8fa51a470988bda646bf67de9f6a8e6e}{O\+P\+T3001\+\_\+\+S\+C\+L\+\_\+\+P\+I\+N}~0x03
+\item 
+\#define \hyperlink{opt3001_8h_a353b66bab3e673b2969dc30b9de284d7}{O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R}~0x44
+\item 
+\#define \hyperlink{opt3001_8h_a9af39dbc20acc60812374ca8a61899c5}{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N}~\hyperlink{opt3001_8h_a83c0046a2cb83309917ed6ec6b3e5b2b}{O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N}
+\item 
+\#define \hyperlink{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}{O\+P\+T3001\+\_\+\+I2\+C\+\_\+\+A\+D\+R}~(\hyperlink{opt3001_8h_a353b66bab3e673b2969dc30b9de284d7}{O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R} $\vert$ \hyperlink{opt3001_8h_a9af39dbc20acc60812374ca8a61899c5}{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N})
+\item 
+\#define \hyperlink{opt3001_8h_adc31d7638b454133413e5bdded688dcd}{O\+P\+T3001\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+E\+G}~0x00
+\item 
+\#define \hyperlink{opt3001_8h_a97a74783c7f6707babcc81aedb4cf9bc}{O\+P\+T3001\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+E\+G}~0x01
+\item 
+\#define \hyperlink{opt3001_8h_aa13506d6c56601c3cd1686bd4a9b757f}{O\+P\+T3001\+\_\+\+L\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}~0x02
+\item 
+\#define \hyperlink{opt3001_8h_aca3ce0064552360839f2890488ac2e6e}{O\+P\+T3001\+\_\+\+H\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}~0x03
+\item 
+\#define \hyperlink{opt3001_8h_a806311af2bb5783978e8c67f5a49ec3e}{O\+P\+T3001\+\_\+\+M\+A\+N\+U\+\_\+\+I\+D\+\_\+\+R\+E\+G}~0x7\+E
+\item 
+\#define \hyperlink{opt3001_8h_ab6d903ff1a1f0028b4b31aa2dc7f61ae}{O\+P\+T3001\+\_\+\+D\+E\+V\+\_\+\+I\+D\+\_\+\+R\+E\+G}~0x7\+F
+\item 
+\#define \hyperlink{opt3001_8h_a888795c8dd85321e189306fbc88b4510}{float\+\_\+to\+\_\+int}(value)~((value \& 0x0\+F\+F\+F\+F) $<$$<$ ((value \& 0x\+F000) $>$$>$ 12))
 \end{DoxyCompactItemize}
 \subsection*{Typdefinitionen}
 \begin{DoxyCompactItemize}
 \item 
 typedef struct \hyperlink{structopt3001__stc}{opt3001\+\_\+stc} \hyperlink{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}{O\+P\+T3001\+\_\+\+S\+T\+C}
-\end{DoxyCompactItemize}
-\subsection*{Aufzählungen}
-\begin{DoxyCompactItemize}
-\item 
-enum \{ \\*
-\hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b}{R\+E\+S\+U\+L\+T} = 0x00, 
-\hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2}{C\+O\+N\+F\+I\+G} = 0x01, 
-\hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb}{L\+O\+W\+\_\+\+L\+I\+M\+I\+T} = 0x02, 
-\hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da34326bb983a3fffa8a90905bbc3d0930}{H\+I\+G\+H\+\_\+\+L\+I\+M\+I\+T} = 0x03, 
-\\*
-\hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5daf9866a592092cff760f649f38fcbec1d}{M\+A\+N\+\_\+\+I\+D} = 0x7\+E, 
-\hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da1e25e06ba87a3e60d219cca03a221b4d}{D\+E\+V\+\_\+\+I\+D} = 0x7\+F
- \}
 \end{DoxyCompactItemize}
 
 
@@ -50,12 +64,103 @@ enum \{ \\*
 \index{float\+\_\+to\+\_\+int@{float\+\_\+to\+\_\+int}!opt3001.\+h@{opt3001.\+h}}
 \subsubsection[{float\+\_\+to\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}\#define float\+\_\+to\+\_\+int(
 \begin{DoxyParamCaption}
-\item[{}]{{\bf value}}
+\item[{}]{value}
 \end{DoxyParamCaption}
-)~(({\bf value} 0x0\+F\+F\+F\+F) $<$$<$ ((value \& 0x\+F000) $>$$>$ 12))}\label{opt3001_8h_a888795c8dd85321e189306fbc88b4510}
+)~((value \& 0x0\+F\+F\+F\+F) $<$$<$ ((value \& 0x\+F000) $>$$>$ 12))}\label{opt3001_8h_a888795c8dd85321e189306fbc88b4510}
 
 
-Definiert in Zeile 21 der Datei opt3001.\+h.
+Definiert in Zeile 35 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a9af39dbc20acc60812374ca8a61899c5}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N}}
+\index{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N~{\bf O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N}}\label{opt3001_8h_a9af39dbc20acc60812374ca8a61899c5}
+
+
+Definiert in Zeile 19 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a353b66bab3e673b2969dc30b9de284d7}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R@{O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R}}
+\index{O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R@{O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R~0x44}\label{opt3001_8h_a353b66bab3e673b2969dc30b9de284d7}
+
+
+Definiert in Zeile 18 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a97a74783c7f6707babcc81aedb4cf9bc}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+E\+G}}
+\index{O\+P\+T3001\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+E\+G}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+E\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+R\+E\+G~0x01}\label{opt3001_8h_a97a74783c7f6707babcc81aedb4cf9bc}
+
+
+Definiert in Zeile 23 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_ab6d903ff1a1f0028b4b31aa2dc7f61ae}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+D\+E\+V\+\_\+\+I\+D\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+D\+E\+V\+\_\+\+I\+D\+\_\+\+R\+E\+G}}
+\index{O\+P\+T3001\+\_\+\+D\+E\+V\+\_\+\+I\+D\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+D\+E\+V\+\_\+\+I\+D\+\_\+\+R\+E\+G}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+D\+E\+V\+\_\+\+I\+D\+\_\+\+R\+E\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+D\+E\+V\+\_\+\+I\+D\+\_\+\+R\+E\+G~0x7\+F}\label{opt3001_8h_ab6d903ff1a1f0028b4b31aa2dc7f61ae}
+
+
+Definiert in Zeile 27 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a83c0046a2cb83309917ed6ec6b3e5b2b}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N}}
+\index{O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+G\+N\+D\+\_\+\+P\+I\+N~0x00}\label{opt3001_8h_a83c0046a2cb83309917ed6ec6b3e5b2b}
+
+
+Definiert in Zeile 14 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_aca3ce0064552360839f2890488ac2e6e}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+H\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+H\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}}
+\index{O\+P\+T3001\+\_\+\+H\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+H\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+H\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+H\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G~0x03}\label{opt3001_8h_aca3ce0064552360839f2890488ac2e6e}
+
+
+Definiert in Zeile 25 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+I2\+C\+\_\+\+A\+D\+R@{O\+P\+T3001\+\_\+\+I2\+C\+\_\+\+A\+D\+R}}
+\index{O\+P\+T3001\+\_\+\+I2\+C\+\_\+\+A\+D\+R@{O\+P\+T3001\+\_\+\+I2\+C\+\_\+\+A\+D\+R}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+I2\+C\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+I2\+C\+\_\+\+A\+D\+R~({\bf O\+P\+T3001\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+R} $\vert$ {\bf O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N})}\label{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}
+
+
+Definiert in Zeile 20 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_aa13506d6c56601c3cd1686bd4a9b757f}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+L\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+L\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}}
+\index{O\+P\+T3001\+\_\+\+L\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+L\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+L\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+L\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+G~0x02}\label{opt3001_8h_aa13506d6c56601c3cd1686bd4a9b757f}
+
+
+Definiert in Zeile 24 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a806311af2bb5783978e8c67f5a49ec3e}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+M\+A\+N\+U\+\_\+\+I\+D\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+M\+A\+N\+U\+\_\+\+I\+D\+\_\+\+R\+E\+G}}
+\index{O\+P\+T3001\+\_\+\+M\+A\+N\+U\+\_\+\+I\+D\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+M\+A\+N\+U\+\_\+\+I\+D\+\_\+\+R\+E\+G}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+M\+A\+N\+U\+\_\+\+I\+D\+\_\+\+R\+E\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+M\+A\+N\+U\+\_\+\+I\+D\+\_\+\+R\+E\+G~0x7\+E}\label{opt3001_8h_a806311af2bb5783978e8c67f5a49ec3e}
+
+
+Definiert in Zeile 26 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_adc31d7638b454133413e5bdded688dcd}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+E\+G}}
+\index{O\+P\+T3001\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+E\+G@{O\+P\+T3001\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+E\+G}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+E\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+R\+E\+G~0x00}\label{opt3001_8h_adc31d7638b454133413e5bdded688dcd}
+
+
+Definiert in Zeile 22 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a8fa51a470988bda646bf67de9f6a8e6e}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+S\+C\+L\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+S\+C\+L\+\_\+\+P\+I\+N}}
+\index{O\+P\+T3001\+\_\+\+S\+C\+L\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+S\+C\+L\+\_\+\+P\+I\+N}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+S\+C\+L\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+S\+C\+L\+\_\+\+P\+I\+N~0x03}\label{opt3001_8h_a8fa51a470988bda646bf67de9f6a8e6e}
+
+
+Definiert in Zeile 17 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a57a9cfe5fcae1cdb426399f4f3ac8fb4}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+S\+D\+A\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+S\+D\+A\+\_\+\+P\+I\+N}}
+\index{O\+P\+T3001\+\_\+\+S\+D\+A\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+S\+D\+A\+\_\+\+P\+I\+N}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+S\+D\+A\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+S\+D\+A\+\_\+\+P\+I\+N~0x02}\label{opt3001_8h_a57a9cfe5fcae1cdb426399f4f3ac8fb4}
+
+
+Definiert in Zeile 16 der Datei opt3001.\+h.
+
+\hypertarget{opt3001_8h_a062f509618661c8536b62d247856583e}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+V\+D\+D\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+V\+D\+D\+\_\+\+P\+I\+N}}
+\index{O\+P\+T3001\+\_\+\+V\+D\+D\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+V\+D\+D\+\_\+\+P\+I\+N}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{O\+P\+T3001\+\_\+\+V\+D\+D\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+P\+T3001\+\_\+\+V\+D\+D\+\_\+\+P\+I\+N~0x01}\label{opt3001_8h_a062f509618661c8536b62d247856583e}
+
+
+Definiert in Zeile 15 der Datei opt3001.\+h.
 
 
 
@@ -63,33 +168,3 @@ Definiert in Zeile 21 der Datei opt3001.\+h.
 \hypertarget{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+S\+T\+C@{O\+P\+T3001\+\_\+\+S\+T\+C}}
 \index{O\+P\+T3001\+\_\+\+S\+T\+C@{O\+P\+T3001\+\_\+\+S\+T\+C}!opt3001.\+h@{opt3001.\+h}}
 \subsubsection[{O\+P\+T3001\+\_\+\+S\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf opt3001\+\_\+stc}  {\bf O\+P\+T3001\+\_\+\+S\+T\+C}}\label{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}
-
-
-\subsection{Dokumentation der Aufzählungstypen}
-\hypertarget{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5d}{}\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5d}
-\begin{Desc}
-\item[Aufzählungswerte]\par
-\begin{description}
-\index{R\+E\+S\+U\+L\+T@{R\+E\+S\+U\+L\+T}!opt3001.\+h@{opt3001.\+h}}\index{opt3001.\+h@{opt3001.\+h}!R\+E\+S\+U\+L\+T@{R\+E\+S\+U\+L\+T}}\item[{\em 
-\hypertarget{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b}{}R\+E\+S\+U\+L\+T\label{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b}
-}]\index{C\+O\+N\+F\+I\+G@{C\+O\+N\+F\+I\+G}!opt3001.\+h@{opt3001.\+h}}\index{opt3001.\+h@{opt3001.\+h}!C\+O\+N\+F\+I\+G@{C\+O\+N\+F\+I\+G}}\item[{\em 
-\hypertarget{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2}{}C\+O\+N\+F\+I\+G\label{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2}
-}]\index{L\+O\+W\+\_\+\+L\+I\+M\+I\+T@{L\+O\+W\+\_\+\+L\+I\+M\+I\+T}!opt3001.\+h@{opt3001.\+h}}\index{opt3001.\+h@{opt3001.\+h}!L\+O\+W\+\_\+\+L\+I\+M\+I\+T@{L\+O\+W\+\_\+\+L\+I\+M\+I\+T}}\item[{\em 
-\hypertarget{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb}{}L\+O\+W\+\_\+\+L\+I\+M\+I\+T\label{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb}
-}]\index{H\+I\+G\+H\+\_\+\+L\+I\+M\+I\+T@{H\+I\+G\+H\+\_\+\+L\+I\+M\+I\+T}!opt3001.\+h@{opt3001.\+h}}\index{opt3001.\+h@{opt3001.\+h}!H\+I\+G\+H\+\_\+\+L\+I\+M\+I\+T@{H\+I\+G\+H\+\_\+\+L\+I\+M\+I\+T}}\item[{\em 
-\hypertarget{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da34326bb983a3fffa8a90905bbc3d0930}{}H\+I\+G\+H\+\_\+\+L\+I\+M\+I\+T\label{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da34326bb983a3fffa8a90905bbc3d0930}
-}]\index{M\+A\+N\+\_\+\+I\+D@{M\+A\+N\+\_\+\+I\+D}!opt3001.\+h@{opt3001.\+h}}\index{opt3001.\+h@{opt3001.\+h}!M\+A\+N\+\_\+\+I\+D@{M\+A\+N\+\_\+\+I\+D}}\item[{\em 
-\hypertarget{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5daf9866a592092cff760f649f38fcbec1d}{}M\+A\+N\+\_\+\+I\+D\label{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5daf9866a592092cff760f649f38fcbec1d}
-}]\index{D\+E\+V\+\_\+\+I\+D@{D\+E\+V\+\_\+\+I\+D}!opt3001.\+h@{opt3001.\+h}}\index{opt3001.\+h@{opt3001.\+h}!D\+E\+V\+\_\+\+I\+D@{D\+E\+V\+\_\+\+I\+D}}\item[{\em 
-\hypertarget{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da1e25e06ba87a3e60d219cca03a221b4d}{}D\+E\+V\+\_\+\+I\+D\label{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da1e25e06ba87a3e60d219cca03a221b4d}
-}]\end{description}
-\end{Desc}
-
-
-Definiert in Zeile 13 der Datei opt3001.\+h.
-
-
-\begin{DoxyCode}
-13 \{ \hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b}{RESULT}  = 0x00, \hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2}{CONFIG} = 0x01, \hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb}{LOW\_LIMIT} = 0x02, 
-      \hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da34326bb983a3fffa8a90905bbc3d0930}{HIGH\_LIMIT} = 0x03, \hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5daf9866a592092cff760f649f38fcbec1d}{MAN\_ID} = 0x7E, \hyperlink{opt3001_8h_a81929fb3d21206b62f55bcb744f71d5da1e25e06ba87a3e60d219cca03a221b4d}{DEV\_ID} = 0x7F\};
-\end{DoxyCode}

@@ -1,10 +1,11 @@
-\hypertarget{si4735_8c}{}\section{driver/src/si4735.c-\/\+Dateireferenz}
-\label{si4735_8c}\index{driver/src/si4735.\+c@{driver/src/si4735.\+c}}
+\hypertarget{si4735_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/driver/src/si4735.c-\/\+Dateireferenz}
+\label{si4735_8c}\index{D\+:/\+G\+I\+T/fhradiov2/driver/src/si4735.\+c@{D\+:/\+G\+I\+T/fhradiov2/driver/src/si4735.\+c}}
 {\ttfamily \#include $<$driver/si4735.\+h$>$}\\*
 {\ttfamily \#include $<$driver/include/si4735\+\_\+cmd\+\_\+prop.\+h$>$}\\*
 {\ttfamily \#include $<$settings/radio\+\_\+configuration.\+h$>$}\\*
 {\ttfamily \#include $<$driver/external\+\_\+interrupthandler.\+h$>$}\\*
-Include-\/\+Abh채ngigkeitsdiagramm f체r si4735.\+c\+:\nopagebreak
+Include-\/\+Abh채ngigkeitsdiagramm f체r si4735.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,7 +32,7 @@ void \hyperlink{si4735_8c_ae5b4759577014db43ed84a83b991fa90}{S\+I4735\+\_\+\+Rx\
 \item 
 uint8\+\_\+t \hyperlink{si4735_8c_af19013498b2529c01dd96942c157647a}{si4735\+\_\+fm\+\_\+rds\+\_\+status} (uint8\+\_\+t statusonly, uint8\+\_\+t mtfifo, uint8\+\_\+t intack)
 \item 
-uint8\+\_\+t \hyperlink{si4735_8c_a89613c1378ba6894efae537469783717}{si4735\+\_\+fm\+\_\+rsq\+\_\+status} (uint8\+\_\+t intack)
+uint8\+\_\+t \hyperlink{si4735_8c_a01d768567b59b2f9c8900a233fdd4d41}{si4735\+\_\+fm\+\_\+rsq\+\_\+status} (uint8\+\_\+t intack, uint8\+\_\+t $\ast$resp)
 \item 
 uint8\+\_\+t \hyperlink{si4735_8c_ad8b515f4991303f8cac978410d736a03}{si4735\+\_\+fm\+\_\+tune\+\_\+status} (uint8\+\_\+t cancel, uint8\+\_\+t intack, uint8\+\_\+t $\ast$resp)
 \item 
@@ -93,22 +94,22 @@ Definiert in Zeile 21 der Datei si4735.\+c.
 )}\label{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1}
 
 
-Definiert in Zeile 128 der Datei si4735.\+c.
+Definiert in Zeile 127 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-129 \{
-130     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a8b7e6ccffb54cef940f3bd78d255bc36}{FM\_RDS\_INT\_SOURCE}, rds\_int.
+128 \{
+129     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a8b7e6ccffb54cef940f3bd78d255bc36}{FM\_RDS\_INT\_SOURCE}, rds\_int.
       \hyperlink{unionfm__rds__int__source_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
-131 
-132     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_afdc3800cf259f4c1acb254d1ad61f21b}{FM\_RDS\_INT\_FIFO\_COUNT}, rds\_fifo.
+130 
+131     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_afdc3800cf259f4c1acb254d1ad61f21b}{FM\_RDS\_INT\_FIFO\_COUNT}, rds\_fifo.
       \hyperlink{unionfm__rds__int__fifo__count_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
-133 
-134     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_afbaa25e11748b1bd64456d3eae79fdee}{FM\_RDS\_CONFIG}, rds\_config.
+132 
+133     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_afbaa25e11748b1bd64456d3eae79fdee}{FM\_RDS\_CONFIG}, rds\_config.
       \hyperlink{unionfm__rds__config_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
-135 
-136     \textcolor{keywordflow}{return} 0;
-137 \}
+134 
+135     \textcolor{keywordflow}{return} 0;
+136 \}
 \end{DoxyCode}
 
 
@@ -145,24 +146,24 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e}
 
 
-Definiert in Zeile 139 der Datei si4735.\+c.
+Definiert in Zeile 138 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-140 \{
-141     \textcolor{comment}{//TODO setup bottom and top frequency for seeking}
-142     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a17c1d20d698569b77c2d00fb03fc905a}{FM\_SEEK\_BAND\_BOTTOM}, top\_freq);
-143 
-144     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_ae8f8164aecb98eb67811957866f7173a}{FM\_SEEK\_BAND\_TOP}, bot\_freq);
-145 
-146     \textcolor{comment}{//TODO implement a control on value for freqency space, snr and rssi only allowed values}
-147     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_ac5a0322f265c6a26f2eaa67b137a4e1e}{FM\_SEEK\_FREQ\_SPACING}, freq\_spacing);
-148 
-149     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a8159dc3f7948223302c72404f8b3b7df}{FM\_SEEK\_TUNE\_SNR\_THRES}, snr);
-150 
-151     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a855621fba4889ce1231a6eec81080d37}{FM\_SEEK\_TUNE\_RSSI\_THRES}, rssi);
-152     \textcolor{keywordflow}{return} 0;
-153 \}
+139 \{
+140     \textcolor{comment}{//TODO setup bottom and top frequency for seeking}
+141     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a17c1d20d698569b77c2d00fb03fc905a}{FM\_SEEK\_BAND\_BOTTOM}, top\_freq);
+142 
+143     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_ae8f8164aecb98eb67811957866f7173a}{FM\_SEEK\_BAND\_TOP}, bot\_freq);
+144 
+145     \textcolor{comment}{//TODO implement a control on value for freqency space, snr and rssi only allowed values}
+146     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_ac5a0322f265c6a26f2eaa67b137a4e1e}{FM\_SEEK\_FREQ\_SPACING}, freq\_spacing);
+147 
+148     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a8159dc3f7948223302c72404f8b3b7df}{FM\_SEEK\_TUNE\_SNR\_THRES}, snr);
+149 
+150     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a855621fba4889ce1231a6eec81080d37}{FM\_SEEK\_TUNE\_RSSI\_THRES}, rssi);
+151     \textcolor{keywordflow}{return} 0;
+152 \}
 \end{DoxyCode}
 
 
@@ -224,13 +225,14 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{si4735_8c_a89613c1378ba6894efae537469783717}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+fm\+\_\+rsq\+\_\+status@{si4735\+\_\+fm\+\_\+rsq\+\_\+status}}
+\hypertarget{si4735_8c_a01d768567b59b2f9c8900a233fdd4d41}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+fm\+\_\+rsq\+\_\+status@{si4735\+\_\+fm\+\_\+rsq\+\_\+status}}
 \index{si4735\+\_\+fm\+\_\+rsq\+\_\+status@{si4735\+\_\+fm\+\_\+rsq\+\_\+status}!si4735.\+c@{si4735.\+c}}
 \subsubsection[{si4735\+\_\+fm\+\_\+rsq\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t si4735\+\_\+fm\+\_\+rsq\+\_\+status (
 \begin{DoxyParamCaption}
-\item[{uint8\+\_\+t}]{intack}
+\item[{uint8\+\_\+t}]{intack, }
+\item[{uint8\+\_\+t $\ast$}]{resp}
 \end{DoxyParamCaption}
-)}\label{si4735_8c_a89613c1378ba6894efae537469783717}
+)}\label{si4735_8c_a01d768567b59b2f9c8900a233fdd4d41}
 
 
 Definiert in Zeile 49 der Datei si4735.\+c.
@@ -238,15 +240,14 @@ Definiert in Zeile 49 der Datei si4735.\+c.
 
 \begin{DoxyCode}
 50 \{
-51     uint8\_t resp[8];
-52     \hyperlink{unionfm__rsq__status__arg1}{FM\_RSQ\_STATUS\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__rsq__status__arg1_adf4f80d8fb205d6c93c6423d84d63d9c}{INTACK} = intack\};
-53 
-54     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, \hyperlink{si4735__cmd__prop_8h_a9b58aeaeabdad7b1525ccc31f5d0d201}{FM\_RSQ\_STATUS}, arg1.
+51     \hyperlink{unionfm__rsq__status__arg1}{FM\_RSQ\_STATUS\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__rsq__status__arg1_adf4f80d8fb205d6c93c6423d84d63d9c}{INTACK} = intack\};
+52 
+53     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, \hyperlink{si4735__cmd__prop_8h_a9b58aeaeabdad7b1525ccc31f5d0d201}{FM\_RSQ\_STATUS}, arg1.
       \hyperlink{unionfm__rsq__status__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
-55     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 8, resp);
-56 
-57     \textcolor{keywordflow}{return} resp[0];
-58 \}
+54     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 8, resp);
+55 
+56     \textcolor{keywordflow}{return} resp[0];
+57 \}
 \end{DoxyCode}
 
 
@@ -254,7 +255,18 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{si4735_8c_a89613c1378ba6894efae537469783717_cgraph}
+\includegraphics[width=350pt]{si4735_8c_a01d768567b59b2f9c8900a233fdd4d41_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{si4735_8c_a01d768567b59b2f9c8900a233fdd4d41_icgraph}
 \end{center}
 \end{figure}
 
@@ -268,22 +280,22 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 )}\label{si4735_8c_a339846da787fb5a496df9252ca7dc9a5}
 
 
-Definiert in Zeile 115 der Datei si4735.\+c.
+Definiert in Zeile 114 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-116 \{
-117     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
-118     \hyperlink{unionfm__seek__start__arg1}{FM\_SEEK\_START\_ARG1\_STC} arg1 = \{.\hyperlink{unionfm__seek__start__arg1_a54afe228e11a8c6dabf9b5361f2054d8}{SEEKUP} = 0, .WRAP = 1\};
-119 
-120     arg1.\hyperlink{unionfm__seek__start__arg1_a54afe228e11a8c6dabf9b5361f2054d8}{SEEKUP} = up\_down;
-121     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, \hyperlink{si4735__cmd__prop_8h_a25ef5653fc9206ab83d8215c209e9922}{FM\_SEEK\_START}, arg1.
+115 \{
+116     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
+117     \hyperlink{unionfm__seek__start__arg1}{FM\_SEEK\_START\_ARG1\_STC} arg1 = \{.\hyperlink{unionfm__seek__start__arg1_a54afe228e11a8c6dabf9b5361f2054d8}{SEEKUP} = 0, .WRAP = 1\};
+118 
+119     arg1.\hyperlink{unionfm__seek__start__arg1_a54afe228e11a8c6dabf9b5361f2054d8}{SEEKUP} = up\_down;
+120     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, \hyperlink{si4735__cmd__prop_8h_a25ef5653fc9206ab83d8215c209e9922}{FM\_SEEK\_START}, arg1.
       \hyperlink{unionfm__seek__start__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
-122     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(7);
-123     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
-124 
-125     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
-126 \}
+121     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(7);
+122     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+123 
+124     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
+125 \}
 \end{DoxyCode}
 
 
@@ -316,21 +328,21 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{si4735_8c_af82ec28b536b1258ea4178108c61d5e9}
 
 
-Definiert in Zeile 71 der Datei si4735.\+c.
+Definiert in Zeile 70 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-72 \{
-73     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
-74     \hyperlink{unionfm__tune__freq__arg1}{FM\_TUNE\_FREQ\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__tune__freq__arg1_af55f9b26a88028338a2a761649cf5407}{FREEZE} = 0, .FAST = 1\};
-75 
-76     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 5, \hyperlink{si4735__cmd__prop_8h_aa9acf37dc2ae6e26a01780d6d4e6dcc1}{FM\_TUNE\_FREQ}, arg1.
+71 \{
+72     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
+73     \hyperlink{unionfm__tune__freq__arg1}{FM\_TUNE\_FREQ\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__tune__freq__arg1_af55f9b26a88028338a2a761649cf5407}{FREEZE} = 0, .FAST = 0\};
+74 
+75     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 5, \hyperlink{si4735__cmd__prop_8h_aa9acf37dc2ae6e26a01780d6d4e6dcc1}{FM\_TUNE\_FREQ}, arg1.
       \hyperlink{unionfm__tune__freq__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte}, \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(frequency), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(frequency), 0x00);
-77     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(7);
-78     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
-79 
-80     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
-81 \}
+76     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(7);
+77     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+78 
+79     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
+80 \}
 \end{DoxyCode}
 
 
@@ -345,7 +357,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -365,20 +378,20 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{si4735_8c_ad8b515f4991303f8cac978410d736a03}
 
 
-Definiert in Zeile 60 der Datei si4735.\+c.
+Definiert in Zeile 59 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-61 \{
-62     \hyperlink{unionfm__tune__status__arg1}{FM\_TUNE\_STATUS\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__tune__status__arg1_ac030f6cac29ec43cc0457a01f7ea9f93}{CANCEL} = cancel, .INTACK = intack\};
-63 
-64     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, \hyperlink{si4735__cmd__prop_8h_a1c2be0c09ef2120b4e7b6d050a4a7735}{FM\_TUNE\_STATUS}, arg1.
+60 \{
+61     \hyperlink{unionfm__tune__status__arg1}{FM\_TUNE\_STATUS\_ARG1\_STC} arg1 = \{ .\hyperlink{unionfm__tune__status__arg1_ac030f6cac29ec43cc0457a01f7ea9f93}{CANCEL} = cancel, .INTACK = intack\};
+62 
+63     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 2, \hyperlink{si4735__cmd__prop_8h_a1c2be0c09ef2120b4e7b6d050a4a7735}{FM\_TUNE\_STATUS}, arg1.
       \hyperlink{unionfm__tune__status__arg1_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
-65     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
-66     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 8, resp);
-67 
-68     \textcolor{keywordflow}{return} resp[0];
-69 \}
+64     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
+65     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 8, resp);
+66 
+67     \textcolor{keywordflow}{return} resp[0];
+68 \}
 \end{DoxyCode}
 
 
@@ -411,18 +424,18 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{si4735_8c_a209bed933b0bdc8432e8dd082f2c7a71}
 
 
-Definiert in Zeile 83 der Datei si4735.\+c.
+Definiert in Zeile 82 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-84 \{
-85     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
-86     \textcolor{comment}{//TODO check int pin from SI4735 via interrupt routin if interrupt availible read.}
-87     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 1, \hyperlink{si4735__cmd__prop_8h_ab34642df1357e9ee8ecd90913bdae01f}{GET\_INT\_STATUS});
-88     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
-89 
-90     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
-91 \}
+83 \{
+84     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
+85     \textcolor{comment}{//TODO check int pin from SI4735 via interrupt routin if interrupt availible read.}
+86     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 1, \hyperlink{si4735__cmd__prop_8h_ab34642df1357e9ee8ecd90913bdae01f}{GET\_INT\_STATUS});
+87     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 1, &status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte});
+88 
+89     \textcolor{keywordflow}{return} status.\hyperlink{unionint__status_a96f44d20f1dbf1c8785a7bc99a46164c}{byte};
+90 \}
 \end{DoxyCode}
 
 
@@ -444,32 +457,33 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 )}\label{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}
 
 
-Definiert in Zeile 271 der Datei si4735.\+c.
+Definiert in Zeile 270 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-272 \{
-273     \hyperlink{unionint__status}{INT\_STATUS} \hyperlink{structstatus}{status};
-274     \textcolor{keywordflow}{while}(!\hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt});
-275     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 0;
-276     \textcolor{keywordflow}{if}(int\_number < 8)
-277     \textcolor{keywordflow}{while}(!\hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt});
-278     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 0;
-279     \textcolor{comment}{//\_delay\_us(10);}
-280     \textcolor{comment}{/*if(int\_number < 8) \{}
-281 \textcolor{comment}{        //\_delay\_ms(10);}
-282 \textcolor{comment}{        do \{}
-283 \textcolor{comment}{            i2c\_write\_var(I2C\_SI4735, REPT, 1, 0x14);}
-284 \textcolor{comment}{            i2c\_read(I2C\_SI4735, STOP, 1, &status.byte);}
-285 \textcolor{comment}{        \}}
-286 \textcolor{comment}{        while(status.byte == 0);}
-287 \textcolor{comment}{    \}*/}
-288     \textcolor{comment}{//return 1;}
-289 \}
+271 \{
+272     \textcolor{comment}{//INT\_STATUS status;}
+273     \textcolor{keywordflow}{while}(!\hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt});
+274     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 0;
+275     \textcolor{keywordflow}{if}(int\_number < 8)
+276     \textcolor{keywordflow}{while}(!\hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt});
+277     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 0;
+278     \textcolor{comment}{//\_delay\_us(10);}
+279     \textcolor{comment}{/*if(int\_number < 8) \{}
+280 \textcolor{comment}{        //\_delay\_ms(10);}
+281 \textcolor{comment}{        do \{}
+282 \textcolor{comment}{            i2c\_write\_var(I2C\_SI4735, REPT, 1, 0x14);}
+283 \textcolor{comment}{            i2c\_read(I2C\_SI4735, STOP, 1, &status.byte);}
+284 \textcolor{comment}{        \}}
+285 \textcolor{comment}{        while(status.byte == 0);}
+286 \textcolor{comment}{    \}*/}
+287     \textcolor{comment}{//return 1;}
+288 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -488,21 +502,21 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{si4735_8c_a5d54c5379f019b57f7d75d471791250c}
 
 
-Definiert in Zeile 93 der Datei si4735.\+c.
+Definiert in Zeile 92 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-94 \{
-95     uint8\_t resp[4];
-96 
-97     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 6, \hyperlink{si4735__cmd__prop_8h_a92cfecd26935c8864d65bbdc6031acb0}{SET\_PROPERTY}, 0x00, 
+93 \{
+94     uint8\_t resp[4];
+95 
+96     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 6, \hyperlink{si4735__cmd__prop_8h_a92cfecd26935c8864d65bbdc6031acb0}{SET\_PROPERTY}, 0x00, 
       \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(property), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(property));
-98     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 4, resp);
-99 
-100     *data = ((resp[2] << 8) + (resp[3]));
-101 
-102     \textcolor{keywordflow}{return} resp[0];
-103 \}
+97     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 4, resp);
+98 
+99     *data = ((resp[2] << 8) + (resp[3]));
+100 
+101     \textcolor{keywordflow}{return} resp[0];
+102 \}
 \end{DoxyCode}
 
 
@@ -524,115 +538,115 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 )}\label{si4735_8c_a876518b974a7128391e2ff86a597218f}
 
 
-Definiert in Zeile 167 der Datei si4735.\+c.
+Definiert in Zeile 166 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-168 \{
-169    \textcolor{comment}{//SEN}
-170     \hyperlink{external__interrupthandler_8h_a1685394f9610006097ec45181e59563b}{ext\_interrupt\_create}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT}, 
+167 \{
+168    \textcolor{comment}{//SEN}
+169     \hyperlink{external__interrupthandler_8h_a1685394f9610006097ec45181e59563b}{ext\_interrupt\_create}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT}, 
       \hyperlink{si4735_8c_a08ce8e479825a0951c15968d2b14a222}{si4735\_interrupt});
-171 
-172     \hyperlink{settings_2radio__pin__mapping_8h_aae9348f64c78c7d75a190020d89ee4f9}{SI\_RST\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
-173     \hyperlink{settings_2radio__pin__mapping_8h_a042af3e7ec9c7491e96bfc171c85541c}{SI\_EN\_DIR} |= \hyperlink{settings_2radio__pin__mapping_8h_ac779ebbe7205d97f4f3840f31a1ac08d}{SI\_EN\_PIN};
-174 
-175     \hyperlink{settings_2radio__pin__mapping_8h_ade055bbc89ad301f8d4535236c10b7af}{SI\_RST\_OUT} &= ~\hyperlink{settings_2radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
-176     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(10);
-177     \hyperlink{settings_2radio__pin__mapping_8h_ade055bbc89ad301f8d4535236c10b7af}{SI\_RST\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
-178     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(10);
-179 
-180     \hyperlink{settings_2radio__pin__mapping_8h_a184aa1736ac6de1acb501ef552e19116}{SI\_EN\_OUT} &= ~\hyperlink{settings_2radio__pin__mapping_8h_ac779ebbe7205d97f4f3840f31a1ac08d}{SI\_EN\_PIN};
-181 
-182     \textcolor{comment}{// Clear Reset}
-183 
-184     \textcolor{comment}{// Set Reset}
-185 
-186     \textcolor{keyword}{const} \hyperlink{uniongpo__ien}{GPO\_IEN\_STC} \hyperlink{uniongpo__ien}{gpo\_ien} = \{
-187             .\hyperlink{uniongpo__ien_ad9adfb2ddca813d59dcc9361db43dcb3}{STCIEN} = 1,
-188             .CTSIEN = 1,
-189             .RDSIEN = 0,
-190             .RSQIEN = 0,
-191             .ERRIEN = 0,
-192             .STCREP = 0
-193     \};
-194 
-195     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
-196 
-197     \textcolor{comment}{//GPO2/INT}
-198     \hyperlink{settings_2radio__pin__mapping_8h_a71ae13c79ac62448a0e17b7dd85b0246}{SI\_INT\_REN} |= \hyperlink{settings_2radio__pin__mapping_8h_a8017d2aee2374296004b766d32cc0491}{SI\_INT\_PIN};
-199     \hyperlink{settings_2radio__pin__mapping_8h_a2597c2a3b7c045348347ebaf8ee98118}{SI\_INT\_OUT} |= \hyperlink{settings_2radio__pin__mapping_8h_a8017d2aee2374296004b766d32cc0491}{SI\_INT\_PIN};
-200 
-201     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
-202 
-203     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
-204 
-205     \textcolor{comment}{/* Power\_up FM mode */}
-206     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 3,  0x01, 0xD0, 0x05);
-207     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
-208 
-209     \textcolor{comment}{/*activate and setting refclk to 32.768 kHz */}
-210     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_adb330b20b383f5f664a9b107edef0036}{REFCLK\_FREQ}, 0x8000);
-211 
-212     \textcolor{comment}{/* setup prescaler to 1 */}
-213     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a6b615b86f7870b616243b25cb5091933}{REFCLK\_PRESCALE}, 1);
-214 
-215     \textcolor{comment}{/* setting deemphasis to 50탎 standart for europe */}
-216     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a1c7743943a1def297fe209d001d49c1e}{FM\_DEEMPH}, \hyperlink{si4735__cmd__prop_8h_afa8b508d6e40dc9c4f4430d46290a919}{DEEMPH\_EU});
+170 
+171     \hyperlink{radio__pin__mapping_8h_aae9348f64c78c7d75a190020d89ee4f9}{SI\_RST\_DIR} |= \hyperlink{radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
+172     \hyperlink{radio__pin__mapping_8h_a042af3e7ec9c7491e96bfc171c85541c}{SI\_EN\_DIR} |= \hyperlink{radio__pin__mapping_8h_ac779ebbe7205d97f4f3840f31a1ac08d}{SI\_EN\_PIN};
+173 
+174     \hyperlink{radio__pin__mapping_8h_ade055bbc89ad301f8d4535236c10b7af}{SI\_RST\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
+175     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(10);
+176     \hyperlink{radio__pin__mapping_8h_ade055bbc89ad301f8d4535236c10b7af}{SI\_RST\_OUT} |= \hyperlink{radio__pin__mapping_8h_a0da3f16b3d03de776d0e84bba52579e4}{SI\_RST\_PIN};
+177     \hyperlink{timer_8c_a3c56af3315c2461dec5ced585a5f84db}{\_delay\_ten\_us}(10);
+178 
+179     \hyperlink{radio__pin__mapping_8h_a184aa1736ac6de1acb501ef552e19116}{SI\_EN\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_ac779ebbe7205d97f4f3840f31a1ac08d}{SI\_EN\_PIN};
+180 
+181     \textcolor{comment}{// Clear Reset}
+182 
+183     \textcolor{comment}{// Set Reset}
+184 
+185     \textcolor{keyword}{const} \hyperlink{uniongpo__ien}{GPO\_IEN\_STC} \hyperlink{uniongpo__ien}{gpo\_ien} = \{
+186             .\hyperlink{uniongpo__ien_ad9adfb2ddca813d59dcc9361db43dcb3}{STCIEN} = 1,
+187             .CTSIEN = 1,
+188             .RDSIEN = 0,
+189             .RSQIEN = 0,
+190             .ERRIEN = 0,
+191             .STCREP = 0
+192     \};
+193 
+194     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
+195 
+196     \textcolor{comment}{//GPO2/INT}
+197     \hyperlink{radio__pin__mapping_8h_a71ae13c79ac62448a0e17b7dd85b0246}{SI\_INT\_REN} |= \hyperlink{radio__pin__mapping_8h_a8017d2aee2374296004b766d32cc0491}{SI\_INT\_PIN};
+198     \hyperlink{radio__pin__mapping_8h_a2597c2a3b7c045348347ebaf8ee98118}{SI\_INT\_OUT} |= \hyperlink{radio__pin__mapping_8h_a8017d2aee2374296004b766d32cc0491}{SI\_INT\_PIN};
+199 
+200     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(1);
+201 
+202     \hyperlink{external__interrupthandler_8h_a345dfb9a7e177c5da6eb9dc5b3c82bc9}{ext\_interrupt\_enable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+203 
+204     \textcolor{comment}{/* Power\_up FM mode */}
+205     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 3,  0x01, 0xD0, 0x05);
+206     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
+207 
+208     \textcolor{comment}{/*activate and setting refclk to 32.768 kHz */}
+209     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_adb330b20b383f5f664a9b107edef0036}{REFCLK\_FREQ}, 0x8000);
+210 
+211     \textcolor{comment}{/* setup prescaler to 1 */}
+212     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a6b615b86f7870b616243b25cb5091933}{REFCLK\_PRESCALE}, 1);
+213 
+214     \textcolor{comment}{/* setting deemphasis to 50탎 standart for europe */}
+215     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a1c7743943a1def297fe209d001d49c1e}{FM\_DEEMPH}, \hyperlink{si4735__cmd__prop_8h_afa8b508d6e40dc9c4f4430d46290a919}{DEEMPH\_EU});
+216 
 217 
-218 
-219     \textcolor{keyword}{const} \hyperlink{unionfm__rds__int__source}{FM\_RDS\_INT\_SOURCE\_STC} rds\_int = \{
-220             .\hyperlink{unionfm__rds__int__source_af44cb84a104f9c29f31b0ac4bd89a601}{RDSRECV} = 1,
-221             .RDSSYNCLOST = 0,
-222             .RDSSYNCFOUND = 0,
-223             .RDSNEWBLOCKA = 0,
-224             .RDSNEWBLOCKB = 0
-225     \};
-226 
-227     \textcolor{keyword}{const} \hyperlink{unionfm__rds__int__fifo__count}{FM\_RDS\_INT\_FIFO\_COUNT\_STC} rds\_fifo = \{
-228             .\hyperlink{unionfm__rds__int__fifo__count_a6273d3e5b093640f3492cb7eaad78cdc}{RDSFIFOCNT} = 10,
-229     \};
-230 
-231     \textcolor{keyword}{const} \hyperlink{unionfm__rds__config}{FM\_RDS\_CONFIG\_STC} rds\_config = \{
-232             .\hyperlink{unionfm__rds__config_ae061939e6d3519d4b231b9da2cab30e9}{BLETHA} = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
-233             .BLETHB = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
-234             .BLETHC = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
-235             .BLETHD = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
-236             .RDSEN = 1
-237     \};
-238 
-239     \hyperlink{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1}{si4735\_configure\_rds}(rds\_int, rds\_config, rds\_fifo);
-240 
-241     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a16b9c6d556c2db79e8742267daf63c83}{GPO\_IEN}, gpo\_ien.\hyperlink{uniongpo__ien_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
-242     \textcolor{comment}{//\_delay\_ms(10);}
-243 
-244     \textcolor{comment}{/* Tune to frequency 107,7 */}
-245     \hyperlink{si4735_8c_af82ec28b536b1258ea4178108c61d5e9}{si4735\_fm\_tune\_freq}(\hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ});
-246 
-247     \hyperlink{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e}{si4735\_configure\_seeking}(\hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}, 
+218     \textcolor{keyword}{const} \hyperlink{unionfm__rds__int__source}{FM\_RDS\_INT\_SOURCE\_STC} rds\_int = \{
+219             .\hyperlink{unionfm__rds__int__source_af44cb84a104f9c29f31b0ac4bd89a601}{RDSRECV} = 1,
+220             .RDSSYNCLOST = 0,
+221             .RDSSYNCFOUND = 0,
+222             .RDSNEWBLOCKA = 0,
+223             .RDSNEWBLOCKB = 0
+224     \};
+225 
+226     \textcolor{keyword}{const} \hyperlink{unionfm__rds__int__fifo__count}{FM\_RDS\_INT\_FIFO\_COUNT\_STC} rds\_fifo = \{
+227             .\hyperlink{unionfm__rds__int__fifo__count_a6273d3e5b093640f3492cb7eaad78cdc}{RDSFIFOCNT} = 10,
+228     \};
+229 
+230     \textcolor{keyword}{const} \hyperlink{unionfm__rds__config}{FM\_RDS\_CONFIG\_STC} rds\_config = \{
+231             .\hyperlink{unionfm__rds__config_ae061939e6d3519d4b231b9da2cab30e9}{BLETHA} = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+232             .BLETHB = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+233             .BLETHC = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+234             .BLETHD = \hyperlink{si4735__cmd__prop_8h_a423186489dc9a9dbdd8d704d7d1eb367}{BLETH\_1\_2\_ERR},
+235             .RDSEN = 1
+236     \};
+237 
+238     \hyperlink{si4735_8c_a9ef54c7d16dee6f0878f06847caa43d1}{si4735\_configure\_rds}(rds\_int, rds\_config, rds\_fifo);
+239 
+240     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_a16b9c6d556c2db79e8742267daf63c83}{GPO\_IEN}, gpo\_ien.\hyperlink{uniongpo__ien_ab0549c1b5ea980a02e7eab77e21fea49}{byte});
+241     \textcolor{comment}{//\_delay\_ms(10);}
+242 
+243     \textcolor{comment}{/* Tune to frequency 107,7 */}
+244     \hyperlink{si4735_8c_af82ec28b536b1258ea4178108c61d5e9}{si4735\_fm\_tune\_freq}(\hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ});
+245 
+246     \hyperlink{si4735_8c_af6037be0045d62ab73bf8e6c3802bd8e}{si4735\_configure\_seeking}(\hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}, 
       \hyperlink{radio__configuration_8h_a84521b00c701ae970f07d6fa4c65bf1e}{RADIO\_TOP\_FREQ}, \hyperlink{radio__configuration_8h_a28422425adfe6f62b8c5f0b8b2952ca9}{RADIO\_SEEK\_FREQ\_SPACE}, 
       \hyperlink{radio__configuration_8h_a321c7ff1de8c8984c5e2f910fb93eb8d}{RADIO\_VALID\_SNR}, \hyperlink{radio__configuration_8h_a3d0abde431e04f57b0828a482d81204f}{RADIO\_VALID\_RSSI});
-248 
-249     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(10);
-250 
-251     \hyperlink{si4735_8c_a339846da787fb5a496df9252ca7dc9a5}{si4735\_fm\_seek\_start}(1);
-252 
-253     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(2);
-254 
-255     \textcolor{comment}{/* Enable radio audio output with standart value */}
-256     \hyperlink{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}{si4735\_set\_property}(\hyperlink{si4735__cmd__prop_8h_aeb1de40ffb7cb51cf4a151f5d1b746d7}{RX\_VOLUME}, \hyperlink{si4735_8c_aa3c7f5e3e8a8ee8afdcb8bc50f796dbd}{SI4735\_volume});
-257     \textcolor{comment}{//i2c\_write\_var(I2C\_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735\_volume);}
-258 
-259     \textcolor{comment}{//uint8\_t resp[8];}
+247 
+248     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(10);
+249 
+250     \hyperlink{si4735_8c_a339846da787fb5a496df9252ca7dc9a5}{si4735\_fm\_seek\_start}(1);
+251 
+252     \hyperlink{timer_8c_a276d5cb665b9f8b2c79e53e2f2c5b4f0}{\_delay\_ms}(2);
+253 
+254     \textcolor{comment}{/* Enable radio audio output with standart value */}
+255     \textcolor{comment}{//si4735\_set\_property(RX\_VOLUME, SI4735\_volume);}
+256     \textcolor{comment}{//i2c\_write\_var(I2C\_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735\_volume);}
+257 
+258     \textcolor{comment}{//uint8\_t resp[8];}
+259 
 260 
 261 
-262 
-263     \textcolor{comment}{//si4735\_fm\_tune\_status(0, 0, resp);}
-264 
-265     \textcolor{comment}{//si4735\_get\_interrupt(8);}
-266 
-267     \hyperlink{external__interrupthandler_8h_a67fb5781413cf5c193be332cc6e52209}{ext\_interrupt\_disable}(\hyperlink{settings_2radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
-268     \textcolor{comment}{//while((SI\_INT\_IN & SI\_INT\_PIN));}
-269 \}
+262     \textcolor{comment}{//si4735\_fm\_tune\_status(0, 0, resp);}
+263 
+264     \textcolor{comment}{//si4735\_get\_interrupt(8);}
+265 
+266     \hyperlink{external__interrupthandler_8h_a67fb5781413cf5c193be332cc6e52209}{ext\_interrupt\_disable}(\hyperlink{radio__pin__mapping_8h_af474e40b5fe22d206346ebec2a8a63a1}{SI\_INT\_INT});
+267     \textcolor{comment}{//while((SI\_INT\_IN & SI\_INT\_PIN));}
+268 \}
 \end{DoxyCode}
 
 
@@ -651,7 +665,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=222pt]{si4735_8c_a876518b974a7128391e2ff86a597218f_icgraph}
+\includegraphics[width=314pt]{si4735_8c_a876518b974a7128391e2ff86a597218f_icgraph}
 \end{center}
 \end{figure}
 
@@ -665,13 +679,13 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{si4735_8c_a08ce8e479825a0951c15968d2b14a222}
 
 
-Definiert in Zeile 291 der Datei si4735.\+c.
+Definiert in Zeile 290 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-292 \{
-293     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 1;
-294 \}
+291 \{
+292     \hyperlink{si4735_8c_a02751a7d4a13524d944b0bc30d378a6b}{si\_interrupt} = 1;
+293 \}
 \end{DoxyCode}
 
 
@@ -679,7 +693,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=344pt]{si4735_8c_a08ce8e479825a0951c15968d2b14a222_icgraph}
+\includegraphics[width=350pt]{si4735_8c_a08ce8e479825a0951c15968d2b14a222_icgraph}
 \end{center}
 \end{figure}
 
@@ -778,19 +792,19 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 )}\label{si4735_8c_aadc29a91f13cd5ebe239b23c7e5370dc}
 
 
-Definiert in Zeile 105 der Datei si4735.\+c.
+Definiert in Zeile 104 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-106 \{
-107     \textcolor{comment}{//INT\_STATUS status;}
-108     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 6, \hyperlink{si4735__cmd__prop_8h_a92cfecd26935c8864d65bbdc6031acb0}{SET\_PROPERTY}, 0x00, 
+105 \{
+106     \textcolor{comment}{//INT\_STATUS status;}
+107     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{si4735_8h_afb40425c1e9d89599935df122efbc091}{I2C\_SI4735}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 6, \hyperlink{si4735__cmd__prop_8h_a92cfecd26935c8864d65bbdc6031acb0}{SET\_PROPERTY}, 0x00, 
       \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(property), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(property), \hyperlink{si4735__cmd__prop_8h_a4c189ed5b7ef570b7e084edd7389c410}{HB}(data), \hyperlink{si4735__cmd__prop_8h_ac8008518fa109d79d7c6676c517b9597}{LB}(data));
-109     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
-110 
-111     \textcolor{keywordflow}{return} 0;
-112     \textcolor{comment}{//TODO wait until command is proceed.}
-113 \}
+108     \hyperlink{si4735_8c_aad8341b5b19aa8f962a6b9b940d77960}{si4735\_get\_interrupt}(8);
+109 
+110     \textcolor{keywordflow}{return} 0;
+111     \textcolor{comment}{//TODO wait until command is proceed.}
+112 \}
 \end{DoxyCode}
 
 
@@ -805,7 +819,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -823,14 +838,14 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{si4735_8c_af498b2a210e73c87dab45c7809df33ff}
 
 
-Definiert in Zeile 161 der Datei si4735.\+c.
+Definiert in Zeile 160 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-162 \{
-163     \textcolor{comment}{//TODO Set timer to 10 ms only after this can be send next command}
-164     \textcolor{keywordflow}{return} 0;
-165 \}
+161 \{
+162     \textcolor{comment}{//TODO Set timer to 10 ms only after this can be send next command}
+163     \textcolor{keywordflow}{return} 0;
+164 \}
 \end{DoxyCode}
 \hypertarget{si4735_8c_af3b503b2287420efa94545306f5d71d9}{}\index{si4735.\+c@{si4735.\+c}!si4735\+\_\+wait\+\_\+for\+\_\+cts@{si4735\+\_\+wait\+\_\+for\+\_\+cts}}
 \index{si4735\+\_\+wait\+\_\+for\+\_\+cts@{si4735\+\_\+wait\+\_\+for\+\_\+cts}!si4735.\+c@{si4735.\+c}}
@@ -841,14 +856,14 @@ Definiert in Zeile 161 der Datei si4735.\+c.
 )}\label{si4735_8c_af3b503b2287420efa94545306f5d71d9}
 
 
-Definiert in Zeile 155 der Datei si4735.\+c.
+Definiert in Zeile 154 der Datei si4735.\+c.
 
 
 \begin{DoxyCode}
-156 \{
-157     \textcolor{comment}{//TODO implement a function which wait so long until CTS was send}
-158     \textcolor{keywordflow}{return} 0;
-159 \}
+155 \{
+156     \textcolor{comment}{//TODO implement a function which wait so long until CTS was send}
+157     \textcolor{keywordflow}{return} 0;
+158 \}
 \end{DoxyCode}
 
 

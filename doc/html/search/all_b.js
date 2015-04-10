@@ -64,14 +64,14 @@ var searchData=
   ['led1',['LED1',['../structpca9530__in.html#a40e423e01a324e06ebc015b85a9d6b8e',1,'pca9530_in::LED1()'],['../structpca9530__sel.html#a40e423e01a324e06ebc015b85a9d6b8e',1,'pca9530_sel::LED1()'],['../structpca9530.html#a3ac265af8bbeb022cd8ad2f21247f6ac',1,'pca9530::led1()']]],
   ['led_5foff',['LED_OFF',['../pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40',1,'pca9530.h']]],
   ['led_5fon',['LED_ON',['../pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d',1,'pca9530.h']]],
-  ['left_5fkey',['LEFT_KEY',['../menu_2src_2menu_8c.html#a3cd87a710fd069baf487e7b44d01e1b9',1,'menu.c']]],
   ['linein_5fentry',['linein_entry',['../menu__struct_8h.html#a05124d2e348f61fa998c2552f2220d30',1,'linein_entry():&#160;menu_struct.c'],['../menu__struct_8c.html#a05124d2e348f61fa998c2552f2220d30',1,'linein_entry():&#160;menu_struct.c']]],
   ['linein_5ftext',['linein_text',['../en_2language_8c.html#ad818f1a110e64f4df2f9794fc8270aa4',1,'linein_text():&#160;language.c'],['../ger_2language_8c.html#ad818f1a110e64f4df2f9794fc8270aa4',1,'linein_text():&#160;language.c'],['../language_8h.html#ad818f1a110e64f4df2f9794fc8270aa4',1,'linein_text():&#160;language.c']]],
   ['lmute',['LMUTE',['../unionrx__hard__mute.html#af01ca9e8c674119ab743ec7a084a56b3',1,'rx_hard_mute']]],
   ['lna_5fgain_5findex',['LNA_GAIN_INDEX',['../unionfm__agc__override__arg2.html#a0a84cd6abd9c04a7912cb54a2a3949df',1,'fm_agc_override_arg2']]],
   ['log_5fexp_5ftable_2ec',['log_exp_table.c',['../log__exp__table_8c.html',1,'']]],
   ['log_5fexp_5ftable_2eh',['log_exp_table.h',['../log__exp__table_8h.html',1,'']]],
+  ['long_5finto_5fmenu',['LONG_INTO_MENU',['../menu_8h.html#ab15dd92ee38ecc6cd07fa4eeb21a0a9f',1,'menu.h']]],
   ['low',['LOW',['../pca9534_8h.html#a9fe7adc23ee5537c804d969ce9e43032a6a226f4143ca3b18999551694cdb72a8',1,'pca9534.h']]],
-  ['low_5flimit',['low_limit',['../structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77',1,'opt3001_stc::low_limit()'],['../opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb',1,'LOW_LIMIT():&#160;opt3001.h']]],
+  ['low_5flimit',['low_limit',['../structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77',1,'opt3001_stc']]],
   ['ls0',['LS0',['../pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad',1,'pca9530.h']]]
 ];

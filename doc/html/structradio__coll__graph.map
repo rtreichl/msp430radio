@@ -1,5 +1,6 @@
 <map id="radio" name="radio">
-<area shape="rect" id="node2" href="$structradio__rsq.html" title="radio_rsq" alt="" coords="5,5,80,32"/>
-<area shape="rect" id="node3" href="$structradio__rds.html" title="radio_rds" alt="" coords="104,5,179,32"/>
-<area shape="rect" id="node4" href="$structradio__status.html" title="radio_status" alt="" coords="203,5,296,32"/>
+<area shape="rect" id="node2" href="$structradio__settings.html" title="radio_settings" alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node3" href="$structradio__rsq.html" title="radio_rsq" alt="" coords="133,5,207,32"/>
+<area shape="rect" id="node4" href="$structradio__rds.html" title="radio_rds" alt="" coords="231,5,306,32"/>
+<area shape="rect" id="node5" href="$structradio__status.html" title="radio_status" alt="" coords="330,5,423,32"/>
 </map>

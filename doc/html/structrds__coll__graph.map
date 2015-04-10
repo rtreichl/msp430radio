@@ -1,9 +1,8 @@
 <map id="rds" name="rds">
 <area shape="rect" id="node2" href="$structblock__b.html" title="block_b" alt="" coords="5,5,72,32"/>
 <area shape="rect" id="node3" href="$structstatus.html" title="status" alt="" coords="96,5,155,32"/>
-<area shape="rect" id="node4" href="$structpi.html" title="pi" alt="" coords="179,5,218,32"/>
-<area shape="rect" id="node5" href="$structfifo.html" title="fifo" alt="" coords="242,5,281,32"/>
-<area shape="rect" id="node6" href="$structsync.html" title="sync" alt="" coords="305,5,356,32"/>
-<area shape="rect" id="node7" href="$structinfo.html" title="info" alt="" coords="380,5,423,32"/>
-<area shape="rect" id="node8" href="$structerr.html" title="err" alt="" coords="447,5,486,32"/>
+<area shape="rect" id="node4" href="$structfifo.html" title="fifo" alt="" coords="179,5,218,32"/>
+<area shape="rect" id="node5" href="$structsync.html" title="sync" alt="" coords="243,5,293,32"/>
+<area shape="rect" id="node6" href="$structinfo.html" title="info" alt="" coords="317,5,360,32"/>
+<area shape="rect" id="node7" href="$structerr.html" title="err" alt="" coords="385,5,423,32"/>
 </map>

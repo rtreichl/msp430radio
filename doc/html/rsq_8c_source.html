@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/system/src/rsq.c Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('rsq_8c_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">rsq.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="rsq_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * rsq.c</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 04.04.2015</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richard</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="rsq_8h.html">system/rsq.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">   11</a></span>&#160;uint8_t <a class="code" href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a>(<a class="code" href="structradio.html">RADIO</a> *<a class="code" href="structradio.html">radio</a>)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    uint8_t resp[8];</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41">si4735_fm_rsq_status</a>(1, resp);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#afb67d818cd76cce8057affabcb1979a6">rssi</a> = resp[4];</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#a11be3c6f2d5194542e5d1733cbc7ac76">snr</a> = resp[5];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#af829dbd700d1c5ad1abccbdb52fa7ba9">multi</a> = resp[6];</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#a168a73926de154445f6c6c77f8b5e53c">freq_off</a> = (int8_t)resp[7];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="ttc" id="structradio__rsq_html_afb67d818cd76cce8057affabcb1979a6"><div class="ttname"><a href="structradio__rsq.html#afb67d818cd76cce8057affabcb1979a6">radio_rsq::rssi</a></div><div class="ttdeci">uint8_t rssi</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00096">radio.h:96</a></div></div>
+<div class="ttc" id="structradio_html_aba45ded08c975dcc6ee7d58687e8534e"><div class="ttname"><a href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">radio::rsq</a></div><div class="ttdeci">RADIO_RSQ rsq</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00128">radio.h:128</a></div></div>
+<div class="ttc" id="rsq_8c_html_adc26e0d94e8ebd7ba62fa4f628a15f6d"><div class="ttname"><a href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a></div><div class="ttdeci">uint8_t rsq_update(RADIO *radio)</div><div class="ttdef"><b>Definition:</b> <a href="rsq_8c_source.html#l00011">rsq.c:11</a></div></div>
+<div class="ttc" id="rsq_8h_html"><div class="ttname"><a href="rsq_8h.html">rsq.h</a></div></div>
+<div class="ttc" id="structradio__rsq_html_a11be3c6f2d5194542e5d1733cbc7ac76"><div class="ttname"><a href="structradio__rsq.html#a11be3c6f2d5194542e5d1733cbc7ac76">radio_rsq::snr</a></div><div class="ttdeci">uint8_t snr</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00097">radio.h:97</a></div></div>
+<div class="ttc" id="structradio__rsq_html_a168a73926de154445f6c6c77f8b5e53c"><div class="ttname"><a href="structradio__rsq.html#a168a73926de154445f6c6c77f8b5e53c">radio_rsq::freq_off</a></div><div class="ttdeci">int8_t freq_off</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00099">radio.h:99</a></div></div>
+<div class="ttc" id="si4735_8h_html_a01d768567b59b2f9c8900a233fdd4d41"><div class="ttname"><a href="si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41">si4735_fm_rsq_status</a></div><div class="ttdeci">uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp)</div><div class="ttdef"><b>Definition:</b> <a href="si4735_8c_source.html#l00049">si4735.c:49</a></div></div>
+<div class="ttc" id="structradio__rsq_html_af829dbd700d1c5ad1abccbdb52fa7ba9"><div class="ttname"><a href="structradio__rsq.html#af829dbd700d1c5ad1abccbdb52fa7ba9">radio_rsq::multi</a></div><div class="ttdeci">uint8_t multi</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00098">radio.h:98</a></div></div>
+<div class="ttc" id="structradio_html"><div class="ttname"><a href="structradio.html">radio</a></div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00125">radio.h:125</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="dir_87da1dd3838e3a2bc958fb8a1763f6f7.html">src</a></li><li class="navelem"><a class="el" href="rsq_8c.html">rsq.c</a></li>
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

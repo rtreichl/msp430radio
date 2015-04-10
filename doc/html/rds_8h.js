@@ -13,7 +13,6 @@ var rds_8h =
     [ "group_1a", "structgroup__1a.html", "structgroup__1a" ],
     [ "group_4a", "structgroup__4a.html", "structgroup__4a" ],
     [ "block_b", "structblock__b.html", "structblock__b" ],
-    [ "pi", "structpi.html", "structpi" ],
     [ "rds", "structrds.html", "structrds" ],
     [ "BLOCK_B", "rds_8h.html#acde5bba1b29ae92f2d1c088cbc0e40bd", null ],
     [ "ERR", "rds_8h.html#aa7225a8602f1106cb23bf648d85efb2c", null ],
@@ -26,12 +25,10 @@ var rds_8h =
     [ "GROUP_2B", "rds_8h.html#a5efde26f48e56fb2c2d6191e0758c3af", null ],
     [ "GROUP_4A", "rds_8h.html#a2a61b4fe5d6bf17f32b8c744a5e4888a", null ],
     [ "INFO", "rds_8h.html#a4d0cac7fd06c1f9b01c6a67516c95cfb", null ],
-    [ "PI", "rds_8h.html#a1b009a3588683496b542b777653e6c21", null ],
     [ "RDS", "rds_8h.html#a81e0fb5b6d2d10818bd855ba8b948a14", null ],
     [ "STATUS", "rds_8h.html#ada2ef00c464f9ae8ec73e127ea6a4520", null ],
     [ "SYNC", "rds_8h.html#a09f25e919a775a5955c4fb87155e2762", null ],
-    [ "get_rds_data", "rds_8h.html#a7d3450a025ce61ff8522b8a575d34a8f", null ],
-    [ "get_signal_qual", "rds_8h.html#af5afa3b7a5eeb81ac2ef45044acb8fc5", null ],
     [ "rds_group_4A", "rds_8h.html#a33e5a772a8a82d668cc39ebfd4ba37a4", null ],
-    [ "rds_triggered", "rds_8h.html#ad4168f8a33d30a3526e416da5997baa9", null ]
+    [ "rds_triggered", "rds_8h.html#ad4168f8a33d30a3526e416da5997baa9", null ],
+    [ "rds_update", "rds_8h.html#a1c031719ba892045c773dc035058870f", null ]
 ];

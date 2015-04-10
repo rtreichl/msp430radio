@@ -1,11 +1,11 @@
-\hypertarget{time_8h}{}\section{system/time.h-\/\+Dateireferenz}
-\label{time_8h}\index{system/time.\+h@{system/time.\+h}}
+\hypertarget{time_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/system/time.h-\/\+Dateireferenz}
+\label{time_8h}\index{D\+:/\+G\+I\+T/fhradiov2/system/time.\+h@{D\+:/\+G\+I\+T/fhradiov2/system/time.\+h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 Include-\/\+Abhängigkeitsdiagramm für time.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=159pt]{time_8h__incl}
+\includegraphics[width=200pt]{time_8h__incl}
 \end{center}
 \end{figure}
 Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
@@ -28,13 +28,13 @@ typedef struct \hyperlink{structtime__date}{time\+\_\+date} \hyperlink{time_8h_a
 \subsection*{Funktionen}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{time_8h_a903573b04a7af98d20ef909f40e40fe2}{time\+\_\+date\+\_\+update} ()
+void \hyperlink{time_8h_acbfa3c65c807be82221cbebc7ac63224}{time\+\_\+update} ()
 \item 
-uint8\+\_\+t \hyperlink{time_8h_a38be5ccb6a78c3b5cebed5ff341ed4f9}{date\+\_\+to\+\_\+str} (char $\ast$str)
+uint8\+\_\+t \hyperlink{time_8h_a4c9e3c34eea90bf15a804da6ee4ad638}{time\+\_\+date\+\_\+to\+\_\+array} (char $\ast$str)
 \item 
-uint8\+\_\+t \hyperlink{time_8h_a12eef8136a835e1bbe52bcf02789e706}{time\+\_\+to\+\_\+str} (char $\ast$str)
+uint8\+\_\+t \hyperlink{time_8h_aa90db1275cec05113ad9a5041f6f8293}{time\+\_\+time\+\_\+to\+\_\+array} (char $\ast$str)
 \item 
-uint8\+\_\+t \hyperlink{time_8h_a5db7b4e6e4e991e6730a118bff927c39}{time\+\_\+set} (uint8\+\_\+t hour, uint8\+\_\+t minute, uint8\+\_\+t day, uint8\+\_\+t month, uint8\+\_\+t year, uint8\+\_\+t valid)
+uint8\+\_\+t \hyperlink{time_8h_a6b341bdccd1c2c5503da84093f12e145}{time\+\_\+set\+\_\+time} (uint8\+\_\+t hour, uint8\+\_\+t minute, uint8\+\_\+t day, uint8\+\_\+t month, uint8\+\_\+t year, uint8\+\_\+t valid)
 \end{DoxyCompactItemize}
 \subsection*{Variablen}
 \begin{DoxyCompactItemize}
@@ -50,13 +50,13 @@ const uint8\+\_\+t \hyperlink{time_8h_acad1ff586b95cc545cb891657e66b069}{month\+
 
 
 \subsection{Dokumentation der Funktionen}
-\hypertarget{time_8h_a38be5ccb6a78c3b5cebed5ff341ed4f9}{}\index{time.\+h@{time.\+h}!date\+\_\+to\+\_\+str@{date\+\_\+to\+\_\+str}}
-\index{date\+\_\+to\+\_\+str@{date\+\_\+to\+\_\+str}!time.\+h@{time.\+h}}
-\subsubsection[{date\+\_\+to\+\_\+str}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t date\+\_\+to\+\_\+str (
+\hypertarget{time_8h_a4c9e3c34eea90bf15a804da6ee4ad638}{}\index{time.\+h@{time.\+h}!time\+\_\+date\+\_\+to\+\_\+array@{time\+\_\+date\+\_\+to\+\_\+array}}
+\index{time\+\_\+date\+\_\+to\+\_\+array@{time\+\_\+date\+\_\+to\+\_\+array}!time.\+h@{time.\+h}}
+\subsubsection[{time\+\_\+date\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+date\+\_\+to\+\_\+array (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{str}
 \end{DoxyParamCaption}
-)}\label{time_8h_a38be5ccb6a78c3b5cebed5ff341ed4f9}
+)}\label{time_8h_a4c9e3c34eea90bf15a804da6ee4ad638}
 
 
 Definiert in Zeile 60 der Datei time.\+c.
@@ -83,18 +83,96 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{time_8h_a38be5ccb6a78c3b5cebed5ff341ed4f9_icgraph}
+\includegraphics[width=350pt]{time_8h_a4c9e3c34eea90bf15a804da6ee4ad638_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{time_8h_a903573b04a7af98d20ef909f40e40fe2}{}\index{time.\+h@{time.\+h}!time\+\_\+date\+\_\+update@{time\+\_\+date\+\_\+update}}
-\index{time\+\_\+date\+\_\+update@{time\+\_\+date\+\_\+update}!time.\+h@{time.\+h}}
-\subsubsection[{time\+\_\+date\+\_\+update}]{\setlength{\rightskip}{0pt plus 5cm}void time\+\_\+date\+\_\+update (
+\hypertarget{time_8h_a6b341bdccd1c2c5503da84093f12e145}{}\index{time.\+h@{time.\+h}!time\+\_\+set\+\_\+time@{time\+\_\+set\+\_\+time}}
+\index{time\+\_\+set\+\_\+time@{time\+\_\+set\+\_\+time}!time.\+h@{time.\+h}}
+\subsubsection[{time\+\_\+set\+\_\+time}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+set\+\_\+time (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{hour, }
+\item[{uint8\+\_\+t}]{minute, }
+\item[{uint8\+\_\+t}]{day, }
+\item[{uint8\+\_\+t}]{month, }
+\item[{uint8\+\_\+t}]{year, }
+\item[{uint8\+\_\+t}]{valid}
+\end{DoxyParamCaption}
+)}\label{time_8h_a6b341bdccd1c2c5503da84093f12e145}
+
+
+Definiert in Zeile 33 der Datei time.\+c.
+
+
+\begin{DoxyCode}
+34 \{
+35     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} = hour % 10;
+36     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten} = hour / 10;
+37     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} = minute % 10;
+38     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} = minute / 10;
+39     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one} = day % 10;
+40     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_af252ce7a893acb93c32d07d0330f900d}{day\_ten} = day / 10;
+41     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one} = month % 10;
+42     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_afadd8a2137e5a4d272d63e02386c2bd8}{month\_ten}= month / 10;
+43     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a55217c761921c4b4443fb1d4dee3f564}{year\_one} = year % 10;
+44     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a124f7250b4c2e15669a832132940840d}{year\_ten}= year / 10;
+45     \textcolor{keywordflow}{return} 0;
+46 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{time_8h_a6b341bdccd1c2c5503da84093f12e145_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{time_8h_aa90db1275cec05113ad9a5041f6f8293}{}\index{time.\+h@{time.\+h}!time\+\_\+time\+\_\+to\+\_\+array@{time\+\_\+time\+\_\+to\+\_\+array}}
+\index{time\+\_\+time\+\_\+to\+\_\+array@{time\+\_\+time\+\_\+to\+\_\+array}!time.\+h@{time.\+h}}
+\subsubsection[{time\+\_\+time\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+time\+\_\+to\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{time_8h_aa90db1275cec05113ad9a5041f6f8293}
+
+
+Definiert in Zeile 48 der Datei time.\+c.
+
+
+\begin{DoxyCode}
+49 \{
+50     str[0] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten} + \textcolor{charliteral}{'0'};
+51     str[1] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} + \textcolor{charliteral}{'0'};
+52     str[2] = \textcolor{charliteral}{':'};
+53     str[3] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} + \textcolor{charliteral}{'0'};
+54     str[4] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} + \textcolor{charliteral}{'0'};
+55     str[5] = 0;
+56 
+57     \textcolor{keywordflow}{return} 0;
+58 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{time_8h_aa90db1275cec05113ad9a5041f6f8293_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{time_8h_acbfa3c65c807be82221cbebc7ac63224}{}\index{time.\+h@{time.\+h}!time\+\_\+update@{time\+\_\+update}}
+\index{time\+\_\+update@{time\+\_\+update}!time.\+h@{time.\+h}}
+\subsubsection[{time\+\_\+update}]{\setlength{\rightskip}{0pt plus 5cm}void time\+\_\+update (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{time_8h_a903573b04a7af98d20ef909f40e40fe2}
+)}\label{time_8h_acbfa3c65c807be82221cbebc7ac63224}
 
 
 Definiert in Zeile 75 der Datei time.\+c.
@@ -158,85 +236,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=248pt]{time_8h_a903573b04a7af98d20ef909f40e40fe2_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{time_8h_a5db7b4e6e4e991e6730a118bff927c39}{}\index{time.\+h@{time.\+h}!time\+\_\+set@{time\+\_\+set}}
-\index{time\+\_\+set@{time\+\_\+set}!time.\+h@{time.\+h}}
-\subsubsection[{time\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+set (
-\begin{DoxyParamCaption}
-\item[{uint8\+\_\+t}]{hour, }
-\item[{uint8\+\_\+t}]{minute, }
-\item[{uint8\+\_\+t}]{day, }
-\item[{uint8\+\_\+t}]{month, }
-\item[{uint8\+\_\+t}]{year, }
-\item[{uint8\+\_\+t}]{valid}
-\end{DoxyParamCaption}
-)}\label{time_8h_a5db7b4e6e4e991e6730a118bff927c39}
-
-
-Definiert in Zeile 33 der Datei time.\+c.
-
-
-\begin{DoxyCode}
-34 \{
-35     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} = hour % 10;
-36     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten} = hour / 10;
-37     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} = minute % 10;
-38     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} = minute / 10;
-39     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one} = day % 10;
-40     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_af252ce7a893acb93c32d07d0330f900d}{day\_ten} = day / 10;
-41     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one} = month % 10;
-42     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_afadd8a2137e5a4d272d63e02386c2bd8}{month\_ten}= month / 10;
-43     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a55217c761921c4b4443fb1d4dee3f564}{year\_one} = year % 10;
-44     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a124f7250b4c2e15669a832132940840d}{year\_ten}= year / 10;
-45     \textcolor{keywordflow}{return} 0;
-46 \}
-\end{DoxyCode}
-
-
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{time_8h_a5db7b4e6e4e991e6730a118bff927c39_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{time_8h_a12eef8136a835e1bbe52bcf02789e706}{}\index{time.\+h@{time.\+h}!time\+\_\+to\+\_\+str@{time\+\_\+to\+\_\+str}}
-\index{time\+\_\+to\+\_\+str@{time\+\_\+to\+\_\+str}!time.\+h@{time.\+h}}
-\subsubsection[{time\+\_\+to\+\_\+str}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+to\+\_\+str (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{str}
-\end{DoxyParamCaption}
-)}\label{time_8h_a12eef8136a835e1bbe52bcf02789e706}
-
-
-Definiert in Zeile 48 der Datei time.\+c.
-
-
-\begin{DoxyCode}
-49 \{
-50     str[0] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten} + \textcolor{charliteral}{'0'};
-51     str[1] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} + \textcolor{charliteral}{'0'};
-52     str[2] = \textcolor{charliteral}{':'};
-53     str[3] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} + \textcolor{charliteral}{'0'};
-54     str[4] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} + \textcolor{charliteral}{'0'};
-55     str[5] = 0;
-56 
-57     \textcolor{keywordflow}{return} 0;
-58 \}
-\end{DoxyCode}
-
-
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{time_8h_a12eef8136a835e1bbe52bcf02789e706_icgraph}
+\includegraphics[width=224pt]{time_8h_acbfa3c65c807be82221cbebc7ac63224_icgraph}
 \end{center}
 \end{figure}
 

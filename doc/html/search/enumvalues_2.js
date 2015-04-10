@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['error',['ERROR',['../i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9ba2fd6f336d08340583bd620a7f5694c90',1,'i2c.h']]]
+  ['freq_5f0',['FREQ_0',['../pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca',1,'pca9530.h']]],
+  ['freq_5f1',['FREQ_1',['../pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7',1,'pca9530.h']]]
 ];

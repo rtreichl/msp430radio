@@ -1,0 +1,66 @@
+\hypertarget{rsq_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/system/src/rsq.c-\/\+Dateireferenz}
+\label{rsq_8c}\index{D\+:/\+G\+I\+T/fhradiov2/system/src/rsq.\+c@{D\+:/\+G\+I\+T/fhradiov2/system/src/rsq.\+c}}
+{\ttfamily \#include $<$system/rsq.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für rsq.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rsq_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{rsq_8c_adc26e0d94e8ebd7ba62fa4f628a15f6d}{rsq\+\_\+update} (\hyperlink{radio_8h_a2e4f7894262df4981eeffa04d51e4206}{R\+A\+D\+I\+O} $\ast$\hyperlink{structradio}{radio})
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{rsq_8c_adc26e0d94e8ebd7ba62fa4f628a15f6d}{}\index{rsq.\+c@{rsq.\+c}!rsq\+\_\+update@{rsq\+\_\+update}}
+\index{rsq\+\_\+update@{rsq\+\_\+update}!rsq.\+c@{rsq.\+c}}
+\subsubsection[{rsq\+\_\+update}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t rsq\+\_\+update (
+\begin{DoxyParamCaption}
+\item[{{\bf R\+A\+D\+I\+O} $\ast$}]{radio}
+\end{DoxyParamCaption}
+)}\label{rsq_8c_adc26e0d94e8ebd7ba62fa4f628a15f6d}
+
+
+Definiert in Zeile 11 der Datei rsq.\+c.
+
+
+\begin{DoxyCode}
+12 \{
+13     uint8\_t resp[8];
+14     \hyperlink{si4735_8h_a01d768567b59b2f9c8900a233fdd4d41}{si4735\_fm\_rsq\_status}(1, resp);
+15 
+16     radio->\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_afb67d818cd76cce8057affabcb1979a6}{rssi} = resp[4];
+17     radio->\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_a11be3c6f2d5194542e5d1733cbc7ac76}{snr} = resp[5];
+18     radio->\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_af829dbd700d1c5ad1abccbdb52fa7ba9}{multi} = resp[6];
+19     radio->\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_a168a73926de154445f6c6c77f8b5e53c}{freq\_off} = (int8\_t)resp[7];
+20 
+21     \textcolor{keywordflow}{return} 0;
+22 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rsq_8c_adc26e0d94e8ebd7ba62fa4f628a15f6d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{rsq_8c_adc26e0d94e8ebd7ba62fa4f628a15f6d_icgraph}
+\end{center}
+\end{figure}
+
+

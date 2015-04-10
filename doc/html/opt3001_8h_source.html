@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>FH Radio: driver/opt3001.h Quellcode</title>
+<title>FH Radio: D:/GIT/fhradiov2/driver/opt3001.h Quellcode</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -119,36 +119,45 @@ $(document).ready(function(){initNavTree('opt3001_8h_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define OPT3001_H_</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b">   13</a></span>&#160;<span class="keyword">enum</span> { <a class="code" href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b">RESULT</a>  = 0x00, <a class="code" href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a> = 0x01, <a class="code" href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb">LOW_LIMIT</a> = 0x02, <a class="code" href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da34326bb983a3fffa8a90905bbc3d0930">HIGH_LIMIT</a> = 0x03, <a class="code" href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5daf9866a592092cff760f649f38fcbec1d">MAN_ID</a> = 0x7E, <a class="code" href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da1e25e06ba87a3e60d219cca03a221b4d">DEV_ID</a> = 0x7F};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structopt3001__stc.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structopt3001__stc.html">opt3001_stc</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structopt3001__stc.html#aa26297bc57b4b74262246d02175f4308">   16</a></span>&#160;    uint16_t <a class="code" href="structopt3001__stc.html#aa26297bc57b4b74262246d02175f4308">config</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77">   17</a></span>&#160;    uint16_t <a class="code" href="structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77">low_limit</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structopt3001__stc.html#af121d4246e275920873b33ad155fa9ba">   18</a></span>&#160;    uint16_t <a class="code" href="structopt3001__stc.html#af121d4246e275920873b33ad155fa9ba">high_limit</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;} <a class="code" href="opt3001_8h.html#a85ef6b0023cd0d3f58e5f229b4d568ed">OPT3001_STC</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a888795c8dd85321e189306fbc88b4510">   21</a></span>&#160;<span class="preprocessor">#define float_to_int(value) ((value 0x0FFFF) &lt;&lt; ((value &amp; 0xF000) &gt;&gt; 12))</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* OPT3001_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="structopt3001__stc_html_af121d4246e275920873b33ad155fa9ba"><div class="ttname"><a href="structopt3001__stc.html#af121d4246e275920873b33ad155fa9ba">opt3001_stc::high_limit</a></div><div class="ttdeci">uint16_t high_limit</div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00018">opt3001.h:18</a></div></div>
-<div class="ttc" id="structopt3001__stc_html_aa26297bc57b4b74262246d02175f4308"><div class="ttname"><a href="structopt3001__stc.html#aa26297bc57b4b74262246d02175f4308">opt3001_stc::config</a></div><div class="ttdeci">uint16_t config</div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00016">opt3001.h:16</a></div></div>
-<div class="ttc" id="opt3001_8h_html_a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b"><div class="ttname"><a href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da7186ecefe792fdae9fec0a42f105ad6b">RESULT</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00013">opt3001.h:13</a></div></div>
-<div class="ttc" id="opt3001_8h_html_a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2"><div class="ttname"><a href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da702582f7f825ca83bdb076b15b4c0fc2">CONFIG</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00013">opt3001.h:13</a></div></div>
-<div class="ttc" id="opt3001_8h_html_a81929fb3d21206b62f55bcb744f71d5da1e25e06ba87a3e60d219cca03a221b4d"><div class="ttname"><a href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da1e25e06ba87a3e60d219cca03a221b4d">DEV_ID</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00013">opt3001.h:13</a></div></div>
-<div class="ttc" id="opt3001_8h_html_a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb"><div class="ttname"><a href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5dac5e13d42b973355324415758452939bb">LOW_LIMIT</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00013">opt3001.h:13</a></div></div>
-<div class="ttc" id="opt3001_8h_html_a81929fb3d21206b62f55bcb744f71d5da34326bb983a3fffa8a90905bbc3d0930"><div class="ttname"><a href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5da34326bb983a3fffa8a90905bbc3d0930">HIGH_LIMIT</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00013">opt3001.h:13</a></div></div>
-<div class="ttc" id="opt3001_8h_html_a81929fb3d21206b62f55bcb744f71d5daf9866a592092cff760f649f38fcbec1d"><div class="ttname"><a href="opt3001_8h.html#a81929fb3d21206b62f55bcb744f71d5daf9866a592092cff760f649f38fcbec1d">MAN_ID</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00013">opt3001.h:13</a></div></div>
-<div class="ttc" id="structopt3001__stc_html"><div class="ttname"><a href="structopt3001__stc.html">opt3001_stc</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00015">opt3001.h:15</a></div></div>
-<div class="ttc" id="structopt3001__stc_html_a5561e4eedc9af4ceb86ed5056241bf77"><div class="ttname"><a href="structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77">opt3001_stc::low_limit</a></div><div class="ttdeci">uint16_t low_limit</div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00017">opt3001.h:17</a></div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="i2c_8h.html">driver/i2c.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a83c0046a2cb83309917ed6ec6b3e5b2b">   14</a></span>&#160;<span class="preprocessor">#define OPT3001_GND_PIN     0x00</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a062f509618661c8536b62d247856583e">   15</a></span>&#160;<span class="preprocessor">#define OPT3001_VDD_PIN     0x01</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a57a9cfe5fcae1cdb426399f4f3ac8fb4">   16</a></span>&#160;<span class="preprocessor">#define OPT3001_SDA_PIN     0x02</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a8fa51a470988bda646bf67de9f6a8e6e">   17</a></span>&#160;<span class="preprocessor">#define OPT3001_SCL_PIN     0x03</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a353b66bab3e673b2969dc30b9de284d7">   18</a></span>&#160;<span class="preprocessor">#define OPT3001_BASE_ADR    0x44</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a9af39dbc20acc60812374ca8a61899c5">   19</a></span>&#160;<span class="preprocessor">#define OPT3001_ADR_PIN     OPT3001_GND_PIN</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="opt3001_8h.html#ad39c35e048af0890a99974e93c93cee9">   20</a></span>&#160;<span class="preprocessor">#define OPT3001_I2C_ADR     (OPT3001_BASE_ADR | OPT3001_ADR_PIN)</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="opt3001_8h.html#adc31d7638b454133413e5bdded688dcd">   22</a></span>&#160;<span class="preprocessor">#define OPT3001_RESULT_REG  0x00</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a97a74783c7f6707babcc81aedb4cf9bc">   23</a></span>&#160;<span class="preprocessor">#define OPT3001_CONFIG_REG  0x01</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="opt3001_8h.html#aa13506d6c56601c3cd1686bd4a9b757f">   24</a></span>&#160;<span class="preprocessor">#define OPT3001_L_LIMIT_REG 0x02</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="opt3001_8h.html#aca3ce0064552360839f2890488ac2e6e">   25</a></span>&#160;<span class="preprocessor">#define OPT3001_H_LIMIT_REG 0x03</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a806311af2bb5783978e8c67f5a49ec3e">   26</a></span>&#160;<span class="preprocessor">#define OPT3001_MANU_ID_REG 0x7E</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="opt3001_8h.html#ab6d903ff1a1f0028b4b31aa2dc7f61ae">   27</a></span>&#160;<span class="preprocessor">#define OPT3001_DEV_ID_REG  0x7F</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structopt3001__stc.html">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structopt3001__stc.html">opt3001_stc</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structopt3001__stc.html#aa26297bc57b4b74262246d02175f4308">   30</a></span>&#160;    uint16_t <a class="code" href="structopt3001__stc.html#aa26297bc57b4b74262246d02175f4308">config</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77">   31</a></span>&#160;    uint16_t <a class="code" href="structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77">low_limit</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structopt3001__stc.html#af121d4246e275920873b33ad155fa9ba">   32</a></span>&#160;    uint16_t <a class="code" href="structopt3001__stc.html#af121d4246e275920873b33ad155fa9ba">high_limit</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <a class="code" href="opt3001_8h.html#a85ef6b0023cd0d3f58e5f229b4d568ed">OPT3001_STC</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="opt3001_8h.html#a888795c8dd85321e189306fbc88b4510">   35</a></span>&#160;<span class="preprocessor">#define float_to_int(value) ((value &amp; 0x0FFFF) &lt;&lt; ((value &amp; 0xF000) &gt;&gt; 12))</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* OPT3001_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="structopt3001__stc_html_af121d4246e275920873b33ad155fa9ba"><div class="ttname"><a href="structopt3001__stc.html#af121d4246e275920873b33ad155fa9ba">opt3001_stc::high_limit</a></div><div class="ttdeci">uint16_t high_limit</div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00032">opt3001.h:32</a></div></div>
+<div class="ttc" id="structopt3001__stc_html_aa26297bc57b4b74262246d02175f4308"><div class="ttname"><a href="structopt3001__stc.html#aa26297bc57b4b74262246d02175f4308">opt3001_stc::config</a></div><div class="ttdeci">uint16_t config</div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00030">opt3001.h:30</a></div></div>
+<div class="ttc" id="structopt3001__stc_html"><div class="ttname"><a href="structopt3001__stc.html">opt3001_stc</a></div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00029">opt3001.h:29</a></div></div>
+<div class="ttc" id="structopt3001__stc_html_a5561e4eedc9af4ceb86ed5056241bf77"><div class="ttname"><a href="structopt3001__stc.html#a5561e4eedc9af4ceb86ed5056241bf77">opt3001_stc::low_limit</a></div><div class="ttdeci">uint16_t low_limit</div><div class="ttdef"><b>Definition:</b> <a href="opt3001_8h_source.html#l00031">opt3001.h:31</a></div></div>
 <div class="ttc" id="opt3001_8h_html_a85ef6b0023cd0d3f58e5f229b4d568ed"><div class="ttname"><a href="opt3001_8h.html#a85ef6b0023cd0d3f58e5f229b4d568ed">OPT3001_STC</a></div><div class="ttdeci">struct opt3001_stc OPT3001_STC</div></div>
+<div class="ttc" id="i2c_8h_html"><div class="ttname"><a href="i2c_8h.html">i2c.h</a></div><div class="ttdoc">I2C implemtation for MSP430G2553, interrupt based.   This implemtation based on examples from Texas I...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="opt3001_8h.html">opt3001.h</a></li>
-    <li class="footer">Erzeugt am Die Mär 31 2015 18:54:35 für FH Radio von
+    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

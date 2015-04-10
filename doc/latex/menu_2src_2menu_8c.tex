@@ -1,7 +1,8 @@
-\hypertarget{menu_2src_2menu_8c}{}\section{menu/src/menu.c-\/\+Dateireferenz}
-\label{menu_2src_2menu_8c}\index{menu/src/menu.\+c@{menu/src/menu.\+c}}
+\hypertarget{menu_2src_2menu_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/menu/src/menu.c-\/\+Dateireferenz}
+\label{menu_2src_2menu_8c}\index{D\+:/\+G\+I\+T/fhradiov2/menu/src/menu.\+c@{D\+:/\+G\+I\+T/fhradiov2/menu/src/menu.\+c}}
 {\ttfamily \#include $<$menu/menu.\+h$>$}\\*
-Include-\/\+Abhängigkeitsdiagramm für menu.\+c\+:\nopagebreak
+Include-\/\+Abhängigkeitsdiagramm für menu.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,13 +31,13 @@ Include-\/\+Abhängigkeitsdiagramm für menu.\+c\+:\nopagebreak
 \item 
 uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\+\_\+display} ()
 \item 
-uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\+\_\+function} (uint8\+\_\+t $\ast$encoder\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+count)
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa}{menu\+\_\+function} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count)
 \item 
-uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\+\_\+scroll\+\_\+settings} (uint8\+\_\+t $\ast$encoder\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+count)
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a5621c1bf312de029f43808bf02dc52e3}{menu\+\_\+scroll\+\_\+settings} (uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value})
 \item 
 uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}{menu\+\_\+scroll} (uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value})
 \item 
-uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c}{menu\+\_\+handler} (uint8\+\_\+t $\ast$encoder\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+count)
+uint8\+\_\+t \hyperlink{menu_2src_2menu_8c_aaf2a075d3159f7eeab42012941a3437f}{menu\+\_\+handler} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count)
 \end{DoxyCompactItemize}
 \subsection*{Variablen}
 \begin{DoxyCompactItemize}
@@ -125,16 +126,17 @@ Definiert in Zeile 32 der Datei menu.\+c.
 39             \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_ac1b562fabcc9402003931e8351d6faf7}{parent}->
       \hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 0, 0, 0, 0);
 40         \}
-41         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"~"}, 0, 1, 0, 0);
+41         \textcolor{comment}{//lcd\_create\_view("~", 0, 1, 0, 0);}
 42         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 1, 1, 0, 0);
 43         \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next} != 0) \{
 44             \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next}->
       \hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 1, 2, 0, 0);
 45         \}
-46     \}
-47     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(0, 0, 0, 0, 1);
-48     \textcolor{keywordflow}{return} 0;
-49 \}
+46         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"~"}, 0, 1, 0, 1);
+47     \}
+48 
+49     \textcolor{keywordflow}{return} 0;
+50 \}
 \end{DoxyCode}
 
 
@@ -149,7 +151,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -158,153 +161,159 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+function@{menu\+\_\+function}}
+\hypertarget{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+function@{menu\+\_\+function}}
 \index{menu\+\_\+function@{menu\+\_\+function}!menu/src/menu.\+c@{menu/src/menu.\+c}}
 \subsubsection[{menu\+\_\+function}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+function (
 \begin{DoxyParamCaption}
-\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+button, }
-\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+count}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count}
 \end{DoxyParamCaption}
-)}\label{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}
+)}\label{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa}
 
 
-Definiert in Zeile 51 der Datei menu.\+c.
+Definiert in Zeile 52 der Datei menu.\+c.
 
 
 \begin{DoxyCode}
-52 \{
-53     \textcolor{keywordflow}{switch}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num}) \{
-54     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a747fe7911f209ee3f6bf6834aed989c3}{MENU\_FREQ\_ENTRY}:
-55         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
-56     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a1b6ff4cb0321d3c665859cd7c0ca3d7c}{MENU\_VOL\_ENTRY}:
-57         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
-58     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a09a38cec6cbb754c3ce721e7c729c545}{MENU\_CONT\_ENTRY}:
-59         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
-60     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_aa9d014ea80d95c7f32f2857d10481206}{MENU\_BRIG\_ENTRY}:
-61         \textcolor{keywordflow}{return} \hyperlink{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{menu\_scroll\_settings}(encoder\_button, encoder\_count);
-62     \textcolor{keywordflow}{case} \hyperlink{menu_2menu_8h_a13335c6ce94ec10a1b83f008f03b57d1}{MENU\_MAIN\_ENTRY}:
-63         \textcolor{keywordflow}{return} \hyperlink{radio_8c_a921f25c9a84ad0ee0715bc7f5720ade4}{radio\_main}(encoder\_button, encoder\_count);
-64     \}
-65     \textcolor{keywordflow}{return} 0;
-66 \}
+53 \{
+54     \textcolor{keywordflow}{if}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num} == \hyperlink{menu_2menu_8h_a13335c6ce94ec10a1b83f008f03b57d1}{MENU\_MAIN\_ENTRY}) \{
+55         \textcolor{keywordflow}{return} \hyperlink{radio_8h_a5f7fcd9e9755fb5e22175a4ad74a5456}{radio\_main}(encoder\_left\_button, encoder\_left\_count, encoder\_right\_button, 
+      encoder\_right\_count);
+56     \}
+57     \textcolor{keywordflow}{else} \{
+58         \textcolor{keywordflow}{return} \hyperlink{radio_8h_a832a684fc60104296fc975a7608f92b4}{radio\_settings}(encoder\_right\_button, encoder\_right\_count, 
+      \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num});
+59     \}
+60 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc_cgraph}
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=347pt]{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc_icgraph}
+\includegraphics[width=347pt]{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+handler@{menu\+\_\+handler}}
+\hypertarget{menu_2src_2menu_8c_aaf2a075d3159f7eeab42012941a3437f}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+handler@{menu\+\_\+handler}}
 \index{menu\+\_\+handler@{menu\+\_\+handler}!menu/src/menu.\+c@{menu/src/menu.\+c}}
 \subsubsection[{menu\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+handler (
 \begin{DoxyParamCaption}
-\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+button, }
-\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+count}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count}
 \end{DoxyParamCaption}
-)}\label{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c}
+)}\label{menu_2src_2menu_8c_aaf2a075d3159f7eeab42012941a3437f}
 
 
-Definiert in Zeile 105 der Datei menu.\+c.
+Definiert in Zeile 96 der Datei menu.\+c.
 
 
 \begin{DoxyCode}
-106 \{
-107     \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} == 0) \{
-108         \textcolor{keywordflow}{if} (*encoder\_button == \hyperlink{menu_2src_2menu_8c_a7feaffb81b5835815adbc90d046b24aa}{BUTTON\_PRESS\_LONG}) \{
-109             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long} != 0) \{
-110                 \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+97 \{
+98     \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} == 0) \{
+99         *encoder\_left\_count = 0;
+100         *encoder\_left\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
+101         \textcolor{keywordflow}{if} (*encoder\_right\_button == \hyperlink{menu_2src_2menu_8c_a7feaffb81b5835815adbc90d046b24aa}{BUTTON\_PRESS\_LONG}) \{
+102             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long} != 0) \{
+103                 \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
       \hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long};
-111             \}
-112             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num} != 0) \{
-113                 \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+104             \}
+105             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num} != 0) \{
+106                 \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
       \hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num};
-114                 \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\_function}(0, 0);
-115                 \textcolor{keywordflow}{return} 0;
-116             \}
-117             *encoder\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
-118         \}
-119         \textcolor{keywordflow}{if} (*encoder\_button == \hyperlink{menu_2src_2menu_8c_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT}) \{
-120             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short} != 0) \{
-121                 \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+107                 \hyperlink{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa}{menu\_function}(0, 0, 0, 0);
+108                 \textcolor{keywordflow}{return} 0;
+109             \}
+110             *encoder\_right\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
+111         \}
+112         \textcolor{keywordflow}{if} (*encoder\_right\_button == \hyperlink{menu_2src_2menu_8c_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT}) \{
+113             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short} != 0) \{
+114                 \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
       \hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short};
-122             \}
-123             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num} != 0) \{
-124                 \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+115             \}
+116             \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num} != 0) \{
+117                 \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
       \hyperlink{structmenu__entry_aead51ebe631627145d52a84b2d92e240}{entry\_num};
-125                 *encoder\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
-126                 \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\_function}(0, 0);
-127                 \textcolor{keywordflow}{return} 0;
-128             \}
-129             *encoder\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
-130         \}
-131         \textcolor{keywordflow}{if} (*encoder\_count != 0) \{
-132             \textcolor{keywordflow}{if}(*encoder\_count > 0) \{
-133                 \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next} != 0) \{
-134                     \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+118                 *encoder\_right\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
+119                 \hyperlink{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa}{menu\_function}(0, 0, 0, 0);
+120                 \textcolor{keywordflow}{return} 0;
+121             \}
+122             *encoder\_right\_button = \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE};
+123         \}
+124         \textcolor{keywordflow}{if} (*encoder\_right\_count != 0) \{
+125             \textcolor{keywordflow}{if}(*encoder\_right\_count > 0) \{
+126                 \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next} != 0) \{
+127                     \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
       \hyperlink{structmenu__entry_a8667330bb5cb56772e88abd901064211}{next};
-135                 \}
-136             \}
-137             \textcolor{keywordflow}{if} (*encoder\_count < 0) \{
-138                 \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a66676e2c3f7553b50a8c1d0c4e973734}{previous} != 0) \{
-139                     \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
+128                 \}
+129             \}
+130             \textcolor{keywordflow}{if} (*encoder\_right\_count < 0) \{
+131                 \textcolor{keywordflow}{if} (\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a66676e2c3f7553b50a8c1d0c4e973734}{previous} != 0) \{
+132                     \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->
       \hyperlink{structmenu__entry_a66676e2c3f7553b50a8c1d0c4e973734}{previous};
-140                 \}
-141             \}
-142             *encoder\_count = 0;
-143         \}
-144         \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
-145     \}\textcolor{keywordflow}{else} \{
-146         uint8\_t ret = \hyperlink{menu_2src_2menu_8c_a6e158a5dda1d308b5a56ee88538eb0fc}{menu\_function}(encoder\_button, encoder\_count);
-147         \textcolor{keywordflow}{if} (ret  == 0xFF) \{     \textcolor{comment}{//Menu down wards}
-148             \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short};
+133                 \}
+134             \}
+135             *encoder\_right\_count = 0;
+136         \}
+137         \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
+138     \}\textcolor{keywordflow}{else} \{
+139         uint8\_t ret = \hyperlink{menu_2src_2menu_8c_a5d9c190838195d7872fc7067269e20fa}{menu\_function}(encoder\_left\_button, encoder\_left\_count, 
+      encoder\_right\_button, encoder\_right\_count);
+140         \textcolor{keywordflow}{if} (ret  == 0xFF) \{     \textcolor{comment}{//Menu down wards}
+141             \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a759c31dc71a94a9bbafdc849d2db5c1a}{child\_short};
+142             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
+143             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
+144         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ret == 0xFE) \{
+145             \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long};
+146             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
+147             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
+148         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ret == 0xFD) \{
 149             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
 150             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
-151         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ret == 0xFE) \{
-152             \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry} = \hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a79da8f2d51ac63708f7f8f41b56d0102}{child\_long};
-153             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
-154             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
-155         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ret == 0xFD) \{
-156             \hyperlink{menu_2src_2menu_8c_af03ddd7e03f284d4d1f0bbabc26fd67d}{menu\_display\_selector} = 0;
-157             \hyperlink{menu_2src_2menu_8c_a5ca9d2cf65ffedfb30889ee21a6f7f3d}{menu\_display}();
-158         \}
-159     \}
-160     \textcolor{keywordflow}{return} 0;
-161 \}
+151         \}
+152     \}
+153     \textcolor{keywordflow}{return} 0;
+154 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c_cgraph}
+\includegraphics[width=350pt]{menu_2src_2menu_8c_aaf2a075d3159f7eeab42012941a3437f_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=231pt]{menu_2src_2menu_8c_a8509849c574fb30136ac9ec88081d47c_icgraph}
+\includegraphics[width=231pt]{menu_2src_2menu_8c_aaf2a075d3159f7eeab42012941a3437f_icgraph}
 \end{center}
 \end{figure}
 
@@ -318,30 +327,31 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}
 
 
-Definiert in Zeile 83 der Datei menu.\+c.
+Definiert in Zeile 73 der Datei menu.\+c.
 
 
 \begin{DoxyCode}
-84 \{
-85     uint8\_t i = 0;
-86     \textcolor{keywordtype}{char} \textcolor{keywordtype}{string}[2];
-87 
-88     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"-"}, 0, 2, 0, 0);
-89     \textcolor{keywordflow}{for}(i = 1; i <= \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} / 5 && i <= 12; i++) \{
-90         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)5"}, 1 + i, 2, 0, 0);
-91     \}
-92     \textcolor{keywordflow}{if}(i <= 12) \{
-93         \textcolor{keywordtype}{string}[0] = \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} % 5;
-94         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{keywordtype}{string}, 1 + i, 2, 0, 0);
-95     \}
-96     i++;
-97     \textcolor{keywordflow}{for}(i = i; i <= 12; i++) \{
-98         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)0"}, 1 + i, 2, 0, 0);
-99     \}
-100     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"+"}, 14, 2, 0, 0);
-101 
-102     \textcolor{keywordflow}{return} 0;
-103 \}
+74 \{
+75     uint8\_t i = 0;
+76     \textcolor{keywordtype}{char} \textcolor{keywordtype}{string}[2];
+77     \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} = (\hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} * 60) / 100;
+78 
+79     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"-"}, 0, 2, 0, 0);
+80     \textcolor{keywordflow}{for}(i = 1; i <= \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} / 5 && i <= 12; i++) \{
+81         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)5"}, 1 + i, 2, 0, 0);
+82     \}
+83     \textcolor{keywordflow}{if}(i <= 12) \{
+84         \textcolor{keywordtype}{string}[0] = \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} % 5;
+85         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{keywordtype}{string}, 1 + i, 2, 0, 0);
+86     \}
+87     i++;
+88     \textcolor{keywordflow}{for}(i = i; i <= 12; i++) \{
+89         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)0"}, 1 + i, 2, 0, 0);
+90     \}
+91     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{" +"}, 14, 2, 0, 0);
+92 
+93     \textcolor{keywordflow}{return} 0;
+94 \}
 \end{DoxyCode}
 
 
@@ -356,7 +366,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -365,52 +376,49 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \end{figure}
 
 
-\hypertarget{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+scroll\+\_\+settings@{menu\+\_\+scroll\+\_\+settings}}
+\hypertarget{menu_2src_2menu_8c_a5621c1bf312de029f43808bf02dc52e3}{}\index{menu/src/menu.\+c@{menu/src/menu.\+c}!menu\+\_\+scroll\+\_\+settings@{menu\+\_\+scroll\+\_\+settings}}
 \index{menu\+\_\+scroll\+\_\+settings@{menu\+\_\+scroll\+\_\+settings}!menu/src/menu.\+c@{menu/src/menu.\+c}}
 \subsubsection[{menu\+\_\+scroll\+\_\+settings}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t menu\+\_\+scroll\+\_\+settings (
 \begin{DoxyParamCaption}
-\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+button, }
-\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+count}
+\item[{uint8\+\_\+t}]{value}
 \end{DoxyParamCaption}
-)}\label{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946}
+)}\label{menu_2src_2menu_8c_a5621c1bf312de029f43808bf02dc52e3}
 
 
-Definiert in Zeile 68 der Datei menu.\+c.
+Definiert in Zeile 62 der Datei menu.\+c.
 
 
 \begin{DoxyCode}
-69 \{
-70     \textcolor{keyword}{static} uint8\_t \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value} = 0;
-71     \textcolor{keywordflow}{if}(value == 0) \{
-72         value = 23; \textcolor{comment}{//TODO load value from flash}
-73     \}
-74     \hyperlink{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}{menu\_scroll}(value);
-75     \textcolor{keywordflow}{if}(*encoder\_button == \hyperlink{menu_2src_2menu_8c_ae2ea62f35463775125657c143256e10b}{BUTTON\_PRESS\_FREE}) \{
-76         \textcolor{comment}{//TODO store value to flash}
-77         value = 0;
-78         \textcolor{keywordflow}{return} 0xFF;
-79     \}
-80     \textcolor{keywordflow}{return} 0;
-81 \}
+63 \{
+64     \textcolor{keywordtype}{char} tmp\_string[4];
+65     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{menu_2src_2menu_8c_ab6b6625d571381d5f930d84c651b5b68}{actuall\_entry}->\hyperlink{structmenu__entry_a16343090e80c4472521560f30113d96c}{text}, 0, 0, 0, 0);
+66     \hyperlink{radio_8h_a391fc5fe58716d2c794685bcf12bbda5}{radio\_value\_to\_string}(tmp\_string, \hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value}, 3, 10);
+67     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 0, 1, 0, 0);
+68     \hyperlink{menu_2src_2menu_8c_a503ed2007daa6f20b2f748eedbcb8494}{menu\_scroll}(\hyperlink{menu_2src_2menu_8c_af1134c9cc08a4b934ab479ee7388b544}{value});
+69     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"%"}, 3, 1, 0, 1);
+70     \textcolor{keywordflow}{return} 0;
+71 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946_cgraph}
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a5621c1bf312de029f43808bf02dc52e3_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menu_2src_2menu_8c_a024aeffbbf4583410c047ad3a6c80946_icgraph}
+\includegraphics[width=350pt]{menu_2src_2menu_8c_a5621c1bf312de029f43808bf02dc52e3_icgraph}
 \end{center}
 \end{figure}
 

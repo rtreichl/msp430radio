@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="org.eclipse.cdt.ui.text.templates.c" deleted="false" description="" enabled="true" name="doxy">//----------------------------------------------------------------------------------------&#13;
+//&#13;
+/// \brief ${brief}&#13;
+// &#13;
+/// \description ${description}&#13;
+//&#13;
+/// \param ${param}&#13;
+//&#13;
+/// \retval ${retval}&#13;
+//&#13;
+/// \remarks ${remarks}&#13;
+//&#13;
+//----------------------------------------------------------------------------------------</template></templates>
