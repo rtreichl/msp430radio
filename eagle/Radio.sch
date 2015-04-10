@@ -13454,7 +13454,7 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <instance part="C651" gate="G$1" x="149.86" y="142.24" rot="R270"/>
 <instance part="FRAME10" gate="G$1" x="0" y="0"/>
 <instance part="GND24" gate="1" x="167.64" y="93.98"/>
-<instance part="D650" gate="G$1" x="134.62" y="142.24" rot="R180"/>
+<instance part="D650" gate="G$1" x="132.08" y="137.16" rot="MR0"/>
 <instance part="ANT" gate="G$1" x="106.68" y="142.24" rot="R180"/>
 <instance part="C655" gate="G$1" x="165.1" y="78.74" rot="R270"/>
 <instance part="L651" gate="G$1" x="134.62" y="96.52" rot="R90"/>
@@ -13505,19 +13505,14 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="C650" gate="G$1" pin="2"/>
-<pinref part="D650" gate="G$1" pin="C2"/>
-<wire x1="124.46" y1="142.24" x2="127" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="127" y1="142.24" x2="129.54" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="127" y1="142.24" x2="127" y2="147.32" width="0.1524" layer="91"/>
-<junction x="127" y="142.24"/>
 <pinref part="C651" gate="G$1" pin="2"/>
-<pinref part="D650" gate="G$1" pin="A1"/>
 <wire x1="144.78" y1="142.24" x2="142.24" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="142.24" x2="139.7" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="127" y1="147.32" x2="142.24" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="147.32" x2="142.24" y2="142.24" width="0.1524" layer="91"/>
-<junction x="142.24" y="142.24"/>
+<pinref part="C650" gate="G$1" pin="2"/>
+<pinref part="D650" gate="G$1" pin="C1A2"/>
+<wire x1="124.46" y1="142.24" x2="132.08" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="142.24" x2="132.08" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="142.24" x2="132.08" y2="142.24" width="0.1524" layer="91"/>
+<junction x="132.08" y="142.24"/>
 </segment>
 </net>
 <net name="SI_AMI" class="0">
@@ -13547,15 +13542,20 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <wire x1="99.06" y1="83.82" x2="99.06" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="D650" gate="G$1" pin="C1A2"/>
-<wire x1="134.62" y1="139.7" x2="134.62" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="GND37" gate="1" pin="GND"/>
-<wire x1="134.62" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="129.54" x2="132.08" y2="127" width="0.1524" layer="91"/>
 <pinref part="ANT" gate="G$1" pin="1"/>
 <wire x1="119.38" y1="139.7" x2="109.22" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="139.7" x2="119.38" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="129.54" x2="124.46" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="D650" gate="G$1" pin="C2"/>
+<wire x1="124.46" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="127" y1="137.16" x2="124.46" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="137.16" x2="124.46" y2="129.54" width="0.1524" layer="91"/>
+<junction x="124.46" y="129.54"/>
+<pinref part="D650" gate="G$1" pin="A1"/>
+<wire x1="137.16" y1="137.16" x2="137.16" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
 <junction x="132.08" y="129.54"/>
 </segment>
 <segment>

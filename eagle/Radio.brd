@@ -2748,9 +2748,9 @@ Covered vias can be set in Masks (Limit).
 <attribute name="NAME" x="44.45" y="31.75" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="43.4975" y="35.8775" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="D650" library="diode" package="SOT23" value="BAT54S" x="2.2225" y="71.12" smashed="yes" rot="R90">
-<attribute name="NAME" x="2.8575" y="73.025" size="1.27" layer="25" rot="R90"/>
-<attribute name="VALUE" x="5.3975" y="69.215" size="1.27" layer="27" rot="R90"/>
+<element name="D650" library="diode" package="SOT23" value="BAT54S" x="2.2225" y="71.12" smashed="yes" rot="R270">
+<attribute name="NAME" x="1.5875" y="69.215" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="-0.9525" y="73.025" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="R901" library="rcl" package="R1206" value="1k" x="86.36" y="48.26" smashed="yes" rot="R270">
 <attribute name="NAME" x="87.63" y="50.4825" size="1.27" layer="25" rot="R270"/>
@@ -2992,7 +2992,7 @@ Covered vias can be set in Masks (Limit).
 <via x="25.4" y="61.2775" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="4.7625" y="50.4825" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="4.1275" y="51.435" extent="1-16" drill="0.6" diameter="0.9"/>
-<via x="0.9525" y="69.215" extent="1-16" drill="0.6" diameter="0.9"/>
+<via x="0.9525" y="68.58" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="80.3275" y="55.88" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="81.5975" y="55.245" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="81.5975" y="53.6575" extent="1-16" drill="0.6" diameter="0.9"/>
@@ -3025,7 +3025,6 @@ Covered vias can be set in Masks (Limit).
 <contactref element="JP650" pad="1"/>
 <contactref element="C654" pad="2"/>
 <contactref element="C653" pad="2"/>
-<contactref element="D650" pad="3"/>
 <contactref element="ANT" pad="1"/>
 <via x="4.1275" y="53.975" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="9.2075" y="61.2775" extent="1-16" drill="0.6" diameter="0.9"/>
@@ -3040,7 +3039,7 @@ Covered vias can be set in Masks (Limit).
 <via x="2.2225" y="38.4175" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="14.44625" y="69.5325" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="10.795" y="39.37" extent="1-16" drill="0.6" diameter="0.9"/>
-<via x="0.9525" y="73.025" extent="1-16" drill="0.6" diameter="0.9"/>
+<via x="0.9525" y="73.66" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="7.3025" y="38.4175" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="8.5725" y="38.4175" extent="1-16" drill="0.6" diameter="0.9"/>
 <via x="13.335" y="65.0875" extent="1-16" drill="0.6" diameter="0.9"/>
@@ -3078,6 +3077,8 @@ Covered vias can be set in Masks (Limit).
 <contactref element="U940" pad="2"/>
 <contactref element="U940" pad="7"/>
 <wire x1="50" y1="23" x2="49.005" y2="23" width="0.254" layer="16"/>
+<contactref element="D650" pad="2"/>
+<contactref element="D650" pad="1"/>
 </signal>
 <signal name="+5V">
 <contactref element="CP100" pad="1"/>
@@ -4048,15 +4049,14 @@ Covered vias can be set in Masks (Limit).
 <wire x1="10.3525" y1="70.08" x2="9.525" y2="69.2525" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$2">
-<contactref element="C650" pad="2"/>
-<contactref element="D650" pad="2"/>
-<wire x1="3.3225" y1="72.07" x2="8.8" y2="72.07" width="0.6096" layer="1"/>
-<wire x1="8.8" y1="72.07" x2="8.89" y2="72.16" width="0.6096" layer="1"/>
 <contactref element="C651" pad="2"/>
-<contactref element="D650" pad="1"/>
 <wire x1="3.58" y1="67.6275" x2="3.3225" y2="67.6275" width="0.6096" layer="1"/>
-<wire x1="3.3225" y1="67.6275" x2="3.3225" y2="70.17" width="0.6096" layer="1"/>
-<wire x1="3.3225" y1="70.17" x2="3.3225" y2="72.07" width="0.6096" layer="1"/>
+<contactref element="C650" pad="2"/>
+<contactref element="D650" pad="3"/>
+<wire x1="3.58" y1="67.6275" x2="3.3225" y2="67.6275" width="0.6096" layer="1"/>
+<wire x1="3.3225" y1="67.6275" x2="3.3225" y2="71.12" width="0.6096" layer="1"/>
+<wire x1="3.3225" y1="71.12" x2="4.3625" y2="72.16" width="0.6096" layer="1"/>
+<wire x1="4.3625" y1="72.16" x2="8.89" y2="72.16" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$32">
 <contactref element="R813" pad="1"/>
