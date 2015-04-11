@@ -356,6 +356,9 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 			radio.settings.volume++;
 		}
 		radio_set_volume(radio.settings.volume);
+		if(radio.status.audio_status == AUDIO_MUTE) {
+			tpa2016d2_mute(0);
+		}
 		radio.status.audio_status = AUDIO_VOLUME;
 		tmp_value = radio.settings.volume;
 		*encoder_right_count = 0;
@@ -393,11 +396,12 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	{
 		*encoder_left_button = BUTTON_FREE;
 		if(radio.status.audio_status == AUDIO_MUTE) {
+			tpa2016d2_mute(0);
 			radio.status.audio_status = 0;
 		} else {
 			radio.status.audio_status = AUDIO_MUTE;
+			tpa2016d2_mute(1);
 		}
-		//radio_mute
 	}
 	if(*encoder_left_button == BUTTON_PRESS_LONG)
 	{
@@ -405,6 +409,12 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		//radio_standby
 	}
 	radio_display_handler(tmp_value);
+	if(radio.settings.ta_tp == 1 && radio.rds.ta == 1 && radio.rds.tp == 1 && radio.status.volume_ta == 0) {
+		radio_set_volume(radio.settings.volume_ta);
+		radio.status.volume_ta = 1;
+	} else if(radio.rds.ta == 0 && radio.status.volume_ta == 1) {
+		radio_set_volume(radio.settings.volume);
+		radio.status.volume_ta = 0;
 	return 0;
 }
 
