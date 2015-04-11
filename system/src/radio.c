@@ -424,6 +424,25 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	return 0;
 }
 
+uint8_t radio_auto_brightness()
+{
+	static uint32_t brightness_value = 0;
+	uint32_t tmp_value;
+	uint8_t i = 0;
+	opt3001_get_value(&tmp_value);
+	if(brightness_value == 0) {
+		for(i = 0; i < 64; i++) {
+			brightness_value += tmp_value;
+		}
+	}
+	else {
+		brightness_value -= brightness_value >> 6;
+		brightness_value += tmp_value;
+	}
+	//TODO calculate a brightness value for background brightness
+	return 0;
+}
+
 uint8_t radio_tune_freq(uint16_t freq)
 {
 	ext_interrupt_enable(SI_INT_INT);

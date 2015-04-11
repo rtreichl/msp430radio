@@ -25,6 +25,7 @@
 #include <system/station_list.h>
 #include <system/radio_display.h>
 #include <libs/string.h>
+#include <driver/opt3001.h>
 //#include <system/rds.h>
 #include <system/time.h>
 
