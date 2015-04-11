@@ -347,6 +347,7 @@ uint8_t radio_set_volume(int8_t volume)
 uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	uint8_t tmp_value = 0;
+	uint8_t blend_scroll = 0;
 
 	if(*encoder_right_count != 0) { //move to radio_volume and
 		if(*encoder_right_count < 0 && radio.settings.volume > 0) {
@@ -361,6 +362,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		}
 		radio.status.audio_status = AUDIO_VOLUME;
 		tmp_value = radio.settings.volume;
+		blend_scroll = 1;
 		*encoder_right_count = 0;
 	}
 
@@ -380,6 +382,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		}
 		radio_tune_freq(radio.settings.frequency);
 		tmp_value = ((radio.settings.frequency - RADIO_BOT_FREQ) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
+		blend_scroll = 1;
 		*encoder_left_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_PRESS_SHORT)
@@ -408,13 +411,18 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		*encoder_left_button = BUTTON_FREE;
 		//radio_standby
 	}
-	radio_display_handler(tmp_value);
+
 	if(radio.settings.ta_tp == 1 && radio.rds.ta == 1 && radio.rds.tp == 1 && radio.status.volume_ta == 0) {
 		radio_set_volume(radio.settings.volume_ta);
 		radio.status.volume_ta = 1;
 	} else if(radio.rds.ta == 0 && radio.status.volume_ta == 1) {
 		radio_set_volume(radio.settings.volume);
 		radio.status.volume_ta = 0;
+	}
+
+	radio_display_handler(blend_scroll, tmp_value);
+	return 0;
+}
 	return 0;
 }
 

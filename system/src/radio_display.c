@@ -71,7 +71,7 @@ uint8_t radio_display_rsq()
 	return 0;
 }
 
-uint8_t radio_display_handler(uint8_t blend_scroll)
+uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 {
 	char tmp_string[9];
 	switch(radio.settings.display_view) {
@@ -96,7 +96,7 @@ uint8_t radio_display_handler(uint8_t blend_scroll)
 	}
 	radio_display_speaker();
 	if(blend_scroll != 0) {
-		menu_scroll(blend_scroll);
+		menu_scroll(value);
 	}
 
 	if(radio.rds.tp == 1) {
