@@ -241,6 +241,18 @@ uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_coun
 	case MENU_FREQ_SEEK_UP_ENTRY:
 	case MENU_FREQ_CHOOSE_ENTRY:
 		return radio_frequency(encoder_right_button, encoder_right_count, entry_num);
+	case MENU_TA_TP_ON:
+		radio.settings.ta_tp = 1;
+		radio_store_settings(0, 0);
+		*encoder_right_button = BUTTON_FREE;
+		*encoder_right_count = 0;
+		return SHORT_UP_TO_PARENT;
+	case MENU_TA_TP_OFF:
+		radio.settings.ta_tp = 0;
+		radio_store_settings(0, 0);
+		*encoder_right_button = BUTTON_FREE;
+		*encoder_right_count = 0;
+		return SHORT_UP_TO_PARENT;
 	default:
 		*encoder_right_button = BUTTON_FREE;
 		*encoder_right_count = 0;

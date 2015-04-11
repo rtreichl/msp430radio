@@ -54,7 +54,7 @@ MENU_ENTRY tatp_on_entry = {
 	&tatp_off_entry,
 	0,
 	on_text,
-	0,
+	MENU_TA_TP_ON,
 };
 
 MENU_ENTRY tatp_off_entry = {
@@ -63,7 +63,7 @@ MENU_ENTRY tatp_off_entry = {
 	&tatp_return_entry,
 	&tatp_on_entry,
 	off_text,
-	0,
+	MENU_TA_TP_OFF,
 };
 
 MENU_ENTRY tatp_return_entry = {
