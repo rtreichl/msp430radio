@@ -26,6 +26,8 @@ void tpa2016d2_shutdown(uint8_t Shutdown);
 
 void tpa2016d2_gain(int8_t Gain);
 
+void tpa2016d2_mute(uint8_t mute);
+
 void tpa2016d2_equalizer_mode(uint8_t Mode, int8_t Gain);
 
 #endif /* VERSTAERKER_H_ */
