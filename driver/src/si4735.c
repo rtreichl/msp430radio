@@ -266,11 +266,11 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 
 void si4735_get_interrupt(uint8_t int_number)
 {
-	while(!si_interrupt && count) {
+	while(!si_interrupt) {
 	}
 	si_interrupt = 0;
 	if(int_number < 8) {
-		while(!si_interrupt && count) {
+		while(!si_interrupt) {
 		}
 	}
 	si_interrupt = 0;
