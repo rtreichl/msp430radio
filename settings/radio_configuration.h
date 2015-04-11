@@ -5,7 +5,7 @@
 
 /* Defines values for auto search and seek funktion */
 
-#define RADIO_VALID_SNR			10				//10dB
+#define RADIO_VALID_SNR			15				//10dB
 #define RADIO_VALID_RSSI		20				//25dBµV
 #define RADIO_BOT_FREQ			0x222E 			//87,50 MHz
 #define RADIO_TOP_FREQ			0x2A30			//108,00 MHz
