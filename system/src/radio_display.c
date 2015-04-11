@@ -99,8 +99,8 @@ uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 		menu_scroll(value);
 	}
 
-	if(radio.rds.tp == 1) {
-		if(radio.rds.ta == 1) {
+	if(radio.settings.ta_tp == 1) {
+		if(radio.status.volume_ta == 1) {
 			if(radio.status.scroll_text % 2 == 0) {
 				lcd_create_view("\020", 6, 1, 0, 0);
 			}

@@ -88,7 +88,7 @@ typedef struct radio_status {
 	uint8_t audio_status:2;
 	uint8_t freq_valid:1;
 	uint8_t name_valid:1;
-	uint8_t :1;
+	uint8_t volume_ta:1;
 	uint8_t scroll_text;
 } RADIO_STATUS;
 
