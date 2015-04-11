@@ -50,6 +50,7 @@ int main (void)
 		en_counter1 +=  Encoder_1_get_count();
 		if(encoder_1_button != BUTTON_FREE || en_counter1 != 0 || encoder_2_button != BUTTON_FREE || en_counter2 != 0 || timer_count[4] >= DISPLAY_REFRESH) {
 			menu_handler(&encoder_1_button, &en_counter1, &encoder_2_button, &en_counter2);
+			timer_count[0] = 0;
 			timer_count[4] = 0;
 		}
 		if(timer_count[1] >= ENCODER_TAST_REFRESH) {
