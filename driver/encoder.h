@@ -39,7 +39,7 @@ void encoder_interrupt2(void);
 //Functions from Encoder 1
 void Encoder_1_init(void); 		//Initiation from Encoder 1
 void Encoder_1_decoder(void);	//Decoder from Encoder 1
-int16_t Encoder_1_get_count();
+int16_t encoder_1_update(int8_t *count, uint8_t **button);
 
 #endif // ENCODER_1
 
@@ -61,7 +61,7 @@ int16_t Encoder_1_get_count();
 //Functions from Encoder 2
 void Encoder_2_init(void); 		//Initiation from Encoder 2
 void Encoder_2_decoder(void);	//Decoder from Encoder 2
-int16_t Encoder_2_get_count();
+int16_t encoder_2_update(int8_t *count, uint8_t **button);
 
 #endif //ENCODER_2
 

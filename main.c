@@ -31,25 +31,23 @@
 #define RDS_UPDATE	200
 #define RADIO_TEXT_SCROLL 500
 
-extern volatile uint8_t encoder_1_button, encoder_2_button;
-
 #define DISPLAY_REFRESH 500
 
 int main (void)
 {
 	WDTCTL = WDTPW + WDTHOLD;
+	uint8_t *encoder_left_button, *encoder_right_button;
+	int8_t encoder_left_count = 0, encoder_right_count = 0;
 	radio_init();
-	int8_t en_counter1 = 0;
-	int8_t en_counter2 = 0;
 	time_set_time(18,29,27,2,16,0);
 
 	while(1)
 	{
 		//menu();
-		en_counter2 +=  Encoder_2_get_count();
-		en_counter1 +=  Encoder_1_get_count();
-		if(encoder_1_button != BUTTON_FREE || en_counter1 != 0 || encoder_2_button != BUTTON_FREE || en_counter2 != 0 || timer_count[4] >= DISPLAY_REFRESH) {
-			menu_handler(&encoder_1_button, &en_counter1, &encoder_2_button, &en_counter2);
+		encoder_1_update(&encoder_left_count, &encoder_left_button);
+		encoder_2_update(&encoder_right_count, &encoder_right_button);
+		if(*encoder_left_button != BUTTON_FREE || encoder_left_count != 0 || *encoder_right_button != BUTTON_FREE || encoder_right_count != 0 || timer_count[4] >= DISPLAY_REFRESH) {
+			menu_handler(encoder_left_button, &encoder_left_count, encoder_right_button, &encoder_right_count);
 			timer_count[0] = 0;
 			timer_count[4] = 0;
 		}

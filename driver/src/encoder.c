@@ -24,17 +24,9 @@ volatile int16_t count_button_2 = 0;
 
 #endif
 
-void Encoder_Timer_init()
-{
-		//TA0CCTL0 |= CCIE;											//Enable Compare Interrupt
-        //TA0CCR0 = 500;												//Compare Value 500
-        //TA0CTL = TASSEL_2 | ID0 | ID1;           					//ACLK, up to TCCR0, interrupt
-        //TA0CTL |= MC_1;												//Enable Timer in up Mode
-}
-
 #ifdef ENCODER_1
 
-int16_t Encoder_1_get_count()
+int16_t encoder_1_update(int8_t *count, uint8_t **button)
 {
 	static uint16_t tmp_count_1 = 0x8000;						//Set a start Value in the Middle of Range
 	uint16_t tmp_en = encoder_1_count;							//Save encoder_2_count if there is a break form a Interrupt
@@ -50,7 +42,9 @@ int16_t Encoder_1_get_count()
 	}
 	int16_t diff = tmp_en_t - tmp_t;									//make the difference of act. and last Value
 	tmp_count_1 = tmp_en;											//save act. Value as last Value
-	return diff;													//give difference back
+	*count += diff;
+	*button = (uint8_t *)&encoder_1_button;
+	return 0;													//give difference back
 }
 
 void Encoder_1_decoder(void)
@@ -120,7 +114,7 @@ void Encoder_1_init(void)
 
 #ifdef ENCODER_2
 
-int16_t Encoder_2_get_count()
+int16_t encoder_2_update(int8_t *count, uint8_t **button)
 {
 	static uint16_t tmp_count_2 = 0x8000;						//Set a start Value in the Middle of Range
 	uint16_t tmp_en = encoder_2_count;							//Save encoder_2_count if there is a break form a Interrupt
@@ -136,7 +130,9 @@ int16_t Encoder_2_get_count()
 	}
 	int16_t diff = tmp_en_t - tmp_t;									//make the difference of act. and last Value
 	tmp_count_2 = tmp_en;											//save act. Value as last Value
-	return diff;													//give difference back
+	*count += diff;
+	*button = (uint8_t *)&encoder_2_button;
+	return 0;													//give difference back
 }
 
 void Encoder_2_decoder(void)
