@@ -439,8 +439,8 @@ uint16_t radio_seeking(uint8_t up_down)
 	uint8_t resp[8];
 	ext_interrupt_enable(SI_INT_INT);
 	si4735_fm_seek_start(up_down);
-	si4735_fm_tune_status(0, 1, resp);
 	ext_interrupt_disable(SI_INT_INT);
+	si4735_fm_tune_status(1, 1, resp);
 
 	radio.status.freq_valid = 0;
 
