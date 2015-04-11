@@ -50,6 +50,15 @@ uint8_t radio_init()
 	tpa2016d2_init(radio.settings.equalizer,AMPLIFIER_GAIN);
 	SI4735_INIT();
 	radio_set_volume(radio.settings.volume);
+	if(radio.settings.frequency < RADIO_BOT_FREQ) {
+		radio.settings.frequency = radio_seeking(1);
+	}
+	else if(radio.settings.frequency > RADIO_TOP_FREQ) {
+		radio.settings.frequency = radio_seeking(0);
+	}
+	else {
+		radio_tune_freq(radio.settings.frequency);
+	}
 	Encoder_1_init();
 	Encoder_2_init();
 	return 0;
