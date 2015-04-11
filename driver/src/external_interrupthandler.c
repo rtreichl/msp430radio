@@ -65,6 +65,7 @@ __interrupt void Port12_interrupts(void)
 	uint8_t pin;
 
 	if(P1IFG != 0) {
+		P1IFG &= P1IE;
 		for(i = 0, pin = P1IFG; pin > 0; i++) {
 			if(ext_int_handler[i] != 0 && (pin & 0x01)) {
 				ext_int_handler[i]();
@@ -75,6 +76,7 @@ __interrupt void Port12_interrupts(void)
 	}
 
 	if(P2IFG != 0) {
+		P2IFG &= P2IE;
 		for(i = 8, pin = P2IFG; pin > 0; i++) {
 			if(ext_int_handler[i] != 0 && (pin & 0x01)) {
 				ext_int_handler[i]();
