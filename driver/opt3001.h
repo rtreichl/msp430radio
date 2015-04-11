@@ -32,6 +32,9 @@ typedef struct opt3001_stc {
 	uint16_t high_limit;
 } OPT3001_STC;
 
+uint8_t opt3001_get_value(uint32_t *data);
+uint8_t opt3001_init(OPT3001_STC *config);
+
 #define float_to_int(value) ((value & 0x0FFFF) << ((value & 0xF000) >> 12))
 
 #endif /* OPT3001_H_ */
