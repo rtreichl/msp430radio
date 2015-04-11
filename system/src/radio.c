@@ -423,8 +423,6 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	radio_display_handler(blend_scroll, tmp_value);
 	return 0;
 }
-	return 0;
-}
 
 uint8_t radio_tune_freq(uint16_t freq)
 {
