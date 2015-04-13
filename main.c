@@ -69,7 +69,7 @@ int main (void)
 		}
 		if(timer_count[2] >= RADIO_TEXT_SCROLL) {
 			radio.status.scroll_text++;
-			if(radio.status.scroll_text == 80) {
+			if(radio.status.scroll_text == 78) {
 				radio.status.scroll_text = 0;
 			}
 			timer_count[2] -= RADIO_TEXT_SCROLL;
