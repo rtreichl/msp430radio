@@ -22,24 +22,17 @@ const PCA9530 pca9530_config = {
 
 uint8_t radio_init()
 {
+	uint8_t *init_ptr = (uint8_t *)RADIO_INIT_STORE_ADR;
 	basic_clock_init();
+
 	timer_init();
 	i2c_init (400,10);
 
-	/*radio.status.audio_status = 0;
-
-	radio.settings.frequency = 10770;
-	radio.settings.display_view = RADIO_RDS_VIEW;
-	radio.settings.volume = 30;
-	radio.settings.equalizer = POP;
-	radio.settings.source = SOURCE_FM;
-	radio.settings.brightness = 25;
-	radio.settings.contrast = 6;*/
-
-	//TODOload values from flash
+	if(*init_ptr != 0xAA) {
+		radio_factory_state();
+	}
 
 	radio_load_settings();
-
 	pca9530_init(&pca9530_config);
 	pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.settings.brightness * 2)]);
 	radio_source_select(0);
@@ -548,5 +541,30 @@ uint8_t radio_auto_search()
 	//TODO mute SI4735 => go to lowest possible frequency => configure valid signal => start seeking up => wait valid channel interrupt => wait for valid rds information only station name => overwrite rom with new channel data => seek up agian
 	//																							|																																			|
 	//																							--------------------------------------------------------------------------------------------------------------------------------------------- => until highest frequency is reached
+	return 0;
+}
+
+uint8_t radio_factory_state()
+{
+	uint8_t i = 0;
+	radio.settings.frequency = 0;
+	radio.settings.display_view = RADIO_RDS_VIEW;
+	radio.settings.volume = 35;
+	radio.settings.equalizer = POP;
+	radio.settings.source = SOURCE_FM;
+	radio.settings.brightness = 35;
+	radio.settings.contrast = 6;
+
+	for(i = 0; i < 14; i++) {
+		flash_store(empty_text, RADIO_STATION_NAME_STORE_SIZE, RADIO_STATION_NAME_STORE_ADR + RADIO_STATION_NAME_STORE_SIZE * i);
+		flash_store(&i, RADIO_STATION_FREQ_STORE_SIZE, RADIO_STATION_FREQ_STORE_ADR + RADIO_STATION_FREQ_STORE_SIZE * i);
+	}
+
+	radio_store_settings(1, 1);
+
+	i = 0xAA;
+
+	flash_store(&i, 1, RADIO_INIT_STORE_ADR);
+
 	return 0;
 }

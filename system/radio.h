@@ -65,6 +65,8 @@
 #define RADIO_STATION_FREQ_STORE_SIZE 2
 
 #define RADIO_SETTINGS_STORE_ADR 0x108C
+
+#define RADIO_INIT_STORE_ADR 0x10B8
 /*#define RADIO_CONTRAST_STORE_ADR 0x108D
 #define RADIO_CONTRAST_STORE_SIZE 1
 #define RADIO_VIEW_STORE_ADR 0x108E
@@ -146,6 +148,7 @@ uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos);
 uint8_t radio_auto_search();
 uint8_t radio_store_settings(uint8_t freq, uint8_t volume);
 uint8_t radio_load_settings();
+uint8_t radio_factory_state();
 uint8_t radio_frequency(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 
 #endif /* RADIO_NEW_H_ */
