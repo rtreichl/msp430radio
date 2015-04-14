@@ -568,3 +568,21 @@ uint8_t radio_factory_state()
 
 	return 0;
 }
+uint8_t radio_stand_by()
+{
+	//TODO Turn off amplifier
+	//TODO Turn off si4735
+	//TODO store actuall freqency
+	//TODO store actuall volume
+	//TODO Turn off display
+	//TODO enable interrupt for left button
+	//TODO reconfig one timer with ACLK to cause an interrupt all minute
+	//TODO go to lpm mode where ACLK is active
+	//TODO wait until button is pressed
+	//TODO reconfig timer to old state
+	//TODO enable amplifier with stored values
+	//TODO enable si4735 with stored values
+	//TODO turn on display needed to be init
+	//TODO go back to normal operations
+	return 0;
+}
