@@ -343,11 +343,11 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	uint8_t blend_scroll = 0;
 
 	if(*encoder_right_count != 0) { //move to radio_volume and
-		if(*encoder_right_count < 0 && radio.settings.volume > 0) {
-			radio.settings.volume--;
+		if(*encoder_right_count < 0 && radio.settings.volume > RADIO_VOLUME_MIN) {
+			radio.settings.volume -= RADIO_VOLUME_STEP;
 		}
-		else if(*encoder_right_count > 0 && radio.settings.volume < 100) {
-			radio.settings.volume++;
+		else if(*encoder_right_count > 0 && radio.settings.volume < RADIO_VOLUME_MAX) {
+			radio.settings.volume += RADIO_VOLUME_STEP;
 		}
 		radio_set_volume(radio.settings.volume);
 		if(radio.status.audio_status == AUDIO_MUTE) {
@@ -568,6 +568,7 @@ uint8_t radio_factory_state()
 
 	return 0;
 }
+
 uint8_t radio_stand_by()
 {
 	//TODO Turn off amplifier
