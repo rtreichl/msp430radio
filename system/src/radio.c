@@ -549,14 +549,14 @@ uint8_t radio_factory_state()
 	uint8_t i = 0;
 	radio.settings.frequency = 0;
 	radio.settings.display_view = RADIO_RDS_VIEW;
-	radio.settings.volume = 35;
+	radio.settings.volume = 20;
 	radio.settings.equalizer = POP;
 	radio.settings.source = SOURCE_FM;
 	radio.settings.brightness = 35;
 	radio.settings.contrast = 6;
 
 	for(i = 0; i < 14; i++) {
-		flash_store(empty_text, RADIO_STATION_NAME_STORE_SIZE, RADIO_STATION_NAME_STORE_ADR + RADIO_STATION_NAME_STORE_SIZE * i);
+		flash_store((char *)empty_text, RADIO_STATION_NAME_STORE_SIZE, RADIO_STATION_NAME_STORE_ADR + RADIO_STATION_NAME_STORE_SIZE * i);
 		flash_store(&i, RADIO_STATION_FREQ_STORE_SIZE, RADIO_STATION_FREQ_STORE_ADR + RADIO_STATION_FREQ_STORE_SIZE * i);
 	}
 
