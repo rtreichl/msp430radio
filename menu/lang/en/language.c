@@ -3,6 +3,7 @@
 #if RADIO_LANGAUGE == EN
 
 const char view_text[] = "View";
+const char empty_text[] = "Empty";
 const char radio_text[] = "Radio";
 const char tatp_text[] = "Traffic Msg.";
 const char volume_ta_text[] = "T.M. Volume";

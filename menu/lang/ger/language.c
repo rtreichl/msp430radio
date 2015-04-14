@@ -4,6 +4,7 @@
 
 const char view_text[] = "Anzeige";
 const char radio_text[] = "Radio";
+const char empty_text[] = "Leer";
 const char tatp_text[] = "Verkehrsfunk";
 const char volume_ta_text[] = "Verkehrsf.-Vol.";
 const char volume_start_text[] = "Einschalt-Vol.";

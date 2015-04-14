@@ -9,6 +9,7 @@
 extern const char view_text[];
 extern const char radio_text[];
 extern const char tatp_text[];
+extern const char empty_text[];
 extern const char volume_start_text[];
 extern const char volume_ta_text[];
 extern const char freq_text[];
