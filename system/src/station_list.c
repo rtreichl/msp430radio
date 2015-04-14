@@ -25,20 +25,23 @@ uint8_t station_list_handler(uint8_t *encoder_right_button, int8_t *encoder_righ
 		*encoder_right_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
-		switch(action) {
-		case STORE_STATION:
-			radio_store_station(&(radio.settings.frequency), radio.rds.name, actuall_station->entry_num - 1);
-			return SHORT_UP_TO_PARENT;
-		case STATION_VIEW:
-			radio.settings.frequency = *(actuall_station->freq);
-			radio_tune_freq(*(actuall_station->freq));
-			return SHORT_UP_TO_PARENT;
-		case MENU_FREQ_CHOOSE_ENTRY:
-			radio.settings.frequency = *(actuall_station->freq);
-			radio_store_settings(1, 0);
-			return SHORT_UP_TO_PARENT;
+		if(actuall_station->freq >= RADIO_BOT_FREQ) {
+			switch(action) {
+			case STORE_STATION:
+				radio_store_station(&(radio.settings.frequency), radio.rds.name, actuall_station->entry_num - 1);
+				return SHORT_UP_TO_PARENT;
+			case STATION_VIEW:
+				radio.settings.frequency = *(actuall_station->freq);
+				radio_tune_freq(*(actuall_station->freq));
+				return SHORT_UP_TO_PARENT;
+			case MENU_FREQ_CHOOSE_ENTRY:
+				radio.settings.frequency = *(actuall_station->freq);
+				radio_store_settings(1, 0);
+				return SHORT_UP_TO_PARENT;
 
+			}
 		}
+		return SHORT_UP_TO_CHILD;
 	}
 	station_list_display(action);
 	return 0;
