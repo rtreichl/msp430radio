@@ -14,16 +14,16 @@ void tpa2016d2_init(uint8_t Start_Mode, int8_t Start_Gain)
 
 	// Wait some time before configure Amplifier
 	_delay_ms(5);
-
-
-	// Enable Amplifier with R/L speaker enabled
-	i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x01, 0xC3);
+	tpa2016d2_shutdown(1);
 
 	// Wait some time before continue with configure
 	__delay_cycles(800);
 
 	// configure exended configuration
 	tpa2016d2_equalizer_mode(Start_Mode, Start_Gain);
+
+	// Enable Amplifier with R/L speaker enabled
+	i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x01, 0xC3);
 }
 
 void tpa2016d2_shutdown(uint8_t Shutdown) 	//only 1 or 0 => 1 for Shutdown and 0 for Release
@@ -65,27 +65,27 @@ void tpa2016d2_equalizer_mode(uint8_t Mode, int8_t Gain)
 	switch(Mode) {
 	case 0:
 		// POP
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x03, 0x08, 0x0A, (Gain & 0x3F), 0x5C, 0x02);
+		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x03, 0x08, 0x0A, (Gain & 0x3F), 0x5C, 0xC2);
 		break;
 	case 1:
 		// CLASSIC
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x02, 0x07, 0x0A, (Gain & 0x3F), 0x5D, 0x01);
+		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x02, 0x07, 0x0A, (Gain & 0x3F), 0x5D, 0xC1);
 		break;
 	case 2:
 		// JAZZ
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x06, 0x14, 0x00, (Gain & 0x3F), 0x5D, 0x01);
+		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x06, 0x14, 0x00, (Gain & 0x3F), 0x5D, 0xC1);
 		break;
 	case 3:
 		// RAP HIP HOP
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x01, 0x0A, 0x00, (Gain & 0x3F), 0x5C, 0x02);
+		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x01, 0x0A, 0x00, (Gain & 0x3F), 0x5C, 0xC2);
 		break;
 	case 4:
 		// ROCK
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x03, 0x19, 0x00, (Gain & 0x3F), 0x5D, 0x01);
+		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x03, 0x19, 0x00, (Gain & 0x3F), 0x5D, 0xC1);
 		break;
 	case 5:
 		// NEWS VOICE
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x02, 0x0A, 0x00, (Gain & 0x3F), 0x5E, 0x02);
+		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x02, 0x0A, 0x00, (Gain & 0x3F), 0x5E, 0xC2);
 		break;
 	}
 }
