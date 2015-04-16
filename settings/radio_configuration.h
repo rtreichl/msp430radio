@@ -18,6 +18,16 @@
 #define RADIO_MCLK				16				//16 MHz
 #define RADIO_SCLK				2				//2 MHz
 
+/* Define macros for factory state */
+
+#define RADIO_FACORY_FREQENCY	0				//Seekup on start
+#define RADIO_FACORY_VIEW		0				//RDS view
+#define RADIO_FACORY_VOLUME		20				//Normal volume 20%
+#define RADIO_FACORY_EQUALIZER	0				//Equalizer POP
+#define RADIO_FACORY_SOURCE		0				//Source FM
+#define RADIO_FACORY_BRIGHTNESS	35				//Brightness 70%
+#define RADIO_FACORY_CONTRAST	6				//Contrast 60%
+#define RADIO_FACORY_TATP		0				//TA TP off
 /* Define macros for time, date for cold start */
 
 #define RADIO_DATE_DAY			BUILD_DAY		//Day where firmware is build
