@@ -57,6 +57,24 @@
 #define BUTTON_LONG 			'l'				//Value for encoder button pressed long
 #define BUTTON_SHORT 			'k'				//Value for encoder button pressed short
 #define BUTTON_FREE 			'f'				//Value for encoder button idle state
+
+/* Define macros for timer use */
+
+#define RADIO_TIMER_RSQ			0				//Timer for radio signal quality
+#define RADIO_TIMER_RDS			1				//Timer for radio digital service
+#define RADIO_TIMER_MINUTE		2				//Timer for minute counting
+#define RADIO_TIMER_DISPLAY		3				//Timer for display refresh
+#define RADIO_TIMER_ENCODER		4				//Timer for encoder button
+#define RADIO_TIMER_USED		5				//Must be changed if a timer is added
+
+/* Define macros for time refresh rates */
+
+#define RADIO_COUNT_ENCODER		10				//Count for encoder button execute underlying code every 10ms
+#define	RADIO_COUNT_MINUTE		60000			//Count for minute counting execute underlying code every 60s
+#define RADIO_COUNT_RSQ			1000			//Count for radio signal quality execute underlying code every 1s
+#define RADIO_COUNT_RDS			200				//Count for radio digital service execute underlying code every 200ms
+#define RADIO_COUNT_DISPLAY 	500				//Count for display refresh execute underlying coder every 500ms
+
 /* Define macros for time, date for cold start */
 
 #define RADIO_DATE_DAY			BUILD_DAY		//Day where firmware is build
