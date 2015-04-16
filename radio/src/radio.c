@@ -40,7 +40,7 @@ uint8_t radio_init()
 	lcd_create_view(startup_line_1, 2, 0, 0, 0);
 	lcd_create_view(startup_line_2, 2, 1, 0, 0);
 	lcd_create_view(startup_line_3, 2, 2, 0, 1);
-	tpa2016d2_init(radio.settings.equalizer,AMPLIFIER_GAIN);
+	tpa2016d2_init(radio.settings.equalizer,RADIO_AMPLIFIER_GAIN);
 	SI4735_INIT();
 	radio_volume(radio.settings.volume);
 	if(radio.settings.frequency < RADIO_BOT_FREQ) {

@@ -36,5 +36,8 @@
 #define RADIO_TIME_HOUR			BUILD_HOUR		//Hour where firmware is build
 #define RADIO_TIME_MINUTE		BUILD_MIN		//Minute where firmware is build
 
+/* Define macros for all other kinds of configuration */
+
+#define RADIO_AMPLIFIER_GAIN	3				//Gain for tpa2016d2 amplifier in dB
 
 #endif /* RADIO_CONF_H_ */

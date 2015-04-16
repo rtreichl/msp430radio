@@ -98,7 +98,7 @@ uint8_t radio_settings_equalizer(uint8_t *encoder_left_button, int8_t *encoder_l
 	case AUDIO_JAZZ_ENTRY:
 		radio.settings.equalizer = JAZZ;
 	}
-	tpa2016d2_equalizer_mode(radio.settings.equalizer, AMPLIFIER_GAIN);
+	tpa2016d2_equalizer_mode(radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	radio_store_settings(0, 0);
 	return SHORT_UP_TO_PARENT;
 }
