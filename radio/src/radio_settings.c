@@ -158,7 +158,7 @@ uint8_t radio_settings_frequency(uint8_t *encoder_left_button, int8_t *encoder_l
 		radio_store_settings(1, 0);
 		radio.settings.frequency = tmp_freq;
 		return SHORT_UP_TO_PARENT;
-	case MENU_FREQ_CHOOSE:
+	case MENU_FREQ_CHOOSE_ENTRY:
 		ret = station_list_handler(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count,  entry_num);
 		radio.settings.frequency = tmp_freq;
 		return ret;
