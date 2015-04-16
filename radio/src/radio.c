@@ -34,7 +34,7 @@ uint8_t radio_init()
 
 	radio_load_settings();
 	pca9530_init(&pca9530_config);
-	pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.settings.brightness * 2)]);
+	pca9530_set_pwm(PWM_0, 256-exp_table[radio.settings.brightness * 2]);
 	radio_settings_source(0, 0, 0, 0, 0);
 	lcd_init(radio.settings.contrast);
 	lcd_create_view(startup_line_1, 2, 0, 0, 0);
