@@ -2,8 +2,9 @@
 #define RADIO_CONF_H_
 
 #include <driver/include/si4735_cmd_prop.h>
+#include <libs/time.h>
 
-/* Defines values for auto search and seek funktion */
+/* Define macros for auto search and seek funktion */
 
 #define RADIO_VALID_SNR			15				//10dB
 #define RADIO_VALID_RSSI		20				//25dBµV
@@ -28,6 +29,8 @@
 #define RADIO_FACORY_BRIGHTNESS	35				//Brightness 70%
 #define RADIO_FACORY_CONTRAST	6				//Contrast 60%
 #define RADIO_FACORY_TATP		0				//TA TP off
+#define RADIO_FACORY_VOLUME_TA	50				//TA volume 50%
+
 /* Define macros for scroll interfaces */
 
 #define RADIO_BRIGHTNESS_MAX 	50				//Brightness max 50
