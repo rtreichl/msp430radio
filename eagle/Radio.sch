@@ -12089,7 +12089,6 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="R901" library="rcl" deviceset="R-EU_" device="R1206" value="1k"/>
-<part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="J501" library="Wago-2060-402" deviceset="2060-402" device=""/>
 <part name="J500" library="Wago-2060-402" deviceset="2060-402" device=""/>
 <part name="J921" library="Wago-2060-402" deviceset="2060-402" device=""/>
@@ -12132,6 +12131,10 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
 <part name="J920" library="Wago-2060-402" deviceset="2060-402" device=""/>
 <part name="U940" library="Radio Projekt" deviceset="OPT3001" device=""/>
+<part name="GND25" library="supply1" deviceset="GND" device=""/>
+<part name="R921" library="rcl" deviceset="R-EU_" device="R1206" value="1k"/>
+<part name="R922" library="rcl" deviceset="R-EU_" device="R1206" value="1k"/>
+<part name="R923" library="rcl" deviceset="R-EU_" device="R1206" value="1k"/>
 </parts>
 <sheets>
 <sheet>
@@ -13983,9 +13986,8 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <instance part="GND26" gate="1" x="45.72" y="144.78" rot="R270"/>
 <instance part="GND28" gate="1" x="137.16" y="104.14"/>
 <instance part="R901" gate="G$1" x="149.86" y="119.38" rot="R270"/>
-<instance part="P+2" gate="1" x="149.86" y="129.54"/>
-<instance part="J921" gate="A" x="101.6" y="30.48" rot="MR180"/>
-<instance part="P+4" gate="1" x="93.98" y="10.16" rot="R180"/>
+<instance part="J921" gate="A" x="116.84" y="30.48" rot="MR180"/>
+<instance part="P+4" gate="1" x="109.22" y="10.16" rot="R180"/>
 <instance part="C903" gate="G$1" x="127" y="142.24" rot="R90"/>
 <instance part="GND32" gate="1" x="139.7" y="142.24" rot="R90"/>
 <instance part="Q900" gate="G$1" x="137.16" y="114.3" rot="MR0"/>
@@ -13994,7 +13996,11 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <instance part="P+6" gate="1" x="63.5" y="124.46"/>
 <instance part="U920" gate="G$1" x="68.58" y="43.18"/>
 <instance part="GND39" gate="1" x="45.72" y="27.94"/>
-<instance part="J920" gate="A" x="101.6" y="45.72"/>
+<instance part="J920" gate="A" x="116.84" y="45.72"/>
+<instance part="GND25" gate="1" x="149.86" y="129.54" rot="R180"/>
+<instance part="R921" gate="G$1" x="93.98" y="45.72"/>
+<instance part="R922" gate="G$1" x="101.6" y="38.1"/>
+<instance part="R923" gate="G$1" x="93.98" y="33.02"/>
 </instances>
 <busses>
 </busses>
@@ -14075,6 +14081,11 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <pinref part="U920" gate="G$1" pin="VSS"/>
 <wire x1="45.72" y1="30.48" x2="45.72" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="33.02" x2="50.8" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R901" gate="G$1" pin="1"/>
+<wire x1="149.86" y1="124.46" x2="149.86" y2="127" width="0.1524" layer="91"/>
+<pinref part="GND25" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="PCA_ON_OFF" class="0">
@@ -14294,17 +14305,12 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 <wire x1="121.92" y1="134.62" x2="114.3" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R901" gate="G$1" pin="1"/>
-<pinref part="P+2" gate="1" pin="+5V"/>
-<wire x1="149.86" y1="124.46" x2="149.86" y2="127" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<wire x1="93.98" y1="15.24" x2="93.98" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="17.78" x2="109.22" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="1" pin="+5V"/>
-<wire x1="93.98" y1="25.4" x2="93.98" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="25.4" x2="109.22" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="J921" gate="A" pin="B-1"/>
-<wire x1="96.52" y1="30.48" x2="93.98" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="15.24" x2="93.98" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="30.48" x2="109.22" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="17.78" x2="109.22" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="81.28" y1="116.84" x2="78.74" y2="116.84" width="0.1524" layer="91"/>
@@ -14363,25 +14369,46 @@ Source: http://www.murata.com/ Ferrite Bead BLM15H.pdf</description>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="U920" gate="G$1" pin="LED1"/>
-<pinref part="J920" gate="A" pin="B-1"/>
-<wire x1="86.36" y1="45.72" x2="96.52" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="U920" gate="G$1" pin="LED3"/>
+<pinref part="R923" gate="G$1" pin="1"/>
+<wire x1="86.36" y1="33.02" x2="88.9" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="U920" gate="G$1" pin="LED2"/>
-<wire x1="86.36" y1="38.1" x2="91.44" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="J920" gate="A" pin="B-2"/>
-<wire x1="91.44" y1="38.1" x2="91.44" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="43.18" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="R922" gate="G$1" pin="1"/>
+<wire x1="86.36" y1="38.1" x2="96.52" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$25" class="0">
+<segment>
+<pinref part="U920" gate="G$1" pin="LED1"/>
+<pinref part="R921" gate="G$1" pin="1"/>
+<wire x1="86.36" y1="45.72" x2="88.9" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$44" class="0">
 <segment>
-<pinref part="U920" gate="G$1" pin="LED3"/>
+<pinref part="R921" gate="G$1" pin="2"/>
+<pinref part="J920" gate="A" pin="B-1"/>
+<wire x1="99.06" y1="45.72" x2="111.76" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$45" class="0">
+<segment>
+<pinref part="R922" gate="G$1" pin="2"/>
+<wire x1="106.68" y1="38.1" x2="109.22" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="38.1" x2="109.22" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="J920" gate="A" pin="B-2"/>
+<wire x1="109.22" y1="43.18" x2="111.76" y2="43.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$46" class="0">
+<segment>
+<pinref part="R923" gate="G$1" pin="2"/>
 <pinref part="J921" gate="A" pin="B-2"/>
-<wire x1="86.36" y1="33.02" x2="96.52" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="33.02" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
