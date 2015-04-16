@@ -16,31 +16,41 @@
  * A further problem is the msp430 has a very low ram, so if many functions saving many variables during calculation.
  * Better implemention would be a not a multitheread system, only a single thread system and minimize waitings.
  */
-#include <system/handler.h>
 
-#define	TIME_SECOND	1000
-#define ENCODER_TAST_REFRESH	10
+#include <system/handler.h>
 
 void handler (void)
 {
-	//TODO collect all function for timer based and calling functions
+	uint8_t *encoder_left_button, *encoder_right_button;
+	int8_t encoder_left_count = 0, encoder_right_count = 0;
 	while(1) {
-		if(timer_count[0] >= TIME_SECOND) {
-			timer_count[0] -= TIME_SECOND;
-			//call time_update();
+		encoder_1_update(&encoder_left_count, &encoder_left_button);
+		encoder_2_update(&encoder_right_count, &encoder_right_button);
+		if(*encoder_left_button != BUTTON_FREE || encoder_left_count != 0 || *encoder_right_button != BUTTON_FREE || encoder_right_count != 0 || timer_count[RADIO_TIMER_DISPLAY] >= RADIO_COUNT_DISPLAY) {
+			if(timer_count[RADIO_TIMER_DISPLAY] >= RADIO_COUNT_DISPLAY) {
+				radio.status.scroll_text++;
+				if(radio.status.scroll_text == 78) {
+					radio.status.scroll_text = 0;
+				}
+			}
+			timer_count[RADIO_TIMER_DISPLAY] = 0;
+			menu_handler(encoder_left_button, &encoder_left_count, encoder_right_button, &encoder_right_count);
 		}
-		if(timer_count[1] >= ENCODER_TAST_REFRESH) {
-			timer_count[1] -= ENCODER_TAST_REFRESH;
-			//call encoder_interrupt2();
+		if(timer_count[RADIO_TIMER_ENCODER] >= RADIO_COUNT_ENCODER) {
+			timer_count[RADIO_TIMER_ENCODER] -= RADIO_COUNT_ENCODER;
+			encoder_interrupt2();
 		}
-		/*if(encoder_2 != 0 || encoder_1 != 0 || encoder_1_button != 'f' || encoder_2_button != 'f') {
-			call menu_handler
+		if(timer_count[RADIO_TIMER_MINUTE] >= RADIO_COUNT_MINUTE) {
+			timer_count[RADIO_TIMER_MINUTE] -= RADIO_COUNT_MINUTE;
+			time_update();
 		}
-		 */
-		//TODO check for rds interrupt and go on further functions
-		//TODO call all half second or on specified input aciton menu function
-		//TODO do all 0.1 messuarments on a valid channel
-		//TODO implement timers and eventtimers
-		//TODO polling encoder switches every 10 up to 20 milli seconds
+		if(timer_count[RADIO_TIMER_RSQ] >= RADIO_COUNT_RSQ) {
+			rsq_update(&radio);
+			timer_count[RADIO_TIMER_RSQ] -= RADIO_COUNT_RSQ;
+		}
+		if(timer_count[RADIO_TIMER_RDS] >= RADIO_COUNT_RDS) { //TODO Rework to interrupt base system
+			rds_update(&radio);
+			timer_count[RADIO_TIMER_RDS] -= RADIO_COUNT_RDS;
+		}
 	}
 }
