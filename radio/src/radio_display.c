@@ -5,7 +5,7 @@
  *      Author: Richard
  */
 
-#include <system/radio_display.h>
+#include <radio/radio_display.h>
 
 uint8_t radio_display_speaker()
 {

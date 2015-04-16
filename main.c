@@ -22,7 +22,7 @@
 #include <menu/menu.h>
 #include <system/rsq.h>
 #include <system/rds.h>
-#include <system/radio.h>
+#include <radio/radio.h>
 #include <driver/timer.h>
 
 #define ENCODER_TAST_REFRESH	10

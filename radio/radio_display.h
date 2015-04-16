@@ -9,7 +9,7 @@
 #define SYSTEM_RADIO_DISPLAY_H_
 
 #include <stdint.h>
-#include <system/radio.h>
+#include <radio/radio.h>
 
 uint8_t radio_display_speaker();
 uint8_t radio_display_rds();

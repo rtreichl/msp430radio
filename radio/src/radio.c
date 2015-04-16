@@ -5,7 +5,7 @@
  *      Author: Richard
  */
 
-#include <system/radio.h>
+#include <radio/radio.h>
 
 RADIO radio;
 

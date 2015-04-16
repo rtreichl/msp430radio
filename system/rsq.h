@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include <driver/si4735.h>
 #include <driver/i2c.h>
-#include <system/radio.h>
+#include <radio/radio.h>
 
 uint8_t rsq_update(RADIO *radio);
 

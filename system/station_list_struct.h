@@ -9,7 +9,7 @@
 #define SYSTEM_STATION_LIST_STRUCT_H_
 
 #include <stdint.h>
-#include <system/radio.h>
+#include <radio/radio.h>
 
 typedef const struct station_list {
 	const struct station_list *next;

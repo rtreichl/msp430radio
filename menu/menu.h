@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 #include <driver/lcd.h>
-#include <system/radio.h>
+#include <radio/radio.h>
 #include <driver/encoder.h>
 #include <menu/lang/language.h>
 #include <menu/menu_struct.h>
