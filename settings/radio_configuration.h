@@ -28,6 +28,35 @@
 #define RADIO_FACORY_BRIGHTNESS	35				//Brightness 70%
 #define RADIO_FACORY_CONTRAST	6				//Contrast 60%
 #define RADIO_FACORY_TATP		0				//TA TP off
+/* Define macros for scroll interfaces */
+
+#define RADIO_BRIGHTNESS_MAX 	50				//Brightness max 50
+#define RADIO_BRIGHTNESS_MIN 	0				//Brightness min 0
+#define RADIO_BRIGHTNESS_STEP 	1				//Brightness step 1
+#define RADIO_CONTRAST_MAX 		10				//Contrast max 10
+#define RADIO_CONTRAST_MIN 		0				//Contrast min 0
+#define RADIO_CONTRAST_STEP 	1				//Contrast step 1
+#define RADIO_VOLUME_MAX 		100				//Volume max 100
+#define RADIO_VOLUME_MIN 		0				//Volume min 0
+#define RADIO_VOLUME_STEP 		2				//Volume step 2
+#define RADIO_FREQENCY_MAX		RADIO_TOP_FREQ	//Freqency max RADIO_TOP_FREQ
+#define RADIO_FREQENCY_MIN		RADIO_BOT_FREQ	//Freqency min RADIO_BOT_FREQ
+#define RADIO_FREQENCY_STEP		10				//Freqency step 10 for 100 kHz
+
+/* Define macros for flash storing */
+
+#define RADIO_STATION_NAME_STORE_ADR 	0x1000	//Store adress at start adress from segment D for 14 elements
+#define RADIO_STATION_NAME_STORE_SIZE 	8		//Store size of one station name
+#define RADIO_STATION_FREQ_STORE_ADR 	0x1070	//Store adress after 14 station name elements
+#define RADIO_STATION_FREQ_STORE_SIZE 	2		//Store size of one station freqency
+#define RADIO_SETTINGS_STORE_ADR 		0x108C	//Store adress after 14 station freqency elements
+#define RADIO_INIT_STORE_ADR 			0x10B8	//Store adress at end of segment B
+
+/* Define macros for button states */
+
+#define BUTTON_LONG 			'l'				//Value for encoder button pressed long
+#define BUTTON_SHORT 			'k'				//Value for encoder button pressed short
+#define BUTTON_FREE 			'f'				//Value for encoder button idle state
 /* Define macros for time, date for cold start */
 
 #define RADIO_DATE_DAY			BUILD_DAY		//Day where firmware is build
