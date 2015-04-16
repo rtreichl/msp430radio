@@ -38,6 +38,8 @@
 #define MENU_TA_TP_ON 26
 #define MENU_TA_TP_OFF 27
 #define MENU_FREQ_CHOOSE 28
+#define MENU_RESET_NO 29
+#define MENU_RESET_YES 30
 
 #define LONG_INTO_MENU 0xFF
 #define SHORT_INTO_MENU 0xFE

@@ -218,3 +218,15 @@ uint8_t radio_settings_tatp(uint8_t *encoder_left_button, int8_t *encoder_left_c
 	}
 	return SHORT_UP_TO_CHILD;
 }
+
+uint8_t radio_settings_reset(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
+{
+	switch(entry_num) {
+	case MENU_RESET_NO:
+		return SHORT_UP_TO_PARENT;
+	case MENU_RESET_YES:
+		radio_factory_state();
+		return SHORT_UP_TO_PARENT;
+	}
+	return SHORT_UP_TO_CHILD;
+}

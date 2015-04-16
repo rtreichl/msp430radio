@@ -420,8 +420,8 @@ MENU_ENTRY reset_no_entry = {
 	&reset_yes_entry,
 	0,
 	no_text,
-	0,
-	0,
+	MENU_RESET_NO,
+	&radio_settings_reset,
 };
 
 MENU_ENTRY reset_yes_entry = {
@@ -430,8 +430,8 @@ MENU_ENTRY reset_yes_entry = {
 	0,
 	&reset_no_entry,
 	yes_text,
-	0,
-	0,
+	MENU_RESET_YES,
+	&radio_settings_reset,
 };
 
 MENU_ENTRY main_long_return_entry = {
