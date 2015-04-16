@@ -10,6 +10,7 @@ MENU_ENTRY main_long_entry = {
 	0,
 	main_long_text,
 	MENU_MAIN_ENTRY,
+	&radio_main,
 };
 
 MENU_ENTRY main_short_entry = {
@@ -19,6 +20,7 @@ MENU_ENTRY main_short_entry = {
 	0,
 	main_short_text,
 	MENU_MAIN_ENTRY,
+	&radio_main,
 };
 
 MENU_ENTRY view_entry = {
@@ -28,6 +30,7 @@ MENU_ENTRY view_entry = {
 	0,
 	view_text,
 	0,
+	0,
 };
 
 MENU_ENTRY radio_entry = {
@@ -36,6 +39,7 @@ MENU_ENTRY radio_entry = {
 	&audio_entry,
 	&view_entry,
 	radio_text,
+	0,
 	0,
 };
 
@@ -47,6 +51,7 @@ MENU_ENTRY tatp_entry = {
 	0,
 	tatp_text,
 	0,
+	0,
 };
 MENU_ENTRY tatp_on_entry = {
 	0,
@@ -55,6 +60,7 @@ MENU_ENTRY tatp_on_entry = {
 	0,
 	on_text,
 	MENU_TA_TP_ON,
+	&radio_settings_tatp,
 };
 
 MENU_ENTRY tatp_off_entry = {
@@ -64,6 +70,7 @@ MENU_ENTRY tatp_off_entry = {
 	&tatp_on_entry,
 	off_text,
 	MENU_TA_TP_OFF,
+	&radio_settings_tatp,
 };
 
 MENU_ENTRY tatp_return_entry = {
@@ -72,6 +79,7 @@ MENU_ENTRY tatp_return_entry = {
 	0,
 	&tatp_off_entry,
 	return_text,
+	0,
 	0,
 };
 
@@ -82,6 +90,7 @@ MENU_ENTRY volume_start_entry = {
 	&tatp_entry,
 	volume_start_text,
 	MENU_VOL_START_ENTRY,
+	&radio_settings_volume,
 };
 
 MENU_ENTRY volume_ta_entry = {
@@ -91,6 +100,7 @@ MENU_ENTRY volume_ta_entry = {
 	&volume_start_entry,
 	volume_ta_text,
 	MENU_VOL_TA_ENTRY,
+	&radio_settings_volume,
 };
 
 
@@ -101,6 +111,7 @@ MENU_ENTRY freq_entry = {
 	&volume_ta_entry,
 	freq_text,
 	0,
+	0,
 };
 
 MENU_ENTRY freq_seek_up_entry = {
@@ -110,6 +121,7 @@ MENU_ENTRY freq_seek_up_entry = {
 	0,
 	seeking_up_text,
 	MENU_FREQ_SEEK_UP_ENTRY,
+	&radio_settings_frequency,
 };
 
 MENU_ENTRY freq_seek_down_entry = {
@@ -119,6 +131,7 @@ MENU_ENTRY freq_seek_down_entry = {
 	&freq_seek_up_entry,
 	seeking_down_text,
 	MENU_FREQ_SEEK_DOWN_ENTRY,
+	&radio_settings_frequency,
 };
 
 MENU_ENTRY freq_fixed_entry = {
@@ -128,6 +141,7 @@ MENU_ENTRY freq_fixed_entry = {
 	&freq_seek_down_entry,
 	choose_text,
 	MENU_FREQ_CHOOSE_ENTRY,
+	&radio_settings_frequency,
 };
 
 MENU_ENTRY freq_return_entry = {
@@ -136,6 +150,7 @@ MENU_ENTRY freq_return_entry = {
 	0,
 	&freq_fixed_entry,
 	return_text,
+	0,
 	0,
 };
 
@@ -146,6 +161,7 @@ MENU_ENTRY radio_return_entry = {
 	&freq_entry,
 	return_text,
 	0,
+	0,
 };
 
 MENU_ENTRY text_entry = {
@@ -154,6 +170,7 @@ MENU_ENTRY text_entry = {
 	&contrast_entry,
 	0,
 	text_text,
+	0,
 	0,
 };
 
@@ -164,6 +181,7 @@ MENU_ENTRY rds_entry = {
 	0,
 	rds_text,
 	RADIO_RDS_VIEW_ENTRY,
+	&radio_settings_view,
 };
 
 MENU_ENTRY ptypi_entry = {
@@ -173,6 +191,7 @@ MENU_ENTRY ptypi_entry = {
 	&rds_entry,
 	ptypi_text,
 	RADIO_PIPTY_VIEW_ENTRY,
+	&radio_settings_view,
 };
 
 MENU_ENTRY rsq_entry = {
@@ -182,6 +201,7 @@ MENU_ENTRY rsq_entry = {
 	&ptypi_entry,
 	rsq_text,
 	RADIO_RSQ_VIEW_ENTRY,
+	&radio_settings_view,
 };
 
 MENU_ENTRY text_return_entry = {
@@ -190,6 +210,7 @@ MENU_ENTRY text_return_entry = {
 	0,
 	&rsq_entry,
 	return_text,
+	0,
 	0,
 };
 
@@ -200,6 +221,7 @@ MENU_ENTRY contrast_entry = {
 	&text_entry,
 	contrast_text,
 	MENU_CONT_ENTRY,
+	&radio_settings_contrast,
 };
 
 MENU_ENTRY brightness_entry = {
@@ -208,6 +230,7 @@ MENU_ENTRY brightness_entry = {
 	&view_return_entry,
 	&contrast_entry,
 	brightness_text,
+	0,
 	0,
 };
 
@@ -218,6 +241,7 @@ MENU_ENTRY brightness_fixed_entry = {
 	&brightness_auto_entry,
 	fixed_text,
 	MENU_BRIG_ENTRY,
+	&radio_settings_brightness,
 };
 
 MENU_ENTRY brightness_auto_entry = {
@@ -227,6 +251,7 @@ MENU_ENTRY brightness_auto_entry = {
 	0,
 	auto_text,
 	0,
+	&radio_settings_brightness,
 };
 
 MENU_ENTRY brightness_return_entry = {
@@ -235,6 +260,7 @@ MENU_ENTRY brightness_return_entry = {
 	0,
 	&brightness_auto_entry,
 	return_text,
+	0,
 	0,
 };
 
@@ -245,6 +271,7 @@ MENU_ENTRY audio_entry = {
 	&radio_entry,
 	audio_text,
 	0,
+	0,
 };
 
 MENU_ENTRY pop_entry = {
@@ -254,6 +281,7 @@ MENU_ENTRY pop_entry = {
 	0,
 	pop_text,
 	AUDIO_POP_ENTRY,
+	&radio_settings_equalizer,
 };
 
 MENU_ENTRY classic_entry = {
@@ -263,6 +291,7 @@ MENU_ENTRY classic_entry = {
 	&pop_entry,
 	classic_text,
 	AUDIO_CLASSIC_ENTRY,
+	&radio_settings_equalizer,
 };
 
 MENU_ENTRY jazz_entry = {
@@ -272,6 +301,7 @@ MENU_ENTRY jazz_entry = {
 	&classic_entry,
 	jazz_text,
 	AUDIO_JAZZ_ENTRY,
+	&radio_settings_equalizer,
 };
 
 MENU_ENTRY hiphop_entry = {
@@ -281,6 +311,7 @@ MENU_ENTRY hiphop_entry = {
 	&jazz_entry,
 	hiphop_text,
 	AUDIO_HIPHOP_ENTRY,
+	&radio_settings_equalizer,
 };
 
 MENU_ENTRY rock_entry = {
@@ -290,6 +321,7 @@ MENU_ENTRY rock_entry = {
 	&hiphop_entry,
 	rock_text,
 	AUDIO_ROCK_ENTRY,
+	&radio_settings_equalizer,
 };
 
 MENU_ENTRY news_entry = {
@@ -299,6 +331,7 @@ MENU_ENTRY news_entry = {
 	&rock_entry,
 	news_text,
 	AUDIO_NEWS_ENTRY,
+	&radio_settings_equalizer,
 };
 
 MENU_ENTRY audio_return_entry = {
@@ -307,6 +340,7 @@ MENU_ENTRY audio_return_entry = {
 	0,
 	&news_entry,
 	return_text,
+	0,
 	0,
 };
 
@@ -317,6 +351,7 @@ MENU_ENTRY view_return_entry = {
 	&brightness_entry,
 	return_text,
 	0,
+	0,
 };
 
 MENU_ENTRY source_entry = {
@@ -325,6 +360,7 @@ MENU_ENTRY source_entry = {
 	&reset_entry,
 	&audio_entry,
 	source_text,
+	0,
 	0,
 };
 
@@ -335,6 +371,7 @@ MENU_ENTRY fm_entry = {
 	0,
 	fm_text,
 	SOURCE_FM_ENTRY,
+	&radio_settings_source,
 };
 
 MENU_ENTRY am_entry = {
@@ -344,6 +381,7 @@ MENU_ENTRY am_entry = {
 	&fm_entry,
 	am_text,
 	SOURCE_AM_ENTRY,
+	&radio_settings_source,
 };
 
 MENU_ENTRY linein_entry = {
@@ -353,6 +391,7 @@ MENU_ENTRY linein_entry = {
 	&am_entry,
 	linein_text,
 	SOURCE_LINEIN_ENTRY,
+	&radio_settings_source,
 };
 
 MENU_ENTRY source_return_entry = {
@@ -361,6 +400,7 @@ MENU_ENTRY source_return_entry = {
 	0,
 	&linein_entry,
 	return_text,
+	0,
 	0,
 };
 
@@ -371,6 +411,7 @@ MENU_ENTRY reset_entry = {
 	&source_entry,
 	reset_text,
 	0,
+	0,
 };
 
 MENU_ENTRY reset_no_entry = {
@@ -379,6 +420,7 @@ MENU_ENTRY reset_no_entry = {
 	&reset_yes_entry,
 	0,
 	no_text,
+	0,
 	0,
 };
 
@@ -389,6 +431,7 @@ MENU_ENTRY reset_yes_entry = {
 	&reset_no_entry,
 	yes_text,
 	0,
+	0,
 };
 
 MENU_ENTRY main_long_return_entry = {
@@ -397,6 +440,7 @@ MENU_ENTRY main_long_return_entry = {
 	0,
 	&reset_entry,
 	return_text,
+	0,
 	0,
 };
 
@@ -407,6 +451,7 @@ MENU_ENTRY station_list_entry = {
 	0,
 	station_list_text,
 	STATION_VIEW,
+	&radio_settings_station,
 };
 
 MENU_ENTRY seeking_up_entry = {
@@ -416,6 +461,7 @@ MENU_ENTRY seeking_up_entry = {
 	&station_list_entry,
 	seeking_up_text,
 	SEEKING_UP,
+	&radio_settings_station,
 };
 
 MENU_ENTRY seeking_down_entry = {
@@ -425,6 +471,7 @@ MENU_ENTRY seeking_down_entry = {
 	&seeking_up_entry,
 	seeking_down_text,
 	SEEKING_DOWN,
+	&radio_settings_station,
 };
 
 MENU_ENTRY station_store_entry = {
@@ -434,6 +481,7 @@ MENU_ENTRY station_store_entry = {
 	&seeking_down_entry,
 	station_store_text,
 	STORE_STATION,
+	&radio_settings_station,
 };
 
 MENU_ENTRY auto_search_entry = {
@@ -443,6 +491,7 @@ MENU_ENTRY auto_search_entry = {
 	&station_store_entry,
 	auto_search_text,
 	AUTO_SEARCH,
+	&radio_settings_station,
 };
 
 MENU_ENTRY main_short_return_entry = {
@@ -451,5 +500,6 @@ MENU_ENTRY main_short_return_entry = {
 	0,
 	&auto_search_entry,
 	return_text,
+	0,
 	0,
 };

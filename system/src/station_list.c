@@ -9,7 +9,7 @@
 
 STATION_LIST *actuall_station = &station_1;
 
-uint8_t station_list_handler(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t action)
+uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
 {
 	if (*encoder_right_count != 0) {
 		if(*encoder_right_count > 0) {
@@ -25,8 +25,8 @@ uint8_t station_list_handler(uint8_t *encoder_right_button, int8_t *encoder_righ
 		*encoder_right_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
-		if(actuall_station->freq >= RADIO_BOT_FREQ) {
-			switch(action) {
+		if(*(actuall_station->freq) >= RADIO_BOT_FREQ) {
+			switch(entry_num) {
 			case STORE_STATION:
 				radio_store_station(&(radio.settings.frequency), radio.rds.name, actuall_station->entry_num - 1);
 				return SHORT_UP_TO_PARENT;
@@ -43,7 +43,7 @@ uint8_t station_list_handler(uint8_t *encoder_right_button, int8_t *encoder_righ
 		}
 		return SHORT_UP_TO_CHILD;
 	}
-	station_list_display(action);
+	station_list_display(entry_num);
 	return 0;
 }
 

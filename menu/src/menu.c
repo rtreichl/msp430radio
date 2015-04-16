@@ -9,10 +9,11 @@
 
 MENU_ENTRY *actuall_entry = &main_long_entry;
 uint8_t menu_display_selector = MENU_MAIN_ENTRY;
+MENU_FUNC_PTR actuall_func = &radio_main;
 
 uint8_t menu_display()
 {
-	if (menu_display_selector == MENU_NO_FUNC_ENTRY) {
+	if (actuall_func == MENU_NO_FUNC_ENTRY) {
 		if (actuall_entry->previous != 0) {
 			lcd_create_view(actuall_entry->previous->text, 1, 0, 0, 0);
 		}
@@ -30,7 +31,7 @@ uint8_t menu_display()
 	return 0;
 }
 
-uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
+/*uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
 	if(menu_display_selector == MENU_MAIN_ENTRY) {
 		return radio_main(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
@@ -38,7 +39,7 @@ uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, 
 	else {
 		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 	}
-}
+}*/
 
 uint8_t menu_scroll_settings(uint8_t value)
 {
@@ -74,23 +75,40 @@ uint8_t menu_scroll(uint8_t value)
 	return 0;
 }
 
+#define MENU_ENCODER_CHANGED 1
+#define MENU_ENCODER_NOP 0
+
+uint8_t menu_encoder_range(int8_t *encoder_right_count, uint8_t *controll, uint8_t upper_bound, uint8_t lower_bound, uint8_t step)
+{
+	if(*encoder_right_count != 0) {
+		if(*encoder_right_count > 0 && *controll < upper_bound) {
+			*controll += step;
+		}
+		else if(*encoder_right_count < 0 && *controll > lower_bound) {
+			*controll -= step;
+		}
+		return MENU_ENCODER_CHANGED;
+	}
+	return MENU_ENCODER_NOP;
+}
+
 uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {
-	if (menu_display_selector == MENU_NO_FUNC_ENTRY) {
+	if (actuall_func == MENU_NO_FUNC_ENTRY) {
 		*encoder_left_count = 0;
 
 		if (*encoder_right_button == BUTTON_PRESS_SHORT) {
 			if (actuall_entry->child != 0) {
 				actuall_entry = actuall_entry->child;
 				if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
-					menu_display_selector = MENU_MAIN_ENTRY;
+					actuall_func = actuall_entry->func;
 					*encoder_right_button = BUTTON_PRESS_FREE;
-					menu_function(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
+					actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 					return 0;
 				}
 			}
-			else if (actuall_entry->entry_num != 0) {
-				menu_display_selector = actuall_entry->entry_num;
+			else if (actuall_entry->func != 0) {
+				actuall_func = actuall_entry->func;
 				*encoder_right_button = BUTTON_PRESS_FREE;
 				menu_handler(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
 				return 0;
@@ -102,9 +120,9 @@ uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, u
 			if(actuall_entry->parent != 0) {
 				actuall_entry = actuall_entry->parent;
 				if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
-					menu_display_selector = MENU_MAIN_ENTRY;
+					actuall_func = menu_long_entry->func;
 					*encoder_left_button = BUTTON_PRESS_FREE;
-					menu_function(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
+					actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 					return 0;
 				}
 			}
@@ -126,27 +144,27 @@ uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, u
 		}
 		menu_display();
 	}else {
-		switch(menu_function(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count)) {
+		switch(actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num)) {
 		case LONG_INTO_MENU:
 			actuall_entry = menu_long_entry;
-			menu_display_selector = MENU_NO_FUNC_ENTRY;
+			actuall_func = MENU_NO_FUNC_ENTRY;
 			menu_display();
 			break;
 		case SHORT_INTO_MENU:
 			actuall_entry = menu_short_entry;
-			menu_display_selector = MENU_NO_FUNC_ENTRY;
+			actuall_func = MENU_NO_FUNC_ENTRY;
 			menu_display();
 			break;
 		case SHORT_UP_TO_CHILD:
-			menu_display_selector = MENU_NO_FUNC_ENTRY;
+			actuall_func = MENU_NO_FUNC_ENTRY;
 			menu_display();
 			break;
 		case SHORT_UP_TO_PARENT:
-			menu_display_selector = MENU_NO_FUNC_ENTRY;
+			actuall_func = MENU_NO_FUNC_ENTRY;
 			actuall_entry = actuall_entry->parent;
 			if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
-				menu_display_selector = MENU_MAIN_ENTRY;
-				menu_function(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
+				actuall_func = actuall_entry->func;
+				actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 				//timer_count[4] += 500;
 				//menu_function(0, 0, 0, 0);
 				return 0;

@@ -1,7 +1,9 @@
 #ifndef _MENU_STRUCT_H_
 #define _MENU_STRUCT_H_
 
-#include "menu.h"
+#include <menu/menu.h>
+
+typedef uint8_t (*MENU_FUNC_PTR)(uint8_t *, int8_t *, uint8_t *, int8_t *, uint8_t);
 
 typedef const struct menu_entry {
 	const struct menu_entry *child;
@@ -10,6 +12,7 @@ typedef const struct menu_entry {
 	const struct menu_entry *previous;
 	const char *text;
 	const uint16_t entry_num;
+	const MENU_FUNC_PTR func;
 } MENU_ENTRY;
 
 extern MENU_ENTRY main_long_entry;
