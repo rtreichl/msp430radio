@@ -120,7 +120,7 @@ uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, u
 			if(actuall_entry->parent != 0) {
 				actuall_entry = actuall_entry->parent;
 				if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
-					actuall_func = menu_long_entry->func;
+					actuall_func = actuall_entry->func;
 					*encoder_left_button = BUTTON_PRESS_FREE;
 					actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 					return 0;
