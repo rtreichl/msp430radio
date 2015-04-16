@@ -9,6 +9,7 @@
 #define SYSTEM_TIME_H_
 
 #include <stdint.h>
+#include <settings/radio_configuration.h>
 
 typedef struct time_date {
 	uint32_t minute_one:4;

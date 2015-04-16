@@ -13,7 +13,18 @@
 #define time_hour(x) 	(x.hour_ten * 10 + x.hour_one)
 #define time_minute(x) 	(x.minute_ten * 10 + x.minute_one)
 
-static TIME_DATE time_date;
+static TIME_DATE time_date = {
+		.day_one = RADIO_DATE_DAY % 10,
+		.day_ten = RADIO_DATE_DAY / 10,
+		.month_one = RADIO_DATE_MONTH % 10,
+		.month_ten= RADIO_DATE_MONTH / 10,
+		.year_one = RADIO_DATE_YEAR % 10,
+		.year_ten = RADIO_DATE_YEAR / 10,
+		.hour_one = RADIO_TIME_HOUR % 10,
+		.hour_ten = RADIO_TIME_HOUR / 10,
+		.minute_one = RADIO_TIME_MINUTE % 10,
+		.minute_ten = RADIO_TIME_MINUTE / 10,
+};
 
 const uint8_t month_days[12] = {
 		31,

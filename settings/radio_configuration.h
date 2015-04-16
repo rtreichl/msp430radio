@@ -18,5 +18,13 @@
 #define RADIO_MCLK				16				//16 MHz
 #define RADIO_SCLK				2				//2 MHz
 
+/* Define macros for time, date for cold start */
+
+#define RADIO_DATE_DAY			BUILD_DAY		//Day where firmware is build
+#define RADIO_DATE_MONTH		BUILD_MONTH		//Month where firmware is build
+#define RADIO_DATE_YEAR			BUILD_YEAR		//Year where firmware is build
+#define RADIO_TIME_HOUR			BUILD_HOUR		//Hour where firmware is build
+#define RADIO_TIME_MINUTE		BUILD_MIN		//Minute where firmware is build
+
 
 #endif /* RADIO_CONF_H_ */
