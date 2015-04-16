@@ -40,10 +40,11 @@
 #define SOURCE_AM 1
 #define SOURCE_LINEIN 2
 
+#define RADIO_STORE_VALUE 1
 
-
-#define AUDIO_MUTE 1
-#define AUDIO_VOLUME 2
+#define AUDIO_NORMAL	0
+#define AUDIO_MUTE		1
+#define AUDIO_VOLUME	2
 
 typedef struct radio_status {
 	uint8_t station_valid:1;

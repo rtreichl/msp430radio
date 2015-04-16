@@ -57,8 +57,6 @@ uint8_t radio_init()
 	return 0;
 }
 
-#define RADIO_STORE_VALUE 1
-
 uint8_t radio_store_settings(uint8_t freq, uint8_t volume)
 {
 	uint16_t tmp_frequency = 0;
