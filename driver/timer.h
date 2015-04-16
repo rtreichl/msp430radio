@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <settings/radio_configuration.h>
 
-#define TIMER_COUNTS 10
+#define TIMER_COUNTS RADIO_TIMER_USED
 
 extern volatile uint16_t timer_count[];
 
