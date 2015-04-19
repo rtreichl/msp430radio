@@ -7,11 +7,23 @@
 
 #include <system/time.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \description Defintion of several functions in macros which calculate the time/date.
+//
+//----------------------------------------------------------------------------------------
+
 #define time_month(x)	(x.month_ten * 10 + x.month_one)
 #define time_day(x) 	(x.day_ten * 10 + x.day_one)
 #define time_year(x) 	(x.year_ten * 10 + x.year_one)
 #define time_hour(x) 	(x.hour_ten * 10 + x.hour_one)
 #define time_minute(x) 	(x.minute_ten * 10 + x.minute_one)
+
+//----------------------------------------------------------------------------------------
+//
+/// \description Definition of the struct to calculate the current time/date.
+//
+//----------------------------------------------------------------------------------------
 
 static TIME_DATE time_date = {
 		.day_one = RADIO_DATE_DAY % 10,
@@ -25,6 +37,12 @@ static TIME_DATE time_date = {
 		.minute_one = RADIO_TIME_MINUTE % 10,
 		.minute_ten = RADIO_TIME_MINUTE / 10,
 };
+
+//----------------------------------------------------------------------------------------
+//
+/// \description Definition of max. numbers of month days(Currently no leap year)
+//
+//----------------------------------------------------------------------------------------
 
 const uint8_t month_days[12] = {
 		31,
@@ -41,6 +59,25 @@ const uint8_t month_days[12] = {
 		31
 };
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Set the time and write it into the time_date array
+//
+/// \description
+//
+/// \param	<hour>		[in]	Current hour
+/// \param	<minute>	[in]	Current minute
+/// \param	<day>		[in]	Current day
+/// \param	<month>		[in]	Current month
+/// \param	<year>		[in]	Current year
+/// \param	<valid>		[in]	Identifier for valid data
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t time_set_time(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid)
 {
 	time_date.hour_one = hour % 10;
@@ -56,6 +93,20 @@ uint8_t time_set_time(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, 
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Convert time to array
+//
+/// \description
+//
+/// \param	<str>	[out]	String in which the time is stored
+//
+/// \retval	uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t time_time_to_array(char *str)
 {
 	str[0] = time_date.hour_ten + '0';
@@ -67,6 +118,20 @@ uint8_t time_time_to_array(char *str)
 
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief	Convert date to array
+//
+/// \description
+//
+/// \param	<str>	[out]	String in which the time is stored
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t time_date_to_array(char *str)
 {
@@ -82,6 +147,20 @@ uint8_t time_date_to_array(char *str)
 
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Update the current time
+//
+/// \description
+//
+/// \param void
+//
+/// \retval void
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 void time_update()
 {

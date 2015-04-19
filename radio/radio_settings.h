@@ -11,6 +11,22 @@
 #include <radio/radio.h>
 #include <system/station_list.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \description Definition of functions for:
+///	-Set the brightness
+///	-Set the contrast
+///	-Set the source
+///	-Set the Equalizer Mode
+///	-Set the volume
+///	-Set the frequency
+///	-Choose the display data
+///	-Seeks the next station/all available
+///	-Set TA/TP
+///	-Reset settings
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_settings_brightness(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 uint8_t radio_settings_contrast(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 uint8_t radio_settings_source(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);

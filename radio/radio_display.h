@@ -11,6 +11,17 @@
 #include <stdint.h>
 #include <radio/radio.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \description Definition of functions for:
+///	-Display the speaker symbol
+///	-Display RDS
+///	-Display PI/PTY
+///	-Display RSQ
+///	-the display handler
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_display_speaker();
 uint8_t radio_display_rds();
 uint8_t radio_display_pipty();

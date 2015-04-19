@@ -11,6 +11,23 @@
 
 #include <system/handler.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief	Main function
+//
+/// \description	Main function contains following steps:
+///	(1)Init the WatchDog
+///	(2)Init the radio
+///	(3)Run the handler
+//
+/// \param void
+//
+/// \retval	int
+//
+/// \remarks	The while loop is running in the handler!
+//
+//----------------------------------------------------------------------------------------
+
 int main (void)
 {
 	WDTCTL = WDTPW + WDTHOLD;

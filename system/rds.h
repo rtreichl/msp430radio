@@ -5,6 +5,15 @@
  *      Author: Richi
  */
 
+
+//----------------------------------------------------------------------------------------
+//
+/// \description In here the are structs declared for several RDS stuff(See ...
+///	for more information. Also there are functions declared to update RDS and to get the
+///	current time out of RDS.
+//
+//----------------------------------------------------------------------------------------
+
 #ifndef RADIO_H_
 #define RADIO_H_
 

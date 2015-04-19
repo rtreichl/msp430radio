@@ -7,7 +7,7 @@
 
 
 /*
- * The handler calls frunctions time and interrupt based for the interrupts is a new interrupt handler needed!!!
+ * The handler calls functions time and interrupt based for the interrupts is a new interrupt handler needed!!!
  * The interrupt handler should reakt on different interrupts and look up in a table where the to calling function is!!!
  * Problem which is to solve is how to get an own interrupt handler on msp430 architectur.
  * For a good performance, interrupt function which is called, should be shortest as possible.
@@ -18,6 +18,27 @@
  */
 
 #include <system/handler.h>
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Handler for menu, RDS, time, the encoders and rsq
+//
+/// \description Steps in the while loop include:
+///	(1)Calculate the new encoder values
+///	(2)Update display
+///	(3)Actualize menu
+///	(4)Actualize encoders
+///	(5)Update time
+///	(6)Update rsq
+///	(7)Update RDS
+//
+/// \param	void
+//
+/// \retval	void
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 void handler (void)
 {
