@@ -9,7 +9,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Defintion of several functions in macros which calculate the time/date.
+/// \brief Defintion of several functions in macros which calculate the time/date.
 //
 //----------------------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Definition of the struct to calculate the current time/date.
+/// \brief Definition of the struct to calculate the current time/date.
 //
 //----------------------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ static TIME_DATE time_date = {
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Definition of max. numbers of month days(Currently no leap year)
+/// \brief Definition of max. numbers of month days(Currently no leap year)
 //
 //----------------------------------------------------------------------------------------
 
@@ -62,8 +62,6 @@ const uint8_t month_days[12] = {
 //----------------------------------------------------------------------------------------
 //
 /// \brief Set the time and write it into the time_date array
-//
-/// \description
 //
 /// \param	<hour>		[in]	Current hour
 /// \param	<minute>	[in]	Current minute
@@ -97,8 +95,6 @@ uint8_t time_set_time(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, 
 //
 /// \brief Convert time to array
 //
-/// \description
-//
 /// \param	<str>	[out]	String in which the time is stored
 //
 /// \retval	uint8_t
@@ -122,8 +118,6 @@ uint8_t time_time_to_array(char *str)
 //----------------------------------------------------------------------------------------
 //
 /// \brief	Convert date to array
-//
-/// \description
 //
 /// \param	<str>	[out]	String in which the time is stored
 //
@@ -151,8 +145,6 @@ uint8_t time_date_to_array(char *str)
 //----------------------------------------------------------------------------------------
 //
 /// \brief Update the current time
-//
-/// \description
 //
 /// \param void
 //

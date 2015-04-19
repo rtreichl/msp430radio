@@ -13,10 +13,10 @@ STATION_LIST *actuall_station = &station_1;
 //
 /// \brief Handler to select the current station
 //
-/// \description Following steps are done to get the current selected station:
-///	(1)Update the current station according to the encoder count
-///	(2)If the button was pressed for a short time-> actualize current station
-///	(3)Update the display
+/// Following steps are done to get the current selected station:\n
+///	(1)Update the current station according to the encoder count\n
+///	(2)If the button was pressed for a short time-> actualize current station\n
+///	(3)Update the display\n
 //
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
@@ -73,7 +73,7 @@ uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_
 //
 /// \brief	Displays the station list
 //
-/// \description When updating the station_list on the display it depends on the current
+/// When updating the station_list on the display it depends on the current \n
 ///	station or action the user wants to do
 //
 /// \param	<action>	[in]	Action to be done

@@ -7,7 +7,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description In here there are functions declared to display the avaiable station
+/// \brief In here there are functions declared to display the avaiable station\n
 ///	lists and also to add/remove stations to this list.
 //
 //----------------------------------------------------------------------------------------

@@ -9,10 +9,10 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \brief	Update the rsq
+/// \brief	Update the Radio Signal Quality
 //
-/// \description When updating rsq following steps are required:
-///	(1)Get the current rsq status
+/// When updating rsq following steps are required:\n
+///	(1)Get the current rsq status\n
 ///	(2)Update rsq
 //
 /// \param	<radio>		[out]	Current radio rsq state

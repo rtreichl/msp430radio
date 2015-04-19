@@ -33,7 +33,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Definition of some important values
+/// \brief Definition of some important values
 //
 //----------------------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Definition of some structs for the radio, the status, rsq, rds, the
+/// \brief Definition of some structs for the radio, the status, rsq, rds, the
 ///	settings
 //
 //----------------------------------------------------------------------------------------
@@ -111,18 +111,18 @@ extern RADIO radio;
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Definition of functions for:
-///	-Set the volume
-///	-Set the settings
-///	-Seeking frequency
-///	-Radio main
-///	-Init the radio
-///	-Tune the frequency
-///	-Store a station in flash
-///	-Auto search
-///	-Store the settings in flash
-///	-Load the settings from flash
-///	-Factory reset
+/// \brief Definition of functions for:\n
+///	-Set the volume\n
+///	-Set the settings\n
+///	-Seeking frequency\n
+///	-Radio main\n
+///	-Init the radio\n
+///	-Tune the frequency\n
+///	-Store a station in flash\n
+///	-Auto search\n
+///	-Store the settings in flash\n
+///	-Load the settings from flash\n
+///	-Factory reset\n
 //
 //----------------------------------------------------------------------------------------
 

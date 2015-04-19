@@ -13,12 +13,12 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Definition of functions for:
-///	-Display the speaker symbol
-///	-Display RDS
-///	-Display PI/PTY
-///	-Display RSQ
-///	-the display handler
+/// \brief Definition of functions for:\n
+///	-Display the speaker symbol\n
+///	-Display RDS\n
+///	-Display PI/PTY\n
+///	-Display RSQ\n
+///	-the display handler\n
 //
 //----------------------------------------------------------------------------------------
 

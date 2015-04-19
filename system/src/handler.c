@@ -23,13 +23,13 @@
 //
 /// \brief Handler for menu, RDS, time, the encoders and rsq
 //
-/// \description Steps in the while loop include:
-///	(1)Calculate the new encoder values
-///	(2)Update display
-///	(3)Actualize menu
-///	(4)Actualize encoders
-///	(5)Update time
-///	(6)Update rsq
+/// Steps in the while loop include:\n
+///	(1)Calculate the new encoder values\n
+///	(2)Update display\n
+///	(3)Actualize menu\n
+///	(4)Actualize encoders\n
+///	(5)Update time\n
+///	(6)Update rsq\n
 ///	(7)Update RDS
 //
 /// \param	void

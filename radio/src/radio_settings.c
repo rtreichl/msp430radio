@@ -11,8 +11,6 @@
 //
 /// \brief Sets the brightness
 //
-/// \description
-//
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
@@ -52,8 +50,6 @@ uint8_t radio_settings_brightness(uint8_t *encoder_left_button, int8_t *encoder_
 //
 /// \brief Sets the contrast
 //
-/// \description
-//
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
@@ -92,8 +88,6 @@ uint8_t radio_settings_contrast(uint8_t *encoder_left_button, int8_t *encoder_le
 //----------------------------------------------------------------------------------------
 //
 /// \brief Sets the audio source
-//
-/// \description Three audio sources available(AM, FM, Line-In)
 //
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
@@ -140,13 +134,13 @@ uint8_t radio_settings_source(uint8_t *encoder_left_button, int8_t *encoder_left
 //
 /// \brief Sets the equalizer mode
 //
-/// \description Following modes are supported:
-///	-Rock
-///	-Pop
-///	-Hip/Hop
-///	-News
-///	-Classic
-///	-Jazz
+/// Following modes are supported:\n
+///	-Rock\n
+///	-Pop\n
+///	-Hip/Hop\n
+///	-News\n
+///	-Classic\n
+///	-Jazz\n
 //
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
@@ -185,8 +179,8 @@ uint8_t radio_settings_equalizer(uint8_t *encoder_left_button, int8_t *encoder_l
 //
 /// \brief Sets the volume
 //
-/// \description Calculates the new volume acording to the encoder value. Additionally u
-///	can choose to set the startup volume or the TA/TP volume
+/// Calculates the new volume acording to the encoder value. Additionally u\n
+///	can choose to set the startup volume or the TA/TP volume\n
 //
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
@@ -243,8 +237,8 @@ uint8_t radio_settings_volume(uint8_t *encoder_left_button, int8_t *encoder_left
 //
 /// \brief Sets the frequency
 //
-/// \description In here the u can seach for the next station up- or downwards or just set
-///	the current frequency
+/// In here the u can seach for the next station up- or downwards or just set\n
+///	the current frequency\n
 //
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
@@ -286,8 +280,6 @@ uint8_t radio_settings_frequency(uint8_t *encoder_left_button, int8_t *encoder_l
 //
 /// \brief Choose the data to display
 //
-/// \description
-//
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
@@ -324,11 +316,11 @@ uint8_t radio_settings_view(uint8_t *encoder_left_button, int8_t *encoder_left_c
 //
 /// \brief Seeks the next station/all available
 //
-/// \description Following modes are supported:
-///	-Seek up
-///	-Seek down
-///	-Auto Search
-///	-Select station??
+/// Following modes are supported:\n
+///	-Seek up\n
+///	-Seek down\n
+///	-Auto Search\n
+///	-Select station\n
 //
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
@@ -365,8 +357,6 @@ uint8_t radio_settings_station(uint8_t *encoder_left_button, int8_t *encoder_lef
 //
 /// \brief Set TA/TP
 //
-/// \description
-//
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
@@ -397,8 +387,6 @@ uint8_t radio_settings_tatp(uint8_t *encoder_left_button, int8_t *encoder_left_c
 //----------------------------------------------------------------------------------------
 //
 /// \brief Reset the settings
-//
-/// \description
 //
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder

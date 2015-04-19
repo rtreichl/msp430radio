@@ -9,10 +9,9 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \brief Updates the current RDS data
-//
-/// \description
-///	(1)Check if new rds data has arrived
+/// \brief Updates the current RDS data\n
+///
+///	(1)Check if new rds data has arrived\n
 ///	(2)Update the rds data in RADIO object
 //
 /// \param	<radio>	[out]	Radio status with RDS data

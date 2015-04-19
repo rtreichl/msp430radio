@@ -15,10 +15,10 @@
 //
 /// \brief	Main function
 //
-/// \description	Main function contains following steps:
-///	(1)Init the WatchDog
-///	(2)Init the radio
-///	(3)Run the handler
+/// Main function contains following steps:\n
+///	(1)Init the WatchDog\n
+///	(2)Init the radio\n
+///	(3)Run the handler\n
 //
 /// \param void
 //

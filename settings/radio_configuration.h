@@ -6,7 +6,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for auto search and seek funktion
+/// \brief Define macros for auto search and seek funktion
 //
 //----------------------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for factory state
+/// \brief Define macros for factory state
 //
 //----------------------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for scroll interfaces
+/// \brief Define macros for scroll interfaces
 //
 //----------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for flash storing
+/// \brief Define macros for flash storing
 //
 //----------------------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for button states
+/// \brief Define macros for button states
 //
 //----------------------------------------------------------------------------------------
 #define BUTTON_LONG 			'l'				//Value for encoder button pressed long
@@ -82,7 +82,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for timer use
+/// \brief Define macros for timer use
 //
 //----------------------------------------------------------------------------------------
 #define RADIO_TIMER_RSQ			0				//Timer for radio signal quality
@@ -94,7 +94,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for time refresh rates
+/// \brief Define macros for time refresh rates
 //
 //----------------------------------------------------------------------------------------
 #define RADIO_COUNT_ENCODER		10				//Count for encoder button execute underlying code every 10ms
@@ -105,7 +105,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for time, date for cold start
+/// \brief Define macros for time, date for cold start
 //
 //----------------------------------------------------------------------------------------
 #define RADIO_DATE_DAY			BUILD_DAY		//Day where firmware is build
@@ -116,7 +116,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Define macros for all other kinds of configuration
+/// \brief Define macros for all other kinds of configuration
 //
 //----------------------------------------------------------------------------------------
 

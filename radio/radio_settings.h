@@ -13,17 +13,17 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \description Definition of functions for:
-///	-Set the brightness
-///	-Set the contrast
-///	-Set the source
-///	-Set the Equalizer Mode
-///	-Set the volume
-///	-Set the frequency
-///	-Choose the display data
-///	-Seeks the next station/all available
-///	-Set TA/TP
-///	-Reset settings
+/// \brief Definition of functions for:\n
+///	-Set the brightness\n
+///	-Set the contrast\n
+///	-Set the source\n
+///	-Set the Equalizer Mode\n
+///	-Set the volume\n
+///	-Set the frequency\n
+///	-Choose the display data\n
+///	-Seeks the next station/all available\n
+///	-Set TA/TP\n
+///	-Reset settings\n
 //
 //----------------------------------------------------------------------------------------
 

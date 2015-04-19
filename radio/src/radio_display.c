@@ -11,8 +11,6 @@
 //
 /// \brief Updates the speaker symbol according to the current audio state
 //
-/// \description
-//
 /// \param	void
 //
 /// \retval uint8_t
@@ -46,8 +44,6 @@ uint8_t radio_display_speaker()
 //
 /// \brief Displays the RDS data
 //
-/// \description
-//
 /// \param	void
 //
 /// \retval uint8_t
@@ -75,8 +71,6 @@ uint8_t radio_display_rds()
 //
 /// \brief Display the PTY/PI states
 //
-/// \description
-//
 /// \param void
 //
 /// \retval uint8_t
@@ -98,8 +92,6 @@ uint8_t radio_display_pipty()
 //----------------------------------------------------------------------------------------
 //
 /// \brief Display the RSQ
-//
-/// \description
 //
 /// \param void
 //
@@ -131,7 +123,7 @@ uint8_t radio_display_rsq()
 //
 /// \brief Handler for the display
 //
-/// \description Updates the display according to the selected state in the settings menu
+/// Updates the display according to the selected state in the settings menu\n
 //
 /// \param	<blend_scroll>	[in]	Identifies if to blend scrolling
 /// \param	<value>			[in]	the value to be scrolled
