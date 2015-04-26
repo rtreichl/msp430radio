@@ -74,7 +74,7 @@ uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_
 /// \brief	Displays the station list
 //
 /// When updating the station_list on the display it depends on the current \n
-///	station or action the user wants to do
+///	station or action the user wants to do.
 //
 /// \param	<action>	[in]	Action to be done
 //

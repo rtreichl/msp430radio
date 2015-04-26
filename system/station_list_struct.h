@@ -7,7 +7,7 @@
 
 //----------------------------------------------------------------------------------------
 //
-/// \brief In here the station_list struc tis declared. There are 14 places for
+/// \brief In here the station_list struct is declared. There are 14 places for
 ///	stations to be stored.
 //
 //----------------------------------------------------------------------------------------

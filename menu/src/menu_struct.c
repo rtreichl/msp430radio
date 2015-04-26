@@ -1,5 +1,11 @@
 #include <menu/menu_struct.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Set the values of the elements in the list for the menu
+//
+//----------------------------------------------------------------------------------------
+
 MENU_ENTRY * const menu_long_entry = &view_entry;
 MENU_ENTRY * const menu_short_entry = &station_list_entry;
 

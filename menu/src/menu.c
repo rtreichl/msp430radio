@@ -7,9 +7,27 @@
 
 #include <menu/menu.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of some important values
+//
+//----------------------------------------------------------------------------------------
+
 MENU_ENTRY *actuall_entry = &main_long_entry;
 uint8_t menu_display_selector = MENU_MAIN_ENTRY;
 MENU_FUNC_PTR actuall_func = &radio_main;
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Display the current menu
+//
+/// \param
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t menu_display()
 {
@@ -41,6 +59,18 @@ uint8_t menu_display()
 	}
 }*/
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Scroll through the settings
+//
+/// \param	<value>	[in]	scroll value
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t menu_scroll_settings(uint8_t value)
 {
 	char tmp_string[4];
@@ -51,6 +81,18 @@ uint8_t menu_scroll_settings(uint8_t value)
 	lcd_create_view("%", 3, 1, 0, 1);
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Scroll to given position
+//
+/// \param	<value>	[in]	position to be scrolled to
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t menu_scroll(uint8_t value)
 {
@@ -91,6 +133,21 @@ uint8_t menu_encoder_range(int8_t *encoder_right_count, uint8_t *controll, uint8
 	}
 	return MENU_ENCODER_NOP;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Handler of the menu, entry to the sub menus and the parent lvl of the menus
+//
+/// \param	<encoder_left_button>	[in]	State of the left button
+/// \param	<encoder_left_count>	[in]	Count of the left encoder
+/// \param	<encoder_right_button>	[in]	State of the right button
+/// \param	<encoder_right_count>	[in]	Count of the right encoder
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
 {

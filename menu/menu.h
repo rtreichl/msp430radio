@@ -9,6 +9,12 @@
 #include <menu/menu_struct.h>
 #include <libs/string.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of some important values
+//
+//----------------------------------------------------------------------------------------
+
 #define MENU_NO_FUNC_ENTRY 0
 #define MENU_FREQ_CHOOSE_ENTRY	1
 #define MENU_VOL_START_ENTRY	2
@@ -51,10 +57,20 @@
 #define BUTTON_PRESS_SHORT 'k'
 #define BUTTON_PRESS_FREE 'f'
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of functions for
+///	-the menu handler
+///	-scrolling through the menu
+///	-main program of the menu
+///	-scroll through the settings
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t menu_scroll(uint8_t value);
 uint8_t menu_main(uint8_t *encoder_button, int8_t *encoder_count);
 uint8_t menu_scroll_settings(uint8_t value);
-uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
+//uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 
 #endif /* _MENU_H_ */

@@ -128,8 +128,6 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 //
 /// \brief Triggers RDS
 //
-/// \description
-//
 /// \param	void
 //
 /// \retval uint8_t
@@ -149,8 +147,6 @@ uint8_t rds_triggered()
 //----------------------------------------------------------------------------------------
 //
 /// \brief Gets the time and date out of RDS stream
-//
-/// \description
 //
 /// \param	<data>	[in]	RDS data to be converted
 //
