@@ -4,6 +4,11 @@
 #include <driver/include/si4735_cmd_prop.h>
 #include <libs/time.h>
 
+/* Define macros for version */
+
+#define RADIO_VERSION_MAJOR	3
+#define RADIO_VERSION_MINOR	10
+
 /* Define macros for auto search and seek funktion */
 
 #define RADIO_VALID_SNR			15				//10dB
@@ -14,8 +19,6 @@
 #define RADIO_CALBC1			CALBC1_16MHZ	//16 MHz
 #define RADIO_CALDCO			CALDCO_16MHZ	//16 MHz
 #define RADIO_DCO_FREQ			16				//16 MHz
-#define RADIO_LCD_REFRESCH		500				//500 ms
-#define RADIO_ENCODER_POLL		100				//100 ms
 #define RADIO_MCLK				16				//16 MHz
 #define RADIO_SCLK				2				//2 MHz
 
