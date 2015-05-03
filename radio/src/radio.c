@@ -142,10 +142,10 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 
 	if(*encoder_left_count != 0) {
 		if(*encoder_left_count < 0) {
-			radio.settings.frequency -= 10;
+			radio.settings.frequency -= RADIO_FREQENCY_STEP;
 		}
 		else if(*encoder_left_count > 0) {
-			radio.settings.frequency += 10;
+			radio.settings.frequency += RADIO_FREQENCY_STEP;
 		}
 		radio.status.freq_valid = 0;
 		if(radio.settings.frequency < RADIO_BOT_FREQ){
