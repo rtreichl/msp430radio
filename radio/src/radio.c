@@ -271,7 +271,6 @@ uint8_t radio_auto_search()
 	uint8_t percentage = 0;
 	char tmp_string[4];
 	do {
-		//TODO seek up to next channel
 		radio.settings.frequency = radio_seeking(1);
 		if(station == 0) {
 			freq = radio.settings.frequency;
@@ -284,7 +283,7 @@ uint8_t radio_auto_search()
 		radio.status.freq_valid = 0;
 
 		if(radio.settings.frequency < freq) {
-			percentage = ((freq - radio.settings.frequency) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
+			percentage = ((RADIO_TOP_FREQ - RADIO_BOT_FREQ - freq + radio.settings.frequency) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
 		}
 		else {
 			percentage = ((radio.settings.frequency - freq) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
