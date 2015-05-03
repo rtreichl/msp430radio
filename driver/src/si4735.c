@@ -125,13 +125,13 @@ uint8_t si4735_fm_seek_start(uint8_t up_down)	//Frequensuchlauf für höhere Frequ
 	return status.byte;
 }
 
-uint8_t si4735_configure_rds(FM_RDS_INT_SOURCE_STC rds_int, FM_RDS_CONFIG_STC rds_config, FM_RDS_INT_FIFO_COUNT_STC rds_fifo)
+uint8_t si4735_configure_rds(const FM_RDS_INT_SOURCE_STC *rds_int, const FM_RDS_CONFIG_STC *rds_config, const FM_RDS_INT_FIFO_COUNT_STC *rds_fifo)
 {
-	si4735_set_property(FM_RDS_INT_SOURCE, rds_int.byte);
+	si4735_set_property(FM_RDS_INT_SOURCE, rds_int->byte);
 
-	si4735_set_property(FM_RDS_INT_FIFO_COUNT, rds_fifo.byte);
+	si4735_set_property(FM_RDS_INT_FIFO_COUNT, rds_fifo->byte);
 
-	si4735_set_property(FM_RDS_CONFIG, rds_config.byte);
+	si4735_set_property(FM_RDS_CONFIG, rds_config->byte);
 
 	return 0;
 }
@@ -236,7 +236,7 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 			.RDSEN = 1
 	};
 
-	si4735_configure_rds(rds_int, rds_config, rds_fifo);
+	si4735_configure_rds(&rds_int, &rds_config, &rds_fifo);
 
 	si4735_set_property(GPO_IEN, gpo_ien.byte);
 	//_delay_ms(10);
