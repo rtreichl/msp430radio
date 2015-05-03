@@ -87,16 +87,22 @@ uint8_t radio_settings_equalizer(uint8_t *encoder_left_button, int8_t *encoder_l
 	switch(entry_num) {
 	case AUDIO_ROCK_ENTRY:
 		radio.settings.equalizer = ROCK;
+		break;
 	case AUDIO_POP_ENTRY:
 		radio.settings.equalizer = POP;
+		break;
 	case AUDIO_HIPHOP_ENTRY:
 		radio.settings.equalizer = RAP_HIP_HOP;
+		break;
 	case AUDIO_NEWS_ENTRY:
 		radio.settings.equalizer = NEWS_VOICE;
+		break;
 	case AUDIO_CLASSIC_ENTRY:
 		radio.settings.equalizer = CLASSIC;;
+		break;
 	case AUDIO_JAZZ_ENTRY:
 		radio.settings.equalizer = JAZZ;
+		break;
 	}
 	tpa2016d2_equalizer_mode(radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	radio_store_settings(0, 0);
