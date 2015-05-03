@@ -19,7 +19,7 @@
 
 	void SI4735_Power_Up (void);
 
-	void SI4735_Power_Down (void);
+
 
 	void SI4735_Refclk_Freq (void);
 
@@ -56,6 +56,8 @@
 	void SI4735_Fm_Tune_Freq_2 (unsigned int Frequenz);
 
 	void si4735_interrupt(void);
+
+	uint8_t si4735_shutdown(void);
 
 	uint8_t si4735_configure_seeking(uint16_t top_freq, uint16_t bot_freq, uint8_t freq_spacing, uint8_t snr, uint8_t rssi);
 
