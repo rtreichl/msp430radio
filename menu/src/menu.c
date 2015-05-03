@@ -8,7 +8,6 @@
 #include <menu/menu.h>
 
 MENU_ENTRY *actuall_entry = &main_long_entry;
-uint8_t menu_display_selector = MENU_MAIN_ENTRY;
 MENU_FUNC_PTR actuall_func = &radio_main;
 
 uint8_t menu_display()
