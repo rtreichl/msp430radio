@@ -105,7 +105,7 @@ void timer_init()
 __interrupt void Timer_A0(void)
 {
 	uint8_t i;
-	for(i = 0; i < TIMER_COUNTS; i++) {
+	for(i = TIMER_COUNTS; i-- > 0;) {
 		timer_count[i]++;
 	}
 }

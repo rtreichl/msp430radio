@@ -350,7 +350,7 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 	if(flush == 1) {
 		lcd_set_courser(0,1);
 		lcd_write_string(lcd_view,48);
-		for(i = 0; i < 48; i++)	{
+		for(i = 48; i-- > 0;)	{
 			lcd_view[i] = ' ';
 		}
 		lcd_view[48] = 0;
@@ -358,7 +358,7 @@ uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint
 
 	/* Init lcd_view with blanks */
 	if(flush == 2) {
-		for(i = 0; i < 48; i++) {
+		for(i = 48; i-- > 0;) {
 			lcd_view[i] = 0x20;
 		}
 		lcd_view[48] = 0;
