@@ -51,7 +51,7 @@ const char progress_text[] = "Fortschirtt:";
 
 const char startup_line_1[] = "HS-Rosenheim";
 const char startup_line_2[] = "FM/AM  Radio";
-const char startup_line_3[] = "Version 3.00";
+const char startup_line_3[] = "Version 3.10";
 
 const char pty_0[] = "Kein PTY";
 const char pty_1[] = "Nachrichten";
