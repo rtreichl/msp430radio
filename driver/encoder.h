@@ -11,6 +11,7 @@
 #include <stdint.h>
 #include <msp430.h>
 #include <settings\radio_pin_mapping.h>
+#include <settings\radio_configuration.h>
 #include <driver/external_interrupthandler.h>
 
 void Encoder_Timer_init(void);
