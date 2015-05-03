@@ -185,10 +185,6 @@ void Encoder_2_init(void)
 		encoder_2_last ^= 1;										//Decode Graycode new = Bit2 := A and Bit0 := A^B
 		EN2_B_IES |=  EN2_B_PIN;								//Interrupt for a falling edge for Signal B
 	}
-	/*EN2_A_IFG &= ~(EN2_A_PIN);									//Clear Interrupt Flag before enable Interrupt on all listed Pins
-	EN2_B_IFG &= ~(EN2_B_PIN);
-	EN2_A_IE |= EN2_A_PIN;										//Enable Interrupt on all listed Pins
-	EN2_B_IE |= EN2_B_PIN;*/
 	ext_interrupt_create(EN2_A_INT, encoder_interrupt);
 	ext_interrupt_create(EN2_B_INT, encoder_interrupt);
 	ext_interrupt_enable(EN2_A_INT);
@@ -206,16 +202,16 @@ void encoder_interrupt2(void)
          {
         	 if(count_button_1++ >= TIME_FOR_LONG_PRESS)
         	 {
-        	 	 encoder_1_button = 'l';
-        	 	 encoder_1_state = 'l';
+        	 	 encoder_1_button = BUTTON_LONG;
+        	 	 encoder_1_state = BUTTON_LONG;
         	 }
          }
          else
          {
         	 if(count_button_1 != 0 && count_button_1 < TIME_FOR_LONG_PRESS)
         	 {
-        		 encoder_1_button = 'k';
-        		 encoder_1_state = 'k';
+        		 encoder_1_button = BUTTON_SHORT;
+        		 encoder_1_state = BUTTON_SHORT;
         	 }
         	 count_button_1 = 0;
          }
@@ -223,16 +219,16 @@ void encoder_interrupt2(void)
          {
         	 if(count_button_2++ >= TIME_FOR_LONG_PRESS)
         	 {
-        		 encoder_2_button = 'l';
-        		 encoder_2_state = 'l';
+        		 encoder_2_button = BUTTON_LONG;
+        		 encoder_2_state = BUTTON_LONG;
         	 }
          }
          else
          {
         	 if(count_button_2 != 0 && count_button_2 < TIME_FOR_LONG_PRESS)
         	 {
-        		 encoder_2_button = 'k';
-        		 encoder_2_state = 'k';
+        		 encoder_2_button = BUTTON_SHORT;
+        		 encoder_2_state = BUTTON_SHORT;
         	 }
         	 count_button_2 = 0;
          }
