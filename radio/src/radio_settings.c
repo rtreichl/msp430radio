@@ -114,7 +114,15 @@ uint8_t radio_settings_volume(uint8_t *encoder_left_button, int8_t *encoder_left
 	static int8_t tmp_volume = 0;
 	if(tmp_volume == 0 && entry_num != 0) {
 		tmp_volume = radio.settings.volume;
-		//TODO load volumes from store place
+		if(entry_num == MENU_VOL_TA_ENTRY) {
+			radio.settings.volume = radio.settings.volume_ta;
+		}
+		if(entry_num == MENU_VOL_START_ENTRY) {
+			RADIO_SETTINGS tmp_settings;
+			flash_read(&tmp_settings, sizeof(tmp_settings), RADIO_SETTINGS_STORE_ADR);
+			radio.settings.volume  = tmp_settings.volume;
+		}
+		radio_volume(radio.settings.volume);
 	}
 	if(*encoder_right_count != 0) {
 		if(*encoder_right_count > 0 && radio.settings.volume < RADIO_VOLUME_MAX) {
