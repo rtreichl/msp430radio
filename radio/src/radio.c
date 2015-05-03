@@ -353,19 +353,24 @@ uint8_t radio_factory_state()
 
 uint8_t radio_stand_by()
 {
-	//TODO Turn off amplifier
-	//TODO Turn off si4735
+	tpa2016d2_shutdown(TPA2016D2_SHUTDOWN);
+	si4735_shutdown();
 	//TODO store actuall freqency
 	//TODO store actuall volume
-	//TODO Turn off display
+	lcd_create_view(0, 0, 0, 0, 2);
+	pca9530_set_pwm(PWM_0, 0);
 	//TODO enable interrupt for left button
 	//TODO reconfig one timer with ACLK to cause an interrupt all minute
+	//while(/* TODO checkfor left encoder button interrupt */) {
+		_BIS_SR(LPM3_bits + GIE);
+	//}
 	//TODO go to lpm mode where ACLK is active
 	//TODO wait until button is pressed
 	//TODO reconfig timer to old state
-	//TODO enable amplifier with stored values
-	//TODO enable si4735 with stored values
-	//TODO turn on display needed to be init
-	//TODO go back to normal operations
+	tpa2016d2_shutdown(TPA2016D2_RELEASE);
+	SI4735_INIT();
+	radio_volume(radio.settings.volume);
+	radio_tune_freq(radio.settings.frequency);
+	pca9530_set_pwm(PWM_0, 256-exp_table[radio.settings.brightness * 2]);
 	return 0;
 }
