@@ -47,10 +47,6 @@
 #define SHORT_UP_TO_PARENT 0xFC
 #define STAY_ON_MENU_POINT 0x00
 
-#define BUTTON_PRESS_LONG 'l'
-#define BUTTON_PRESS_SHORT 'k'
-#define BUTTON_PRESS_FREE 'f'
-
 uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 uint8_t menu_scroll(uint8_t value);
 uint8_t menu_main(uint8_t *encoder_button, int8_t *encoder_count);

@@ -19,7 +19,7 @@ uint8_t radio_settings_brightness(uint8_t *encoder_left_button, int8_t *encoder_
 		pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.settings.brightness * 2)]);
 		*encoder_right_count = 0;
 	}
-	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
+	if(*encoder_right_button == BUTTON_SHORT) {
 		*encoder_right_button = BUTTON_FREE;
 		radio_store_settings(0, 0);
 		return SHORT_UP_TO_CHILD;
@@ -42,7 +42,7 @@ uint8_t radio_settings_contrast(uint8_t *encoder_left_button, int8_t *encoder_le
 		lcd_contrast(radio.settings.contrast / RADIO_CONTRAST_STEP);
 		*encoder_right_count = 0;
 	}
-	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
+	if(*encoder_right_button == BUTTON_SHORT) {
 		*encoder_right_button = BUTTON_FREE;
 		radio_store_settings(0, 0);
 		return SHORT_UP_TO_CHILD;
@@ -120,7 +120,7 @@ uint8_t radio_settings_volume(uint8_t *encoder_left_button, int8_t *encoder_left
 		radio_volume(radio.settings.volume);
 		*encoder_right_count = 0;
 	}
-	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
+	if(*encoder_right_button == BUTTON_SHORT) {
 		*encoder_right_button = BUTTON_FREE;
 		if(tmp_volume != 0) {
 			if(entry_num == MENU_VOL_START_ENTRY) {

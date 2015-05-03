@@ -97,36 +97,36 @@ uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, u
 	if (actuall_func == MENU_NO_FUNC_ENTRY) {
 		*encoder_left_count = 0;
 
-		if (*encoder_right_button == BUTTON_PRESS_SHORT) {
+		if (*encoder_right_button == BUTTON_SHORT) {
 			if (actuall_entry->child != 0) {
 				actuall_entry = actuall_entry->child;
 				if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
 					actuall_func = actuall_entry->func;
-					*encoder_right_button = BUTTON_PRESS_FREE;
+					*encoder_right_button = BUTTON_FREE;
 					actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 					return 0;
 				}
 			}
 			else if (actuall_entry->func != 0) {
 				actuall_func = actuall_entry->func;
-				*encoder_right_button = BUTTON_PRESS_FREE;
+				*encoder_right_button = BUTTON_FREE;
 				menu_handler(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
 				return 0;
 			}
-			*encoder_right_button = BUTTON_PRESS_FREE;
+			*encoder_right_button = BUTTON_FREE;
 		}
 
-		if(*encoder_left_button == BUTTON_PRESS_SHORT) {
+		if(*encoder_left_button == BUTTON_SHORT) {
 			if(actuall_entry->parent != 0) {
 				actuall_entry = actuall_entry->parent;
 				if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
 					actuall_func = actuall_entry->func;
-					*encoder_left_button = BUTTON_PRESS_FREE;
+					*encoder_left_button = BUTTON_FREE;
 					actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
 					return 0;
 				}
 			}
-			*encoder_left_button = BUTTON_PRESS_FREE;
+			*encoder_left_button = BUTTON_FREE;
 		}
 
 		if (*encoder_right_count != 0) {

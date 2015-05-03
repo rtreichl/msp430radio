@@ -24,7 +24,7 @@ uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_
 		}
 		*encoder_right_count = 0;
 	}
-	if(*encoder_right_button == BUTTON_PRESS_SHORT) {
+	if(*encoder_right_button == BUTTON_SHORT) {
 		if(*(actuall_station->freq) >= RADIO_BOT_FREQ) {
 			switch(entry_num) {
 			case STORE_STATION:
@@ -43,6 +43,11 @@ uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_
 		}
 		return SHORT_UP_TO_CHILD;
 	}
+
+	if(*encoder_left_button == BUTTON_SHORT) {
+		return SHORT_UP_TO_CHILD;
+	}
+
 	station_list_display(entry_num);
 	return 0;
 }

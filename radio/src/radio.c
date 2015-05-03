@@ -147,17 +147,17 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		blend_scroll = 1;
 		*encoder_left_count = 0;
 	}
-	if(*encoder_right_button == BUTTON_PRESS_SHORT)
+	if(*encoder_right_button == BUTTON_SHORT)
 	{
 		*encoder_right_button = BUTTON_FREE;
 		return SHORT_INTO_MENU;
 	}
-	if(*encoder_right_button == BUTTON_PRESS_LONG)
+	if(*encoder_right_button == BUTTON_LONG)
 	{
 		*encoder_right_button = BUTTON_FREE;
 		return LONG_INTO_MENU;
 	}
-	if(*encoder_left_button == BUTTON_PRESS_SHORT)
+	if(*encoder_left_button == BUTTON_SHORT)
 	{
 		*encoder_left_button = BUTTON_FREE;
 		if(radio.status.audio_status == AUDIO_MUTE) {
@@ -168,7 +168,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 			tpa2016d2_mute(1);
 		}
 	}
-	if(*encoder_left_button == BUTTON_PRESS_LONG)
+	if(*encoder_left_button == BUTTON_LONG)
 	{
 		*encoder_left_button = BUTTON_FREE;
 		//radio_standby
