@@ -110,48 +110,47 @@ uint8_t rds_triggered()
 
 void rds_group_4A(RDS *data)
 {
-	GROUP_4A *data2 = (GROUP_4A*) &(data->pi);
+	GROUP_4A *group_4a = (GROUP_4A*) &(data->pi);
 	uint8_t offset = 0;
-	uint16_t mdj = 0;
+	int32_t mdj = 0;
 	uint8_t m_hour, m_minute, m_day, m_month, m_year;
-	//unsigned char day_per_month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	int temp;
 
 	m_day = 1;
 	m_month = 0;
 	m_year = 10;
 
-	m_minute = data2->MINUTE;
-	m_hour = data2->HOUR_L + data2->HOUR_H * 16;
-	offset = data2->TIME_OFF;
-	mdj = data2->DATE_L + (data2->DATE_H << 15);
+	m_minute = group_4a->MINUTE;
+	m_hour = group_4a->HOUR_L + group_4a->HOUR_H * 16;
+	offset = group_4a->TIME_OFF;
+	mdj = group_4a->DATE_L + (group_4a->DATE_H << 15);
 
-	temp = mdj - 55198 + 1; //55198 = MDJ of 01.01.2010
+	mdj = mdj - 55198 + 1; //55198 = MDJ of 01.01.2010
 
-	while(temp > 0)
-	{
-		m_day = temp;
+	while(mdj > 0) {
+		m_day = mdj;
 		m_month++;
-		if (m_month == 13)
-		{
+
+		if (m_month == 13) {
 			m_month = 1;
 			m_year++;
 		}
-		temp -= month_days[m_month-1];
+
+		mdj -= month_days[m_month - 1];
 	}
-	temp = m_minute + 60 * m_hour + 30 * offset;
-	if (temp >= 1440)
-	{
-		temp -= 1440;
+
+	mdj = m_minute + 60 * m_hour + 30 * offset;
+
+	if (mdj >= 1440) {
+		mdj -= 1440;
 		m_day++;
 	}
-	if (temp < 0)
-	{
-		temp += 1440;
+
+	if (mdj < 0) {
+		mdj += 1440;
 		m_day--;
 	}
-	m_minute = temp%60;
-	m_hour = temp/60;
+
+	m_minute = mdj % 60;
+	m_hour = mdj / 60;
 	time_set_time(m_hour, m_minute, m_day, m_month, m_year, 0);
-	//time_date(m_hour, m_minute, m_day, m_month, m_year, 1, 0, 0, 0);
 }

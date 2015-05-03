@@ -141,9 +141,6 @@ typedef struct group_4a {
 	int16_t TIME_OFF:6;
 	uint16_t MINUTE:6;
 	uint16_t HOUR_L:4;
-
-
-
 } GROUP_4A;
 
 typedef struct block_b {
