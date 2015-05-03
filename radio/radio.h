@@ -105,6 +105,7 @@ uint8_t radio_tune_freq(uint16_t freq);
 uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos);
 uint8_t radio_auto_search();
 uint8_t radio_store_settings(uint8_t freq, uint8_t volume);
+uint8_t radio_brightness(uint8_t brightness);
 uint8_t radio_load_settings();
 uint8_t radio_factory_state();
 

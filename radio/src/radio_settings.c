@@ -16,7 +16,7 @@ uint8_t radio_settings_brightness(uint8_t *encoder_left_button, int8_t *encoder_
 		else if(*encoder_right_count < 0 && radio.settings.brightness > RADIO_BRIGHTNESS_MIN){
 			radio.settings.brightness -= RADIO_BRIGHTNESS_STEP;
 		}
-		pca9530_set_pwm(PWM_0, 256-exp_table[(uint8_t)(radio.settings.brightness * 2)]);
+		radio_brightness(radio.settings.brightness);
 		*encoder_right_count = 0;
 	}
 	if(*encoder_right_button == BUTTON_SHORT) {

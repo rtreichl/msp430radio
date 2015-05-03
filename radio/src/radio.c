@@ -34,7 +34,7 @@ uint8_t radio_init()
 
 	radio_load_settings();
 	pca9530_init(&pca9530_config);
-	pca9530_set_pwm(PWM_0, 256-exp_table[radio.settings.brightness * 2]);
+	radio_brightness(radio.settings.brightness);
 	radio_settings_source(0, 0, 0, 0, 0);
 	lcd_init(radio.settings.contrast);
 	lcd_create_view(startup_line_1, 2, 0, 0, 0);
@@ -87,6 +87,18 @@ uint8_t radio_store_settings(uint8_t freq, uint8_t volume)
 uint8_t radio_load_settings()
 {
 	flash_read(&radio.settings, sizeof(radio.settings), RADIO_SETTINGS_STORE_ADR);
+	return 0;
+}
+
+uint8_t radio_brightness(uint8_t brightness)
+{
+	if(brightness == 0) {
+		pca9530_config_leds(LED_ON, PWM1_RATE);
+	}
+	else {
+		pca9530_config_leds(PWM0_RATE, PWM1_RATE);
+		pca9530_set_pwm(PWM_0, 255-exp_table[brightness * 2 - 1]);
+	}
 	return 0;
 }
 
