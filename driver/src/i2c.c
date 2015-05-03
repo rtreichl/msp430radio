@@ -20,7 +20,16 @@ struct I2C_CTRL {
 /**
  * @var *PTxData Pointer to reserved data for var args.
  */
+
+#if VARIADIC_IMPLEMENTATION
+
 uint8_t *PTxData = 0 ;
+
+#else
+
+uint8_t PTxData[I2C_MAX_ARGS] = {0};
+
+#endif
 
 uint8_t i2c_init (uint16_t smclk_freq, uint16_t i2c_freq)
 {
@@ -60,6 +69,8 @@ uint8_t i2c_write_var (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_arg
 	/* Wait until all transmitions and receptions done */
 	while( i2c.status != IDLE);
 
+#if VARIADIC_IMPLEMENTATION
+
 	/* Reserve size of memory for transmit buffer if buffer is uninitialised*/
 	if(PTxData == 0) {
 		PTxData = (uint8_t *) malloc(n_args * sizeof(uint8_t));
@@ -72,6 +83,8 @@ uint8_t i2c_write_var (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_arg
 			i2c.TxByteRes = n_args;
 		}
 	}
+
+#endif /* VARIADIC_IMPLEMENTATION */
 
 	uint8_t i = 0;
 	va_list ap;

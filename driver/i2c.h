@@ -24,6 +24,18 @@
 #include <stdarg.h>
 #include <driver/timer.h>
 
+#define VARIADIC_IMPLEMENTATION 0
+
+#if VARIADIC_IMPLEMENTATION
+
+#warning "Compiling with VARIADIC feature to safe storage, deaktivate this option..."
+
+#else
+
+#define I2C_MAX_ARGS 10
+#warning "Compiling without VARIADIC feature I2C_MAX_ARGS has to be choose carefully..."
+
+#endif
 
 /**
  * @enum I2C_CRTL_CMD
