@@ -25,9 +25,10 @@ void SI4735_Power_Up (void)	//einschalten des Si4735 aktivieren des Analogen Aud
 	i2c_write_var(I2C_SI4735, STOP, 3, 0x01, 0xD0, 0x05);
 }
 
-void SI4735_Power_Down (void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
+uint8_t si4735_shutdown(void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
 {
 	i2c_write_var(I2C_SI4735, STOP, 1, 0x11);
+	return 0;
 }
 
 void SI4735_Rx_Hard_Mute (void)	//setzt den Audio Ausgang auf stumm, L und R Audio Ausgang könnten selbständig auf stumm geschaltet sein
