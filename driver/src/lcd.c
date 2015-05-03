@@ -212,7 +212,7 @@ uint8_t lcd_generatechar(uint8_t code, const uint8_t *data)
 
 uint8_t lcd_generatebargraph()
 {
-	uint8_t chrdata1[8] = {
+	const uint8_t chrdata1[8] = {
         0x1F,	//xxxxx
         0x10,	//xoooo
         0x10,   //xoooo
@@ -223,7 +223,7 @@ uint8_t lcd_generatebargraph()
         0x00
 	};
 
-	uint8_t chrdata2[8] = {
+	const uint8_t chrdata2[8] = {
 		0x1F,	//xxxxx
 		0x18,	//xxooo
 		0x18,   //xxooo
@@ -234,7 +234,7 @@ uint8_t lcd_generatebargraph()
         0x00
 	};
 
-	uint8_t chrdata3[8] = {
+	const uint8_t chrdata3[8] = {
 		0x1F,	//xxxxx
 		0x1C,	//xxxoo
         0x1C,   //xxxoo
@@ -245,7 +245,7 @@ uint8_t lcd_generatebargraph()
         0x00
 	};
 
-	uint8_t chrdata4[8] = {
+	const uint8_t chrdata4[8] = {
 		0x1F,	//xxxxx
 		0x1E,	//xxxxo
         0x1E,   //xxxxo
@@ -256,7 +256,7 @@ uint8_t lcd_generatebargraph()
         0x00
 	};
 
-	uint8_t chrdata5[8] = {
+	const uint8_t chrdata5[8] = {
 		0x1F,	//xxxxx
 		0x1F,	//xxxxx
 		0x1F,   //xxxxx
@@ -267,7 +267,7 @@ uint8_t lcd_generatebargraph()
         0x00
 	};
 
-	uint8_t chrdata0[8] = {
+	const uint8_t chrdata0[8] = {
 		0x1F,	//xxxxx
 		0x00,	//ooooo
 		0x00,   //ooooo
@@ -278,7 +278,7 @@ uint8_t lcd_generatebargraph()
         0x00
 	};
 
-	uint8_t chrdata6[8] = {
+	const uint8_t chrdata6[8] = {
 		0x0E,	//oxxxo
 		0x15,	//xoxox
 		0x15,   //xoxox
@@ -289,7 +289,7 @@ uint8_t lcd_generatebargraph()
         0x00
 	};
 
-	uint8_t chrdata7[8] = {
+	const uint8_t chrdata7[8] = {
 		0x03,	//oooxx
 		0x05,	//ooxox
 		0x19,   //xxoox
