@@ -7,6 +7,12 @@
 
 #include <radio/radio.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of globals, structs and functions
+//
+//----------------------------------------------------------------------------------------
+
 RADIO radio;
 
 void rds_update(RADIO *radio);
@@ -19,6 +25,27 @@ const PCA9530 pca9530_config = {
 	PWM0_RATE,
 	PWM1_RATE
 };
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Initiales the radio
+//
+///	(1)Clock Init\n
+///	(2)Timer Init\n
+///	(3)Load stored radio settings\n
+///	(4)Init PCA9530\n
+///	(5)LCD Display Init\n
+///	(6)Write start text\n
+///	(7)TPA Init\n
+///	(8)Si4735 Init\n
+///	(9)Init both encoders
+/// \param
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_init()
 {
@@ -57,6 +84,19 @@ uint8_t radio_init()
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Store the current settings
+//
+/// \param	<freq>		[in]	Indicator to save the frequency
+/// \param	<volume>	[in]	Indicator to save the volume
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_store_settings(uint8_t freq, uint8_t volume)
 {
 	uint16_t tmp_frequency = 0;
@@ -84,6 +124,18 @@ uint8_t radio_store_settings(uint8_t freq, uint8_t volume)
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Load stored settings
+//
+/// \param
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_load_settings()
 {
 	flash_read(&radio.settings, sizeof(radio.settings), RADIO_SETTINGS_STORE_ADR);
@@ -102,6 +154,18 @@ uint8_t radio_brightness(uint8_t brightness)
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Set the volume
+//
+/// \param	<volume>	[in]	Volume to be set
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_volume(int8_t volume)
 {
 	uint8_t tmp_volume;
@@ -117,6 +181,25 @@ uint8_t radio_volume(int8_t volume)
 	_delay_ms(10);
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Radio main
+//
+///	Entry to the sub menus, set the frequency and actualize the display according to the
+///	data to be displayed
+//
+/// \param	<encoder_left_button>	[in]	State of the left button
+/// \param	<encoder_left_count>	[in]	Count of the left encoder
+/// \param	<encoder_right_button>	[in]	State of the right button
+/// \param	<encoder_right_count>	[in]	Count of the right encoder
+/// \param	<entry_num>				[in]	Number of the entry
+//
+/// \retval
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
 {
@@ -198,6 +281,18 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Set Auto brightness
+//
+/// \param
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_auto_brightness()
 {
 	static uint32_t brightness_value = 0;
@@ -217,6 +312,18 @@ uint8_t radio_auto_brightness()
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Tune the frequency
+//
+/// \param	<freq>	[in]	Frequency to be tuned
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_tune_freq(uint16_t freq)
 {
 	ext_interrupt_enable(SI_INT_INT);
@@ -224,6 +331,18 @@ uint8_t radio_tune_freq(uint16_t freq)
 	ext_interrupt_disable(SI_INT_INT);
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Seeking all radio channels
+//
+/// \param	<up_down>	[in]	Indicator if to seek up or down
+//
+/// \retval uint16_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint16_t radio_seeking(uint8_t up_down)
 {
@@ -237,6 +356,20 @@ uint16_t radio_seeking(uint8_t up_down)
 
 	return (resp[2] << 8) + resp[3];
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Store one radio station
+//
+/// \param	<freq>	[in]	Frequency of the radion station
+/// \param	<name>	[in]	Name of the radio station
+/// \param	<pos>	[in]	Position in the store list
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos)
 {
@@ -255,6 +388,19 @@ uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos)
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Set one radio station to the current
+//
+/// \param	<name>	[in]	Name of the radio station
+/// \param	<name>	[in]	Position of the radio station in the list
+//
+/// \retval uint16_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint16_t radio_read_station(int8_t *name, uint8_t pos)
 {
 	uint8_t t_freq[2];
@@ -262,6 +408,18 @@ uint16_t radio_read_station(int8_t *name, uint8_t pos)
 	flash_read(t_freq, 2, 128 + pos * 2);
 	return t_freq[0] + (t_freq[1] << 8);
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Auto Search for radio stations
+//
+/// \param
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_auto_search()
 {
@@ -324,6 +482,22 @@ uint8_t radio_auto_search()
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Factory reset
+//
+///	(1)Set the Radio object
+///	(2)Store the radio settings
+/// (3)Store it to flash
+//
+/// \param
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_factory_state()
 {
 	uint8_t i = 0;
@@ -350,6 +524,33 @@ uint8_t radio_factory_state()
 
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Turn radio to standby
+//
+/// (1)Turn off amplifier\n
+/// (2)Turn off si4735\n
+/// (3)store actuall freqency\n
+/// (4)store actuall volume\n
+/// (5)Turn off display\n
+/// (6)enable interrupt for left button\n
+/// (7)reconfig one timer with ACLK to cause an interrupt all minute\n
+/// (8)go to lpm mode where ACLK is active\n
+/// (9)wait until button is pressed\n
+/// (10)reconfig timer to old state\n
+/// (11)enable amplifier with stored values\n
+/// (12)enable si4735 with stored values\n
+/// (13)turn on display needed to be init\n
+/// (14)go back to normal operations
+//
+/// \param
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_stand_by()
 {

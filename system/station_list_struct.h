@@ -5,6 +5,13 @@
  *      Author: Richard
  */
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief In here the station_list struct is declared. There are 14 places for
+///	stations to be stored.
+//
+//----------------------------------------------------------------------------------------
+
 #ifndef SYSTEM_STATION_LIST_STRUCT_H_
 #define SYSTEM_STATION_LIST_STRUCT_H_
 

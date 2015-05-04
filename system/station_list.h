@@ -5,6 +5,13 @@
  *      Author: Richard
  */
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief In here there are functions declared to display the avaiable station
+///	lists and also to add/remove stations to this list.
+//
+//----------------------------------------------------------------------------------------
+
 #ifndef SYSTEM_STATION_LIST_H_
 #define SYSTEM_STATION_LIST_H_
 

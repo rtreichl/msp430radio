@@ -5,6 +5,13 @@
  *      Author: Richard
  */
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief In here the struct for the time is defined. There are also additional
+///	functions which help formatting the struct into an array and one to set a time.
+//
+//----------------------------------------------------------------------------------------
+
 #ifndef SYSTEM_TIME_H_
 #define SYSTEM_TIME_H_
 

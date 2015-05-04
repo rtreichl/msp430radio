@@ -31,6 +31,12 @@
 //#include <system/rds.h>
 #include <system/time.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of some important values
+//
+//----------------------------------------------------------------------------------------
+
 #define RADIO_RDS_VIEW 0
 #define RADIO_RSQ_VIEW 1
 #define RADIO_PIPTY_VIEW 2
@@ -45,6 +51,13 @@
 #define AUDIO_NORMAL	0
 #define AUDIO_MUTE		1
 #define AUDIO_VOLUME	2
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of some structs for the radio, the status, rsq, rds, the
+///	settings
+//
+//----------------------------------------------------------------------------------------
 
 typedef struct radio_status {
 	uint8_t station_valid:1;
@@ -95,6 +108,23 @@ typedef struct radio {
 } RADIO;
 
 extern RADIO radio;
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of functions for:\n
+///	-Set the volume\n
+///	-Set the settings\n
+///	-Seeking frequency\n
+///	-Radio main\n
+///	-Init the radio\n
+///	-Tune the frequency\n
+///	-Store a station in flash\n
+///	-Auto search\n
+///	-Store the settings in flash\n
+///	-Load the settings from flash\n
+///	-Factory reset\n
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_volume(int8_t volume);
 uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);

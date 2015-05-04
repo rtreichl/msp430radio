@@ -7,6 +7,21 @@
 
 #include <system/rsq.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief	Update the Radio Signal Quality
+//
+/// When updating rsq following steps are required:\n
+///	(1)Get the current rsq status\n
+///	(2)Update rsq
+//
+/// \param	<radio>		[out]	Current radio rsq state
+//
+/// \retval
+//
+/// \remarks
+//
+//---------------------------------------------------------------------------------------
 
 uint8_t rsq_update(RADIO *radio)
 {

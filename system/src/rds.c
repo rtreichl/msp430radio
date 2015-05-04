@@ -7,6 +7,21 @@
 
 #include <system/rds.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Updates the current RDS data\n
+///
+///	(1)Check if new rds data has arrived\n
+///	(2)Update the rds data in RADIO object
+//
+/// \param	<radio>	[out]	Radio status with RDS data
+//
+/// \retval void
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslesen
 {
 	//Radio States => [New Freq Bit, Station_Present Bit, Radio_Text_Update Bit, 0 Bit, TP Bit, PTY 5 Bits, TA Bit, M/S Bit, DI 4 Bits] LSB
@@ -25,6 +40,8 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 		radio->status.text_valid = 0;
 		radio->status.freq_valid = VALID;
 	}
+
+	//TODO: replace 0x04 with macro
 	if(rds_triggered() & 0x04)
 	{
 		do
@@ -36,12 +53,15 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 				rds_read_byte[i] = rds_read_byte[i+1];
 				rds_read_byte[i+1] = temp;
 			}
+			//TODO: replace numbers
 			if(rds->err.BLEA != 3 && rds->err.BLEB != 3 && rds->err.BLEC != 3 && rds->err.BLED != 3)
 			{
+				//TODO:replace number
 				if (rds->block_b.GROUP_NUM == 2)
 				{
 					GROUP_2A *rds2 = (GROUP_2A*) &(rds->pi);
 					pos =rds2->B*4;
+					//TODO:replace number
 					if(++rds_text_count == 16)
 					{
 						rds_text_count = 0;
@@ -53,10 +73,12 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 					radio->rds.text[pos] = rds2->SEGMENT[2];
 					radio->rds.text[64] = '\0';
 				}
+				//TODO:replace number
 				if (rds->block_b.GROUP_NUM == 4)
 				{
 					rds_group_4A(rds);
 				}
+				//TODO:replace number
 				if (rds->block_b.GROUP_NUM == 0)
 				{
 
@@ -74,6 +96,7 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 					radio->rds.name[pos++] = rds2->PS_NAME[1];
 					radio->rds.name[pos] = rds2->PS_NAME[0];
 					radio->rds.name[8] = '\0';
+					//TODO:replace number
 					if(++rds_station_count == 4)
 					{
 						rds_station_count = 0;
@@ -86,6 +109,7 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 			radio->rds.tp = rds->block_b.TP;
 			_delay_ten_us(5);
 			tmp = rds->fifo.RDSFIFOUSED;
+			//TODO:replace numbers
 			if(tmp < 10 && doit == 0)
 			{
 				break;
@@ -100,6 +124,18 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 	//*Radio_States |= (rds_read_byte[5 + RDS_BYTES_OFFSET] & 0x07)<<9 | (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xE0)<<1; //TP Bit PTY 5 Bits
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Triggers RDS
+//
+/// \param	void
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t rds_triggered()
 {
 	uint8_t rds = 0;
@@ -107,6 +143,18 @@ uint8_t rds_triggered()
 	i2c_read(I2C_SI4735, STOP, 1, &rds);
 	return rds;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Gets the time and date out of RDS stream
+//
+/// \param	<data>	[in]	RDS data to be converted
+//
+/// \retval	void
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 void rds_group_4A(RDS *data)
 {

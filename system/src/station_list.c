@@ -9,6 +9,27 @@
 
 STATION_LIST *actuall_station = &station_1;
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Handler to select the current station
+//
+/// Following steps are done to get the current selected station:\n
+///	(1)Update the current station according to the encoder count\n
+///	(2)If the button was pressed for a short time-> actualize current station\n
+///	(3)Update the display\n
+//
+/// \param	<encoder_left_button>		[in]	state of the left encoder button
+/// \param	<encoder_left_count>		[in]	value of the left encoder
+/// \param	<encoder_right_button>		[in]	state of the right encoder button
+/// \param	<encoder_right_count>		[in]	value of the right encoder
+/// \param	<entry_num>					[in]	the entry in the menu
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
 {
 	if (*encoder_right_count != 0) {
@@ -51,6 +72,22 @@ uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_
 	station_list_display(entry_num);
 	return 0;
 }
+
+//TODO: rework required
+//----------------------------------------------------------------------------------------
+//
+/// \brief	Displays the station list
+//
+/// When updating the station_list on the display it depends on the current \n
+///	station or action the user wants to do.
+//
+/// \param	<action>	[in]	Action to be done
+//
+/// \retval	uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t station_list_display(uint8_t action)
 {

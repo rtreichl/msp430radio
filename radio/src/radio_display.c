@@ -7,6 +7,18 @@
 
 #include <radio/radio_display.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Updates the speaker symbol according to the current audio state
+//
+/// \param	void
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_display_speaker()
 {
 	char tmp_string[9];
@@ -28,6 +40,18 @@ uint8_t radio_display_speaker()
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Displays the RDS data
+//
+/// \param	void
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_display_rds()
 {
 	char tmp_string[9];
@@ -43,6 +67,18 @@ uint8_t radio_display_rds()
 	return 0;
 }
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Display the PTY/PI states
+//
+/// \param void
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
 uint8_t radio_display_pipty()
 {
 	char tmp_string[9];
@@ -52,6 +88,18 @@ uint8_t radio_display_pipty()
 	lcd_create_view(pty_text[radio.rds.pty], 0, 2, 0, 0);
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Display the RSQ
+//
+/// \param void
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_display_rsq()
 {
@@ -70,6 +118,21 @@ uint8_t radio_display_rsq()
 	lcd_create_view("kHz", 13, 2, 0, 0);
 	return 0;
 }
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Handler for the display
+//
+/// Updates the display according to the selected state in the settings menu\n
+//
+/// \param	<blend_scroll>	[in]	Identifies if to blend scrolling
+/// \param	<value>			[in]	the value to be scrolled
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
 
 uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 {

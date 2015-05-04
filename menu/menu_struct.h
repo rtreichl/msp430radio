@@ -3,6 +3,12 @@
 
 #include <menu/menu.h>
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief Definition of some important values
+//
+//----------------------------------------------------------------------------------------
+
 typedef uint8_t (*MENU_FUNC_PTR)(uint8_t *, int8_t *, uint8_t *, int8_t *, uint8_t);
 
 typedef const struct menu_entry {

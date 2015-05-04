@@ -5,6 +5,12 @@
  *      Author: Richard
  */
 
+//----------------------------------------------------------------------------------------
+//
+/// \brief In here the function to update Radio Signal Quality
+//
+//----------------------------------------------------------------------------------------
+
 #ifndef SYSTEM_SRC_RSQ_H_
 #define SYSTEM_SRC_RSQ_H_
 

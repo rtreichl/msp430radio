@@ -5,7 +5,11 @@
 #ifndef RADIO_PIN_MAPPING_H_
 #define RADIO_PIN_MAPPING_H_
 
-/* defines for MSP_RXD on PORT: 1. PIN: 1. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for MSP_RXD on PORT: 1. PIN: 1.
+//
+//----------------------------------------------------------------------------------------
 #define MSP_RXD_PIN				BIT1
 #define MSP_RXD_IN				P1IN
 #define MSP_RXD_OUT				P1OUT
@@ -18,7 +22,11 @@
 #define MSP_RXD_SEL2			P1SEL2
 #define MSP_RXD_REN				P1REN
 
-/* defines for MSP_TXD on PORT: 1. PIN: 2. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for MSP_TXD on PORT: 1. PIN: 2.
+//
+//----------------------------------------------------------------------------------------
 #define MSP_TXD_PIN				BIT2
 #define MSP_TXD_IN				P1IN
 #define MSP_TXD_OUT				P1OUT
@@ -31,7 +39,11 @@
 #define MSP_TXD_SEL2			P1SEL2
 #define MSP_TXD_REN				P1REN
 
-/* defines for EN1_A on PORT: 1. PIN: 3. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for EN1_A on PORT: 1. PIN: 3.
+//
+//----------------------------------------------------------------------------------------
 #define EN1_A_PIN				BIT3
 #define EN1_A_IN				P1IN
 #define EN1_A_OUT				P1OUT
@@ -44,7 +56,11 @@
 #define EN1_A_SEL2				P1SEL2
 #define EN1_A_REN				P1REN
 
-/* defines for EN1_B on PORT: 1. PIN: 4. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for EN1_B on PORT: 1. PIN: 4.
+//
+//----------------------------------------------------------------------------------------
 #define EN1_B_PIN				BIT4
 #define EN1_B_IN				P1IN
 #define EN1_B_OUT				P1OUT
@@ -57,7 +73,11 @@
 #define EN1_B_SEL2				P1SEL2
 #define EN1_B_REN				P1REN
 
-/* defines for EN1_TAST on PORT: 1. PIN: 5. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for EN1_TAST on PORT: 1. PIN: 5.
+//
+//----------------------------------------------------------------------------------------
 #define EN1_TAST_PIN			BIT5
 #define EN1_TAST_IN				P1IN
 #define EN1_TAST_OUT			P1OUT
@@ -70,7 +90,11 @@
 #define EN1_TAST_SEL2			P1SEL2
 #define EN1_TAST_REN			P1REN
 
-/* defines for SI_RST on PORT: 3. PIN: 1. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for SI_RST on PORT: 3. PIN: 1.
+//
+//----------------------------------------------------------------------------------------
 #define SI_RST_PIN				BIT1
 #define SI_RST_IN				P3IN
 #define SI_RST_OUT				P3OUT
@@ -79,7 +103,11 @@
 #define SI_RST_SEL2				P3SEL2
 #define SI_RST_REN				P3REN
 
-/* defines for SI_INT on PORT: 2. PIN: 3. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for SI_INT on PORT: 2. PIN: 3.
+//
+//----------------------------------------------------------------------------------------
 #define SI_INT_PIN				BIT3
 #define SI_INT_IN				P2IN
 #define SI_INT_OUT				P2OUT
@@ -92,7 +120,11 @@
 #define SI_INT_SEL2				P2SEL2
 #define SI_INT_REN				P2REN
 
-/* defines for SI_EN on PORT: 3. PIN: 0. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for SI_EN on PORT: 3. PIN: 0.
+//
+//----------------------------------------------------------------------------------------
 #define SI_EN_PIN				BIT0
 #define SI_EN_IN				P3IN
 #define SI_EN_OUT				P3OUT
@@ -101,7 +133,11 @@
 #define SI_EN_SEL2				P3SEL2
 #define SI_EN_REN				P3REN
 
-/* defines for EN2_A on PORT: 2. PIN: 0. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for EN2_A on PORT: 2. PIN: 0.
+//
+//----------------------------------------------------------------------------------------
 #define EN2_A_PIN				BIT0
 #define EN2_A_IN				P2IN
 #define EN2_A_OUT				P2OUT
@@ -114,7 +150,11 @@
 #define EN2_A_SEL2				P2SEL2
 #define EN2_A_REN				P2REN
 
-/* defines for EN2_B on PORT: 2. PIN: 1. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for EN2_B on PORT: 2. PIN: 1.
+//
+//----------------------------------------------------------------------------------------
 #define EN2_B_PIN				BIT1
 #define EN2_B_IN				P2IN
 #define EN2_B_OUT				P2OUT
@@ -127,7 +167,11 @@
 #define EN2_B_SEL2				P2SEL2
 #define EN2_B_REN				P2REN
 
-/* defines for EN2_TAST on PORT: 2. PIN: 2. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for EN2_TAST on PORT: 2. PIN: 2.
+//
+//----------------------------------------------------------------------------------------
 #define EN2_TAST_PIN			BIT2
 #define EN2_TAST_IN				P2IN
 #define EN2_TAST_OUT			P2OUT
@@ -140,7 +184,11 @@
 #define EN2_TAST_SEL2			P2SEL2
 #define EN2_TAST_REN			P2REN
 
-/* defines for AUDIO_SW_GND on PORT: 3. PIN: 2. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for AUDIO_SW_GND on PORT: 3. PIN: 2.
+//
+//----------------------------------------------------------------------------------------
 #define AUDIO_SW_GND_PIN		BIT2
 #define AUDIO_SW_GND_IN			P3IN
 #define AUDIO_SW_GND_OUT		P3OUT
@@ -149,7 +197,11 @@
 #define AUDIO_SW_GND_SEL2		P3SEL2
 #define AUDIO_SW_GND_REN		P3REN
 
-/* defines for AUDIO_SW_LINE on PORT: 3. PIN: 3. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for AUDIO_SW_LINE on PORT: 3. PIN: 3.
+//
+//----------------------------------------------------------------------------------------
 #define AUDIO_SW_LINE_PIN		BIT3
 #define AUDIO_SW_LINE_IN		P3IN
 #define AUDIO_SW_LINE_OUT		P3OUT
@@ -158,7 +210,11 @@
 #define AUDIO_SW_LINE_SEL2		P3SEL2
 #define AUDIO_SW_LINE_REN		P3REN
 
-/* defines for PCA_ON_OFF on PORT: 2. PIN: 4. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for PCA_ON_OFF on PORT: 2. PIN: 4.
+//
+//----------------------------------------------------------------------------------------
 #define PCA_ON_OFF_PIN			BIT4
 #define PCA_ON_OFF_IN			P2IN
 #define PCA_ON_OFF_OUT			P2OUT
@@ -171,7 +227,11 @@
 #define PCA_ON_OFF_SEL2			P2SEL2
 #define PCA_ON_OFF_REN			P2REN
 
-/* defines for PCA_INT on PORT: 2. PIN: 5. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for PCA_INT on PORT: 2. PIN: 5.
+//
+//----------------------------------------------------------------------------------------
 #define PCA_INT_PIN				BIT5
 #define PCA_INT_IN				P2IN
 #define PCA_INT_OUT				P2OUT
@@ -184,7 +244,11 @@
 #define PCA_INT_SEL2			P2SEL2
 #define PCA_INT_REN				P2REN
 
-/* defines for ANT_MF on PORT: 3. PIN: 5. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for ANT_MF on PORT: 3. PIN: 5.
+//
+//----------------------------------------------------------------------------------------
 #define ANT_MF_PIN				BIT5
 #define ANT_MF_IN				P3IN
 #define ANT_MF_OUT				P3OUT
@@ -193,7 +257,11 @@
 #define ANT_MF_SEL2				P3SEL2
 #define ANT_MF_REN				P3REN
 
-/* defines for ANT_LF on PORT: 3. PIN: 6. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for ANT_LF on PORT: 3. PIN: 6.
+//
+//----------------------------------------------------------------------------------------
 #define ANT_LF_PIN				BIT6
 #define ANT_LF_IN				P3IN
 #define ANT_LF_OUT				P3OUT
@@ -202,7 +270,11 @@
 #define ANT_LF_SEL2				P3SEL2
 #define ANT_LF_REN				P3REN
 
-/* defines for AMP_SHUTDOWN on PORT: 3. PIN: 7. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for AMP_SHUTDOWN on PORT: 3. PIN: 7.
+//
+//----------------------------------------------------------------------------------------
 #define AMP_SHUTDOWN_PIN		BIT7
 #define AMP_SHUTDOWN_IN			P3IN
 #define AMP_SHUTDOWN_OUT		P3OUT
@@ -211,7 +283,11 @@
 #define AMP_SHUTDOWN_SEL2		P3SEL2
 #define AMP_SHUTDOWN_REN		P3REN
 
-/* defines for SCL on PORT: 1. PIN: 6. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for SCL on PORT: 1. PIN: 6.
+//
+//----------------------------------------------------------------------------------------
 #define SCL_PIN					BIT6
 #define SCL_IN					P1IN
 #define SCL_OUT					P1OUT
@@ -224,7 +300,11 @@
 #define SCL_SEL2				P1SEL2
 #define SCL_REN					P1REN
 
-/* defines for SDA on PORT: 1. PIN: 7. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for SDA on PORT: 1. PIN: 7.
+//
+//----------------------------------------------------------------------------------------
 #define SDA_PIN					BIT7
 #define SDA_IN					P1IN
 #define SDA_OUT					P1OUT
@@ -237,7 +317,11 @@
 #define SDA_SEL2				P1SEL2
 #define SDA_REN					P1REN
 
-/* defines for PWM_RST on PORT: 1. PIN: 0. */ 
+//----------------------------------------------------------------------------------------
+//
+/// \brief defines for PWM_RST on PORT: 1. PIN: 0.
+//
+//----------------------------------------------------------------------------------------
 #define PWM_RST_PIN				BIT0
 #define PWM_RST_IN				P1IN
 #define PWM_RST_OUT				P1OUT
