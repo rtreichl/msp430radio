@@ -18,7 +18,6 @@ var si4735_8h =
     [ "si4735_fm_tune_status", "si4735_8h.html#ad8b515f4991303f8cac978410d736a03", null ],
     [ "SI4735_INIT", "si4735_8h.html#a876518b974a7128391e2ff86a597218f", null ],
     [ "si4735_interrupt", "si4735_8h.html#a08ce8e479825a0951c15968d2b14a222", null ],
-    [ "SI4735_Power_Down", "si4735_8h.html#a308e802775b7187851410e50252a93e5", null ],
     [ "SI4735_Power_Up", "si4735_8h.html#aa1ede02a9aa025a1216b0f7d508175fe", null ],
     [ "SI4735_Refclk_Freq", "si4735_8h.html#aec89de27a2536bd5d85ba7ca13f31c50", null ],
     [ "SI4735_Rx_Hard_Mute", "si4735_8h.html#ae5b4759577014db43ed84a83b991fa90", null ],
@@ -27,5 +26,6 @@ var si4735_8h =
     [ "SI4735_seek_Up", "si4735_8h.html#ac15008a5d456195e4968721167d53943", null ],
     [ "si4735_set_property", "si4735_8h.html#aadc29a91f13cd5ebe239b23c7e5370dc", null ],
     [ "SI4735_Set_Volume", "si4735_8h.html#abedfc1815f4c6478da6adeac7d2d4f78", null ],
+    [ "si4735_shutdown", "si4735_8h.html#a7a8b4f9539a7fe4e1101a84c80d1c3f0", null ],
     [ "SI4735_Start_Volume", "si4735_8h.html#a2875c8af0aaea27381a639ba2c1da1d8", null ]
 ];

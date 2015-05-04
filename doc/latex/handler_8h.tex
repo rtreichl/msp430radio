@@ -1,18 +1,141 @@
 \hypertarget{handler_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/system/handler.h-\/\+Dateireferenz}
 \label{handler_8h}\index{D\+:/\+G\+I\+T/fhradiov2/system/handler.\+h@{D\+:/\+G\+I\+T/fhradiov2/system/handler.\+h}}
+{\ttfamily \#include $<$msp430.\+h$>$}\\*
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
-{\ttfamily \#include $<$driver/timer.\+h$>$}\\*
-Include-\/\+Abhängigkeitsdiagramm für handler.\+h\+:\nopagebreak
+{\ttfamily \#include $<$menu/menu.\+h$>$}\\*
+{\ttfamily \#include $<$system/rsq.\+h$>$}\\*
+{\ttfamily \#include $<$system/rds.\+h$>$}\\*
+{\ttfamily \#include $<$radio/radio.\+h$>$}\\*
+{\ttfamily \#include $<$settings/radio\+\_\+configuration.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für handler.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{handler_8h__incl}
 \end{center}
 \end{figure}
-Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=200pt]{handler_8h__dep__incl}
+\includegraphics[width=336pt]{handler_8h__dep__incl}
 \end{center}
 \end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{handler_8h_a4f639cde11f5cab70d795fd2f75c9d22}{handler} (void)
+\begin{DoxyCompactList}\small\item\em In here the handler function is declared. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{handler_8h_a4f639cde11f5cab70d795fd2f75c9d22}{}\index{handler.\+h@{handler.\+h}!handler@{handler}}
+\index{handler@{handler}!handler.\+h@{handler.\+h}}
+\subsubsection[{handler}]{\setlength{\rightskip}{0pt plus 5cm}void handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{handler_8h_a4f639cde11f5cab70d795fd2f75c9d22}
+
+
+In here the handler function is declared. 
+
+In here the handler function is declared.
+
+Steps in the while loop include\+:~\newline
+(1)Calculate the new encoder values~\newline
+(2)Update display~\newline
+(3)Actualize menu~\newline
+(4)Actualize encoders~\newline
+(5)Update time~\newline
+(6)Update rsq~\newline
+(7)Update R\+D\+S 
+\begin{DoxyParams}{Parameter}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 43 der Datei handler.\+c.
+
+
+\begin{DoxyCode}
+44 \{
+45     uint8\_t *encoder\_left\_button, *encoder\_right\_button;
+46     int8\_t encoder\_left\_count = 0, encoder\_right\_count = 0;
+47     \textcolor{keywordflow}{while}(1) \{
+48         \hyperlink{encoder_8h_a047b769ea639f5e1d064fcec8b784b15}{encoder\_1\_update}(&encoder\_left\_count, &encoder\_left\_button);
+49         \hyperlink{encoder_8h_a3b8fdf5cc845c8e3ae93d7354f7f0065}{encoder\_2\_update}(&encoder\_right\_count, &encoder\_right\_button);
+50         \textcolor{keywordflow}{if}(*encoder\_left\_button != \hyperlink{radio__configuration_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE} || encoder\_left\_count != 0 || *
+      encoder\_right\_button != \hyperlink{radio__configuration_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE} || encoder\_right\_count != 0 || \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[
+      \hyperlink{radio__configuration_8h_ac7791132f16c2fd4f06075af80fa0027}{RADIO\_TIMER\_DISPLAY}] >= \hyperlink{radio__configuration_8h_a7564e6b7239f3d75dac1e265fdd5db4c}{RADIO\_COUNT\_DISPLAY}) \{
+51             \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_ac7791132f16c2fd4f06075af80fa0027}{RADIO\_TIMER\_DISPLAY}] >= 
+      \hyperlink{radio__configuration_8h_a7564e6b7239f3d75dac1e265fdd5db4c}{RADIO\_COUNT\_DISPLAY}) \{
+52                 \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text}++;
+53                 \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} == 78) \{
+54                     \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} = 0;
+55                 \}
+56             \}
+57             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_ac7791132f16c2fd4f06075af80fa0027}{RADIO\_TIMER\_DISPLAY}] = 0;
+58             \hyperlink{menu_8h_aaf2a075d3159f7eeab42012941a3437f}{menu\_handler}(encoder\_left\_button, &encoder\_left\_count, encoder\_right\_button, &
+      encoder\_right\_count);
+59         \}
+60         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a41e15769884e79cbae1ba49cdcfdf9de}{RADIO\_TIMER\_ENCODER}] >= 
+      \hyperlink{radio__configuration_8h_a723f0c8374f11c81275191abf452df51}{RADIO\_COUNT\_ENCODER}) \{
+61             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a41e15769884e79cbae1ba49cdcfdf9de}{RADIO\_TIMER\_ENCODER}] -= 
+      \hyperlink{radio__configuration_8h_a723f0c8374f11c81275191abf452df51}{RADIO\_COUNT\_ENCODER};
+62             \hyperlink{encoder_8h_a136248fd00f8429933544a54b030aef9}{encoder\_interrupt2}();
+63         \}
+64         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a41a151cf540cba07952f2d6f29f41135}{RADIO\_TIMER\_MINUTE}] >= 
+      \hyperlink{radio__configuration_8h_a2b71002eb2b9ab8d1624987a4e6929e4}{RADIO\_COUNT\_MINUTE}) \{
+65             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a41a151cf540cba07952f2d6f29f41135}{RADIO\_TIMER\_MINUTE}] -= 
+      \hyperlink{radio__configuration_8h_a2b71002eb2b9ab8d1624987a4e6929e4}{RADIO\_COUNT\_MINUTE};
+66             \hyperlink{time_8c_acbfa3c65c807be82221cbebc7ac63224}{time\_update}();
+67         \}
+68         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a832d39ba5eab82807931d0e63642fe01}{RADIO\_TIMER\_RSQ}] >= 
+      \hyperlink{radio__configuration_8h_adcd399779d6841aa5267387782352668}{RADIO\_COUNT\_RSQ}) \{
+69             \hyperlink{rsq_8h_adc26e0d94e8ebd7ba62fa4f628a15f6d}{rsq\_update}(&\hyperlink{structradio}{radio});
+70             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a832d39ba5eab82807931d0e63642fe01}{RADIO\_TIMER\_RSQ}] -= 
+      \hyperlink{radio__configuration_8h_adcd399779d6841aa5267387782352668}{RADIO\_COUNT\_RSQ};
+71         \}
+72         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a1037d8b522e1cc255c1a70046a0bab2e}{RADIO\_TIMER\_RDS}] >= 
+      \hyperlink{radio__configuration_8h_af3a46bbfb48f6baf6751d84a91ce9e0c}{RADIO\_COUNT\_RDS}) \{ \textcolor{comment}{//TODO Rework to interrupt base system}
+73             \hyperlink{radio_8c_a1c031719ba892045c773dc035058870f}{rds\_update}(&\hyperlink{structradio}{radio});
+74             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[\hyperlink{radio__configuration_8h_a1037d8b522e1cc255c1a70046a0bab2e}{RADIO\_TIMER\_RDS}] -= 
+      \hyperlink{radio__configuration_8h_af3a46bbfb48f6baf6751d84a91ce9e0c}{RADIO\_COUNT\_RDS};
+75         \}
+76     \}
+77 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{handler_8h_a4f639cde11f5cab70d795fd2f75c9d22_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{handler_8h_a4f639cde11f5cab70d795fd2f75c9d22_icgraph}
+\end{center}
+\end{figure}
+
+

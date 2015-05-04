@@ -1,4 +1,5 @@
 <map id="menu_display" name="menu_display">
-<area shape="rect" id="node2" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="156,5,259,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="307,5,357,32"/>
+<area shape="rect" id="node2" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="Handler of the menu, entry to the sub menus and the parent lvl of the menus. " alt="" coords="156,5,259,32"/>
+<area shape="rect" id="node3" href="$handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22" title="Handler for menu, RDS, time, the encoders and rsq. " alt="" coords="307,5,371,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="419,5,469,32"/>
 </map>

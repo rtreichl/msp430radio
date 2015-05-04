@@ -1,0 +1,6 @@
+<map id="radio_settings_view" name="radio_settings_view">
+<area shape="rect" id="node2" href="$radio_8h.html#a477656bb91c200d15ddbe6cffcd04c53" title="Store the current settings. " alt="" coords="188,31,327,57"/>
+<area shape="rect" id="node3" href="$flash_8h.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="377,5,458,32"/>
+<area shape="rect" id="node4" href="$flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="375,56,460,83"/>
+<area shape="rect" id="node5" href="$flash_8c.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="508,56,589,83"/>
+</map>

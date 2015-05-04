@@ -1,5 +1,8 @@
 <map id="D:/GIT/fhradiov2/driver/src/encoder.c" name="D:/GIT/fhradiov2/driver/src/encoder.c">
-<area shape="rect" id="node2" href="$encoder_8h.html" title="driver/encoder.h" alt="" coords="172,95,285,121"/>
-<area shape="rect" id="node5" href="$radio__pin__mapping_8h.html" title="settings\\radio_pin\l_mapping.h" alt="" coords="272,244,396,285"/>
-<area shape="rect" id="node6" href="$external__interrupthandler_8h.html" title="driver/external_interrupthandler.h" alt="" coords="53,169,263,196"/>
+<area shape="rect" id="node2" href="$encoder_8h.html" title="driver/encoder.h" alt="" coords="113,95,226,121"/>
+<area shape="rect" id="node5" href="$radio__pin__mapping_8h.html" title="settings\\radio_pin\l_mapping.h" alt="" coords="197,244,321,285"/>
+<area shape="rect" id="node6" href="$radio__configuration_8h.html" title="settings\\radio_configuration.h" alt="" coords="350,169,541,196"/>
+<area shape="rect" id="node9" href="$external__interrupthandler_8h.html" title="driver/external_interrupthandler.h" alt="" coords="65,169,274,196"/>
+<area shape="rect" id="node7" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="346,244,484,285"/>
+<area shape="rect" id="node8" href="$libs_2time_8h.html" title="libs/time.h" alt="" coords="508,251,591,278"/>
 </map>

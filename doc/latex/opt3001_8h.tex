@@ -2,18 +2,20 @@
 \label{opt3001_8h}\index{D\+:/\+G\+I\+T/fhradiov2/driver/opt3001.\+h@{D\+:/\+G\+I\+T/fhradiov2/driver/opt3001.\+h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 {\ttfamily \#include $<$driver/i2c.\+h$>$}\\*
-Include-\/\+Abhängigkeitsdiagramm für opt3001.\+h\+:\nopagebreak
+Include-\/\+Abhängigkeitsdiagramm für opt3001.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{opt3001_8h__incl}
 \end{center}
 \end{figure}
-Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=190pt]{opt3001_8h__dep__incl}
+\includegraphics[width=350pt]{opt3001_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Datenstrukturen}
@@ -57,6 +59,13 @@ struct \hyperlink{structopt3001__stc}{opt3001\+\_\+stc}
 \item 
 typedef struct \hyperlink{structopt3001__stc}{opt3001\+\_\+stc} \hyperlink{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}{O\+P\+T3001\+\_\+\+S\+T\+C}
 \end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{opt3001_8h_a4910f99caac4b6293a33627107cb7e82}{opt3001\+\_\+get\+\_\+value} (uint32\+\_\+t $\ast$data)
+\item 
+uint8\+\_\+t \hyperlink{opt3001_8h_adc4f87c7b66e9137a35d55e0dc405bf9}{opt3001\+\_\+init} (\hyperlink{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}{O\+P\+T3001\+\_\+\+S\+T\+C} $\ast$config)
+\end{DoxyCompactItemize}
 
 
 \subsection{Makro-\/\+Dokumentation}
@@ -69,7 +78,7 @@ typedef struct \hyperlink{structopt3001__stc}{opt3001\+\_\+stc} \hyperlink{opt30
 )~((value \& 0x0\+F\+F\+F\+F) $<$$<$ ((value \& 0x\+F000) $>$$>$ 12))}\label{opt3001_8h_a888795c8dd85321e189306fbc88b4510}
 
 
-Definiert in Zeile 35 der Datei opt3001.\+h.
+Definiert in Zeile 38 der Datei opt3001.\+h.
 
 \hypertarget{opt3001_8h_a9af39dbc20acc60812374ca8a61899c5}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N}}
 \index{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N@{O\+P\+T3001\+\_\+\+A\+D\+R\+\_\+\+P\+I\+N}!opt3001.\+h@{opt3001.\+h}}
@@ -168,3 +177,95 @@ Definiert in Zeile 15 der Datei opt3001.\+h.
 \hypertarget{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}{}\index{opt3001.\+h@{opt3001.\+h}!O\+P\+T3001\+\_\+\+S\+T\+C@{O\+P\+T3001\+\_\+\+S\+T\+C}}
 \index{O\+P\+T3001\+\_\+\+S\+T\+C@{O\+P\+T3001\+\_\+\+S\+T\+C}!opt3001.\+h@{opt3001.\+h}}
 \subsubsection[{O\+P\+T3001\+\_\+\+S\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf opt3001\+\_\+stc}  {\bf O\+P\+T3001\+\_\+\+S\+T\+C}}\label{opt3001_8h_a85ef6b0023cd0d3f58e5f229b4d568ed}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{opt3001_8h_a4910f99caac4b6293a33627107cb7e82}{}\index{opt3001.\+h@{opt3001.\+h}!opt3001\+\_\+get\+\_\+value@{opt3001\+\_\+get\+\_\+value}}
+\index{opt3001\+\_\+get\+\_\+value@{opt3001\+\_\+get\+\_\+value}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{opt3001\+\_\+get\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t opt3001\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{opt3001_8h_a4910f99caac4b6293a33627107cb7e82}
+
+
+Definiert in Zeile 19 der Datei opt3001.\+c.
+
+
+\begin{DoxyCode}
+20 \{
+21     \textcolor{keyword}{union }\{
+22         uint8\_t bytes[2];
+23         uint16\_t byte;
+24     \}value;
+25 
+26     uint8\_t resp[2];
+27 
+28     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}{OPT3001\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40}{REPT}, 1, 
+      \hyperlink{opt3001_8h_adc31d7638b454133413e5bdded688dcd}{OPT3001\_RESULT\_REG});
+29     \hyperlink{i2c_8h_a6dd896b0c82d1aa91a1a8155b41c4566}{i2c\_read}(\hyperlink{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}{OPT3001\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, resp);
+30 
+31     value.bytes[0] = resp[1];
+32     value.bytes[1] = resp[0];
+33     \textcolor{comment}{/* Get actual value over I2C and combine higher byte and lower byte */}
+34     *data = ((value.byte & 0x0FFFF) << ((value.byte & 0xF000) >> 12));
+35     \textcolor{keywordflow}{return} 0;
+36 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{opt3001_8h_a4910f99caac4b6293a33627107cb7e82_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{opt3001_8h_a4910f99caac4b6293a33627107cb7e82_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{opt3001_8h_adc4f87c7b66e9137a35d55e0dc405bf9}{}\index{opt3001.\+h@{opt3001.\+h}!opt3001\+\_\+init@{opt3001\+\_\+init}}
+\index{opt3001\+\_\+init@{opt3001\+\_\+init}!opt3001.\+h@{opt3001.\+h}}
+\subsubsection[{opt3001\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t opt3001\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+P\+T3001\+\_\+\+S\+T\+C} $\ast$}]{config}
+\end{DoxyParamCaption}
+)}\label{opt3001_8h_adc4f87c7b66e9137a35d55e0dc405bf9}
+
+
+Definiert in Zeile 10 der Datei opt3001.\+c.
+
+
+\begin{DoxyCode}
+11 \{
+12     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}{OPT3001\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 3, 
+      \hyperlink{opt3001_8h_a97a74783c7f6707babcc81aedb4cf9bc}{OPT3001\_CONFIG\_REG}, config->\hyperlink{structopt3001__stc_aa26297bc57b4b74262246d02175f4308}{config}); \textcolor{comment}{//TODO split in high and low byte}
+13     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}{OPT3001\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 3, 
+      \hyperlink{opt3001_8h_aa13506d6c56601c3cd1686bd4a9b757f}{OPT3001\_L\_LIMIT\_REG}, config->\hyperlink{structopt3001__stc_a5561e4eedc9af4ceb86ed5056241bf77}{low\_limit}); \textcolor{comment}{//TODO split in high and low byte}
+14     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{opt3001_8h_ad39c35e048af0890a99974e93c93cee9}{OPT3001\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 3, 
+      \hyperlink{opt3001_8h_aca3ce0064552360839f2890488ac2e6e}{OPT3001\_H\_LIMIT\_REG}, config->\hyperlink{structopt3001__stc_af121d4246e275920873b33ad155fa9ba}{high\_limit}); \textcolor{comment}{//TODO split in high and low byte}
+15     \textcolor{comment}{/* Some I2C writes for first configuration on OPT3001 */}
+16     \textcolor{keywordflow}{return} 0;
+17 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{opt3001_8h_adc4f87c7b66e9137a35d55e0dc405bf9_cgraph}
+\end{center}
+\end{figure}
+
+

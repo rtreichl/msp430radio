@@ -2,6 +2,7 @@ var menu__struct_8h =
 [
     [ "menu_entry", "structmenu__entry.html", "structmenu__entry" ],
     [ "MENU_ENTRY", "menu__struct_8h.html#a45853b548639707f96af60b6fda1b6fa", null ],
+    [ "MENU_FUNC_PTR", "menu__struct_8h.html#a24061d6de983538c9c60c1ec65b4cbb1", null ],
     [ "am_entry", "menu__struct_8h.html#a9c970d72d0ab063d43e8875b327e6ec0", null ],
     [ "audio_entry", "menu__struct_8h.html#a8852b1a36cb634f74a0e3279aa8d577d", null ],
     [ "audio_return_entry", "menu__struct_8h.html#ab4cbcd0a222efd574b8ea5216fd79aa9", null ],

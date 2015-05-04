@@ -42,7 +42,7 @@
 </g>
 <!-- Node11 -->
 <g id="node11" class="node"><title>Node11</title>
-<g id="a_node11"><a xlink:href="menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" target="_top" xlink:title="menu_scroll">
+<g id="a_node11"><a xlink:href="menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" target="_top" xlink:title="Scroll to given position. ">
 <polygon fill="white" stroke="black" points="159,-0.5 159,-19.5 228,-19.5 228,-0.5 159,-0.5"/>
 <text text-anchor="middle" x="193.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">menu_scroll</text>
 </a>

@@ -1,51 +1,51 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$radio_8h.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="141,360,215,387"/>
-<area shape="rect" id="node40" href="$time_8c.html#a6b341bdccd1c2c5503da84093f12e145" title="time_set_time" alt="" coords="126,461,230,488"/>
-<area shape="rect" id="node41" href="$encoder_8h.html#a17708354c0e76c0422398f8dcd50dfea" title="Encoder_2_get_count" alt="" coords="104,512,252,539"/>
-<area shape="rect" id="node42" href="$encoder_8h.html#a7a39090bb6f1d88f9371e44f4923194b" title="Encoder_1_get_count" alt="" coords="104,563,252,589"/>
-<area shape="rect" id="node43" href="$menu_8h.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="127,613,229,640"/>
-<area shape="rect" id="node46" href="$encoder_8h.html#a136248fd00f8429933544a54b030aef9" title="encoder_interrupt2" alt="" coords="113,664,243,691"/>
-<area shape="rect" id="node47" href="$time_8c.html#acbfa3c65c807be82221cbebc7ac63224" title="time_update" alt="" coords="131,715,225,741"/>
-<area shape="rect" id="node48" href="$rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d" title="rsq_update" alt="" coords="135,765,221,792"/>
-<area shape="rect" id="node50" href="$rds_8h.html#a1c031719ba892045c773dc035058870f" title="rds_update" alt="" coords="135,816,221,843"/>
-<area shape="rect" id="node3" href="$timer_8c.html#ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6" title="basic_clock_init" alt="" coords="312,157,427,184"/>
-<area shape="rect" id="node4" href="$timer_8c.html#a896a4c37c6ecf8868ef0dc758e5a598c" title="timer_init" alt="" coords="332,208,407,235"/>
-<area shape="rect" id="node5" href="$i2c_8h.html#a1ef889b72b844429bc81225d7b6f4f2e" title="Setup I2C with a defined clock based on given SMCKL. " alt="" coords="338,259,401,285"/>
-<area shape="rect" id="node6" href="$radio_8c.html#a3a59bda16d899217789edbce203bf043" title="radio_load_settings" alt="" coords="494,93,629,120"/>
-<area shape="rect" id="node8" href="$pca9530_8h.html#ae2f44601e0bbf4c0b7bbdb127def81c3" title="pca9530_init" alt="" coords="722,676,817,703"/>
-<area shape="rect" id="node13" href="$pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="496,715,627,741"/>
-<area shape="rect" id="node14" href="$radio_8c.html#afb3cb0ce160c3403d9306d936667fb64" title="radio_source_select" alt="" coords="300,5,439,32"/>
-<area shape="rect" id="node16" href="$lcd_8h.html#a312eed1baec275e185dc00b760de1356" title="lcd_init" alt="" coords="338,411,401,437"/>
-<area shape="rect" id="node24" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="505,499,618,525"/>
-<area shape="rect" id="node25" href="$tpa2016d2_8c.html#a8d3c252b2c26623c72958d1d77bc0cf9" title="tpa2016d2_init" alt="" coords="716,600,823,627"/>
-<area shape="rect" id="node27" href="$si4735_8h.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="516,1056,607,1083"/>
-<area shape="rect" id="node37" href="$radio_8c.html#aead0d199e23b8cc254924b96b017210b" title="radio_set_volume" alt="" coords="500,195,623,221"/>
-<area shape="rect" id="node38" href="$encoder_8h.html#a1b09f480da15d565de0b4acf37f40199" title="Encoder_1_init" alt="" coords="315,56,423,83"/>
-<area shape="rect" id="node39" href="$encoder_8h.html#af947b4bf6e9bc6d5b580609d046789da" title="Encoder_2_init" alt="" coords="315,107,423,133"/>
-<area shape="rect" id="node7" href="$flash_8h.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="729,56,810,83"/>
-<area shape="rect" id="node9" href="$pca9530_8c.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="927,752,1058,779"/>
-<area shape="rect" id="node11" href="$pca9530_8c.html#abc69b1cb491825b0e425539994b188bb" title="pca9530_set_freq" alt="" coords="931,651,1055,677"/>
-<area shape="rect" id="node12" href="$pca9530_8c.html#a91089f6598b9a7b7d85171c4a731f1c1" title="pca9530_config_leds" alt="" coords="921,701,1064,728"/>
-<area shape="rect" id="node10" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="1152,727,1248,753"/>
-<area shape="rect" id="node15" href="$radio_8c.html#a477656bb91c200d15ddbe6cffcd04c53" title="radio_store_settings" alt="" coords="492,17,631,44"/>
-<area shape="rect" id="node17" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="1157,296,1243,323"/>
-<area shape="rect" id="node18" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="1317,296,1424,323"/>
-<area shape="rect" id="node19" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="941,296,1044,323"/>
-<area shape="rect" id="node20" href="$lcd_8c.html#a6b9abf6cd27026b67144523ffbef4916" title="lcd_generatebargraph" alt="" coords="488,296,635,323"/>
-<area shape="rect" id="node21" href="$lcd_8c.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="505,448,618,475"/>
-<area shape="rect" id="node22" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="712,397,827,424"/>
-<area shape="rect" id="node23" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="713,499,825,525"/>
-<area shape="rect" id="node26" href="$tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd" title="tpa2016d2_equalizer_mode" alt="" coords="903,600,1083,627"/>
-<area shape="rect" id="node28" href="$external__interrupthandler_8h.html#a1685394f9610006097ec45181e59563b" title="ext_interrupt_create" alt="" coords="701,955,838,981"/>
-<area shape="rect" id="node29" href="$si4735_8c.html#a08ce8e479825a0951c15968d2b14a222" title="si4735_interrupt" alt="" coords="712,1005,827,1032"/>
-<area shape="rect" id="node30" href="$external__interrupthandler_8h.html#a345dfb9a7e177c5da6eb9dc5b3c82bc9" title="ext_interrupt_enable" alt="" coords="700,448,839,475"/>
-<area shape="rect" id="node31" href="$si4735_8c.html#aad8341b5b19aa8f962a6b9b940d77960" title="si4735_get_interrupt" alt="" coords="1131,1183,1269,1209"/>
-<area shape="rect" id="node32" href="$si4735_8c.html#aadc29a91f13cd5ebe239b23c7e5370dc" title="si4735_set_property" alt="" coords="923,1208,1062,1235"/>
-<area shape="rect" id="node33" href="$si4735_8c.html#a9ef54c7d16dee6f0878f06847caa43d1" title="si4735_configure_rds" alt="" coords="697,1259,841,1285"/>
-<area shape="rect" id="node34" href="$si4735_8c.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="922,1107,1063,1133"/>
-<area shape="rect" id="node35" href="$si4735_8c.html#af6037be0045d62ab73bf8e6c3802bd8e" title="si4735_configure_seeking" alt="" coords="684,1309,855,1336"/>
-<area shape="rect" id="node36" href="$si4735_8c.html#a339846da787fb5a496df9252ca7dc9a5" title="si4735_fm_seek_start" alt="" coords="918,1157,1067,1184"/>
-<area shape="rect" id="node44" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="316,765,423,792"/>
-<area shape="rect" id="node45" href="$menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d" title="menu_display" alt="" coords="318,512,421,539"/>
-<area shape="rect" id="node49" href="$si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41" title="si4735_fm_rsq_status" alt="" coords="487,841,636,868"/>
+<area shape="rect" id="node2" href="$radio_8h.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="104,601,179,628"/>
+<area shape="rect" id="node43" href="$handler_8h.html#a4f639cde11f5cab70d795fd2f75c9d22" title="In here the handler function is declared. " alt="" coords="109,1373,173,1400"/>
+<area shape="rect" id="node3" href="$timer_8c.html#ad3f0f0ef2fbdbbd7a7bd12e5b30e26f6" title="basic_clock_init" alt="" coords="244,5,359,32"/>
+<area shape="rect" id="node4" href="$timer_8c.html#a896a4c37c6ecf8868ef0dc758e5a598c" title="timer_init" alt="" coords="264,56,339,83"/>
+<area shape="rect" id="node5" href="$i2c_8h.html#a1ef889b72b844429bc81225d7b6f4f2e" title="Setup I2C with a defined clock based on given SMCKL. " alt="" coords="270,107,333,133"/>
+<area shape="rect" id="node6" href="$radio_8c.html#ad4d9fc5d5ddc7cfaac75911695ae92a8" title="Factory reset. " alt="" coords="235,157,367,184"/>
+<area shape="rect" id="node10" href="$radio_8c.html#a3a59bda16d899217789edbce203bf043" title="Load stored settings. " alt="" coords="430,208,565,235"/>
+<area shape="rect" id="node11" href="$pca9530_8h.html#ae2f44601e0bbf4c0b7bbdb127def81c3" title="pca9530_init" alt="" coords="630,259,725,285"/>
+<area shape="rect" id="node16" href="$radio_8c.html#a8d795d5e8b1acf8b2d97bfee82d90ca1" title="radio_brightness" alt="" coords="619,360,736,387"/>
+<area shape="rect" id="node19" href="$radio__settings_8h.html#a1b37e35c0934d8ed5ba002ab3ec7a516" title="Sets the audio source. " alt="" coords="227,259,376,285"/>
+<area shape="rect" id="node21" href="$lcd_8h.html#a312eed1baec275e185dc00b760de1356" title="lcd_init" alt="" coords="270,563,333,589"/>
+<area shape="rect" id="node29" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="441,715,554,741"/>
+<area shape="rect" id="node30" href="$tpa2016d2_8c.html#a8d3c252b2c26623c72958d1d77bc0cf9" title="tpa2016d2_init" alt="" coords="624,765,731,792"/>
+<area shape="rect" id="node33" href="$si4735_8h.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="256,943,347,969"/>
+<area shape="rect" id="node38" href="$radio_8c.html#ae11dbe9ea82d3ae65b6e80a4e6e995f8" title="Set the volume. " alt="" coords="253,1095,350,1121"/>
+<area shape="rect" id="node39" href="$radio_8c.html#aee6321b512830d482a2fc164cf11f9e9" title="Seeking all radio channels. " alt="" coords="250,993,353,1020"/>
+<area shape="rect" id="node40" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="Tune the frequency. " alt="" coords="246,1044,357,1071"/>
+<area shape="rect" id="node41" href="$encoder_8h.html#a1b09f480da15d565de0b4acf37f40199" title="Encoder_1_init" alt="" coords="247,1145,355,1172"/>
+<area shape="rect" id="node42" href="$encoder_8h.html#af947b4bf6e9bc6d5b580609d046789da" title="Encoder_2_init" alt="" coords="247,1196,355,1223"/>
+<area shape="rect" id="node7" href="$flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="635,157,720,184"/>
+<area shape="rect" id="node8" href="$radio_8c.html#a477656bb91c200d15ddbe6cffcd04c53" title="Store the current settings. " alt="" coords="428,157,567,184"/>
+<area shape="rect" id="node9" href="$flash_8h.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="637,208,718,235"/>
+<area shape="rect" id="node12" href="$pca9530_8c.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="809,157,939,184"/>
+<area shape="rect" id="node14" href="$pca9530_8c.html#abc69b1cb491825b0e425539994b188bb" title="pca9530_set_freq" alt="" coords="812,208,936,235"/>
+<area shape="rect" id="node15" href="$pca9530_8c.html#a91089f6598b9a7b7d85171c4a731f1c1" title="pca9530_config_leds" alt="" coords="803,259,945,285"/>
+<area shape="rect" id="node13" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="1012,436,1108,463"/>
+<area shape="rect" id="node17" href="$pca9530_8h.html#a91089f6598b9a7b7d85171c4a731f1c1" title="pca9530_config_leds" alt="" coords="803,309,945,336"/>
+<area shape="rect" id="node18" href="$pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="809,360,939,387"/>
+<area shape="rect" id="node20" href="$radio_8h.html#a477656bb91c200d15ddbe6cffcd04c53" title="Store the current settings. " alt="" coords="428,259,567,285"/>
+<area shape="rect" id="node22" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="1017,816,1103,843"/>
+<area shape="rect" id="node23" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="1156,816,1263,843"/>
+<area shape="rect" id="node24" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="823,563,925,589"/>
+<area shape="rect" id="node25" href="$lcd_8c.html#a6b9abf6cd27026b67144523ffbef4916" title="lcd_generatebargraph" alt="" coords="424,613,571,640"/>
+<area shape="rect" id="node26" href="$lcd_8c.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="441,664,554,691"/>
+<area shape="rect" id="node27" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="620,639,735,665"/>
+<area shape="rect" id="node28" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="621,689,733,716"/>
+<area shape="rect" id="node31" href="$tpa2016d2_8c.html#abd9d0aa3479e3dd782cdf627c1d54df1" title="tpa2016d2_shutdown" alt="" coords="802,715,946,741"/>
+<area shape="rect" id="node32" href="$tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd" title="tpa2016d2_equalizer_mode" alt="" coords="784,765,964,792"/>
+<area shape="rect" id="node34" href="$external__interrupthandler_8h.html#a1685394f9610006097ec45181e59563b" title="ext_interrupt_create" alt="" coords="429,1019,566,1045"/>
+<area shape="rect" id="node35" href="$si4735_8c.html#a08ce8e479825a0951c15968d2b14a222" title="si4735_interrupt" alt="" coords="440,1069,555,1096"/>
+<area shape="rect" id="node36" href="$external__interrupthandler_8h.html#a345dfb9a7e177c5da6eb9dc5b3c82bc9" title="ext_interrupt_enable" alt="" coords="428,1171,567,1197"/>
+<area shape="rect" id="node37" href="$si4735_8c.html#aad8341b5b19aa8f962a6b9b940d77960" title="si4735_get_interrupt" alt="" coords="428,1120,567,1147"/>
+<area shape="rect" id="node44" href="$encoder_8h.html#a047b769ea639f5e1d064fcec8b784b15" title="encoder_1_update" alt="" coords="237,1247,365,1273"/>
+<area shape="rect" id="node45" href="$encoder_8h.html#a3b8fdf5cc845c8e3ae93d7354f7f0065" title="encoder_2_update" alt="" coords="237,1297,365,1324"/>
+<area shape="rect" id="node46" href="$menu_8h.html#aaf2a075d3159f7eeab42012941a3437f" title="Definition of functions for &#45;the menu handler &#45;scrolling through the menu &#45;main program of the menu &#45;..." alt="" coords="250,1348,353,1375"/>
+<area shape="rect" id="node47" href="$encoder_8h.html#a136248fd00f8429933544a54b030aef9" title="encoder_interrupt2" alt="" coords="237,1399,366,1425"/>
+<area shape="rect" id="node48" href="$time_8c.html#acbfa3c65c807be82221cbebc7ac63224" title="Update the current time. " alt="" coords="255,1449,348,1476"/>
+<area shape="rect" id="node49" href="$rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d" title="In here the function to update Radio Signal Quality. " alt="" coords="258,1500,345,1527"/>
+<area shape="rect" id="node50" href="$radio_8c.html#a1c031719ba892045c773dc035058870f" title="Updates the current RDS data . " alt="" coords="258,1551,345,1577"/>
 </map>

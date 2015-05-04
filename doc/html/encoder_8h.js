@@ -26,11 +26,11 @@ var encoder_8h =
     [ "ENCODER_2_T", "encoder_8h.html#aa31b57ce8a73b2d9c6db28ebe93ab40b", null ],
     [ "TIME_FOR_LONG_PRESS", "encoder_8h.html#a66fa07b195f2bbfb79187fb92fe09d89", null ],
     [ "Encoder_1_decoder", "encoder_8h.html#afcb65d25ec031240b72ae3a51c1e9b4a", null ],
-    [ "Encoder_1_get_count", "encoder_8h.html#a7a39090bb6f1d88f9371e44f4923194b", null ],
     [ "Encoder_1_init", "encoder_8h.html#a1b09f480da15d565de0b4acf37f40199", null ],
+    [ "encoder_1_update", "encoder_8h.html#a047b769ea639f5e1d064fcec8b784b15", null ],
     [ "Encoder_2_decoder", "encoder_8h.html#a81332b0a52a42a7a7b134228f9bb3848", null ],
-    [ "Encoder_2_get_count", "encoder_8h.html#a17708354c0e76c0422398f8dcd50dfea", null ],
     [ "Encoder_2_init", "encoder_8h.html#af947b4bf6e9bc6d5b580609d046789da", null ],
+    [ "encoder_2_update", "encoder_8h.html#a3b8fdf5cc845c8e3ae93d7354f7f0065", null ],
     [ "encoder_interrupt", "encoder_8h.html#a271ca5c0624ed124f6398f408d1f3017", null ],
     [ "encoder_interrupt2", "encoder_8h.html#a136248fd00f8429933544a54b030aef9", null ],
     [ "Encoder_Timer_init", "encoder_8h.html#af5a0c9bea9a0da18fa1c123af8f2877c", null ]

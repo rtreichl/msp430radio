@@ -105,27 +105,12 @@ $(document).ready(function(){initNavTree('main_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Makrodefinitionen</a> &#124;
-<a href="#func-members">Funktionen</a> &#124;
-<a href="#var-members">Variablen</a>  </div>
+<a href="#func-members">Funktionen</a>  </div>
   <div class="headertitle">
 <div class="title">D:/GIT/fhradiov2/main.c-Dateireferenz</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;msp430.h&gt;</code><br />
-<code>#include &lt;intrinsics.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="i2c_8h_source.html">driver/i2c.h</a>&quot;</code><br />
-<code>#include &lt;<a class="el" href="si4735_8h_source.html">driver/si4735.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="pca9530_8h_source.html">driver/pca9530.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="tpa2016d2_8h_source.html">driver/tpa2016d2.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="lcd_8h_source.html">driver/lcd.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="encoder_8h_source.html">driver/encoder.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="timer_8h_source.html">driver/timer.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="menu_8h_source.html">menu/menu.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="rsq_8h_source.html">system/rsq.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="rds_8h_source.html">system/rds.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="radio_8h_source.html">system/radio.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="handler_8h_source.html">system/handler.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include-Abhängigkeitsdiagramm für main.c:</div>
 <div class="dyncontent">
@@ -135,27 +120,13 @@ Include-Abhängigkeitsdiagramm für main.c:</div>
 </div>
 <p><a href="main_8c_source.html">gehe zum Quellcode dieser Datei</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Makrodefinitionen</h2></td></tr>
-<tr class="memitem:a51c68c498627f53e5abb0a3415148b78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a51c68c498627f53e5abb0a3415148b78">ENCODER_TAST_REFRESH</a>&#160;&#160;&#160;10</td></tr>
-<tr class="separator:a51c68c498627f53e5abb0a3415148b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69475c50be8454c72c570b417481e3bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a69475c50be8454c72c570b417481e3bf">TIME_MINUTE</a>&#160;&#160;&#160;60000</td></tr>
-<tr class="separator:a69475c50be8454c72c570b417481e3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb9e6b8b8f71b50cd50a22c39cdfda21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aeb9e6b8b8f71b50cd50a22c39cdfda21">RSQ_UPDATE</a>&#160;&#160;&#160;1000</td></tr>
-<tr class="separator:aeb9e6b8b8f71b50cd50a22c39cdfda21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ace18ebcff94b3b6ef72e04071ab066"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7ace18ebcff94b3b6ef72e04071ab066">RDS_UPDATE</a>&#160;&#160;&#160;200</td></tr>
-<tr class="separator:a7ace18ebcff94b3b6ef72e04071ab066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bc5de8e6110d70ddd7e9f445d92be30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8bc5de8e6110d70ddd7e9f445d92be30">RADIO_TEXT_SCROLL</a>&#160;&#160;&#160;500</td></tr>
-<tr class="separator:a8bc5de8e6110d70ddd7e9f445d92be30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad57d5f1983d83611877c68c3ce5c78a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad57d5f1983d83611877c68c3ce5c78a9">DISPLAY_REFRESH</a>&#160;&#160;&#160;500</td></tr>
-<tr class="separator:ad57d5f1983d83611877c68c3ce5c78a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funktionen</h2></td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function.  <a href="#a840291bc02cba5474a4cb46a9b9566fe">Mehr ...</a><br /></td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6e80bdf33b7d96bf2ed52ecbf08423a"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac6e80bdf33b7d96bf2ed52ecbf08423a">watchdog_timer</a> (void)</td></tr>
-<tr class="separator:ac6e80bdf33b7d96bf2ed52ecbf08423a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd988b7904a0054c9d830e72e9dc67b2"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#abd988b7904a0054c9d830e72e9dc67b2">wdt</a> (void)</td></tr>
+<tr class="separator:abd988b7904a0054c9d830e72e9dc67b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acee0e2dfb77ceffb9d8ec17b46d4e5b6"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#acee0e2dfb77ceffb9d8ec17b46d4e5b6">nmi</a> (void)</td></tr>
 <tr class="separator:acee0e2dfb77ceffb9d8ec17b46d4e5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a216cec8d9bdb8960632a7ef3b1b283fe"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a216cec8d9bdb8960632a7ef3b1b283fe">tim1</a> (void)</td></tr>
@@ -164,99 +135,7 @@ Funktionen</h2></td></tr>
 <tr class="separator:a4f6d2de9adc9099d5b104c344de49331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd54c16e5c59153cccd22fd779121b78"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#abd54c16e5c59153cccd22fd779121b78">comp</a> (void)</td></tr>
 <tr class="separator:abd54c16e5c59153cccd22fd779121b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variablen</h2></td></tr>
-<tr class="memitem:ae2e9eac1cf2efe56c454940d4dde9aa8"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae2e9eac1cf2efe56c454940d4dde9aa8">encoder_1_button</a></td></tr>
-<tr class="separator:ae2e9eac1cf2efe56c454940d4dde9aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e37070ff4088436f306e79beedacf1d"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6e37070ff4088436f306e79beedacf1d">encoder_2_button</a></td></tr>
-<tr class="separator:a6e37070ff4088436f306e79beedacf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Makro-Dokumentation</h2>
-<a class="anchor" id="ad57d5f1983d83611877c68c3ce5c78a9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DISPLAY_REFRESH&#160;&#160;&#160;500</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00036">36</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a51c68c498627f53e5abb0a3415148b78"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ENCODER_TAST_REFRESH&#160;&#160;&#160;10</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00028">28</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8bc5de8e6110d70ddd7e9f445d92be30"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RADIO_TEXT_SCROLL&#160;&#160;&#160;500</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00032">32</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7ace18ebcff94b3b6ef72e04071ab066"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RDS_UPDATE&#160;&#160;&#160;200</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00031">31</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aeb9e6b8b8f71b50cd50a22c39cdfda21"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RSQ_UPDATE&#160;&#160;&#160;1000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00030">30</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a69475c50be8454c72c570b417481e3bf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TIME_MINUTE&#160;&#160;&#160;60000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00029">29</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Dokumentation der Funktionen</h2>
 <a class="anchor" id="a4f6d2de9adc9099d5b104c344de49331"></a>
 <div class="memitem">
@@ -272,8 +151,8 @@ Variablen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00096">96</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{}</div>
+<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00047">47</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,8 +170,8 @@ Variablen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00098">98</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{}</div>
+<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00049">49</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -310,71 +189,33 @@ Variablen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00038">38</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    WDTCTL = WDTPW + WDTHOLD;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="radio_8h.html#a3a1de7e31aabba6e408a633c130e618a">radio_init</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    int8_t en_counter1 = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    int8_t en_counter2 = 0;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="time_8c.html#a6b341bdccd1c2c5503da84093f12e145">time_set_time</a>(18,29,27,2,16,0);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">while</span>(1)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">//menu();</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        en_counter2 +=  <a class="code" href="encoder_8h.html#a17708354c0e76c0422398f8dcd50dfea">Encoder_2_get_count</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        en_counter1 +=  <a class="code" href="encoder_8h.html#a7a39090bb6f1d88f9371e44f4923194b">Encoder_1_get_count</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="main_8c.html#ae2e9eac1cf2efe56c454940d4dde9aa8">encoder_1_button</a> != <a class="code" href="radio_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">BUTTON_FREE</a> || en_counter1 != 0 || <a class="code" href="main_8c.html#a6e37070ff4088436f306e79beedacf1d">encoder_2_button</a> != <a class="code" href="radio_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">BUTTON_FREE</a> || en_counter2 != 0 || <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[4] &gt;= <a class="code" href="main_8c.html#ad57d5f1983d83611877c68c3ce5c78a9">DISPLAY_REFRESH</a>) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a>(&amp;<a class="code" href="main_8c.html#ae2e9eac1cf2efe56c454940d4dde9aa8">encoder_1_button</a>, &amp;en_counter1, &amp;<a class="code" href="main_8c.html#a6e37070ff4088436f306e79beedacf1d">encoder_2_button</a>, &amp;en_counter2);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[4] = 0;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[1] &gt;= <a class="code" href="main_8c.html#a51c68c498627f53e5abb0a3415148b78">ENCODER_TAST_REFRESH</a>) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[1] -= <a class="code" href="main_8c.html#a51c68c498627f53e5abb0a3415148b78">ENCODER_TAST_REFRESH</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="encoder_8h.html#a136248fd00f8429933544a54b030aef9">encoder_interrupt2</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[3] &gt;= <a class="code" href="main_8c.html#a69475c50be8454c72c570b417481e3bf">TIME_MINUTE</a>) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[3] -= <a class="code" href="main_8c.html#a69475c50be8454c72c570b417481e3bf">TIME_MINUTE</a>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="time_8c.html#acbfa3c65c807be82221cbebc7ac63224">time_update</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[6] &gt;= <a class="code" href="main_8c.html#aeb9e6b8b8f71b50cd50a22c39cdfda21">RSQ_UPDATE</a>) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a>(&amp;<a class="code" href="structradio.html">radio</a>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[6] -= <a class="code" href="main_8c.html#aeb9e6b8b8f71b50cd50a22c39cdfda21">RSQ_UPDATE</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[7] &gt;= <a class="code" href="main_8c.html#a7ace18ebcff94b3b6ef72e04071ab066">RDS_UPDATE</a>) { <span class="comment">//TODO Rework to interrupt base system</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="rds_8h.html#a1c031719ba892045c773dc035058870f">rds_update</a>(&amp;<a class="code" href="structradio.html">radio</a>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[7] -= <a class="code" href="main_8c.html#a7ace18ebcff94b3b6ef72e04071ab066">RDS_UPDATE</a>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[2] &gt;= <a class="code" href="main_8c.html#a8bc5de8e6110d70ddd7e9f445d92be30">RADIO_TEXT_SCROLL</a>) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="structradio.html">radio</a>.<a class="code" href="structradio.html#ac40df2ac7cfc276418e34335098903fb">status</a>.<a class="code" href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">scroll_text</a>++;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="structradio.html">radio</a>.<a class="code" href="structradio.html#ac40df2ac7cfc276418e34335098903fb">status</a>.<a class="code" href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">scroll_text</a> == 80) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <a class="code" href="structradio.html">radio</a>.<a class="code" href="structradio.html#ac40df2ac7cfc276418e34335098903fb">status</a>.<a class="code" href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">scroll_text</a> = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[2] -= <a class="code" href="main_8c.html#a8bc5de8e6110d70ddd7e9f445d92be30">RADIO_TEXT_SCROLL</a>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="ttc" id="encoder_8h_html_a136248fd00f8429933544a54b030aef9"><div class="ttname"><a href="encoder_8h.html#a136248fd00f8429933544a54b030aef9">encoder_interrupt2</a></div><div class="ttdeci">void encoder_interrupt2(void)</div></div>
-<div class="ttc" id="main_8c_html_a8bc5de8e6110d70ddd7e9f445d92be30"><div class="ttname"><a href="main_8c.html#a8bc5de8e6110d70ddd7e9f445d92be30">RADIO_TEXT_SCROLL</a></div><div class="ttdeci">#define RADIO_TEXT_SCROLL</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00032">main.c:32</a></div></div>
-<div class="ttc" id="encoder_8h_html_a17708354c0e76c0422398f8dcd50dfea"><div class="ttname"><a href="encoder_8h.html#a17708354c0e76c0422398f8dcd50dfea">Encoder_2_get_count</a></div><div class="ttdeci">int16_t Encoder_2_get_count()</div></div>
-<div class="ttc" id="main_8c_html_ad57d5f1983d83611877c68c3ce5c78a9"><div class="ttname"><a href="main_8c.html#ad57d5f1983d83611877c68c3ce5c78a9">DISPLAY_REFRESH</a></div><div class="ttdeci">#define DISPLAY_REFRESH</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00036">main.c:36</a></div></div>
-<div class="ttc" id="encoder_8h_html_a7a39090bb6f1d88f9371e44f4923194b"><div class="ttname"><a href="encoder_8h.html#a7a39090bb6f1d88f9371e44f4923194b">Encoder_1_get_count</a></div><div class="ttdeci">int16_t Encoder_1_get_count()</div></div>
-<div class="ttc" id="structradio_html_ac40df2ac7cfc276418e34335098903fb"><div class="ttname"><a href="structradio.html#ac40df2ac7cfc276418e34335098903fb">radio::status</a></div><div class="ttdeci">RADIO_STATUS status</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00126">radio.h:126</a></div></div>
-<div class="ttc" id="main_8c_html_a69475c50be8454c72c570b417481e3bf"><div class="ttname"><a href="main_8c.html#a69475c50be8454c72c570b417481e3bf">TIME_MINUTE</a></div><div class="ttdeci">#define TIME_MINUTE</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00029">main.c:29</a></div></div>
-<div class="ttc" id="radio_8h_html_ab1adc6b5dcb7acbc164c3b197d02a771"><div class="ttname"><a href="radio_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">BUTTON_FREE</a></div><div class="ttdeci">#define BUTTON_FREE</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00056">radio.h:56</a></div></div>
-<div class="ttc" id="time_8c_html_a6b341bdccd1c2c5503da84093f12e145"><div class="ttname"><a href="time_8c.html#a6b341bdccd1c2c5503da84093f12e145">time_set_time</a></div><div class="ttdeci">uint8_t time_set_time(uint8_t hour, uint8_t minute, uint8_t day, uint8_t month, uint8_t year, uint8_t valid)</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00033">time.c:33</a></div></div>
-<div class="ttc" id="menu_8h_html_aaf2a075d3159f7eeab42012941a3437f"><div class="ttname"><a href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a></div><div class="ttdeci">uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00077">menu.c:77</a></div></div>
-<div class="ttc" id="main_8c_html_a51c68c498627f53e5abb0a3415148b78"><div class="ttname"><a href="main_8c.html#a51c68c498627f53e5abb0a3415148b78">ENCODER_TAST_REFRESH</a></div><div class="ttdeci">#define ENCODER_TAST_REFRESH</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00028">main.c:28</a></div></div>
-<div class="ttc" id="rsq_8h_html_adc26e0d94e8ebd7ba62fa4f628a15f6d"><div class="ttname"><a href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a></div><div class="ttdeci">uint8_t rsq_update(RADIO *radio)</div><div class="ttdef"><b>Definition:</b> <a href="rsq_8c_source.html#l00011">rsq.c:11</a></div></div>
-<div class="ttc" id="main_8c_html_a7ace18ebcff94b3b6ef72e04071ab066"><div class="ttname"><a href="main_8c.html#a7ace18ebcff94b3b6ef72e04071ab066">RDS_UPDATE</a></div><div class="ttdeci">#define RDS_UPDATE</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00031">main.c:31</a></div></div>
-<div class="ttc" id="main_8c_html_ae2e9eac1cf2efe56c454940d4dde9aa8"><div class="ttname"><a href="main_8c.html#ae2e9eac1cf2efe56c454940d4dde9aa8">encoder_1_button</a></div><div class="ttdeci">volatile uint8_t encoder_1_button</div></div>
-<div class="ttc" id="main_8c_html_a6e37070ff4088436f306e79beedacf1d"><div class="ttname"><a href="main_8c.html#a6e37070ff4088436f306e79beedacf1d">encoder_2_button</a></div><div class="ttdeci">volatile uint8_t encoder_2_button</div></div>
-<div class="ttc" id="timer_8c_html_ab6610e73cf6ab96714447222bd0c7bca"><div class="ttname"><a href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a></div><div class="ttdeci">volatile uint16_t timer_count[TIMER_COUNTS]</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00010">timer.c:10</a></div></div>
-<div class="ttc" id="main_8c_html_aeb9e6b8b8f71b50cd50a22c39cdfda21"><div class="ttname"><a href="main_8c.html#aeb9e6b8b8f71b50cd50a22c39cdfda21">RSQ_UPDATE</a></div><div class="ttdeci">#define RSQ_UPDATE</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00030">main.c:30</a></div></div>
-<div class="ttc" id="radio_8h_html_a3a1de7e31aabba6e408a633c130e618a"><div class="ttname"><a href="radio_8h.html#a3a1de7e31aabba6e408a633c130e618a">radio_init</a></div><div class="ttdeci">uint8_t radio_init()</div><div class="ttdef"><b>Definition:</b> <a href="radio_8c_source.html#l00023">radio.c:23</a></div></div>
-<div class="ttc" id="structradio__status_html_a16198f5b3b66ddcf01c81f6177af500f"><div class="ttname"><a href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">radio_status::scroll_text</a></div><div class="ttdeci">uint8_t scroll_text</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00092">radio.h:92</a></div></div>
-<div class="ttc" id="structradio_html"><div class="ttname"><a href="structradio.html">radio</a></div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00125">radio.h:125</a></div></div>
-<div class="ttc" id="rds_8h_html_a1c031719ba892045c773dc035058870f"><div class="ttname"><a href="rds_8h.html#a1c031719ba892045c773dc035058870f">rds_update</a></div><div class="ttdeci">void rds_update(RADIO *radio)</div><div class="ttdef"><b>Definition:</b> <a href="rds_8c_source.html#l00010">rds.c:10</a></div></div>
-<div class="ttc" id="time_8c_html_acbfa3c65c807be82221cbebc7ac63224"><div class="ttname"><a href="time_8c.html#acbfa3c65c807be82221cbebc7ac63224">time_update</a></div><div class="ttdeci">void time_update()</div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00075">time.c:75</a></div></div>
+<p>Main function. </p>
+<p>Main function contains following steps:<br />
+(1)Init the WatchDog<br />
+(2)Init the radio<br />
+(3)Run the handler<br />
+ </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Rückgabewerte</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Bemerkungen</dt><dd>The while loop is running in the handler! </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00031">31</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    WDTCTL = WDTPW + WDTHOLD;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="radio_8h.html#a3a1de7e31aabba6e408a633c130e618a">radio_init</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="handler_8h.html#a4f639cde11f5cab70d795fd2f75c9d22">handler</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="ttc" id="handler_8h_html_a4f639cde11f5cab70d795fd2f75c9d22"><div class="ttname"><a href="handler_8h.html#a4f639cde11f5cab70d795fd2f75c9d22">handler</a></div><div class="ttdeci">void handler(void)</div><div class="ttdoc">In here the handler function is declared. </div><div class="ttdef"><b>Definition:</b> <a href="handler_8c_source.html#l00043">handler.c:43</a></div></div>
+<div class="ttc" id="radio_8h_html_a3a1de7e31aabba6e408a633c130e618a"><div class="ttname"><a href="radio_8h.html#a3a1de7e31aabba6e408a633c130e618a">radio_init</a></div><div class="ttdeci">uint8_t radio_init()</div><div class="ttdoc">Initiales the radio. </div><div class="ttdef"><b>Definition:</b> <a href="radio_8c_source.html#l00050">radio.c:50</a></div></div>
 </div><!-- fragment -->
 <p><div class="dynheader">
 Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
@@ -400,8 +241,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00088">88</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{}</div>
+<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00043">43</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -419,17 +260,17 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00090">90</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{}</div>
+<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00045">45</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="ac6e80bdf33b7d96bf2ed52ecbf08423a"></a>
+<a class="anchor" id="abd988b7904a0054c9d830e72e9dc67b2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">__interrupt void watchdog_timer </td>
+          <td class="memname">__interrupt void wdt </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -438,34 +279,9 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00083">83</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{}</div>
+<p>Definiert in Zeile <a class="el" href="main_8c_source.html#l00041">41</a> der Datei <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{}</div>
 </div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Variablen-Dokumentation</h2>
-<a class="anchor" id="ae2e9eac1cf2efe56c454940d4dde9aa8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t encoder_1_button</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6e37070ff4088436f306e79beedacf1d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t encoder_2_button</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 </div>
 </div>
 </div><!-- contents -->
@@ -474,7 +290,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:34 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:13 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

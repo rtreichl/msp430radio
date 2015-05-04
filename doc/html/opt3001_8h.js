@@ -15,5 +15,7 @@ var opt3001_8h =
     [ "OPT3001_SCL_PIN", "opt3001_8h.html#a8fa51a470988bda646bf67de9f6a8e6e", null ],
     [ "OPT3001_SDA_PIN", "opt3001_8h.html#a57a9cfe5fcae1cdb426399f4f3ac8fb4", null ],
     [ "OPT3001_VDD_PIN", "opt3001_8h.html#a062f509618661c8536b62d247856583e", null ],
-    [ "OPT3001_STC", "opt3001_8h.html#a85ef6b0023cd0d3f58e5f229b4d568ed", null ]
+    [ "OPT3001_STC", "opt3001_8h.html#a85ef6b0023cd0d3f58e5f229b4d568ed", null ],
+    [ "opt3001_get_value", "opt3001_8h.html#a4910f99caac4b6293a33627107cb7e82", null ],
+    [ "opt3001_init", "opt3001_8h.html#adc4f87c7b66e9137a35d55e0dc405bf9", null ]
 ];

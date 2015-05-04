@@ -172,7 +172,7 @@ var searchData=
   ['freq_5ftext',['freq_text',['../en_2language_8c.html#a43432eb1dd4df5a79adc138b69daf43c',1,'freq_text():&#160;language.c'],['../ger_2language_8c.html#a43432eb1dd4df5a79adc138b69daf43c',1,'freq_text():&#160;language.c'],['../language_8h.html#a43432eb1dd4df5a79adc138b69daf43c',1,'freq_text():&#160;language.c']]],
   ['freq_5fvalid',['freq_valid',['../structradio__status.html#a3e502e1dcdc44fc044b4f4b43f35a19a',1,'radio_status']]],
   ['frequency',['FREQUENCY',['../unionfm__hicut__cutoff__freq.html#ae5c18357d97abed93b49dc2a61421ace',1,'fm_hicut_cutoff_freq::FREQUENCY()'],['../structradio__settings.html#aea762e0e67fcafaf5b3cd61201769926',1,'radio_settings::frequency()']]],
-  ['func',['FUNC',['../unionpower__up__arg1.html#a0aab01836b450d01cbad756334c65fab',1,'power_up_arg1']]],
+  ['func',['FUNC',['../unionpower__up__arg1.html#a0aab01836b450d01cbad756334c65fab',1,'power_up_arg1::FUNC()'],['../structmenu__entry.html#a365388f9c041d9cc19cb73e599ece1d6',1,'menu_entry::func()']]],
   ['func_5f0',['FUNC_0',['../si4735__cmd__prop_8h.html#a3f73fba7deaa34ba40b8ceec0944c471',1,'si4735_cmd_prop.h']]],
   ['func_5f1',['FUNC_1',['../si4735__cmd__prop_8h.html#aaac3c29e7e33c0ed3a79638fb45e5134',1,'si4735_cmd_prop.h']]]
 ];

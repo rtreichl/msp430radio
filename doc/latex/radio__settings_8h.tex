@@ -1,0 +1,886 @@
+\hypertarget{radio__settings_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/radio/radio\+\_\+settings.h-\/\+Dateireferenz}
+\label{radio__settings_8h}\index{D\+:/\+G\+I\+T/fhradiov2/radio/radio\+\_\+settings.\+h@{D\+:/\+G\+I\+T/fhradiov2/radio/radio\+\_\+settings.\+h}}
+{\ttfamily \#include $<$radio/radio.\+h$>$}\\*
+{\ttfamily \#include $<$system/station\+\_\+list.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für radio\+\_\+settings.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_a2d04f2363bf944b4700b71e0f96ee16f}{radio\+\_\+settings\+\_\+brightness} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Definition of functions for\+:~\newline
+-\/\+Set the brightness~\newline
+-\/\+Set the contrast~\newline
+-\/\+Set the source~\newline
+-\/\+Set the Equalizer Mode~\newline
+-\/\+Set the volume~\newline
+-\/\+Set the frequency~\newline
+-\/\+Choose the display data~\newline
+-\/\+Seeks the next station/all available~\newline
+-\/\+Set T\+A/\+T\+P~\newline
+-\/\+Reset settings~\newline
+. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_ab8b2e0dbe3fd9644146e798c3e2a3116}{radio\+\_\+settings\+\_\+contrast} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Sets the contrast. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_a1b37e35c0934d8ed5ba002ab3ec7a516}{radio\+\_\+settings\+\_\+source} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Sets the audio source. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_a871edf4f0e44f83f32784e258622a6db}{radio\+\_\+settings\+\_\+equalizer} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Sets the equalizer mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_aba6a09ed7091ec65d2cbf4cd9a9a75f4}{radio\+\_\+settings\+\_\+volume} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Sets the volume. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_ab424f802ddd3a0570afec524d4f2091b}{radio\+\_\+settings\+\_\+frequency} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Sets the frequency. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_a57fa93db84d4ea8f569c455b5a3357fa}{radio\+\_\+settings\+\_\+view} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Choose the data to display. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_a90d48a01d9b0ad794fb9416a2ce8f85e}{radio\+\_\+settings\+\_\+station} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Seeks the next station/all available. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_ad72b06e78a241cf11a25dd8c0f9338e4}{radio\+\_\+settings\+\_\+tatp} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Set T\+A/\+T\+P. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__settings_8h_a268592a69ac1e823468c81d64c9d8f07}{radio\+\_\+settings\+\_\+reset} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Reset the settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{radio__settings_8h_a2d04f2363bf944b4700b71e0f96ee16f}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+brightness@{radio\+\_\+settings\+\_\+brightness}}
+\index{radio\+\_\+settings\+\_\+brightness@{radio\+\_\+settings\+\_\+brightness}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+brightness}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+brightness (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_a2d04f2363bf944b4700b71e0f96ee16f}
+
+
+Definition of functions for\+:~\newline
+-\/\+Set the brightness~\newline
+-\/\+Set the contrast~\newline
+-\/\+Set the source~\newline
+-\/\+Set the Equalizer Mode~\newline
+-\/\+Set the volume~\newline
+-\/\+Set the frequency~\newline
+-\/\+Choose the display data~\newline
+-\/\+Seeks the next station/all available~\newline
+-\/\+Set T\+A/\+T\+P~\newline
+-\/\+Reset settings~\newline
+. 
+
+Definition of functions for\+:~\newline
+-\/\+Set the brightness~\newline
+-\/\+Set the contrast~\newline
+-\/\+Set the source~\newline
+-\/\+Set the Equalizer Mode~\newline
+-\/\+Set the volume~\newline
+-\/\+Set the frequency~\newline
+-\/\+Choose the display data~\newline
+-\/\+Seeks the next station/all available~\newline
+-\/\+Set T\+A/\+T\+P~\newline
+-\/\+Reset settings~\newline
+.
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 26 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+27 \{
+28     \textcolor{keywordflow}{if}(*encoder\_right\_count != 0) \{
+29         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0 && \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} < 
+      \hyperlink{radio__configuration_8h_a11588a0c6047fcfe43bb00ba8e750d42}{RADIO\_BRIGHTNESS\_MAX}) \{
+30             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} += 
+      \hyperlink{radio__configuration_8h_a152ffe9f4099cb6256124ef87f2a5813}{RADIO\_BRIGHTNESS\_STEP};
+31         \}
+32         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_right\_count < 0 && radio.settings.brightness > 
+      \hyperlink{radio__configuration_8h_aae7d4a5d2184f9f3d62486432a668be5}{RADIO\_BRIGHTNESS\_MIN})\{
+33             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} -= 
+      \hyperlink{radio__configuration_8h_a152ffe9f4099cb6256124ef87f2a5813}{RADIO\_BRIGHTNESS\_STEP};
+34         \}
+35         \hyperlink{radio_8h_a8d795d5e8b1acf8b2d97bfee82d90ca1}{radio\_brightness}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness});
+36         *encoder\_right\_count = 0;
+37     \}
+38     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{radio__configuration_8h_aaa2d2ad4374cc67ad2f9e3cee397d0e9}{BUTTON\_SHORT}) \{
+39         *encoder\_right\_button = \hyperlink{radio__configuration_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+40         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+41         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+42     \}
+43     \textcolor{keywordflow}{else} \{
+44         \hyperlink{menu_8h_a5621c1bf312de029f43808bf02dc52e3}{menu\_scroll\_settings}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_af4cd243fe91e6ef111857d8d7938707f}{brightness} * 2);
+45     \}
+46     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a8b824d49a014ff557c81c2e336202ebe}{STAY\_ON\_MENU\_POINT};
+47 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_a2d04f2363bf944b4700b71e0f96ee16f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_ab8b2e0dbe3fd9644146e798c3e2a3116}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+contrast@{radio\+\_\+settings\+\_\+contrast}}
+\index{radio\+\_\+settings\+\_\+contrast@{radio\+\_\+settings\+\_\+contrast}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+contrast}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+contrast (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_ab8b2e0dbe3fd9644146e798c3e2a3116}
+
+
+Sets the contrast. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 65 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+66 \{
+67     \textcolor{keywordflow}{if}(*encoder\_right\_count != 0) \{
+68         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0 && \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} < 
+      \hyperlink{radio__configuration_8h_a971aea8fb933f5b56bd1215cbc734736}{RADIO\_CONTRAST\_MAX}) \{
+69             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} += \hyperlink{radio__configuration_8h_a3ad824f27b930de2e11857d29ddd003c}{RADIO\_CONTRAST\_STEP};
+70         \}
+71         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_right\_count < 0 && radio.settings.contrast > 
+      \hyperlink{radio__configuration_8h_a8179ee44198d263259432b392db916a2}{RADIO\_CONTRAST\_MIN}) \{
+72             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} -= \hyperlink{radio__configuration_8h_a3ad824f27b930de2e11857d29ddd003c}{RADIO\_CONTRAST\_STEP};
+73         \}
+74         \hyperlink{lcd_8h_ab99e48ab8689dcb1205c4c7c97bd9956}{lcd\_contrast}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} / 
+      \hyperlink{radio__configuration_8h_a3ad824f27b930de2e11857d29ddd003c}{RADIO\_CONTRAST\_STEP});
+75         *encoder\_right\_count = 0;
+76     \}
+77     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{radio__configuration_8h_aaa2d2ad4374cc67ad2f9e3cee397d0e9}{BUTTON\_SHORT}) \{
+78         *encoder\_right\_button = \hyperlink{radio__configuration_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+79         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+80         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+81     \}
+82     \textcolor{keywordflow}{else} \{
+83         \hyperlink{menu_8h_a5621c1bf312de029f43808bf02dc52e3}{menu\_scroll\_settings}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_a1e8cada2158820574507a1ca0989812d}{contrast} * 10);
+84     \}
+85     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a8b824d49a014ff557c81c2e336202ebe}{STAY\_ON\_MENU\_POINT};
+86 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_ab8b2e0dbe3fd9644146e798c3e2a3116_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_a871edf4f0e44f83f32784e258622a6db}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+equalizer@{radio\+\_\+settings\+\_\+equalizer}}
+\index{radio\+\_\+settings\+\_\+equalizer@{radio\+\_\+settings\+\_\+equalizer}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+equalizer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+equalizer (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_a871edf4f0e44f83f32784e258622a6db}
+
+
+Sets the equalizer mode. 
+
+Following modes are supported\+:~\newline
+-\/\+Rock~\newline
+-\/\+Pop~\newline
+-\/\+Hip/\+Hop~\newline
+-\/\+News~\newline
+-\/\+Classic~\newline
+-\/\+Jazz~\newline
+ 
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 157 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+158 \{
+159     \textcolor{keywordflow}{switch}(entry\_num) \{
+160     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a32c4ba4e9d26097a95a2d6d0e2fae19a}{AUDIO\_ROCK\_ENTRY}:
+161         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer} = \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89ab39e373af8c527684a4f0ded36bd961c}{ROCK};
+162         \textcolor{keywordflow}{break};
+163     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a41f4c2e80487ed2422d44f3ff16affa8}{AUDIO\_POP\_ENTRY}:
+164         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer} = \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a061dcf4785583d8653942f2d252174fa}{POP};
+165         \textcolor{keywordflow}{break};
+166     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a6c103aa4955ff3995d89334ed0b0a1e0}{AUDIO\_HIPHOP\_ENTRY}:
+167         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer} = \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a86d9b2fe4fc0b9b3fa1847bf70b1a327}{RAP\_HIP\_HOP};
+168         \textcolor{keywordflow}{break};
+169     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aeac602646ed0bd9ba1a81440d5c7c241}{AUDIO\_NEWS\_ENTRY}:
+170         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer} = \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89aef5dfc874ef76ff6dc3d880f56eb63f8}{NEWS\_VOICE};
+171         \textcolor{keywordflow}{break};
+172     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a76dd6e73df6dfa83574943bf0a975d5f}{AUDIO\_CLASSIC\_ENTRY}:
+173         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer} = \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89a5d5a8aa8f016711cf286fd27974f0298}{CLASSIC};;
+174         \textcolor{keywordflow}{break};
+175     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a878e8f0591a3cdf568e9a465adcf5665}{AUDIO\_JAZZ\_ENTRY}:
+176         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer} = \hyperlink{tpa2016d2_8h_adefb155e87dee9de8a7b6056c8787a89abe6f1fd008b7070f5611e08345f569d4}{JAZZ};
+177         \textcolor{keywordflow}{break};
+178     \}
+179     \hyperlink{tpa2016d2_8c_a721d219e9bfdf0b5b266ff3f952772fd}{tpa2016d2\_equalizer\_mode}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_ae8e4d5261bb2829f7dcec9b4b9315424}{equalizer}, \hyperlink{radio__configuration_8h_ac69ec1c8ce351004479ea186a7b2a794}{RADIO\_AMPLIFIER\_GAIN});
+180     \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+181     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+182 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_a871edf4f0e44f83f32784e258622a6db_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_ab424f802ddd3a0570afec524d4f2091b}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+frequency@{radio\+\_\+settings\+\_\+frequency}}
+\index{radio\+\_\+settings\+\_\+frequency@{radio\+\_\+settings\+\_\+frequency}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+frequency}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+frequency (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_ab424f802ddd3a0570afec524d4f2091b}
+
+
+Sets the frequency. 
+
+In here the u can seach for the next station up-\/ or downwards or just set~\newline
+the current frequency~\newline
+ 
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 269 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+270 \{
+271     uint16\_t tmp\_freq = 0;
+272     uint8\_t ret = 0;
+273     tmp\_freq = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency};
+274     \textcolor{keywordflow}{switch}(entry\_num) \{
+275     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ade9ef61f79ef2baf563238cf23c43aa0}{MENU\_FREQ\_SEEK\_UP\_ENTRY}:
+276         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = 0;
+277         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(1, 0);
+278         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_freq;
+279         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+280     \textcolor{keywordflow}{case} \hyperlink{menu_8h_acae827e168a0fe9a03fe9a71a20f6077}{MENU\_FREQ\_SEEK\_DOWN\_ENTRY}:
+281         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = 0xFFFF;
+282         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(1, 0);
+283         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_freq;
+284         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+285     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a79a0b72d2ebbee89c0757cc582d5accd}{MENU\_FREQ\_CHOOSE\_ENTRY}:
+286         ret = \hyperlink{station__list_8c_a14396edaefab23c83e16fea65cc5db9d}{station\_list\_handler}(encoder\_left\_button, encoder\_left\_count, 
+      encoder\_right\_button, encoder\_right\_count,  entry\_num);
+287         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = tmp\_freq;
+288         \textcolor{keywordflow}{return} ret;
+289     \}
+290     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+291 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_ab424f802ddd3a0570afec524d4f2091b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_a268592a69ac1e823468c81d64c9d8f07}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+reset@{radio\+\_\+settings\+\_\+reset}}
+\index{radio\+\_\+settings\+\_\+reset@{radio\+\_\+settings\+\_\+reset}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+reset}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+reset (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_a268592a69ac1e823468c81d64c9d8f07}
+
+
+Reset the settings. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 417 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+418 \{
+419     \textcolor{keywordflow}{switch}(entry\_num) \{
+420     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a17e5b3441ee026dba9674e53d904ded7}{MENU\_RESET\_NO}:
+421         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+422     \textcolor{keywordflow}{case} \hyperlink{menu_8h_af8e914333778472113a54ba0248360ad}{MENU\_RESET\_YES}:
+423         \hyperlink{radio_8h_ad4d9fc5d5ddc7cfaac75911695ae92a8}{radio\_factory\_state}();
+424         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+425     \}
+426     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+427 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_a268592a69ac1e823468c81d64c9d8f07_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_a1b37e35c0934d8ed5ba002ab3ec7a516}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+source@{radio\+\_\+settings\+\_\+source}}
+\index{radio\+\_\+settings\+\_\+source@{radio\+\_\+settings\+\_\+source}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+source}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+source (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_a1b37e35c0934d8ed5ba002ab3ec7a516}
+
+
+Sets the audio source. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 104 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+105 \{
+106     \hyperlink{radio__pin__mapping_8h_ac22ca934df4c870f7eb1ec41990e451d}{AUDIO\_SW\_LINE\_DIR} |= \hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+107     \hyperlink{radio__pin__mapping_8h_adecc7a0efe6f3f5702a8a29aa0fc72bb}{AUDIO\_SW\_GND\_DIR} |= \hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+108 
+109     \textcolor{keywordflow}{switch}(entry\_num) \{
+110     \textcolor{keywordflow}{default}:
+111     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a8f128b413404cd409a8438505c1d39f1}{SOURCE\_FM\_ENTRY}:
+112         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_acced9a05ed6f381d74d67de65d66fa3b}{source} = \hyperlink{radio_8h_a9e7a21d5bccf1729d5b46f9f9f5f9c26}{SOURCE\_FM};
+113         \hyperlink{radio__pin__mapping_8h_a68ecfdd082fecba564d175bf9b148a55}{AUDIO\_SW\_LINE\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+114         \hyperlink{radio__pin__mapping_8h_a954fca99d0829539fe16678808393e57}{AUDIO\_SW\_GND\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+115         \textcolor{comment}{//TODO Implement switch si4735 to FM only when AM mode is implemented else just switch audio switch}
+116         \textcolor{keywordflow}{break};
+117     \textcolor{keywordflow}{case} \hyperlink{menu_8h_acef5569f62eb924ce3a4dd3f7dbf44d7}{SOURCE\_AM\_ENTRY}:
+118         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_acced9a05ed6f381d74d67de65d66fa3b}{source} = \hyperlink{radio_8h_aea883aea91ad122afd73fd627eafd34a}{SOURCE\_AM};
+119         \hyperlink{radio__pin__mapping_8h_a68ecfdd082fecba564d175bf9b148a55}{AUDIO\_SW\_LINE\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+120         \hyperlink{radio__pin__mapping_8h_a954fca99d0829539fe16678808393e57}{AUDIO\_SW\_GND\_OUT} &= ~\hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+121         \textcolor{comment}{//TODO Implement switch si4735 to AM only when AM mode is implemented else just do nothing else}
+122         \textcolor{keywordflow}{break};
+123     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aa3a25b6121aea818d2efb2ee9741a83c}{SOURCE\_LINEIN\_ENTRY}:
+124         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_acced9a05ed6f381d74d67de65d66fa3b}{source} = \hyperlink{radio_8h_a5d9dbdbe329668b29eb0c4d820fbc82f}{SOURCE\_LINEIN};
+125         \hyperlink{radio__pin__mapping_8h_a68ecfdd082fecba564d175bf9b148a55}{AUDIO\_SW\_LINE\_OUT} |= \hyperlink{radio__pin__mapping_8h_a9fcd78b662ee77a6fa1c6f8a498936a0}{AUDIO\_SW\_LINE\_PIN};
+126         \hyperlink{radio__pin__mapping_8h_a954fca99d0829539fe16678808393e57}{AUDIO\_SW\_GND\_OUT} |= \hyperlink{radio__pin__mapping_8h_ab0d6bb89a98e4fe5cc4adb55bcb5ad68}{AUDIO\_SW\_GND\_PIN};
+127         \textcolor{comment}{//TODO set si4735 in powerdown modus only if ta/tp mode is off else poll flag and swith to si4735
+       for duration ta flag is set}
+128     \}
+129     \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+130     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+131 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_a1b37e35c0934d8ed5ba002ab3ec7a516_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_a1b37e35c0934d8ed5ba002ab3ec7a516_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_a90d48a01d9b0ad794fb9416a2ce8f85e}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+station@{radio\+\_\+settings\+\_\+station}}
+\index{radio\+\_\+settings\+\_\+station@{radio\+\_\+settings\+\_\+station}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+station}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+station (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_a90d48a01d9b0ad794fb9416a2ce8f85e}
+
+
+Seeks the next station/all available. 
+
+Following modes are supported\+:~\newline
+-\/\+Seek up~\newline
+-\/\+Seek down~\newline
+-\/\+Auto Search~\newline
+-\/\+Select station~\newline
+ 
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 351 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+352 \{
+353     \textcolor{keywordflow}{switch}(entry\_num) \{
+354     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a5ce85b23810c89e86194609529dfc4fc}{SEEKING\_UP}:
+355         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = \hyperlink{radio_8h_aee6321b512830d482a2fc164cf11f9e9}{radio\_seeking}(1);
+356         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+357     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ab039e76a9fdf467e69291cfbb67f234f}{SEEKING\_DOWN}:
+358         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = \hyperlink{radio_8h_aee6321b512830d482a2fc164cf11f9e9}{radio\_seeking}(0);
+359         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+360     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a8aa0e8b09d71b943d72e05d755b0827d}{STORE\_STATION}:
+361     \textcolor{keywordflow}{case} \hyperlink{menu_8h_acf4538b0bd65dd4d5e3530aaeb264a18}{STATION\_VIEW}:
+362         \textcolor{keywordflow}{return} \hyperlink{station__list_8c_a14396edaefab23c83e16fea65cc5db9d}{station\_list\_handler}(encoder\_left\_button, encoder\_left\_count, 
+      encoder\_right\_button, encoder\_right\_count,  entry\_num);
+363     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ab12bdd916b4cbe4809be313f58f2ab28}{AUTO\_SEARCH}:
+364         \hyperlink{radio_8h_ac96da2886aec92b299b27b500761564c}{radio\_auto\_search}();
+365         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+366     \}
+367     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+368 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_a90d48a01d9b0ad794fb9416a2ce8f85e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_ad72b06e78a241cf11a25dd8c0f9338e4}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+tatp@{radio\+\_\+settings\+\_\+tatp}}
+\index{radio\+\_\+settings\+\_\+tatp@{radio\+\_\+settings\+\_\+tatp}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+tatp}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+tatp (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_ad72b06e78a241cf11a25dd8c0f9338e4}
+
+
+Set T\+A/\+T\+P. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 386 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+387 \{
+388     \textcolor{keywordflow}{switch}(entry\_num) \{
+389     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ac915a860b5ecbcc12c6dd15400d802f6}{MENU\_TA\_TP\_ON}:
+390         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a104f6012667fb7152790a5a6f55c7781}{ta\_tp} = 1;
+391         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+392         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+393     \textcolor{keywordflow}{case} \hyperlink{menu_8h_aaddf7fb78041abad331095b39c8b3a25}{MENU\_TA\_TP\_OFF}:
+394         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a104f6012667fb7152790a5a6f55c7781}{ta\_tp} = 0;
+395         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+396         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+397     \}
+398     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+399 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_ad72b06e78a241cf11a25dd8c0f9338e4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_a57fa93db84d4ea8f569c455b5a3357fa}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+view@{radio\+\_\+settings\+\_\+view}}
+\index{radio\+\_\+settings\+\_\+view@{radio\+\_\+settings\+\_\+view}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+view}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+view (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_a57fa93db84d4ea8f569c455b5a3357fa}
+
+
+Choose the data to display. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 310 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+311 \{
+312     \textcolor{keywordflow}{switch}(entry\_num) \{
+313     \textcolor{keywordflow}{case} \hyperlink{menu_8h_af74b8a826a42006eea334555edf0a1bb}{RADIO\_RDS\_VIEW\_ENTRY}:
+314         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view} = \hyperlink{radio_8h_ad826646e122735a715e4735bdc636481}{RADIO\_RDS\_VIEW};
+315         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+316         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+317     \textcolor{keywordflow}{case} \hyperlink{menu_8h_a828cf311e0673575a4ea3b250e569a9c}{RADIO\_RSQ\_VIEW\_ENTRY}:
+318         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view} = \hyperlink{radio_8h_a843a840a345827331202139180dfc415}{RADIO\_RSQ\_VIEW};
+319         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+320         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+321     \textcolor{keywordflow}{case} \hyperlink{menu_8h_ab6f01fe31e2cf4425ba9f37ca586b055}{RADIO\_PIPTY\_VIEW\_ENTRY}:
+322         \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view} = \hyperlink{radio_8h_a6b0b4c694735693e43bac65eeca05a30}{RADIO\_PIPTY\_VIEW};
+323         \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+324         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+325     \}
+326     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+327 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_a57fa93db84d4ea8f569c455b5a3357fa_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{radio__settings_8h_aba6a09ed7091ec65d2cbf4cd9a9a75f4}{}\index{radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}!radio\+\_\+settings\+\_\+volume@{radio\+\_\+settings\+\_\+volume}}
+\index{radio\+\_\+settings\+\_\+volume@{radio\+\_\+settings\+\_\+volume}!radio\+\_\+settings.\+h@{radio\+\_\+settings.\+h}}
+\subsubsection[{radio\+\_\+settings\+\_\+volume}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+settings\+\_\+volume (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
+\end{DoxyParamCaption}
+)}\label{radio__settings_8h_aba6a09ed7091ec65d2cbf4cd9a9a75f4}
+
+
+Sets the volume. 
+
+Calculates the new volume acording to the encoder value. Additionally u~\newline
+can choose to set the startup volume or the T\+A/\+T\+P volume~\newline
+ 
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 203 der Datei radio\+\_\+settings.\+c.
+
+
+\begin{DoxyCode}
+204 \{
+205     \textcolor{keyword}{static} int8\_t tmp\_volume = 0;
+206     \textcolor{keywordflow}{if}(tmp\_volume == 0 && entry\_num != 0) \{
+207         tmp\_volume = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+208         \textcolor{keywordflow}{if}(entry\_num == \hyperlink{menu_8h_ae14ae7acebfbb08bf1028c9b22b94c8d}{MENU\_VOL\_TA\_ENTRY}) \{
+209             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} = \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_a22b4bf888b705c01b6914d4caaed08dd}{volume\_ta};
+210         \}
+211         \textcolor{keywordflow}{if}(entry\_num == \hyperlink{menu_8h_aef2bcd296a3d49fb80d0e345205f98c0}{MENU\_VOL\_START\_ENTRY}) \{
+212             \hyperlink{structradio__settings}{RADIO\_SETTINGS} tmp\_settings;
+213             \hyperlink{flash_8h_ad9d8a7cadb959b139fea7654d539714a}{flash\_read}(&tmp\_settings, \textcolor{keyword}{sizeof}(tmp\_settings), 
+      \hyperlink{radio__configuration_8h_ae8a3bf59b7d1412dc23f9bd56041acb6}{RADIO\_SETTINGS\_STORE\_ADR});
+214             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume}  = tmp\_settings.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+215         \}
+216         \hyperlink{radio_8h_ae11dbe9ea82d3ae65b6e80a4e6e995f8}{radio\_volume}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+217     \}
+218     \textcolor{keywordflow}{if}(*encoder\_right\_count != 0) \{
+219         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0 && \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} < 
+      \hyperlink{radio__configuration_8h_af2bf5f03ca0b46368bcdc8de4466c0eb}{RADIO\_VOLUME\_MAX}) \{
+220             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} += \hyperlink{radio__configuration_8h_ae7b78fb9948dccf5053129c05e790b3f}{RADIO\_VOLUME\_STEP};
+221         \}
+222         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(*encoder\_right\_count < 0 && radio.settings.volume > 
+      \hyperlink{radio__configuration_8h_ae267b915054d707b13f2ea6bb143b506}{RADIO\_VOLUME\_MIN}) \{
+223             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} -= \hyperlink{radio__configuration_8h_ae7b78fb9948dccf5053129c05e790b3f}{RADIO\_VOLUME\_STEP};
+224         \}
+225         \hyperlink{radio_8h_ae11dbe9ea82d3ae65b6e80a4e6e995f8}{radio\_volume}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+226         *encoder\_right\_count = 0;
+227     \}
+228     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{radio__configuration_8h_aaa2d2ad4374cc67ad2f9e3cee397d0e9}{BUTTON\_SHORT}) \{
+229         *encoder\_right\_button = \hyperlink{radio__configuration_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE};
+230         \textcolor{keywordflow}{if}(tmp\_volume != 0) \{
+231             \textcolor{keywordflow}{if}(entry\_num == \hyperlink{menu_8h_aef2bcd296a3d49fb80d0e345205f98c0}{MENU\_VOL\_START\_ENTRY}) \{
+232                 \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 1);
+233             \}
+234             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(entry\_num == \hyperlink{menu_8h_ae14ae7acebfbb08bf1028c9b22b94c8d}{MENU\_VOL\_TA\_ENTRY}) \{
+235                 \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a22b4bf888b705c01b6914d4caaed08dd}{volume\_ta} = \hyperlink{structradio}{radio}.
+      \hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume};
+236                 \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(0, 0);
+237             \}
+238             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume} = tmp\_volume;
+239             tmp\_volume = 0;
+240             \hyperlink{radio_8h_ae11dbe9ea82d3ae65b6e80a4e6e995f8}{radio\_volume}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+241         \}
+242         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+243     \}
+244     \textcolor{keywordflow}{else} \{
+245         \hyperlink{menu_8h_a5621c1bf312de029f43808bf02dc52e3}{menu\_scroll\_settings}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+      \hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume});
+246     \}
+247     \textcolor{keywordflow}{return} \hyperlink{menu_8h_a8b824d49a014ff557c81c2e336202ebe}{STAY\_ON\_MENU\_POINT};
+248 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{radio__settings_8h_aba6a09ed7091ec65d2cbf4cd9a9a75f4_cgraph}
+\end{center}
+\end{figure}
+
+

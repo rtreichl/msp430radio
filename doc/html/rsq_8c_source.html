@@ -117,35 +117,43 @@ $(document).ready(function(){initNavTree('rsq_8c_source.html','');});
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="rsq_8h.html">system/rsq.h</a>&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">   11</a></span>&#160;uint8_t <a class="code" href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a>(<a class="code" href="structradio.html">RADIO</a> *<a class="code" href="structradio.html">radio</a>)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    uint8_t resp[8];</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41">si4735_fm_rsq_status</a>(1, resp);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#afb67d818cd76cce8057affabcb1979a6">rssi</a> = resp[4];</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#a11be3c6f2d5194542e5d1733cbc7ac76">snr</a> = resp[5];</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#af829dbd700d1c5ad1abccbdb52fa7ba9">multi</a> = resp[6];</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#a168a73926de154445f6c6c77f8b5e53c">freq_off</a> = (int8_t)resp[7];</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="ttc" id="structradio__rsq_html_afb67d818cd76cce8057affabcb1979a6"><div class="ttname"><a href="structradio__rsq.html#afb67d818cd76cce8057affabcb1979a6">radio_rsq::rssi</a></div><div class="ttdeci">uint8_t rssi</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00096">radio.h:96</a></div></div>
-<div class="ttc" id="structradio_html_aba45ded08c975dcc6ee7d58687e8534e"><div class="ttname"><a href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">radio::rsq</a></div><div class="ttdeci">RADIO_RSQ rsq</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00128">radio.h:128</a></div></div>
-<div class="ttc" id="rsq_8c_html_adc26e0d94e8ebd7ba62fa4f628a15f6d"><div class="ttname"><a href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a></div><div class="ttdeci">uint8_t rsq_update(RADIO *radio)</div><div class="ttdef"><b>Definition:</b> <a href="rsq_8c_source.html#l00011">rsq.c:11</a></div></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//---------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">   26</a></span>&#160;uint8_t <a class="code" href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a>(<a class="code" href="structradio.html">RADIO</a> *<a class="code" href="structradio.html">radio</a>)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    uint8_t resp[8];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41">si4735_fm_rsq_status</a>(1, resp);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#afb67d818cd76cce8057affabcb1979a6">rssi</a> = resp[4];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#a11be3c6f2d5194542e5d1733cbc7ac76">snr</a> = resp[5];</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#af829dbd700d1c5ad1abccbdb52fa7ba9">multi</a> = resp[6];</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    radio-&gt;<a class="code" href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">rsq</a>.<a class="code" href="structradio__rsq.html#a168a73926de154445f6c6c77f8b5e53c">freq_off</a> = (int8_t)resp[7];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="ttc" id="structradio__rsq_html_afb67d818cd76cce8057affabcb1979a6"><div class="ttname"><a href="structradio__rsq.html#afb67d818cd76cce8057affabcb1979a6">radio_rsq::rssi</a></div><div class="ttdeci">uint8_t rssi</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00074">radio.h:74</a></div></div>
+<div class="ttc" id="structradio_html_aba45ded08c975dcc6ee7d58687e8534e"><div class="ttname"><a href="structradio.html#aba45ded08c975dcc6ee7d58687e8534e">radio::rsq</a></div><div class="ttdeci">RADIO_RSQ rsq</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00106">radio.h:106</a></div></div>
+<div class="ttc" id="rsq_8c_html_adc26e0d94e8ebd7ba62fa4f628a15f6d"><div class="ttname"><a href="rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a></div><div class="ttdeci">uint8_t rsq_update(RADIO *radio)</div><div class="ttdoc">Update the Radio Signal Quality. </div><div class="ttdef"><b>Definition:</b> <a href="rsq_8c_source.html#l00026">rsq.c:26</a></div></div>
 <div class="ttc" id="rsq_8h_html"><div class="ttname"><a href="rsq_8h.html">rsq.h</a></div></div>
-<div class="ttc" id="structradio__rsq_html_a11be3c6f2d5194542e5d1733cbc7ac76"><div class="ttname"><a href="structradio__rsq.html#a11be3c6f2d5194542e5d1733cbc7ac76">radio_rsq::snr</a></div><div class="ttdeci">uint8_t snr</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00097">radio.h:97</a></div></div>
-<div class="ttc" id="structradio__rsq_html_a168a73926de154445f6c6c77f8b5e53c"><div class="ttname"><a href="structradio__rsq.html#a168a73926de154445f6c6c77f8b5e53c">radio_rsq::freq_off</a></div><div class="ttdeci">int8_t freq_off</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00099">radio.h:99</a></div></div>
-<div class="ttc" id="si4735_8h_html_a01d768567b59b2f9c8900a233fdd4d41"><div class="ttname"><a href="si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41">si4735_fm_rsq_status</a></div><div class="ttdeci">uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp)</div><div class="ttdef"><b>Definition:</b> <a href="si4735_8c_source.html#l00049">si4735.c:49</a></div></div>
-<div class="ttc" id="structradio__rsq_html_af829dbd700d1c5ad1abccbdb52fa7ba9"><div class="ttname"><a href="structradio__rsq.html#af829dbd700d1c5ad1abccbdb52fa7ba9">radio_rsq::multi</a></div><div class="ttdeci">uint8_t multi</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00098">radio.h:98</a></div></div>
-<div class="ttc" id="structradio_html"><div class="ttname"><a href="structradio.html">radio</a></div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00125">radio.h:125</a></div></div>
+<div class="ttc" id="structradio__rsq_html_a11be3c6f2d5194542e5d1733cbc7ac76"><div class="ttname"><a href="structradio__rsq.html#a11be3c6f2d5194542e5d1733cbc7ac76">radio_rsq::snr</a></div><div class="ttdeci">uint8_t snr</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00075">radio.h:75</a></div></div>
+<div class="ttc" id="structradio__rsq_html_a168a73926de154445f6c6c77f8b5e53c"><div class="ttname"><a href="structradio__rsq.html#a168a73926de154445f6c6c77f8b5e53c">radio_rsq::freq_off</a></div><div class="ttdeci">int8_t freq_off</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00077">radio.h:77</a></div></div>
+<div class="ttc" id="si4735_8h_html_a01d768567b59b2f9c8900a233fdd4d41"><div class="ttname"><a href="si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41">si4735_fm_rsq_status</a></div><div class="ttdeci">uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp)</div><div class="ttdef"><b>Definition:</b> <a href="si4735_8c_source.html#l00050">si4735.c:50</a></div></div>
+<div class="ttc" id="structradio__rsq_html_af829dbd700d1c5ad1abccbdb52fa7ba9"><div class="ttname"><a href="structradio__rsq.html#af829dbd700d1c5ad1abccbdb52fa7ba9">radio_rsq::multi</a></div><div class="ttdeci">uint8_t multi</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00076">radio.h:76</a></div></div>
+<div class="ttc" id="structradio_html"><div class="ttname"><a href="structradio.html">radio</a></div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00103">radio.h:103</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="dir_87da1dd3838e3a2bc958fb8a1763f6f7.html">src</a></li><li class="navelem"><a class="el" href="rsq_8c.html">rsq.c</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

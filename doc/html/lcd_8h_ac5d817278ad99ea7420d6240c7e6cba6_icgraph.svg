@@ -42,7 +42,7 @@
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>
-<g id="a_node4"><a xlink:href="radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" target="_top" xlink:title="radio_init">
+<g id="a_node4"><a xlink:href="radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" target="_top" xlink:title="Initiales the radio. ">
 <polygon fill="white" stroke="black" points="356,-0.5 356,-19.5 412,-19.5 412,-0.5 356,-0.5"/>
 <text text-anchor="middle" x="384" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">radio_init</text>
 </a>
@@ -55,7 +55,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" target="_top" xlink:title="main">
+<g id="a_node5"><a xlink:href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" target="_top" xlink:title="Main function. ">
 <polygon fill="white" stroke="black" points="448,-0.5 448,-19.5 486,-19.5 486,-0.5 448,-0.5"/>
 <text text-anchor="middle" x="467" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
 </a>

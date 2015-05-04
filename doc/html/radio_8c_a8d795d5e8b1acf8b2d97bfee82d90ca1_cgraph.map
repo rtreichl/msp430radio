@@ -1,6 +1,7 @@
 <map id="radio_brightness" name="radio_brightness">
-<area shape="rect" id="node2" href="$pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="171,5,301,32"/>
-<area shape="rect" id="node3" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="349,5,445,32"/>
-<area shape="rect" id="node4" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="493,5,588,32"/>
-<area shape="rect" id="node5" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="636,5,743,32"/>
+<area shape="rect" id="node2" href="$pca9530_8h.html#a91089f6598b9a7b7d85171c4a731f1c1" title="pca9530_config_leds" alt="" coords="171,5,313,32"/>
+<area shape="rect" id="node6" href="$pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="177,56,307,83"/>
+<area shape="rect" id="node3" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="361,31,457,57"/>
+<area shape="rect" id="node4" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="505,31,600,57"/>
+<area shape="rect" id="node5" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="648,31,755,57"/>
 </map>

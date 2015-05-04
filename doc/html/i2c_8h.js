@@ -1,5 +1,7 @@
 var i2c_8h =
 [
+    [ "I2C_MAX_ARGS", "i2c_8h.html#afd2ccfc308be2593bb7540863b903d67", null ],
+    [ "VARIADIC_IMPLEMENTATION", "i2c_8h.html#abb6e116b2f7cc724b26d78a65303ccc6", null ],
     [ "I2C_CRTL_CMD", "i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5", [
       [ "STOP", "i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8", null ],
       [ "REPT", "i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a807d17ddb75240ddeede2c54fd79bd40", null ]

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['encoder_5f1_5fbutton',['encoder_1_button',['../main_8c.html#ae2e9eac1cf2efe56c454940d4dde9aa8',1,'main.c']]],
-  ['encoder_5f2_5fbutton',['encoder_2_button',['../main_8c.html#a6e37070ff4088436f306e79beedacf1d',1,'main.c']]],
+  ['empty_5ftext',['empty_text',['../en_2language_8c.html#a12b97779eebce49a71a8098e763b18a4',1,'empty_text():&#160;language.c'],['../ger_2language_8c.html#a12b97779eebce49a71a8098e763b18a4',1,'empty_text():&#160;language.c'],['../language_8h.html#a12b97779eebce49a71a8098e763b18a4',1,'empty_text():&#160;language.c']]],
   ['entry_5fnum',['entry_num',['../structmenu__entry.html#aead51ebe631627145d52a84b2d92e240',1,'menu_entry::entry_num()'],['../structstation__list.html#aab8c201217e885e0ee4e61820a289c0c',1,'station_list::entry_num()']]],
   ['equalizer',['equalizer',['../structradio__settings.html#ae8e4d5261bb2829f7dcec9b4b9315424',1,'radio_settings']]],
   ['err',['err',['../structrds.html#a533130a85d028e42078891666dd6c6fc',1,'rds::err()'],['../unionint__status.html#afb74dff3cfacd68c02883e5282ef2f59',1,'int_status::ERR()'],['../structstatus.html#afb74dff3cfacd68c02883e5282ef2f59',1,'status::ERR()']]],

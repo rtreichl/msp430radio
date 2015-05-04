@@ -1,0 +1,10 @@
+<map id="radio_settings_equalizer" name="radio_settings_equalizer">
+<area shape="rect" id="node2" href="$tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd" title="tpa2016d2_equalizer_mode" alt="" coords="216,5,396,32"/>
+<area shape="rect" id="node6" href="$radio_8h.html#a477656bb91c200d15ddbe6cffcd04c53" title="Store the current settings. " alt="" coords="237,56,375,83"/>
+<area shape="rect" id="node3" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="444,5,540,32"/>
+<area shape="rect" id="node4" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="588,5,683,32"/>
+<area shape="rect" id="node5" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="731,5,837,32"/>
+<area shape="rect" id="node7" href="$flash_8h.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="451,56,533,83"/>
+<area shape="rect" id="node8" href="$flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="449,107,535,133"/>
+<area shape="rect" id="node9" href="$flash_8c.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="595,107,676,133"/>
+</map>

@@ -1,25 +1,26 @@
 <map id="lcd_write_string" name="lcd_write_string">
-<area shape="rect" id="node2" href="$lcd_8c.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="165,284,279,311"/>
-<area shape="rect" id="node3" href="$lcd_8c.html#a312eed1baec275e185dc00b760de1356" title="lcd_init" alt="" coords="371,5,433,32"/>
-<area shape="rect" id="node4" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="561,56,636,83"/>
-<area shape="rect" id="node6" href="$menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d" title="menu_display" alt="" coords="885,487,988,513"/>
-<area shape="rect" id="node8" href="$menu_8c.html#a5621c1bf312de029f43808bf02dc52e3" title="menu_scroll_settings" alt="" coords="526,259,671,285"/>
-<area shape="rect" id="node14" href="$menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" title="menu_scroll" alt="" coords="356,259,448,285"/>
-<area shape="rect" id="node15" href="$radio__display_8c.html#aa568d26c43f1503a5f31c86aab080591" title="radio_display_handler" alt="" coords="525,411,672,437"/>
-<area shape="rect" id="node17" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="535,107,663,133"/>
-<area shape="rect" id="node18" href="$radio__display_8c.html#ac056d01b161ce2b8c286190f619c94f8" title="radio_display_speaker" alt="" coords="327,360,477,387"/>
-<area shape="rect" id="node19" href="$radio__display_8c.html#af1021ae1d01d874fb72c3ce3d1b29ad9" title="radio_display_rds" alt="" coords="341,411,463,437"/>
-<area shape="rect" id="node20" href="$radio__display_8c.html#ab985392609874befae589a4e4ad57c86" title="radio_display_pipty" alt="" coords="335,461,469,488"/>
-<area shape="rect" id="node21" href="$radio__display_8c.html#aa113a6affc99d406e8c73fc800648cb3" title="radio_display_rsq" alt="" coords="341,512,463,539"/>
-<area shape="rect" id="node22" href="$station__list_8h.html#a9797d901a4c549c775a7067eebf0a5c2" title="station_list_display" alt="" coords="335,157,469,184"/>
-<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1341,180,1392,207"/>
-<area shape="rect" id="node7" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="1191,303,1293,329"/>
-<area shape="rect" id="node9" href="$radio_8c.html#a9dd33606330e2225b425000341cf4688" title="radio_brightness" alt="" coords="720,259,837,285"/>
-<area shape="rect" id="node12" href="$radio_8c.html#aaf3f53dfebe8da71fbe4c457ffda6714" title="radio_contrast" alt="" coords="727,309,831,336"/>
-<area shape="rect" id="node13" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="730,360,827,387"/>
-<area shape="rect" id="node10" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="885,259,988,285"/>
-<area shape="rect" id="node11" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="1036,303,1143,329"/>
-<area shape="rect" id="node16" href="$radio_8c.html#a5f7fcd9e9755fb5e22175a4ad74a5456" title="radio_main" alt="" coords="894,360,979,387"/>
-<area shape="rect" id="node23" href="$station__list_8h.html#a5b16204c2b6824ce89364d614f074b20" title="station_list_handler" alt="" coords="531,157,666,184"/>
-<area shape="rect" id="node24" href="$radio_8c.html#aae41d271062b3f94cccf4fb5996b04a2" title="radio_frequency" alt="" coords="722,157,835,184"/>
+<area shape="rect" id="node2" href="$lcd_8c.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="165,296,279,323"/>
+<area shape="rect" id="node3" href="$lcd_8c.html#a312eed1baec275e185dc00b760de1356" title="lcd_init" alt="" coords="371,43,433,69"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="561,43,636,69"/>
+<area shape="rect" id="node6" href="$menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d" title="Display the current menu. " alt="" coords="351,93,453,120"/>
+<area shape="rect" id="node9" href="$menu_8c.html#a5621c1bf312de029f43808bf02dc52e3" title="Scroll through the settings. " alt="" coords="526,195,671,221"/>
+<area shape="rect" id="node13" href="$menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" title="Scroll to given position. " alt="" coords="356,195,448,221"/>
+<area shape="rect" id="node14" href="$radio__display_8c.html#a43baede098c7b21694b3fda71685fa06" title="Handler for the display. " alt="" coords="525,347,672,373"/>
+<area shape="rect" id="node16" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="535,549,663,576"/>
+<area shape="rect" id="node18" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="347,347,457,373"/>
+<area shape="rect" id="node19" href="$radio__display_8c.html#ac056d01b161ce2b8c286190f619c94f8" title="Updates the speaker symbol according to the current audio state. " alt="" coords="327,499,477,525"/>
+<area shape="rect" id="node20" href="$radio__display_8c.html#af1021ae1d01d874fb72c3ce3d1b29ad9" title="Displays the RDS data. " alt="" coords="341,245,463,272"/>
+<area shape="rect" id="node21" href="$radio__display_8c.html#ab985392609874befae589a4e4ad57c86" title="Display the PTY/PI states. " alt="" coords="335,296,469,323"/>
+<area shape="rect" id="node22" href="$radio__display_8c.html#aa113a6affc99d406e8c73fc800648cb3" title="Display the RSQ. " alt="" coords="341,397,463,424"/>
+<area shape="rect" id="node23" href="$station__list_8h.html#a9797d901a4c549c775a7067eebf0a5c2" title="In here there are functions declared to display the avaiable station lists and also to add/remove sta..." alt="" coords="335,600,469,627"/>
+<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="939,68,989,95"/>
+<area shape="rect" id="node7" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="Handler of the menu, entry to the sub menus and the parent lvl of the menus. " alt="" coords="547,93,650,120"/>
+<area shape="rect" id="node8" href="$handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22" title="Handler for menu, RDS, time, the encoders and rsq. " alt="" coords="773,93,837,120"/>
+<area shape="rect" id="node10" href="$radio__settings_8c.html#a2d04f2363bf944b4700b71e0f96ee16f" title="Sets the brightness. " alt="" coords="720,245,891,272"/>
+<area shape="rect" id="node11" href="$radio__settings_8c.html#ab8b2e0dbe3fd9644146e798c3e2a3116" title="Sets the contrast. " alt="" coords="727,144,884,171"/>
+<area shape="rect" id="node12" href="$radio__settings_8c.html#aba6a09ed7091ec65d2cbf4cd9a9a75f4" title="Sets the volume. " alt="" coords="730,195,881,221"/>
+<area shape="rect" id="node15" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="763,347,848,373"/>
+<area shape="rect" id="node17" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="731,549,880,576"/>
+<area shape="rect" id="node24" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="531,600,666,627"/>
+<area shape="rect" id="node25" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="722,600,889,627"/>
 </map>

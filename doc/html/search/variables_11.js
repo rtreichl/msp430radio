@@ -15,6 +15,7 @@ var searchData=
   ['sksnr',['SKSNR',['../unionfm__seek__tune__snr__thres.html#aa9c8e1fe1b7fa73e35c29242c74fc247',1,'fm_seek_tune_snr_thres']]],
   ['skspace',['SKSPACE',['../unionfm__seek__freq__spacing.html#a9f1888a9e6cdec1af67bb5764765df0b',1,'fm_seek_freq_spacing']]],
   ['slc',['SLC',['../structgroup__1a.html#adeb94d897f554bdd08433c17155c53d2',1,'group_1a']]],
+  ['sleep',['SLEEP',['../structpca9632__mode1.html#a05c807e11fc79c83555f4ffa9c615931',1,'pca9632_mode1']]],
   ['smattn',['SMATTN',['../unionfm__soft__mute__max__att.html#a92e22d724c6a2970d60915dab1a06c42',1,'fm_soft_mute_max_att']]],
   ['smrate',['SMRATE',['../unionfm__soft__mute__rate.html#aee04360e3c9299f145d4143333baaf9a',1,'fm_soft_mute_rate']]],
   ['smslope',['SMSLOPE',['../unionfm__soft__mute__slope.html#a8a31c13b7632cb2f54277566150f231c',1,'fm_soft_mute_slope']]],
@@ -63,5 +64,8 @@ var searchData=
   ['stcrep',['STCREP',['../uniongpo__ien.html#a8a57a750de6cf1d2805c1c6895208811',1,'gpo_ien']]],
   ['strthresh',['STRTHRESH',['../unionfm__blend__rssi__stero__thres.html#ae59cc6ed2c20ceb75c5065984e1751d1',1,'fm_blend_rssi_stero_thres::STRTHRESH()'],['../unionfm__blend__snr__stereo__thres.html#ae59cc6ed2c20ceb75c5065984e1751d1',1,'fm_blend_snr_stereo_thres::STRTHRESH()'],['../unionfm__blend__multi__stereo__thres.html#ae59cc6ed2c20ceb75c5065984e1751d1',1,'fm_blend_multi_stereo_thres::STRTHRESH()']]],
   ['stthresh',['STTHRESH',['../unionfm__blend__stereo.html#a657a0ae89d4ea37bac29c56d527e1454',1,'fm_blend_stereo']]],
+  ['sub1',['SUB1',['../structpca9632__mode1.html#ac083d3b48e6031d3d2f8ad9364979f8a',1,'pca9632_mode1']]],
+  ['sub2',['SUB2',['../structpca9632__mode1.html#af120064ca23de43baa710af2e393a464',1,'pca9632_mode1']]],
+  ['sub3',['SUB3',['../structpca9632__mode1.html#aec6e2f987b736f08d04b1e2026450a33',1,'pca9632_mode1']]],
   ['sync',['sync',['../structrds.html#aa779e41fc5dcd8e1471033612c290b23',1,'rds']]]
 ];

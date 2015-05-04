@@ -1,7 +1,7 @@
-\hypertarget{radio__display_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/system/radio\+\_\+display.h-\/\+Dateireferenz}
-\label{radio__display_8h}\index{D\+:/\+G\+I\+T/fhradiov2/system/radio\+\_\+display.\+h@{D\+:/\+G\+I\+T/fhradiov2/system/radio\+\_\+display.\+h}}
+\hypertarget{radio__display_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/radio/radio\+\_\+display.h-\/\+Dateireferenz}
+\label{radio__display_8h}\index{D\+:/\+G\+I\+T/fhradiov2/radio/radio\+\_\+display.\+h@{D\+:/\+G\+I\+T/fhradiov2/radio/radio\+\_\+display.\+h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
-{\ttfamily \#include $<$system/radio.\+h$>$}\\*
+{\ttfamily \#include $<$radio/radio.\+h$>$}\\*
 Include-\/\+Abhängigkeitsdiagramm für radio\+\_\+display.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -10,7 +10,8 @@ Include-\/\+Abhängigkeitsdiagramm für radio\+\_\+display.\+h\+:
 \includegraphics[width=350pt]{radio__display_8h__incl}
 \end{center}
 \end{figure}
-Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,76 +22,103 @@ Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\no
 \begin{DoxyCompactItemize}
 \item 
 uint8\+\_\+t \hyperlink{radio__display_8h_ac056d01b161ce2b8c286190f619c94f8}{radio\+\_\+display\+\_\+speaker} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Definition of functions for\+:~\newline
+-\/\+Display the speaker symbol~\newline
+-\/\+Display R\+D\+S~\newline
+-\/\+Display P\+I/\+P\+T\+Y~\newline
+-\/\+Display R\+S\+Q~\newline
+-\/the display handler~\newline
+. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{radio__display_8h_af1021ae1d01d874fb72c3ce3d1b29ad9}{radio\+\_\+display\+\_\+rds} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Displays the R\+D\+S data. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{radio__display_8h_ab985392609874befae589a4e4ad57c86}{radio\+\_\+display\+\_\+pipty} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Display the P\+T\+Y/\+P\+I states. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{radio__display_8h_aa113a6affc99d406e8c73fc800648cb3}{radio\+\_\+display\+\_\+rsq} ()
-\item 
-uint8\+\_\+t \hyperlink{radio__display_8h_aa568d26c43f1503a5f31c86aab080591}{radio\+\_\+display\+\_\+handler} (uint8\+\_\+t blend\+\_\+scroll)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Display the R\+S\+Q. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{radio__display_8h_a43baede098c7b21694b3fda71685fa06}{radio\+\_\+display\+\_\+handler} (uint8\+\_\+t blend\+\_\+scroll, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Handler for the display. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Dokumentation der Funktionen}
-\hypertarget{radio__display_8h_aa568d26c43f1503a5f31c86aab080591}{}\index{radio\+\_\+display.\+h@{radio\+\_\+display.\+h}!radio\+\_\+display\+\_\+handler@{radio\+\_\+display\+\_\+handler}}
+\hypertarget{radio__display_8h_a43baede098c7b21694b3fda71685fa06}{}\index{radio\+\_\+display.\+h@{radio\+\_\+display.\+h}!radio\+\_\+display\+\_\+handler@{radio\+\_\+display\+\_\+handler}}
 \index{radio\+\_\+display\+\_\+handler@{radio\+\_\+display\+\_\+handler}!radio\+\_\+display.\+h@{radio\+\_\+display.\+h}}
 \subsubsection[{radio\+\_\+display\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t radio\+\_\+display\+\_\+handler (
 \begin{DoxyParamCaption}
-\item[{uint8\+\_\+t}]{blend\+\_\+scroll}
+\item[{uint8\+\_\+t}]{blend\+\_\+scroll, }
+\item[{uint8\+\_\+t}]{value}
 \end{DoxyParamCaption}
-)}\label{radio__display_8h_aa568d26c43f1503a5f31c86aab080591}
+)}\label{radio__display_8h_a43baede098c7b21694b3fda71685fa06}
 
 
-Definiert in Zeile 74 der Datei radio\+\_\+display.\+c.
+Handler for the display. 
+
+Updates the display according to the selected state in the settings menu~\newline
+ 
+\begin{DoxyParams}{Parameter}
+{\em $<$blend\+\_\+scroll$>$} & \mbox{[}in\mbox{]} Identifies if to blend scrolling \\
+\hline
+{\em $<$value$>$} & \mbox{[}in\mbox{]} the value to be scrolled \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 137 der Datei radio\+\_\+display.\+c.
 
 
 \begin{DoxyCode}
-75 \{
-76     \textcolor{keywordtype}{char} tmp\_string[9];
-77     \textcolor{keywordflow}{switch}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view}) \{
-78     \textcolor{keywordflow}{case} \hyperlink{radio_8h_ad826646e122735a715e4735bdc636481}{RADIO\_RDS\_VIEW}:
-79         \hyperlink{radio__display_8c_af1021ae1d01d874fb72c3ce3d1b29ad9}{radio\_display\_rds}();
-80         \textcolor{keywordflow}{break};
-81     \textcolor{keywordflow}{case} \hyperlink{radio_8h_a843a840a345827331202139180dfc415}{RADIO\_RSQ\_VIEW}:
-82         \hyperlink{radio__display_8c_aa113a6affc99d406e8c73fc800648cb3}{radio\_display\_rsq}();
-83         \textcolor{keywordflow}{break};
-84     \textcolor{keywordflow}{case} \hyperlink{radio_8h_a6b0b4c694735693e43bac65eeca05a30}{RADIO\_PIPTY\_VIEW}:
-85         \hyperlink{radio__display_8c_ab985392609874befae589a4e4ad57c86}{radio\_display\_pipty}();
-86         \textcolor{keywordflow}{break};
-87     \}
-88 
-89     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a88955dc0fd5d9169c68603ba777b643f}{name\_valid} == \hyperlink{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}{VALID}) \{
-90         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a00c5e915306c0baea463b99ba6c09c4f}{name}, 0, 0, 0, 0);
-91     \}
-92     \textcolor{keywordflow}{else} \{
-93         \hyperlink{string_8c_a0e45f80d2057e44647b21fd530fe185d}{string\_fixedpoint\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.
+138 \{
+139     \textcolor{keywordtype}{char} tmp\_string[9];
+140     \textcolor{keywordflow}{switch}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_ab883cb36a9863c8e478492bbf458b132}{display\_view}) \{
+141     \textcolor{keywordflow}{case} \hyperlink{radio_8h_ad826646e122735a715e4735bdc636481}{RADIO\_RDS\_VIEW}:
+142         \hyperlink{radio__display_8c_af1021ae1d01d874fb72c3ce3d1b29ad9}{radio\_display\_rds}();
+143         \textcolor{keywordflow}{break};
+144     \textcolor{keywordflow}{case} \hyperlink{radio_8h_a843a840a345827331202139180dfc415}{RADIO\_RSQ\_VIEW}:
+145         \hyperlink{radio__display_8c_aa113a6affc99d406e8c73fc800648cb3}{radio\_display\_rsq}();
+146         \textcolor{keywordflow}{break};
+147     \textcolor{keywordflow}{case} \hyperlink{radio_8h_a6b0b4c694735693e43bac65eeca05a30}{RADIO\_PIPTY\_VIEW}:
+148         \hyperlink{radio__display_8c_ab985392609874befae589a4e4ad57c86}{radio\_display\_pipty}();
+149         \textcolor{keywordflow}{break};
+150     \}
+151 
+152     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a88955dc0fd5d9169c68603ba777b643f}{name\_valid} == \hyperlink{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}{VALID}) \{
+153         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a00c5e915306c0baea463b99ba6c09c4f}{name}, 0, 0, 0, 0);
+154     \}
+155     \textcolor{keywordflow}{else} \{
+156         \hyperlink{string_8c_a0e45f80d2057e44647b21fd530fe185d}{string\_fixedpoint\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.
       \hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency});
-94         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 0, 0, 0, 0);
-95         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"MHz"}, 5, 0, 0, 0); \textcolor{comment}{//TODO add this to a String table}
-96     \}
-97     \hyperlink{radio__display_8c_ac056d01b161ce2b8c286190f619c94f8}{radio\_display\_speaker}();
-98     \textcolor{keywordflow}{if}(blend\_scroll != 0) \{
-99         \hyperlink{menu_8h_a503ed2007daa6f20b2f748eedbcb8494}{menu\_scroll}(blend\_scroll);
-100     \}
-101 
-102     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a92aabb0ca71171ea02dd5cf0ada0d536}{tp} == 1) \{
-103         \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_aaa7c4cc5a934d489d475d0f7d26e437c}{ta} == 1) \{
-104             \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} % 2 == 0) \{
-105                 \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)020"}, 6, 1, 0, 0);
-106             \}
-107         \}
-108         \textcolor{keywordflow}{else} \{
-109             \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)020"}, 6, 1, 0, 0);
-110         \}
-111     \}
-112 
-113     \hyperlink{time_8c_aa90db1275cec05113ad9a5041f6f8293}{time\_time\_to\_array}(tmp\_string);
-114     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)6"}, 10, 0, 0, 0); \textcolor{comment}{//TODO \(\backslash\)6 add this to lcd symbols}
-115     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string,  11, 0, 0, 1);
-116 
-117     \textcolor{keywordflow}{return} 0;
-118 \}
+157         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 0, 0, 0, 0);
+158         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"MHz"}, 5, 0, 0, 0); \textcolor{comment}{//TODO add this to a String table}
+159     \}
+160     \hyperlink{radio__display_8c_ac056d01b161ce2b8c286190f619c94f8}{radio\_display\_speaker}();
+161     \textcolor{keywordflow}{if}(blend\_scroll != 0) \{
+162         \hyperlink{menu_8h_a503ed2007daa6f20b2f748eedbcb8494}{menu\_scroll}(value);
+163     \}
+164 
+165     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_a104f6012667fb7152790a5a6f55c7781}{ta\_tp} == 1) \{
+166         \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_aa8bc97428a85a9013ed525f6f612a112}{volume\_ta} == 1) \{
+167             \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} % 2 == 0) \{
+168                 \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)020"}, 6, 1, 0, 0);
+169             \}
+170         \}
+171         \textcolor{keywordflow}{else} \{
+172             \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)020"}, 6, 1, 0, 0);
+173         \}
+174     \}
+175 
+176     \hyperlink{time_8c_aa90db1275cec05113ad9a5041f6f8293}{time\_time\_to\_array}(tmp\_string);
+177     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)6"}, 10, 0, 0, 0); \textcolor{comment}{//TODO \(\backslash\)6 add this to lcd symbols}
+178     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string,  11, 0, 0, 1);
+179 
+180     \textcolor{keywordflow}{return} 0;
+181 \}
 \end{DoxyCode}
 
 
@@ -98,7 +126,7 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{radio__display_8h_aa568d26c43f1503a5f31c86aab080591_cgraph}
+\includegraphics[width=350pt]{radio__display_8h_a43baede098c7b21694b3fda71685fa06_cgraph}
 \end{center}
 \end{figure}
 
@@ -109,7 +137,7 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{radio__display_8h_aa568d26c43f1503a5f31c86aab080591_icgraph}
+\includegraphics[width=290pt]{radio__display_8h_a43baede098c7b21694b3fda71685fa06_icgraph}
 \end{center}
 \end{figure}
 
@@ -123,18 +151,35 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{radio__display_8h_ab985392609874befae589a4e4ad57c86}
 
 
-Definiert in Zeile 46 der Datei radio\+\_\+display.\+c.
+Display the P\+T\+Y/\+P\+I states. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 82 der Datei radio\+\_\+display.\+c.
 
 
 \begin{DoxyCode}
-47 \{
-48     \textcolor{keywordtype}{char} tmp\_string[9];
-49     \hyperlink{string_8c_a29d88799b460e9bf31c5b6bcd3cd5ba3}{string\_hex\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_ad1803744db28ac0d226ec8da9134598e}{pi}, 4);
-50     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"PI:"}, 9, 1, 0, 0);
-51     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 12, 1, 0, 0);
-52     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_a3b73dbc74a0be6db2cdbf3b376fdce98}{pty\_text}[\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a6a555813c441b0e0dce51020817fa68e}{pty}], 0, 2, 0, 0);
-53     \textcolor{keywordflow}{return} 0;
-54 \}
+83 \{
+84     \textcolor{keywordtype}{char} tmp\_string[9];
+85     \hyperlink{string_8c_a29d88799b460e9bf31c5b6bcd3cd5ba3}{string\_hex\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_ad1803744db28ac0d226ec8da9134598e}{pi}, 4);
+86     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"PI:"}, 9, 1, 0, 0);
+87     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 12, 1, 0, 0);
+88     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_a3b73dbc74a0be6db2cdbf3b376fdce98}{pty\_text}[\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a6a555813c441b0e0dce51020817fa68e}{pty}], 0, 2, 0, 0);
+89     \textcolor{keywordflow}{return} 0;
+90 \}
 \end{DoxyCode}
 
 
@@ -149,7 +194,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -167,29 +213,47 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{radio__display_8h_af1021ae1d01d874fb72c3ce3d1b29ad9}
 
 
-Definiert in Zeile 31 der Datei radio\+\_\+display.\+c.
+Displays the R\+D\+S data. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 55 der Datei radio\+\_\+display.\+c.
 
 
 \begin{DoxyCode}
-32 \{
-33     \textcolor{keywordtype}{char} tmp\_string[9];
-34     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a6a0d33cd9094edee0dad3deb6b386914}{text\_valid} == \hyperlink{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}{VALID})
-35     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} < 15) \{
-36         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a1d7cd4d36a6a2fa49631cef5d5847187}{text}, 15 - \hyperlink{structradio}{radio}.
+56 \{
+57     \textcolor{keywordtype}{char} tmp\_string[9];
+58     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a6a0d33cd9094edee0dad3deb6b386914}{text\_valid} == \hyperlink{radio_8h_ad47ac60ff0cfac53148a07bc32fc7585}{VALID})
+59     \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} < 15) \{
+60         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a1d7cd4d36a6a2fa49631cef5d5847187}{text}, 15 - \hyperlink{structradio}{radio}.
       \hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text}, 2, \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} + 1, 0);
-37     \}
-38     \textcolor{keywordflow}{else} \{
-39         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a1d7cd4d36a6a2fa49631cef5d5847187}{text} - 15 + \hyperlink{structradio}{radio}.
+61     \}
+62     \textcolor{keywordflow}{else} \{
+63         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a1d7cd4d36a6a2fa49631cef5d5847187}{text} - 15 + \hyperlink{structradio}{radio}.
       \hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text}, 0, 2, 16, 0);
-40     \}
-41     \hyperlink{time_8c_a4c9e3c34eea90bf15a804da6ee4ad638}{time\_date\_to\_array}(tmp\_string);
-42     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string,  8, 1, 0, 0);
-43     \textcolor{keywordflow}{return} 0;
-44 \}
+64     \}
+65     \hyperlink{time_8c_a4c9e3c34eea90bf15a804da6ee4ad638}{time\_date\_to\_array}(tmp\_string);
+66     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string,  8, 1, 0, 0);
+67     \textcolor{keywordflow}{return} 0;
+68 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -200,7 +264,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -218,27 +283,44 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{radio__display_8h_aa113a6affc99d406e8c73fc800648cb3}
 
 
-Definiert in Zeile 56 der Datei radio\+\_\+display.\+c.
+Display the R\+S\+Q. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 104 der Datei radio\+\_\+display.\+c.
 
 
 \begin{DoxyCode}
-57 \{
-58     \textcolor{keywordtype}{char} tmp\_string[9];
-59     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_afb67d818cd76cce8057affabcb1979a6}{rssi}, 3, 10);
-60     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 9, 1, 0, 0);
-61     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"dBuV"}, 12, 1, 0, 0);
-62     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_a11be3c6f2d5194542e5d1733cbc7ac76}{snr}, 3, 10);
-63     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 0, 2, 0, 0);
-64     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"dB"}, 3, 2, 0, 0);
-65     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_af829dbd700d1c5ad1abccbdb52fa7ba9}{multi}, 3 ,10);
-66     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 6, 2, 0, 0);
-67     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"%"}, 9, 2, 0, 0);
-68     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.
+105 \{
+106     \textcolor{keywordtype}{char} tmp\_string[9];
+107     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_afb67d818cd76cce8057affabcb1979a6}{rssi}, 3, 10);
+108     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 9, 1, 0, 0);
+109     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"dBuV"}, 12, 1, 0, 0);
+110     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_a11be3c6f2d5194542e5d1733cbc7ac76}{snr}, 3, 10);
+111     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 0, 2, 0, 0);
+112     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"dB"}, 3, 2, 0, 0);
+113     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.\hyperlink{structradio__rsq_af829dbd700d1c5ad1abccbdb52fa7ba9}{multi}, 3 ,10);
+114     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 6, 2, 0, 0);
+115     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"%"}, 9, 2, 0, 0);
+116     \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_aba45ded08c975dcc6ee7d58687e8534e}{rsq}.
       \hyperlink{structradio__rsq_a168a73926de154445f6c6c77f8b5e53c}{freq\_off}, 3, 10);
-69     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 10, 2, 0, 0);
-70     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"kHz"}, 13, 2, 0, 0);
-71     \textcolor{keywordflow}{return} 0;
-72 \}
+117     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 10, 2, 0, 0);
+118     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"kHz"}, 13, 2, 0, 0);
+119     \textcolor{keywordflow}{return} 0;
+120 \}
 \end{DoxyCode}
 
 
@@ -253,7 +335,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -271,15 +354,46 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{radio__display_8h_ac056d01b161ce2b8c286190f619c94f8}
 
 
-Definiert in Zeile 10 der Datei radio\+\_\+display.\+c.
+Definition of functions for\+:~\newline
+-\/\+Display the speaker symbol~\newline
+-\/\+Display R\+D\+S~\newline
+-\/\+Display P\+I/\+P\+T\+Y~\newline
+-\/\+Display R\+S\+Q~\newline
+-\/the display handler~\newline
+. 
+
+Definition of functions for\+:~\newline
+-\/\+Display the speaker symbol~\newline
+-\/\+Display R\+D\+S~\newline
+-\/\+Display P\+I/\+P\+T\+Y~\newline
+-\/\+Display R\+S\+Q~\newline
+-\/the display handler~\newline
+.
+
+
+\begin{DoxyParams}{Parameter}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 22 der Datei radio\+\_\+display.\+c.
 
 
 \begin{DoxyCode}
-11 \{
-12     \textcolor{keywordtype}{char} tmp\_string[9];
-13     \textcolor{keywordflow}{switch} (\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status}) \{
-14     \textcolor{keywordflow}{case} \hyperlink{radio_8h_ac7e359f72aff03a55779034835ce9240}{AUDIO\_MUTE}:
-15         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)7� 1, 0, 0);
+23 \{
+24     \textcolor{keywordtype}{char} tmp\_string[9];
+25     \textcolor{keywordflow}{switch} (\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status}) \{
+26     \textcolor{keywordflow}{case} \hyperlink{radio_8h_ac7e359f72aff03a55779034835ce9240}{AUDIO\_MUTE}:
+27         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)7� 1, 0, 0);
         break;
     case AUDIO\_VOLUME:
         string\_int\_to\_array(tmp\_string, radio.settings.volume, 3, 10);
@@ -295,26 +409,26 @@ Definiert in Zeile 10 der Datei radio\+\_\+display.\+c.
     return 0;
 \}
 "}, 0, 1, 0, 0);
-16         \textcolor{keywordflow}{break};
-17     \textcolor{keywordflow}{case} \hyperlink{radio_8h_ab9dc5a11c1311b173b2bda125e571107}{AUDIO\_VOLUME}:
-18         \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+28         \textcolor{keywordflow}{break};
+29     \textcolor{keywordflow}{case} \hyperlink{radio_8h_ab9dc5a11c1311b173b2bda125e571107}{AUDIO\_VOLUME}:
+30         \hyperlink{string_8c_a82b1b882cf97ff40344f87bd1473e9d0}{string\_int\_to\_array}(tmp\_string, \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
       \hyperlink{structradio__settings_ae2b7935b01cdfe9a81d408dc3f2431f1}{volume}, 3, 10);
-19         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 1, 1, 0, 0);
-20         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"%"}, 4, 1, 0, 0);
-21         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)7"}, 0, 1, 0, 0);
-22         \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status} = 0;
-23         \textcolor{keywordflow}{break};
-24     \textcolor{keywordflow}{default}:
-25         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)7� 1, 0, 0); //Audio normal
+31         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(tmp\_string, 1, 1, 0, 0);
+32         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"%"}, 4, 1, 0, 0);
+33         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)7"}, 0, 1, 0, 0);
+34         \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_afd0f6d5999f07ea569f9492eb4ceb21a}{audio\_status} = 0;
+35         \textcolor{keywordflow}{break};
+36     \textcolor{keywordflow}{default}:
+37         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"\(\backslash\)7� 1, 0, 0); //Audio normal
         break;
     \}
     return 0;
 \}
 "}, 0, 1, 0, 0); \textcolor{comment}{//Audio normal}
-26         \textcolor{keywordflow}{break};
-27     \}
-28     \textcolor{keywordflow}{return} 0;
-29 \}
+38         \textcolor{keywordflow}{break};
+39     \}
+40     \textcolor{keywordflow}{return} 0;
+41 \}
 \end{DoxyCode}
 
 
@@ -329,7 +443,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

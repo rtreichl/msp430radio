@@ -1,9 +1,10 @@
 <map id="D:/GIT/fhradiov2/driver/src/si4735.c" name="D:/GIT/fhradiov2/driver/src/si4735.c">
-<area shape="rect" id="node2" href="$si4735_8h.html" title="driver/si4735.h" alt="" coords="161,95,266,121"/>
-<area shape="rect" id="node9" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="505,333,695,360"/>
-<area shape="rect" id="node10" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="531,408,669,449"/>
-<area shape="rect" id="node12" href="$external__interrupthandler_8h.html" title="driver/external_interrupthandler.h" alt="" coords="317,95,526,121"/>
-<area shape="rect" id="node4" href="$i2c_8h.html" title="I2C implemtation for MSP430G2553, interrupt based. &#160;&#160;This implemtation based on examples from Texas I..." alt="" coords="91,177,175,203"/>
-<area shape="rect" id="node8" href="$timer_8h.html" title="driver/timer.h" alt="" coords="376,259,472,285"/>
-<area shape="rect" id="node11" href="$radio__pin__mapping_8h.html" title="settings/radio_pin\l_mapping.h" alt="" coords="251,169,375,211"/>
+<area shape="rect" id="node2" href="$si4735_8h.html" title="driver/si4735.h" alt="" coords="270,95,375,121"/>
+<area shape="rect" id="node9" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="386,333,577,360"/>
+<area shape="rect" id="node10" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="425,408,564,449"/>
+<area shape="rect" id="node13" href="$external__interrupthandler_8h.html" title="driver/external_interrupthandler.h" alt="" coords="418,95,627,121"/>
+<area shape="rect" id="node4" href="$i2c_8h.html" title="I2C implemtation for MSP430G2553, interrupt based. &#160;&#160;This implemtation based on examples from Texas I..." alt="" coords="177,177,261,203"/>
+<area shape="rect" id="node8" href="$timer_8h.html" title="driver/timer.h" alt="" coords="325,259,421,285"/>
+<area shape="rect" id="node12" href="$radio__pin__mapping_8h.html" title="settings/radio_pin\l_mapping.h" alt="" coords="361,169,485,211"/>
+<area shape="rect" id="node11" href="$libs_2time_8h.html" title="libs/time.h" alt="" coords="319,415,401,442"/>
 </map>

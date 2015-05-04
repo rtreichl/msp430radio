@@ -2,14 +2,16 @@
 \label{pca9530_8h}\index{D\+:/\+G\+I\+T/fhradiov2/driver/pca9530.\+h@{D\+:/\+G\+I\+T/fhradiov2/driver/pca9530.\+h}}
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 {\ttfamily \#include $<$driver/i2c.\+h$>$}\\*
-Include-\/\+Abhängigkeitsdiagramm für pca9530.\+h\+:\nopagebreak
+Include-\/\+Abhängigkeitsdiagramm für pca9530.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{pca9530_8h__incl}
 \end{center}
 \end{figure}
-Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -81,7 +83,7 @@ uint8\+\_\+t \hyperlink{pca9530_8h_abc69b1cb491825b0e425539994b188bb}{pca9530\+\
 \item 
 uint8\+\_\+t \hyperlink{pca9530_8h_a07bd06dbfcb216eedc1969aa04e19b53}{pca9530\+\_\+set\+\_\+pwm} (enum \hyperlink{pca9530_8h_abc74a5690ccc2a8341463459d2089d9a}{P\+C\+A9530\+\_\+\+P\+W\+M} pwm\+\_\+sel, uint8\+\_\+t pwm)
 \item 
-uint8\+\_\+t \hyperlink{pca9530_8h_a7abe5b75b4137ce2bd840a939d8b61d1}{pca9530\+\_\+config\+\_\+led} (enum \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E} led0\+\_\+state, enum \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E} led1\+\_\+state)
+uint8\+\_\+t \hyperlink{pca9530_8h_a91089f6598b9a7b7d85171c4a731f1c1}{pca9530\+\_\+config\+\_\+leds} (enum \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E} led0\+\_\+state, enum \hyperlink{pca9530_8h_ace2d36a1fc0cc58626736636eaff2237}{P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E} led1\+\_\+state)
 \item 
 uint8\+\_\+t \hyperlink{pca9530_8h_a0504ea065814c638843035fe0559b24c}{pca9530\+\_\+read\+\_\+input} ()
 \item 
@@ -242,14 +244,58 @@ Definiert in Zeile 40 der Datei pca9530.\+h.
 
 
 \subsection{Dokumentation der Funktionen}
-\hypertarget{pca9530_8h_a7abe5b75b4137ce2bd840a939d8b61d1}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+config\+\_\+led@{pca9530\+\_\+config\+\_\+led}}
-\index{pca9530\+\_\+config\+\_\+led@{pca9530\+\_\+config\+\_\+led}!pca9530.\+h@{pca9530.\+h}}
-\subsubsection[{pca9530\+\_\+config\+\_\+led}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+config\+\_\+led (
+\hypertarget{pca9530_8h_a91089f6598b9a7b7d85171c4a731f1c1}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+config\+\_\+leds@{pca9530\+\_\+config\+\_\+leds}}
+\index{pca9530\+\_\+config\+\_\+leds@{pca9530\+\_\+config\+\_\+leds}!pca9530.\+h@{pca9530.\+h}}
+\subsubsection[{pca9530\+\_\+config\+\_\+leds}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+config\+\_\+leds (
 \begin{DoxyParamCaption}
 \item[{enum {\bf P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}}]{led0\+\_\+state, }
 \item[{enum {\bf P\+C\+A9530\+\_\+\+L\+E\+D\+\_\+\+S\+T\+A\+T\+E}}]{led1\+\_\+state}
 \end{DoxyParamCaption}
-)}\label{pca9530_8h_a7abe5b75b4137ce2bd840a939d8b61d1}
+)}\label{pca9530_8h_a91089f6598b9a7b7d85171c4a731f1c1}
+
+
+Definiert in Zeile 59 der Datei pca9530.\+c.
+
+
+\begin{DoxyCode}
+60 \{
+61     \hyperlink{structpca9530__ctl}{PCA9530\_CTL} \hyperlink{structpca9530__ctl}{pca9530\_ctl};
+62     \hyperlink{structpca9530__sel}{PCA9530\_SEL} \hyperlink{structpca9530__sel}{pca9530\_sel};
+63 
+64     pca9530\_ctl.\hyperlink{structpca9530__ctl_a8782eaf4d6ff8b39d2ef058050c8a0e3}{AI} = 0;
+65     pca9530\_ctl.\hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS} = \hyperlink{pca9530_8h_a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad}{LS0};
+66 
+67     pca9530\_sel.\hyperlink{structpca9530__sel_a698763138aab81826861fd602c87872b}{LED0} =  led0\_state;
+68     pca9530\_sel.\hyperlink{structpca9530__sel_a40e423e01a324e06ebc015b85a9d6b8e}{LED1} =  led1\_state;
+69 
+70     \hyperlink{i2c_8h_a6691e5911f539e1e8178c6e983e8079a}{i2c\_write\_var}(\hyperlink{pca9530_8h_a9ad00301c1ffc3a81b0f912ba863238b}{PCA9530\_I2C\_ADR}, \hyperlink{i2c_8h_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8}{STOP}, 2, pca9530\_ctl.
+      \hyperlink{structpca9530__ctl_af3bea2c4759f3d001950aba2a1f89810}{ADDRESS}, pca9530\_sel.\hyperlink{structpca9530__sel_a698763138aab81826861fd602c87872b}{LED0} | (pca9530\_sel.\hyperlink{structpca9530__sel_a40e423e01a324e06ebc015b85a9d6b8e}{LED1} << 2));
+71 
+72     \textcolor{keywordflow}{return} 0;
+73 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_a91089f6598b9a7b7d85171c4a731f1c1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pca9530_8h_a91089f6598b9a7b7d85171c4a731f1c1_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{pca9530_8h_ae2f44601e0bbf4c0b7bbdb127def81c3}{}\index{pca9530.\+h@{pca9530.\+h}!pca9530\+\_\+init@{pca9530\+\_\+init}}
 \index{pca9530\+\_\+init@{pca9530\+\_\+init}!pca9530.\+h@{pca9530.\+h}}
 \subsubsection[{pca9530\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t pca9530\+\_\+init (
@@ -289,7 +335,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -389,7 +436,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -447,7 +495,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

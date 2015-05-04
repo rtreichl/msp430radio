@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="time_8c.html#a6b341bdccd1c2c5503da84093f12e145" target="_top" xlink:title="time_set_time">
+<g id="a_node2"><a xlink:href="time_8c.html#a6b341bdccd1c2c5503da84093f12e145" target="_top" xlink:title="Set the time and write it into the time_date array. ">
 <polygon fill="white" stroke="black" points="113,-0.5 113,-19.5 191,-19.5 191,-0.5 113,-0.5"/>
 <text text-anchor="middle" x="152" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">time_set_time</text>
 </a>

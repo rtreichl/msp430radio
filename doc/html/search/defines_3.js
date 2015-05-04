@@ -95,6 +95,5 @@ var searchData=
   ['encoder_5f2_5fout',['ENCODER_2_OUT',['../encoder_8h.html#ad029c73a3e4d1fed315c2d1c521a197e',1,'encoder.h']]],
   ['encoder_5f2_5fpin',['ENCODER_2_PIN',['../encoder_8h.html#afefc9c30fe7e9e3151dddc3a1516fee6',1,'encoder.h']]],
   ['encoder_5f2_5fren',['ENCODER_2_REN',['../encoder_8h.html#aa3ad3b0b79178fe00bcbac4fc278c2b2',1,'encoder.h']]],
-  ['encoder_5f2_5ft',['ENCODER_2_T',['../encoder_8h.html#aa31b57ce8a73b2d9c6db28ebe93ab40b',1,'encoder.h']]],
-  ['encoder_5ftast_5frefresh',['ENCODER_TAST_REFRESH',['../main_8c.html#a51c68c498627f53e5abb0a3415148b78',1,'ENCODER_TAST_REFRESH():&#160;main.c'],['../handler_8c.html#a51c68c498627f53e5abb0a3415148b78',1,'ENCODER_TAST_REFRESH():&#160;handler.c']]]
+  ['encoder_5f2_5ft',['ENCODER_2_T',['../encoder_8h.html#aa31b57ce8a73b2d9c6db28ebe93ab40b',1,'encoder.h']]]
 ];

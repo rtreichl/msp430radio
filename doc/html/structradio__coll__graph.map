@@ -2,5 +2,5 @@
 <area shape="rect" id="node2" href="$structradio__settings.html" title="radio_settings" alt="" coords="5,5,108,32"/>
 <area shape="rect" id="node3" href="$structradio__rsq.html" title="radio_rsq" alt="" coords="133,5,207,32"/>
 <area shape="rect" id="node4" href="$structradio__rds.html" title="radio_rds" alt="" coords="231,5,306,32"/>
-<area shape="rect" id="node5" href="$structradio__status.html" title="radio_status" alt="" coords="330,5,423,32"/>
+<area shape="rect" id="node5" href="$structradio__status.html" title="Definition of some structs for the radio, the status, rsq, rds, the settings. " alt="" coords="330,5,423,32"/>
 </map>

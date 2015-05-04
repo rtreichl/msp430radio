@@ -111,22 +111,30 @@ $(document).ready(function(){initNavTree('radio__configuration_8h.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="si4735__cmd__prop_8h_source.html">driver/include/si4735_cmd_prop.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="libs_2time_8h_source.html">libs/time.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include-Abhängigkeitsdiagramm für radio_configuration.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="radio__configuration_8h__incl.svg" width="174" height="216"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="radio__configuration_8h__incl.svg" width="256" height="216"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="radio__configuration_8h__dep__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="radio__configuration_8h__dep__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 </div>
 <p><a href="radio__configuration_8h_source.html">gehe zum Quellcode dieser Datei</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Makrodefinitionen</h2></td></tr>
-<tr class="memitem:a321c7ff1de8c8984c5e2f910fb93eb8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a321c7ff1de8c8984c5e2f910fb93eb8d">RADIO_VALID_SNR</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memitem:a5c9a48717840b5812efa282ed93463a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a5c9a48717840b5812efa282ed93463a2">RADIO_VERSION_MAJOR</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a5c9a48717840b5812efa282ed93463a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ef0b3473b08220fa09b2e72f10cd7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a65ef0b3473b08220fa09b2e72f10cd7c">RADIO_VERSION_MINOR</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a65ef0b3473b08220fa09b2e72f10cd7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a321c7ff1de8c8984c5e2f910fb93eb8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a321c7ff1de8c8984c5e2f910fb93eb8d">RADIO_VALID_SNR</a>&#160;&#160;&#160;15</td></tr>
+<tr class="memdesc:a321c7ff1de8c8984c5e2f910fb93eb8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for auto search and seek funktion.  <a href="#a321c7ff1de8c8984c5e2f910fb93eb8d">Mehr ...</a><br /></td></tr>
 <tr class="separator:a321c7ff1de8c8984c5e2f910fb93eb8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d0abde431e04f57b0828a482d81204f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a3d0abde431e04f57b0828a482d81204f">RADIO_VALID_RSSI</a>&#160;&#160;&#160;20</td></tr>
 <tr class="separator:a3d0abde431e04f57b0828a482d81204f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,16 +150,174 @@ Makrodefinitionen</h2></td></tr>
 <tr class="separator:ad42e009112be3fa3698a34fe031fd800"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81989ef096e0274361f3ba2942cd2936"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a81989ef096e0274361f3ba2942cd2936">RADIO_DCO_FREQ</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a81989ef096e0274361f3ba2942cd2936"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f0dc0c3815b6ea709b43b43829e2a7e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a1f0dc0c3815b6ea709b43b43829e2a7e">RADIO_LCD_REFRESCH</a>&#160;&#160;&#160;500</td></tr>
-<tr class="separator:a1f0dc0c3815b6ea709b43b43829e2a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86ea4ccfbfa22c5c883e6106fbbac802"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a86ea4ccfbfa22c5c883e6106fbbac802">RADIO_ENCODER_POLL</a>&#160;&#160;&#160;100</td></tr>
-<tr class="separator:a86ea4ccfbfa22c5c883e6106fbbac802"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ca80255b3ccba91ba52f515ddf6f0b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a5ca80255b3ccba91ba52f515ddf6f0b0">RADIO_MCLK</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a5ca80255b3ccba91ba52f515ddf6f0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a454052574ad920650b805c96420c6a85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a454052574ad920650b805c96420c6a85">RADIO_SCLK</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a454052574ad920650b805c96420c6a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e1bea55934a97bd0e8d3bfb408265a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a90e1bea55934a97bd0e8d3bfb408265a">RADIO_FACORY_FREQENCY</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a90e1bea55934a97bd0e8d3bfb408265a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for factory state.  <a href="#a90e1bea55934a97bd0e8d3bfb408265a">Mehr ...</a><br /></td></tr>
+<tr class="separator:a90e1bea55934a97bd0e8d3bfb408265a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a784df74c98d7d31b79c6a2bcf513d77d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a784df74c98d7d31b79c6a2bcf513d77d">RADIO_FACORY_VIEW</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a784df74c98d7d31b79c6a2bcf513d77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51a457cb68b73f052e71e10a9d60dc7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ad51a457cb68b73f052e71e10a9d60dc7">RADIO_FACORY_VOLUME</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:ad51a457cb68b73f052e71e10a9d60dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad43fa65b610fb80cbea5a734c4240a71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ad43fa65b610fb80cbea5a734c4240a71">RADIO_FACORY_EQUALIZER</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ad43fa65b610fb80cbea5a734c4240a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b8ace79821aa87ec9a449069b09f1d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a6b8ace79821aa87ec9a449069b09f1d4">RADIO_FACORY_SOURCE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a6b8ace79821aa87ec9a449069b09f1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bfd21f1752d82c457d891e58eb1ffab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a7bfd21f1752d82c457d891e58eb1ffab">RADIO_FACORY_BRIGHTNESS</a>&#160;&#160;&#160;35</td></tr>
+<tr class="separator:a7bfd21f1752d82c457d891e58eb1ffab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae06c096582c85e4207152eddab8431fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ae06c096582c85e4207152eddab8431fd">RADIO_FACORY_CONTRAST</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:ae06c096582c85e4207152eddab8431fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a918a6f76e5642da859df29ea5824ec1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a918a6f76e5642da859df29ea5824ec1e">RADIO_FACORY_TATP</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a918a6f76e5642da859df29ea5824ec1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1de79ac0312b9fb899e54bd74fb06ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ad1de79ac0312b9fb899e54bd74fb06ad">RADIO_FACORY_VOLUME_TA</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:ad1de79ac0312b9fb899e54bd74fb06ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11588a0c6047fcfe43bb00ba8e750d42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a11588a0c6047fcfe43bb00ba8e750d42">RADIO_BRIGHTNESS_MAX</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:a11588a0c6047fcfe43bb00ba8e750d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for scroll interfaces.  <a href="#a11588a0c6047fcfe43bb00ba8e750d42">Mehr ...</a><br /></td></tr>
+<tr class="separator:a11588a0c6047fcfe43bb00ba8e750d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7d4a5d2184f9f3d62486432a668be5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#aae7d4a5d2184f9f3d62486432a668be5">RADIO_BRIGHTNESS_MIN</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aae7d4a5d2184f9f3d62486432a668be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152ffe9f4099cb6256124ef87f2a5813"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a152ffe9f4099cb6256124ef87f2a5813">RADIO_BRIGHTNESS_STEP</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a152ffe9f4099cb6256124ef87f2a5813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a971aea8fb933f5b56bd1215cbc734736"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a971aea8fb933f5b56bd1215cbc734736">RADIO_CONTRAST_MAX</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a971aea8fb933f5b56bd1215cbc734736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8179ee44198d263259432b392db916a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a8179ee44198d263259432b392db916a2">RADIO_CONTRAST_MIN</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a8179ee44198d263259432b392db916a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ad824f27b930de2e11857d29ddd003c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a3ad824f27b930de2e11857d29ddd003c">RADIO_CONTRAST_STEP</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a3ad824f27b930de2e11857d29ddd003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bf5f03ca0b46368bcdc8de4466c0eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#af2bf5f03ca0b46368bcdc8de4466c0eb">RADIO_VOLUME_MAX</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:af2bf5f03ca0b46368bcdc8de4466c0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae267b915054d707b13f2ea6bb143b506"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ae267b915054d707b13f2ea6bb143b506">RADIO_VOLUME_MIN</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ae267b915054d707b13f2ea6bb143b506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b78fb9948dccf5053129c05e790b3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ae7b78fb9948dccf5053129c05e790b3f">RADIO_VOLUME_STEP</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:ae7b78fb9948dccf5053129c05e790b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc0878af138d12ff03e003b86cb33bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a4bc0878af138d12ff03e003b86cb33bd">RADIO_FREQENCY_MAX</a>&#160;&#160;&#160;<a class="el" href="radio__configuration_8h.html#a84521b00c701ae970f07d6fa4c65bf1e">RADIO_TOP_FREQ</a></td></tr>
+<tr class="separator:a4bc0878af138d12ff03e003b86cb33bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad981211fb6b8fd2a418376643bae791c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ad981211fb6b8fd2a418376643bae791c">RADIO_FREQENCY_MIN</a>&#160;&#160;&#160;<a class="el" href="radio__configuration_8h.html#a20ce0fa2e3fd92a34010d5cfca702fb3">RADIO_BOT_FREQ</a></td></tr>
+<tr class="separator:ad981211fb6b8fd2a418376643bae791c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbea5dc0003ae544b921452390009683"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#acbea5dc0003ae544b921452390009683">RADIO_FREQENCY_STEP</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:acbea5dc0003ae544b921452390009683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4103f5bd07b36785d220fe005dc65e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ab4103f5bd07b36785d220fe005dc65e3">RADIO_STATION_NAME_STORE_ADR</a>&#160;&#160;&#160;0x1000</td></tr>
+<tr class="memdesc:ab4103f5bd07b36785d220fe005dc65e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for flash storing.  <a href="#ab4103f5bd07b36785d220fe005dc65e3">Mehr ...</a><br /></td></tr>
+<tr class="separator:ab4103f5bd07b36785d220fe005dc65e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed5209d4f73a4a25770bde0149625689"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#aed5209d4f73a4a25770bde0149625689">RADIO_STATION_NAME_STORE_SIZE</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:aed5209d4f73a4a25770bde0149625689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a079cd45a1bbfedfbb94ebd6560eaf902"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a079cd45a1bbfedfbb94ebd6560eaf902">RADIO_STATION_FREQ_STORE_ADR</a>&#160;&#160;&#160;0x1070</td></tr>
+<tr class="separator:a079cd45a1bbfedfbb94ebd6560eaf902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8d7f12aa8f30e4e8ee25eae8edebd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a6c8d7f12aa8f30e4e8ee25eae8edebd7">RADIO_STATION_FREQ_STORE_SIZE</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a6c8d7f12aa8f30e4e8ee25eae8edebd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8a3bf59b7d1412dc23f9bd56041acb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ae8a3bf59b7d1412dc23f9bd56041acb6">RADIO_SETTINGS_STORE_ADR</a>&#160;&#160;&#160;0x108C</td></tr>
+<tr class="separator:ae8a3bf59b7d1412dc23f9bd56041acb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc0f92ac65f3ae6251533bb9920fa14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a8cc0f92ac65f3ae6251533bb9920fa14">RADIO_INIT_STORE_ADR</a>&#160;&#160;&#160;0x10B8</td></tr>
+<tr class="separator:a8cc0f92ac65f3ae6251533bb9920fa14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa71533228ac74bed81757657b63b6aec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#aa71533228ac74bed81757657b63b6aec">BUTTON_LONG</a>&#160;&#160;&#160;'l'</td></tr>
+<tr class="memdesc:aa71533228ac74bed81757657b63b6aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for button states.  <a href="#aa71533228ac74bed81757657b63b6aec">Mehr ...</a><br /></td></tr>
+<tr class="separator:aa71533228ac74bed81757657b63b6aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa2d2ad4374cc67ad2f9e3cee397d0e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#aaa2d2ad4374cc67ad2f9e3cee397d0e9">BUTTON_SHORT</a>&#160;&#160;&#160;'k'</td></tr>
+<tr class="separator:aaa2d2ad4374cc67ad2f9e3cee397d0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1adc6b5dcb7acbc164c3b197d02a771"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">BUTTON_FREE</a>&#160;&#160;&#160;'f'</td></tr>
+<tr class="separator:ab1adc6b5dcb7acbc164c3b197d02a771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832d39ba5eab82807931d0e63642fe01"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a832d39ba5eab82807931d0e63642fe01">RADIO_TIMER_RSQ</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a832d39ba5eab82807931d0e63642fe01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for timer use.  <a href="#a832d39ba5eab82807931d0e63642fe01">Mehr ...</a><br /></td></tr>
+<tr class="separator:a832d39ba5eab82807931d0e63642fe01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1037d8b522e1cc255c1a70046a0bab2e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a1037d8b522e1cc255c1a70046a0bab2e">RADIO_TIMER_RDS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a1037d8b522e1cc255c1a70046a0bab2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a151cf540cba07952f2d6f29f41135"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a41a151cf540cba07952f2d6f29f41135">RADIO_TIMER_MINUTE</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a41a151cf540cba07952f2d6f29f41135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7791132f16c2fd4f06075af80fa0027"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ac7791132f16c2fd4f06075af80fa0027">RADIO_TIMER_DISPLAY</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:ac7791132f16c2fd4f06075af80fa0027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e15769884e79cbae1ba49cdcfdf9de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a41e15769884e79cbae1ba49cdcfdf9de">RADIO_TIMER_ENCODER</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a41e15769884e79cbae1ba49cdcfdf9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a364bcc5d9b909fb27b376187c0a4f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a1a364bcc5d9b909fb27b376187c0a4f8">RADIO_TIMER_USED</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a1a364bcc5d9b909fb27b376187c0a4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a723f0c8374f11c81275191abf452df51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a723f0c8374f11c81275191abf452df51">RADIO_COUNT_ENCODER</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a723f0c8374f11c81275191abf452df51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for time refresh rates.  <a href="#a723f0c8374f11c81275191abf452df51">Mehr ...</a><br /></td></tr>
+<tr class="separator:a723f0c8374f11c81275191abf452df51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b71002eb2b9ab8d1624987a4e6929e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a2b71002eb2b9ab8d1624987a4e6929e4">RADIO_COUNT_MINUTE</a>&#160;&#160;&#160;60000</td></tr>
+<tr class="separator:a2b71002eb2b9ab8d1624987a4e6929e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcd399779d6841aa5267387782352668"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#adcd399779d6841aa5267387782352668">RADIO_COUNT_RSQ</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:adcd399779d6841aa5267387782352668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a46bbfb48f6baf6751d84a91ce9e0c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#af3a46bbfb48f6baf6751d84a91ce9e0c">RADIO_COUNT_RDS</a>&#160;&#160;&#160;200</td></tr>
+<tr class="separator:af3a46bbfb48f6baf6751d84a91ce9e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7564e6b7239f3d75dac1e265fdd5db4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a7564e6b7239f3d75dac1e265fdd5db4c">RADIO_COUNT_DISPLAY</a>&#160;&#160;&#160;500</td></tr>
+<tr class="separator:a7564e6b7239f3d75dac1e265fdd5db4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57c004e8e310c5ed6a6a4a74e57e38b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a57c004e8e310c5ed6a6a4a74e57e38b3">RADIO_DATE_DAY</a>&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#a048ec1bde6610d83e24c409356dc88c4">BUILD_DAY</a></td></tr>
+<tr class="memdesc:a57c004e8e310c5ed6a6a4a74e57e38b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for time, date for cold start.  <a href="#a57c004e8e310c5ed6a6a4a74e57e38b3">Mehr ...</a><br /></td></tr>
+<tr class="separator:a57c004e8e310c5ed6a6a4a74e57e38b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af32a6982b4f4415dfdb9215d20bb6ca7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#af32a6982b4f4415dfdb9215d20bb6ca7">RADIO_DATE_MONTH</a>&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#a028c55cbe44447e1b8046ece3dbb9a02">BUILD_MONTH</a></td></tr>
+<tr class="separator:af32a6982b4f4415dfdb9215d20bb6ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7537dd98a7a7ea289bf28a7e13b4f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a3a7537dd98a7a7ea289bf28a7e13b4f9">RADIO_DATE_YEAR</a>&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#abb9ec68a7385d7febaad9e0267b2f7a9">BUILD_YEAR</a></td></tr>
+<tr class="separator:a3a7537dd98a7a7ea289bf28a7e13b4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebf0e4665bdfc91ea82cd678e0689336"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#aebf0e4665bdfc91ea82cd678e0689336">RADIO_TIME_HOUR</a>&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#ac7d6c96c7fe1a6237703b6d520c9b369">BUILD_HOUR</a></td></tr>
+<tr class="separator:aebf0e4665bdfc91ea82cd678e0689336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43bd9c614c57a186dd5a8d373f4a20df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#a43bd9c614c57a186dd5a8d373f4a20df">RADIO_TIME_MINUTE</a>&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#a60a2b7146eedffee3f0c3f85f6d48e84">BUILD_MIN</a></td></tr>
+<tr class="separator:a43bd9c614c57a186dd5a8d373f4a20df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69ec1c8ce351004479ea186a7b2a794"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__configuration_8h.html#ac69ec1c8ce351004479ea186a7b2a794">RADIO_AMPLIFIER_GAIN</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:ac69ec1c8ce351004479ea186a7b2a794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define macros for all other kinds of configuration.  <a href="#ac69ec1c8ce351004479ea186a7b2a794">Mehr ...</a><br /></td></tr>
+<tr class="separator:ac69ec1c8ce351004479ea186a7b2a794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Makro-Dokumentation</h2>
+<a class="anchor" id="ab1adc6b5dcb7acbc164c3b197d02a771"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUTTON_FREE&#160;&#160;&#160;'f'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00084">84</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa71533228ac74bed81757657b63b6aec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUTTON_LONG&#160;&#160;&#160;'l'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for button states. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00082">82</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa2d2ad4374cc67ad2f9e3cee397d0e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUTTON_SHORT&#160;&#160;&#160;'k'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00083">83</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac69ec1c8ce351004479ea186a7b2a794"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_AMPLIFIER_GAIN&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for all other kinds of configuration. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00126">126</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a20ce0fa2e3fd92a34010d5cfca702fb3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -162,7 +328,51 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00010">10</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00020">20</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a11588a0c6047fcfe43bb00ba8e750d42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_BRIGHTNESS_MAX&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for scroll interfaces. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00051">51</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae7d4a5d2184f9f3d62486432a668be5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_BRIGHTNESS_MIN&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00052">52</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a152ffe9f4099cb6256124ef87f2a5813"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_BRIGHTNESS_STEP&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00053">53</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -176,7 +386,7 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00013">13</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00023">23</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +400,165 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00014">14</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00024">24</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a971aea8fb933f5b56bd1215cbc734736"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_CONTRAST_MAX&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00054">54</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8179ee44198d263259432b392db916a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_CONTRAST_MIN&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00055">55</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ad824f27b930de2e11857d29ddd003c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_CONTRAST_STEP&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00056">56</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7564e6b7239f3d75dac1e265fdd5db4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_COUNT_DISPLAY&#160;&#160;&#160;500</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00107">107</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a723f0c8374f11c81275191abf452df51"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_COUNT_ENCODER&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for time refresh rates. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00103">103</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b71002eb2b9ab8d1624987a4e6929e4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_COUNT_MINUTE&#160;&#160;&#160;60000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00104">104</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3a46bbfb48f6baf6751d84a91ce9e0c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_COUNT_RDS&#160;&#160;&#160;200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00106">106</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcd399779d6841aa5267387782352668"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_COUNT_RSQ&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00105">105</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57c004e8e310c5ed6a6a4a74e57e38b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_DATE_DAY&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#a048ec1bde6610d83e24c409356dc88c4">BUILD_DAY</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for time, date for cold start. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00114">114</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af32a6982b4f4415dfdb9215d20bb6ca7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_DATE_MONTH&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#a028c55cbe44447e1b8046ece3dbb9a02">BUILD_MONTH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00115">115</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a7537dd98a7a7ea289bf28a7e13b4f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_DATE_YEAR&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#abb9ec68a7385d7febaad9e0267b2f7a9">BUILD_YEAR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00116">116</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -204,35 +572,191 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00015">15</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00025">25</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a86ea4ccfbfa22c5c883e6106fbbac802"></a>
+<a class="anchor" id="a7bfd21f1752d82c457d891e58eb1ffab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define RADIO_ENCODER_POLL&#160;&#160;&#160;100</td>
+          <td class="memname">#define RADIO_FACORY_BRIGHTNESS&#160;&#160;&#160;35</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00017">17</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00040">40</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1f0dc0c3815b6ea709b43b43829e2a7e"></a>
+<a class="anchor" id="ae06c096582c85e4207152eddab8431fd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define RADIO_LCD_REFRESCH&#160;&#160;&#160;500</td>
+          <td class="memname">#define RADIO_FACORY_CONTRAST&#160;&#160;&#160;6</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00016">16</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00041">41</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad43fa65b610fb80cbea5a734c4240a71"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FACORY_EQUALIZER&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00038">38</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90e1bea55934a97bd0e8d3bfb408265a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FACORY_FREQENCY&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for factory state. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00035">35</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b8ace79821aa87ec9a449069b09f1d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FACORY_SOURCE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00039">39</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a918a6f76e5642da859df29ea5824ec1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FACORY_TATP&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00042">42</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a784df74c98d7d31b79c6a2bcf513d77d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FACORY_VIEW&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00036">36</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad51a457cb68b73f052e71e10a9d60dc7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FACORY_VOLUME&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00037">37</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1de79ac0312b9fb899e54bd74fb06ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FACORY_VOLUME_TA&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00043">43</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bc0878af138d12ff03e003b86cb33bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FREQENCY_MAX&#160;&#160;&#160;<a class="el" href="radio__configuration_8h.html#a84521b00c701ae970f07d6fa4c65bf1e">RADIO_TOP_FREQ</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00060">60</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad981211fb6b8fd2a418376643bae791c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FREQENCY_MIN&#160;&#160;&#160;<a class="el" href="radio__configuration_8h.html#a20ce0fa2e3fd92a34010d5cfca702fb3">RADIO_BOT_FREQ</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00061">61</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acbea5dc0003ae544b921452390009683"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_FREQENCY_STEP&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00062">62</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8cc0f92ac65f3ae6251533bb9920fa14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_INIT_STORE_ADR&#160;&#160;&#160;0x10B8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00075">75</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -246,7 +770,7 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00018">18</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00026">26</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -260,7 +784,7 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00019">19</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00027">27</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +798,193 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00012">12</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00022">22</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae8a3bf59b7d1412dc23f9bd56041acb6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_SETTINGS_STORE_ADR&#160;&#160;&#160;0x108C</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00074">74</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a079cd45a1bbfedfbb94ebd6560eaf902"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_STATION_FREQ_STORE_ADR&#160;&#160;&#160;0x1070</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00072">72</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c8d7f12aa8f30e4e8ee25eae8edebd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_STATION_FREQ_STORE_SIZE&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00073">73</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4103f5bd07b36785d220fe005dc65e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_STATION_NAME_STORE_ADR&#160;&#160;&#160;0x1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for flash storing. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00070">70</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed5209d4f73a4a25770bde0149625689"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_STATION_NAME_STORE_SIZE&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00071">71</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebf0e4665bdfc91ea82cd678e0689336"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIME_HOUR&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#ac7d6c96c7fe1a6237703b6d520c9b369">BUILD_HOUR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00117">117</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43bd9c614c57a186dd5a8d373f4a20df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIME_MINUTE&#160;&#160;&#160;<a class="el" href="libs_2time_8h.html#a60a2b7146eedffee3f0c3f85f6d48e84">BUILD_MIN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00118">118</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7791132f16c2fd4f06075af80fa0027"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIMER_DISPLAY&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00094">94</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41e15769884e79cbae1ba49cdcfdf9de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIMER_ENCODER&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00095">95</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41a151cf540cba07952f2d6f29f41135"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIMER_MINUTE&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00093">93</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1037d8b522e1cc255c1a70046a0bab2e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIMER_RDS&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00092">92</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a832d39ba5eab82807931d0e63642fe01"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIMER_RSQ&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define macros for timer use. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00091">91</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a364bcc5d9b909fb27b376187c0a4f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_TIMER_USED&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00096">96</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +998,7 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00011">11</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00021">21</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -302,7 +1012,7 @@ Makrodefinitionen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00009">9</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00019">19</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -311,12 +1021,84 @@ Makrodefinitionen</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define RADIO_VALID_SNR&#160;&#160;&#160;10</td>
+          <td class="memname">#define RADIO_VALID_SNR&#160;&#160;&#160;15</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00008">8</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+<p>Define macros for auto search and seek funktion. </p>
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00018">18</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c9a48717840b5812efa282ed93463a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_VERSION_MAJOR&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00009">9</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65ef0b3473b08220fa09b2e72f10cd7c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_VERSION_MINOR&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00010">10</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af2bf5f03ca0b46368bcdc8de4466c0eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_VOLUME_MAX&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00057">57</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae267b915054d707b13f2ea6bb143b506"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_VOLUME_MIN&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00058">58</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7b78fb9948dccf5053129c05e790b3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RADIO_VOLUME_STEP&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="radio__configuration_8h_source.html#l00059">59</a> der Datei <a class="el" href="radio__configuration_8h_source.html">radio_configuration.h</a>.</p>
 
 </div>
 </div>
@@ -326,7 +1108,7 @@ Makrodefinitionen</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_0c8fd76a6ec5a01c144012824d36fa80.html">settings</a></li><li class="navelem"><a class="el" href="radio__configuration_8h.html">radio_configuration.h</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:35 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:14 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

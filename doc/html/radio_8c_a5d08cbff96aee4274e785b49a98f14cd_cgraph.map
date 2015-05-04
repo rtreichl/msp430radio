@@ -1,0 +1,28 @@
+<map id="radio_stand_by" name="radio_stand_by">
+<area shape="rect" id="node2" href="$tpa2016d2_8c.html#abd9d0aa3479e3dd782cdf627c1d54df1" title="tpa2016d2_shutdown" alt="" coords="561,7,705,34"/>
+<area shape="rect" id="node6" href="$si4735_8h.html#a7a8b4f9539a7fe4e1101a84c80d1c3f0" title="si4735_shutdown" alt="" coords="168,83,291,110"/>
+<area shape="rect" id="node7" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="173,203,286,230"/>
+<area shape="rect" id="node12" href="$pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="164,140,295,167"/>
+<area shape="rect" id="node13" href="$si4735_8h.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="184,514,275,540"/>
+<area shape="rect" id="node24" href="$radio_8c.html#ae11dbe9ea82d3ae65b6e80a4e6e995f8" title="Set the volume. " alt="" coords="181,818,278,844"/>
+<area shape="rect" id="node26" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="Tune the frequency. " alt="" coords="174,868,285,895"/>
+<area shape="rect" id="node3" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="775,260,871,287"/>
+<area shape="rect" id="node4" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="940,260,1035,287"/>
+<area shape="rect" id="node5" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="1083,311,1189,338"/>
+<area shape="rect" id="node8" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="371,210,485,236"/>
+<area shape="rect" id="node11" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="577,159,689,186"/>
+<area shape="rect" id="node9" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="582,210,685,236"/>
+<area shape="rect" id="node10" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="780,311,865,338"/>
+<area shape="rect" id="node14" href="$external__interrupthandler_8h.html#a1685394f9610006097ec45181e59563b" title="ext_interrupt_create" alt="" coords="359,362,497,388"/>
+<area shape="rect" id="node15" href="$si4735_8c.html#a08ce8e479825a0951c15968d2b14a222" title="si4735_interrupt" alt="" coords="371,412,485,439"/>
+<area shape="rect" id="node16" href="$external__interrupthandler_8h.html#a345dfb9a7e177c5da6eb9dc5b3c82bc9" title="ext_interrupt_enable" alt="" coords="359,818,497,844"/>
+<area shape="rect" id="node17" href="$si4735_8c.html#aad8341b5b19aa8f962a6b9b940d77960" title="si4735_get_interrupt" alt="" coords="753,716,892,743"/>
+<area shape="rect" id="node18" href="$si4735_8c.html#aadc29a91f13cd5ebe239b23c7e5370dc" title="si4735_set_property" alt="" coords="564,514,703,540"/>
+<area shape="rect" id="node19" href="$si4735_8c.html#a6f18c3d05bcb57296aad95c0be535f73" title="si4735_configure_rds" alt="" coords="356,514,500,540"/>
+<area shape="rect" id="node20" href="$si4735_8c.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="563,716,704,743"/>
+<area shape="rect" id="node22" href="$si4735_8c.html#af6037be0045d62ab73bf8e6c3802bd8e" title="si4735_configure_seeking" alt="" coords="343,564,513,591"/>
+<area shape="rect" id="node23" href="$external__interrupthandler_8h.html#a67fb5781413cf5c193be332cc6e52209" title="ext_interrupt_disable" alt="" coords="357,868,499,895"/>
+<area shape="rect" id="node21" href="$i2c_8h.html#a6dd896b0c82d1aa91a1a8155b41c4566" title="Receives I2C commands until a NACK is received or received RxBytes. " alt="" coords="787,792,858,819"/>
+<area shape="rect" id="node25" href="$si4735_8h.html#aadc29a91f13cd5ebe239b23c7e5370dc" title="si4735_set_property" alt="" coords="564,666,703,692"/>
+<area shape="rect" id="node27" href="$si4735_8h.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="563,818,704,844"/>
+</map>

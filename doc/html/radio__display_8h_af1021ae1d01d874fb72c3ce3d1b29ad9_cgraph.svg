@@ -75,7 +75,7 @@ var sectionId = 'dynsection-6';
 </g>
 <!-- Node10 -->
 <g id="node10" class="node"><title>Node10</title>
-<g id="a_node10"><a xlink:href="time_8c.html#a4c9e3c34eea90bf15a804da6ee4ad638" target="_top" xlink:title="time_date_to_array">
+<g id="a_node10"><a xlink:href="time_8c.html#a4c9e3c34eea90bf15a804da6ee4ad638" target="_top" xlink:title="Convert date to array. ">
 <polygon fill="white" stroke="black" points="128,-0.5 128,-19.5 228,-19.5 228,-0.5 128,-0.5"/>
 <text text-anchor="middle" x="178" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">time_date_to_array</text>
 </a>

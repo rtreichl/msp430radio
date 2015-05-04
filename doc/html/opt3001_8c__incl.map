@@ -2,6 +2,7 @@
 <area shape="rect" id="node2" href="$opt3001_8h.html" title="driver/opt3001.h" alt="" coords="22,95,135,121"/>
 <area shape="rect" id="node4" href="$i2c_8h.html" title="I2C implemtation for MSP430G2553, interrupt based. &#160;&#160;This implemtation based on examples from Texas I..." alt="" coords="105,169,189,196"/>
 <area shape="rect" id="node8" href="$timer_8h.html" title="driver/timer.h" alt="" coords="331,244,427,271"/>
-<area shape="rect" id="node9" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="279,319,470,345"/>
-<area shape="rect" id="node10" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="288,393,427,435"/>
+<area shape="rect" id="node9" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="283,319,474,345"/>
+<area shape="rect" id="node10" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="253,393,392,435"/>
+<area shape="rect" id="node11" href="$libs_2time_8h.html" title="libs/time.h" alt="" coords="416,401,499,427"/>
 </map>

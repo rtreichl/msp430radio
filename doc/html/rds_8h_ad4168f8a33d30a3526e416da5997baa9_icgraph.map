@@ -1,8 +1,7 @@
 <map id="rds_triggered" name="rds_triggered">
-<area shape="rect" id="node2" href="$rds_8c.html#a1c031719ba892045c773dc035058870f" title="rds_update" alt="" coords="151,17,237,44"/>
-<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="917,17,968,44"/>
-<area shape="rect" id="node4" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="285,43,413,69"/>
-<area shape="rect" id="node5" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="461,43,564,69"/>
-<area shape="rect" id="node6" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="612,43,719,69"/>
-<area shape="rect" id="node7" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="767,43,869,69"/>
+<area shape="rect" id="node2" href="$rds_8c.html#a1c031719ba892045c773dc035058870f" title="Updates the current RDS data . " alt="" coords="151,31,237,57"/>
+<area shape="rect" id="node3" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="285,5,413,32"/>
+<area shape="rect" id="node5" href="$handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22" title="Handler for menu, RDS, time, the encoders and rsq. " alt="" coords="317,56,381,83"/>
+<area shape="rect" id="node4" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="461,5,611,32"/>
+<area shape="rect" id="node6" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="511,56,561,83"/>
 </map>

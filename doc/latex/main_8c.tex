@@ -1,19 +1,6 @@
 \hypertarget{main_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/main.c-\/\+Dateireferenz}
 \label{main_8c}\index{D\+:/\+G\+I\+T/fhradiov2/main.\+c@{D\+:/\+G\+I\+T/fhradiov2/main.\+c}}
-{\ttfamily \#include $<$msp430.\+h$>$}\\*
-{\ttfamily \#include $<$intrinsics.\+h$>$}\\*
-{\ttfamily \#include $<$stdint.\+h$>$}\\*
-{\ttfamily \#include \char`\"{}driver/i2c.\+h\char`\"{}}\\*
-{\ttfamily \#include $<$driver/si4735.\+h$>$}\\*
-{\ttfamily \#include $<$driver/pca9530.\+h$>$}\\*
-{\ttfamily \#include $<$driver/tpa2016d2.\+h$>$}\\*
-{\ttfamily \#include $<$driver/lcd.\+h$>$}\\*
-{\ttfamily \#include $<$driver/encoder.\+h$>$}\\*
-{\ttfamily \#include $<$driver/timer.\+h$>$}\\*
-{\ttfamily \#include $<$menu/menu.\+h$>$}\\*
-{\ttfamily \#include $<$system/rsq.\+h$>$}\\*
-{\ttfamily \#include $<$system/rds.\+h$>$}\\*
-{\ttfamily \#include $<$system/radio.\+h$>$}\\*
+{\ttfamily \#include $<$system/handler.\+h$>$}\\*
 Include-\/\+Abhängigkeitsdiagramm für main.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -22,27 +9,12 @@ Include-\/\+Abhängigkeitsdiagramm für main.\+c\+:
 \includegraphics[width=350pt]{main_8c__incl}
 \end{center}
 \end{figure}
-\subsection*{Makrodefinitionen}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}~10
-\item 
-\#define \hyperlink{main_8c_a69475c50be8454c72c570b417481e3bf}{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}~60000
-\item 
-\#define \hyperlink{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}~1000
-\item 
-\#define \hyperlink{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}~200
-\item 
-\#define \hyperlink{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}~500
-\item 
-\#define \hyperlink{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}~500
-\end{DoxyCompactItemize}
 \subsection*{Funktionen}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
-\item 
-\+\_\+\+\_\+interrupt void \hyperlink{main_8c_ac6e80bdf33b7d96bf2ed52ecbf08423a}{watchdog\+\_\+timer} (void)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+interrupt void \hyperlink{main_8c_abd988b7904a0054c9d830e72e9dc67b2}{wdt} (void)
 \item 
 \+\_\+\+\_\+interrupt void \hyperlink{main_8c_acee0e2dfb77ceffb9d8ec17b46d4e5b6}{nmi} (void)
 \item 
@@ -52,58 +24,6 @@ int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
 \item 
 \+\_\+\+\_\+interrupt void \hyperlink{main_8c_abd54c16e5c59153cccd22fd779121b78}{comp} (void)
 \end{DoxyCompactItemize}
-\subsection*{Variablen}
-\begin{DoxyCompactItemize}
-\item 
-volatile uint8\+\_\+t \hyperlink{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{encoder\+\_\+1\+\_\+button}
-\item 
-volatile uint8\+\_\+t \hyperlink{main_8c_a6e37070ff4088436f306e79beedacf1d}{encoder\+\_\+2\+\_\+button}
-\end{DoxyCompactItemize}
-
-
-\subsection{Makro-\/\+Dokumentation}
-\hypertarget{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}{}\index{main.\+c@{main.\+c}!D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H@{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}}
-\index{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H@{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}!main.\+c@{main.\+c}}
-\subsubsection[{D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+S\+P\+L\+A\+Y\+\_\+\+R\+E\+F\+R\+E\+S\+H~500}\label{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}
-
-
-Definiert in Zeile 36 der Datei main.\+c.
-
-\hypertarget{main_8c_a51c68c498627f53e5abb0a3415148b78}{}\index{main.\+c@{main.\+c}!E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H@{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}}
-\index{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H@{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}!main.\+c@{main.\+c}}
-\subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+\+T\+A\+S\+T\+\_\+\+R\+E\+F\+R\+E\+S\+H~10}\label{main_8c_a51c68c498627f53e5abb0a3415148b78}
-
-
-Definiert in Zeile 28 der Datei main.\+c.
-
-\hypertarget{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{}\index{main.\+c@{main.\+c}!R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L@{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}}
-\index{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L@{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}!main.\+c@{main.\+c}}
-\subsubsection[{R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+D\+I\+O\+\_\+\+T\+E\+X\+T\+\_\+\+S\+C\+R\+O\+L\+L~500}\label{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}
-
-
-Definiert in Zeile 32 der Datei main.\+c.
-
-\hypertarget{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{}\index{main.\+c@{main.\+c}!R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E@{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}}
-\index{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E@{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}!main.\+c@{main.\+c}}
-\subsubsection[{R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+D\+S\+\_\+\+U\+P\+D\+A\+T\+E~200}\label{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}
-
-
-Definiert in Zeile 31 der Datei main.\+c.
-
-\hypertarget{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{}\index{main.\+c@{main.\+c}!R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E@{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}}
-\index{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E@{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}!main.\+c@{main.\+c}}
-\subsubsection[{R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+S\+Q\+\_\+\+U\+P\+D\+A\+T\+E~1000}\label{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}
-
-
-Definiert in Zeile 30 der Datei main.\+c.
-
-\hypertarget{main_8c_a69475c50be8454c72c570b417481e3bf}{}\index{main.\+c@{main.\+c}!T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E@{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}}
-\index{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E@{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}!main.\+c@{main.\+c}}
-\subsubsection[{T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+\_\+\+M\+I\+N\+U\+T\+E~60000}\label{main_8c_a69475c50be8454c72c570b417481e3bf}
-
-
-Definiert in Zeile 29 der Datei main.\+c.
-
 
 
 \subsection{Dokumentation der Funktionen}
@@ -116,11 +36,11 @@ Definiert in Zeile 29 der Datei main.\+c.
 )}\label{main_8c_a4f6d2de9adc9099d5b104c344de49331}
 
 
-Definiert in Zeile 96 der Datei main.\+c.
+Definiert in Zeile 47 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-96 \{\}
+47 \{\}
 \end{DoxyCode}
 \hypertarget{main_8c_abd54c16e5c59153cccd22fd779121b78}{}\index{main.\+c@{main.\+c}!comp@{comp}}
 \index{comp@{comp}!main.\+c@{main.\+c}}
@@ -131,11 +51,11 @@ Definiert in Zeile 96 der Datei main.\+c.
 )}\label{main_8c_abd54c16e5c59153cccd22fd779121b78}
 
 
-Definiert in Zeile 98 der Datei main.\+c.
+Definiert in Zeile 49 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-98 \{\}
+49 \{\}
 \end{DoxyCode}
 \hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{}\index{main.\+c@{main.\+c}!main@{main}}
 \index{main@{main}!main.\+c@{main.\+c}}
@@ -146,55 +66,36 @@ Definiert in Zeile 98 der Datei main.\+c.
 )}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}
 
 
-Definiert in Zeile 38 der Datei main.\+c.
+Main function. 
+
+Main function contains following steps\+:~\newline
+(1)Init the Watch\+Dog~\newline
+(2)Init the radio~\newline
+(3)Run the handler~\newline
+ 
+\begin{DoxyParams}{Parameter}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+The while loop is running in the handler! 
+\end{DoxyRemark}
+
+
+Definiert in Zeile 31 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-39 \{
-40     WDTCTL = WDTPW + WDTHOLD;
-41     \hyperlink{radio_8h_a3a1de7e31aabba6e408a633c130e618a}{radio\_init}();
-42     int8\_t en\_counter1 = 0;
-43     int8\_t en\_counter2 = 0;
-44     \hyperlink{time_8c_a6b341bdccd1c2c5503da84093f12e145}{time\_set\_time}(18,29,27,2,16,0);
-45 
-46     \textcolor{keywordflow}{while}(1)
-47     \{
-48         \textcolor{comment}{//menu();}
-49         en\_counter2 +=  \hyperlink{encoder_8h_a17708354c0e76c0422398f8dcd50dfea}{Encoder\_2\_get\_count}();
-50         en\_counter1 +=  \hyperlink{encoder_8h_a7a39090bb6f1d88f9371e44f4923194b}{Encoder\_1\_get\_count}();
-51         \textcolor{keywordflow}{if}(\hyperlink{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{encoder\_1\_button} != \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE} || en\_counter1 != 0 || 
-      \hyperlink{main_8c_a6e37070ff4088436f306e79beedacf1d}{encoder\_2\_button} != \hyperlink{radio_8h_ab1adc6b5dcb7acbc164c3b197d02a771}{BUTTON\_FREE} || en\_counter2 != 0 || 
-      \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[4] >= \hyperlink{main_8c_ad57d5f1983d83611877c68c3ce5c78a9}{DISPLAY\_REFRESH}) \{
-52             \hyperlink{menu_8h_aaf2a075d3159f7eeab42012941a3437f}{menu\_handler}(&\hyperlink{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{encoder\_1\_button}, &en\_counter1, &
-      \hyperlink{main_8c_a6e37070ff4088436f306e79beedacf1d}{encoder\_2\_button}, &en\_counter2);
-53             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[4] = 0;
-54         \}
-55         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] >= \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH}) \{
-56             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[1] -= \hyperlink{main_8c_a51c68c498627f53e5abb0a3415148b78}{ENCODER\_TAST\_REFRESH};
-57             \hyperlink{encoder_8h_a136248fd00f8429933544a54b030aef9}{encoder\_interrupt2}();
-58         \}
-59         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[3] >= \hyperlink{main_8c_a69475c50be8454c72c570b417481e3bf}{TIME\_MINUTE}) \{
-60             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[3] -= \hyperlink{main_8c_a69475c50be8454c72c570b417481e3bf}{TIME\_MINUTE};
-61             \hyperlink{time_8c_acbfa3c65c807be82221cbebc7ac63224}{time\_update}();
-62         \}
-63         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[6] >= \hyperlink{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{RSQ\_UPDATE}) \{
-64             \hyperlink{rsq_8h_adc26e0d94e8ebd7ba62fa4f628a15f6d}{rsq\_update}(&\hyperlink{structradio}{radio});
-65             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[6] -= \hyperlink{main_8c_aeb9e6b8b8f71b50cd50a22c39cdfda21}{RSQ\_UPDATE};
-66         \}
-67         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[7] >= \hyperlink{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{RDS\_UPDATE}) \{ \textcolor{comment}{//TODO Rework to interrupt base system}
-68             \hyperlink{rds_8h_a1c031719ba892045c773dc035058870f}{rds\_update}(&\hyperlink{structradio}{radio});
-69             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[7] -= \hyperlink{main_8c_a7ace18ebcff94b3b6ef72e04071ab066}{RDS\_UPDATE};
-70         \}
-71         \textcolor{keywordflow}{if}(\hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[2] >= \hyperlink{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{RADIO\_TEXT\_SCROLL}) \{
-72             \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text}++;
-73             \textcolor{keywordflow}{if}(\hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} == 80) \{
-74                 \hyperlink{structradio}{radio}.\hyperlink{structradio_ac40df2ac7cfc276418e34335098903fb}{status}.\hyperlink{structradio__status_a16198f5b3b66ddcf01c81f6177af500f}{scroll\_text} = 0;
-75             \}
-76             \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[2] -= \hyperlink{main_8c_a8bc5de8e6110d70ddd7e9f445d92be30}{RADIO\_TEXT\_SCROLL};
-77         \}
-78     \}
-79 
-80 \}
+32 \{
+33     WDTCTL = WDTPW + WDTHOLD;
+34     \hyperlink{radio_8h_a3a1de7e31aabba6e408a633c130e618a}{radio\_init}();
+35     \hyperlink{handler_8h_a4f639cde11f5cab70d795fd2f75c9d22}{handler}();
+36 \}
 \end{DoxyCode}
 
 
@@ -217,11 +118,11 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
 )}\label{main_8c_acee0e2dfb77ceffb9d8ec17b46d4e5b6}
 
 
-Definiert in Zeile 88 der Datei main.\+c.
+Definiert in Zeile 43 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-88 \{\}
+43 \{\}
 \end{DoxyCode}
 \hypertarget{main_8c_a216cec8d9bdb8960632a7ef3b1b283fe}{}\index{main.\+c@{main.\+c}!tim1@{tim1}}
 \index{tim1@{tim1}!main.\+c@{main.\+c}}
@@ -232,33 +133,24 @@ Definiert in Zeile 88 der Datei main.\+c.
 )}\label{main_8c_a216cec8d9bdb8960632a7ef3b1b283fe}
 
 
-Definiert in Zeile 90 der Datei main.\+c.
+Definiert in Zeile 45 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-90 \{\}
+45 \{\}
 \end{DoxyCode}
-\hypertarget{main_8c_ac6e80bdf33b7d96bf2ed52ecbf08423a}{}\index{main.\+c@{main.\+c}!watchdog\+\_\+timer@{watchdog\+\_\+timer}}
-\index{watchdog\+\_\+timer@{watchdog\+\_\+timer}!main.\+c@{main.\+c}}
-\subsubsection[{watchdog\+\_\+timer}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+interrupt void watchdog\+\_\+timer (
+\hypertarget{main_8c_abd988b7904a0054c9d830e72e9dc67b2}{}\index{main.\+c@{main.\+c}!wdt@{wdt}}
+\index{wdt@{wdt}!main.\+c@{main.\+c}}
+\subsubsection[{wdt}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+interrupt void wdt (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}\label{main_8c_ac6e80bdf33b7d96bf2ed52ecbf08423a}
+)}\label{main_8c_abd988b7904a0054c9d830e72e9dc67b2}
 
 
-Definiert in Zeile 83 der Datei main.\+c.
+Definiert in Zeile 41 der Datei main.\+c.
 
 
 \begin{DoxyCode}
-83 \{\}
+41 \{\}
 \end{DoxyCode}
-
-
-\subsection{Variablen-\/\+Dokumentation}
-\hypertarget{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}{}\index{main.\+c@{main.\+c}!encoder\+\_\+1\+\_\+button@{encoder\+\_\+1\+\_\+button}}
-\index{encoder\+\_\+1\+\_\+button@{encoder\+\_\+1\+\_\+button}!main.\+c@{main.\+c}}
-\subsubsection[{encoder\+\_\+1\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\+\_\+t encoder\+\_\+1\+\_\+button}\label{main_8c_ae2e9eac1cf2efe56c454940d4dde9aa8}
-\hypertarget{main_8c_a6e37070ff4088436f306e79beedacf1d}{}\index{main.\+c@{main.\+c}!encoder\+\_\+2\+\_\+button@{encoder\+\_\+2\+\_\+button}}
-\index{encoder\+\_\+2\+\_\+button@{encoder\+\_\+2\+\_\+button}!main.\+c@{main.\+c}}
-\subsubsection[{encoder\+\_\+2\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\+\_\+t encoder\+\_\+2\+\_\+button}\label{main_8c_a6e37070ff4088436f306e79beedacf1d}

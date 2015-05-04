@@ -175,25 +175,27 @@ $(document).ready(function(){initNavTree('external__interrupthandler_8c_source.h
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    uint8_t pin;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span>(P1IFG != 0) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">for</span>(i = 0, pin = P1IFG; pin &gt; 0; i++) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i] != 0 &amp;&amp; (pin &amp; 0x01)) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i]();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            pin &gt;&gt;= 1;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        P1IFG = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span>(P2IFG != 0) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">for</span>(i = 8, pin = P2IFG; pin &gt; 0; i++) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i] != 0 &amp;&amp; (pin &amp; 0x01)) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i]();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            pin &gt;&gt;= 1;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        P2IFG = 0;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        P1IFG &amp;= P1IE;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span>(i = 0, pin = P1IFG; pin &gt; 0; i++) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i] != 0 &amp;&amp; (pin &amp; 0x01)) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i]();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            pin &gt;&gt;= 1;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        P1IFG = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span>(P2IFG != 0) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        P2IFG &amp;= P2IE;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">for</span>(i = 8, pin = P2IFG; pin &gt; 0; i++) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i] != 0 &amp;&amp; (pin &amp; 0x01)) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <a class="code" href="external__interrupthandler_8c.html#ac6a491a811bf236b0743231661f43b10">ext_int_handler</a>[i]();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            pin &gt;&gt;= 1;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        P2IFG = 0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 <div class="ttc" id="external__interrupthandler_8h_html"><div class="ttname"><a href="external__interrupthandler_8h.html">external_interrupthandler.h</a></div></div>
 <div class="ttc" id="external__interrupthandler_8c_html_a4ee6aefa1d9150a49f8560d46f46603c"><div class="ttname"><a href="external__interrupthandler_8c.html#a4ee6aefa1d9150a49f8560d46f46603c">ext_interrupt_delete</a></div><div class="ttdeci">uint8_t ext_interrupt_delete(uint8_t int_number)</div><div class="ttdef"><b>Definition:</b> <a href="external__interrupthandler_8c_source.html#l00026">external_interrupthandler.c:26</a></div></div>
 <div class="ttc" id="external__interrupthandler_8c_html_a49f7f660c4305c86e6dc6da9cdc7a570"><div class="ttname"><a href="external__interrupthandler_8c.html#a49f7f660c4305c86e6dc6da9cdc7a570">ptrfunc</a></div><div class="ttdeci">volatile void(* ptrfunc)()</div><div class="ttdef"><b>Definition:</b> <a href="external__interrupthandler_8c_source.html#l00013">external_interrupthandler.c:13</a></div></div>
@@ -208,7 +210,7 @@ $(document).ready(function(){initNavTree('external__interrupthandler_8c_source.h
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="dir_a73e662009d191b54bc30e34ae038220.html">src</a></li><li class="navelem"><a class="el" href="external__interrupthandler_8c.html">external_interrupthandler.c</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

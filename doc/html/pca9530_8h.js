@@ -33,7 +33,7 @@ var pca9530_8h =
       [ "PWM_0", "pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740", null ],
       [ "PWM_1", "pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703", null ]
     ] ],
-    [ "pca9530_config_led", "pca9530_8h.html#a7abe5b75b4137ce2bd840a939d8b61d1", null ],
+    [ "pca9530_config_leds", "pca9530_8h.html#a91089f6598b9a7b7d85171c4a731f1c1", null ],
     [ "pca9530_init", "pca9530_8h.html#ae2f44601e0bbf4c0b7bbdb127def81c3", null ],
     [ "pca9530_read_input", "pca9530_8h.html#a0504ea065814c638843035fe0559b24c", null ],
     [ "pca9530_set_freq", "pca9530_8h.html#abc69b1cb491825b0e425539994b188bb", null ],

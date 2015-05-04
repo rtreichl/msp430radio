@@ -1,8 +1,9 @@
 <map id="D:/GIT/fhradiov2/driver/src/tpa2016d2.c" name="D:/GIT/fhradiov2/driver/src/tpa2016d2.c">
-<area shape="rect" id="node2" href="$tpa2016d2_8h.html" title="driver/tpa2016d2.h" alt="" coords="138,95,265,121"/>
-<area shape="rect" id="node5" href="$i2c_8h.html" title="I2C implemtation for MSP430G2553, interrupt based. &#160;&#160;This implemtation based on examples from Texas I..." alt="" coords="239,177,323,203"/>
-<area shape="rect" id="node8" href="$timer_8h.html" title="driver/timer.h" alt="" coords="193,259,289,285"/>
-<area shape="rect" id="node11" href="$radio__pin__mapping_8h.html" title="settings/radio_pin\l_mapping.h" alt="" coords="347,169,471,211"/>
-<area shape="rect" id="node9" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="146,333,337,360"/>
-<area shape="rect" id="node10" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="185,408,324,449"/>
+<area shape="rect" id="node2" href="$tpa2016d2_8h.html" title="driver/tpa2016d2.h" alt="" coords="216,95,343,121"/>
+<area shape="rect" id="node5" href="$i2c_8h.html" title="I2C implemtation for MSP430G2553, interrupt based. &#160;&#160;This implemtation based on examples from Texas I..." alt="" coords="237,177,321,203"/>
+<area shape="rect" id="node8" href="$timer_8h.html" title="driver/timer.h" alt="" coords="127,259,223,285"/>
+<area shape="rect" id="node12" href="$radio__pin__mapping_8h.html" title="settings/radio_pin\l_mapping.h" alt="" coords="531,169,655,211"/>
+<area shape="rect" id="node9" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="160,333,351,360"/>
+<area shape="rect" id="node10" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="159,408,298,449"/>
+<area shape="rect" id="node11" href="$libs_2time_8h.html" title="libs/time.h" alt="" coords="322,415,405,442"/>
 </map>

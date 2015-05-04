@@ -124,16 +124,16 @@ $(document).ready(function(){initNavTree('tpa2016d2_8c_source.html','');});
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Wait some time before configure Amplifier</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a>(5);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="tpa2016d2_8c.html#abd9d0aa3479e3dd782cdf627c1d54df1">tpa2016d2_shutdown</a>(1);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Enable Amplifier with R/L speaker enabled</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 2, 0x01, 0xC1);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Wait some time before continue with configure</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    __delay_cycles(800);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Wait some time before continue with configure</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    __delay_cycles(800);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// configure exended configuration</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd">tpa2016d2_equalizer_mode</a>(Start_Mode, Start_Gain);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// configure exended configuration</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd">tpa2016d2_equalizer_mode</a>(Start_Mode, Start_Gain);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// Enable Amplifier with R/L speaker enabled</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 2, 0x01, 0xC3);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="tpa2016d2_8h.html#abd9d0aa3479e3dd782cdf627c1d54df1">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpa2016d2_8c.html#abd9d0aa3479e3dd782cdf627c1d54df1">tpa2016d2_shutdown</a>(uint8_t Shutdown)   <span class="comment">//only 1 or 0 =&gt; 1 for Shutdown and 0 for Release</span></div>
@@ -142,65 +142,77 @@ $(document).ready(function(){initNavTree('tpa2016d2_8c_source.html','');});
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 2, 0x01, 0xC3 | Shutdown&lt;&lt;5);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="tpa2016d2_8h.html#af89d4e10e90526a1fe89449d18776a66">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpa2016d2_8c.html#af89d4e10e90526a1fe89449d18776a66">tpa2016d2_gain</a>(int8_t Gain)</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="tpa2016d2_8h.html#a37d13c141314bbc991005b6932dc059e">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpa2016d2_8c.html#a37d13c141314bbc991005b6932dc059e">tpa2016d2_mute</a>(uint8_t mute)   <span class="comment">//only 1 or 0 =&gt; 1 for mute and 0 for unmute</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Check gain value for valid range</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span>(Gain &gt; 30)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        Gain = 30;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(Gain &lt; -28)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        Gain = -28;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Send new gain to amplifier</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 2, 0x05,(Gain &amp; 0x3F));</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="tpa2016d2_8h.html#a721d219e9bfdf0b5b266ff3f952772fd">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd">tpa2016d2_equalizer_mode</a>(uint8_t Mode, int8_t Gain)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Check gain value for valid range</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span>(Gain &gt; 30)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        Gain = 30;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span>(Gain &lt; -28)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        Gain = -28;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">switch</span>(Mode) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// POP</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x03, 0x08, 0x0A, (Gain &amp; 0x3F), 0x4C, 0xC2);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// CLASSIC</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x02, 0x07, 0x0A, (Gain &amp; 0x3F), 0x4D, 0xC1);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">// JAZZ</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x06, 0x14, 0x00, (Gain &amp; 0x3F), 0x4D, 0xC1);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// RAP HIP HOP</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x01, 0x0A, 0x00, (Gain &amp; 0x3F), 0x4C, 0xC2);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// ROCK</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x03, 0x19, 0x00, (Gain &amp; 0x3F), 0x4D, 0xC1);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">case</span> 5:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">// NEWS VOICE</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x02, 0x0A, 0x00, (Gain &amp; 0x3F), 0x4E, 0xC2);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="ttc" id="tpa2016d2_8c_html_a721d219e9bfdf0b5b266ff3f952772fd"><div class="ttname"><a href="tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd">tpa2016d2_equalizer_mode</a></div><div class="ttdeci">void tpa2016d2_equalizer_mode(uint8_t Mode, int8_t Gain)</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8c_source.html#l00047">tpa2016d2.c:47</a></div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Send command to amplifier</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span>(mute == 1) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 2, 0x01, 0x03);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 2, 0x01, 0xC3);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="tpa2016d2_8h.html#af89d4e10e90526a1fe89449d18776a66">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpa2016d2_8c.html#af89d4e10e90526a1fe89449d18776a66">tpa2016d2_gain</a>(int8_t Gain)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// Check gain value for valid range</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span>(Gain &gt; 30)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        Gain = 30;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span>(Gain &lt; -28)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Gain = -28;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// Send new gain to amplifier</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 2, 0x05,(Gain &amp; 0x3F));</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="tpa2016d2_8h.html#a721d219e9bfdf0b5b266ff3f952772fd">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd">tpa2016d2_equalizer_mode</a>(uint8_t Mode, int8_t Gain)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// Check gain value for valid range</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(Gain &gt; 30)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Gain = 30;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span>(Gain &lt; -28)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        Gain = -28;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">switch</span>(Mode) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// POP</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x03, 0x08, 0x0A, (Gain &amp; 0x3F), 0x5C, 0xC0);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// CLASSIC</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x02, 0x07, 0x0A, (Gain &amp; 0x3F), 0x5D, 0xC0);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// JAZZ</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x06, 0x14, 0x00, (Gain &amp; 0x3F), 0x5D, 0xC0);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// RAP HIP HOP</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x01, 0x0A, 0x00, (Gain &amp; 0x3F), 0x5C, 0xC0);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">// ROCK</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x03, 0x19, 0x00, (Gain &amp; 0x3F), 0x5D, 0xC0);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">case</span> 5:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// NEWS VOICE</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a>(<a class="code" href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a>, <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>, 7, 0x02, 0x02, 0x0A, 0x00, (Gain &amp; 0x3F), 0x5E, 0xC0);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="ttc" id="tpa2016d2_8c_html_a721d219e9bfdf0b5b266ff3f952772fd"><div class="ttname"><a href="tpa2016d2_8c.html#a721d219e9bfdf0b5b266ff3f952772fd">tpa2016d2_equalizer_mode</a></div><div class="ttdeci">void tpa2016d2_equalizer_mode(uint8_t Mode, int8_t Gain)</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8c_source.html#l00058">tpa2016d2.c:58</a></div></div>
 <div class="ttc" id="tpa2016d2_8h_html"><div class="ttname"><a href="tpa2016d2_8h.html">tpa2016d2.h</a></div></div>
-<div class="ttc" id="radio__pin__mapping_8h_html_afcf9213afeb6d7831329725437d5bcd4"><div class="ttname"><a href="radio__pin__mapping_8h.html#afcf9213afeb6d7831329725437d5bcd4">AMP_SHUTDOWN_OUT</a></div><div class="ttdeci">#define AMP_SHUTDOWN_OUT</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00208">radio_pin_mapping.h:208</a></div></div>
-<div class="ttc" id="i2c_8h_html_a6691e5911f539e1e8178c6e983e8079a"><div class="ttname"><a href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a></div><div class="ttdeci">uint8_t i2c_write_var(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_args,...)</div><div class="ttdoc">Transmits I2C commands with a variable length to a I2C slave. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00058">i2c.c:58</a></div></div>
+<div class="ttc" id="tpa2016d2_8c_html_a37d13c141314bbc991005b6932dc059e"><div class="ttname"><a href="tpa2016d2_8c.html#a37d13c141314bbc991005b6932dc059e">tpa2016d2_mute</a></div><div class="ttdeci">void tpa2016d2_mute(uint8_t mute)</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8c_source.html#l00035">tpa2016d2.c:35</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_afcf9213afeb6d7831329725437d5bcd4"><div class="ttname"><a href="radio__pin__mapping_8h.html#afcf9213afeb6d7831329725437d5bcd4">AMP_SHUTDOWN_OUT</a></div><div class="ttdeci">#define AMP_SHUTDOWN_OUT</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00280">radio_pin_mapping.h:280</a></div></div>
+<div class="ttc" id="i2c_8h_html_a6691e5911f539e1e8178c6e983e8079a"><div class="ttname"><a href="i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a></div><div class="ttdeci">uint8_t i2c_write_var(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_args,...)</div><div class="ttdoc">Transmits I2C commands with a variable length to a I2C slave. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00067">i2c.c:67</a></div></div>
 <div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00119">timer.c:119</a></div></div>
 <div class="ttc" id="tpa2016d2_8c_html_a8d3c252b2c26623c72958d1d77bc0cf9"><div class="ttname"><a href="tpa2016d2_8c.html#a8d3c252b2c26623c72958d1d77bc0cf9">tpa2016d2_init</a></div><div class="ttdeci">void tpa2016d2_init(uint8_t Start_Mode, int8_t Start_Gain)</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8c_source.html#l00009">tpa2016d2.c:9</a></div></div>
-<div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00034">i2c.h:34</a></div></div>
-<div class="ttc" id="tpa2016d2_8c_html_af89d4e10e90526a1fe89449d18776a66"><div class="ttname"><a href="tpa2016d2_8c.html#af89d4e10e90526a1fe89449d18776a66">tpa2016d2_gain</a></div><div class="ttdeci">void tpa2016d2_gain(int8_t Gain)</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8c_source.html#l00035">tpa2016d2.c:35</a></div></div>
+<div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00046">i2c.h:46</a></div></div>
+<div class="ttc" id="tpa2016d2_8c_html_af89d4e10e90526a1fe89449d18776a66"><div class="ttname"><a href="tpa2016d2_8c.html#af89d4e10e90526a1fe89449d18776a66">tpa2016d2_gain</a></div><div class="ttdeci">void tpa2016d2_gain(int8_t Gain)</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8c_source.html#l00046">tpa2016d2.c:46</a></div></div>
 <div class="ttc" id="tpa2016d2_8h_html_a07e5bdab8fa98fb028bae09c0cf0ecd9"><div class="ttname"><a href="tpa2016d2_8h.html#a07e5bdab8fa98fb028bae09c0cf0ecd9">I2C_TPA2016D2_ADR</a></div><div class="ttdeci">#define I2C_TPA2016D2_ADR</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8h_source.html#l00017">tpa2016d2.h:17</a></div></div>
-<div class="ttc" id="radio__pin__mapping_8h_html_a5a9262edd58c8c722edb7a9b14c1e4e6"><div class="ttname"><a href="radio__pin__mapping_8h.html#a5a9262edd58c8c722edb7a9b14c1e4e6">AMP_SHUTDOWN_DIR</a></div><div class="ttdeci">#define AMP_SHUTDOWN_DIR</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00209">radio_pin_mapping.h:209</a></div></div>
-<div class="ttc" id="radio__pin__mapping_8h_html_a06ef892acbaf7877c229e9c69f4f0fb1"><div class="ttname"><a href="radio__pin__mapping_8h.html#a06ef892acbaf7877c229e9c69f4f0fb1">AMP_SHUTDOWN_PIN</a></div><div class="ttdeci">#define AMP_SHUTDOWN_PIN</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00206">radio_pin_mapping.h:206</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_a5a9262edd58c8c722edb7a9b14c1e4e6"><div class="ttname"><a href="radio__pin__mapping_8h.html#a5a9262edd58c8c722edb7a9b14c1e4e6">AMP_SHUTDOWN_DIR</a></div><div class="ttdeci">#define AMP_SHUTDOWN_DIR</div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00281">radio_pin_mapping.h:281</a></div></div>
+<div class="ttc" id="radio__pin__mapping_8h_html_a06ef892acbaf7877c229e9c69f4f0fb1"><div class="ttname"><a href="radio__pin__mapping_8h.html#a06ef892acbaf7877c229e9c69f4f0fb1">AMP_SHUTDOWN_PIN</a></div><div class="ttdeci">#define AMP_SHUTDOWN_PIN</div><div class="ttdoc">defines for AMP_SHUTDOWN on PORT: 3. PIN: 7. </div><div class="ttdef"><b>Definition:</b> <a href="radio__pin__mapping_8h_source.html#l00278">radio_pin_mapping.h:278</a></div></div>
 <div class="ttc" id="tpa2016d2_8c_html_abd9d0aa3479e3dd782cdf627c1d54df1"><div class="ttname"><a href="tpa2016d2_8c.html#abd9d0aa3479e3dd782cdf627c1d54df1">tpa2016d2_shutdown</a></div><div class="ttdeci">void tpa2016d2_shutdown(uint8_t Shutdown)</div><div class="ttdef"><b>Definition:</b> <a href="tpa2016d2_8c_source.html#l00029">tpa2016d2.c:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -208,7 +220,7 @@ $(document).ready(function(){initNavTree('tpa2016d2_8c_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="dir_a73e662009d191b54bc30e34ae038220.html">src</a></li><li class="navelem"><a class="el" href="tpa2016d2_8c.html">tpa2016d2.c</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

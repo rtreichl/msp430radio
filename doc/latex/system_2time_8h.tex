@@ -1,0 +1,340 @@
+\hypertarget{system_2time_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/system/time.h-\/\+Dateireferenz}
+\label{system_2time_8h}\index{D\+:/\+G\+I\+T/fhradiov2/system/time.\+h@{D\+:/\+G\+I\+T/fhradiov2/system/time.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$settings/radio\+\_\+configuration.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für time.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{system_2time_8h__incl}
+\end{center}
+\end{figure}
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{system_2time_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtime__date}{time\+\_\+date}
+\begin{DoxyCompactList}\small\item\em In here the struct for the time is defined. There are also additional functions which help formatting the struct into an array and one to set a time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structtime__date}{time\+\_\+date} \hyperlink{system_2time_8h_ae9c204f639ab68d07dc1c027f3542663}{T\+I\+M\+E\+\_\+\+D\+A\+T\+E}
+\begin{DoxyCompactList}\small\item\em In here the struct for the time is defined. There are also additional functions which help formatting the struct into an array and one to set a time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{system_2time_8h_acbfa3c65c807be82221cbebc7ac63224}{time\+\_\+update} ()
+\begin{DoxyCompactList}\small\item\em Update the current time. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{system_2time_8h_a4c9e3c34eea90bf15a804da6ee4ad638}{time\+\_\+date\+\_\+to\+\_\+array} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Convert date to array. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{system_2time_8h_aa90db1275cec05113ad9a5041f6f8293}{time\+\_\+time\+\_\+to\+\_\+array} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Convert time to array. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{system_2time_8h_a6b341bdccd1c2c5503da84093f12e145}{time\+\_\+set\+\_\+time} (uint8\+\_\+t hour, uint8\+\_\+t minute, uint8\+\_\+t day, uint8\+\_\+t month, uint8\+\_\+t year, uint8\+\_\+t valid)
+\begin{DoxyCompactList}\small\item\em Set the time and write it into the \hyperlink{structtime__date}{time\+\_\+date} array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \hyperlink{system_2time_8h_acad1ff586b95cc545cb891657e66b069}{month\+\_\+days} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Definition of max. numbers of month days(\+Currently no leap year) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der benutzerdefinierten Typen}
+\hypertarget{system_2time_8h_ae9c204f639ab68d07dc1c027f3542663}{}\index{system/time.\+h@{system/time.\+h}!T\+I\+M\+E\+\_\+\+D\+A\+T\+E@{T\+I\+M\+E\+\_\+\+D\+A\+T\+E}}
+\index{T\+I\+M\+E\+\_\+\+D\+A\+T\+E@{T\+I\+M\+E\+\_\+\+D\+A\+T\+E}!system/time.\+h@{system/time.\+h}}
+\subsubsection[{T\+I\+M\+E\+\_\+\+D\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf time\+\_\+date}  {\bf T\+I\+M\+E\+\_\+\+D\+A\+T\+E}}\label{system_2time_8h_ae9c204f639ab68d07dc1c027f3542663}
+
+
+In here the struct for the time is defined. There are also additional functions which help formatting the struct into an array and one to set a time. 
+
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{system_2time_8h_a4c9e3c34eea90bf15a804da6ee4ad638}{}\index{system/time.\+h@{system/time.\+h}!time\+\_\+date\+\_\+to\+\_\+array@{time\+\_\+date\+\_\+to\+\_\+array}}
+\index{time\+\_\+date\+\_\+to\+\_\+array@{time\+\_\+date\+\_\+to\+\_\+array}!system/time.\+h@{system/time.\+h}}
+\subsubsection[{time\+\_\+date\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+date\+\_\+to\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{system_2time_8h_a4c9e3c34eea90bf15a804da6ee4ad638}
+
+
+Convert date to array. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$str$>$} & \mbox{[}out\mbox{]} String in which the time is stored \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 130 der Datei time.\+c.
+
+
+\begin{DoxyCode}
+131 \{
+132     str[0] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_af252ce7a893acb93c32d07d0330f900d}{day\_ten} + \textcolor{charliteral}{'0'};
+133     str[1] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one} + \textcolor{charliteral}{'0'};
+134     str[2] = \textcolor{charliteral}{'.'};
+135     str[3] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_afadd8a2137e5a4d272d63e02386c2bd8}{month\_ten} + \textcolor{charliteral}{'0'};
+136     str[4] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one} + \textcolor{charliteral}{'0'};
+137     str[5] = \textcolor{charliteral}{'.'};
+138     str[6] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a124f7250b4c2e15669a832132940840d}{year\_ten} + \textcolor{charliteral}{'0'};
+139     str[7] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a55217c761921c4b4443fb1d4dee3f564}{year\_one} + \textcolor{charliteral}{'0'};
+140     str[8] = 0;
+141 
+142     \textcolor{keywordflow}{return} 0;
+143 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{system_2time_8h_a4c9e3c34eea90bf15a804da6ee4ad638_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{system_2time_8h_a6b341bdccd1c2c5503da84093f12e145}{}\index{system/time.\+h@{system/time.\+h}!time\+\_\+set\+\_\+time@{time\+\_\+set\+\_\+time}}
+\index{time\+\_\+set\+\_\+time@{time\+\_\+set\+\_\+time}!system/time.\+h@{system/time.\+h}}
+\subsubsection[{time\+\_\+set\+\_\+time}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+set\+\_\+time (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{hour, }
+\item[{uint8\+\_\+t}]{minute, }
+\item[{uint8\+\_\+t}]{day, }
+\item[{uint8\+\_\+t}]{month, }
+\item[{uint8\+\_\+t}]{year, }
+\item[{uint8\+\_\+t}]{valid}
+\end{DoxyParamCaption}
+)}\label{system_2time_8h_a6b341bdccd1c2c5503da84093f12e145}
+
+
+Set the time and write it into the \hyperlink{structtime__date}{time\+\_\+date} array. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$hour$>$} & \mbox{[}in\mbox{]} Current hour \\
+\hline
+{\em $<$minute$>$} & \mbox{[}in\mbox{]} Current minute \\
+\hline
+{\em $<$day$>$} & \mbox{[}in\mbox{]} Current day \\
+\hline
+{\em $<$month$>$} & \mbox{[}in\mbox{]} Current month \\
+\hline
+{\em $<$year$>$} & \mbox{[}in\mbox{]} Current year \\
+\hline
+{\em $<$valid$>$} & \mbox{[}in\mbox{]} Identifier for valid data \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 79 der Datei time.\+c.
+
+
+\begin{DoxyCode}
+80 \{
+81     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} = hour % 10;
+82     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten} = hour / 10;
+83     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} = minute % 10;
+84     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} = minute / 10;
+85     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one} = day % 10;
+86     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_af252ce7a893acb93c32d07d0330f900d}{day\_ten} = day / 10;
+87     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one} = month % 10;
+88     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_afadd8a2137e5a4d272d63e02386c2bd8}{month\_ten}= month / 10;
+89     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a55217c761921c4b4443fb1d4dee3f564}{year\_one} = year % 10;
+90     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a124f7250b4c2e15669a832132940840d}{year\_ten}= year / 10;
+91     \textcolor{keywordflow}{return} 0;
+92 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{system_2time_8h_a6b341bdccd1c2c5503da84093f12e145_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{system_2time_8h_aa90db1275cec05113ad9a5041f6f8293}{}\index{system/time.\+h@{system/time.\+h}!time\+\_\+time\+\_\+to\+\_\+array@{time\+\_\+time\+\_\+to\+\_\+array}}
+\index{time\+\_\+time\+\_\+to\+\_\+array@{time\+\_\+time\+\_\+to\+\_\+array}!system/time.\+h@{system/time.\+h}}
+\subsubsection[{time\+\_\+time\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t time\+\_\+time\+\_\+to\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{system_2time_8h_aa90db1275cec05113ad9a5041f6f8293}
+
+
+Convert time to array. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em $<$str$>$} & \mbox{[}out\mbox{]} String in which the time is stored \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 106 der Datei time.\+c.
+
+
+\begin{DoxyCode}
+107 \{
+108     str[0] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten} + \textcolor{charliteral}{'0'};
+109     str[1] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} + \textcolor{charliteral}{'0'};
+110     str[2] = \textcolor{charliteral}{':'};
+111     str[3] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} + \textcolor{charliteral}{'0'};
+112     str[4] = \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} + \textcolor{charliteral}{'0'};
+113     str[5] = 0;
+114 
+115     \textcolor{keywordflow}{return} 0;
+116 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{system_2time_8h_aa90db1275cec05113ad9a5041f6f8293_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{system_2time_8h_acbfa3c65c807be82221cbebc7ac63224}{}\index{system/time.\+h@{system/time.\+h}!time\+\_\+update@{time\+\_\+update}}
+\index{time\+\_\+update@{time\+\_\+update}!system/time.\+h@{system/time.\+h}}
+\subsubsection[{time\+\_\+update}]{\setlength{\rightskip}{0pt plus 5cm}void time\+\_\+update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{system_2time_8h_acbfa3c65c807be82221cbebc7ac63224}
+
+
+Update the current time. 
+
+
+\begin{DoxyParams}{Parameter}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 157 der Datei time.\+c.
+
+
+\begin{DoxyCode}
+158 \{
+159 
+160     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one}++;
+161     \textcolor{keywordflow}{if} (\hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} >= 10) \{
+162         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aeb047e7931fb6cd6e4c751d8143c16a4}{minute\_one} -= 10;
+163         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten}++;
+164         \textcolor{keywordflow}{if} (\hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} >= 6) \{
+165             \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a2659c12e8307db4c98ce9cb1bf53bc0e}{minute\_ten} -= 6;
+166             \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one}++;
+167             \textcolor{keywordflow}{if} (\hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} >= 10) \{
+168                 \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} -= 10;
+169                 \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten}++;
+170             \}
+171             \textcolor{keywordflow}{if} (\hyperlink{time_8c_a069fb920b7b5a09b83d0bf4e2d79a34b}{time\_hour}(\hyperlink{structtime__date}{time\_date}) == 24) \{
+172                 \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a338fe5a5db873c63189f9c98bf0376fc}{hour\_one} = 0;
+173                 \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a7315167bc0969310bcaedee5699243e5}{hour\_ten} = 0;
+174                 \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one}++;
+175                 \textcolor{keywordflow}{if} (\hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one} >= 10) \{
+176                     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one} -= 10;
+177                     \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_af252ce7a893acb93c32d07d0330f900d}{day\_ten}++;
+178                 \}
+179                 \textcolor{keywordflow}{if} (\hyperlink{time_8c_ac81e5ab930d5f79c2f999369be351973}{time\_day}(\hyperlink{structtime__date}{time\_date}) - 1 >= \hyperlink{time_8c_a69c350a02f6261a0608b72af33ce375c}{month\_days}[
+      \hyperlink{time_8c_a0f17fca88bb95ebf30327e23472bd755}{time\_month}(\hyperlink{structtime__date}{time\_date}) - 1]) \{
+180                     \textcolor{keywordflow}{if} (!(\hyperlink{time_8c_a0f17fca88bb95ebf30327e23472bd755}{time\_month}(\hyperlink{structtime__date}{time\_date}) == 2 && 
+      \hyperlink{time_8c_a626b671b3b02090633b382227e027d45}{time\_year}(\hyperlink{structtime__date}{time\_date}) % 4 == 0 && \hyperlink{time_8c_ac81e5ab930d5f79c2f999369be351973}{time\_day}(\hyperlink{structtime__date}{time\_date}) - 1 == 28)) \{
+181                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_aa49ac5f823611c03f3c3723f12047cfc}{day\_one} = 1;
+182                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_af252ce7a893acb93c32d07d0330f900d}{day\_ten} = 0;
+183                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one}++;
+184                     \}
+185                     \textcolor{keywordflow}{if} (\hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one} >= 10) \{
+186                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one} -= 10;
+187                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_afadd8a2137e5a4d272d63e02386c2bd8}{month\_ten}++;
+188                     \}
+189                     \textcolor{keywordflow}{if} (\hyperlink{time_8c_a0f17fca88bb95ebf30327e23472bd755}{time\_month}(\hyperlink{structtime__date}{time\_date}) == 13) \{
+190                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_afadd8a2137e5a4d272d63e02386c2bd8}{month\_ten} = 0;
+191                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a6ad3129035cd14cf22da6e4a1fecf018}{month\_one} -= 2;
+192                         \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a55217c761921c4b4443fb1d4dee3f564}{year\_one}++;
+193                         \textcolor{keywordflow}{if} (\hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a55217c761921c4b4443fb1d4dee3f564}{year\_one} == 10) \{
+194                             \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a55217c761921c4b4443fb1d4dee3f564}{year\_one} -= 10;
+195                             \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a124f7250b4c2e15669a832132940840d}{year\_ten}++;
+196                             \textcolor{keywordflow}{if} (\hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a124f7250b4c2e15669a832132940840d}{year\_ten} == 10) \{
+197                                 \hyperlink{structtime__date}{time\_date}.\hyperlink{structtime__date_a124f7250b4c2e15669a832132940840d}{year\_ten} -= 10;
+198                             \}
+199                         \}
+200                     \}
+201                 \}
+202             \}
+203         \}
+204     \}
+205 \}
+\end{DoxyCode}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{system_2time_8h_acbfa3c65c807be82221cbebc7ac63224_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\hypertarget{system_2time_8h_acad1ff586b95cc545cb891657e66b069}{}\index{system/time.\+h@{system/time.\+h}!month\+\_\+days@{month\+\_\+days}}
+\index{month\+\_\+days@{month\+\_\+days}!system/time.\+h@{system/time.\+h}}
+\subsubsection[{month\+\_\+days}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\+\_\+t month\+\_\+days\mbox{[}$\,$\mbox{]}}\label{system_2time_8h_acad1ff586b95cc545cb891657e66b069}
+
+
+Definition of max. numbers of month days(\+Currently no leap year) 
+
+
+
+Definiert in Zeile 47 der Datei time.\+c.
+

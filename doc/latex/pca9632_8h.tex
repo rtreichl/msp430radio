@@ -1,0 +1,215 @@
+\hypertarget{pca9632_8h}{}\section{D\+:/\+G\+I\+T/fhradiov2/driver/pca9632.h-\/\+Dateireferenz}
+\label{pca9632_8h}\index{D\+:/\+G\+I\+T/fhradiov2/driver/pca9632.\+h@{D\+:/\+G\+I\+T/fhradiov2/driver/pca9632.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+Include-\/\+Abhängigkeitsdiagramm für pca9632.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{pca9632_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpca9632__mode1}{pca9632\+\_\+mode1}
+\item 
+struct \hyperlink{structpca9632__mode2}{pca9632\+\_\+mode2}
+\item 
+struct \hyperlink{structpca9632__ledout}{pca9632\+\_\+ledout}
+\item 
+struct \hyperlink{structpca9632__subadr}{pca9632\+\_\+subadr}
+\end{DoxyCompactItemize}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{pca9632_8h_a1c3b965a9dd0fd8edac8ba077dad9bfc}{P\+C\+A9632\+\_\+\+I2\+C\+\_\+\+A\+D\+R}~0x62
+\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structpca9632__mode1}{pca9632\+\_\+mode1} \hyperlink{pca9632_8h_a5a7ae7bb811709bf9aa1682e5d659f48}{P\+C\+A9632\+\_\+\+M\+O\+D\+E1} = 0
+\item 
+typedef struct \hyperlink{structpca9632__mode2}{pca9632\+\_\+mode2} \hyperlink{pca9632_8h_a2e7880d0814803491cbe43c881145b26}{P\+C\+A9632\+\_\+\+M\+O\+D\+E2}
+\item 
+typedef struct \hyperlink{structpca9632__ledout}{pca9632\+\_\+ledout} \hyperlink{pca9632_8h_a3259cb5ab37809eb8d789ab7afeadded}{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T}
+\item 
+typedef struct \hyperlink{structpca9632__subadr}{pca9632\+\_\+subadr} \hyperlink{pca9632_8h_a6db7a43e394cdfcf7d04c6c7b63f7a23}{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R}
+\end{DoxyCompactItemize}
+\subsection*{Aufzählungen}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220}{P\+C\+A9632\+\_\+\+A\+I\+\_\+\+M\+O\+D\+E} \{ \hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220acadf1fa3b8aa52dd56b3a730851a6312}{P\+C\+A9632\+\_\+\+N\+O\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T} = 0, 
+\hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220a4723e57e7bb10832639ea5de47158b65}{P\+C\+A9632\+\_\+\+A\+L\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T} = 4, 
+\hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220a2058eeb8a4abeb56deb89450bb323fc0}{P\+C\+A9632\+\_\+\+C\+R\+T\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T} = 5, 
+\hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220aa8200751ce11b55e1a22239ea6e1ab39}{P\+C\+A9632\+\_\+\+I\+N\+V\+\_\+\+C\+T\+R\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T} = 7
+ \}
+\item 
+enum \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822a}{P\+C\+A9632\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S} \{ \\*
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aac97b20181d05f53e2b5e915db9b33973}{P\+C\+A9632\+\_\+\+P\+W\+M0}, 
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa297a0be14ba9db0afc9f65fe2a7cfc60}{P\+C\+A9632\+\_\+\+P\+W\+M1}, 
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa81b2d5dc7ade641c025b920c14dcfdf4}{P\+C\+A9632\+\_\+\+P\+W\+M2}, 
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aafb723d8117f19806977099b76c3ad6de}{P\+C\+A9632\+\_\+\+P\+W\+M3}, 
+\\*
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aacc8c068a0b86ca1bc92ba09aee8288ea}{P\+C\+A9632\+\_\+\+G\+R\+P\+P\+W\+M}, 
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa35d2c12a3120b2a2a0c5f424fac23e23}{P\+C\+A9632\+\_\+\+G\+R\+P\+F\+R\+E\+Q}, 
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aae6f596bf77ee10b8e1380d534f73d7b7}{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R1}, 
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa89bf231e460c1ff088985c391bf1fb80}{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R2}, 
+\\*
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaa563fa0fbc0ea889b58db33dd33e7d95}{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R3}, 
+\hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaf971fcce6b558dcdf667147c82b6ea7c}{P\+C\+A9632\+\_\+\+A\+L\+L\+C\+A\+L\+L\+A\+D\+R}
+ \}
+\item 
+enum \hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501}{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T\+\_\+\+S\+T\+A\+T\+E} \{ \hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501a668e9f8d42f81baa56a7cb5a89b81e57}{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F} = 0, 
+\hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501a08b998b8bdf1a9bff39b9a1de4462f9d}{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N}, 
+\hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501acfb046e5e0793e628b977e0f4a537fa7}{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N\+E\+P\+W\+M}, 
+\hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501adbab71a6c2777f4b91286193c373c95d}{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+G\+R\+P\+P\+W\+M}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Makro-\/\+Dokumentation}
+\hypertarget{pca9632_8h_a1c3b965a9dd0fd8edac8ba077dad9bfc}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+I2\+C\+\_\+\+A\+D\+R@{P\+C\+A9632\+\_\+\+I2\+C\+\_\+\+A\+D\+R}}
+\index{P\+C\+A9632\+\_\+\+I2\+C\+\_\+\+A\+D\+R@{P\+C\+A9632\+\_\+\+I2\+C\+\_\+\+A\+D\+R}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+I2\+C\+\_\+\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+C\+A9632\+\_\+\+I2\+C\+\_\+\+A\+D\+R~0x62}\label{pca9632_8h_a1c3b965a9dd0fd8edac8ba077dad9bfc}
+
+
+Definiert in Zeile 13 der Datei pca9632.\+h.
+
+
+
+\subsection{Dokumentation der benutzerdefinierten Typen}
+\hypertarget{pca9632_8h_a3259cb5ab37809eb8d789ab7afeadded}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T@{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T}}
+\index{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T@{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T}}\label{pca9632_8h_a3259cb5ab37809eb8d789ab7afeadded}
+
+
+Definiert in Zeile 31 der Datei pca9632.\+h.
+
+\hypertarget{pca9632_8h_a5a7ae7bb811709bf9aa1682e5d659f48}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+M\+O\+D\+E1@{P\+C\+A9632\+\_\+\+M\+O\+D\+E1}}
+\index{P\+C\+A9632\+\_\+\+M\+O\+D\+E1@{P\+C\+A9632\+\_\+\+M\+O\+D\+E1}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+M\+O\+D\+E1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+C\+A9632\+\_\+\+M\+O\+D\+E1} = 0}\label{pca9632_8h_a5a7ae7bb811709bf9aa1682e5d659f48}
+
+
+Definiert in Zeile 23 der Datei pca9632.\+h.
+
+\hypertarget{pca9632_8h_a2e7880d0814803491cbe43c881145b26}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+M\+O\+D\+E2@{P\+C\+A9632\+\_\+\+M\+O\+D\+E2}}
+\index{P\+C\+A9632\+\_\+\+M\+O\+D\+E2@{P\+C\+A9632\+\_\+\+M\+O\+D\+E2}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+M\+O\+D\+E2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+C\+A9632\+\_\+\+M\+O\+D\+E2}}\label{pca9632_8h_a2e7880d0814803491cbe43c881145b26}
+
+
+Definiert in Zeile 24 der Datei pca9632.\+h.
+
+\hypertarget{pca9632_8h_a6db7a43e394cdfcf7d04c6c7b63f7a23}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R}}
+\index{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf pca9632\+\_\+subadr}  {\bf P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R}}\label{pca9632_8h_a6db7a43e394cdfcf7d04c6c7b63f7a23}
+
+
+\subsection{Dokumentation der Aufzählungstypen}
+\hypertarget{pca9632_8h_a27b3aa49282474510468fc6bd884d220}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+A\+I\+\_\+\+M\+O\+D\+E@{P\+C\+A9632\+\_\+\+A\+I\+\_\+\+M\+O\+D\+E}}
+\index{P\+C\+A9632\+\_\+\+A\+I\+\_\+\+M\+O\+D\+E@{P\+C\+A9632\+\_\+\+A\+I\+\_\+\+M\+O\+D\+E}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+A\+I\+\_\+\+M\+O\+D\+E}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+C\+A9632\+\_\+\+A\+I\+\_\+\+M\+O\+D\+E}}\label{pca9632_8h_a27b3aa49282474510468fc6bd884d220}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{P\+C\+A9632\+\_\+\+N\+O\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+N\+O\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+N\+O\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+N\+O\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}}\item[{\em 
+\hypertarget{pca9632_8h_a27b3aa49282474510468fc6bd884d220acadf1fa3b8aa52dd56b3a730851a6312}{}P\+C\+A9632\+\_\+\+N\+O\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T\label{pca9632_8h_a27b3aa49282474510468fc6bd884d220acadf1fa3b8aa52dd56b3a730851a6312}
+}]\index{P\+C\+A9632\+\_\+\+A\+L\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+A\+L\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+A\+L\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+A\+L\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}}\item[{\em 
+\hypertarget{pca9632_8h_a27b3aa49282474510468fc6bd884d220a4723e57e7bb10832639ea5de47158b65}{}P\+C\+A9632\+\_\+\+A\+L\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T\label{pca9632_8h_a27b3aa49282474510468fc6bd884d220a4723e57e7bb10832639ea5de47158b65}
+}]\index{P\+C\+A9632\+\_\+\+C\+R\+T\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+C\+R\+T\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+C\+R\+T\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+C\+R\+T\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}}\item[{\em 
+\hypertarget{pca9632_8h_a27b3aa49282474510468fc6bd884d220a2058eeb8a4abeb56deb89450bb323fc0}{}P\+C\+A9632\+\_\+\+C\+R\+T\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T\label{pca9632_8h_a27b3aa49282474510468fc6bd884d220a2058eeb8a4abeb56deb89450bb323fc0}
+}]\index{P\+C\+A9632\+\_\+\+I\+N\+V\+\_\+\+C\+T\+R\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+I\+N\+V\+\_\+\+C\+T\+R\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+I\+N\+V\+\_\+\+C\+T\+R\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T@{P\+C\+A9632\+\_\+\+I\+N\+V\+\_\+\+C\+T\+R\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T}}\item[{\em 
+\hypertarget{pca9632_8h_a27b3aa49282474510468fc6bd884d220aa8200751ce11b55e1a22239ea6e1ab39}{}P\+C\+A9632\+\_\+\+I\+N\+V\+\_\+\+C\+T\+R\+L\+\_\+\+A\+U\+T\+O\+\_\+\+I\+N\+C\+R\+E\+M\+E\+N\+T\label{pca9632_8h_a27b3aa49282474510468fc6bd884d220aa8200751ce11b55e1a22239ea6e1ab39}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 15 der Datei pca9632.\+h.
+
+
+\begin{DoxyCode}
+15                      \{
+16     \hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220acadf1fa3b8aa52dd56b3a730851a6312}{PCA9632\_NO\_AUTO\_INCREMENT} = 0,
+17     \hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220a4723e57e7bb10832639ea5de47158b65}{PCA9632\_ALL\_AUTO\_INCREMENT} = 4,
+18     \hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220a2058eeb8a4abeb56deb89450bb323fc0}{PCA9632\_CRTL\_AUTO\_INCREMENT} = 5,
+19     \hyperlink{pca9632_8h_a27b3aa49282474510468fc6bd884d220aa8200751ce11b55e1a22239ea6e1ab39}{PCA9632\_INV\_CTRL\_AUTO\_INCREMENT} = 7
+20 \};
+\end{DoxyCode}
+\hypertarget{pca9632_8h_abe19cff50d82fcda643573f61d98e501}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T\+\_\+\+S\+T\+A\+T\+E@{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T\+\_\+\+S\+T\+A\+T\+E}}
+\index{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T\+\_\+\+S\+T\+A\+T\+E@{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T\+\_\+\+S\+T\+A\+T\+E}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T\+\_\+\+S\+T\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+C\+A9632\+\_\+\+L\+E\+D\+O\+U\+T\+\_\+\+S\+T\+A\+T\+E}}\label{pca9632_8h_abe19cff50d82fcda643573f61d98e501}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F}}\item[{\em 
+\hypertarget{pca9632_8h_abe19cff50d82fcda643573f61d98e501a668e9f8d42f81baa56a7cb5a89b81e57}{}P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+F\+F\label{pca9632_8h_abe19cff50d82fcda643573f61d98e501a668e9f8d42f81baa56a7cb5a89b81e57}
+}]\index{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N}}\item[{\em 
+\hypertarget{pca9632_8h_abe19cff50d82fcda643573f61d98e501a08b998b8bdf1a9bff39b9a1de4462f9d}{}P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N\label{pca9632_8h_abe19cff50d82fcda643573f61d98e501a08b998b8bdf1a9bff39b9a1de4462f9d}
+}]\index{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N\+E\+P\+W\+M@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N\+E\+P\+W\+M}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N\+E\+P\+W\+M@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N\+E\+P\+W\+M}}\item[{\em 
+\hypertarget{pca9632_8h_abe19cff50d82fcda643573f61d98e501acfb046e5e0793e628b977e0f4a537fa7}{}P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+O\+N\+E\+P\+W\+M\label{pca9632_8h_abe19cff50d82fcda643573f61d98e501acfb046e5e0793e628b977e0f4a537fa7}
+}]\index{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+G\+R\+P\+P\+W\+M@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+G\+R\+P\+P\+W\+M}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+G\+R\+P\+P\+W\+M@{P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+G\+R\+P\+P\+W\+M}}\item[{\em 
+\hypertarget{pca9632_8h_abe19cff50d82fcda643573f61d98e501adbab71a6c2777f4b91286193c373c95d}{}P\+C\+A9632\+\_\+\+L\+E\+D\+\_\+\+G\+R\+P\+P\+W\+M\label{pca9632_8h_abe19cff50d82fcda643573f61d98e501adbab71a6c2777f4b91286193c373c95d}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 38 der Datei pca9632.\+h.
+
+
+\begin{DoxyCode}
+38                           \{
+39     \hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501a668e9f8d42f81baa56a7cb5a89b81e57}{PCA9632\_LED\_OFF} = 0,
+40     \hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501a08b998b8bdf1a9bff39b9a1de4462f9d}{PCA9632\_LED\_ON},
+41     \hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501acfb046e5e0793e628b977e0f4a537fa7}{PCA9632\_LED\_ONEPWM},
+42     \hyperlink{pca9632_8h_abe19cff50d82fcda643573f61d98e501adbab71a6c2777f4b91286193c373c95d}{PCA9632\_LED\_GRPPWM}
+43 \};
+\end{DoxyCode}
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822a}{}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S@{P\+C\+A9632\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S}}
+\index{P\+C\+A9632\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S@{P\+C\+A9632\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S}!pca9632.\+h@{pca9632.\+h}}
+\subsubsection[{P\+C\+A9632\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf P\+C\+A9632\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S}}\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822a}
+\begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{P\+C\+A9632\+\_\+\+P\+W\+M0@{P\+C\+A9632\+\_\+\+P\+W\+M0}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+P\+W\+M0@{P\+C\+A9632\+\_\+\+P\+W\+M0}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aac97b20181d05f53e2b5e915db9b33973}{}P\+C\+A9632\+\_\+\+P\+W\+M0\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aac97b20181d05f53e2b5e915db9b33973}
+}]\index{P\+C\+A9632\+\_\+\+P\+W\+M1@{P\+C\+A9632\+\_\+\+P\+W\+M1}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+P\+W\+M1@{P\+C\+A9632\+\_\+\+P\+W\+M1}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa297a0be14ba9db0afc9f65fe2a7cfc60}{}P\+C\+A9632\+\_\+\+P\+W\+M1\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa297a0be14ba9db0afc9f65fe2a7cfc60}
+}]\index{P\+C\+A9632\+\_\+\+P\+W\+M2@{P\+C\+A9632\+\_\+\+P\+W\+M2}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+P\+W\+M2@{P\+C\+A9632\+\_\+\+P\+W\+M2}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa81b2d5dc7ade641c025b920c14dcfdf4}{}P\+C\+A9632\+\_\+\+P\+W\+M2\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa81b2d5dc7ade641c025b920c14dcfdf4}
+}]\index{P\+C\+A9632\+\_\+\+P\+W\+M3@{P\+C\+A9632\+\_\+\+P\+W\+M3}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+P\+W\+M3@{P\+C\+A9632\+\_\+\+P\+W\+M3}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aafb723d8117f19806977099b76c3ad6de}{}P\+C\+A9632\+\_\+\+P\+W\+M3\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aafb723d8117f19806977099b76c3ad6de}
+}]\index{P\+C\+A9632\+\_\+\+G\+R\+P\+P\+W\+M@{P\+C\+A9632\+\_\+\+G\+R\+P\+P\+W\+M}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+G\+R\+P\+P\+W\+M@{P\+C\+A9632\+\_\+\+G\+R\+P\+P\+W\+M}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aacc8c068a0b86ca1bc92ba09aee8288ea}{}P\+C\+A9632\+\_\+\+G\+R\+P\+P\+W\+M\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aacc8c068a0b86ca1bc92ba09aee8288ea}
+}]\index{P\+C\+A9632\+\_\+\+G\+R\+P\+F\+R\+E\+Q@{P\+C\+A9632\+\_\+\+G\+R\+P\+F\+R\+E\+Q}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+G\+R\+P\+F\+R\+E\+Q@{P\+C\+A9632\+\_\+\+G\+R\+P\+F\+R\+E\+Q}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa35d2c12a3120b2a2a0c5f424fac23e23}{}P\+C\+A9632\+\_\+\+G\+R\+P\+F\+R\+E\+Q\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa35d2c12a3120b2a2a0c5f424fac23e23}
+}]\index{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R1@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R1}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R1@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R1}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aae6f596bf77ee10b8e1380d534f73d7b7}{}P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R1\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aae6f596bf77ee10b8e1380d534f73d7b7}
+}]\index{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R2@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R2}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R2@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R2}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa89bf231e460c1ff088985c391bf1fb80}{}P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R2\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa89bf231e460c1ff088985c391bf1fb80}
+}]\index{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R3@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R3}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R3@{P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R3}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaa563fa0fbc0ea889b58db33dd33e7d95}{}P\+C\+A9632\+\_\+\+S\+U\+B\+A\+D\+R3\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaa563fa0fbc0ea889b58db33dd33e7d95}
+}]\index{P\+C\+A9632\+\_\+\+A\+L\+L\+C\+A\+L\+L\+A\+D\+R@{P\+C\+A9632\+\_\+\+A\+L\+L\+C\+A\+L\+L\+A\+D\+R}!pca9632.\+h@{pca9632.\+h}}\index{pca9632.\+h@{pca9632.\+h}!P\+C\+A9632\+\_\+\+A\+L\+L\+C\+A\+L\+L\+A\+D\+R@{P\+C\+A9632\+\_\+\+A\+L\+L\+C\+A\+L\+L\+A\+D\+R}}\item[{\em 
+\hypertarget{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaf971fcce6b558dcdf667147c82b6ea7c}{}P\+C\+A9632\+\_\+\+A\+L\+L\+C\+A\+L\+L\+A\+D\+R\label{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaf971fcce6b558dcdf667147c82b6ea7c}
+}]\end{description}
+\end{Desc}
+
+
+Definiert in Zeile 22 der Datei pca9632.\+h.
+
+
+\begin{DoxyCode}
+22                        \{
+23     \hyperlink{structpca9632__mode1}{PCA9632\_MODE1} = 0,
+24     \hyperlink{pca9632_8h_a2e7880d0814803491cbe43c881145b26}{PCA9632\_MODE2},
+25     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aac97b20181d05f53e2b5e915db9b33973}{PCA9632\_PWM0},
+26     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa297a0be14ba9db0afc9f65fe2a7cfc60}{PCA9632\_PWM1},
+27     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa81b2d5dc7ade641c025b920c14dcfdf4}{PCA9632\_PWM2},
+28     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aafb723d8117f19806977099b76c3ad6de}{PCA9632\_PWM3},
+29     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aacc8c068a0b86ca1bc92ba09aee8288ea}{PCA9632\_GRPPWM},
+30     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa35d2c12a3120b2a2a0c5f424fac23e23}{PCA9632\_GRPFREQ},
+31     \hyperlink{pca9632_8h_a3259cb5ab37809eb8d789ab7afeadded}{PCA9632\_LEDOUT},
+32     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aae6f596bf77ee10b8e1380d534f73d7b7}{PCA9632\_SUBADR1},
+33     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aa89bf231e460c1ff088985c391bf1fb80}{PCA9632\_SUBADR2},
+34     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaa563fa0fbc0ea889b58db33dd33e7d95}{PCA9632\_SUBADR3},
+35     \hyperlink{pca9632_8h_add298adc14cdee785cc5e9e37c03822aaf971fcce6b558dcdf667147c82b6ea7c}{PCA9632\_ALLCALLADR}
+36 \};
+\end{DoxyCode}

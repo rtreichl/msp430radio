@@ -1,7 +1,4 @@
 <map id="radio_display_speaker" name="radio_display_speaker">
-<area shape="rect" id="node2" href="$radio__display_8c.html#aa568d26c43f1503a5f31c86aab080591" title="radio_display_handler" alt="" coords="204,5,351,32"/>
-<area shape="rect" id="node3" href="$radio_8c.html#a5f7fcd9e9755fb5e22175a4ad74a5456" title="radio_main" alt="" coords="399,5,484,32"/>
-<area shape="rect" id="node4" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="532,5,639,32"/>
-<area shape="rect" id="node5" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="687,5,789,32"/>
-<area shape="rect" id="node6" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="837,5,888,32"/>
+<area shape="rect" id="node2" href="$radio__display_8c.html#a43baede098c7b21694b3fda71685fa06" title="Handler for the display. " alt="" coords="204,5,351,32"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="399,5,484,32"/>
 </map>

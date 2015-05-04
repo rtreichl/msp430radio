@@ -1,6 +1,6 @@
 <map id="radio_display_rds" name="radio_display_rds">
 <area shape="rect" id="node2" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="186,31,299,57"/>
-<area shape="rect" id="node10" href="$time_8c.html#a4c9e3c34eea90bf15a804da6ee4ad638" title="time_date_to_array" alt="" coords="176,81,309,108"/>
+<area shape="rect" id="node10" href="$time_8c.html#a4c9e3c34eea90bf15a804da6ee4ad638" title="Convert date to array. " alt="" coords="176,81,309,108"/>
 <area shape="rect" id="node3" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="357,5,472,32"/>
 <area shape="rect" id="node9" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="520,56,632,83"/>
 <area shape="rect" id="node4" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="525,5,627,32"/>

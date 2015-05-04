@@ -1,11 +1,12 @@
 \hypertarget{timer_8c}{}\section{D\+:/\+G\+I\+T/fhradiov2/driver/src/timer.c-\/\+Dateireferenz}
 \label{timer_8c}\index{D\+:/\+G\+I\+T/fhradiov2/driver/src/timer.\+c@{D\+:/\+G\+I\+T/fhradiov2/driver/src/timer.\+c}}
 {\ttfamily \#include $<$driver/timer.\+h$>$}\\*
-Include-\/\+Abhängigkeitsdiagramm für timer.\+c\+:\nopagebreak
+Include-\/\+Abhängigkeitsdiagramm für timer.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=339pt]{timer_8c__incl}
+\includegraphics[width=350pt]{timer_8c__incl}
 \end{center}
 \end{figure}
 \subsection*{Funktionen}
@@ -135,7 +136,8 @@ Definiert in Zeile 25 der Datei timer.\+c.
 \end{DoxyCode}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -159,7 +161,7 @@ Definiert in Zeile 105 der Datei timer.\+c.
 \begin{DoxyCode}
 106 \{
 107     uint8\_t i;
-108     \textcolor{keywordflow}{for}(i = 0; i < \hyperlink{timer_8h_a7f642963dfed522de51d21e18b8e088e}{TIMER\_COUNTS}; i++) \{
+108     \textcolor{keywordflow}{for}(i = \hyperlink{timer_8h_a7f642963dfed522de51d21e18b8e088e}{TIMER\_COUNTS}; i-- > 0;) \{
 109         \hyperlink{timer_8c_ab6610e73cf6ab96714447222bd0c7bca}{timer\_count}[i]++;
 110     \}
 111 \}
@@ -209,7 +211,8 @@ Definiert in Zeile 90 der Datei timer.\+c.
 \end{DoxyCode}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

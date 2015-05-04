@@ -115,21 +115,26 @@ $(document).ready(function(){initNavTree('rsq_8h_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richard</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef SYSTEM_SRC_RSQ_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SYSTEM_SRC_RSQ_H_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="si4735_8h.html">driver/si4735.h</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="i2c_8h.html">driver/i2c.h</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio_8h.html">system/radio.h</a>&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;uint8_t <a class="code" href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a>(<a class="code" href="structradio.html">RADIO</a> *<a class="code" href="structradio.html">radio</a>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SYSTEM_SRC_RSQ_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef SYSTEM_SRC_RSQ_H_</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define SYSTEM_SRC_RSQ_H_</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="si4735_8h.html">driver/si4735.h</a>&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="i2c_8h.html">driver/i2c.h</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio_8h.html">radio/radio.h</a>&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;uint8_t <a class="code" href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a>(<a class="code" href="structradio.html">RADIO</a> *<a class="code" href="structradio.html">radio</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SYSTEM_SRC_RSQ_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="radio_8h_html"><div class="ttname"><a href="radio_8h.html">radio.h</a></div></div>
-<div class="ttc" id="rsq_8h_html_adc26e0d94e8ebd7ba62fa4f628a15f6d"><div class="ttname"><a href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a></div><div class="ttdeci">uint8_t rsq_update(RADIO *radio)</div><div class="ttdef"><b>Definition:</b> <a href="rsq_8c_source.html#l00011">rsq.c:11</a></div></div>
+<div class="ttc" id="rsq_8h_html_adc26e0d94e8ebd7ba62fa4f628a15f6d"><div class="ttname"><a href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a></div><div class="ttdeci">uint8_t rsq_update(RADIO *radio)</div><div class="ttdoc">In here the function to update Radio Signal Quality. </div><div class="ttdef"><b>Definition:</b> <a href="rsq_8c_source.html#l00026">rsq.c:26</a></div></div>
 <div class="ttc" id="si4735_8h_html"><div class="ttname"><a href="si4735_8h.html">si4735.h</a></div></div>
-<div class="ttc" id="structradio_html"><div class="ttname"><a href="structradio.html">radio</a></div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00125">radio.h:125</a></div></div>
+<div class="ttc" id="structradio_html"><div class="ttname"><a href="structradio.html">radio</a></div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00103">radio.h:103</a></div></div>
 <div class="ttc" id="i2c_8h_html"><div class="ttname"><a href="i2c_8h.html">i2c.h</a></div><div class="ttdoc">I2C implemtation for MSP430G2553, interrupt based.   This implemtation based on examples from Texas I...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -137,7 +142,7 @@ $(document).ready(function(){initNavTree('rsq_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="rsq_8h.html">rsq.h</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

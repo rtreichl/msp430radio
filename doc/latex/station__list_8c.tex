@@ -12,10 +12,10 @@ Include-\/\+Abhängigkeitsdiagramm für station\+\_\+list.\+c\+:
 \subsection*{Funktionen}
 \begin{DoxyCompactItemize}
 \item 
-uint8\+\_\+t \hyperlink{station__list_8c_a5b16204c2b6824ce89364d614f074b20}{station\+\_\+list\+\_\+handler} (uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t action)
-\item 
+uint8\+\_\+t \hyperlink{station__list_8c_a14396edaefab23c83e16fea65cc5db9d}{station\+\_\+list\+\_\+handler} (uint8\+\_\+t $\ast$encoder\+\_\+left\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+left\+\_\+count, uint8\+\_\+t $\ast$encoder\+\_\+right\+\_\+button, int8\+\_\+t $\ast$encoder\+\_\+right\+\_\+count, uint8\+\_\+t entry\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Handler to select the current station. \end{DoxyCompactList}\item 
 uint8\+\_\+t \hyperlink{station__list_8c_a9797d901a4c549c775a7067eebf0a5c2}{station\+\_\+list\+\_\+display} (uint8\+\_\+t action)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Displays the station list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variablen}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,31 +33,51 @@ uint8\+\_\+t \hyperlink{station__list_8c_a9797d901a4c549c775a7067eebf0a5c2}{stat
 )}\label{station__list_8c_a9797d901a4c549c775a7067eebf0a5c2}
 
 
-Definiert in Zeile 47 der Datei station\+\_\+list.\+c.
+Displays the station list. 
+
+In here there are functions declared to display the avaiable station lists and also to add/remove stations to this list.
+
+When updating the \hyperlink{structstation__list}{station\+\_\+list} on the display it depends on the current ~\newline
+station or action the user wants to do. 
+\begin{DoxyParams}{Parameter}
+{\em $<$action$>$} & \mbox{[}in\mbox{]} Action to be done \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 92 der Datei station\+\_\+list.\+c.
 
 
 \begin{DoxyCode}
-48 \{
-49 
-50     \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_ae039c5ce88254ad89cea9170a5f3b740}{previous} != 0) \{
-51         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_ae039c5ce88254ad89cea9170a5f3b740}{previous}->
+93 \{
+94 
+95     \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_ae039c5ce88254ad89cea9170a5f3b740}{previous} != 0) \{
+96         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_ae039c5ce88254ad89cea9170a5f3b740}{previous}->
       \hyperlink{structstation__list_a16343090e80c4472521560f30113d96c}{text}, 1, 0, 8, 0);
-52     \}
-53     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(action == \hyperlink{menu_8h_acf4538b0bd65dd4d5e3530aaeb264a18}{STATION\_VIEW}) \{
-54         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_a351a1e772e70acc94f2a6d81e7b61270}{choose\_text}, 0, 0, 0, 0);
-55     \}
-56     \textcolor{keywordflow}{else} \{
-57         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_abb08ae38c3fbff8e1524270e6f01a4e4}{save\_text}, 0, 0, 0, 0);
-58     \}
-59     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_a16343090e80c4472521560f30113d96c}{text}, 1, 1, 8, 0);
-60     \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_aaf7e88858b6e1e91f04c50ce118be602}{next} != 0) \{
-61         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_aaf7e88858b6e1e91f04c50ce118be602}{next}->
+97     \}
+98     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(action == \hyperlink{menu_8h_acf4538b0bd65dd4d5e3530aaeb264a18}{STATION\_VIEW}) \{
+99         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_a351a1e772e70acc94f2a6d81e7b61270}{choose\_text}, 0, 0, 0, 0);
+100     \}
+101     \textcolor{keywordflow}{else} \{
+102         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{en_2language_8c_abb08ae38c3fbff8e1524270e6f01a4e4}{save\_text}, 0, 0, 0, 0);
+103     \}
+104     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_a16343090e80c4472521560f30113d96c}{text}, 1, 1, 8, 0);
+105     \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_aaf7e88858b6e1e91f04c50ce118be602}{next} != 0) \{
+106         \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_aaf7e88858b6e1e91f04c50ce118be602}{next}->
       \hyperlink{structstation__list_a16343090e80c4472521560f30113d96c}{text}, 1, 2, 8, 0);
-62     \}
-63     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"~"}, 0, 1, 0, 1);
-64 
-65     \textcolor{keywordflow}{return} 0;
-66 \}
+107     \}
+108     \hyperlink{lcd_8h_acd63fb85d212730fa4fcbcbeeccd231e}{lcd\_create\_view}(\textcolor{stringliteral}{"~"}, 0, 1, 0, 1);
+109 
+110     \textcolor{keywordflow}{return} 0;
+111 \}
 \end{DoxyCode}
 
 
@@ -82,82 +102,119 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
 \end{figure}
 
 
-\hypertarget{station__list_8c_a5b16204c2b6824ce89364d614f074b20}{}\index{station\+\_\+list.\+c@{station\+\_\+list.\+c}!station\+\_\+list\+\_\+handler@{station\+\_\+list\+\_\+handler}}
+\hypertarget{station__list_8c_a14396edaefab23c83e16fea65cc5db9d}{}\index{station\+\_\+list.\+c@{station\+\_\+list.\+c}!station\+\_\+list\+\_\+handler@{station\+\_\+list\+\_\+handler}}
 \index{station\+\_\+list\+\_\+handler@{station\+\_\+list\+\_\+handler}!station\+\_\+list.\+c@{station\+\_\+list.\+c}}
 \subsubsection[{station\+\_\+list\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t station\+\_\+list\+\_\+handler (
 \begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+button, }
+\item[{int8\+\_\+t $\ast$}]{encoder\+\_\+left\+\_\+count, }
 \item[{uint8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+button, }
 \item[{int8\+\_\+t $\ast$}]{encoder\+\_\+right\+\_\+count, }
-\item[{uint8\+\_\+t}]{action}
+\item[{uint8\+\_\+t}]{entry\+\_\+num}
 \end{DoxyParamCaption}
-)}\label{station__list_8c_a5b16204c2b6824ce89364d614f074b20}
+)}\label{station__list_8c_a14396edaefab23c83e16fea65cc5db9d}
 
 
-Definiert in Zeile 12 der Datei station\+\_\+list.\+c.
+Handler to select the current station. 
+
+Following steps are done to get the current selected station\+:~\newline
+(1)Update the current station according to the encoder count~\newline
+(2)If the button was pressed for a short time-\/$>$ actualize current station~\newline
+(3)Update the display~\newline
+ 
+\begin{DoxyParams}{Parameter}
+{\em $<$encoder\+\_\+left\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the left encoder button \\
+\hline
+{\em $<$encoder\+\_\+left\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the left encoder \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+button$>$} & \mbox{[}in\mbox{]} state of the right encoder button \\
+\hline
+{\em $<$encoder\+\_\+right\+\_\+count$>$} & \mbox{[}in\mbox{]} value of the right encoder \\
+\hline
+{\em $<$entry\+\_\+num$>$} & \mbox{[}in\mbox{]} the entry in the menu \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Rückgabewerte}
+{\em uint8\+\_\+t} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyRemark}{Bemerkungen}
+
+\end{DoxyRemark}
+
+
+Definiert in Zeile 33 der Datei station\+\_\+list.\+c.
 
 
 \begin{DoxyCode}
-13 \{
-14     \textcolor{keywordflow}{if} (*encoder\_right\_count != 0) \{
-15         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0) \{
-16             \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_aaf7e88858b6e1e91f04c50ce118be602}{next} != 0) \{
-17                 \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station} = \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
+34 \{
+35     \textcolor{keywordflow}{if} (*encoder\_right\_count != 0) \{
+36         \textcolor{keywordflow}{if}(*encoder\_right\_count > 0) \{
+37             \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_aaf7e88858b6e1e91f04c50ce118be602}{next} != 0) \{
+38                 \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station} = \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
       \hyperlink{structstation__list_aaf7e88858b6e1e91f04c50ce118be602}{next};
-18             \}
-19         \}
-20         \textcolor{keywordflow}{if} (*encoder\_right\_count < 0) \{
-21             \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_ae039c5ce88254ad89cea9170a5f3b740}{previous} != 0) \{
-22                 \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station} = \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
+39             \}
+40         \}
+41         \textcolor{keywordflow}{if} (*encoder\_right\_count < 0) \{
+42             \textcolor{keywordflow}{if} (\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_ae039c5ce88254ad89cea9170a5f3b740}{previous} != 0) \{
+43                 \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station} = \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
       \hyperlink{structstation__list_ae039c5ce88254ad89cea9170a5f3b740}{previous};
-23             \}
-24         \}
-25         *encoder\_right\_count = 0;
-26     \}
-27     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{menu_8h_a3c86ca09d645d897e51add9106255b9b}{BUTTON\_PRESS\_SHORT}) \{
-28         \textcolor{keywordflow}{switch}(action) \{
-29         \textcolor{keywordflow}{case} \hyperlink{menu_8h_a8aa0e8b09d71b943d72e05d755b0827d}{STORE\_STATION}:
-30             \hyperlink{radio_8h_a5e5300f73411d8e90a928adf42d2a6ed}{radio\_store\_station}(&(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
+44             \}
+45         \}
+46         *encoder\_right\_count = 0;
+47     \}
+48     \textcolor{keywordflow}{if}(*encoder\_right\_button == \hyperlink{radio__configuration_8h_aaa2d2ad4374cc67ad2f9e3cee397d0e9}{BUTTON\_SHORT}) \{
+49         \textcolor{keywordflow}{if}(*(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_a0c8c7380b4e3197fe0b821b4a6dfbec9}{freq}) >= \hyperlink{radio__configuration_8h_a20ce0fa2e3fd92a34010d5cfca702fb3}{RADIO\_BOT\_FREQ}) \{
+50             \textcolor{keywordflow}{switch}(entry\_num) \{
+51             \textcolor{keywordflow}{case} \hyperlink{menu_8h_a8aa0e8b09d71b943d72e05d755b0827d}{STORE\_STATION}:
+52                 \hyperlink{radio_8h_a5e5300f73411d8e90a928adf42d2a6ed}{radio\_store\_station}(&(\hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.
       \hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency}), \hyperlink{structradio}{radio}.\hyperlink{structradio_a44efb20f93a5de661983c36b4a870f4e}{rds}.\hyperlink{structradio__rds_a00c5e915306c0baea463b99ba6c09c4f}{name}, \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
       \hyperlink{structstation__list_aab8c201217e885e0ee4e61820a289c0c}{entry\_num} - 1);
-31             \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
-32         \textcolor{keywordflow}{case} \hyperlink{menu_8h_acf4538b0bd65dd4d5e3530aaeb264a18}{STATION\_VIEW}:
-33             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = *(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
-      \hyperlink{structstation__list_a0c8c7380b4e3197fe0b821b4a6dfbec9}{freq});
-34             \hyperlink{radio_8h_a6d652e9d0f1c54bfe9ec73fe2605b706}{radio\_tune\_freq}(*(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
+53                 \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+54             \textcolor{keywordflow}{case} \hyperlink{menu_8h_acf4538b0bd65dd4d5e3530aaeb264a18}{STATION\_VIEW}:
+55                 \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = *(
+      \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_a0c8c7380b4e3197fe0b821b4a6dfbec9}{freq});
+56                 \hyperlink{radio_8h_a6d652e9d0f1c54bfe9ec73fe2605b706}{radio\_tune\_freq}(*(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
       \hyperlink{structstation__list_a0c8c7380b4e3197fe0b821b4a6dfbec9}{freq}));
-35             \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
-36         \textcolor{keywordflow}{case} \hyperlink{menu_8h_a79a0b72d2ebbee89c0757cc582d5accd}{MENU\_FREQ\_CHOOSE\_ENTRY}:
-37             \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = *(\hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->
-      \hyperlink{structstation__list_a0c8c7380b4e3197fe0b821b4a6dfbec9}{freq});
-38             \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(1, 0);
-39             \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
-40 
-41         \}
-42     \}
-43     \hyperlink{station__list_8c_a9797d901a4c549c775a7067eebf0a5c2}{station\_list\_display}(action);
-44     \textcolor{keywordflow}{return} 0;
-45 \}
+57                 \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+58             \textcolor{keywordflow}{case} \hyperlink{menu_8h_a79a0b72d2ebbee89c0757cc582d5accd}{MENU\_FREQ\_CHOOSE\_ENTRY}:
+59                 \hyperlink{structradio}{radio}.\hyperlink{structradio_a458724faf4e8216b3d6b8beb9b2894c2}{settings}.\hyperlink{structradio__settings_aea762e0e67fcafaf5b3cd61201769926}{frequency} = *(
+      \hyperlink{station__list_8c_a4155ec09a9c5c135edc7711a06b6c017}{actuall\_station}->\hyperlink{structstation__list_a0c8c7380b4e3197fe0b821b4a6dfbec9}{freq});
+60                 \hyperlink{radio_8h_a477656bb91c200d15ddbe6cffcd04c53}{radio\_store\_settings}(1, 0);
+61                 \textcolor{keywordflow}{return} \hyperlink{menu_8h_a2e4dd416e1c891a80d8bdcf588f1a5ca}{SHORT\_UP\_TO\_PARENT};
+62 
+63             \}
+64         \}
+65         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+66     \}
+67 
+68     \textcolor{keywordflow}{if}(*encoder\_left\_button == \hyperlink{radio__configuration_8h_aaa2d2ad4374cc67ad2f9e3cee397d0e9}{BUTTON\_SHORT}) \{
+69         \textcolor{keywordflow}{return} \hyperlink{menu_8h_a1d0f862e0369534e78bee68a5a52bac2}{SHORT\_UP\_TO\_CHILD};
+70     \}
+71 
+72     \hyperlink{station__list_8c_a9797d901a4c549c775a7067eebf0a5c2}{station\_list\_display}(entry\_num);
+73     \textcolor{keywordflow}{return} 0;
+74 \}
 \end{DoxyCode}
 
 
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
-\nopagebreak
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{station__list_8c_a5b16204c2b6824ce89364d614f074b20_cgraph}
+\includegraphics[width=350pt]{station__list_8c_a14396edaefab23c83e16fea65cc5db9d_cgraph}
 \end{center}
 \end{figure}
 
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
-\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{station__list_8c_a5b16204c2b6824ce89364d614f074b20_icgraph}
+\includegraphics[width=342pt]{station__list_8c_a14396edaefab23c83e16fea65cc5db9d_icgraph}
 \end{center}
 \end{figure}
 

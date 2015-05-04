@@ -215,7 +215,7 @@ $(document).ready(function(){initNavTree('timer_8c_source.html','');});
 <div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="timer_8c.html#abd56b9af5c5095f207b79b18e07c547c">  105</a></span>&#160;__interrupt <span class="keywordtype">void</span> <a class="code" href="timer_8c.html#abd56b9af5c5095f207b79b18e07c547c">Timer_A0</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    uint8_t i;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">for</span>(i = 0; i &lt; <a class="code" href="timer_8h.html#a7f642963dfed522de51d21e18b8e088e">TIMER_COUNTS</a>; i++) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">for</span>(i = <a class="code" href="timer_8h.html#a7f642963dfed522de51d21e18b8e088e">TIMER_COUNTS</a>; i-- &gt; 0;) {</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[i]++;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
@@ -246,9 +246,9 @@ $(document).ready(function(){initNavTree('timer_8c_source.html','');});
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"> * and also a function that gives back the actuall working frequency for other functions, who are needing a frequency</span></div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment"> * for intialization. Timer initialization will be started before all other functions, so it�s placed in to system_pre_init();</span></div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"> */</span></div>
-<div class="ttc" id="radio__configuration_8h_html_ad42e009112be3fa3698a34fe031fd800"><div class="ttname"><a href="radio__configuration_8h.html#ad42e009112be3fa3698a34fe031fd800">RADIO_CALDCO</a></div><div class="ttdeci">#define RADIO_CALDCO</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00014">radio_configuration.h:14</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_ad42e009112be3fa3698a34fe031fd800"><div class="ttname"><a href="radio__configuration_8h.html#ad42e009112be3fa3698a34fe031fd800">RADIO_CALDCO</a></div><div class="ttdeci">#define RADIO_CALDCO</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00024">radio_configuration.h:24</a></div></div>
 <div class="ttc" id="timer_8c_html_a896a4c37c6ecf8868ef0dc758e5a598c"><div class="ttname"><a href="timer_8c.html#a896a4c37c6ecf8868ef0dc758e5a598c">timer_init</a></div><div class="ttdeci">void timer_init()</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00090">timer.c:90</a></div></div>
-<div class="ttc" id="radio__configuration_8h_html_aa20dae62d62d88d3f2e3a394d92957b6"><div class="ttname"><a href="radio__configuration_8h.html#aa20dae62d62d88d3f2e3a394d92957b6">RADIO_CALBC1</a></div><div class="ttdeci">#define RADIO_CALBC1</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00013">radio_configuration.h:13</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_aa20dae62d62d88d3f2e3a394d92957b6"><div class="ttname"><a href="radio__configuration_8h.html#aa20dae62d62d88d3f2e3a394d92957b6">RADIO_CALBC1</a></div><div class="ttdeci">#define RADIO_CALBC1</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00023">radio_configuration.h:23</a></div></div>
 <div class="ttc" id="timer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div></div>
 <div class="ttc" id="timer_8c_html_a276d5cb665b9f8b2c79e53e2f2c5b4f0"><div class="ttname"><a href="timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0">_delay_ms</a></div><div class="ttdeci">void _delay_ms(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00119">timer.c:119</a></div></div>
 <div class="ttc" id="timer_8c_html_a6dac6c02f96e5e61d72b31f3f75a82d2"><div class="ttname"><a href="timer_8c.html#a6dac6c02f96e5e61d72b31f3f75a82d2">timer_delay</a></div><div class="ttdeci">volatile uint16_t timer_delay</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00011">timer.c:11</a></div></div>
@@ -264,7 +264,7 @@ $(document).ready(function(){initNavTree('timer_8c_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="dir_a73e662009d191b54bc30e34ae038220.html">src</a></li><li class="navelem"><a class="el" href="timer_8c.html">timer.c</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

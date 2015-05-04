@@ -1,20 +1,22 @@
 <map id="flash_read" name="flash_read">
-<area shape="rect" id="node2" href="$flash_8c.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="156,196,241,223"/>
-<area shape="rect" id="node3" href="$radio_8c.html#a477656bb91c200d15ddbe6cffcd04c53" title="radio_store_settings" alt="" coords="311,233,449,260"/>
-<area shape="rect" id="node18" href="$radio_8c.html#a3a59bda16d899217789edbce203bf043" title="radio_load_settings" alt="" coords="313,309,447,336"/>
-<area shape="rect" id="node19" href="$radio_8c.html#acd8105d0e43e2e4801375554df271689" title="radio_read_station" alt="" coords="135,348,263,375"/>
-<area shape="rect" id="node16" href="$radio_8c.html#a5e5300f73411d8e90a928adf42d2a6ed" title="radio_store_station" alt="" coords="314,56,446,83"/>
-<area shape="rect" id="node4" href="$radio_8c.html#a9dd33606330e2225b425000341cf4688" title="radio_brightness" alt="" coords="684,208,801,235"/>
-<area shape="rect" id="node5" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="849,233,952,260"/>
-<area shape="rect" id="node9" href="$radio_8c.html#aaf3f53dfebe8da71fbe4c457ffda6714" title="radio_contrast" alt="" coords="691,309,795,336"/>
-<area shape="rect" id="node10" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="694,360,791,387"/>
-<area shape="rect" id="node11" href="$radio_8c.html#afb3cb0ce160c3403d9306d936667fb64" title="radio_source_select" alt="" coords="497,411,636,437"/>
-<area shape="rect" id="node13" href="$radio_8c.html#aaaca9764d77849b9d1aeae47e691bf75" title="radio_equalizer" alt="" coords="512,157,621,184"/>
-<area shape="rect" id="node14" href="$radio_8c.html#aae41d271062b3f94cccf4fb5996b04a2" title="radio_frequency" alt="" coords="686,107,799,133"/>
-<area shape="rect" id="node15" href="$station__list_8h.html#a5b16204c2b6824ce89364d614f074b20" title="station_list_handler" alt="" coords="499,56,634,83"/>
-<area shape="rect" id="node6" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="1000,309,1107,336"/>
-<area shape="rect" id="node7" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="1155,328,1257,355"/>
-<area shape="rect" id="node8" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1305,363,1356,389"/>
-<area shape="rect" id="node12" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="705,461,780,488"/>
-<area shape="rect" id="node17" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="503,5,631,32"/>
+<area shape="rect" id="node2" href="$flash_8c.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="156,208,241,235"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a477656bb91c200d15ddbe6cffcd04c53" title="Store the current settings. " alt="" coords="311,259,449,285"/>
+<area shape="rect" id="node12" href="$radio__settings_8c.html#aba6a09ed7091ec65d2cbf4cd9a9a75f4" title="Sets the volume. " alt="" coords="507,436,658,463"/>
+<area shape="rect" id="node20" href="$radio_8c.html#a3a59bda16d899217789edbce203bf043" title="Load stored settings. " alt="" coords="313,19,447,45"/>
+<area shape="rect" id="node21" href="$radio_8c.html#acd8105d0e43e2e4801375554df271689" title="Set one radio station to the current. " alt="" coords="135,360,263,387"/>
+<area shape="rect" id="node4" href="$radio_8c.html#ad4d9fc5d5ddc7cfaac75911695ae92a8" title="Factory reset. " alt="" coords="517,31,649,57"/>
+<area shape="rect" id="node18" href="$radio_8c.html#a5e5300f73411d8e90a928adf42d2a6ed" title="Store one radio station. " alt="" coords="314,487,446,513"/>
+<area shape="rect" id="node8" href="$radio__settings_8c.html#a2d04f2363bf944b4700b71e0f96ee16f" title="Sets the brightness. " alt="" coords="497,132,668,159"/>
+<area shape="rect" id="node9" href="$radio__settings_8c.html#ab8b2e0dbe3fd9644146e798c3e2a3116" title="Sets the contrast. " alt="" coords="504,183,661,209"/>
+<area shape="rect" id="node10" href="$radio__settings_8c.html#a1b37e35c0934d8ed5ba002ab3ec7a516" title="Sets the audio source. " alt="" coords="508,81,657,108"/>
+<area shape="rect" id="node11" href="$radio__settings_8c.html#a871edf4f0e44f83f32784e258622a6db" title="Sets the equalizer mode. " alt="" coords="501,233,664,260"/>
+<area shape="rect" id="node13" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="716,360,883,387"/>
+<area shape="rect" id="node14" href="$radio__settings_8c.html#a57fa93db84d4ea8f569c455b5a3357fa" title="Choose the data to display. " alt="" coords="515,335,650,361"/>
+<area shape="rect" id="node15" href="$radio__settings_8c.html#ad72b06e78a241cf11a25dd8c0f9338e4" title="Set TA/TP. " alt="" coords="517,385,649,412"/>
+<area shape="rect" id="node16" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="515,487,650,513"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="762,5,837,32"/>
+<area shape="rect" id="node7" href="$radio__settings_8c.html#a268592a69ac1e823468c81d64c9d8f07" title="Reset the settings. " alt="" coords="730,56,869,83"/>
+<area shape="rect" id="node6" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="931,5,981,32"/>
+<area shape="rect" id="node17" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="725,512,874,539"/>
+<area shape="rect" id="node19" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="519,537,647,564"/>
 </map>

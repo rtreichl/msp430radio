@@ -1,7 +1,8 @@
 <map id="D:/GIT/fhradiov2/driver/si4735.h" name="D:/GIT/fhradiov2/driver/si4735.h">
 <area shape="rect" id="node3" href="$i2c_8h.html" title="I2C implemtation for MSP430G2553, interrupt based. &#160;&#160;This implemtation based on examples from Texas I..." alt="" coords="134,102,218,129"/>
 <area shape="rect" id="node7" href="$timer_8h.html" title="driver/timer.h" alt="" coords="325,184,421,211"/>
-<area shape="rect" id="node10" href="$radio__pin__mapping_8h.html" title="settings/radio_pin\l_mapping.h" alt="" coords="294,95,418,136"/>
-<area shape="rect" id="node8" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="274,259,465,285"/>
-<area shape="rect" id="node9" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="284,333,423,375"/>
+<area shape="rect" id="node11" href="$radio__pin__mapping_8h.html" title="settings/radio_pin\l_mapping.h" alt="" coords="294,95,418,136"/>
+<area shape="rect" id="node8" href="$radio__configuration_8h.html" title="settings/radio_configuration.h" alt="" coords="278,259,469,285"/>
+<area shape="rect" id="node9" href="$si4735__cmd__prop_8h.html" title="driver/include/si4735\l_cmd_prop.h" alt="" coords="248,333,387,375"/>
+<area shape="rect" id="node10" href="$libs_2time_8h.html" title="libs/time.h" alt="" coords="411,341,493,367"/>
 </map>

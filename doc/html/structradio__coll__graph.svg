@@ -58,7 +58,7 @@
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
-<g id="a_node5"><a xlink:href="structradio__status.html" target="_top" xlink:title="radio_status">
+<g id="a_node5"><a xlink:href="structradio__status.html" target="_top" xlink:title="Definition of some structs for the radio, the status, rsq, rds, the settings. ">
 <polygon fill="white" stroke="black" points="243.5,-67.5 243.5,-86.5 313.5,-86.5 313.5,-67.5 243.5,-67.5"/>
 <text text-anchor="middle" x="278.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">radio_status</text>
 </a>

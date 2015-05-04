@@ -1,4 +1,5 @@
 <map id="SI4735_INIT" name="SI4735_INIT">
-<area shape="rect" id="node2" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="144,5,219,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="267,5,317,32"/>
+<area shape="rect" id="node2" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="162,5,237,32"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="144,56,255,83"/>
+<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="303,5,353,32"/>
 </map>

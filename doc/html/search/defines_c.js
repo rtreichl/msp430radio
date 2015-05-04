@@ -8,6 +8,7 @@ var searchData=
   ['pca9534_5fi2c_5fa2_5fbit',['PCA9534_I2C_A2_BIT',['../pca9534_8h.html#a6ef8a1a51b26f5679c259931fc19de00',1,'pca9534.h']]],
   ['pca9534_5fi2c_5fadr',['PCA9534_I2C_ADR',['../pca9534_8h.html#a327d2e2bdf4be4cf7155f21f093b9aae',1,'pca9534.h']]],
   ['pca9534_5fi2c_5fstd_5fadr',['PCA9534_I2C_STD_ADR',['../pca9534_8h.html#a0f7ad6f3e612c9f0ad9cb4fb7299cf3d',1,'pca9534.h']]],
+  ['pca9632_5fi2c_5fadr',['PCA9632_I2C_ADR',['../pca9632_8h.html#a1c3b965a9dd0fd8edac8ba077dad9bfc',1,'pca9632.h']]],
   ['pca_5fint',['PCA_INT',['../msp430__pin__mapping_8h.html#ad766631942495a737948833181235c73',1,'msp430_pin_mapping.h']]],
   ['pca_5fint_5fdir',['PCA_INT_DIR',['../radio__pin__mapping_8h.html#ac94264c16ea86a8af8946ebee888d1f9',1,'radio_pin_mapping.h']]],
   ['pca_5fint_5fie',['PCA_INT_IE',['../radio__pin__mapping_8h.html#a04375a311d8c4cd9377b8a854c35881d',1,'radio_pin_mapping.h']]],

@@ -30,7 +30,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="structstatus.html" target="_top" xlink:title="status">
+<g id="a_node3"><a xlink:href="structstatus.html" target="_top" xlink:title="In here the are structs declared for several RDS stuff(See http://www.g.laroche. free.fr/english/rds/groupes/listeGroupesRDS.htm for more information). Also there are functions declared to update RDS and to get the current time out of RDS. ">
 <polygon fill="white" stroke="black" points="68,-67.5 68,-86.5 112,-86.5 112,-67.5 68,-67.5"/>
 <text text-anchor="middle" x="90" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">status</text>
 </a>

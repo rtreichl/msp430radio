@@ -3,6 +3,7 @@
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 {\ttfamily \#include $<$msp430.\+h$>$}\\*
 {\ttfamily \#include $<$settings\textbackslash{}radio\+\_\+pin\+\_\+mapping.\+h$>$}\\*
+{\ttfamily \#include $<$settings\textbackslash{}radio\+\_\+configuration.\+h$>$}\\*
 {\ttfamily \#include $<$driver/external\+\_\+interrupthandler.\+h$>$}\\*
 Include-\/\+Abhängigkeitsdiagramm für encoder.\+h\+:
 \nopagebreak
@@ -12,7 +13,8 @@ Include-\/\+Abhängigkeitsdiagramm für encoder.\+h\+:
 \includegraphics[width=350pt]{encoder_8h__incl}
 \end{center}
 \end{figure}
-Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:\nopagebreak
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -85,13 +87,13 @@ void \hyperlink{encoder_8h_a1b09f480da15d565de0b4acf37f40199}{Encoder\+\_\+1\+\_
 \item 
 void \hyperlink{encoder_8h_afcb65d25ec031240b72ae3a51c1e9b4a}{Encoder\+\_\+1\+\_\+decoder} (void)
 \item 
-int16\+\_\+t \hyperlink{encoder_8h_a7a39090bb6f1d88f9371e44f4923194b}{Encoder\+\_\+1\+\_\+get\+\_\+count} ()
+int16\+\_\+t \hyperlink{encoder_8h_a047b769ea639f5e1d064fcec8b784b15}{encoder\+\_\+1\+\_\+update} (int8\+\_\+t $\ast$count, uint8\+\_\+t $\ast$$\ast$button)
 \item 
 void \hyperlink{encoder_8h_af947b4bf6e9bc6d5b580609d046789da}{Encoder\+\_\+2\+\_\+init} (void)
 \item 
 void \hyperlink{encoder_8h_a81332b0a52a42a7a7b134228f9bb3848}{Encoder\+\_\+2\+\_\+decoder} (void)
 \item 
-int16\+\_\+t \hyperlink{encoder_8h_a17708354c0e76c0422398f8dcd50dfea}{Encoder\+\_\+2\+\_\+get\+\_\+count} ()
+int16\+\_\+t \hyperlink{encoder_8h_a3b8fdf5cc845c8e3ae93d7354f7f0065}{encoder\+\_\+2\+\_\+update} (int8\+\_\+t $\ast$count, uint8\+\_\+t $\ast$$\ast$button)
 \end{DoxyCompactItemize}
 
 
@@ -101,175 +103,175 @@ int16\+\_\+t \hyperlink{encoder_8h_a17708354c0e76c0422398f8dcd50dfea}{Encoder\+\
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1}\label{encoder_8h_afa27376b249650ab2cd2dab80a3aab63}
 
 
-Definiert in Zeile 19 der Datei encoder.\+h.
+Definiert in Zeile 20 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a476b4d274d2933dd36a689dad7bcf3cd}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+A@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+A}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+A@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+A}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+A~{\bf E\+N1\+\_\+\+A\+\_\+\+P\+I\+N}}\label{encoder_8h_a476b4d274d2933dd36a689dad7bcf3cd}
 
 
-Definiert in Zeile 35 der Datei encoder.\+h.
+Definiert in Zeile 36 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_acd0e1c9143c5add3894fb1fdb532d417}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+B@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+B}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+B@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+B}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+B}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+B~{\bf E\+N1\+\_\+\+B\+\_\+\+P\+I\+N}}\label{encoder_8h_acd0e1c9143c5add3894fb1fdb532d417}
 
 
-Definiert in Zeile 36 der Datei encoder.\+h.
+Definiert in Zeile 37 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a1e25c308ff36d8efdeb0f27c57313b16}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+D\+I\+R@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+D\+I\+R}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+D\+I\+R@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+D\+I\+R}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+D\+I\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+D\+I\+R~{\bf E\+N1\+\_\+\+A\+\_\+\+D\+I\+R}}\label{encoder_8h_a1e25c308ff36d8efdeb0f27c57313b16}
 
 
-Definiert in Zeile 29 der Datei encoder.\+h.
+Definiert in Zeile 30 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a6545ae719f27ad9aaed9e38fac9c98a6}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E~{\bf E\+N1\+\_\+\+A\+\_\+\+I\+E}}\label{encoder_8h_a6545ae719f27ad9aaed9e38fac9c98a6}
 
 
-Definiert in Zeile 34 der Datei encoder.\+h.
+Definiert in Zeile 35 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a528ca2163adef8b91a9594e72b1827db}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E\+S@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E\+S}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E\+S@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E\+S}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+E\+S~{\bf E\+N1\+\_\+\+A\+\_\+\+I\+E\+S}}\label{encoder_8h_a528ca2163adef8b91a9594e72b1827db}
 
 
-Definiert in Zeile 31 der Datei encoder.\+h.
+Definiert in Zeile 32 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_aebb67acfd4ffedee07434167e715782a}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+F\+G@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+F\+G}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+F\+G@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+F\+G}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+F\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+I\+F\+G~{\bf E\+N1\+\_\+\+A\+\_\+\+I\+F\+G}}\label{encoder_8h_aebb67acfd4ffedee07434167e715782a}
 
 
-Definiert in Zeile 30 der Datei encoder.\+h.
+Definiert in Zeile 31 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a9512677f56c7d06024d423529da480c2}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+O\+U\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+O\+U\+T}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+O\+U\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+O\+U\+T}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+O\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+O\+U\+T~{\bf E\+N1\+\_\+\+A\+\_\+\+O\+U\+T}}\label{encoder_8h_a9512677f56c7d06024d423529da480c2}
 
 
-Definiert in Zeile 33 der Datei encoder.\+h.
+Definiert in Zeile 34 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_affaf9d1a3942ffdf7cd97b53b6e888df}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+P\+I\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+P\+I\+N}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+P\+I\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+P\+I\+N}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+P\+I\+N~{\bf E\+N1\+\_\+\+A\+\_\+\+I\+N}}\label{encoder_8h_affaf9d1a3942ffdf7cd97b53b6e888df}
 
 
-Definiert in Zeile 28 der Datei encoder.\+h.
+Definiert in Zeile 29 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a9548677fba15c840e8d31ad98c28037c}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+E\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+E\+N}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+E\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+E\+N}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+E\+N~{\bf E\+N1\+\_\+\+A\+\_\+\+R\+E\+N}}\label{encoder_8h_a9548677fba15c840e8d31ad98c28037c}
 
 
-Definiert in Zeile 32 der Datei encoder.\+h.
+Definiert in Zeile 33 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_acb19ebb17d0ed43e47cdd40114f16aa3}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y~0}\label{encoder_8h_acb19ebb17d0ed43e47cdd40114f16aa3}
 
 
-Definiert in Zeile 48 der Datei encoder.\+h.
+Definiert in Zeile 49 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_acb19ebb17d0ed43e47cdd40114f16aa3}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+R\+O\+T\+A\+R\+Y~0}\label{encoder_8h_acb19ebb17d0ed43e47cdd40114f16aa3}
 
 
-Definiert in Zeile 48 der Datei encoder.\+h.
+Definiert in Zeile 49 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a55fc07aa7caa380d293654e23de0ba54}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+T}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+T}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+1\+\_\+\+T~{\bf E\+N1\+\_\+\+T\+A\+S\+T\+\_\+\+P\+I\+N}}\label{encoder_8h_a55fc07aa7caa380d293654e23de0ba54}
 
 
-Definiert in Zeile 37 der Datei encoder.\+h.
+Definiert in Zeile 38 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a78849ac345e48bff75267b242183df07}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2@{E\+N\+C\+O\+D\+E\+R\+\_\+2}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2@{E\+N\+C\+O\+D\+E\+R\+\_\+2}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2}\label{encoder_8h_a78849ac345e48bff75267b242183df07}
 
 
-Definiert in Zeile 20 der Datei encoder.\+h.
+Definiert in Zeile 21 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a2782b5e9a4cf798d655b641ff929525b}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+A@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+A}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+A@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+A}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+A~B\+I\+T0}\label{encoder_8h_a2782b5e9a4cf798d655b641ff929525b}
 
 
-Definiert in Zeile 56 der Datei encoder.\+h.
+Definiert in Zeile 57 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_aeb5875573ea25c506967e4023638da24}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+B@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+B}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+B@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+B}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+B}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+B~B\+I\+T1}\label{encoder_8h_aeb5875573ea25c506967e4023638da24}
 
 
-Definiert in Zeile 57 der Datei encoder.\+h.
+Definiert in Zeile 58 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_ac24b20e625098815fab972b6e7ac382b}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+D\+I\+R@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+D\+I\+R}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+D\+I\+R@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+D\+I\+R}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+D\+I\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+D\+I\+R~P2\+D\+I\+R}\label{encoder_8h_ac24b20e625098815fab972b6e7ac382b}
 
 
-Definiert in Zeile 50 der Datei encoder.\+h.
+Definiert in Zeile 51 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a64db25a3ea079732b5349232440d065e}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E~P2\+I\+E}\label{encoder_8h_a64db25a3ea079732b5349232440d065e}
 
 
-Definiert in Zeile 55 der Datei encoder.\+h.
+Definiert in Zeile 56 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_af65e203e8221f10df3841caee401a659}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E\+S@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E\+S}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E\+S@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E\+S}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+E\+S~P2\+I\+E\+S}\label{encoder_8h_af65e203e8221f10df3841caee401a659}
 
 
-Definiert in Zeile 52 der Datei encoder.\+h.
+Definiert in Zeile 53 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_ac52f7da62f5e616c23b69b1551d8df26}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+F\+G@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+F\+G}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+F\+G@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+F\+G}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+F\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+I\+F\+G~P2\+I\+F\+G}\label{encoder_8h_ac52f7da62f5e616c23b69b1551d8df26}
 
 
-Definiert in Zeile 51 der Datei encoder.\+h.
+Definiert in Zeile 52 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_ad029c73a3e4d1fed315c2d1c521a197e}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+O\+U\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+O\+U\+T}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+O\+U\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+O\+U\+T}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+O\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+O\+U\+T~P2\+O\+U\+T}\label{encoder_8h_ad029c73a3e4d1fed315c2d1c521a197e}
 
 
-Definiert in Zeile 54 der Datei encoder.\+h.
+Definiert in Zeile 55 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_afefc9c30fe7e9e3151dddc3a1516fee6}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+P\+I\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+P\+I\+N}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+P\+I\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+P\+I\+N}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+P\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+P\+I\+N~P2\+I\+N}\label{encoder_8h_afefc9c30fe7e9e3151dddc3a1516fee6}
 
 
-Definiert in Zeile 49 der Datei encoder.\+h.
+Definiert in Zeile 50 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_aa3ad3b0b79178fe00bcbac4fc278c2b2}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+R\+E\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+R\+E\+N}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+R\+E\+N@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+R\+E\+N}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+R\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+R\+E\+N~P2\+R\+E\+N}\label{encoder_8h_aa3ad3b0b79178fe00bcbac4fc278c2b2}
 
 
-Definiert in Zeile 53 der Datei encoder.\+h.
+Definiert in Zeile 54 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_aa31b57ce8a73b2d9c6db28ebe93ab40b}{}\index{encoder.\+h@{encoder.\+h}!E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+T}}
 \index{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+T@{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+T}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+C\+O\+D\+E\+R\+\_\+2\+\_\+\+T~B\+I\+T2}\label{encoder_8h_aa31b57ce8a73b2d9c6db28ebe93ab40b}
 
 
-Definiert in Zeile 58 der Datei encoder.\+h.
+Definiert in Zeile 59 der Datei encoder.\+h.
 
 \hypertarget{encoder_8h_a66fa07b195f2bbfb79187fb92fe09d89}{}\index{encoder.\+h@{encoder.\+h}!T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+S\+S@{T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+S\+S}}
 \index{T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+S\+S@{T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+S\+S}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+\_\+\+F\+O\+R\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+S\+S~150}\label{encoder_8h_a66fa07b195f2bbfb79187fb92fe09d89}
 
 
-Definiert in Zeile 17 der Datei encoder.\+h.
+Definiert in Zeile 18 der Datei encoder.\+h.
 
 
 
@@ -281,24 +283,6 @@ Definiert in Zeile 17 der Datei encoder.\+h.
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}\label{encoder_8h_afcb65d25ec031240b72ae3a51c1e9b4a}
-\hypertarget{encoder_8h_a7a39090bb6f1d88f9371e44f4923194b}{}\index{encoder.\+h@{encoder.\+h}!Encoder\+\_\+1\+\_\+get\+\_\+count@{Encoder\+\_\+1\+\_\+get\+\_\+count}}
-\index{Encoder\+\_\+1\+\_\+get\+\_\+count@{Encoder\+\_\+1\+\_\+get\+\_\+count}!encoder.\+h@{encoder.\+h}}
-\subsubsection[{Encoder\+\_\+1\+\_\+get\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Encoder\+\_\+1\+\_\+get\+\_\+count (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{encoder_8h_a7a39090bb6f1d88f9371e44f4923194b}
-
-
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=265pt]{encoder_8h_a7a39090bb6f1d88f9371e44f4923194b_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{encoder_8h_a1b09f480da15d565de0b4acf37f40199}{}\index{encoder.\+h@{encoder.\+h}!Encoder\+\_\+1\+\_\+init@{Encoder\+\_\+1\+\_\+init}}
 \index{Encoder\+\_\+1\+\_\+init@{Encoder\+\_\+1\+\_\+init}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{Encoder\+\_\+1\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void Encoder\+\_\+1\+\_\+init (
@@ -308,11 +292,31 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{encoder_8h_a1b09f480da15d565de0b4acf37f40199}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=327pt]{encoder_8h_a1b09f480da15d565de0b4acf37f40199_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8h_a047b769ea639f5e1d064fcec8b784b15}{}\index{encoder.\+h@{encoder.\+h}!encoder\+\_\+1\+\_\+update@{encoder\+\_\+1\+\_\+update}}
+\index{encoder\+\_\+1\+\_\+update@{encoder\+\_\+1\+\_\+update}!encoder.\+h@{encoder.\+h}}
+\subsubsection[{encoder\+\_\+1\+\_\+update}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t encoder\+\_\+1\+\_\+update (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t $\ast$}]{count, }
+\item[{uint8\+\_\+t $\ast$$\ast$}]{button}
+\end{DoxyParamCaption}
+)}\label{encoder_8h_a047b769ea639f5e1d064fcec8b784b15}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{encoder_8h_a047b769ea639f5e1d064fcec8b784b15_icgraph}
 \end{center}
 \end{figure}
 
@@ -324,24 +328,6 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}\label{encoder_8h_a81332b0a52a42a7a7b134228f9bb3848}
-\hypertarget{encoder_8h_a17708354c0e76c0422398f8dcd50dfea}{}\index{encoder.\+h@{encoder.\+h}!Encoder\+\_\+2\+\_\+get\+\_\+count@{Encoder\+\_\+2\+\_\+get\+\_\+count}}
-\index{Encoder\+\_\+2\+\_\+get\+\_\+count@{Encoder\+\_\+2\+\_\+get\+\_\+count}!encoder.\+h@{encoder.\+h}}
-\subsubsection[{Encoder\+\_\+2\+\_\+get\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Encoder\+\_\+2\+\_\+get\+\_\+count (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{encoder_8h_a17708354c0e76c0422398f8dcd50dfea}
-
-
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=265pt]{encoder_8h_a17708354c0e76c0422398f8dcd50dfea_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{encoder_8h_af947b4bf6e9bc6d5b580609d046789da}{}\index{encoder.\+h@{encoder.\+h}!Encoder\+\_\+2\+\_\+init@{Encoder\+\_\+2\+\_\+init}}
 \index{Encoder\+\_\+2\+\_\+init@{Encoder\+\_\+2\+\_\+init}!encoder.\+h@{encoder.\+h}}
 \subsubsection[{Encoder\+\_\+2\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void Encoder\+\_\+2\+\_\+init (
@@ -351,11 +337,31 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{encoder_8h_af947b4bf6e9bc6d5b580609d046789da}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=327pt]{encoder_8h_af947b4bf6e9bc6d5b580609d046789da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{encoder_8h_a3b8fdf5cc845c8e3ae93d7354f7f0065}{}\index{encoder.\+h@{encoder.\+h}!encoder\+\_\+2\+\_\+update@{encoder\+\_\+2\+\_\+update}}
+\index{encoder\+\_\+2\+\_\+update@{encoder\+\_\+2\+\_\+update}!encoder.\+h@{encoder.\+h}}
+\subsubsection[{encoder\+\_\+2\+\_\+update}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t encoder\+\_\+2\+\_\+update (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t $\ast$}]{count, }
+\item[{uint8\+\_\+t $\ast$$\ast$}]{button}
+\end{DoxyParamCaption}
+)}\label{encoder_8h_a3b8fdf5cc845c8e3ae93d7354f7f0065}
+
+
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{encoder_8h_a3b8fdf5cc845c8e3ae93d7354f7f0065_icgraph}
 \end{center}
 \end{figure}
 
@@ -376,11 +382,12 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
 )}\label{encoder_8h_a136248fd00f8429933544a54b030aef9}
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=251pt]{encoder_8h_a136248fd00f8429933544a54b030aef9_icgraph}
+\includegraphics[width=335pt]{encoder_8h_a136248fd00f8429933544a54b030aef9_icgraph}
 \end{center}
 \end{figure}
 

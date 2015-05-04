@@ -1,7 +1,7 @@
 <map id="menu_scroll_settings" name="menu_scroll_settings">
 <area shape="rect" id="node2" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="376,31,489,57"/>
 <area shape="rect" id="node10" href="$string_8c.html#a82b1b882cf97ff40344f87bd1473e9d0" title="string_int_to_array" alt="" coords="199,31,328,57"/>
-<area shape="rect" id="node11" href="$menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" title="menu_scroll" alt="" coords="217,81,309,108"/>
+<area shape="rect" id="node11" href="$menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" title="Scroll to given position. " alt="" coords="217,81,309,108"/>
 <area shape="rect" id="node3" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="537,5,652,32"/>
 <area shape="rect" id="node9" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="700,56,812,83"/>
 <area shape="rect" id="node4" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="705,5,807,32"/>

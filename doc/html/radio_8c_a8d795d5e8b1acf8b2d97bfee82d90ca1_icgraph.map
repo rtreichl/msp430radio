@@ -1,3 +1,5 @@
 <map id="radio_brightness" name="radio_brightness">
-<area shape="rect" id="node2" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="171,5,221,32"/>
+<area shape="rect" id="node2" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="219,5,293,32"/>
+<area shape="rect" id="node4" href="$radio__settings_8c.html#a2d04f2363bf944b4700b71e0f96ee16f" title="Sets the brightness. " alt="" coords="171,56,341,83"/>
+<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="389,5,440,32"/>
 </map>

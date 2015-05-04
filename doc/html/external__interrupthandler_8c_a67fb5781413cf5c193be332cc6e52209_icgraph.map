@@ -1,16 +1,15 @@
 <map id="ext_interrupt_disable" name="ext_interrupt_disable">
-<area shape="rect" id="node2" href="$si4735_8c.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="212,5,303,32"/>
-<area shape="rect" id="node5" href="$radio_8c.html#aead0d199e23b8cc254924b96b017210b" title="radio_set_volume" alt="" coords="196,56,319,83"/>
-<area shape="rect" id="node11" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="radio_tune_freq" alt="" coords="202,107,313,133"/>
-<area shape="rect" id="node14" href="$radio_8c.html#aee6321b512830d482a2fc164cf11f9e9" title="radio_seeking" alt="" coords="383,259,485,285"/>
-<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="397,5,471,32"/>
-<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1181,31,1232,57"/>
-<area shape="rect" id="node6" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="565,56,662,83"/>
-<area shape="rect" id="node10" href="$radio_8c.html#a5f7fcd9e9755fb5e22175a4ad74a5456" title="radio_main" alt="" coords="391,107,477,133"/>
-<area shape="rect" id="node7" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="725,183,828,209"/>
-<area shape="rect" id="node8" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="876,107,983,133"/>
-<area shape="rect" id="node9" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="1031,81,1133,108"/>
-<area shape="rect" id="node12" href="$station__list_8h.html#a5b16204c2b6824ce89364d614f074b20" title="station_list_handler" alt="" coords="367,157,501,184"/>
-<area shape="rect" id="node13" href="$radio_8c.html#aae41d271062b3f94cccf4fb5996b04a2" title="radio_frequency" alt="" coords="557,157,670,184"/>
-<area shape="rect" id="node15" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="549,259,677,285"/>
+<area shape="rect" id="node2" href="$si4735_8c.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="206,208,297,235"/>
+<area shape="rect" id="node6" href="$radio_8c.html#ae11dbe9ea82d3ae65b6e80a4e6e995f8" title="Set the volume. " alt="" coords="203,107,300,133"/>
+<area shape="rect" id="node9" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="Tune the frequency. " alt="" coords="196,157,307,184"/>
+<area shape="rect" id="node13" href="$radio_8c.html#aee6321b512830d482a2fc164cf11f9e9" title="Seeking all radio channels. " alt="" coords="200,259,303,285"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="393,208,467,235"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="375,107,485,133"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="611,208,662,235"/>
+<area shape="rect" id="node7" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="387,56,473,83"/>
+<area shape="rect" id="node8" href="$radio__settings_8c.html#aba6a09ed7091ec65d2cbf4cd9a9a75f4" title="Sets the volume. " alt="" coords="355,5,505,32"/>
+<area shape="rect" id="node10" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="363,157,497,184"/>
+<area shape="rect" id="node11" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="553,157,720,184"/>
+<area shape="rect" id="node12" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="562,259,711,285"/>
+<area shape="rect" id="node14" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="366,309,494,336"/>
 </map>

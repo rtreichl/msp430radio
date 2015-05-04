@@ -10,6 +10,7 @@ var dir_1284b95147afa48b330f502c8bbc0529 =
     [ "opt3001.h", "opt3001_8h.html", "opt3001_8h" ],
     [ "pca9530.h", "pca9530_8h.html", "pca9530_8h" ],
     [ "pca9534.h", "pca9534_8h.html", "pca9534_8h" ],
+    [ "pca9632.h", "pca9632_8h.html", "pca9632_8h" ],
     [ "si4735.h", "si4735_8h.html", "si4735_8h" ],
     [ "timer.h", "timer_8h.html", "timer_8h" ],
     [ "tpa2016d2.h", "tpa2016d2_8h.html", "tpa2016d2_8h" ]

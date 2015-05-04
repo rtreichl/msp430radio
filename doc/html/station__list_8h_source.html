@@ -115,26 +115,33 @@ $(document).ready(function(){initNavTree('station__list_8h_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richard</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef SYSTEM_STATION_LIST_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SYSTEM_STATION_LIST_H_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="station__list__struct_8h.html">system/station_list_struct.h</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;uint8_t <a class="code" href="station__list_8h.html#a9797d901a4c549c775a7067eebf0a5c2">station_list_display</a>(uint8_t action);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;uint8_t <a class="code" href="station__list_8h.html#a5b16204c2b6824ce89364d614f074b20">station_list_handler</a>(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t action);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SYSTEM_STATION_LIST_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef SYSTEM_STATION_LIST_H_</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define SYSTEM_STATION_LIST_H_</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio_8h.html">radio/radio.h</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="station__list__struct_8h.html">system/station_list_struct.h</a>&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;uint8_t <a class="code" href="station__list_8h.html#a9797d901a4c549c775a7067eebf0a5c2">station_list_display</a>(uint8_t action);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;uint8_t <a class="code" href="station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d">station_list_handler</a>(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SYSTEM_STATION_LIST_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="station__list__struct_8h_html"><div class="ttname"><a href="station__list__struct_8h.html">station_list_struct.h</a></div></div>
-<div class="ttc" id="station__list_8h_html_a9797d901a4c549c775a7067eebf0a5c2"><div class="ttname"><a href="station__list_8h.html#a9797d901a4c549c775a7067eebf0a5c2">station_list_display</a></div><div class="ttdeci">uint8_t station_list_display(uint8_t action)</div><div class="ttdef"><b>Definition:</b> <a href="station__list_8c_source.html#l00047">station_list.c:47</a></div></div>
-<div class="ttc" id="station__list_8h_html_a5b16204c2b6824ce89364d614f074b20"><div class="ttname"><a href="station__list_8h.html#a5b16204c2b6824ce89364d614f074b20">station_list_handler</a></div><div class="ttdeci">uint8_t station_list_handler(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t action)</div><div class="ttdef"><b>Definition:</b> <a href="station__list_8c_source.html#l00012">station_list.c:12</a></div></div>
+<div class="ttc" id="radio_8h_html"><div class="ttname"><a href="radio_8h.html">radio.h</a></div></div>
+<div class="ttc" id="station__list_8h_html_a14396edaefab23c83e16fea65cc5db9d"><div class="ttname"><a href="station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d">station_list_handler</a></div><div class="ttdeci">uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)</div><div class="ttdoc">Handler to select the current station. </div><div class="ttdef"><b>Definition:</b> <a href="station__list_8c_source.html#l00033">station_list.c:33</a></div></div>
+<div class="ttc" id="station__list_8h_html_a9797d901a4c549c775a7067eebf0a5c2"><div class="ttname"><a href="station__list_8h.html#a9797d901a4c549c775a7067eebf0a5c2">station_list_display</a></div><div class="ttdeci">uint8_t station_list_display(uint8_t action)</div><div class="ttdoc">In here there are functions declared to display the avaiable station lists and also to add/remove sta...</div><div class="ttdef"><b>Definition:</b> <a href="station__list_8c_source.html#l00092">station_list.c:92</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="station__list_8h.html">station_list.h</a></li>
-    <li class="footer">Erzeugt am Fre Apr 10 2015 08:21:29 für FH Radio von
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

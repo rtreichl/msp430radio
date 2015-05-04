@@ -9,6 +9,7 @@ var ger_2language_8c =
     [ "choose_text", "ger_2language_8c.html#a351a1e772e70acc94f2a6d81e7b61270", null ],
     [ "classic_text", "ger_2language_8c.html#ac21bf36c4170f95be4b4284c3c7b7654", null ],
     [ "contrast_text", "ger_2language_8c.html#aca24af743f57ff29b47ccce101d3e708", null ],
+    [ "empty_text", "ger_2language_8c.html#a12b97779eebce49a71a8098e763b18a4", null ],
     [ "fixed_text", "ger_2language_8c.html#a4cdbcf76455b783d6b93f06f9a0fdebc", null ],
     [ "fm_text", "ger_2language_8c.html#a89de12d3b9184ca9e9129051c58c7c2f", null ],
     [ "freq_text", "ger_2language_8c.html#a43432eb1dd4df5a79adc138b69daf43c", null ],

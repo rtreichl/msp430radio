@@ -124,11 +124,12 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{lcd_8c_ab99e48ab8689dcb1205c4c7c97bd9956_icgraph}
+\includegraphics[width=304pt]{lcd_8c_ab99e48ab8689dcb1205c4c7c97bd9956_icgraph}
 \end{center}
 \end{figure}
 
@@ -187,7 +188,7 @@ Definiert in Zeile 315 der Datei lcd.\+c.
 350     \textcolor{keywordflow}{if}(flush == 1) \{
 351         \hyperlink{lcd_8c_a2a4df97ebc5b396233aa31765228ef42}{lcd\_set\_courser}(0,1);
 352         \hyperlink{lcd_8c_aa6e1aa2ef9b677e16d8198df683429ec}{lcd\_write\_string}(lcd\_view,48);
-353         \textcolor{keywordflow}{for}(i = 0; i < 48; i++) \{
+353         \textcolor{keywordflow}{for}(i = 48; i-- > 0;)   \{
 354             lcd\_view[i] = \textcolor{charliteral}{' '};
 355         \}
 356         lcd\_view[48] = 0;
@@ -195,7 +196,7 @@ Definiert in Zeile 315 der Datei lcd.\+c.
 358 
 359     \textcolor{comment}{/* Init lcd\_view with blanks */}
 360     \textcolor{keywordflow}{if}(flush == 2) \{
-361         \textcolor{keywordflow}{for}(i = 0; i < 48; i++) \{
+361         \textcolor{keywordflow}{for}(i = 48; i-- > 0;) \{
 362             lcd\_view[i] = 0x20;
 363         \}
 364         lcd\_view[48] = 0;
@@ -243,7 +244,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 
 \begin{DoxyCode}
 214 \{
-215     uint8\_t chrdata1[8] = \{
+215     \textcolor{keyword}{const} uint8\_t chrdata1[8] = \{
 216         0x1F,   \textcolor{comment}{//xxxxx}
 217         0x10,   \textcolor{comment}{//xoooo}
 218         0x10,   \textcolor{comment}{//xoooo}
@@ -254,7 +255,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 223         0x00
 224     \};
 225 
-226     uint8\_t chrdata2[8] = \{
+226     \textcolor{keyword}{const} uint8\_t chrdata2[8] = \{
 227         0x1F,   \textcolor{comment}{//xxxxx}
 228         0x18,   \textcolor{comment}{//xxooo}
 229         0x18,   \textcolor{comment}{//xxooo}
@@ -265,7 +266,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 234         0x00
 235     \};
 236 
-237     uint8\_t chrdata3[8] = \{
+237     \textcolor{keyword}{const} uint8\_t chrdata3[8] = \{
 238         0x1F,   \textcolor{comment}{//xxxxx}
 239         0x1C,   \textcolor{comment}{//xxxoo}
 240         0x1C,   \textcolor{comment}{//xxxoo}
@@ -276,7 +277,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 245         0x00
 246     \};
 247 
-248     uint8\_t chrdata4[8] = \{
+248     \textcolor{keyword}{const} uint8\_t chrdata4[8] = \{
 249         0x1F,   \textcolor{comment}{//xxxxx}
 250         0x1E,   \textcolor{comment}{//xxxxo}
 251         0x1E,   \textcolor{comment}{//xxxxo}
@@ -287,7 +288,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 256         0x00
 257     \};
 258 
-259     uint8\_t chrdata5[8] = \{
+259     \textcolor{keyword}{const} uint8\_t chrdata5[8] = \{
 260         0x1F,   \textcolor{comment}{//xxxxx}
 261         0x1F,   \textcolor{comment}{//xxxxx}
 262         0x1F,   \textcolor{comment}{//xxxxx}
@@ -298,7 +299,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 267         0x00
 268     \};
 269 
-270     uint8\_t chrdata0[8] = \{
+270     \textcolor{keyword}{const} uint8\_t chrdata0[8] = \{
 271         0x1F,   \textcolor{comment}{//xxxxx}
 272         0x00,   \textcolor{comment}{//ooooo}
 273         0x00,   \textcolor{comment}{//ooooo}
@@ -309,7 +310,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 278         0x00
 279     \};
 280 
-281     uint8\_t chrdata6[8] = \{
+281     \textcolor{keyword}{const} uint8\_t chrdata6[8] = \{
 282         0x0E,   \textcolor{comment}{//oxxxo}
 283         0x15,   \textcolor{comment}{//xoxox}
 284         0x15,   \textcolor{comment}{//xoxox}
@@ -320,7 +321,7 @@ Definiert in Zeile 213 der Datei lcd.\+c.
 289         0x00
 290     \};
 291 
-292     uint8\_t chrdata7[8] = \{
+292     \textcolor{keyword}{const} uint8\_t chrdata7[8] = \{
 293         0x03,   \textcolor{comment}{//oooxx}
 294         0x05,   \textcolor{comment}{//ooxox}
 295         0x19,   \textcolor{comment}{//xxoox}
@@ -356,7 +357,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -406,7 +408,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -498,7 +501,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -637,7 +641,8 @@ Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
 
 
 
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

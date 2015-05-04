@@ -9,5 +9,5 @@ var i2c_8c =
     [ "USCIAB0RX_ISR", "i2c_8c.html#a1c27b12dfd9998dbc915bee092a83447", null ],
     [ "USCIAB0TX_ISR", "i2c_8c.html#ace3c646aeda748bc89f1536876440b03", null ],
     [ "i2c", "i2c_8c.html#ac88c1666422f322663fc6c63434dba97", null ],
-    [ "PTxData", "i2c_8c.html#af294cab6f89af5bd936b709e202c8421", null ]
+    [ "PTxData", "i2c_8c.html#ac20eea448283bc60729067c96d439ae8", null ]
 ];

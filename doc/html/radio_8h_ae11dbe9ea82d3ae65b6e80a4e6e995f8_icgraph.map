@@ -1,0 +1,7 @@
+<map id="radio_volume" name="radio_volume">
+<area shape="rect" id="node2" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="189,5,263,32"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="183,56,269,83"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="171,107,281,133"/>
+<area shape="rect" id="node6" href="$radio__settings_8c.html#aba6a09ed7091ec65d2cbf4cd9a9a75f4" title="Sets the volume. " alt="" coords="151,157,301,184"/>
+<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="349,5,400,32"/>
+</map>

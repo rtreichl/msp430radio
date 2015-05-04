@@ -1,12 +1,9 @@
 <map id="string_fixedpoint_to_array" name="string_fixedpoint_to_array">
-<area shape="rect" id="node2" href="$radio_8c.html#a5e5300f73411d8e90a928adf42d2a6ed" title="radio_store_station" alt="" coords="188,95,320,121"/>
-<area shape="rect" id="node10" href="$radio__display_8c.html#aa568d26c43f1503a5f31c86aab080591" title="radio_display_handler" alt="" coords="368,145,515,172"/>
-<area shape="rect" id="node3" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="radio_auto_search" alt="" coords="563,5,691,32"/>
-<area shape="rect" id="node8" href="$station__list_8h.html#a5b16204c2b6824ce89364d614f074b20" title="station_list_handler" alt="" coords="374,95,509,121"/>
-<area shape="rect" id="node4" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="739,69,841,96"/>
-<area shape="rect" id="node5" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="889,101,996,128"/>
-<area shape="rect" id="node6" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="1044,101,1147,128"/>
-<area shape="rect" id="node7" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1195,101,1245,128"/>
-<area shape="rect" id="node9" href="$radio_8c.html#aae41d271062b3f94cccf4fb5996b04a2" title="radio_frequency" alt="" coords="570,107,683,133"/>
-<area shape="rect" id="node11" href="$radio_8c.html#a5f7fcd9e9755fb5e22175a4ad74a5456" title="radio_main" alt="" coords="747,132,833,159"/>
+<area shape="rect" id="node2" href="$radio_8c.html#a5e5300f73411d8e90a928adf42d2a6ed" title="Store one radio station. " alt="" coords="195,56,327,83"/>
+<area shape="rect" id="node7" href="$radio__display_8c.html#a43baede098c7b21694b3fda71685fa06" title="Handler for the display. " alt="" coords="188,107,335,133"/>
+<area shape="rect" id="node3" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="386,5,514,32"/>
+<area shape="rect" id="node5" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="383,56,517,83"/>
+<area shape="rect" id="node4" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="574,5,723,32"/>
+<area shape="rect" id="node6" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="565,56,732,83"/>
+<area shape="rect" id="node8" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="407,107,493,133"/>
 </map>
