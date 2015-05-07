@@ -158,25 +158,25 @@ uint8_t radio_settings_equalizer(uint8_t *encoder_left_button, int8_t *encoder_l
 {
 	switch(entry_num) {
 	case AUDIO_ROCK_ENTRY:
-		radio.settings.equalizer = ROCK;
+		radio.settings.equalizer = TPA2016D2_ROCK;
 		break;
 	case AUDIO_POP_ENTRY:
-		radio.settings.equalizer = POP;
+		radio.settings.equalizer = TPA2016D2_POP;
 		break;
 	case AUDIO_HIPHOP_ENTRY:
-		radio.settings.equalizer = RAP_HIP_HOP;
+		radio.settings.equalizer = TPA2016D2_RAP_HIP_HOP;
 		break;
 	case AUDIO_NEWS_ENTRY:
-		radio.settings.equalizer = NEWS_VOICE;
+		radio.settings.equalizer = TPA2016D2_NEWS_VOICE;
 		break;
 	case AUDIO_CLASSIC_ENTRY:
-		radio.settings.equalizer = CLASSIC;;
+		radio.settings.equalizer = TPA2016D2_CLASSIC;;
 		break;
 	case AUDIO_JAZZ_ENTRY:
-		radio.settings.equalizer = JAZZ;
+		radio.settings.equalizer = TPA2016D2_JAZZ;
 		break;
 	}
-	tpa2016d2_equalizer_mode(radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
+	tpa2016d2_equalizer_mode((enum TPA2016D2_EQUALIZER)radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	radio_store_settings(0, 0);
 	return SHORT_UP_TO_PARENT;
 }

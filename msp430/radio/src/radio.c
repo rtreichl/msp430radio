@@ -67,7 +67,7 @@ uint8_t radio_init()
 	lcd_create_view(startup_line_1, 2, 0, 0, 0);
 	lcd_create_view(startup_line_2, 2, 1, 0, 0);
 	lcd_create_view(startup_line_3, 2, 2, 0, 1);
-	tpa2016d2_init(radio.settings.equalizer,RADIO_AMPLIFIER_GAIN);
+	tpa2016d2_init((enum TPA2016D2_EQUALIZER)radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	SI4735_INIT();
 	radio_volume(radio.settings.volume);
 	if(radio.settings.frequency < RADIO_BOT_FREQ) {
@@ -215,7 +215,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		}
 		radio_volume(radio.settings.volume);
 		if(radio.status.audio_status == AUDIO_MUTE) {
-			tpa2016d2_mute(0);
+			tpa2016d2_muting(TPA2016D2_OUTPUT);
 		}
 		radio.status.audio_status = AUDIO_VOLUME;
 		tmp_value = radio.settings.volume;
@@ -256,11 +256,11 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	{
 		*encoder_left_button = BUTTON_FREE;
 		if(radio.status.audio_status == AUDIO_MUTE) {
-			tpa2016d2_mute(0);
+			tpa2016d2_muting(TPA2016D2_OUTPUT);
 			radio.status.audio_status = 0;
 		} else {
 			radio.status.audio_status = AUDIO_MUTE;
-			tpa2016d2_mute(1);
+			tpa2016d2_muting(TPA2016D2_MUTE);
 		}
 	}
 	if(*encoder_left_button == BUTTON_LONG)
@@ -554,7 +554,7 @@ uint8_t radio_factory_state()
 
 uint8_t radio_stand_by()
 {
-	tpa2016d2_shutdown(TPA2016D2_SHUTDOWN);
+	tpa2016d2_powermode(TPA2016D2_SHUTDOWN);
 	si4735_shutdown();
 	//TODO store actuall freqency
 	//TODO store actuall volume
@@ -568,7 +568,7 @@ uint8_t radio_stand_by()
 	//TODO go to lpm mode where ACLK is active
 	//TODO wait until button is pressed
 	//TODO reconfig timer to old state
-	tpa2016d2_shutdown(TPA2016D2_RELEASE);
+	tpa2016d2_powermode(TPA2016D2_POWERUP);
 	SI4735_INIT();
 	radio_volume(radio.settings.volume);
 	radio_tune_freq(radio.settings.frequency);

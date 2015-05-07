@@ -6,7 +6,103 @@
  */
 #include <driver/tpa2016d2.h>
 
-void tpa2016d2_init(uint8_t Start_Mode, int8_t Start_Gain)
+const TPA2016D2_EQUAL tpa2016d2_pop = {
+		TPA2016D2_ATTACK_US_TO_BIN(1280),
+		TPA2016D2_RELEASE_US_TO_BIN(1640000),
+		TPA2016D2_HOLD_US_TO_BIN(137000),
+		RADIO_AMPLIFIER_GAIN,
+		{
+				TPA2016D2_LIMTER_LEVEL_TO_BIN(7.5),
+				2,
+				TPA2016D2_NOISEGATE_10mV,
+				TPA2016D2_COMPRESSION_1_1,
+				12
+		}
+};
+
+const TPA2016D2_EQUAL tpa2016d2_classic = {
+		TPA2016D2_ATTACK_US_TO_BIN(2560),
+		TPA2016D2_RELEASE_US_TO_BIN(1150000),
+		TPA2016D2_HOLD_US_TO_BIN(137000),
+		RADIO_AMPLIFIER_GAIN,
+		{
+				TPA2016D2_LIMTER_LEVEL_TO_BIN(8),
+				2,
+				TPA2016D2_NOISEGATE_10mV,
+				TPA2016D2_COMPRESSION_1_1,
+				12
+		}
+};
+
+const TPA2016D2_EQUAL tpa2016d2_jazz = {
+		TPA2016D2_ATTACK_US_TO_BIN(10200),
+		TPA2016D2_RELEASE_US_TO_BIN(3288000),
+		TPA2016D2_HOLD_US_TO_BIN(0),
+		RADIO_AMPLIFIER_GAIN,
+		{
+				TPA2016D2_LIMTER_LEVEL_TO_BIN(8),
+				2,
+				TPA2016D2_NOISEGATE_10mV,
+				TPA2016D2_COMPRESSION_1_1,
+				12
+		}
+};
+
+const TPA2016D2_EQUAL tpa2016d2_rap_hip_hop = {
+		TPA2016D2_ATTACK_US_TO_BIN(2560),
+		TPA2016D2_RELEASE_US_TO_BIN(1640000),
+		TPA2016D2_HOLD_US_TO_BIN(0),
+		RADIO_AMPLIFIER_GAIN,
+		{
+				TPA2016D2_LIMTER_LEVEL_TO_BIN(7.5),
+				2,
+				TPA2016D2_NOISEGATE_10mV,
+				TPA2016D2_COMPRESSION_1_1,
+				12
+		}
+};
+
+const TPA2016D2_EQUAL tpa2016d2_rock = {
+		TPA2016D2_ATTACK_US_TO_BIN(3840),
+		TPA2016D2_RELEASE_US_TO_BIN(4110000),
+		TPA2016D2_HOLD_US_TO_BIN(137),
+		RADIO_AMPLIFIER_GAIN,
+		{
+				TPA2016D2_LIMTER_LEVEL_TO_BIN(8),
+				2,
+				TPA2016D2_NOISEGATE_10mV,
+				TPA2016D2_COMPRESSION_1_1,
+				12
+		}
+};
+
+const TPA2016D2_EQUAL tpa2016d2_voice_news = {
+		TPA2016D2_ATTACK_US_TO_BIN(2560),
+		TPA2016D2_RELEASE_US_TO_BIN(1640000),
+		TPA2016D2_HOLD_US_TO_BIN(0),
+		RADIO_AMPLIFIER_GAIN,
+		{
+				TPA2016D2_LIMTER_LEVEL_TO_BIN(8.5),
+				2,
+				TPA2016D2_NOISEGATE_10mV,
+				TPA2016D2_COMPRESSION_1_1,
+				12
+		}
+};
+
+const TPA2016D2_EQUAL * const tpa2016d2_equalizer[6] = {
+		&tpa2016d2_pop,
+		&tpa2016d2_classic,
+		&tpa2016d2_jazz,
+		&tpa2016d2_rap_hip_hop,
+		&tpa2016d2_rock,
+		&tpa2016d2_voice_news,
+};
+
+
+
+
+uint8_t tpa2016d2_init(enum TPA2016D2_EQUALIZER equalizer, int8_t gain)
 {
 	// Enable Amplifier by pulling SDZ high
 	AMP_SHUTDOWN_DIR |= AMP_SHUTDOWN_PIN;
@@ -14,80 +110,63 @@ void tpa2016d2_init(uint8_t Start_Mode, int8_t Start_Gain)
 
 	// Wait some time before configure Amplifier
 	_delay_ms(5);
-	tpa2016d2_shutdown(1);
-
-	// Wait some time before continue with configure
-	__delay_cycles(800);
 
 	// configure exended configuration
-	tpa2016d2_equalizer_mode(Start_Mode, Start_Gain);
+	tpa2016d2_equalizer_mode(equalizer, gain);
 
 	// Enable Amplifier with R/L speaker enabled
 	i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x01, 0xC3);
+
+	return 0;
 }
 
-void tpa2016d2_shutdown(uint8_t Shutdown) 	//only 1 or 0 => 1 for Shutdown and 0 for Release
+uint8_t tpa2016d2_powermode(enum TPA2016D2_POWER_MODE mode)
 {
 	// Send command to amplifier
-	i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x01, 0xC3 | Shutdown<<5);
+	i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x01, 0xC3 | mode<<5);
+
+	return 0;
 }
 
-void tpa2016d2_mute(uint8_t mute) 	//only 1 or 0 => 1 for mute and 0 for unmute
+uint8_t tpa2016d2_muting(enum TPA2016D2_AUDIO_MODE state)
 {
+	struct  {
+		uint8_t cmd;
+		TPA2016D2_CTRL controll;
+	} tpa2016d2;
+
+	tpa2016d2.cmd = TPA2016D2_CONTROLL;
+
+	tpa2016d2.controll.ng_en = 1;
+
 	// Send command to amplifier
-	if(mute == 1) {
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x01, 0x03);
+	if(state == TPA2016D2_MUTE) {
+		tpa2016d2.controll.spk_en_l = 0;
+		tpa2016d2.controll.spk_en_r = 0;
 	}
 	else {
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x01, 0xC3);
+		tpa2016d2.controll.spk_en_l = 1;
+		tpa2016d2.controll.spk_en_r = 1;
 	}
+	i2c_write_arr(I2C_TPA2016D2_ADR, STOP, sizeof(tpa2016d2), &tpa2016d2);
+
+	return 0;
 }
 
-void tpa2016d2_gain(int8_t Gain)
+uint8_t tpa2016d2_equalizer_mode(enum TPA2016D2_EQUALIZER equalizer, int8_t gain)
 {
-	// Check gain value for valid range
-	if(Gain > 30)
-		Gain = 30;
-	if(Gain < -28)
-		Gain = -28;
+	struct {
+		uint8_t cmd;
+		TPA2016D2_EQUAL equalizer;
+	} tpa2016d2;
 
-	// Send new gain to amplifier
-	i2c_write_var(I2C_TPA2016D2_ADR, STOP, 2, 0x05,(Gain & 0x3F));
-}
+	tpa2016d2.cmd = TPA2016D2_RELEASE;
 
-void tpa2016d2_equalizer_mode(uint8_t Mode, int8_t Gain)
-{
-	// Check gain value for valid range
-	if(Gain > 30)
-		Gain = 30;
-	if(Gain < -28)
-		Gain = -28;
-	switch(Mode) {
-	case 0:
-		// POP
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x03, 0x08, 0x0A, (Gain & 0x3F), 0x5C, 0xC0);
-		break;
-	case 1:
-		// CLASSIC
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x02, 0x07, 0x0A, (Gain & 0x3F), 0x5D, 0xC0);
-		break;
-	case 2:
-		// JAZZ
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x06, 0x14, 0x00, (Gain & 0x3F), 0x5D, 0xC0);
-		break;
-	case 3:
-		// RAP HIP HOP
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x01, 0x0A, 0x00, (Gain & 0x3F), 0x5C, 0xC0);
-		break;
-	case 4:
-		// ROCK
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x03, 0x19, 0x00, (Gain & 0x3F), 0x5D, 0xC0);
-		break;
-	case 5:
-		// NEWS VOICE
-		i2c_write_var(I2C_TPA2016D2_ADR, STOP, 7, 0x02, 0x02, 0x0A, 0x00, (Gain & 0x3F), 0x5E, 0xC0);
-		break;
-	}
+	memcpy(&(tpa2016d2.equalizer), tpa2016d2_equalizer[equalizer], sizeof(TPA2016D2_EQUAL));
+
+	i2c_write_arr(I2C_TPA2016D2_ADR, STOP, sizeof(tpa2016d2), &tpa2016d2);
+
+	return 0;
 }
 
 
