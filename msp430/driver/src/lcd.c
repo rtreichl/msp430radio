@@ -75,15 +75,6 @@ uint8_t lcd_contrast(uint8_t contrast)
 
 uint8_t lcd_write_char(uint8_t symbol)
 {
-
-	//symbol = lcd_replace_special_letter(symbol);
-
-	/*i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (((symbol>>4) & 0x0f) | 0x40));
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (((symbol>>4) & 0x0f) | 0x50));
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((symbol & 0x0f) | 0x40));
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((symbol & 0x0f) | 0x50));
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, 0x08);*/
-
 	_delay_ten_us(20);
 
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 5,
@@ -149,19 +140,11 @@ uint8_t lcd_write_string(const int8_t *str, unsigned char n_bytes)
 
 uint8_t lcd_command(uint8_t command)
 {
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((command>>4) & 0x0f));
-	_delay_ms(1);
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (((command>>4) & 0x0f) | 0x10));
-	_delay_ms(1);
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, (command & 0x0f));
-	_delay_ms(1);
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 1, ((command & 0x0f) | 0x10));
-	_delay_ms(5);
-	/*i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_HIGH);
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_HIGH);
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_HIGHER_BYTE(command) | LCD_ENABLE_LOW);
 	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_LOWER_BYTE(command) | LCD_ENABLE_HIGH);
-	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_LOWER_BYTE(command) | LCD_ENABLE_LOW);*/
-
+	i2c_write_var(PCA9534_I2C_ADR, STOP, 2, 0x01, LCD_LOWER_BYTE(command) | LCD_ENABLE_LOW);
+	_delay_ms(5);
 	return 0;
 }
 
