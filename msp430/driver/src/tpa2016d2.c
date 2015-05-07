@@ -161,7 +161,7 @@ uint8_t tpa2016d2_equalizer_mode(enum TPA2016D2_EQUALIZER equalizer, int8_t gain
 		TPA2016D2_EQUAL equalizer;
 	} tpa2016d2;
 
-	tpa2016d2.cmd = TPA2016D2_RELEASE;
+	tpa2016d2.cmd = TPA2016D2_ATTACK;
 
 	memcpy(&(tpa2016d2.equalizer), tpa2016d2_equalizer[equalizer], sizeof(TPA2016D2_EQUAL));
 

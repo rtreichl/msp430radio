@@ -36,7 +36,7 @@ enum {
 };
 
 enum TPA2016D2_REGISTER {
-	TPA2016D2_CONTROLL = 0,
+	TPA2016D2_CONTROLL = 1,
 	TPA2016D2_ATTACK,
 	TPA2016D2_RELEASE,
 	TPA2016D2_HOLD,
@@ -63,14 +63,14 @@ enum TPA2016D2_AUDIO_MODE {
 };
 
 typedef struct tpa2016d2_ctrl{
-	uint8_t spk_en_r :1;
-	uint8_t spk_en_l :1;
-	uint8_t sws :1;
-	uint8_t fault_r :1;
-	uint8_t fault_l :1;
-	uint8_t thermal :1;
-	uint8_t :1;
 	uint8_t ng_en :1;
+	uint8_t :1;
+	uint8_t thermal :1;
+	uint8_t fault_l :1;
+	uint8_t fault_r :1;
+	uint8_t sws :1;
+	uint8_t spk_en_l :1;
+	uint8_t spk_en_r :1;
 } TPA2016D2_CTRL;
 
 typedef struct tpa2016d2_agc_ctrl{
