@@ -1,12 +1,12 @@
 /*
- * Verstaerker.h
+ * tpa2016d2.h
  *
  *  Created on: 11.12.2013
  *      Author: Alexander
  */
 
-#ifndef VERSTAERKER_H_
-#define VERSTAERKER_H_
+#ifndef TPA2016D2_H_
+#define TPA2016D2_H_
 
 #include <msp430.h>
 #include <stdint.h>
@@ -103,4 +103,4 @@ uint8_t tpa2016d2_muting(enum TPA2016D2_AUDIO_MODE state);
 
 uint8_t tpa2016d2_equalizer_mode(enum TPA2016D2_EQUALIZER equalizer, int8_t gain);
 
-#endif /* VERSTAERKER_H_ */
+#endif /* TPA2016D2_H_ */

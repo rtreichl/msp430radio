@@ -1,9 +1,10 @@
 /*
- * Verstaerker.c
+ * tpa2016d2.c
  *
  *  Created on: 11.12.2013
  *      Author: Alexander
  */
+
 #include <driver/tpa2016d2.h>
 
 const TPA2016D2_EQUAL tpa2016d2_pop = {
