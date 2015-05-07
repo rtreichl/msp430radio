@@ -18,12 +18,12 @@ RADIO radio;
 void rds_update(RADIO *radio);
 
 const PCA9530 pca9530_config = {
-	76,
+	PSC0 | 0x10,
+	PCA9530_FREQ_TO_PRESCALE(76),
 	0,
-	1,
+	PCA9530_FREQ_TO_PRESCALE(1),
 	127,
-	PWM0_RATE,
-	PWM1_RATE
+	{PWM0_RATE,	PWM1_RATE},
 };
 
 //----------------------------------------------------------------------------------------
@@ -144,13 +144,18 @@ uint8_t radio_load_settings()
 
 uint8_t radio_brightness(uint8_t brightness)
 {
+	PCA9530_LS0 ls0;
+
+	ls0.led1 = PWM1_RATE;
+
 	if(brightness == 0) {
-		pca9530_config_leds(LED_ON, PWM1_RATE);
+		ls0.led0 = LED_ON;
 	}
 	else {
-		pca9530_config_leds(PWM0_RATE, PWM1_RATE);
-		pca9530_set_pwm(PWM_0, 255-exp_table[brightness * 2 - 1]);
+		uint8_t pwm = 255-exp_table[brightness * 2 - 1];
+		pca9530_set_register(PWM0, &pwm);
 	}
+	pca9530_set_register(LS0, &ls0);
 	return 0;
 }
 
@@ -559,7 +564,7 @@ uint8_t radio_stand_by()
 	//TODO store actuall freqency
 	//TODO store actuall volume
 	lcd_create_view(0, 0, 0, 0, 2);
-	pca9530_set_pwm(PWM_0, 0);
+	radio_brightness(0);
 	//TODO enable interrupt for left button
 	//TODO reconfig one timer with ACLK to cause an interrupt all minute
 	//while(/* TODO checkfor left encoder button interrupt */) {
@@ -572,6 +577,6 @@ uint8_t radio_stand_by()
 	SI4735_INIT();
 	radio_volume(radio.settings.volume);
 	radio_tune_freq(radio.settings.frequency);
-	pca9530_set_pwm(PWM_0, 256-exp_table[radio.settings.brightness * 2]);
+	radio_brightness(radio.settings.brightness);
 	return 0;
 }
