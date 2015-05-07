@@ -100,10 +100,10 @@ uint8_t i2c_write_var (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_arg
 	return i2c_write_arr(addr, rept_start, n_args, PTxData);
 }
 
-uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size, uint8_t *TxData)
+uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size, const void *TxData)
 {
 	/* Copy pointer from TxData */
-	i2c.PTxData = TxData;
+	i2c.PTxData = (uint8_t *)TxData;
 
 	/* Set slave address */
 	UCB0I2CSA = addr;

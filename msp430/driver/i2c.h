@@ -88,7 +88,7 @@ uint8_t i2c_write_var (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_arg
  *  @return error
 */
 
-uint8_t i2c_write_arr (uint8_t addr,enum I2C_CRTL_CMD rept_start, uint8_t n_size, uint8_t *TxData);
+uint8_t i2c_write_arr (uint8_t addr,enum I2C_CRTL_CMD rept_start, uint8_t n_size, const void *TxData);
 
 /**
  *  @brief Receives I2C commands until a NACK is received or received RxBytes.
