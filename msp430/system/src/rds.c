@@ -160,7 +160,7 @@ void rds_group_4A(RDS *data)
 {
 	GROUP_4A *group_4a = (GROUP_4A*) &(data->pi);
 	uint8_t offset = 0;
-	int32_t mdj = 0;
+	int16_t mdj = 0;
 	uint8_t m_hour, m_minute, m_day, m_month, m_year;
 
 	m_day = 1;
