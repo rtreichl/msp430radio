@@ -70,15 +70,7 @@ uint8_t radio_init()
 	tpa2016d2_init((enum TPA2016D2_EQUALIZER)radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	SI4735_INIT();
 	radio_volume(radio.settings.volume);
-	if(radio.settings.frequency < RADIO_BOT_FREQ) {
-		radio.settings.frequency = radio_seeking(1);
-	}
-	else if(radio.settings.frequency > RADIO_TOP_FREQ) {
-		radio.settings.frequency = radio_seeking(0);
-	}
-	else {
-		radio_tune_freq(radio.settings.frequency);
-	}
+	radio_tune_freq(radio.settings.frequency);
 	Encoder_1_init();
 	Encoder_2_init();
 	return 0;
@@ -154,6 +146,7 @@ uint8_t radio_brightness(uint8_t brightness)
 	else {
 		uint8_t pwm = 255-exp_table[brightness * 2 - 1];
 		pca9530_set_register(PWM0, &pwm);
+		ls0.led0 = PWM0_RATE;
 	}
 	pca9530_set_register(LS0, &ls0);
 	return 0;
@@ -331,9 +324,17 @@ uint8_t radio_auto_brightness()
 
 uint8_t radio_tune_freq(uint16_t freq)
 {
-	ext_interrupt_enable(SI_INT_INT);
-	si4735_fm_tune_freq(freq);
-	ext_interrupt_disable(SI_INT_INT);
+	if(freq < RADIO_BOT_FREQ) {
+		radio.settings.frequency = radio_seeking(1);
+	}
+	else if(freq > RADIO_TOP_FREQ) {
+		radio.settings.frequency = radio_seeking(0);
+	}
+	else {
+		ext_interrupt_enable(SI_INT_INT);
+		si4735_fm_tune_freq(freq);
+		ext_interrupt_disable(SI_INT_INT);
+	}
 	return 0;
 }
 
