@@ -19,16 +19,11 @@
 #include <settings/radio_configuration.h>
 
 typedef struct time_date {
-	uint32_t minute_one:4;
-	uint32_t minute_ten:3;
-	uint32_t hour_one:4;
-	uint32_t hour_ten:2;
-	uint32_t day_one:4;
-	uint32_t day_ten:2;
-	uint32_t month_one:4;
-	uint32_t month_ten:1;
-	uint32_t year_one:4;
-	uint32_t year_ten:4;
+	uint32_t minute:6;		//6bit
+	uint32_t hour:5;		//5bit
+	uint32_t day:5;			//5bit
+	uint32_t month:4;		//4bit
+	uint32_t year:7;		//6bit
 } TIME_DATE;
 
 extern const uint8_t month_days[];
