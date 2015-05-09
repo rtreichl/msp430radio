@@ -123,10 +123,6 @@ uint8_t lcd_write_string(const int8_t *str, unsigned char n_bytes)
 				break;
 		}
 
-		//chr = lcd_replace_special_letter(chr);
-
-		//i2c_write_var(PCA9534_I2C_ADR, STOP, 5, (((chr>>4) & 0x0f) | 0x40), (((chr>>4) & 0x0f) | 0x50), ((chr& 0x0f) | 0x40), ((chr & 0x0f) | 0x50));
-
 		i2c_write_var(PCA9534_I2C_ADR, STOP, 5,
 				0x00,
 				LCD_HIGHER_BYTE(chr) | LCD_ENABLE_HIGH | LCD_DATA,
