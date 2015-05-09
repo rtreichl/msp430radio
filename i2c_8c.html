@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/driver/src/i2c.c-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('i2c_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Datenstrukturen</a> &#124;
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
+  <div class="headertitle">
+<div class="title">i2c.c-Dateireferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;<a class="el" href="i2c_8h_source.html">driver/i2c.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include-Abhängigkeitsdiagramm für i2c.c:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="i2c_8c__incl.svg" width="443" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</div>
+<p><a href="i2c_8c_source.html">gehe zum Quellcode dieser Datei</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Datenstrukturen</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i2_c___c_t_r_l.html">I2C_CTRL</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This struct inclued all necessaries for I2C module.  <a href="struct_i2_c___c_t_r_l.html#details">Mehr ...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a1ef889b72b844429bc81225d7b6f4f2e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a1ef889b72b844429bc81225d7b6f4f2e">i2c_init</a> (uint16_t smclk_freq, uint16_t i2c_freq)</td></tr>
+<tr class="memdesc:a1ef889b72b844429bc81225d7b6f4f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup I2C with a defined clock based on given SMCKL.  <a href="#a1ef889b72b844429bc81225d7b6f4f2e">Mehr ...</a><br /></td></tr>
+<tr class="separator:a1ef889b72b844429bc81225d7b6f4f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6691e5911f539e1e8178c6e983e8079a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a6691e5911f539e1e8178c6e983e8079a">i2c_write_var</a> (uint8_t addr, enum <a class="el" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5">I2C_CRTL_CMD</a> rept_start, uint8_t n_args,...)</td></tr>
+<tr class="memdesc:a6691e5911f539e1e8178c6e983e8079a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits I2C commands with a variable length to a I2C slave.  <a href="#a6691e5911f539e1e8178c6e983e8079a">Mehr ...</a><br /></td></tr>
+<tr class="separator:a6691e5911f539e1e8178c6e983e8079a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0625b97d3437bcaca4ac4b96dd01978"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978">i2c_write_arr</a> (uint8_t addr, enum <a class="el" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5">I2C_CRTL_CMD</a> rept_start, uint8_t n_size, uint8_t *TxData)</td></tr>
+<tr class="memdesc:ae0625b97d3437bcaca4ac4b96dd01978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits I2C command array to a I2C slave.  <a href="#ae0625b97d3437bcaca4ac4b96dd01978">Mehr ...</a><br /></td></tr>
+<tr class="separator:ae0625b97d3437bcaca4ac4b96dd01978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620e4251e56f4961d8879a01a70f31bf"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a620e4251e56f4961d8879a01a70f31bf">i2c_read</a> (uint8_t addr, enum <a class="el" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5">I2C_CRTL_CMD</a> rept_start, uint8_t RXBytes, uint8_t *RxData)</td></tr>
+<tr class="memdesc:a620e4251e56f4961d8879a01a70f31bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives I2C commands until a NACK is received or received RxBytes.  <a href="#a620e4251e56f4961d8879a01a70f31bf">Mehr ...</a><br /></td></tr>
+<tr class="separator:a620e4251e56f4961d8879a01a70f31bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2d4889950ea1373a0ea88ba55b04ba8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#ad2d4889950ea1373a0ea88ba55b04ba8">i2c_get_status</a> ()</td></tr>
+<tr class="separator:ad2d4889950ea1373a0ea88ba55b04ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace3c646aeda748bc89f1536876440b03"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#ace3c646aeda748bc89f1536876440b03">USCIAB0TX_ISR</a> (void)</td></tr>
+<tr class="separator:ace3c646aeda748bc89f1536876440b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c27b12dfd9998dbc915bee092a83447"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a1c27b12dfd9998dbc915bee092a83447">USCIAB0RX_ISR</a> (void)</td></tr>
+<tr class="separator:a1c27b12dfd9998dbc915bee092a83447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:ac88c1666422f322663fc6c63434dba97"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_i2_c___c_t_r_l.html">I2C_CTRL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a> = { .<a class="el" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a> = 0, .<a class="el" href="structstatus.html">status</a> = <a class="el" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a>, .TxByteRes = 0 }</td></tr>
+<tr class="separator:ac88c1666422f322663fc6c63434dba97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20eea448283bc60729067c96d439ae8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a> [<a class="el" href="i2c_8h.html#afd2ccfc308be2593bb7540863b903d67">I2C_MAX_ARGS</a>] = {0}</td></tr>
+<tr class="separator:ac20eea448283bc60729067c96d439ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentation der Funktionen</h2>
+<a class="anchor" id="ad2d4889950ea1373a0ea88ba55b04ba8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_get_status </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Rückgabe</dt><dd>Actuall state of I2C module. </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00179">179</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;{</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">status</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
+<div class="ttc" id="i2c_8c_html_ac88c1666422f322663fc6c63434dba97"><div class="ttname"><a href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a></div><div class="ttdeci">struct I2C_CTRL i2c</div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_ade818037fd6c985038ff29656089758d"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">I2C_CTRL::status</a></div><div class="ttdeci">uint8_t status</div><div class="ttdoc">Stores the actual state of I2C module. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00011">i2c.c:11</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a1ef889b72b844429bc81225d7b6f4f2e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_init </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>smclk_freq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>i2c_freq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setup I2C with a defined clock based on given SMCKL. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">smclk_freq</td><td>Frequency of SMCLK clock in Hz </td></tr>
+    <tr><td class="paramname">i2c_freq</td><td>Frequency for I2C clock in Hz </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>error </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00034">34</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">/* Reset USCI_B0 */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    UCB0CTL1 |= UCSWRST;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/* Assign P1.6 and P1.7 to USIC_B0 */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    P1SEL |= BIT6 + BIT7;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    P1SEL2 |= BIT6 + BIT7;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">/* USCI_B0 as I2C Master */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    UCB0CTL0 = UCMST + UCMODE_3 + UCSYNC;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">/* Set SMCLK as clock for USCI_B0 */</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    UCB0CTL1 = UCSSEL_2 + UCSWRST;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">/* Calculate prescaler for USCI_B0 based on SMCLK freq and I2C freq  */</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">/*UCB0BR0 = 0x00FF &amp; (uint16_t)smclk_freq/i2c_freq;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">    UCB0BR1 = (0xFF00 &amp; (uint16_t)smclk_freq/i2c_freq) &gt;&gt; 8;*/</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    UCB0BR0 = 0x14;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">/* Enable NACK interrupt */</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    UCB0I2CIE = UCNACKIE;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">/* Resume USCI_B0 to normal operation state */</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    UCB0CTL1 &amp;= ~UCSWRST;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">/* Enable gloabl interrupts */</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    __enable_interrupt();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="i2c_8c_a1ef889b72b844429bc81225d7b6f4f2e_icgraph.svg" width="295" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a620e4251e56f4961d8879a01a70f31bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5">I2C_CRTL_CMD</a>&#160;</td>
+          <td class="paramname"><em>rept_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>RxBytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>RxData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receives I2C commands until a NACK is received or received RxBytes. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Slave Address in 7-bit format. </td></tr>
+    <tr><td class="paramname">rept_start</td><td>Command for stop or repeated start. </td></tr>
+    <tr><td class="paramname">RxBytes</td><td>Number of receiving bytes. </td></tr>
+    <tr><td class="paramname">*RxData</td><td>Pointer where received I2C commands are be writtn. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>error </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00138">138</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">while</span>(<a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">status</a> != <a class="code" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a>);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">/* Set slave address */</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    UCB0I2CSA = addr;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">/* Change pointer to given buffer */</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a3c8ed69cf31f6ee7aa513fe5f115ba92">PRxData</a> = RxData;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">/* Load RX counter */</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">RxByteCtr</a> = RXBytes;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">/* Clear Interrupt */</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    IE2 = UCB0RXIE;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">/* configure receiver mode */</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    UCB0CTL1 &amp;= ~UCTR;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">status</a> = <a class="code" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9ba563f8ed00490ea22ea2605d9571dada8">RECEIVE</a>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">/* Send a start condition with read flag */</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">if</span> ( <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">RxByteCtr</a> == 1 ) {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">RxByteCtr</a> = 0;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        __disable_interrupt();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        UCB0CTL1 |= UCTXSTT;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">while</span>(UCB0CTL1 &amp; UCTXSTT);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        UCB0CTL1 |= UCTXSTP;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        __enable_interrupt();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">RxByteCtr</a> -= 2;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        UCB0CTL1 |= UCTXSTT;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">while</span>(UCB0STAT &amp; UCBBUSY);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">status</a> = <a class="code" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
+<div class="ttc" id="i2c_8h_html_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18"><div class="ttname"><a href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a></div><div class="ttdoc">Indicates that I2C module is not performing a command. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00056">i2c.h:56</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_a3c8ed69cf31f6ee7aa513fe5f115ba92"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#a3c8ed69cf31f6ee7aa513fe5f115ba92">I2C_CTRL::PRxData</a></div><div class="ttdeci">uint8_t * PRxData</div><div class="ttdoc">Pointer to be receiving bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00015">i2c.c:15</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_a37e493c5b47477e45136924079fd9606"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">I2C_CTRL::RxByteCtr</a></div><div class="ttdeci">uint8_t RxByteCtr</div><div class="ttdoc">Number of to be recieving bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00016">i2c.c:16</a></div></div>
+<div class="ttc" id="i2c_8c_html_ac88c1666422f322663fc6c63434dba97"><div class="ttname"><a href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a></div><div class="ttdeci">struct I2C_CTRL i2c</div></div>
+<div class="ttc" id="i2c_8h_html_a8f12d82f4a490ef04de32baf91363d9ba563f8ed00490ea22ea2605d9571dada8"><div class="ttname"><a href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9ba563f8ed00490ea22ea2605d9571dada8">RECEIVE</a></div><div class="ttdoc">Indicates that I2C module is performing a reception command. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00058">i2c.h:58</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_ade818037fd6c985038ff29656089758d"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">I2C_CTRL::status</a></div><div class="ttdeci">uint8_t status</div><div class="ttdoc">Stores the actual state of I2C module. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00011">i2c.c:11</a></div></div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="i2c_8c_a620e4251e56f4961d8879a01a70f31bf_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0625b97d3437bcaca4ac4b96dd01978"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_write_arr </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5">I2C_CRTL_CMD</a>&#160;</td>
+          <td class="paramname"><em>rept_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>n_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>TxData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transmits I2C command array to a I2C slave. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Slave Address in 7-bit format. </td></tr>
+    <tr><td class="paramname">rept_start</td><td>Command for stop or repeated start. </td></tr>
+    <tr><td class="paramname">n_size</td><td>Number of transmitting bytes. </td></tr>
+    <tr><td class="paramname">*TxData</td><td>Pointer to I2C command bytes to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>error </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00103">103</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">/* Copy pointer from TxData */</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#af294cab6f89af5bd936b709e202c8421">PTxData</a> = TxData;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">/* Set slave address */</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    UCB0I2CSA = addr;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">/* Set Transmit Interrupt */</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    IE2 = UCB0TXIE;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a374bcaa6a416b8601564a1053ddf78bb">rept_start</a> = rept_start;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">/* Load TX byte counter */</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#aec22639ad7dc7eed52b3e116ea3223fe">TxByteCtr</a> = n_size;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">status</a> = <a class="code" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bad208fa8c08969a9d78096817bf0a6377">TRANSMIT</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">/* Send a start condition with write flag */</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    UCB0CTL1 |= UCTR + UCTXSTT;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">/* Wait until Transmition is complet */</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span>(rept_start == <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">while</span>(UCB0STAT &amp; UCBBUSY);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a>(20);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">status</a> = <a class="code" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="ttc" id="i2c_8h_html_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18"><div class="ttname"><a href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a></div><div class="ttdoc">Indicates that I2C module is not performing a command. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00056">i2c.h:56</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_af294cab6f89af5bd936b709e202c8421"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#af294cab6f89af5bd936b709e202c8421">I2C_CTRL::PTxData</a></div><div class="ttdeci">uint8_t * PTxData</div><div class="ttdoc">Poiniter to be transmitting bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00012">i2c.c:12</a></div></div>
+<div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00046">i2c.h:46</a></div></div>
+<div class="ttc" id="i2c_8h_html_a8f12d82f4a490ef04de32baf91363d9bad208fa8c08969a9d78096817bf0a6377"><div class="ttname"><a href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bad208fa8c08969a9d78096817bf0a6377">TRANSMIT</a></div><div class="ttdoc">Indicates that I2C module is performing a transmittion command. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00057">i2c.h:57</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_aec22639ad7dc7eed52b3e116ea3223fe"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#aec22639ad7dc7eed52b3e116ea3223fe">I2C_CTRL::TxByteCtr</a></div><div class="ttdeci">uint8_t TxByteCtr</div><div class="ttdoc">Number of to be transmitting bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00013">i2c.c:13</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_a374bcaa6a416b8601564a1053ddf78bb"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#a374bcaa6a416b8601564a1053ddf78bb">I2C_CTRL::rept_start</a></div><div class="ttdeci">uint8_t rept_start</div><div class="ttdoc">Stores the value, if an repated start or stop will be send after performance on I2C. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00010">i2c.c:10</a></div></div>
+<div class="ttc" id="timer_8c_html_a3c56af3315c2461dec5ced585a5f84db"><div class="ttname"><a href="timer_8c.html#a3c56af3315c2461dec5ced585a5f84db">_delay_ten_us</a></div><div class="ttdeci">void _delay_ten_us(uint16_t delay)</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00125">timer.c:125</a></div></div>
+<div class="ttc" id="i2c_8c_html_ac88c1666422f322663fc6c63434dba97"><div class="ttname"><a href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a></div><div class="ttdeci">struct I2C_CTRL i2c</div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_ade818037fd6c985038ff29656089758d"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">I2C_CTRL::status</a></div><div class="ttdeci">uint8_t status</div><div class="ttdoc">Stores the actual state of I2C module. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00011">i2c.c:11</a></div></div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978_cgraph.svg" width="260" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="i2c_8c_ae0625b97d3437bcaca4ac4b96dd01978_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6691e5911f539e1e8178c6e983e8079a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_write_var </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5">I2C_CRTL_CMD</a>&#160;</td>
+          <td class="paramname"><em>rept_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>n_args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transmits I2C commands with a variable length to a I2C slave. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Slave Address in 7-bit format. </td></tr>
+    <tr><td class="paramname">rept_start</td><td>Command for stop or repeated start. </td></tr>
+    <tr><td class="paramname">n_args</td><td>Number of command bytes. </td></tr>
+    <tr><td class="paramname">...</td><td>I2C command bytes to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>error </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00067">67</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">/* Wait until all transmitions and receptions done */</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">while</span>( <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">status</a> != <a class="code" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#if VARIADIC_IMPLEMENTATION</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">/* Reserve size of memory for transmit buffer if buffer is uninitialised*/</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a> == 0) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a> = (uint8_t *) malloc(n_args * <span class="keyword">sizeof</span>(uint8_t));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a28b787f8db17314755d031d75ec38017">TxByteRes</a> = n_args;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">/* Reserve more memory if actual size not enough */</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a28b787f8db17314755d031d75ec38017">TxByteRes</a> &lt; n_args) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a> = (uint8_t *) realloc(<a class="code" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a>, n_args * <span class="keyword">sizeof</span>(uint8_t));</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a28b787f8db17314755d031d75ec38017">TxByteRes</a> = n_args;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* VARIADIC_IMPLEMENTATION */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    uint8_t i = 0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    va_list ap;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">/* Read n_args from function</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">     * Copy args to transmit buffer</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    va_start(ap, n_args);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">for</span>(i = 0; i &lt; n_args; i++)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a>[i] = va_arg(ap, uint8_t);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    va_end(ap);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978">i2c_write_arr</a>(addr, rept_start, n_args, <a class="code" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="ttc" id="i2c_8h_html_a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18"><div class="ttname"><a href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a></div><div class="ttdoc">Indicates that I2C module is not performing a command. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00056">i2c.h:56</a></div></div>
+<div class="ttc" id="i2c_8c_html_ae0625b97d3437bcaca4ac4b96dd01978"><div class="ttname"><a href="i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978">i2c_write_arr</a></div><div class="ttdeci">uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size, uint8_t *TxData)</div><div class="ttdoc">Transmits I2C command array to a I2C slave. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00103">i2c.c:103</a></div></div>
+<div class="ttc" id="i2c_8c_html_ac20eea448283bc60729067c96d439ae8"><div class="ttname"><a href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a></div><div class="ttdeci">uint8_t PTxData[I2C_MAX_ARGS]</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00030">i2c.c:30</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_a28b787f8db17314755d031d75ec38017"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#a28b787f8db17314755d031d75ec38017">I2C_CTRL::TxByteRes</a></div><div class="ttdeci">uint8_t TxByteRes</div><div class="ttdoc">Number of reserved bytes on stash. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00014">i2c.c:14</a></div></div>
+<div class="ttc" id="i2c_8c_html_ac88c1666422f322663fc6c63434dba97"><div class="ttname"><a href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a></div><div class="ttdeci">struct I2C_CTRL i2c</div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_ade818037fd6c985038ff29656089758d"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#ade818037fd6c985038ff29656089758d">I2C_CTRL::status</a></div><div class="ttdeci">uint8_t status</div><div class="ttdoc">Stores the actual state of I2C module. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00011">i2c.c:11</a></div></div>
+</div><!-- fragment -->
+<p><div class="dynheader">
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="i2c_8c_a6691e5911f539e1e8178c6e983e8079a_cgraph.svg" width="404" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</p>
+
+<p><div class="dynheader">
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="i2c_8c_a6691e5911f539e1e8178c6e983e8079a_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c27b12dfd9998dbc915bee092a83447"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__interrupt void USCIAB0RX_ISR </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00216">216</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">if</span>( UCB0STAT &amp; UCNACKIFG) {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        UCB0CTL1 |= UCTXSTP;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        UCB0STAT &amp;= ~UCNACKIFG;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    }</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ace3c646aeda748bc89f1536876440b03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__interrupt void USCIAB0TX_ISR </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00185">185</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;{</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">if</span>(IFG2 &amp; UCB0RXIFG) {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">if</span>( <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">RxByteCtr</a> == 0) {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            UCB0CTL1 |= UCTXSTP;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            *(<a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a3c8ed69cf31f6ee7aa513fe5f115ba92">PRxData</a>) = UCB0RXBUF;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a3c8ed69cf31f6ee7aa513fe5f115ba92">PRxData</a>++;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            *(<a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a3c8ed69cf31f6ee7aa513fe5f115ba92">PRxData</a>) = UCB0RXBUF;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a3c8ed69cf31f6ee7aa513fe5f115ba92">PRxData</a>++;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">RxByteCtr</a>--;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">if</span>( <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#aec22639ad7dc7eed52b3e116ea3223fe">TxByteCtr</a> == 0) {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordflow">if</span>( <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a374bcaa6a416b8601564a1053ddf78bb">rept_start</a> == <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                UCB0CTL1 |= UCTXSTP;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            IFG2 &amp;= ~UCB0TXIFG;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#a374bcaa6a416b8601564a1053ddf78bb">rept_start</a> = <a class="code" href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a>;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            UCB0TXBUF = *(<a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#af294cab6f89af5bd936b709e202c8421">PTxData</a>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#af294cab6f89af5bd936b709e202c8421">PTxData</a>++;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <a class="code" href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a>.<a class="code" href="struct_i2_c___c_t_r_l.html#aec22639ad7dc7eed52b3e116ea3223fe">TxByteCtr</a>--;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_a3c8ed69cf31f6ee7aa513fe5f115ba92"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#a3c8ed69cf31f6ee7aa513fe5f115ba92">I2C_CTRL::PRxData</a></div><div class="ttdeci">uint8_t * PRxData</div><div class="ttdoc">Pointer to be receiving bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00015">i2c.c:15</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_af294cab6f89af5bd936b709e202c8421"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#af294cab6f89af5bd936b709e202c8421">I2C_CTRL::PTxData</a></div><div class="ttdeci">uint8_t * PTxData</div><div class="ttdoc">Poiniter to be transmitting bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00012">i2c.c:12</a></div></div>
+<div class="ttc" id="i2c_8h_html_aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8"><div class="ttname"><a href="i2c_8h.html#aaaea3962492fd5ad1e43cba027d949d5a679ee5320d66c8322e310daeb2ee99b8">STOP</a></div><div class="ttdoc">If this one is set a stop condtion will be send after trasmition or reception. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8h_source.html#l00046">i2c.h:46</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_aec22639ad7dc7eed52b3e116ea3223fe"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#aec22639ad7dc7eed52b3e116ea3223fe">I2C_CTRL::TxByteCtr</a></div><div class="ttdeci">uint8_t TxByteCtr</div><div class="ttdoc">Number of to be transmitting bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00013">i2c.c:13</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_a37e493c5b47477e45136924079fd9606"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#a37e493c5b47477e45136924079fd9606">I2C_CTRL::RxByteCtr</a></div><div class="ttdeci">uint8_t RxByteCtr</div><div class="ttdoc">Number of to be recieving bytes. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00016">i2c.c:16</a></div></div>
+<div class="ttc" id="struct_i2_c___c_t_r_l_html_a374bcaa6a416b8601564a1053ddf78bb"><div class="ttname"><a href="struct_i2_c___c_t_r_l.html#a374bcaa6a416b8601564a1053ddf78bb">I2C_CTRL::rept_start</a></div><div class="ttdeci">uint8_t rept_start</div><div class="ttdoc">Stores the value, if an repated start or stop will be send after performance on I2C. </div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00010">i2c.c:10</a></div></div>
+<div class="ttc" id="i2c_8c_html_ac88c1666422f322663fc6c63434dba97"><div class="ttname"><a href="i2c_8c.html#ac88c1666422f322663fc6c63434dba97">i2c</a></div><div class="ttdeci">struct I2C_CTRL i2c</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variablen-Dokumentation</h2>
+<a class="anchor" id="ac88c1666422f322663fc6c63434dba97"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct_i2_c___c_t_r_l.html">I2C_CTRL</a>  i2c = { .<a class="el" href="i2c_8c.html#ac20eea448283bc60729067c96d439ae8">PTxData</a> = 0, .<a class="el" href="structstatus.html">status</a> = <a class="el" href="i2c_8h.html#a8f12d82f4a490ef04de32baf91363d9bafd6a0e4343048b10646dd2976cc5ad18">IDLE</a>, .TxByteRes = 0 }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac20eea448283bc60729067c96d439ae8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t PTxData[<a class="el" href="i2c_8h.html#afd2ccfc308be2593bb7540863b903d67">I2C_MAX_ARGS</a>] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="i2c_8c_source.html#l00030">30</a> der Datei <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="dir_a73e662009d191b54bc30e34ae038220.html">src</a></li><li class="navelem"><a class="el" href="i2c_8c.html">i2c.c</a></li>
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

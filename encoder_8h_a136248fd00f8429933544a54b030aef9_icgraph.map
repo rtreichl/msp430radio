@@ -1,0 +1,4 @@
+<map id="encoder_interrupt2" name="encoder_interrupt2">
+<area shape="rect" id="node2" href="$handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22" title="Handler for menu, RDS, time, the encoders and rsq. " alt="" coords="183,5,247,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="295,5,345,32"/>
+</map>

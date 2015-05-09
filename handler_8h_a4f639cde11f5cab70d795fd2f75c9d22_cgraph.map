@@ -1,0 +1,20 @@
+<map id="handler" name="handler">
+<area shape="rect" id="node2" href="$encoder_8h.html#a047b769ea639f5e1d064fcec8b784b15" title="encoder_1_update" alt="" coords="118,5,246,32"/>
+<area shape="rect" id="node3" href="$encoder_8h.html#a3b8fdf5cc845c8e3ae93d7354f7f0065" title="encoder_2_update" alt="" coords="118,56,246,83"/>
+<area shape="rect" id="node4" href="$menu_8h.html#aaf2a075d3159f7eeab42012941a3437f" title="Definition of functions for &#45;the menu handler &#45;scrolling through the menu &#45;main program of the menu &#45;..." alt="" coords="131,107,233,133"/>
+<area shape="rect" id="node14" href="$encoder_8h.html#a136248fd00f8429933544a54b030aef9" title="encoder_interrupt2" alt="" coords="117,157,247,184"/>
+<area shape="rect" id="node15" href="$time_8c.html#acbfa3c65c807be82221cbebc7ac63224" title="Update the current time. " alt="" coords="135,208,229,235"/>
+<area shape="rect" id="node16" href="$rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d" title="In here the function to update Radio Signal Quality. " alt="" coords="139,259,225,285"/>
+<area shape="rect" id="node19" href="$radio_8c.html#a1c031719ba892045c773dc035058870f" title="Updates the current RDS data . " alt="" coords="139,309,225,336"/>
+<area shape="rect" id="node5" href="$menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d" title="Display the current menu. " alt="" coords="318,107,421,133"/>
+<area shape="rect" id="node6" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="492,107,605,133"/>
+<area shape="rect" id="node7" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="653,107,768,133"/>
+<area shape="rect" id="node13" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="816,157,928,184"/>
+<area shape="rect" id="node8" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="821,107,923,133"/>
+<area shape="rect" id="node9" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="976,157,1072,184"/>
+<area shape="rect" id="node12" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="1125,107,1210,133"/>
+<area shape="rect" id="node10" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="1120,157,1215,184"/>
+<area shape="rect" id="node11" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="1263,132,1369,159"/>
+<area shape="rect" id="node17" href="$si4735_8h.html#a01d768567b59b2f9c8900a233fdd4d41" title="si4735_fm_rsq_status" alt="" coords="295,259,444,285"/>
+<area shape="rect" id="node18" href="$i2c_8h.html#a6dd896b0c82d1aa91a1a8155b41c4566" title="Receives I2C commands until a NACK is received or received RxBytes. " alt="" coords="513,259,584,285"/>
+</map>

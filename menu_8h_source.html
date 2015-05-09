@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/menu/menu.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('menu_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">menu.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="menu_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _MENU_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _MENU_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="lcd_8h.html">driver/lcd.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio_8h.html">radio/radio.h</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="encoder_8h.html">driver/encoder.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="language_8h.html">menu/lang/language.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="menu__struct_8h.html">menu/menu_struct.h</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="string_8h.html">libs/string.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="menu_8h.html#a4547235960691aec5d3f0952cc05b4fb">   18</a></span>&#160;<span class="preprocessor">#define MENU_NO_FUNC_ENTRY 0</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="menu_8h.html#a79a0b72d2ebbee89c0757cc582d5accd">   19</a></span>&#160;<span class="preprocessor">#define MENU_FREQ_CHOOSE_ENTRY  1</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="menu_8h.html#aef2bcd296a3d49fb80d0e345205f98c0">   20</a></span>&#160;<span class="preprocessor">#define MENU_VOL_START_ENTRY    2</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="menu_8h.html#a09a38cec6cbb754c3ce721e7c729c545">   21</a></span>&#160;<span class="preprocessor">#define MENU_CONT_ENTRY 3</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="menu_8h.html#aa9d014ea80d95c7f32f2857d10481206">   22</a></span>&#160;<span class="preprocessor">#define MENU_BRIG_ENTRY 4</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="menu_8h.html#a13335c6ce94ec10a1b83f008f03b57d1">   23</a></span>&#160;<span class="preprocessor">#define MENU_MAIN_ENTRY 5</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="menu_8h.html#af74b8a826a42006eea334555edf0a1bb">   24</a></span>&#160;<span class="preprocessor">#define RADIO_RDS_VIEW_ENTRY 6</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="menu_8h.html#a828cf311e0673575a4ea3b250e569a9c">   25</a></span>&#160;<span class="preprocessor">#define RADIO_RSQ_VIEW_ENTRY 7</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="menu_8h.html#ab6f01fe31e2cf4425ba9f37ca586b055">   26</a></span>&#160;<span class="preprocessor">#define RADIO_PIPTY_VIEW_ENTRY 8</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="menu_8h.html#a41f4c2e80487ed2422d44f3ff16affa8">   27</a></span>&#160;<span class="preprocessor">#define AUDIO_POP_ENTRY 9</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="menu_8h.html#a32c4ba4e9d26097a95a2d6d0e2fae19a">   28</a></span>&#160;<span class="preprocessor">#define AUDIO_ROCK_ENTRY 10</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="menu_8h.html#a76dd6e73df6dfa83574943bf0a975d5f">   29</a></span>&#160;<span class="preprocessor">#define AUDIO_CLASSIC_ENTRY 11</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="menu_8h.html#a878e8f0591a3cdf568e9a465adcf5665">   30</a></span>&#160;<span class="preprocessor">#define AUDIO_JAZZ_ENTRY 12</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="menu_8h.html#a6c103aa4955ff3995d89334ed0b0a1e0">   31</a></span>&#160;<span class="preprocessor">#define AUDIO_HIPHOP_ENTRY 13</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="menu_8h.html#aeac602646ed0bd9ba1a81440d5c7c241">   32</a></span>&#160;<span class="preprocessor">#define AUDIO_NEWS_ENTRY 14</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="menu_8h.html#acef5569f62eb924ce3a4dd3f7dbf44d7">   33</a></span>&#160;<span class="preprocessor">#define SOURCE_AM_ENTRY 15</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="menu_8h.html#a8f128b413404cd409a8438505c1d39f1">   34</a></span>&#160;<span class="preprocessor">#define SOURCE_FM_ENTRY 16</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="menu_8h.html#aa3a25b6121aea818d2efb2ee9741a83c">   35</a></span>&#160;<span class="preprocessor">#define SOURCE_LINEIN_ENTRY 17</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="menu_8h.html#a5ce85b23810c89e86194609529dfc4fc">   36</a></span>&#160;<span class="preprocessor">#define SEEKING_UP 18</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="menu_8h.html#ab039e76a9fdf467e69291cfbb67f234f">   37</a></span>&#160;<span class="preprocessor">#define SEEKING_DOWN 19</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="menu_8h.html#a8aa0e8b09d71b943d72e05d755b0827d">   38</a></span>&#160;<span class="preprocessor">#define STORE_STATION 20</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="menu_8h.html#acf4538b0bd65dd4d5e3530aaeb264a18">   39</a></span>&#160;<span class="preprocessor">#define STATION_VIEW 21</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="menu_8h.html#ab12bdd916b4cbe4809be313f58f2ab28">   40</a></span>&#160;<span class="preprocessor">#define AUTO_SEARCH 22</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="menu_8h.html#ae14ae7acebfbb08bf1028c9b22b94c8d">   41</a></span>&#160;<span class="preprocessor">#define MENU_VOL_TA_ENTRY   23</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="menu_8h.html#acae827e168a0fe9a03fe9a71a20f6077">   42</a></span>&#160;<span class="preprocessor">#define MENU_FREQ_SEEK_DOWN_ENTRY 24</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="menu_8h.html#ade9ef61f79ef2baf563238cf23c43aa0">   43</a></span>&#160;<span class="preprocessor">#define MENU_FREQ_SEEK_UP_ENTRY 25</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="menu_8h.html#ac915a860b5ecbcc12c6dd15400d802f6">   44</a></span>&#160;<span class="preprocessor">#define MENU_TA_TP_ON 26</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="menu_8h.html#aaddf7fb78041abad331095b39c8b3a25">   45</a></span>&#160;<span class="preprocessor">#define MENU_TA_TP_OFF 27</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="menu_8h.html#a3cc0d05b780a07f3a26fd6ab7f8484ac">   46</a></span>&#160;<span class="preprocessor">#define MENU_FREQ_CHOOSE 28</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="menu_8h.html#a17e5b3441ee026dba9674e53d904ded7">   47</a></span>&#160;<span class="preprocessor">#define MENU_RESET_NO 29</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="menu_8h.html#af8e914333778472113a54ba0248360ad">   48</a></span>&#160;<span class="preprocessor">#define MENU_RESET_YES 30</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="menu_8h.html#ab15dd92ee38ecc6cd07fa4eeb21a0a9f">   50</a></span>&#160;<span class="preprocessor">#define LONG_INTO_MENU 0xFF</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="menu_8h.html#a574802ac545032f67153282c9ff9e4db">   51</a></span>&#160;<span class="preprocessor">#define SHORT_INTO_MENU 0xFE</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="menu_8h.html#a1d0f862e0369534e78bee68a5a52bac2">   52</a></span>&#160;<span class="preprocessor">#define SHORT_UP_TO_CHILD 0xFD</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="menu_8h.html#a2e4dd416e1c891a80d8bdcf588f1a5ca">   53</a></span>&#160;<span class="preprocessor">#define SHORT_UP_TO_PARENT 0xFC</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="menu_8h.html#a8b824d49a014ff557c81c2e336202ebe">   54</a></span>&#160;<span class="preprocessor">#define STAY_ON_MENU_POINT 0x00</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;uint8_t <a class="code" href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a>(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;uint8_t <a class="code" href="menu_8h.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a>(uint8_t value);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;uint8_t <a class="code" href="menu_8h.html#af2b732dd8f9b40f4b0bfff691db45ad5">menu_main</a>(uint8_t *encoder_button, int8_t *encoder_count);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;uint8_t <a class="code" href="menu_8h.html#a5621c1bf312de029f43808bf02dc52e3">menu_scroll_settings</a>(uint8_t value);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _MENU_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="string_8h_html"><div class="ttname"><a href="string_8h.html">string.h</a></div></div>
+<div class="ttc" id="radio_8h_html"><div class="ttname"><a href="radio_8h.html">radio.h</a></div></div>
+<div class="ttc" id="menu_8h_html_a503ed2007daa6f20b2f748eedbcb8494"><div class="ttname"><a href="menu_8h.html#a503ed2007daa6f20b2f748eedbcb8494">menu_scroll</a></div><div class="ttdeci">uint8_t menu_scroll(uint8_t value)</div><div class="ttdoc">Scroll to given position. </div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00096">menu.c:96</a></div></div>
+<div class="ttc" id="menu__struct_8h_html"><div class="ttname"><a href="menu__struct_8h.html">menu_struct.h</a></div></div>
+<div class="ttc" id="menu_8h_html_aaf2a075d3159f7eeab42012941a3437f"><div class="ttname"><a href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a></div><div class="ttdeci">uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdoc">Definition of functions for -the menu handler -scrolling through the menu -main program of the menu -...</div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00151">menu.c:151</a></div></div>
+<div class="ttc" id="language_8h_html"><div class="ttname"><a href="language_8h.html">language.h</a></div></div>
+<div class="ttc" id="lcd_8h_html"><div class="ttname"><a href="lcd_8h.html">lcd.h</a></div></div>
+<div class="ttc" id="encoder_8h_html"><div class="ttname"><a href="encoder_8h.html">encoder.h</a></div></div>
+<div class="ttc" id="menu_8h_html_af2b732dd8f9b40f4b0bfff691db45ad5"><div class="ttname"><a href="menu_8h.html#af2b732dd8f9b40f4b0bfff691db45ad5">menu_main</a></div><div class="ttdeci">uint8_t menu_main(uint8_t *encoder_button, int8_t *encoder_count)</div></div>
+<div class="ttc" id="menu_8h_html_a5621c1bf312de029f43808bf02dc52e3"><div class="ttname"><a href="menu_8h.html#a5621c1bf312de029f43808bf02dc52e3">menu_scroll_settings</a></div><div class="ttdeci">uint8_t menu_scroll_settings(uint8_t value)</div><div class="ttdoc">Scroll through the settings. </div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00073">menu.c:73</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_baddde578d762c90c1d949a22a636838.html">menu</a></li><li class="navelem"><a class="el" href="menu_8h.html">menu.h</a></li>
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

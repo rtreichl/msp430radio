@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/system/src/handler.c Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('handler_8c_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">handler.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="handler_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * handler.c</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 05.02.2015</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richard</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * The handler calls functions time and interrupt based for the interrupts is a new interrupt handler needed!!!</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * The interrupt handler should reakt on different interrupts and look up in a table where the to calling function is!!!</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Problem which is to solve is how to get an own interrupt handler on msp430 architectur.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * For a good performance, interrupt function which is called, should be shortest as possible.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * As next step there can be a function, that will countinouse the callculation in a normal operate state.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * The funciton call after a interrupt servece the handler.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * A further problem is the msp430 has a very low ram, so if many functions saving many variables during calculation.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * Better implemention would be a not a multitheread system, only a single thread system and minimize waitings.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="handler_8h.html">system/handler.h</a>&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22">handler</a> (<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    uint8_t *encoder_left_button, *encoder_right_button;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    int8_t encoder_left_count = 0, encoder_right_count = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">while</span>(1) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="encoder_8h.html#a047b769ea639f5e1d064fcec8b784b15">encoder_1_update</a>(&amp;encoder_left_count, &amp;encoder_left_button);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="encoder_8h.html#a3b8fdf5cc845c8e3ae93d7354f7f0065">encoder_2_update</a>(&amp;encoder_right_count, &amp;encoder_right_button);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span>(*encoder_left_button != <a class="code" href="radio__configuration_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">BUTTON_FREE</a> || encoder_left_count != 0 || *encoder_right_button != <a class="code" href="radio__configuration_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">BUTTON_FREE</a> || encoder_right_count != 0 || <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#ac7791132f16c2fd4f06075af80fa0027">RADIO_TIMER_DISPLAY</a>] &gt;= <a class="code" href="radio__configuration_8h.html#a7564e6b7239f3d75dac1e265fdd5db4c">RADIO_COUNT_DISPLAY</a>) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#ac7791132f16c2fd4f06075af80fa0027">RADIO_TIMER_DISPLAY</a>] &gt;= <a class="code" href="radio__configuration_8h.html#a7564e6b7239f3d75dac1e265fdd5db4c">RADIO_COUNT_DISPLAY</a>) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="structradio.html">radio</a>.<a class="code" href="structradio.html#ac40df2ac7cfc276418e34335098903fb">status</a>.<a class="code" href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">scroll_text</a>++;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="structradio.html">radio</a>.<a class="code" href="structradio.html#ac40df2ac7cfc276418e34335098903fb">status</a>.<a class="code" href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">scroll_text</a> == 78) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    <a class="code" href="structradio.html">radio</a>.<a class="code" href="structradio.html#ac40df2ac7cfc276418e34335098903fb">status</a>.<a class="code" href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">scroll_text</a> = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#ac7791132f16c2fd4f06075af80fa0027">RADIO_TIMER_DISPLAY</a>] = 0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a>(encoder_left_button, &amp;encoder_left_count, encoder_right_button, &amp;encoder_right_count);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a41e15769884e79cbae1ba49cdcfdf9de">RADIO_TIMER_ENCODER</a>] &gt;= <a class="code" href="radio__configuration_8h.html#a723f0c8374f11c81275191abf452df51">RADIO_COUNT_ENCODER</a>) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a41e15769884e79cbae1ba49cdcfdf9de">RADIO_TIMER_ENCODER</a>] -= <a class="code" href="radio__configuration_8h.html#a723f0c8374f11c81275191abf452df51">RADIO_COUNT_ENCODER</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="encoder_8h.html#a136248fd00f8429933544a54b030aef9">encoder_interrupt2</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a41a151cf540cba07952f2d6f29f41135">RADIO_TIMER_MINUTE</a>] &gt;= <a class="code" href="radio__configuration_8h.html#a2b71002eb2b9ab8d1624987a4e6929e4">RADIO_COUNT_MINUTE</a>) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a41a151cf540cba07952f2d6f29f41135">RADIO_TIMER_MINUTE</a>] -= <a class="code" href="radio__configuration_8h.html#a2b71002eb2b9ab8d1624987a4e6929e4">RADIO_COUNT_MINUTE</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="time_8c.html#acbfa3c65c807be82221cbebc7ac63224">time_update</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a832d39ba5eab82807931d0e63642fe01">RADIO_TIMER_RSQ</a>] &gt;= <a class="code" href="radio__configuration_8h.html#adcd399779d6841aa5267387782352668">RADIO_COUNT_RSQ</a>) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <a class="code" href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a>(&amp;<a class="code" href="structradio.html">radio</a>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a832d39ba5eab82807931d0e63642fe01">RADIO_TIMER_RSQ</a>] -= <a class="code" href="radio__configuration_8h.html#adcd399779d6841aa5267387782352668">RADIO_COUNT_RSQ</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a1037d8b522e1cc255c1a70046a0bab2e">RADIO_TIMER_RDS</a>] &gt;= <a class="code" href="radio__configuration_8h.html#af3a46bbfb48f6baf6751d84a91ce9e0c">RADIO_COUNT_RDS</a>) { <span class="comment">//TODO Rework to interrupt base system</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="radio_8c.html#a1c031719ba892045c773dc035058870f">rds_update</a>(&amp;<a class="code" href="structradio.html">radio</a>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a>[<a class="code" href="radio__configuration_8h.html#a1037d8b522e1cc255c1a70046a0bab2e">RADIO_TIMER_RDS</a>] -= <a class="code" href="radio__configuration_8h.html#af3a46bbfb48f6baf6751d84a91ce9e0c">RADIO_COUNT_RDS</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="ttc" id="encoder_8h_html_a047b769ea639f5e1d064fcec8b784b15"><div class="ttname"><a href="encoder_8h.html#a047b769ea639f5e1d064fcec8b784b15">encoder_1_update</a></div><div class="ttdeci">int16_t encoder_1_update(int8_t *count, uint8_t **button)</div></div>
+<div class="ttc" id="encoder_8h_html_a136248fd00f8429933544a54b030aef9"><div class="ttname"><a href="encoder_8h.html#a136248fd00f8429933544a54b030aef9">encoder_interrupt2</a></div><div class="ttdeci">void encoder_interrupt2(void)</div></div>
+<div class="ttc" id="radio__configuration_8h_html_ac7791132f16c2fd4f06075af80fa0027"><div class="ttname"><a href="radio__configuration_8h.html#ac7791132f16c2fd4f06075af80fa0027">RADIO_TIMER_DISPLAY</a></div><div class="ttdeci">#define RADIO_TIMER_DISPLAY</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00094">radio_configuration.h:94</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_a1037d8b522e1cc255c1a70046a0bab2e"><div class="ttname"><a href="radio__configuration_8h.html#a1037d8b522e1cc255c1a70046a0bab2e">RADIO_TIMER_RDS</a></div><div class="ttdeci">#define RADIO_TIMER_RDS</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00092">radio_configuration.h:92</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_a7564e6b7239f3d75dac1e265fdd5db4c"><div class="ttname"><a href="radio__configuration_8h.html#a7564e6b7239f3d75dac1e265fdd5db4c">RADIO_COUNT_DISPLAY</a></div><div class="ttdeci">#define RADIO_COUNT_DISPLAY</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00107">radio_configuration.h:107</a></div></div>
+<div class="ttc" id="handler_8c_html_a4f639cde11f5cab70d795fd2f75c9d22"><div class="ttname"><a href="handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22">handler</a></div><div class="ttdeci">void handler(void)</div><div class="ttdoc">Handler for menu, RDS, time, the encoders and rsq. </div><div class="ttdef"><b>Definition:</b> <a href="handler_8c_source.html#l00043">handler.c:43</a></div></div>
+<div class="ttc" id="structradio_html_ac40df2ac7cfc276418e34335098903fb"><div class="ttname"><a href="structradio.html#ac40df2ac7cfc276418e34335098903fb">radio::status</a></div><div class="ttdeci">RADIO_STATUS status</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00104">radio.h:104</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_a723f0c8374f11c81275191abf452df51"><div class="ttname"><a href="radio__configuration_8h.html#a723f0c8374f11c81275191abf452df51">RADIO_COUNT_ENCODER</a></div><div class="ttdeci">#define RADIO_COUNT_ENCODER</div><div class="ttdoc">Define macros for time refresh rates. </div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00103">radio_configuration.h:103</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_a832d39ba5eab82807931d0e63642fe01"><div class="ttname"><a href="radio__configuration_8h.html#a832d39ba5eab82807931d0e63642fe01">RADIO_TIMER_RSQ</a></div><div class="ttdeci">#define RADIO_TIMER_RSQ</div><div class="ttdoc">Define macros for timer use. </div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00091">radio_configuration.h:91</a></div></div>
+<div class="ttc" id="menu_8h_html_aaf2a075d3159f7eeab42012941a3437f"><div class="ttname"><a href="menu_8h.html#aaf2a075d3159f7eeab42012941a3437f">menu_handler</a></div><div class="ttdeci">uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)</div><div class="ttdoc">Definition of functions for -the menu handler -scrolling through the menu -main program of the menu -...</div><div class="ttdef"><b>Definition:</b> <a href="menu_8c_source.html#l00151">menu.c:151</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_a2b71002eb2b9ab8d1624987a4e6929e4"><div class="ttname"><a href="radio__configuration_8h.html#a2b71002eb2b9ab8d1624987a4e6929e4">RADIO_COUNT_MINUTE</a></div><div class="ttdeci">#define RADIO_COUNT_MINUTE</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00104">radio_configuration.h:104</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_a41e15769884e79cbae1ba49cdcfdf9de"><div class="ttname"><a href="radio__configuration_8h.html#a41e15769884e79cbae1ba49cdcfdf9de">RADIO_TIMER_ENCODER</a></div><div class="ttdeci">#define RADIO_TIMER_ENCODER</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00095">radio_configuration.h:95</a></div></div>
+<div class="ttc" id="rsq_8h_html_adc26e0d94e8ebd7ba62fa4f628a15f6d"><div class="ttname"><a href="rsq_8h.html#adc26e0d94e8ebd7ba62fa4f628a15f6d">rsq_update</a></div><div class="ttdeci">uint8_t rsq_update(RADIO *radio)</div><div class="ttdoc">In here the function to update Radio Signal Quality. </div><div class="ttdef"><b>Definition:</b> <a href="rsq_8c_source.html#l00026">rsq.c:26</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_a41a151cf540cba07952f2d6f29f41135"><div class="ttname"><a href="radio__configuration_8h.html#a41a151cf540cba07952f2d6f29f41135">RADIO_TIMER_MINUTE</a></div><div class="ttdeci">#define RADIO_TIMER_MINUTE</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00093">radio_configuration.h:93</a></div></div>
+<div class="ttc" id="radio_8c_html_a1c031719ba892045c773dc035058870f"><div class="ttname"><a href="radio_8c.html#a1c031719ba892045c773dc035058870f">rds_update</a></div><div class="ttdeci">void rds_update(RADIO *radio)</div><div class="ttdoc">Updates the current RDS data . </div><div class="ttdef"><b>Definition:</b> <a href="rds_8c_source.html#l00025">rds.c:25</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_adcd399779d6841aa5267387782352668"><div class="ttname"><a href="radio__configuration_8h.html#adcd399779d6841aa5267387782352668">RADIO_COUNT_RSQ</a></div><div class="ttdeci">#define RADIO_COUNT_RSQ</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00105">radio_configuration.h:105</a></div></div>
+<div class="ttc" id="radio__configuration_8h_html_af3a46bbfb48f6baf6751d84a91ce9e0c"><div class="ttname"><a href="radio__configuration_8h.html#af3a46bbfb48f6baf6751d84a91ce9e0c">RADIO_COUNT_RDS</a></div><div class="ttdeci">#define RADIO_COUNT_RDS</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00106">radio_configuration.h:106</a></div></div>
+<div class="ttc" id="timer_8c_html_ab6610e73cf6ab96714447222bd0c7bca"><div class="ttname"><a href="timer_8c.html#ab6610e73cf6ab96714447222bd0c7bca">timer_count</a></div><div class="ttdeci">volatile uint16_t timer_count[TIMER_COUNTS]</div><div class="ttdef"><b>Definition:</b> <a href="timer_8c_source.html#l00010">timer.c:10</a></div></div>
+<div class="ttc" id="encoder_8h_html_a3b8fdf5cc845c8e3ae93d7354f7f0065"><div class="ttname"><a href="encoder_8h.html#a3b8fdf5cc845c8e3ae93d7354f7f0065">encoder_2_update</a></div><div class="ttdeci">int16_t encoder_2_update(int8_t *count, uint8_t **button)</div></div>
+<div class="ttc" id="radio__configuration_8h_html_ab1adc6b5dcb7acbc164c3b197d02a771"><div class="ttname"><a href="radio__configuration_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">BUTTON_FREE</a></div><div class="ttdeci">#define BUTTON_FREE</div><div class="ttdef"><b>Definition:</b> <a href="radio__configuration_8h_source.html#l00084">radio_configuration.h:84</a></div></div>
+<div class="ttc" id="handler_8h_html"><div class="ttname"><a href="handler_8h.html">handler.h</a></div></div>
+<div class="ttc" id="structradio__status_html_a16198f5b3b66ddcf01c81f6177af500f"><div class="ttname"><a href="structradio__status.html#a16198f5b3b66ddcf01c81f6177af500f">radio_status::scroll_text</a></div><div class="ttdeci">uint8_t scroll_text</div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00070">radio.h:70</a></div></div>
+<div class="ttc" id="structradio_html"><div class="ttname"><a href="structradio.html">radio</a></div><div class="ttdef"><b>Definition:</b> <a href="radio_8h_source.html#l00103">radio.h:103</a></div></div>
+<div class="ttc" id="time_8c_html_acbfa3c65c807be82221cbebc7ac63224"><div class="ttname"><a href="time_8c.html#acbfa3c65c807be82221cbebc7ac63224">time_update</a></div><div class="ttdeci">void time_update()</div><div class="ttdoc">Update the current time. </div><div class="ttdef"><b>Definition:</b> <a href="time_8c_source.html#l00157">time.c:157</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e8522150b400a43ebfdbd1fed060b8e2.html">system</a></li><li class="navelem"><a class="el" href="dir_87da1dd3838e3a2bc958fb8a1763f6f7.html">src</a></li><li class="navelem"><a class="el" href="handler_8c.html">handler.c</a></li>
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/settings/radio_configuration.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('radio__configuration_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">radio_configuration.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="radio__configuration_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RADIO_CONF_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RADIO_CONF_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="si4735__cmd__prop_8h.html">driver/include/si4735_cmd_prop.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="libs_2time_8h.html">libs/time.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/* Define macros for version */</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a5c9a48717840b5812efa282ed93463a2">    9</a></span>&#160;<span class="preprocessor">#define RADIO_VERSION_MAJOR 3</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a65ef0b3473b08220fa09b2e72f10cd7c">   10</a></span>&#160;<span class="preprocessor">#define RADIO_VERSION_MINOR 10</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a321c7ff1de8c8984c5e2f910fb93eb8d">   18</a></span>&#160;<span class="preprocessor">#define RADIO_VALID_SNR         15              //10dB</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a3d0abde431e04f57b0828a482d81204f">   19</a></span>&#160;<span class="preprocessor">#define RADIO_VALID_RSSI        20              //25dB�V</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a20ce0fa2e3fd92a34010d5cfca702fb3">   20</a></span>&#160;<span class="preprocessor">#define RADIO_BOT_FREQ          0x222E          //87,50 MHz</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a84521b00c701ae970f07d6fa4c65bf1e">   21</a></span>&#160;<span class="preprocessor">#define RADIO_TOP_FREQ          0x2A30          //108,00 MHz</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a28422425adfe6f62b8c5f0b8b2952ca9">   22</a></span>&#160;<span class="preprocessor">#define RADIO_SEEK_FREQ_SPACE   SKSPACE_10      //100 kHz</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#aa20dae62d62d88d3f2e3a394d92957b6">   23</a></span>&#160;<span class="preprocessor">#define RADIO_CALBC1            CALBC1_16MHZ    //16 MHz</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ad42e009112be3fa3698a34fe031fd800">   24</a></span>&#160;<span class="preprocessor">#define RADIO_CALDCO            CALDCO_16MHZ    //16 MHz</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a81989ef096e0274361f3ba2942cd2936">   25</a></span>&#160;<span class="preprocessor">#define RADIO_DCO_FREQ          16              //16 MHz</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a5ca80255b3ccba91ba52f515ddf6f0b0">   26</a></span>&#160;<span class="preprocessor">#define RADIO_MCLK              16              //16 MHz</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a454052574ad920650b805c96420c6a85">   27</a></span>&#160;<span class="preprocessor">#define RADIO_SCLK              2               //2 MHz</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a90e1bea55934a97bd0e8d3bfb408265a">   35</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_FREQENCY   0               //Seekup on start</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a784df74c98d7d31b79c6a2bcf513d77d">   36</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_VIEW       0               //RDS view</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ad51a457cb68b73f052e71e10a9d60dc7">   37</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_VOLUME     20              //Normal volume 20%</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ad43fa65b610fb80cbea5a734c4240a71">   38</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_EQUALIZER  0               //Equalizer POP</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a6b8ace79821aa87ec9a449069b09f1d4">   39</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_SOURCE     0               //Source FM</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a7bfd21f1752d82c457d891e58eb1ffab">   40</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_BRIGHTNESS 35              //Brightness 70%</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ae06c096582c85e4207152eddab8431fd">   41</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_CONTRAST   6               //Contrast 60%</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a918a6f76e5642da859df29ea5824ec1e">   42</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_TATP       0               //TA TP off</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ad1de79ac0312b9fb899e54bd74fb06ad">   43</a></span>&#160;<span class="preprocessor">#define RADIO_FACORY_VOLUME_TA  50              //TA volume 50%</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a11588a0c6047fcfe43bb00ba8e750d42">   51</a></span>&#160;<span class="preprocessor">#define RADIO_BRIGHTNESS_MAX    50              //Brightness max 50</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#aae7d4a5d2184f9f3d62486432a668be5">   52</a></span>&#160;<span class="preprocessor">#define RADIO_BRIGHTNESS_MIN    0               //Brightness min 0</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a152ffe9f4099cb6256124ef87f2a5813">   53</a></span>&#160;<span class="preprocessor">#define RADIO_BRIGHTNESS_STEP   1               //Brightness step 1</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a971aea8fb933f5b56bd1215cbc734736">   54</a></span>&#160;<span class="preprocessor">#define RADIO_CONTRAST_MAX      10              //Contrast max 10</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a8179ee44198d263259432b392db916a2">   55</a></span>&#160;<span class="preprocessor">#define RADIO_CONTRAST_MIN      0               //Contrast min 0</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a3ad824f27b930de2e11857d29ddd003c">   56</a></span>&#160;<span class="preprocessor">#define RADIO_CONTRAST_STEP     1               //Contrast step 1</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#af2bf5f03ca0b46368bcdc8de4466c0eb">   57</a></span>&#160;<span class="preprocessor">#define RADIO_VOLUME_MAX        100             //Volume max 100</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ae267b915054d707b13f2ea6bb143b506">   58</a></span>&#160;<span class="preprocessor">#define RADIO_VOLUME_MIN        0               //Volume min 0</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ae7b78fb9948dccf5053129c05e790b3f">   59</a></span>&#160;<span class="preprocessor">#define RADIO_VOLUME_STEP       2               //Volume step 2</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a4bc0878af138d12ff03e003b86cb33bd">   60</a></span>&#160;<span class="preprocessor">#define RADIO_FREQENCY_MAX      RADIO_TOP_FREQ  //Freqency max RADIO_TOP_FREQ</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ad981211fb6b8fd2a418376643bae791c">   61</a></span>&#160;<span class="preprocessor">#define RADIO_FREQENCY_MIN      RADIO_BOT_FREQ  //Freqency min RADIO_BOT_FREQ</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#acbea5dc0003ae544b921452390009683">   62</a></span>&#160;<span class="preprocessor">#define RADIO_FREQENCY_STEP     10              //Freqency step 10 for 100 kHz</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ab4103f5bd07b36785d220fe005dc65e3">   70</a></span>&#160;<span class="preprocessor">#define RADIO_STATION_NAME_STORE_ADR    0x1000  //Store adress at start adress from segment D for 14 elements</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#aed5209d4f73a4a25770bde0149625689">   71</a></span>&#160;<span class="preprocessor">#define RADIO_STATION_NAME_STORE_SIZE   8       //Store size of one station name</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a079cd45a1bbfedfbb94ebd6560eaf902">   72</a></span>&#160;<span class="preprocessor">#define RADIO_STATION_FREQ_STORE_ADR    0x1070  //Store adress after 14 station name elements</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a6c8d7f12aa8f30e4e8ee25eae8edebd7">   73</a></span>&#160;<span class="preprocessor">#define RADIO_STATION_FREQ_STORE_SIZE   2       //Store size of one station freqency</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ae8a3bf59b7d1412dc23f9bd56041acb6">   74</a></span>&#160;<span class="preprocessor">#define RADIO_SETTINGS_STORE_ADR        0x108C  //Store adress after 14 station freqency elements</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a8cc0f92ac65f3ae6251533bb9920fa14">   75</a></span>&#160;<span class="preprocessor">#define RADIO_INIT_STORE_ADR            0x10B8  //Store adress at end of segment B</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#aa71533228ac74bed81757657b63b6aec">   82</a></span>&#160;<span class="preprocessor">#define BUTTON_LONG             &#39;l&#39;             //Value for encoder button pressed long</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#aaa2d2ad4374cc67ad2f9e3cee397d0e9">   83</a></span>&#160;<span class="preprocessor">#define BUTTON_SHORT            &#39;k&#39;             //Value for encoder button pressed short</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ab1adc6b5dcb7acbc164c3b197d02a771">   84</a></span>&#160;<span class="preprocessor">#define BUTTON_FREE             &#39;f&#39;             //Value for encoder button idle state</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a832d39ba5eab82807931d0e63642fe01">   91</a></span>&#160;<span class="preprocessor">#define RADIO_TIMER_RSQ         0               //Timer for radio signal quality</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a1037d8b522e1cc255c1a70046a0bab2e">   92</a></span>&#160;<span class="preprocessor">#define RADIO_TIMER_RDS         1               //Timer for radio digital service</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a41a151cf540cba07952f2d6f29f41135">   93</a></span>&#160;<span class="preprocessor">#define RADIO_TIMER_MINUTE      2               //Timer for minute counting</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ac7791132f16c2fd4f06075af80fa0027">   94</a></span>&#160;<span class="preprocessor">#define RADIO_TIMER_DISPLAY     3               //Timer for display refresh</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a41e15769884e79cbae1ba49cdcfdf9de">   95</a></span>&#160;<span class="preprocessor">#define RADIO_TIMER_ENCODER     4               //Timer for encoder button</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a1a364bcc5d9b909fb27b376187c0a4f8">   96</a></span>&#160;<span class="preprocessor">#define RADIO_TIMER_USED        5               //Must be changed if a timer is added</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a723f0c8374f11c81275191abf452df51">  103</a></span>&#160;<span class="preprocessor">#define RADIO_COUNT_ENCODER     10              //Count for encoder button execute underlying code every 10ms</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a2b71002eb2b9ab8d1624987a4e6929e4">  104</a></span>&#160;<span class="preprocessor">#define RADIO_COUNT_MINUTE      60000           //Count for minute counting execute underlying code every 60s</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#adcd399779d6841aa5267387782352668">  105</a></span>&#160;<span class="preprocessor">#define RADIO_COUNT_RSQ         1000            //Count for radio signal quality execute underlying code every 1s</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#af3a46bbfb48f6baf6751d84a91ce9e0c">  106</a></span>&#160;<span class="preprocessor">#define RADIO_COUNT_RDS         200             //Count for radio digital service execute underlying code every 200ms</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a7564e6b7239f3d75dac1e265fdd5db4c">  107</a></span>&#160;<span class="preprocessor">#define RADIO_COUNT_DISPLAY     500             //Count for display refresh execute underlying coder every 500ms</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a57c004e8e310c5ed6a6a4a74e57e38b3">  114</a></span>&#160;<span class="preprocessor">#define RADIO_DATE_DAY          BUILD_DAY       //Day where firmware is build</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#af32a6982b4f4415dfdb9215d20bb6ca7">  115</a></span>&#160;<span class="preprocessor">#define RADIO_DATE_MONTH        BUILD_MONTH     //Month where firmware is build</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a3a7537dd98a7a7ea289bf28a7e13b4f9">  116</a></span>&#160;<span class="preprocessor">#define RADIO_DATE_YEAR         BUILD_YEAR      //Year where firmware is build</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#aebf0e4665bdfc91ea82cd678e0689336">  117</a></span>&#160;<span class="preprocessor">#define RADIO_TIME_HOUR         BUILD_HOUR      //Hour where firmware is build</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#a43bd9c614c57a186dd5a8d373f4a20df">  118</a></span>&#160;<span class="preprocessor">#define RADIO_TIME_MINUTE       BUILD_MIN       //Minute where firmware is build</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">//----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="radio__configuration_8h.html#ac69ec1c8ce351004479ea186a7b2a794">  126</a></span>&#160;<span class="preprocessor">#define RADIO_AMPLIFIER_GAIN    3               //Gain for tpa2016d2 amplifier in dB</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* RADIO_CONF_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="si4735__cmd__prop_8h_html"><div class="ttname"><a href="si4735__cmd__prop_8h.html">si4735_cmd_prop.h</a></div></div>
+<div class="ttc" id="libs_2time_8h_html"><div class="ttname"><a href="libs_2time_8h.html">time.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_0c8fd76a6ec5a01c144012824d36fa80.html">settings</a></li><li class="navelem"><a class="el" href="radio__configuration_8h.html">radio_configuration.h</a></li>
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

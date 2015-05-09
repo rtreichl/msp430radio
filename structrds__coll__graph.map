@@ -1,0 +1,8 @@
+<map id="rds" name="rds">
+<area shape="rect" id="node2" href="$structblock__b.html" title="block_b" alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node3" href="$structstatus.html" title="In here the are structs declared for several RDS stuff(See http://www.g.laroche. free.fr/english/rds/groupes/listeGroupesRDS.htm for more information). Also there are functions declared to update RDS and to get the current time out of RDS. " alt="" coords="96,5,155,32"/>
+<area shape="rect" id="node4" href="$structfifo.html" title="fifo" alt="" coords="179,5,218,32"/>
+<area shape="rect" id="node5" href="$structsync.html" title="sync" alt="" coords="243,5,293,32"/>
+<area shape="rect" id="node6" href="$structinfo.html" title="info" alt="" coords="317,5,360,32"/>
+<area shape="rect" id="node7" href="$structerr.html" title="err" alt="" coords="385,5,423,32"/>
+</map>

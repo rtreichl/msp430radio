@@ -1,0 +1,6 @@
+<map id="radio_factory_state" name="radio_factory_state">
+<area shape="rect" id="node2" href="$flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="372,5,457,32"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a477656bb91c200d15ddbe6cffcd04c53" title="Store the current settings. " alt="" coords="185,56,324,83"/>
+<area shape="rect" id="node3" href="$flash_8c.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="505,5,587,32"/>
+<area shape="rect" id="node5" href="$flash_8h.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="374,56,455,83"/>
+</map>

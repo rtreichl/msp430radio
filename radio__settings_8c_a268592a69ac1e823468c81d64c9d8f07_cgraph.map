@@ -1,0 +1,7 @@
+<map id="radio_settings_reset" name="radio_settings_reset">
+<area shape="rect" id="node2" href="$radio_8h.html#ad4d9fc5d5ddc7cfaac75911695ae92a8" title="Factory reset. " alt="" coords="192,31,324,57"/>
+<area shape="rect" id="node3" href="$flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="559,5,644,32"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a477656bb91c200d15ddbe6cffcd04c53" title="Store the current settings. " alt="" coords="372,56,511,83"/>
+<area shape="rect" id="node4" href="$flash_8c.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="692,5,773,32"/>
+<area shape="rect" id="node6" href="$flash_8h.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="561,56,642,83"/>
+</map>

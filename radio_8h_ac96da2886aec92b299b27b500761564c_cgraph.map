@@ -1,0 +1,23 @@
+<map id="radio_auto_search" name="radio_auto_search">
+<area shape="rect" id="node2" href="$radio_8c.html#aee6321b512830d482a2fc164cf11f9e9" title="Seeking all radio channels. " alt="" coords="377,107,480,133"/>
+<area shape="rect" id="node12" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="775,259,860,285"/>
+<area shape="rect" id="node13" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="191,259,304,285"/>
+<area shape="rect" id="node17" href="$string_8c.html#a82b1b882cf97ff40344f87bd1473e9d0" title="string_int_to_array" alt="" coords="183,360,312,387"/>
+<area shape="rect" id="node18" href="$radio_8c.html#a1c031719ba892045c773dc035058870f" title="Updates the current RDS data . " alt="" coords="204,411,291,437"/>
+<area shape="rect" id="node19" href="$radio_8c.html#a5e5300f73411d8e90a928adf42d2a6ed" title="Store one radio station. " alt="" coords="181,461,313,488"/>
+<area shape="rect" id="node3" href="$external__interrupthandler_8h.html#a345dfb9a7e177c5da6eb9dc5b3c82bc9" title="ext_interrupt_enable" alt="" coords="553,5,691,32"/>
+<area shape="rect" id="node4" href="$si4735_8h.html#a339846da787fb5a496df9252ca7dc9a5" title="si4735_fm_seek_start" alt="" coords="547,56,697,83"/>
+<area shape="rect" id="node10" href="$external__interrupthandler_8h.html#a67fb5781413cf5c193be332cc6e52209" title="ext_interrupt_disable" alt="" coords="551,157,693,184"/>
+<area shape="rect" id="node11" href="$si4735_8h.html#ad8b515f4991303f8cac978410d736a03" title="si4735_fm_tune_status" alt="" coords="544,107,700,133"/>
+<area shape="rect" id="node5" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="769,208,865,235"/>
+<area shape="rect" id="node8" href="$si4735_8c.html#aad8341b5b19aa8f962a6b9b940d77960" title="si4735_get_interrupt" alt="" coords="748,56,887,83"/>
+<area shape="rect" id="node9" href="$i2c_8h.html#a6dd896b0c82d1aa91a1a8155b41c4566" title="Receives I2C commands until a NACK is received or received RxBytes. " alt="" coords="782,107,853,133"/>
+<area shape="rect" id="node6" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="935,208,1029,235"/>
+<area shape="rect" id="node7" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="1077,233,1184,260"/>
+<area shape="rect" id="node14" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="371,259,486,285"/>
+<area shape="rect" id="node16" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="373,208,485,235"/>
+<area shape="rect" id="node15" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="571,259,673,285"/>
+<area shape="rect" id="node20" href="$string_8c.html#a0e45f80d2057e44647b21fd530fe185d" title="string_fixedpoint_to\l_array" alt="" coords="361,425,496,466"/>
+<area shape="rect" id="node21" href="$flash_8h.html#a936ded19cea6a94beca2b32349a9ac2c" title="flash_store" alt="" coords="386,491,471,517"/>
+<area shape="rect" id="node22" href="$flash_8c.html#ad9d8a7cadb959b139fea7654d539714a" title="flash_read" alt="" coords="581,491,663,517"/>
+</map>

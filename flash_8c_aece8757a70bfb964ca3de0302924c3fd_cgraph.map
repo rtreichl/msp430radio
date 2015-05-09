@@ -1,0 +1,4 @@
+<map id="store_data_to_flash" name="store_data_to_flash">
+<area shape="rect" id="node2" href="$flash_8c.html#a410eac820c90fe099aa8ed2600d133ce" title="read_flash" alt="" coords="191,5,273,32"/>
+<area shape="rect" id="node3" href="$flash_8c.html#ac9bcd5ed27bda651ccaa0b4a39730202" title="erase_flash" alt="" coords="188,56,276,83"/>
+</map>

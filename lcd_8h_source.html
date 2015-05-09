@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/driver/lcd.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('lcd_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">lcd.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="lcd_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * lcd.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 16.12.2013</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Alexander</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef LCD_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define LCD_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="pca9534_8h.html">driver/pca9534.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="lcd__commands_8h.html">driver/include/lcd_commands.h</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="radio__pin__mapping_8h.html">settings/radio_pin_mapping.h</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="timer_8h.html">driver/timer.h</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* Based on pin mapping of PCA9534 */</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="lcd_8h.html#a0092100866584e3511716fbf8e39c11f">   19</a></span>&#160;<span class="preprocessor">#define LCD_ENABLE_HIGH             0x10</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="lcd_8h.html#a0cbc0c73a8326693dcae8ceac5c7b71b">   20</a></span>&#160;<span class="preprocessor">#define LCD_ENABLE_LOW              0x00</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="lcd_8h.html#ad543004401896d9736084fcd833b7fd6">   21</a></span>&#160;<span class="preprocessor">#define LCD_READ                    0x20</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="lcd_8h.html#ac83c798c669ca46b417ecc89c6ad37fe">   22</a></span>&#160;<span class="preprocessor">#define LCD_WRITE                   0x00</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="lcd_8h.html#a25e9d818788f36ed74d7c4579f87f2a6">   23</a></span>&#160;<span class="preprocessor">#define LCD_DATA                    0x40</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="lcd_8h.html#a28893b8aae31c65dfc6f5d478e225a2d">   24</a></span>&#160;<span class="preprocessor">#define LCD_CMD                     0x00</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a312eed1baec275e185dc00b760de1356">lcd_init</a>(uint8_t contrast);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a011d26f08674b8430d53ea5e8cebd9e3">lcd_write_char</a>(uint8_t chr);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a2a4df97ebc5b396233aa31765228ef42">lcd_set_courser</a>(uint8_t x, uint8_t y);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a41e4f70e7f07bd5333b929ed8f9df77f">lcd_command</a>(uint8_t cmd);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a2e011676f64d2ee1c854b912133ae3f9">lcd_write_string</a>(<span class="keyword">const</span> int8_t *str, uint8_t n_bytes);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a782f2bf84393a90f55c040d08c84b06d">lcd_connect</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;uint8_t <a class="code" href="lcd_8h.html#ac5d817278ad99ea7420d6240c7e6cba6">lcd_generatechar</a>(uint8_t code, <span class="keyword">const</span> uint8_t *data);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a737d0616c3643d82d1a612a5a667d709">lcd_bargraph</a>(uint8_t value);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;uint8_t <a class="code" href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;uint8_t <a class="code" href="lcd_8h.html#ab99e48ab8689dcb1205c4c7c97bd9956">lcd_contrast</a>(uint8_t contrast);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;uint8_t <a class="code" href="lcd_8h.html#a6b9abf6cd27026b67144523ffbef4916">lcd_generatebargraph</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LCD_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="radio__pin__mapping_8h_html"><div class="ttname"><a href="radio__pin__mapping_8h.html">radio_pin_mapping.h</a></div></div>
+<div class="ttc" id="lcd_8h_html_a2e011676f64d2ee1c854b912133ae3f9"><div class="ttname"><a href="lcd_8h.html#a2e011676f64d2ee1c854b912133ae3f9">lcd_write_string</a></div><div class="ttdeci">uint8_t lcd_write_string(const int8_t *str, uint8_t n_bytes)</div></div>
+<div class="ttc" id="lcd_8h_html_a011d26f08674b8430d53ea5e8cebd9e3"><div class="ttname"><a href="lcd_8h.html#a011d26f08674b8430d53ea5e8cebd9e3">lcd_write_char</a></div><div class="ttdeci">uint8_t lcd_write_char(uint8_t chr)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00076">lcd.c:76</a></div></div>
+<div class="ttc" id="timer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div></div>
+<div class="ttc" id="lcd_8h_html_a6b9abf6cd27026b67144523ffbef4916"><div class="ttname"><a href="lcd_8h.html#a6b9abf6cd27026b67144523ffbef4916">lcd_generatebargraph</a></div><div class="ttdeci">uint8_t lcd_generatebargraph()</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00213">lcd.c:213</a></div></div>
+<div class="ttc" id="lcd_8h_html_ab99e48ab8689dcb1205c4c7c97bd9956"><div class="ttname"><a href="lcd_8h.html#ab99e48ab8689dcb1205c4c7c97bd9956">lcd_contrast</a></div><div class="ttdeci">uint8_t lcd_contrast(uint8_t contrast)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00066">lcd.c:66</a></div></div>
+<div class="ttc" id="lcd_8h_html_a737d0616c3643d82d1a612a5a667d709"><div class="ttname"><a href="lcd_8h.html#a737d0616c3643d82d1a612a5a667d709">lcd_bargraph</a></div><div class="ttdeci">uint8_t lcd_bargraph(uint8_t value)</div></div>
+<div class="ttc" id="lcd_8h_html_a2a4df97ebc5b396233aa31765228ef42"><div class="ttname"><a href="lcd_8h.html#a2a4df97ebc5b396233aa31765228ef42">lcd_set_courser</a></div><div class="ttdeci">uint8_t lcd_set_courser(uint8_t x, uint8_t y)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00173">lcd.c:173</a></div></div>
+<div class="ttc" id="lcd_8h_html_ac5d817278ad99ea7420d6240c7e6cba6"><div class="ttname"><a href="lcd_8h.html#ac5d817278ad99ea7420d6240c7e6cba6">lcd_generatechar</a></div><div class="ttdeci">uint8_t lcd_generatechar(uint8_t code, const uint8_t *data)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00198">lcd.c:198</a></div></div>
+<div class="ttc" id="lcd__commands_8h_html"><div class="ttname"><a href="lcd__commands_8h.html">lcd_commands.h</a></div></div>
+<div class="ttc" id="lcd_8h_html_a41e4f70e7f07bd5333b929ed8f9df77f"><div class="ttname"><a href="lcd_8h.html#a41e4f70e7f07bd5333b929ed8f9df77f">lcd_command</a></div><div class="ttdeci">uint8_t lcd_command(uint8_t cmd)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00150">lcd.c:150</a></div></div>
+<div class="ttc" id="pca9534_8h_html"><div class="ttname"><a href="pca9534_8h.html">pca9534.h</a></div></div>
+<div class="ttc" id="lcd_8h_html_a782f2bf84393a90f55c040d08c84b06d"><div class="ttname"><a href="lcd_8h.html#a782f2bf84393a90f55c040d08c84b06d">lcd_connect</a></div><div class="ttdeci">uint8_t lcd_connect()</div></div>
+<div class="ttc" id="lcd_8h_html_a312eed1baec275e185dc00b760de1356"><div class="ttname"><a href="lcd_8h.html#a312eed1baec275e185dc00b760de1356">lcd_init</a></div><div class="ttdeci">uint8_t lcd_init(uint8_t contrast)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00012">lcd.c:12</a></div></div>
+<div class="ttc" id="lcd_8h_html_acd63fb85d212730fa4fcbcbeeccd231e"><div class="ttname"><a href="lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e">lcd_create_view</a></div><div class="ttdeci">uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_8c_source.html#l00315">lcd.c:315</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="lcd_8h.html">lcd.h</a></li>
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

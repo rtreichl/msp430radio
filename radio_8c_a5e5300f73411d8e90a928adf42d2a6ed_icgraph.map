@@ -1,0 +1,6 @@
+<map id="radio_store_station" name="radio_store_station">
+<area shape="rect" id="node2" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="189,5,317,32"/>
+<area shape="rect" id="node4" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="185,56,320,83"/>
+<area shape="rect" id="node3" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="377,5,526,32"/>
+<area shape="rect" id="node5" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="368,56,535,83"/>
+</map>

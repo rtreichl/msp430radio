@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>FH Radio: D:/GIT/fhradiov2/driver/pca9530.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">FH Radio
+   &#160;<span id="projectnumber">V3.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('pca9530_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">pca9530.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="pca9530_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * pca9530.h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: 31.01.2015</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: Richard</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef PCA9530_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define PCA9530_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="i2c_8h.html">driver/i2c.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a566fb06c05caecf304dfe9a0bb657b34">   14</a></span>&#160;<span class="preprocessor">#define PCA9530_I2C_STD_ADR 0x60</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a554cc61fe4234ac4c4eafa0b4977175c">   15</a></span>&#160;<span class="preprocessor">#define PCA9530_I2C_A0_BIT  0</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a9ad00301c1ffc3a81b0f912ba863238b">   16</a></span>&#160;<span class="preprocessor">#define PCA9530_I2C_ADR     (PCA9530_I2C_STD_ADR | PCA9530_I2C_A0_BIT)</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962">   19</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962">PCA9530_CTRL_CMD</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a">   20</a></span>&#160;    <a class="code" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a">INPUT</a> = 0,</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45">   21</a></span>&#160;    <a class="code" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45">PSC0</a>,</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc">   22</a></span>&#160;    <a class="code" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc">PWM0</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3">   23</a></span>&#160;    <a class="code" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3">PSC1</a>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a">   24</a></span>&#160;    <a class="code" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a">PWM1</a>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad">   25</a></span>&#160;    <a class="code" href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad">LS0</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237">   28</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237">PCA9530_LED_STATE</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40">   29</a></span>&#160;    <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40">LED_OFF</a> = 0,</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d">   30</a></span>&#160;    <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d">LED_ON</a>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932">   31</a></span>&#160;    <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932">PWM0_RATE</a>,</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248">   32</a></span>&#160;    <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248">PWM1_RATE</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8">   35</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8">PCA9530_FREQ</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca">   36</a></span>&#160;    <a class="code" href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca">FREQ_0</a> = 0,</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7">   37</a></span>&#160;    <a class="code" href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7">FREQ_1</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9a">   40</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9a">PCA9530_PWM</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740">   41</a></span>&#160;    <a class="code" href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740">PWM_0</a> = 0,</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703">   42</a></span>&#160;    <a class="code" href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703">PWM_1</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structpca9530__ctl.html">   45</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct  </span><a class="code" href="structpca9530__ctl.html">pca9530_ctl</a> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structpca9530__ctl.html#a8b4eebe79ded0459acec2f4950102ba3">   46</a></span>&#160;    uint8_t : 3;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structpca9530__ctl.html#a8782eaf4d6ff8b39d2ef058050c8a0e3">   47</a></span>&#160;    uint8_t <a class="code" href="structpca9530__ctl.html#a8782eaf4d6ff8b39d2ef058050c8a0e3">AI</a> : 1;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structpca9530__ctl.html#a77f12d2e278bd5c07712648ac0df5e08">   48</a></span>&#160;    uint8_t : 1;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structpca9530__ctl.html#af3bea2c4759f3d001950aba2a1f89810">   49</a></span>&#160;    uint8_t <a class="code" href="structpca9530__ctl.html#af3bea2c4759f3d001950aba2a1f89810">ADDRESS</a> : 3;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <a class="code" href="pca9530_8h.html#ab385b8535f80ceababc3fd9d0f15b045">PCA9530_CTL</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structpca9530__in.html">   52</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structpca9530__in.html">pca9530_in</a> {</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structpca9530__in.html#a8b4eebe79ded0459acec2f4950102ba3">   53</a></span>&#160;    uint8_t : 6;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structpca9530__in.html#a40e423e01a324e06ebc015b85a9d6b8e">   54</a></span>&#160;    uint8_t <a class="code" href="structpca9530__in.html#a40e423e01a324e06ebc015b85a9d6b8e">LED1</a> : 1;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structpca9530__in.html#a698763138aab81826861fd602c87872b">   55</a></span>&#160;    uint8_t <a class="code" href="structpca9530__in.html#a698763138aab81826861fd602c87872b">LED0</a> : 1;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <a class="code" href="pca9530_8h.html#a2e7c59b702993415a25765895971bc16">PCA9530_IN</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structpca9530__sel.html">   58</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structpca9530__sel.html">pca9530_sel</a> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structpca9530__sel.html#a8b4eebe79ded0459acec2f4950102ba3">   59</a></span>&#160;    uint8_t : 4;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structpca9530__sel.html#a40e423e01a324e06ebc015b85a9d6b8e">   60</a></span>&#160;    uint8_t <a class="code" href="structpca9530__sel.html#a40e423e01a324e06ebc015b85a9d6b8e">LED1</a> : 2;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structpca9530__sel.html#a698763138aab81826861fd602c87872b">   61</a></span>&#160;    uint8_t <a class="code" href="structpca9530__sel.html#a698763138aab81826861fd602c87872b">LED0</a> : 2;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <a class="code" href="pca9530_8h.html#a10250afacff108ca56d8080a27aa91a0">PCA9530_SEL</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structpca9530.html">   64</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structpca9530.html">pca9530</a> {</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structpca9530.html#a1a85040128a35d94e73a6d6b96aea658">   65</a></span>&#160;    uint8_t <a class="code" href="structpca9530.html#a1a85040128a35d94e73a6d6b96aea658">freq0</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structpca9530.html#a2fb4d580ed22ad326b72701b98038bdc">   66</a></span>&#160;    uint8_t <a class="code" href="structpca9530.html#a2fb4d580ed22ad326b72701b98038bdc">pwm0</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="structpca9530.html#a05652b55717263bec9a0d63ff6690969">   67</a></span>&#160;    uint8_t <a class="code" href="structpca9530.html#a05652b55717263bec9a0d63ff6690969">freq1</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="structpca9530.html#af1f85784c51fc6b57b6e713d160e6136">   68</a></span>&#160;    uint8_t <a class="code" href="structpca9530.html#af1f85784c51fc6b57b6e713d160e6136">pwm1</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structpca9530.html#a3a42a3267d245b293db10c2cbb3330f9">   69</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237">PCA9530_LED_STATE</a> <a class="code" href="structpca9530.html#a3a42a3267d245b293db10c2cbb3330f9">led0</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structpca9530.html#a3ac265af8bbeb022cd8ad2f21247f6ac">   70</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237">PCA9530_LED_STATE</a> <a class="code" href="structpca9530.html#a3ac265af8bbeb022cd8ad2f21247f6ac">led1</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <a class="code" href="pca9530_8h.html#a837a42b4ed8a83b5aee92843449537bf">PCA9530</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;uint8_t <a class="code" href="pca9530_8h.html#abc69b1cb491825b0e425539994b188bb">pca9530_set_freq</a>(<span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8">PCA9530_FREQ</a> freq_sel, uint8_t  freq);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;uint8_t <a class="code" href="pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53">pca9530_set_pwm</a>(<span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9a">PCA9530_PWM</a> pwm_sel, uint8_t pwm);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;uint8_t <a class="code" href="pca9530_8h.html#a91089f6598b9a7b7d85171c4a731f1c1">pca9530_config_leds</a>(<span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237">PCA9530_LED_STATE</a> led0_state, <span class="keyword">enum</span> <a class="code" href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237">PCA9530_LED_STATE</a> led1_state);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;uint8_t <a class="code" href="pca9530_8h.html#a0504ea065814c638843035fe0559b24c">pca9530_read_input</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;uint8_t <a class="code" href="pca9530_8h.html#ae2f44601e0bbf4c0b7bbdb127def81c3">pca9530_init</a>(<span class="keyword">const</span> <a class="code" href="structpca9530.html">PCA9530</a> *config);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PCA9530_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="structpca9530__sel_html_a40e423e01a324e06ebc015b85a9d6b8e"><div class="ttname"><a href="structpca9530__sel.html#a40e423e01a324e06ebc015b85a9d6b8e">pca9530_sel::LED1</a></div><div class="ttdeci">uint8_t LED1</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00060">pca9530.h:60</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a07bd06dbfcb216eedc1969aa04e19b53"><div class="ttname"><a href="pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53">pca9530_set_pwm</a></div><div class="ttdeci">uint8_t pca9530_set_pwm(enum PCA9530_PWM pwm_sel, uint8_t pwm)</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8c_source.html#l00037">pca9530.c:37</a></div></div>
+<div class="ttc" id="pca9530_8h_html_ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932"><div class="ttname"><a href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237ab29666bb955e9656797711ee1a2f6932">PWM0_RATE</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00031">pca9530.h:31</a></div></div>
+<div class="ttc" id="structpca9530_html_a3ac265af8bbeb022cd8ad2f21247f6ac"><div class="ttname"><a href="structpca9530.html#a3ac265af8bbeb022cd8ad2f21247f6ac">pca9530::led1</a></div><div class="ttdeci">enum PCA9530_LED_STATE led1</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00070">pca9530.h:70</a></div></div>
+<div class="ttc" id="pca9530_8h_html_ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d"><div class="ttname"><a href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237add01b80eb93658fb4cf7eb9aceb89a1d">LED_ON</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00030">pca9530.h:30</a></div></div>
+<div class="ttc" id="structpca9530_html_a3a42a3267d245b293db10c2cbb3330f9"><div class="ttname"><a href="structpca9530.html#a3a42a3267d245b293db10c2cbb3330f9">pca9530::led0</a></div><div class="ttdeci">enum PCA9530_LED_STATE led0</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00069">pca9530.h:69</a></div></div>
+<div class="ttc" id="structpca9530_html_a1a85040128a35d94e73a6d6b96aea658"><div class="ttname"><a href="structpca9530.html#a1a85040128a35d94e73a6d6b96aea658">pca9530::freq0</a></div><div class="ttdeci">uint8_t freq0</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00065">pca9530.h:65</a></div></div>
+<div class="ttc" id="structpca9530__in_html_a698763138aab81826861fd602c87872b"><div class="ttname"><a href="structpca9530__in.html#a698763138aab81826861fd602c87872b">pca9530_in::LED0</a></div><div class="ttdeci">uint8_t LED0</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00055">pca9530.h:55</a></div></div>
+<div class="ttc" id="structpca9530__in_html"><div class="ttname"><a href="structpca9530__in.html">pca9530_in</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00052">pca9530.h:52</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a837a42b4ed8a83b5aee92843449537bf"><div class="ttname"><a href="pca9530_8h.html#a837a42b4ed8a83b5aee92843449537bf">PCA9530</a></div><div class="ttdeci">struct pca9530 PCA9530</div></div>
+<div class="ttc" id="pca9530_8h_html_ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40"><div class="ttname"><a href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237afc0ca8cc6cbe215fd3f1ae6d40255b40">LED_OFF</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00029">pca9530.h:29</a></div></div>
+<div class="ttc" id="structpca9530_html_af1f85784c51fc6b57b6e713d160e6136"><div class="ttname"><a href="structpca9530.html#af1f85784c51fc6b57b6e713d160e6136">pca9530::pwm1</a></div><div class="ttdeci">uint8_t pwm1</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00068">pca9530.h:68</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a"><div class="ttname"><a href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962ae310c909d76b003d016bef8bdf16936a">INPUT</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00020">pca9530.h:20</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a91089f6598b9a7b7d85171c4a731f1c1"><div class="ttname"><a href="pca9530_8h.html#a91089f6598b9a7b7d85171c4a731f1c1">pca9530_config_leds</a></div><div class="ttdeci">uint8_t pca9530_config_leds(enum PCA9530_LED_STATE led0_state, enum PCA9530_LED_STATE led1_state)</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8c_source.html#l00059">pca9530.c:59</a></div></div>
+<div class="ttc" id="pca9530_8h_html_ace2d36a1fc0cc58626736636eaff2237"><div class="ttname"><a href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237">PCA9530_LED_STATE</a></div><div class="ttdeci">PCA9530_LED_STATE</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00028">pca9530.h:28</a></div></div>
+<div class="ttc" id="structpca9530_html_a05652b55717263bec9a0d63ff6690969"><div class="ttname"><a href="structpca9530.html#a05652b55717263bec9a0d63ff6690969">pca9530::freq1</a></div><div class="ttdeci">uint8_t freq1</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00067">pca9530.h:67</a></div></div>
+<div class="ttc" id="pca9530_8h_html_abc69b1cb491825b0e425539994b188bb"><div class="ttname"><a href="pca9530_8h.html#abc69b1cb491825b0e425539994b188bb">pca9530_set_freq</a></div><div class="ttdeci">uint8_t pca9530_set_freq(enum PCA9530_FREQ freq_sel, uint8_t freq)</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8c_source.html#l00011">pca9530.c:11</a></div></div>
+<div class="ttc" id="pca9530_8h_html_ab385b8535f80ceababc3fd9d0f15b045"><div class="ttname"><a href="pca9530_8h.html#ab385b8535f80ceababc3fd9d0f15b045">PCA9530_CTL</a></div><div class="ttdeci">struct pca9530_ctl PCA9530_CTL</div></div>
+<div class="ttc" id="structpca9530_html"><div class="ttname"><a href="structpca9530.html">pca9530</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00064">pca9530.h:64</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a2e7c59b702993415a25765895971bc16"><div class="ttname"><a href="pca9530_8h.html#a2e7c59b702993415a25765895971bc16">PCA9530_IN</a></div><div class="ttdeci">struct pca9530_in PCA9530_IN</div></div>
+<div class="ttc" id="pca9530_8h_html_a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a"><div class="ttname"><a href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962acc6ab0fb66c5ba52524e32ea2ad0bd1a">PWM1</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00024">pca9530.h:24</a></div></div>
+<div class="ttc" id="structpca9530__ctl_html_af3bea2c4759f3d001950aba2a1f89810"><div class="ttname"><a href="structpca9530__ctl.html#af3bea2c4759f3d001950aba2a1f89810">pca9530_ctl::ADDRESS</a></div><div class="ttdeci">uint8_t ADDRESS</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00049">pca9530.h:49</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc"><div class="ttname"><a href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a4969f4b49dd00aa89aa0b6b3a7cce0cc">PWM0</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00022">pca9530.h:22</a></div></div>
+<div class="ttc" id="structpca9530__sel_html"><div class="ttname"><a href="structpca9530__sel.html">pca9530_sel</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00058">pca9530.h:58</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45"><div class="ttname"><a href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a2f0bf80b9c8a16fc25723db25380ec45">PSC0</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00021">pca9530.h:21</a></div></div>
+<div class="ttc" id="structpca9530_html_a2fb4d580ed22ad326b72701b98038bdc"><div class="ttname"><a href="structpca9530.html#a2fb4d580ed22ad326b72701b98038bdc">pca9530::pwm0</a></div><div class="ttdeci">uint8_t pwm0</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00066">pca9530.h:66</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a12bddc4690ce327030f243e8d2767962"><div class="ttname"><a href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962">PCA9530_CTRL_CMD</a></div><div class="ttdeci">PCA9530_CTRL_CMD</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00019">pca9530.h:19</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7"><div class="ttname"><a href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a3f791392d54d23b2388610584b6c72d7">FREQ_1</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00037">pca9530.h:37</a></div></div>
+<div class="ttc" id="pca9530_8h_html_ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248"><div class="ttname"><a href="pca9530_8h.html#ace2d36a1fc0cc58626736636eaff2237a237ba94dca5793632d0e6694a68bf248">PWM1_RATE</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00032">pca9530.h:32</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3"><div class="ttname"><a href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a779992e73fedde2672b79061e7f785b3">PSC1</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00023">pca9530.h:23</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca"><div class="ttname"><a href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8a32ea2e2a12cd46becf9ec1e762ab17ca">FREQ_0</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00036">pca9530.h:36</a></div></div>
+<div class="ttc" id="structpca9530__sel_html_a698763138aab81826861fd602c87872b"><div class="ttname"><a href="structpca9530__sel.html#a698763138aab81826861fd602c87872b">pca9530_sel::LED0</a></div><div class="ttdeci">uint8_t LED0</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00061">pca9530.h:61</a></div></div>
+<div class="ttc" id="pca9530_8h_html_abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740"><div class="ttname"><a href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aa857e21e20c27df92dec4574fcddfd740">PWM_0</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00041">pca9530.h:41</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a10250afacff108ca56d8080a27aa91a0"><div class="ttname"><a href="pca9530_8h.html#a10250afacff108ca56d8080a27aa91a0">PCA9530_SEL</a></div><div class="ttdeci">struct pca9530_sel PCA9530_SEL</div></div>
+<div class="ttc" id="structpca9530__in_html_a40e423e01a324e06ebc015b85a9d6b8e"><div class="ttname"><a href="structpca9530__in.html#a40e423e01a324e06ebc015b85a9d6b8e">pca9530_in::LED1</a></div><div class="ttdeci">uint8_t LED1</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00054">pca9530.h:54</a></div></div>
+<div class="ttc" id="pca9530_8h_html_abc74a5690ccc2a8341463459d2089d9a"><div class="ttname"><a href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9a">PCA9530_PWM</a></div><div class="ttdeci">PCA9530_PWM</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00040">pca9530.h:40</a></div></div>
+<div class="ttc" id="structpca9530__ctl_html_a8782eaf4d6ff8b39d2ef058050c8a0e3"><div class="ttname"><a href="structpca9530__ctl.html#a8782eaf4d6ff8b39d2ef058050c8a0e3">pca9530_ctl::AI</a></div><div class="ttdeci">uint8_t AI</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00047">pca9530.h:47</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a8987674a0fcf29a23cf9d1d8886a3ce8"><div class="ttname"><a href="pca9530_8h.html#a8987674a0fcf29a23cf9d1d8886a3ce8">PCA9530_FREQ</a></div><div class="ttdeci">PCA9530_FREQ</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00035">pca9530.h:35</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad"><div class="ttname"><a href="pca9530_8h.html#a12bddc4690ce327030f243e8d2767962a5feb25e13e5f0c37661a4287511b89ad">LS0</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00025">pca9530.h:25</a></div></div>
+<div class="ttc" id="pca9530_8h_html_abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703"><div class="ttname"><a href="pca9530_8h.html#abc74a5690ccc2a8341463459d2089d9aaea3b5b1dcb8647c430bc9391799f4703">PWM_1</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00042">pca9530.h:42</a></div></div>
+<div class="ttc" id="pca9530_8h_html_ae2f44601e0bbf4c0b7bbdb127def81c3"><div class="ttname"><a href="pca9530_8h.html#ae2f44601e0bbf4c0b7bbdb127def81c3">pca9530_init</a></div><div class="ttdeci">uint8_t pca9530_init(const PCA9530 *config)</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8c_source.html#l00089">pca9530.c:89</a></div></div>
+<div class="ttc" id="structpca9530__ctl_html"><div class="ttname"><a href="structpca9530__ctl.html">pca9530_ctl</a></div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8h_source.html#l00045">pca9530.h:45</a></div></div>
+<div class="ttc" id="pca9530_8h_html_a0504ea065814c638843035fe0559b24c"><div class="ttname"><a href="pca9530_8h.html#a0504ea065814c638843035fe0559b24c">pca9530_read_input</a></div><div class="ttdeci">uint8_t pca9530_read_input()</div><div class="ttdef"><b>Definition:</b> <a href="pca9530_8c_source.html#l00075">pca9530.c:75</a></div></div>
+<div class="ttc" id="i2c_8h_html"><div class="ttname"><a href="i2c_8h.html">i2c.h</a></div><div class="ttdoc">I2C implemtation for MSP430G2553, interrupt based.   This implemtation based on examples from Texas I...</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1284b95147afa48b330f502c8bbc0529.html">driver</a></li><li class="navelem"><a class="el" href="pca9530_8h.html">pca9530.h</a></li>
+    <li class="footer">Erzeugt am Mon Mai 4 2015 20:15:12 für FH Radio von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

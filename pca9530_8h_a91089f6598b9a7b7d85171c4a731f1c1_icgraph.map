@@ -1,0 +1,7 @@
+<map id="pca9530_config_leds" name="pca9530_config_leds">
+<area shape="rect" id="node2" href="$pca9530_8c.html#ae2f44601e0bbf4c0b7bbdb127def81c3" title="pca9530_init" alt="" coords="207,5,302,32"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a8d795d5e8b1acf8b2d97bfee82d90ca1" title="radio_brightness" alt="" coords="196,56,313,83"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="409,5,484,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="580,5,631,32"/>
+<area shape="rect" id="node6" href="$radio__settings_8c.html#a2d04f2363bf944b4700b71e0f96ee16f" title="Sets the brightness. " alt="" coords="361,56,532,83"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="menu_handler" name="menu_handler">
+<area shape="rect" id="node2" href="$menu_2src_2menu_8c.html#a6e158a5dda1d308b5a56ee88538eb0fc" title="menu_function" alt="" coords="156,157,263,184"/>
+<area shape="rect" id="node19" href="$menu_2src_2menu_8c.html#a5ca9d2cf65ffedfb30889ee21a6f7f3d" title="menu_display" alt="" coords="158,208,261,235"/>
+<area shape="rect" id="node3" href="$menu_2src_2menu_8c.html#a024aeffbbf4583410c047ad3a6c80946" title="menu_scroll_settings" alt="" coords="311,157,456,184"/>
+<area shape="rect" id="node13" href="$radio_8c.html#a921f25c9a84ad0ee0715bc7f5720ade4" title="radio_main" alt="" coords="341,107,426,133"/>
+<area shape="rect" id="node4" href="$menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" title="menu_scroll" alt="" coords="531,157,623,184"/>
+<area shape="rect" id="node5" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="713,208,827,235"/>
+<area shape="rect" id="node6" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="889,183,1004,209"/>
+<area shape="rect" id="node12" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="1052,233,1164,260"/>
+<area shape="rect" id="node7" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="1057,183,1159,209"/>
+<area shape="rect" id="node8" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="1212,233,1308,260"/>
+<area shape="rect" id="node11" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="1361,183,1446,209"/>
+<area shape="rect" id="node9" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="1356,233,1451,260"/>
+<area shape="rect" id="node10" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="1499,208,1605,235"/>
+<area shape="rect" id="node14" href="$radio_8c.html#a51f5be293265eb7d6106c9181b357f96" title="radio_display_handler" alt="" coords="504,107,651,133"/>
+<area shape="rect" id="node15" href="$time_8c.html#a38be5ccb6a78c3b5cebed5ff341ed4f9" title="date_to_str" alt="" coords="727,56,813,83"/>
+<area shape="rect" id="node16" href="$radio_8c.html#a391fc5fe58716d2c794685bcf12bbda5" title="radio_value_to_string" alt="" coords="699,107,841,133"/>
+<area shape="rect" id="node17" href="$radio_8c.html#a132f2b55edd4f21141501c9e9a1c7b00" title="radio_freq_to_string" alt="" coords="703,157,837,184"/>
+<area shape="rect" id="node18" href="$time_8c.html#a12eef8136a835e1bbe52bcf02789e706" title="time_to_str" alt="" coords="727,5,813,32"/>
+</map>

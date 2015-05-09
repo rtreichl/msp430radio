@@ -1,0 +1,28 @@
+<map id="i2c_read" name="i2c_read">
+<area shape="rect" id="node2" href="$opt3001_8c.html#a4910f99caac4b6293a33627107cb7e82" title="opt3001_get_value" alt="" coords="137,5,267,32"/>
+<area shape="rect" id="node4" href="$pca9530_8c.html#a0504ea065814c638843035fe0559b24c" title="pca9530_read_input" alt="" coords="133,56,271,83"/>
+<area shape="rect" id="node5" href="$pca9534_8c.html#a20d4e8d9173eded61af0bbdf23086913" title="pca9534_input" alt="" coords="149,107,255,133"/>
+<area shape="rect" id="node6" href="$si4735_8c.html#af19013498b2529c01dd96942c157647a" title="si4735_fm_rds_status" alt="" coords="127,157,277,184"/>
+<area shape="rect" id="node7" href="$si4735_8c.html#a01d768567b59b2f9c8900a233fdd4d41" title="si4735_fm_rsq_status" alt="" coords="127,208,277,235"/>
+<area shape="rect" id="node11" href="$si4735_8c.html#ad8b515f4991303f8cac978410d736a03" title="si4735_fm_tune_status" alt="" coords="124,360,280,387"/>
+<area shape="rect" id="node16" href="$si4735_8c.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="131,461,273,488"/>
+<area shape="rect" id="node23" href="$si4735_8c.html#a209bed933b0bdc8432e8dd082f2c7a71" title="si4735_get_int_status" alt="" coords="127,512,277,539"/>
+<area shape="rect" id="node24" href="$si4735_8c.html#a5d54c5379f019b57f7d75d471791250c" title="si4735_get_property" alt="" coords="133,563,271,589"/>
+<area shape="rect" id="node25" href="$si4735_8c.html#a339846da787fb5a496df9252ca7dc9a5" title="si4735_fm_seek_start" alt="" coords="127,411,277,437"/>
+<area shape="rect" id="node26" href="$rds_8c.html#a1c031719ba892045c773dc035058870f" title="Updates the current RDS data . " alt="" coords="359,289,446,316"/>
+<area shape="rect" id="node27" href="$rds_8c.html#ad4168f8a33d30a3526e416da5997baa9" title="Triggers RDS. " alt="" coords="153,309,251,336"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a6112562337f97b2fe002065359e1895d" title="Set Auto brightness. " alt="" coords="328,5,477,32"/>
+<area shape="rect" id="node8" href="$rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d" title="Update the Radio Signal Quality. " alt="" coords="359,220,446,247"/>
+<area shape="rect" id="node9" href="$handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22" title="Handler for menu, RDS, time, the encoders and rsq. " alt="" coords="561,245,625,272"/>
+<area shape="rect" id="node10" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="766,271,817,297"/>
+<area shape="rect" id="node12" href="$radio_8c.html#aee6321b512830d482a2fc164cf11f9e9" title="Seeking all radio channels. " alt="" coords="351,360,454,387"/>
+<area shape="rect" id="node13" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="555,397,630,424"/>
+<area shape="rect" id="node14" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="529,296,657,323"/>
+<area shape="rect" id="node15" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="717,347,866,373"/>
+<area shape="rect" id="node17" href="$si4735_8c.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="357,436,448,463"/>
+<area shape="rect" id="node19" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="Tune the frequency. " alt="" coords="347,487,458,513"/>
+<area shape="rect" id="node18" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="537,448,648,475"/>
+<area shape="rect" id="node20" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="550,499,635,525"/>
+<area shape="rect" id="node21" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="525,549,660,576"/>
+<area shape="rect" id="node22" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="708,549,875,576"/>
+</map>

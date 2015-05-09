@@ -1,0 +1,8 @@
+<map id="menu_scroll" name="menu_scroll">
+<area shape="rect" id="node2" href="$menu_8c.html#a5621c1bf312de029f43808bf02dc52e3" title="Scroll through the settings. " alt="" coords="146,69,291,96"/>
+<area shape="rect" id="node6" href="$radio__display_8c.html#a43baede098c7b21694b3fda71685fa06" title="Handler for the display. " alt="" coords="145,132,292,159"/>
+<area shape="rect" id="node3" href="$radio__settings_8c.html#a2d04f2363bf944b4700b71e0f96ee16f" title="Sets the brightness. " alt="" coords="340,5,511,32"/>
+<area shape="rect" id="node4" href="$radio__settings_8c.html#ab8b2e0dbe3fd9644146e798c3e2a3116" title="Sets the contrast. " alt="" coords="347,56,504,83"/>
+<area shape="rect" id="node5" href="$radio__settings_8c.html#aba6a09ed7091ec65d2cbf4cd9a9a75f4" title="Sets the volume. " alt="" coords="350,107,501,133"/>
+<area shape="rect" id="node7" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="383,157,468,184"/>
+</map>

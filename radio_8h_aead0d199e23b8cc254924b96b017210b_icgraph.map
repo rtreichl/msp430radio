@@ -1,0 +1,9 @@
+<map id="radio_set_volume" name="radio_set_volume">
+<area shape="rect" id="node2" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="radio_init" alt="" coords="335,5,410,32"/>
+<area shape="rect" id="node4" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="176,56,273,83"/>
+<area shape="rect" id="node8" href="$radio_8c.html#a5f7fcd9e9755fb5e22175a4ad74a5456" title="radio_main" alt="" coords="182,107,267,133"/>
+<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="777,31,828,57"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="321,56,424,83"/>
+<area shape="rect" id="node6" href="$menu_8c.html#a5d9c190838195d7872fc7067269e20fa" title="menu_function" alt="" coords="472,56,579,83"/>
+<area shape="rect" id="node7" href="$menu_8c.html#aaf2a075d3159f7eeab42012941a3437f" title="menu_handler" alt="" coords="627,56,729,83"/>
+</map>

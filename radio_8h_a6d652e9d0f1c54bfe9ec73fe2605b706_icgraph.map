@@ -1,0 +1,9 @@
+<map id="radio_tune_freq" name="radio_tune_freq">
+<area shape="rect" id="node2" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="194,5,269,32"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="189,56,274,83"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="176,107,287,133"/>
+<area shape="rect" id="node6" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="164,157,299,184"/>
+<area shape="rect" id="node3" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="405,5,455,32"/>
+<area shape="rect" id="node7" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="347,132,513,159"/>
+<area shape="rect" id="node8" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="355,183,505,209"/>
+</map>

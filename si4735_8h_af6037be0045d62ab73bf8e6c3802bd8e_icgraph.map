@@ -1,0 +1,6 @@
+<map id="si4735_configure_seeking" name="si4735_configure_seeking">
+<area shape="rect" id="node2" href="$si4735_8c.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="224,31,315,57"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="381,5,455,32"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="363,56,473,83"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="521,5,572,32"/>
+</map>

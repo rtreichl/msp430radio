@@ -1,0 +1,6 @@
+<map id="si4735_get_property" name="si4735_get_property">
+<area shape="rect" id="node2" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="192,5,288,32"/>
+<area shape="rect" id="node5" href="$i2c_8h.html#a6dd896b0c82d1aa91a1a8155b41c4566" title="Receives I2C commands until a NACK is received or received RxBytes. " alt="" coords="205,56,275,83"/>
+<area shape="rect" id="node3" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="336,5,431,32"/>
+<area shape="rect" id="node4" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="479,5,585,32"/>
+</map>

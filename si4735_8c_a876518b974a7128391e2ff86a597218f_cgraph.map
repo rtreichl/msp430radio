@@ -1,0 +1,16 @@
+<map id="SI4735_INIT" name="SI4735_INIT">
+<area shape="rect" id="node2" href="$external__interrupthandler_8h.html#a1685394f9610006097ec45181e59563b" title="ext_interrupt_create" alt="" coords="161,5,298,32"/>
+<area shape="rect" id="node3" href="$si4735_8c.html#a08ce8e479825a0951c15968d2b14a222" title="si4735_interrupt" alt="" coords="172,56,287,83"/>
+<area shape="rect" id="node4" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="881,157,988,184"/>
+<area shape="rect" id="node5" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="743,157,829,184"/>
+<area shape="rect" id="node6" href="$external__interrupthandler_8h.html#a345dfb9a7e177c5da6eb9dc5b3c82bc9" title="ext_interrupt_enable" alt="" coords="160,512,299,539"/>
+<area shape="rect" id="node7" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="573,259,669,285"/>
+<area shape="rect" id="node9" href="$si4735_8c.html#aad8341b5b19aa8f962a6b9b940d77960" title="si4735_get_interrupt" alt="" coords="552,411,691,437"/>
+<area shape="rect" id="node10" href="$si4735_8c.html#aadc29a91f13cd5ebe239b23c7e5370dc" title="si4735_set_property" alt="" coords="364,309,503,336"/>
+<area shape="rect" id="node11" href="$si4735_8c.html#a6f18c3d05bcb57296aad95c0be535f73" title="si4735_configure_rds" alt="" coords="157,309,301,336"/>
+<area shape="rect" id="node12" href="$si4735_8c.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="363,385,504,412"/>
+<area shape="rect" id="node14" href="$si4735_8c.html#af6037be0045d62ab73bf8e6c3802bd8e" title="si4735_configure_seeking" alt="" coords="144,360,315,387"/>
+<area shape="rect" id="node15" href="$external__interrupthandler_8h.html#a67fb5781413cf5c193be332cc6e52209" title="ext_interrupt_disable" alt="" coords="158,563,301,589"/>
+<area shape="rect" id="node8" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="739,233,833,260"/>
+<area shape="rect" id="node13" href="$i2c_8h.html#a6dd896b0c82d1aa91a1a8155b41c4566" title="Receives I2C commands until a NACK is received or received RxBytes. " alt="" coords="586,360,657,387"/>
+</map>

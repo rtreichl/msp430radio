@@ -1,0 +1,5 @@
+<map id="si4735_fm_rsq_status" name="si4735_fm_rsq_status">
+<area shape="rect" id="node2" href="$rsq_8c.html#adc26e0d94e8ebd7ba62fa4f628a15f6d" title="Update the Radio Signal Quality. " alt="" coords="203,5,289,32"/>
+<area shape="rect" id="node3" href="$handler_8c.html#a4f639cde11f5cab70d795fd2f75c9d22" title="Handler for menu, RDS, time, the encoders and rsq. " alt="" coords="337,5,401,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="449,5,500,32"/>
+</map>

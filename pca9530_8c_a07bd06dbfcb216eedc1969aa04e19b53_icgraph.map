@@ -1,0 +1,8 @@
+<map id="pca9530_set_pwm" name="pca9530_set_pwm">
+<area shape="rect" id="node2" href="$pca9530_8c.html#ae2f44601e0bbf4c0b7bbdb127def81c3" title="pca9530_init" alt="" coords="195,5,290,32"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a8d795d5e8b1acf8b2d97bfee82d90ca1" title="radio_brightness" alt="" coords="184,56,301,83"/>
+<area shape="rect" id="node7" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="187,107,298,133"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="397,5,472,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="568,5,619,32"/>
+<area shape="rect" id="node6" href="$radio__settings_8c.html#a2d04f2363bf944b4700b71e0f96ee16f" title="Sets the brightness. " alt="" coords="349,56,520,83"/>
+</map>

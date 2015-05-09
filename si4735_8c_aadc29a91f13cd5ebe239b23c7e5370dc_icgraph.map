@@ -1,0 +1,11 @@
+<map id="si4735_set_property" name="si4735_set_property">
+<area shape="rect" id="node2" href="$si4735_8c.html#a6f18c3d05bcb57296aad95c0be535f73" title="si4735_configure_rds" alt="" coords="205,27,349,54"/>
+<area shape="rect" id="node3" href="$si4735_8c.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="414,27,505,54"/>
+<area shape="rect" id="node7" href="$si4735_8c.html#af6037be0045d62ab73bf8e6c3802bd8e" title="si4735_configure_seeking" alt="" coords="192,78,363,105"/>
+<area shape="rect" id="node8" href="$radio_8c.html#ae11dbe9ea82d3ae65b6e80a4e6e995f8" title="Set the volume. " alt="" coords="411,129,508,155"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="594,27,669,54"/>
+<area shape="rect" id="node6" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="576,78,687,105"/>
+<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="755,27,805,54"/>
+<area shape="rect" id="node9" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="589,129,674,155"/>
+<area shape="rect" id="node10" href="$radio__settings_8c.html#aba6a09ed7091ec65d2cbf4cd9a9a75f4" title="Sets the volume. " alt="" coords="556,179,707,206"/>
+</map>

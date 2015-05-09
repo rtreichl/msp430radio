@@ -1,0 +1,37 @@
+<map id="menu_function" name="menu_function">
+<area shape="rect" id="node2" href="$radio_8h.html#a5f7fcd9e9755fb5e22175a4ad74a5456" title="radio_main" alt="" coords="337,311,423,338"/>
+<area shape="rect" id="node25" href="$radio_8h.html#a832a684fc60104296fc975a7608f92b4" title="radio_settings" alt="" coords="160,615,263,642"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a9e674807004c71581139b5568db18270" title="radio_set_volume" alt="" coords="509,147,632,174"/>
+<area shape="rect" id="node12" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="radio_tune_freq" alt="" coords="515,223,626,250"/>
+<area shape="rect" id="node15" href="$radio_8c.html#aa568d26c43f1503a5f31c86aab080591" title="radio_display_handler" alt="" coords="497,387,644,414"/>
+<area shape="rect" id="node4" href="$external__interrupthandler_8h.html#a345dfb9a7e177c5da6eb9dc5b3c82bc9" title="ext_interrupt_enable" alt="" coords="694,134,833,160"/>
+<area shape="rect" id="node5" href="$si4735_8h.html#aadc29a91f13cd5ebe239b23c7e5370dc" title="si4735_set_property" alt="" coords="694,32,833,59"/>
+<area shape="rect" id="node10" href="$external__interrupthandler_8h.html#a67fb5781413cf5c193be332cc6e52209" title="ext_interrupt_disable" alt="" coords="692,184,835,211"/>
+<area shape="rect" id="node11" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="1477,444,1563,471"/>
+<area shape="rect" id="node6" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="1472,495,1568,522"/>
+<area shape="rect" id="node9" href="$si4735_8c.html#aad8341b5b19aa8f962a6b9b940d77960" title="si4735_get_interrupt" alt="" coords="883,32,1021,59"/>
+<area shape="rect" id="node7" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="1616,495,1711,522"/>
+<area shape="rect" id="node8" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="1759,470,1865,496"/>
+<area shape="rect" id="node13" href="$si4735_8h.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="693,235,834,262"/>
+<area shape="rect" id="node14" href="$i2c_8h.html#a6dd896b0c82d1aa91a1a8155b41c4566" title="Receives I2C commands until a NACK is received or received RxBytes. " alt="" coords="917,286,987,312"/>
+<area shape="rect" id="node16" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="895,495,1009,522"/>
+<area shape="rect" id="node20" href="$time_8c.html#a38be5ccb6a78c3b5cebed5ff341ed4f9" title="date_to_str" alt="" coords="720,336,807,363"/>
+<area shape="rect" id="node21" href="$radio_8c.html#a391fc5fe58716d2c794685bcf12bbda5" title="radio_value_to_string" alt="" coords="692,387,835,414"/>
+<area shape="rect" id="node22" href="$radio_8c.html#a132f2b55edd4f21141501c9e9a1c7b00" title="radio_freq_to_string" alt="" coords="696,438,831,464"/>
+<area shape="rect" id="node23" href="$menu_2menu_8h.html#a503ed2007daa6f20b2f748eedbcb8494" title="menu_scroll" alt="" coords="717,488,809,515"/>
+<area shape="rect" id="node24" href="$time_8c.html#a12eef8136a835e1bbe52bcf02789e706" title="time_to_str" alt="" coords="720,539,807,566"/>
+<area shape="rect" id="node17" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="1109,520,1224,547"/>
+<area shape="rect" id="node19" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="1312,470,1424,496"/>
+<area shape="rect" id="node18" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="1317,520,1419,547"/>
+<area shape="rect" id="node26" href="$radio_8c.html#aaaca9764d77849b9d1aeae47e691bf75" title="radio_equalizer" alt="" coords="325,539,435,566"/>
+<area shape="rect" id="node28" href="$radio_8c.html#afb3cb0ce160c3403d9306d936667fb64" title="radio_source_select" alt="" coords="311,590,449,616"/>
+<area shape="rect" id="node29" href="$radio_8c.html#a9dd33606330e2225b425000341cf4688" title="radio_brightness" alt="" coords="321,691,439,718"/>
+<area shape="rect" id="node34" href="$radio_8c.html#aaf3f53dfebe8da71fbe4c457ffda6714" title="radio_contrast" alt="" coords="328,742,432,768"/>
+<area shape="rect" id="node36" href="$radio_8c.html#afce06a210fd84b9acb905e8ab81feaeb" title="radio_volume" alt="" coords="331,640,429,667"/>
+<area shape="rect" id="node27" href="$tpa2016d2_8c.html#a52781315d0f308dba4aee65a749da317" title="Amplifier_set_equalizer_mode" alt="" coords="1069,583,1264,610"/>
+<area shape="rect" id="node30" href="$pca9530_8h.html#a07bd06dbfcb216eedc1969aa04e19b53" title="pca9530_set_pwm" alt="" coords="1101,638,1232,664"/>
+<area shape="rect" id="node31" href="$menu_2menu_8h.html#a5621c1bf312de029f43808bf02dc52e3" title="menu_scroll_settings" alt="" coords="498,716,643,743"/>
+<area shape="rect" id="node32" href="$radio_8h.html#a391fc5fe58716d2c794685bcf12bbda5" title="radio_value_to_string" alt="" coords="692,742,835,768"/>
+<area shape="rect" id="node33" href="$menu_2src_2menu_8c.html#a503ed2007daa6f20b2f748eedbcb8494" title="menu_scroll" alt="" coords="717,792,809,819"/>
+<area shape="rect" id="node35" href="$lcd_8h.html#ab99e48ab8689dcb1205c4c7c97bd9956" title="lcd_contrast" alt="" coords="905,767,999,794"/>
+</map>

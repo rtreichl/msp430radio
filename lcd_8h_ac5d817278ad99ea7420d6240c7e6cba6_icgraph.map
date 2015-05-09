@@ -1,0 +1,6 @@
+<map id="lcd_generatechar" name="lcd_generatechar">
+<area shape="rect" id="node2" href="$lcd_8c.html#a6b9abf6cd27026b67144523ffbef4916" title="lcd_generatebargraph" alt="" coords="175,5,321,32"/>
+<area shape="rect" id="node3" href="$lcd_8c.html#a312eed1baec275e185dc00b760de1356" title="lcd_init" alt="" coords="369,5,432,32"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="480,5,555,32"/>
+<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="603,5,653,32"/>
+</map>

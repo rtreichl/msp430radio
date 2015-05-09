@@ -1,0 +1,20 @@
+<map id="si4735_get_interrupt" name="si4735_get_interrupt">
+<area shape="rect" id="node2" href="$si4735_8c.html#af82ec28b536b1258ea4178108c61d5e9" title="si4735_fm_tune_freq" alt="" coords="404,237,545,264"/>
+<area shape="rect" id="node3" href="$si4735_8c.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="618,136,709,162"/>
+<area shape="rect" id="node12" href="$si4735_8c.html#aadc29a91f13cd5ebe239b23c7e5370dc" title="si4735_set_property" alt="" coords="197,85,336,112"/>
+<area shape="rect" id="node17" href="$si4735_8c.html#a339846da787fb5a496df9252ca7dc9a5" title="si4735_fm_seek_start" alt="" coords="192,288,341,314"/>
+<area shape="rect" id="node7" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="Tune the frequency. " alt="" coords="608,186,719,213"/>
+<area shape="rect" id="node4" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="805,186,879,213"/>
+<area shape="rect" id="node6" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="787,85,897,112"/>
+<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="1023,186,1074,213"/>
+<area shape="rect" id="node8" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="799,136,885,162"/>
+<area shape="rect" id="node9" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="775,237,909,264"/>
+<area shape="rect" id="node10" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="965,237,1132,264"/>
+<area shape="rect" id="node11" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="974,288,1123,314"/>
+<area shape="rect" id="node13" href="$si4735_8c.html#a6f18c3d05bcb57296aad95c0be535f73" title="si4735_configure_rds" alt="" coords="403,34,547,61"/>
+<area shape="rect" id="node14" href="$si4735_8c.html#af6037be0045d62ab73bf8e6c3802bd8e" title="si4735_configure_seeking" alt="" coords="389,85,560,112"/>
+<area shape="rect" id="node15" href="$radio_8c.html#ae11dbe9ea82d3ae65b6e80a4e6e995f8" title="Set the volume. " alt="" coords="615,85,712,112"/>
+<area shape="rect" id="node16" href="$radio__settings_8c.html#aba6a09ed7091ec65d2cbf4cd9a9a75f4" title="Sets the volume. " alt="" coords="767,34,917,61"/>
+<area shape="rect" id="node18" href="$radio_8c.html#aee6321b512830d482a2fc164cf11f9e9" title="Seeking all radio channels. " alt="" coords="612,288,715,314"/>
+<area shape="rect" id="node19" href="$radio_8c.html#ac96da2886aec92b299b27b500761564c" title="Auto Search for radio stations. " alt="" coords="778,338,906,365"/>
+</map>

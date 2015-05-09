@@ -1,0 +1,11 @@
+<map id="si4735_fm_tune_freq" name="si4735_fm_tune_freq">
+<area shape="rect" id="node2" href="$si4735_8c.html#a876518b974a7128391e2ff86a597218f" title="SI4735_INIT" alt="" coords="205,31,295,57"/>
+<area shape="rect" id="node6" href="$radio_8c.html#a6d652e9d0f1c54bfe9ec73fe2605b706" title="Tune the frequency. " alt="" coords="195,81,305,108"/>
+<area shape="rect" id="node3" href="$radio_8c.html#a3a1de7e31aabba6e408a633c130e618a" title="Initiales the radio. " alt="" coords="383,5,458,32"/>
+<area shape="rect" id="node5" href="$radio_8c.html#a5d08cbff96aee4274e785b49a98f14cd" title="Turn radio to standby. " alt="" coords="365,56,476,83"/>
+<area shape="rect" id="node4" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="Main function. " alt="" coords="594,5,645,32"/>
+<area shape="rect" id="node7" href="$radio_8c.html#a841443a7db6e1c9caef95f3b7af5761f" title="Radio main. " alt="" coords="378,107,463,133"/>
+<area shape="rect" id="node8" href="$station__list_8h.html#a14396edaefab23c83e16fea65cc5db9d" title="Handler to select the current station. " alt="" coords="353,157,488,184"/>
+<area shape="rect" id="node9" href="$radio__settings_8c.html#ab424f802ddd3a0570afec524d4f2091b" title="Sets the frequency. " alt="" coords="536,183,703,209"/>
+<area shape="rect" id="node10" href="$radio__settings_8c.html#a90d48a01d9b0ad794fb9416a2ce8f85e" title="Seeks the next station/all available. " alt="" coords="545,132,694,159"/>
+</map>

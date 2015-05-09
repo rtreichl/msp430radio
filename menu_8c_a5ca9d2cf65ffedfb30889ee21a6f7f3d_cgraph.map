@@ -1,0 +1,10 @@
+<map id="menu_display" name="menu_display">
+<area shape="rect" id="node2" href="$lcd_8h.html#acd63fb85d212730fa4fcbcbeeccd231e" title="lcd_create_view" alt="" coords="156,31,269,57"/>
+<area shape="rect" id="node3" href="$lcd_8c.html#a2a4df97ebc5b396233aa31765228ef42" title="lcd_set_courser" alt="" coords="317,5,432,32"/>
+<area shape="rect" id="node9" href="$lcd_8c.html#aa6e1aa2ef9b677e16d8198df683429ec" title="lcd_write_string" alt="" coords="480,56,592,83"/>
+<area shape="rect" id="node4" href="$lcd_8c.html#a250728451a22259562d3f01a12bbd77b" title="lcd_command" alt="" coords="485,5,587,32"/>
+<area shape="rect" id="node5" href="$i2c_8h.html#a6691e5911f539e1e8178c6e983e8079a" title="Transmits I2C commands with a variable length to a I2C slave. " alt="" coords="640,56,736,83"/>
+<area shape="rect" id="node8" href="$timer_8c.html#a276d5cb665b9f8b2c79e53e2f2c5b4f0" title="_delay_ms" alt="" coords="789,5,874,32"/>
+<area shape="rect" id="node6" href="$i2c_8c.html#ae0625b97d3437bcaca4ac4b96dd01978" title="Transmits I2C command array to a I2C slave. " alt="" coords="784,56,879,83"/>
+<area shape="rect" id="node7" href="$timer_8c.html#a3c56af3315c2461dec5ced585a5f84db" title="_delay_ten_us" alt="" coords="927,31,1033,57"/>
+</map>
