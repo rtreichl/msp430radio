@@ -108,7 +108,7 @@ uint8_t menu_scroll(uint8_t value)
 		lcd_create_view(string, 1 + i, 2, 0, 0);
 	}
 	i++;
-	for(i = i; i <= 12; i++) {
+	for(; i <= 12; i++) {
 		lcd_create_view("\0", 1 + i, 2, 0, 0);
 	}
 	lcd_create_view(" +", 14, 2, 0, 0);
