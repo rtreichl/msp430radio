@@ -15,6 +15,8 @@
 
 RADIO radio;
 
+volatile uint8_t radio_button = 0;
+
 void rds_update(RADIO *radio);
 
 const PCA9530 pca9530_config = {
@@ -264,7 +266,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 	if(*encoder_left_button == BUTTON_LONG)
 	{
 		*encoder_left_button = BUTTON_FREE;
-		//radio_standby
+		radio_stand_by();
 	}
 
 	if(radio.settings.ta_tp == 1 && radio.rds.ta == 1 && radio.rds.tp == 1 && radio.status.volume_ta == 0) {
@@ -561,23 +563,32 @@ uint8_t radio_factory_state()
 uint8_t radio_stand_by()
 {
 	tpa2016d2_powermode(TPA2016D2_SHUTDOWN);
-	si4735_shutdown();
+	//si4735_power_down();
 	//TODO store actuall freqency
 	//TODO store actuall volume
 	lcd_create_view(0, 0, 0, 0, 2);
 	radio_brightness(0);
 	//TODO enable interrupt for left button
+	ext_interrupt_create(EN1_TAST_INT, radio_left_button_interrupt);
+	ext_interrupt_enable(EN1_TAST_INT);
 	//TODO reconfig one timer with ACLK to cause an interrupt all minute
-	//while(/* TODO checkfor left encoder button interrupt */) {
-		_BIS_SR(LPM3_bits + GIE);
-	//}
+	radio_button = 0;
+	while(radio_button != 2) {
+		//_BIS_SR(LPM3_bits + GIE);
+	}
+	ext_interrupt_disable(EN1_TAST_INT);
 	//TODO go to lpm mode where ACLK is active
 	//TODO wait until button is pressed
 	//TODO reconfig timer to old state
 	tpa2016d2_powermode(TPA2016D2_POWERUP);
-	SI4735_INIT();
+	//SI4735_INIT();
 	radio_volume(radio.settings.volume);
 	radio_tune_freq(radio.settings.frequency);
 	radio_brightness(radio.settings.brightness);
 	return 0;
+}
+
+void radio_left_button_interrupt()
+{
+	radio_button += 1;
 }
