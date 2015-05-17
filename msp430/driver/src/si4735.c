@@ -20,14 +20,21 @@ void si4735_get_interrupt(uint8_t int_number);
 #define SI4735_volume 5 		// Maximalwert für die Lautstärke
 #define SI4735_volume_start  20 // Startlautstärke
 
-void SI4735_Power_Up (void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
+uint8_t si4735_power_up(uint8_t mode)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
 {
-	i2c_write_var(I2C_SI4735, STOP, 3, 0x01, 0xD0, 0x05);
+	i2c_write_var(I2C_SI4735, STOP, 3,  0x01, 0xD0, 0x05);
+	si4735_get_interrupt(8);
+	return 0;
 }
 
-uint8_t si4735_shutdown(void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
+uint8_t si4735_power_down(void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
 {
 	i2c_write_var(I2C_SI4735, STOP, 1, 0x11);
+
+	SI_RST_OUT &= ~SI_RST_PIN;
+	SI_EN_OUT |= SI_EN_PIN;
+
+
 	return 0;
 }
 
@@ -204,8 +211,7 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 	ext_interrupt_enable(SI_INT_INT);
 
 	/* Power_up FM mode */
-	i2c_write_var(I2C_SI4735, STOP, 3,  0x01, 0xD0, 0x05);
-	si4735_get_interrupt(8);
+	si4735_power_up(0);
 
 	/*activate and setting refclk to 32.768 kHz */
 	si4735_set_property(REFCLK_FREQ, 0x8000);
