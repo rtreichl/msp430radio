@@ -213,7 +213,6 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		else if(*encoder_right_count > 0 && radio.settings.volume < RADIO_VOLUME_MAX) {
 			radio.settings.volume += RADIO_VOLUME_STEP;
 		}
-		radio_volume(radio.settings.volume);
 		if(radio.status.audio_status == AUDIO_MUTE) {
 			tpa2016d2_muting(TPA2016D2_OUTPUT);
 		}
@@ -221,6 +220,7 @@ uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uin
 		tmp_value = radio.settings.volume;
 		blend_scroll = 1;
 		*encoder_right_count = 0;
+		radio_volume(radio.settings.volume);
 	}
 
 	if(*encoder_left_count != 0) {
