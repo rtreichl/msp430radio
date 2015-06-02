@@ -9,27 +9,10 @@
 #define RADIO_NEW_H_
 
 #include <stdint.h>
-#include <driver/pca9530.h>
-#include <libs/log_exp_table.h>
-#include <driver/si4735.h>
-#include <driver/include/si4735_cmd_prop.h>
-#include <driver/external_interrupthandler.h>
-#include <driver/tpa2016d2.h>
-#include <driver/lcd.h>
-#include <driver/flash.h>
-#include <driver/timer.h>
-#include <driver/encoder.h>
-#include <menu/lang/language.h>
-#include <menu/menu.h>
 #include <settings/radio_configuration.h>
-#include <system/station_list.h>
-#include <radio/radio_display.h>
-#include <radio/radio_settings.h>
+#include <driver/driver.h>
+#include <menu/menu.h>
 
-#include <libs/string.h>
-#include <driver/opt3001.h>
-//#include <system/rds.h>
-#include <system/time.h>
 
 //----------------------------------------------------------------------------------------
 //
@@ -37,20 +20,12 @@
 //
 //----------------------------------------------------------------------------------------
 
-#define RADIO_RDS_VIEW 0
-#define RADIO_RSQ_VIEW 1
-#define RADIO_PIPTY_VIEW 2
-#define VALID 1
-#define NOT_VALID 0
-#define SOURCE_FM 0
-#define SOURCE_AM 1
-#define SOURCE_LINEIN 2
-
-#define RADIO_STORE_VALUE 1
-
-#define AUDIO_NORMAL	0
-#define AUDIO_MUTE		1
-#define AUDIO_VOLUME	2
+#define RADIO_VALID 		1
+#define RADIO_NOT_VALID 	0
+#define RADIO_STORE_VALUE	1
+#define RADIO_AUDIO_NORMAL	0
+#define RADIO_AUDIO_MUTE	1
+#define RADIO_AUDIO_VOLUME	2
 
 //----------------------------------------------------------------------------------------
 //
@@ -127,7 +102,6 @@ extern RADIO radio;
 //----------------------------------------------------------------------------------------
 
 uint8_t radio_volume(int8_t volume);
-uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 uint16_t radio_seeking(uint8_t up_down);
 uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
 uint8_t radio_init();

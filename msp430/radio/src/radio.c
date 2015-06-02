@@ -6,6 +6,12 @@
  */
 
 #include <radio/radio.h>
+#include <system/station_list.h>
+#include <system/time.h>
+#include <radio/radio_display.h>
+#include <radio/radio_settings.h>
+#include <libs/log_exp_table.h>
+#include <libs/string.h>
 
 //----------------------------------------------------------------------------------------
 //
@@ -64,7 +70,7 @@ uint8_t radio_init()
 	radio_load_settings();
 	pca9530_init(&pca9530_config);
 	radio_brightness(radio.settings.brightness);
-	radio_settings_source(0, 0, 0, 0, 0);
+	//radio_settings_source(0, 0, 0, 0, 0);
 	lcd_init(radio.settings.contrast);
 	lcd_create_view(startup_line_1, 2, 0, 0, 0);
 	lcd_create_view(startup_line_2, 2, 1, 0, 0);
@@ -382,7 +388,7 @@ uint16_t radio_seeking(uint8_t up_down)
 uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos)
 {
 	char tmp_string[8];
-	if(radio.status.name_valid != VALID) {
+	if(radio.status.name_valid != RADIO_VALID) {
 		string_fixedpoint_to_array(tmp_string, *freq);
 		tmp_string[5] = 'M';
 		tmp_string[6] = 'H';
@@ -464,7 +470,7 @@ uint8_t radio_auto_search()
 		do {
 			_delay_ms(2);
 			rds_update(&radio);
-		}while(radio.status.name_valid != VALID && try_rds++ < 3000);
+		}while(radio.status.name_valid != RADIO_VALID && try_rds++ < 3000);
 		try_rds = 0;
 		radio_store_station(&(radio.settings.frequency), radio.rds.name, station);
 		station++;

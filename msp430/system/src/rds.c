@@ -38,7 +38,7 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 		rds_station_count = 0;
 		radio->status.name_valid = 0;
 		radio->status.text_valid = 0;
-		radio->status.freq_valid = VALID;
+		radio->status.freq_valid = RADIO_VALID;
 	}
 
 	//TODO: replace 0x04 with macro
@@ -65,7 +65,7 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 					if(++rds_text_count == 16)
 					{
 						rds_text_count = 0;
-						radio->status.text_valid = VALID;
+						radio->status.text_valid = RADIO_VALID;
 					}
 					radio->rds.text[pos++] = rds2->SEGMENT[1];
 					radio->rds.text[pos++] = rds2->SEGMENT[0];
@@ -100,7 +100,7 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 					if(++rds_station_count == 4)
 					{
 						rds_station_count = 0;
-						radio->status.name_valid = VALID;
+						radio->status.name_valid = RADIO_VALID;
 					}
 				}
 			}
