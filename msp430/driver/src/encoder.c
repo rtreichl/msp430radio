@@ -26,7 +26,7 @@ volatile int16_t count_button_2 = 0;
 
 #ifdef ENCODER_1
 
-int16_t encoder_1_update(int8_t *count, uint8_t **button)
+int16_t encoder_1_update(ENCODER *encoder)
 {
 	static uint16_t tmp_count_1 = 0x8000;						//Set a start Value in the Middle of Range
 	uint16_t tmp_en = encoder_1_count;							//Save encoder_2_count if there is a break form a Interrupt
@@ -42,8 +42,8 @@ int16_t encoder_1_update(int8_t *count, uint8_t **button)
 	}
 	int16_t diff = tmp_en_t - tmp_t;									//make the difference of act. and last Value
 	tmp_count_1 = tmp_en;											//save act. Value as last Value
-	*count += diff;
-	*button = (uint8_t *)&encoder_1_button;
+	encoder->count += diff;
+	encoder->button = (uint8_t *)&encoder_1_button;
 	return 0;													//give difference back
 }
 
@@ -114,7 +114,7 @@ void Encoder_1_init(void)
 
 #ifdef ENCODER_2
 
-int16_t encoder_2_update(int8_t *count, uint8_t **button)
+int16_t encoder_2_update(ENCODER *encoder)
 {
 	static uint16_t tmp_count_2 = 0x8000;						//Set a start Value in the Middle of Range
 	uint16_t tmp_en = encoder_2_count;							//Save encoder_2_count if there is a break form a Interrupt
@@ -130,8 +130,8 @@ int16_t encoder_2_update(int8_t *count, uint8_t **button)
 	}
 	int16_t diff = tmp_en_t - tmp_t;									//make the difference of act. and last Value
 	tmp_count_2 = tmp_en;											//save act. Value as last Value
-	*count += diff;
-	*button = (uint8_t *)&encoder_2_button;
+	encoder->count += diff;
+	encoder->button = (uint8_t *)&encoder_2_button;
 	return 0;													//give difference back
 }
 

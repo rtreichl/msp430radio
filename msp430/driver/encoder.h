@@ -8,11 +8,16 @@
 #ifndef ENCODER_H_
 #define ENCODER_H_
 
-#include <stdint.h>
 #include <msp430.h>
+#include <stdint.h>
 #include <settings\radio_pin_mapping.h>
 #include <settings\radio_configuration.h>
 #include <driver/external_interrupthandler.h>
+
+typedef struct {
+	uint8_t *button;
+	int8_t count;
+} ENCODER;
 
 void Encoder_Timer_init(void);
 #define TIME_FOR_LONG_PRESS 150
@@ -40,7 +45,7 @@ void encoder_interrupt2(void);
 //Functions from Encoder 1
 void Encoder_1_init(void); 		//Initiation from Encoder 1
 void Encoder_1_decoder(void);	//Decoder from Encoder 1
-int16_t encoder_1_update(int8_t *count, uint8_t **button);
+int16_t encoder_1_update(ENCODER *encoder);
 
 #endif // ENCODER_1
 
@@ -62,7 +67,7 @@ int16_t encoder_1_update(int8_t *count, uint8_t **button);
 //Functions from Encoder 2
 void Encoder_2_init(void); 		//Initiation from Encoder 2
 void Encoder_2_decoder(void);	//Decoder from Encoder 2
-int16_t encoder_2_update(int8_t *count, uint8_t **button);
+int16_t encoder_2_update(ENCODER *encoder);
 
 #endif //ENCODER_2
 
