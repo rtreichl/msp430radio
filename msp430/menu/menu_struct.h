@@ -2,23 +2,14 @@
 #define _MENU_STRUCT_H_
 
 #include <menu/menu.h>
+#include <menu/lang/language.h>
+#include <radio/radio_setting_view.h>
 
 //----------------------------------------------------------------------------------------
 //
 /// \brief Definition of some important values
 //
 //----------------------------------------------------------------------------------------
-
-
-typedef const struct menu_entry {
-	const struct menu_entry *child;
-	const struct menu_entry *parent;
-	const struct menu_entry *next;
-	const struct menu_entry *previous;
-	const char *text;
-	const uint16_t entry_num;
-	const MENU_FUNC_PTR func;
-} MENU_ENTRY;
 
 extern MENU_ENTRY main_long_entry;
 extern MENU_ENTRY main_short_entry;
