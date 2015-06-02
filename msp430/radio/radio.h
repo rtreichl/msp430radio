@@ -129,7 +129,7 @@ extern RADIO radio;
 uint8_t radio_volume(int8_t volume);
 uint8_t radio_settings(uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
 uint16_t radio_seeking(uint8_t up_down);
-uint8_t radio_main(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
+uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
 uint8_t radio_init();
 uint8_t radio_tune_freq(uint16_t freq);
 uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos);

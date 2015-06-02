@@ -27,15 +27,15 @@
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t radio_settings_brightness(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_contrast(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_source(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_equalizer(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_volume(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_frequency(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_view(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_station(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_tatp(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
-uint8_t radio_settings_reset(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num);
+uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_contrast(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_source(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_equalizer(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_volume(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_frequency(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_view(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_station(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_tatp(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
+uint8_t radio_settings_reset(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
 
 #endif /* SYSTEM_RADIO_SETTINGS_H_ */

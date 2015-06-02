@@ -42,12 +42,11 @@
 
 void handler (void)
 {
-	uint8_t *encoder_left_button, *encoder_right_button;
-	int8_t encoder_left_count = 0, encoder_right_count = 0;
+	ENCODER encoder_left, encoder_right;
 	while(1) {
-		encoder_1_update(&encoder_left_count, &encoder_left_button);
-		encoder_2_update(&encoder_right_count, &encoder_right_button);
-		if(*encoder_left_button != BUTTON_FREE || encoder_left_count != 0 || *encoder_right_button != BUTTON_FREE || encoder_right_count != 0 || timer_count[RADIO_TIMER_DISPLAY] >= RADIO_COUNT_DISPLAY) {
+		encoder_1_update(&encoder_left);
+		encoder_2_update(&encoder_right);
+		if(*encoder_left.button != BUTTON_FREE || encoder_left.count != 0 || *encoder_right.button != BUTTON_FREE || encoder_right.count != 0 || timer_count[RADIO_TIMER_DISPLAY] >= RADIO_COUNT_DISPLAY) {
 			if(timer_count[RADIO_TIMER_DISPLAY] >= RADIO_COUNT_DISPLAY) {
 				radio.status.scroll_text++;
 				if(radio.status.scroll_text == 78) {
@@ -55,7 +54,7 @@ void handler (void)
 				}
 			}
 			timer_count[RADIO_TIMER_DISPLAY] = 0;
-			menu_handler(encoder_left_button, &encoder_left_count, encoder_right_button, &encoder_right_count);
+			menu_handler(&encoder_left, &encoder_right);
 		}
 		if(timer_count[RADIO_TIMER_ENCODER] >= RADIO_COUNT_ENCODER) {
 			timer_count[RADIO_TIMER_ENCODER] -= RADIO_COUNT_ENCODER;

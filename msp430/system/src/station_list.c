@@ -6,6 +6,7 @@
  */
 
 #include <system/station_list.h>
+#include <system/station_list_struct.h>
 
 STATION_LIST *actuall_station = &station_1;
 
@@ -30,32 +31,32 @@ STATION_LIST *actuall_station = &station_1;
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count, uint8_t entry_num)
+uint8_t station_list_handler(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
-	if (*encoder_right_count != 0) {
-		if(*encoder_right_count > 0) {
+	if (encoder_right->count != 0) {
+		if(encoder_right->count > 0) {
 			if (actuall_station->next != 0) {
 				actuall_station = actuall_station->next;
 			}
 		}
-		if (*encoder_right_count < 0) {
+		if (encoder_right->count < 0) {
 			if (actuall_station->previous != 0) {
 				actuall_station = actuall_station->previous;
 			}
 		}
-		*encoder_right_count = 0;
+		encoder_right->count = 0;
 	}
-	if(*encoder_right_button == BUTTON_SHORT) {
+	if(*encoder_right->button == BUTTON_SHORT) {
 		if(*(actuall_station->freq) >= RADIO_BOT_FREQ) {
-			switch(entry_num) {
-			case STORE_STATION:
+			switch(menu->y) {
+			case MENU_FOURTH_ENTRY:
 				radio_store_station(&(radio.settings.frequency), radio.rds.name, actuall_station->entry_num - 1);
 				return SHORT_UP_TO_PARENT;
-			case STATION_VIEW:
+			case MENU_FIRST_ENTRY:
 				radio.settings.frequency = *(actuall_station->freq);
 				radio_tune_freq(*(actuall_station->freq));
 				return SHORT_UP_TO_PARENT;
-			case MENU_FREQ_CHOOSE_ENTRY:
+			case MENU_THIRD_ENTRY:
 				radio.settings.frequency = *(actuall_station->freq);
 				radio_store_settings(1, 0);
 				return SHORT_UP_TO_PARENT;
@@ -65,11 +66,11 @@ uint8_t station_list_handler(uint8_t *encoder_left_button, int8_t *encoder_left_
 		return SHORT_UP_TO_CHILD;
 	}
 
-	if(*encoder_left_button == BUTTON_SHORT) {
+	if(*encoder_left->button == BUTTON_SHORT) {
 		return SHORT_UP_TO_CHILD;
 	}
 
-	station_list_display(entry_num);
+	station_list_display(menu->y);
 	return 0;
 }
 
@@ -95,7 +96,7 @@ uint8_t station_list_display(uint8_t action)
 	if (actuall_station->previous != 0) {
 		lcd_create_view(actuall_station->previous->text, 1, 0, 8, 0);
 	}
-	else if(action == STATION_VIEW) {
+	else if(action == MENU_FIRST_ENTRY) {
 		lcd_create_view(choose_text, 0, 0, 0, 0);
 	}
 	else {
