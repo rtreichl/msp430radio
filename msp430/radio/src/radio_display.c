@@ -6,6 +6,9 @@
  */
 
 #include <radio/radio_display.h>
+#include <radio/radio_settings.h>
+#include <libs/string.h>
+#include <system/time.h>
 
 //----------------------------------------------------------------------------------------
 //
@@ -23,10 +26,10 @@ uint8_t radio_display_speaker()
 {
 	char tmp_string[9];
 	switch (radio.status.audio_status) {
-	case AUDIO_MUTE:
+	case RADIO_AUDIO_MUTE:
 		lcd_create_view("\7÷", 0, 1, 0, 0);
 		break;
-	case AUDIO_VOLUME:
+	case RADIO_AUDIO_VOLUME:
 		string_int_to_array(tmp_string, radio.settings.volume, 3, 10);
 		lcd_create_view(tmp_string, 1, 1, 0, 0);
 		lcd_create_view("%", 4, 1, 0, 0);
@@ -55,7 +58,7 @@ uint8_t radio_display_speaker()
 uint8_t radio_display_rds()
 {
 	char tmp_string[9];
-	if(radio.status.text_valid == VALID)
+	if(radio.status.text_valid == RADIO_VALID)
 	if(radio.status.scroll_text < 15) {
 		lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text + 1, 0);
 	}
@@ -138,18 +141,18 @@ uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 {
 	char tmp_string[9];
 	switch(radio.settings.display_view) {
-	case RADIO_RDS_VIEW:
+	case RADIO_SETTINGS_RDS_VIEW:
 		radio_display_rds();
 		break;
-	case RADIO_RSQ_VIEW:
+	case RADIO_SETTINGS_RSQ_VIEW:
 		radio_display_rsq();
 		break;
-	case RADIO_PIPTY_VIEW:
+	case RADIO_SETTINGS_PIPTY_VIEW:
 		radio_display_pipty();
 		break;
 	}
 
-	if(radio.status.name_valid == VALID) {
+	if(radio.status.name_valid == RADIO_VALID) {
 		lcd_create_view(radio.rds.name, 0, 0, 0, 0);
 	}
 	else {
@@ -162,7 +165,7 @@ uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 		menu_scroll(value);
 	}
 
-	if(radio.settings.ta_tp == 1) {
+	if(radio.settings.ta_tp == RADIO_SETTINGS_TA_TP_ON) {
 		if(radio.status.volume_ta == 1) {
 			if(radio.status.scroll_text % 2 == 0) {
 				lcd_create_view("\020", 6, 1, 0, 0);
