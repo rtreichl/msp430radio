@@ -6,6 +6,8 @@
 */
 
 #include <menu/menu.h>
+#include <radio/radio.h>
+#include <libs/string.h>
 
 //----------------------------------------------------------------------------------------
 //
@@ -13,8 +15,11 @@
 //
 //----------------------------------------------------------------------------------------
 
+#define MENU_NO_FUNC_ENTRY 0
+
 MENU_ENTRY *actuall_entry = &main_long_entry;
 MENU_FUNC_PTR actuall_func = &radio_main;
+MENU_STC menu = {0, 0, 0, 0};
 
 //----------------------------------------------------------------------------------------
 //
@@ -28,8 +33,13 @@ MENU_FUNC_PTR actuall_func = &radio_main;
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t menu_display()
+uint8_t menu_display(ENCODER *encoder_left, ENCODER *encoder_right)
 {
+	if(actuall_entry->parent->func != 0 && actuall_entry->child == 0) {
+		if(actuall_entry->parent->func != &radio_main) {
+			actuall_entry->parent->func(encoder_left, encoder_right, &menu);
+		}
+	}
 	if (actuall_func == MENU_NO_FUNC_ENTRY) {
 		if (actuall_entry->previous != 0) {
 			lcd_create_view(actuall_entry->previous->text, 1, 0, 0, 0);
@@ -37,7 +47,6 @@ uint8_t menu_display()
 		else {
 			lcd_create_view(actuall_entry->parent->text, 0, 0, 0, 0);
 		}
-		//lcd_create_view("~", 0, 1, 0, 0);
 		lcd_create_view(actuall_entry->text, 1, 1, 0, 0);
 		if (actuall_entry->next != 0) {
 			lcd_create_view(actuall_entry->next->text, 1, 2, 0, 0);
@@ -148,84 +157,105 @@ uint8_t menu_encoder_range(int8_t *encoder_right_count, uint8_t *controll, uint8
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
+uint8_t menu_handler(ENCODER *encoder_left, ENCODER *encoder_right)
 {
 	if (actuall_func == MENU_NO_FUNC_ENTRY) {
-		*encoder_left_count = 0;
+		encoder_left->count = 0;
 
-		if (*encoder_right_button == BUTTON_SHORT) {
+		if (*encoder_right->button == BUTTON_SHORT) {
 			if (actuall_entry->child != 0) {
+				if(actuall_entry->child == actuall_entry->parent) {
+					menu.y = menu.old_y;
+					menu.x--;
+				}
+				else {
+					menu.old_y = menu.y;
+					menu.x++;
+					menu.y = 0;
+				}
 				actuall_entry = actuall_entry->child;
 				if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
 					actuall_func = actuall_entry->func;
-					*encoder_right_button = BUTTON_FREE;
-					actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
+					*encoder_right->button = BUTTON_FREE;
+					actuall_func(encoder_left, encoder_right, &menu);
+					menu.x--;
 					return 0;
 				}
 			}
 			else if (actuall_entry->func != 0) {
 				actuall_func = actuall_entry->func;
-				*encoder_right_button = BUTTON_FREE;
-				menu_handler(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
+				*encoder_right->button = BUTTON_FREE;
+				menu_handler(encoder_left, encoder_right);
 				return 0;
 			}
-			*encoder_right_button = BUTTON_FREE;
+			*encoder_right->button = BUTTON_FREE;
 		}
 
-		if(*encoder_left_button == BUTTON_SHORT) {
+		if(*encoder_left->button == BUTTON_SHORT) {
 			if(actuall_entry->parent != 0) {
 				actuall_entry = actuall_entry->parent;
+				menu.y = menu.old_y;
+				menu.x--;
 				if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
 					actuall_func = actuall_entry->func;
-					*encoder_left_button = BUTTON_FREE;
-					actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
+					*encoder_left->button = BUTTON_FREE;
+					actuall_func(encoder_left, encoder_right, &menu);
 					return 0;
 				}
 			}
-			*encoder_left_button = BUTTON_FREE;
+			*encoder_left->button = BUTTON_FREE;
 		}
 
-		if (*encoder_right_count != 0) {
-			if(*encoder_right_count > 0) {
+		if (encoder_right->count != 0) {
+			if(encoder_right->count > 0) {
 				if (actuall_entry->next != 0) {
+					menu.y++;
 					actuall_entry = actuall_entry->next;
 				}
 			}
-			if (*encoder_right_count < 0) {
+			if (encoder_right->count < 0) {
 				if (actuall_entry->previous != 0) {
+					menu.y--;
 					actuall_entry = actuall_entry->previous;
 				}
 			}
-			*encoder_right_count = 0;
+			encoder_right->count = 0;
 		}
-		menu_display();
+		menu_display(encoder_left, encoder_right);
 	}else {
-		switch(actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num)) {
+		switch(actuall_func(encoder_left, encoder_right, &menu)) {
 		case LONG_INTO_MENU:
 			actuall_entry = menu_long_entry;
 			actuall_func = MENU_NO_FUNC_ENTRY;
-			menu_display();
+			menu_display(encoder_left, encoder_right);
+			menu.x++;
+			menu.y = 0;
 			break;
 		case SHORT_INTO_MENU:
 			actuall_entry = menu_short_entry;
 			actuall_func = MENU_NO_FUNC_ENTRY;
-			menu_display();
+			menu_display(encoder_left, encoder_right);
+			menu.x++;
+			menu.y = 0;
 			break;
 		case SHORT_UP_TO_CHILD:
 			actuall_func = MENU_NO_FUNC_ENTRY;
-			menu_display();
+			menu_display(encoder_left, encoder_right);
+			menu.x--;
 			break;
 		case SHORT_UP_TO_PARENT:
 			actuall_func = MENU_NO_FUNC_ENTRY;
 			actuall_entry = actuall_entry->parent;
+			menu.y = menu.old_y;
+			menu.x -= 2;
 			if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
 				actuall_func = actuall_entry->func;
-				actuall_func(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count, actuall_entry->entry_num);
+				actuall_func(encoder_left, encoder_right, &menu);
 				//timer_count[4] += 500;
 				//menu_function(0, 0, 0, 0);
 				return 0;
 			}
-			menu_display();
+			menu_display(encoder_left, encoder_right);
 			break;
 		}
 	}
