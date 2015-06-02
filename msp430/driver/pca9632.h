@@ -42,7 +42,7 @@ enum PCA9632_LEDOUT_STATE {
 	PCA9632_LED_GRPPWM
 };
 
-typedef struct pca9632_mode1 {
+/*typedef struct pca9632_mode1 {
 	uint8_t AI:3;
 	uint8_t SLEEP:1;
 	uint8_t SUB1:1;
@@ -70,6 +70,6 @@ typedef struct pca9632_ledout {
 typedef struct pca9632_subadr {
 	uint8_t ADR:7;
 	uint8_t :1;
-} PCA9632_SUBADR;
+} PCA9632_SUBADR;*/
 
 #endif /* DRIVER_PCA9632_H_ */
