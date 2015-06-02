@@ -46,6 +46,7 @@
 #define MENU_FREQ_CHOOSE 28
 #define MENU_RESET_NO 29
 #define MENU_RESET_YES 30
+typedef uint8_t (*MENU_FUNC_PTR)(ENCODER *, ENCODER *, MENU_STC *);
 
 #define LONG_INTO_MENU 0xFF
 #define SHORT_INTO_MENU 0xFE
@@ -63,9 +64,9 @@
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t menu_handler(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
+uint8_t menu_handler(ENCODER *encoder_left, ENCODER *encoder_right);
 uint8_t menu_scroll(uint8_t value);
-uint8_t menu_main(uint8_t *encoder_button, int8_t *encoder_count);
+uint8_t menu_main(ENCODER *encoder);
 uint8_t menu_scroll_settings(uint8_t value);
 //uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 
