@@ -75,7 +75,7 @@ MENU_ENTRY tatp_off_entry = {
 
 MENU_ENTRY tatp_return_entry = {
 	&tatp_entry,
-	0,
+	&tatp_entry,
 	0,
 	&tatp_off_entry,
 	return_text,
@@ -139,7 +139,7 @@ MENU_ENTRY freq_fixed_entry = {
 
 MENU_ENTRY freq_return_entry = {
 	&freq_entry,
-	0,
+	&freq_entry,
 	0,
 	&freq_fixed_entry,
 	return_text,
@@ -148,7 +148,7 @@ MENU_ENTRY freq_return_entry = {
 
 MENU_ENTRY radio_return_entry = {
 	&radio_entry,
-	0,
+	&radio_entry,
 	0,
 	&freq_entry,
 	return_text,
@@ -193,7 +193,7 @@ MENU_ENTRY rsq_entry = {
 
 MENU_ENTRY text_return_entry = {
 	&text_entry,
-	0,
+	&text_entry,
 	0,
 	&rsq_entry,
 	return_text,
@@ -238,7 +238,7 @@ MENU_ENTRY brightness_auto_entry = {
 
 MENU_ENTRY brightness_return_entry = {
 	&brightness_entry,
-	0,
+	&brightness_entry,
 	0,
 	&brightness_auto_entry,
 	return_text,
@@ -310,7 +310,7 @@ MENU_ENTRY news_entry = {
 
 MENU_ENTRY audio_return_entry = {
 	&audio_entry,
-	0,
+	&audio_entry,
 	0,
 	&news_entry,
 	return_text,
@@ -319,7 +319,7 @@ MENU_ENTRY audio_return_entry = {
 
 MENU_ENTRY view_return_entry = {
 	&view_entry,
-	0,
+	&view_entry,
 	0,
 	&brightness_entry,
 	return_text,
@@ -364,7 +364,7 @@ MENU_ENTRY linein_entry = {
 
 MENU_ENTRY source_return_entry = {
 	&source_entry,
-	0,
+	&source_entry,
 	0,
 	&linein_entry,
 	return_text,
@@ -381,7 +381,7 @@ MENU_ENTRY reset_entry = {
 };
 
 MENU_ENTRY reset_no_entry = {
-	0,
+	&reset_entry,
 	&reset_entry,
 	&reset_yes_entry,
 	0,
@@ -400,7 +400,7 @@ MENU_ENTRY reset_yes_entry = {
 
 MENU_ENTRY main_long_return_entry = {
 	&main_long_entry,
-	0,
+	&main_long_entry,
 	0,
 	&reset_entry,
 	return_text,
@@ -454,7 +454,7 @@ MENU_ENTRY auto_search_entry = {
 
 MENU_ENTRY main_short_return_entry = {
 	&main_short_entry,
-	0,
+	&main_short_entry,
 	0,
 	&auto_search_entry,
 	return_text,
