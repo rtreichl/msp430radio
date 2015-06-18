@@ -194,45 +194,35 @@ void Encoder_2_init(void)
 
 #endif	//ENCODER_2
 
-//#pragma vector=TIMER0_A0_VECTOR
-//__interrupt void Timer_A0(void)
 void encoder_interrupt2(void)
 {
-	if((EN1_TAST_IN & EN1_TAST_PIN) == 0)
-         {
-        	 if(count_button_1++ >= TIME_FOR_LONG_PRESS)
-        	 {
-        	 	 encoder_1_button = BUTTON_LONG;
-        	 	 encoder_1_state = BUTTON_LONG;
-        	 }
-         }
-         else
-         {
-        	 if(count_button_1 != 0 && count_button_1 < TIME_FOR_LONG_PRESS)
-        	 {
-        		 encoder_1_button = BUTTON_SHORT;
-        		 encoder_1_state = BUTTON_SHORT;
-        	 }
-        	 count_button_1 = 0;
-         }
-         if((EN2_TAST_IN & EN2_TAST_PIN) == 0)
-         {
-        	 if(count_button_2++ >= TIME_FOR_LONG_PRESS)
-        	 {
-        		 encoder_2_button = BUTTON_LONG;
-        		 encoder_2_state = BUTTON_LONG;
-        	 }
-         }
-         else
-         {
-        	 if(count_button_2 != 0 && count_button_2 < TIME_FOR_LONG_PRESS)
-        	 {
-        		 encoder_2_button = BUTTON_SHORT;
-        		 encoder_2_state = BUTTON_SHORT;
-        	 }
-        	 count_button_2 = 0;
-         }
+	if((EN1_TAST_IN & EN1_TAST_PIN) == 0) {
+		if(count_button_1++ >= TIME_FOR_LONG_PRESS) {
+			encoder_1_button = BUTTON_LONG;
+			encoder_1_state = BUTTON_LONG;
+		}
+	}
+	else {
+		if(count_button_1 != 0 && count_button_1 < TIME_FOR_LONG_PRESS) {
+			encoder_1_button = BUTTON_SHORT;
+			encoder_1_state = BUTTON_SHORT;
+		}
+		count_button_1 = 0;
+	}
 
+	if((EN2_TAST_IN & EN2_TAST_PIN) == 0) {
+		if(count_button_2++ >= TIME_FOR_LONG_PRESS) {
+			encoder_2_button = BUTTON_LONG;
+        	encoder_2_state = BUTTON_LONG;
+        }
+	}
+    else {
+    	if(count_button_2 != 0 && count_button_2 < TIME_FOR_LONG_PRESS) {
+    		encoder_2_button = BUTTON_SHORT;
+        	encoder_2_state = BUTTON_SHORT;
+    	}
+    	count_button_2 = 0;
+    }
 }
 
 void encoder_interrupt(void)
