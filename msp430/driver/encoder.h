@@ -51,7 +51,7 @@ int16_t encoder_1_update(ENCODER *encoder);
 
 #ifdef ENCODER_2	//If Encoder 2 is selected
 
-#define ENCODER_1_ROTARY 0		//Rotary of Encoder 2 := 0 for right and 1 for left
+#define ENCODER_2_ROTARY 0		//Rotary of Encoder 2 := 0 for right and 1 for left
 #define ENCODER_2_PIN	P2IN	//PIN from Encoder 2
 #define ENCODER_2_DIR	P2DIR	//Direction from Encoder 2
 #define ENCODER_2_IFG	P2IFG	//Interrupt Flag from Encoder 2
