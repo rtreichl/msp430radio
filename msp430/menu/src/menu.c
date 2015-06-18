@@ -127,16 +127,48 @@ uint8_t menu_scroll(uint8_t value)
 
 #define MENU_ENCODER_CHANGED 1
 #define MENU_ENCODER_NOP 0
+#define TRUE 1
 
-uint8_t menu_encoder_range(int8_t *encoder_right_count, uint8_t *controll, uint8_t upper_bound, uint8_t lower_bound, uint8_t step)
+
+uint8_t menu_encoder_range(ENCODER *encoder, void *controll, uint8_t bytes, uint16_t upper_bound, uint16_t lower_bound, uint8_t step, uint8_t overflow)
 {
-	if(*encoder_right_count != 0) {
-		if(*encoder_right_count > 0 && *controll < upper_bound) {
-			*controll += step;
+	uint16_t tmp_controll = 0;
+	if(encoder->count != 0) {
+		if(bytes > 1) {
+			tmp_controll = *(uint16_t *)controll;
 		}
-		else if(*encoder_right_count < 0 && *controll > lower_bound) {
-			*controll -= step;
+		else {
+			tmp_controll = *(uint8_t *)controll;
 		}
+		if(encoder->count > 0) {
+			tmp_controll += step;
+		}
+		else if(encoder->count < 0) {
+			tmp_controll -= step;
+		}
+		if(tmp_controll > upper_bound) {
+			if(overflow == TRUE) {
+				tmp_controll = lower_bound;
+			}
+			else {
+				tmp_controll = upper_bound;
+			}
+		}
+		else if(tmp_controll < lower_bound) {
+			if(overflow == TRUE) {
+				tmp_controll = upper_bound;
+			}
+			else {
+				tmp_controll = lower_bound;
+			}
+		}
+		if(bytes > 1) {
+			*(uint16_t *)controll = tmp_controll;
+		}
+		else {
+			*(uint8_t *)controll = tmp_controll;
+		}
+		encoder->count = 0;
 		return MENU_ENCODER_CHANGED;
 	}
 	return MENU_ENCODER_NOP;
@@ -251,8 +283,6 @@ uint8_t menu_handler(ENCODER *encoder_left, ENCODER *encoder_right)
 			if(actuall_entry->child == menu_long_entry || actuall_entry->child == menu_short_entry) {
 				actuall_func = actuall_entry->func;
 				actuall_func(encoder_left, encoder_right, &menu);
-				//timer_count[4] += 500;
-				//menu_function(0, 0, 0, 0);
 				return 0;
 			}
 			menu_display(encoder_left, encoder_right);

@@ -12,6 +12,7 @@
 #include <radio/radio_settings.h>
 #include <libs/log_exp_table.h>
 #include <libs/string.h>
+#include <menu/menu.h>
 
 //----------------------------------------------------------------------------------------
 //
@@ -241,46 +242,28 @@ uint8_t radio_volume(int8_t volume)
 //
 //----------------------------------------------------------------------------------------
 
+#define TRUE 1
+#define FALSE 0
+
 uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
 	uint8_t tmp_value = 0;
 	uint8_t blend_scroll = 0;
 
-	if(encoder_right->count != 0) { //move to radio_volume and
-		if(encoder_right->count < 0 && radio.settings.volume > RADIO_VOLUME_MIN) {
-			radio.settings.volume -= RADIO_VOLUME_STEP;
-		}
-		else if(encoder_right->count > 0 && radio.settings.volume < RADIO_VOLUME_MAX) {
-			radio.settings.volume += RADIO_VOLUME_STEP;
-		}
+	if(menu_encoder_range(encoder_right, &(radio.settings.volume), 1, RADIO_VOLUME_MAX, RADIO_VOLUME_MIN, RADIO_VOLUME_STEP, FALSE)) {
 		if(radio.status.audio_status == RADIO_AUDIO_MUTE) {
 			tpa2016d2_muting(TPA2016D2_OUTPUT);
 		}
 		radio.status.audio_status = RADIO_AUDIO_VOLUME;
 		tmp_value = radio.settings.volume;
 		blend_scroll = 1;
-		encoder_right->count = 0;
 		radio_volume(radio.settings.volume);
 	}
-
-	if(encoder_left->count != 0) {
-		if(encoder_left->count < 0) {
-			radio.settings.frequency -= RADIO_FREQENCY_STEP;
-		}
-		else if(encoder_left->count > 0) {
-			radio.settings.frequency += RADIO_FREQENCY_STEP;
-		}
+	if(menu_encoder_range(encoder_left, &(radio.settings.frequency), 2, RADIO_TOP_FREQ, RADIO_BOT_FREQ, RADIO_FREQENCY_STEP, TRUE)) {
 		radio.status.freq_valid = 0;
-		if(radio.settings.frequency < RADIO_BOT_FREQ){
-			radio.settings.frequency = RADIO_TOP_FREQ;
-		}
-		if(radio.settings.frequency > RADIO_TOP_FREQ){
-			radio.settings.frequency = RADIO_BOT_FREQ;
-		}
 		radio_tune_freq(radio.settings.frequency);
 		tmp_value = ((radio.settings.frequency - RADIO_BOT_FREQ) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
 		blend_scroll = 1;
-		encoder_left->count = 0;
 	}
 	if(*encoder_right->button == BUTTON_SHORT)
 	{

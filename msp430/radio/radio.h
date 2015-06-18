@@ -64,14 +64,14 @@ typedef struct radio_rds {
 } RADIO_RDS;
 
 typedef struct radio_settings {
-	uint32_t display_view:2;
-	uint32_t contrast:4;
-	uint32_t brightness:6;
-	uint32_t ta_tp:1;
-	uint32_t equalizer:3;
-	uint32_t source:2;
-	uint32_t volume:7;
-	uint32_t volume_ta:7;
+	uint8_t display_view:2;
+	uint8_t ta_tp:1;
+	uint8_t equalizer:3;
+	uint8_t source:2;
+	uint8_t volume;
+	uint8_t volume_ta;
+	uint8_t contrast;
+	uint8_t brightness;
 	uint16_t frequency;
 } RADIO_SETTINGS;
 

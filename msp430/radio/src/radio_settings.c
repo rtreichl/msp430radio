@@ -6,6 +6,8 @@
  */
 
 #include <radio/radio_settings.h>
+#define FALSE 0
+
 
 //----------------------------------------------------------------------------------------
 //
@@ -25,16 +27,10 @@
 
 uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
-	if(encoder_right->count != 0) {
-		if(encoder_right->count> 0 && radio.settings.brightness < RADIO_BRIGHTNESS_MAX) {
-			radio.settings.brightness += RADIO_BRIGHTNESS_STEP;
-		}
-		else if(encoder_right->count< 0 && radio.settings.brightness > RADIO_BRIGHTNESS_MIN){
-			radio.settings.brightness -= RADIO_BRIGHTNESS_STEP;
-		}
+	if(menu_encoder_range(encoder_right, &(radio.settings.brightness), 1, RADIO_BRIGHTNESS_MAX, RADIO_BRIGHTNESS_MIN, RADIO_BRIGHTNESS_STEP, FALSE)) {
 		radio_brightness(radio.settings.brightness);
-		encoder_right->count= 0;
 	}
+
 	if(*encoder_right->button == BUTTON_SHORT) {
 		*encoder_right->button = BUTTON_FREE;
 		radio_store_settings(0, 0);
@@ -64,16 +60,11 @@ uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right,
 
 uint8_t radio_settings_contrast(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
-	if(encoder_right->count!= 0) {
-		if(encoder_right->count> 0 && radio.settings.contrast < RADIO_CONTRAST_MAX) {
-			radio.settings.contrast += RADIO_CONTRAST_STEP;
-		}
-		else if(encoder_right->count< 0 && radio.settings.contrast > RADIO_CONTRAST_MIN) {
-			radio.settings.contrast -= RADIO_CONTRAST_STEP;
-		}
+
+	if(menu_encoder_range(encoder_right, &(radio.settings.contrast), 1, RADIO_CONTRAST_MAX, RADIO_CONTRAST_MIN, RADIO_CONTRAST_STEP, FALSE)) {
 		lcd_contrast(radio.settings.contrast / RADIO_CONTRAST_STEP);
-		encoder_right->count= 0;
 	}
+
 	if(*encoder_right->button == BUTTON_SHORT) {
 		*encoder_right->button = BUTTON_FREE;
 		radio_store_settings(0, 0);
@@ -197,16 +188,10 @@ uint8_t radio_settings_volume(ENCODER *encoder_left, ENCODER *encoder_right, MEN
 		}
 		radio_volume(radio.settings.volume);
 	}
-	if(encoder_right->count!= 0) {
-		if(encoder_right->count> 0 && radio.settings.volume < RADIO_VOLUME_MAX) {
-			radio.settings.volume += RADIO_VOLUME_STEP;
-		}
-		else if(encoder_right->count< 0 && radio.settings.volume > RADIO_VOLUME_MIN) {
-			radio.settings.volume -= RADIO_VOLUME_STEP;
-		}
+	if(menu_encoder_range(encoder_right, &(radio.settings.volume), 1, RADIO_VOLUME_MAX, RADIO_VOLUME_MIN, RADIO_VOLUME_STEP, FALSE)) {
 		radio_volume(radio.settings.volume);
-		encoder_right->count= 0;
 	}
+
 	if(*encoder_right->button == BUTTON_SHORT) {
 		*encoder_right->button = BUTTON_FREE;
 		if(tmp_volume != 0) {

@@ -60,6 +60,7 @@ uint8_t menu_handler(ENCODER *encoder_left, ENCODER *encoder_right);
 uint8_t menu_scroll(uint8_t value);
 uint8_t menu_main(ENCODER *encoder);
 uint8_t menu_scroll_settings(uint8_t value);
+uint8_t menu_encoder_range(ENCODER *encoder, void *controll, uint8_t bytes, uint16_t upper_bound, uint16_t lower_bound, uint8_t step, uint8_t overflow);
 //uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count);
 
 #endif /* _MENU_H_ */
