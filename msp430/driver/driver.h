@@ -14,9 +14,9 @@
 #include <driver/i2c.h>
 #include <driver/lcd.h>
 #include <driver/opt3001.h>
-#include <driver/pca9530.h>
+//#include <driver/pca9530.h>
 #include <driver/pca9534.h>
-//#include <driver/pca9632.h>
+#include <driver/pca9632.h>
 #include <driver/si4735.h>
 #include <driver/timer.h>
 #include <driver/tpa2016d2.h>

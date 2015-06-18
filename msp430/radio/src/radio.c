@@ -25,13 +25,44 @@ volatile uint8_t radio_button = 0;
 
 void rds_update(RADIO *radio);
 
-const PCA9530 pca9530_config = {
-	PSC0 | 0x10,
-	PCA9530_FREQ_TO_PRESCALE(76),
+const PCA9632 pca9632_config = {
+	{
+			PCA9632_MODE1,
+			PCA9632_ALL_AUTO_INCREMENT,
+	},
+	{
+			1,
+			0,
+			0,
+			0,
+			0,
+			4,
+	},
+	{
+			OUT_NE,
+			OUT_DRV,
+			CHG_AT_STOP,
+			INVERT,
+			GROUP_DIM,
+
+	},
 	0,
-	PCA9530_FREQ_TO_PRESCALE(1),
-	127,
-	{PWM0_RATE,	PWM1_RATE},
+	0,
+	0,
+	0,
+	0xff,
+	0x00,
+	{
+			PCA9632_LED_ONEPWM,
+			PCA9632_LED_OFF,
+			PCA9632_LED_OFF,
+			PCA9632_LED_OFF,
+
+	},
+	0x61,
+	0x62,
+	0x64,
+	0x60,
 };
 
 //----------------------------------------------------------------------------------------
@@ -68,7 +99,8 @@ uint8_t radio_init()
 	}
 
 	radio_load_settings();
-	pca9530_init(&pca9530_config);
+	//pca9530_init(&pca9530_config);
+	pca9632_init(&pca9632_config);
 	radio_brightness(radio.settings.brightness);
 	//radio_settings_source(0, 0, 0, 0, 0);
 	lcd_init(radio.settings.contrast);
@@ -144,19 +176,21 @@ uint8_t radio_load_settings()
 
 uint8_t radio_brightness(uint8_t brightness)
 {
-	PCA9530_LS0 ls0;
+	PCA9632_LEDOUT_STC led_out;
 
-	ls0.led1 = PWM1_RATE;
+	led_out.LDR1 = PCA9632_LED_OFF;
+	led_out.LDR2 = PCA9632_LED_OFF;
+	led_out.LDR3 = PCA9632_LED_OFF;
 
 	if(brightness == 0) {
-		ls0.led0 = LED_ON;
+		led_out.LDR0 = PCA9632_LED_OFF;
 	}
 	else {
-		uint8_t pwm = 255-exp_table[brightness * 2 - 1];
-		pca9530_set_register(PWM0, &pwm);
-		ls0.led0 = PWM0_RATE;
+		uint8_t pwm = exp_table[brightness * 2 - 1];
+		pca9632_set_register(PCA9632_PWM0, &pwm);
+		led_out.LDR0 =  PCA9632_LED_ONEPWM;
 	}
-	pca9530_set_register(LS0, &ls0);
+	pca9632_set_register(PCA9632_LEDOUT, &led_out);
 	return 0;
 }
 
