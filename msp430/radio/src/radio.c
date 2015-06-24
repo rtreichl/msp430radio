@@ -26,6 +26,12 @@ volatile uint8_t radio_button = 0;
 
 void rds_update(RADIO *radio);
 
+const OPT3001_STC opt3001_config = {
+	0xCC00,
+	0,
+	0xBFFF,
+};
+
 const PCA9632 pca9632_config = {
 	{
 			PCA9632_MODE1,
@@ -102,6 +108,7 @@ uint8_t radio_init()
 	radio_load_settings();
 	//pca9530_init(&pca9530_config);
 	pca9632_init(&pca9632_config);
+	opt3001_init(&opt3001_config);
 	radio_brightness(radio.settings.brightness);
 	//radio_settings_source(0, 0, 0, 0, 0);
 	lcd_init(radio.settings.contrast);
@@ -293,8 +300,10 @@ uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu
 	}
 
 	if(radio.settings.ta_tp == 1 && radio.rds.ta == 1 && radio.rds.tp == 1 && radio.status.volume_ta == 0) {
-		radio_volume(radio.settings.volume_ta);
-		radio.status.volume_ta = 1;
+		if(radio.settings.volume < radio.settings.volume_ta) {
+			radio_volume(radio.settings.volume_ta);
+			radio.status.volume_ta = 1;
+		}
 	} else if(radio.rds.ta == 0 && radio.status.volume_ta == 1) {
 		radio_volume(radio.settings.volume);
 		radio.status.volume_ta = 0;
@@ -316,19 +325,20 @@ uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu
 //
 //----------------------------------------------------------------------------------------
 
+uint32_t brightness_value = 0;
+
 uint8_t radio_auto_brightness()
 {
-	static uint32_t brightness_value = 0;
 	uint32_t tmp_value;
 	uint8_t i = 0;
 	opt3001_get_value(&tmp_value);
 	if(brightness_value == 0) {
-		for(i = 0; i < 64; i++) {
+		for(i = 0; i < 16; i++) {
 			brightness_value += tmp_value;
 		}
 	}
 	else {
-		brightness_value -= brightness_value >> 6;
+		brightness_value -= (brightness_value >> 4);
 		brightness_value += tmp_value;
 	}
 	//TODO calculate a brightness value for background brightness

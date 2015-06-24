@@ -40,9 +40,11 @@
 //
 //----------------------------------------------------------------------------------------
 
+uint32_t brightness_opt = 0;
+
 void handler (void)
 {
-	ENCODER encoder_left, encoder_right;
+	ENCODER encoder_left = {0, 0}, encoder_right = {0, 0};
 	while(1) {
 		encoder_1_update(&encoder_left);
 		encoder_2_update(&encoder_right);
@@ -66,6 +68,8 @@ void handler (void)
 		}
 		if(timer_count[RADIO_TIMER_RSQ] >= RADIO_COUNT_RSQ) {
 			rsq_update(&radio);
+			opt3001_get_value(&brightness_opt);
+			radio_auto_brightness();
 			timer_count[RADIO_TIMER_RSQ] -= RADIO_COUNT_RSQ;
 		}
 		if(timer_count[RADIO_TIMER_RDS] >= RADIO_COUNT_RDS) { //TODO Rework to interrupt base system

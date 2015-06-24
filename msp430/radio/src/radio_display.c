@@ -72,9 +72,9 @@ uint8_t radio_display_rds()
 
 //----------------------------------------------------------------------------------------
 //
-/// \brief Display the PTY/PI states
+/// \brief Displays the RDS data
 //
-/// \param void
+/// \param	void
 //
 /// \retval uint8_t
 //
@@ -89,6 +89,34 @@ uint8_t radio_display_pipty()
 	lcd_create_view("PI:", 9, 1, 0, 0);
 	lcd_create_view(tmp_string, 12, 1, 0, 0);
 	lcd_create_view(pty_text[radio.rds.pty], 0, 2, 0, 0);
+	return 0;
+}
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Display the PTY/PI states
+//
+/// \param void
+//
+/// \retval uint8_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
+extern uint32_t brightness_opt;
+extern uint32_t brightness_value;
+
+uint8_t radio_display_brightness()
+{
+	char tmp_string[11];
+	uint32_t tmp_bright = brightness_value >> 4;
+	string_int_to_array(tmp_string, tmp_bright, 5, 10);
+	lcd_create_view(tmp_string, 0, 2, 0, 0);
+	lcd_create_view("lux:", 5, 2, 0, 0);
+	string_int_to_array(tmp_string, brightness_opt, 5, 10);
+	lcd_create_view(tmp_string, 8, 2, 0, 0);
+	lcd_create_view("lux", 13, 2, 0, 0);
 	return 0;
 }
 
@@ -149,6 +177,9 @@ uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 		break;
 	case RADIO_SETTINGS_PIPTY_VIEW:
 		radio_display_pipty();
+		break;
+	case RADIO_SETTINGS_BRIGTH_VIEW:
+		radio_display_brightness();
 		break;
 	}
 

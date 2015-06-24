@@ -113,6 +113,7 @@ uint8_t radio_brightness(uint8_t brightness);
 uint8_t radio_load_settings();
 uint8_t radio_factory_state();
 uint8_t radio_stand_by();
+uint8_t radio_auto_brightness();
 void radio_left_button_interrupt();
 
 #endif /* RADIO_NEW_H_ */

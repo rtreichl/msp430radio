@@ -25,6 +25,7 @@ extern MENU_ENTRY linein_entry;
 extern MENU_ENTRY text_entry;
 extern MENU_ENTRY rds_entry;
 extern MENU_ENTRY rsq_entry;
+extern MENU_ENTRY brigthnesses_entry;
 extern MENU_ENTRY ptypi_entry;
 extern MENU_ENTRY tatp_entry;
 extern MENU_ENTRY tatp_on_entry;

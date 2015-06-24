@@ -185,9 +185,18 @@ MENU_ENTRY ptypi_entry = {
 MENU_ENTRY rsq_entry = {
 	0,
 	&text_entry,
-	&text_return_entry,
+	&brigthnesses_entry,
 	&ptypi_entry,
 	rsq_text,
+	&radio_settings_view,
+};
+
+MENU_ENTRY brigthnesses_entry = {
+	0,
+	&text_entry,
+	&text_return_entry,
+	&rsq_entry,
+	brightness_text,
 	&radio_settings_view,
 };
 
