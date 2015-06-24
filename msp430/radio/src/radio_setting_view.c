@@ -31,16 +31,17 @@ uint8_t radio_setting_view_source(ENCODER *encoder_left, ENCODER *encoder_right,
 uint8_t radio_setting_view_freqency(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
 	int8_t pos = 0;
-	if(radio.settings.frequency < RADIO_FREQENCY_MIN) {
+	RADIO_SETTINGS *settings = (RADIO_SETTINGS *)RADIO_SETTINGS_STORE_ADR;
+	if(settings->frequency < RADIO_FREQENCY_MIN) {
 		pos = 0;
 	}
-	else if(radio.settings.frequency > RADIO_FREQENCY_MAX) {
+	else if(settings->frequency > RADIO_FREQENCY_MAX) {
 		pos = 1;
 	}
 	else {
-		pos = 3;
+		pos = 2;
 	}
-	pos -= menu->y + 1;
+	pos += 1 - menu->y;
 	if(pos >= 0 && pos <= 2) {
 		lcd_create_view("\52", 15, pos, 0, 0);
 	}
