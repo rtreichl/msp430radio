@@ -212,44 +212,53 @@ MENU_ENTRY text_return_entry = {
 MENU_ENTRY contrast_entry = {
 	0,
 	&view_entry,
-	&brightness_entry,
+	&backlight_entry,
 	&text_entry,
 	contrast_text,
 	&radio_settings_contrast,
 };
 
-MENU_ENTRY brightness_entry = {
-	&brightness_auto_entry,
+MENU_ENTRY backlight_entry = {
+	&backlight_auto_entry,
 	&view_entry,
 	&view_return_entry,
 	&contrast_entry,
-	brightness_text,
-	0,
+	backlight_text,
+	&radio_setting_view_brightness,
 };
 
-MENU_ENTRY brightness_fixed_entry = {
+MENU_ENTRY backlight_fixed_entry = {
 	0,
-	&brightness_entry,
-	&brightness_return_entry,
-	&brightness_auto_entry,
+	&backlight_entry,
+	&backlight_brightness_offset_entry,
+	&backlight_auto_entry,
 	fixed_text,
 	&radio_settings_brightness,
 };
 
-MENU_ENTRY brightness_auto_entry = {
+MENU_ENTRY backlight_auto_entry = {
 	0,
-	&brightness_entry,
-	&brightness_fixed_entry,
+	&backlight_entry,
+	&backlight_fixed_entry,
 	0,
 	auto_text,
 	&radio_settings_brightness,
 };
 
-MENU_ENTRY brightness_return_entry = {
-	&brightness_entry,
-	&brightness_entry,
+MENU_ENTRY backlight_brightness_offset_entry = {
 	0,
-	&brightness_auto_entry,
+	&backlight_entry,
+	&backlight_return_entry,
+	&backlight_fixed_entry,
+	brightness_offset_text,
+	&radio_settings_brightness,
+};
+
+MENU_ENTRY backlight_return_entry = {
+	&backlight_entry,
+	&backlight_entry,
+	0,
+	&backlight_brightness_offset_entry,
 	return_text,
 	0,
 };
@@ -330,7 +339,7 @@ MENU_ENTRY view_return_entry = {
 	&view_entry,
 	&view_entry,
 	0,
-	&brightness_entry,
+	&backlight_entry,
 	return_text,
 	0,
 };
