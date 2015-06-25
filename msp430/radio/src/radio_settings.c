@@ -25,10 +25,19 @@
 //
 //----------------------------------------------------------------------------------------
 
+uint8_t backlight_controll = 0;
+
 uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
-	if(menu_encoder_range(encoder_right, &(radio.settings.brightness), 1, RADIO_BRIGHTNESS_MAX, RADIO_BRIGHTNESS_MIN, RADIO_BRIGHTNESS_STEP, FALSE)) {
-		radio_brightness(radio.settings.brightness);
+	if(menu->y == MENU_THIRD_ENTRY) {
+		if(menu_encoder_range(encoder_right, &(radio.settings.brightness), 1, RADIO_BRIGHTNESS_MAX, RADIO_BRIGHTNESS_MIN, RADIO_BRIGHTNESS_STEP, FALSE)) {
+				radio_brightness(0);
+			}
+		menu_scroll_settings(radio.settings.brightness * 2);
+	}
+	else {
+		backlight_controll = menu->y;
+		return SHORT_UP_TO_PARENT;
 	}
 
 	if(*encoder_right->button == BUTTON_SHORT) {
@@ -36,9 +45,7 @@ uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right,
 		radio_store_settings(0, 0);
 		return SHORT_UP_TO_CHILD;
 	}
-	else {
-		menu_scroll_settings(radio.settings.brightness * 2);
-	}
+
 	return STAY_ON_MENU_POINT;
 }
 

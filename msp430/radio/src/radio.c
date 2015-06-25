@@ -109,7 +109,7 @@ uint8_t radio_init()
 	//pca9530_init(&pca9530_config);
 	pca9632_init(&pca9632_config);
 	opt3001_init(&opt3001_config);
-	radio_brightness(radio.settings.brightness);
+	radio_brightness(0);
 	//radio_settings_source(0, 0, 0, 0, 0);
 	lcd_init(radio.settings.contrast);
 	lcd_create_view(startup_line_1, 2, 0, 0, 0);
@@ -182,23 +182,65 @@ uint8_t radio_load_settings()
 	return 0;
 }
 
-uint8_t radio_brightness(uint8_t brightness)
+//----------------------------------------------------------------------------------------
+//
+/// \brief Set brightness
+//
+/// \param	<mode>	[in]	if 1 the actuall messure brightness will given back
+//
+/// \retval uint16_t
+//
+/// \remarks
+//
+//----------------------------------------------------------------------------------------
+
+#define OFFSET 10 //50 lux offset
+#define RET_VAL 1
+
+extern uint8_t backlight_controll;
+
+uint32_t radio_brightness(uint8_t mode)
 {
-	PCA9632_LEDOUT_STC led_out;
+	static uint32_t brightness_value = 0;
 
-	led_out.LDR1 = PCA9632_LED_OFF;
-	led_out.LDR2 = PCA9632_LED_OFF;
-	led_out.LDR3 = PCA9632_LED_OFF;
+	uint32_t tmp_value;
+	uint8_t i = 0;
+	int16_t brightness = 0;
 
-	if(brightness == 0) {
-		led_out.LDR0 = PCA9632_LED_OFF;
+	if(mode == RET_VAL) {
+		return brightness_value >> 4;
+	}
+
+	opt3001_get_value(&tmp_value);
+
+	if(brightness_value == 0) {
+		for(i = 0; i < 16; i++) {
+			brightness_value += tmp_value;
+		}
 	}
 	else {
-		uint8_t pwm = exp_table[brightness * 2 - 1];
-		pca9632_set_register(PCA9632_PWM0, &pwm);
-		led_out.LDR0 =  PCA9632_LED_ONEPWM;
+		brightness_value -= (brightness_value >> 4);
+		brightness_value += tmp_value;
 	}
-	pca9632_set_register(PCA9632_LEDOUT, &led_out);
+
+	if(backlight_controll == 0) {
+		brightness = (((brightness_value >> 10) - (radio.settings.brightness << 3)));
+		if(brightness > 255) {
+			brightness = 255;
+		}
+		else if(brightness < 1) {
+			brightness = 1;
+		}
+	}
+	else {
+		if(brightness < 1) {
+				brightness = 1;
+		}
+		brightness = exp_table[radio.settings.brightness * 2 - 1];
+	}
+
+	pca9632_set_register(PCA9632_PWM0, &brightness);
+
 	return 0;
 }
 
@@ -310,38 +352,6 @@ uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu
 	}
 
 	radio_display_handler(blend_scroll, tmp_value);
-	return 0;
-}
-
-//----------------------------------------------------------------------------------------
-//
-/// \brief Set Auto brightness
-//
-/// \param
-//
-/// \retval uint8_t
-//
-/// \remarks
-//
-//----------------------------------------------------------------------------------------
-
-uint32_t brightness_value = 0;
-
-uint8_t radio_auto_brightness()
-{
-	uint32_t tmp_value;
-	uint8_t i = 0;
-	opt3001_get_value(&tmp_value);
-	if(brightness_value == 0) {
-		for(i = 0; i < 16; i++) {
-			brightness_value += tmp_value;
-		}
-	}
-	else {
-		brightness_value -= (brightness_value >> 4);
-		brightness_value += tmp_value;
-	}
-	//TODO calculate a brightness value for background brightness
 	return 0;
 }
 
@@ -600,7 +610,7 @@ uint8_t radio_stand_by()
 	//TODO store actuall freqency
 	//TODO store actuall volume
 	lcd_create_view(0, 0, 0, 0, 2);
-	radio_brightness(0);
+	//radio_brightness(0);
 	//TODO enable interrupt for left button
 	ext_interrupt_create(EN1_TAST_INT, radio_left_button_interrupt);
 	ext_interrupt_enable(EN1_TAST_INT);
@@ -617,7 +627,7 @@ uint8_t radio_stand_by()
 	//SI4735_INIT();
 	radio_volume(radio.settings.volume);
 	radio_tune_freq(radio.settings.frequency);
-	radio_brightness(radio.settings.brightness);
+	radio_brightness(0);
 	return 0;
 }
 

@@ -93,7 +93,8 @@
 #define RADIO_TIMER_MINUTE		2				//Timer for minute counting
 #define RADIO_TIMER_DISPLAY		3				//Timer for display refresh
 #define RADIO_TIMER_ENCODER		4				//Timer for encoder button
-#define RADIO_TIMER_USED		5				//Must be changed if a timer is added
+#define RADIO_TIMER_BACKLIGHT	5				//Timer for backlight controll
+#define RADIO_TIMER_USED		6				//Must be changed if a timer is added
 
 //----------------------------------------------------------------------------------------
 //
@@ -105,6 +106,7 @@
 #define RADIO_COUNT_RSQ			1000			//Count for radio signal quality execute underlying code every 1s
 #define RADIO_COUNT_RDS			200				//Count for radio digital service execute underlying code every 200ms
 #define RADIO_COUNT_DISPLAY 	500				//Count for display refresh execute underlying coder every 500ms
+#define RADIO_COUNT_BACKLIGHT	200				//Count for backlight calculation is executed every 200ms
 
 //----------------------------------------------------------------------------------------
 //

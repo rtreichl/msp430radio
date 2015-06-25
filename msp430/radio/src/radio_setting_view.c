@@ -68,10 +68,12 @@ uint8_t radio_setting_view_equalizer(ENCODER *encoder_left, ENCODER *encoder_rig
 	return 0;
 }
 
+extern uint8_t backlight_controll;
+
 uint8_t radio_setting_view_brightness(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
 	int8_t pos = 0;
-	pos = radio.settings.equalizer - menu->y + 1;
+	pos = backlight_controll - menu->y + 1;
 	if(pos >= 0 && pos <= 2) {
 		lcd_create_view("\52", 15, pos, 0, 0);
 	}
