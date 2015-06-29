@@ -107,13 +107,13 @@ uint8_t radio_display_pipty()
 uint8_t radio_display_brightness()
 {
 	char tmp_string[11];
-	uint32_t tmp_bright = radio_brightness(1);
-	string_int_to_array(tmp_string, tmp_bright, 5, 10);
-	lcd_create_view(tmp_string, 7, 2, 0, 0);
+	BRIGHTNESS tmp_bright = radio_brightness(1);
+	string_fixpoint_to_array(tmp_string, (*(tmp_bright.sensor) >> 4), 7, 2);
+	lcd_create_view(tmp_string, 6, 2, 0, 0);
 	lcd_create_view("lux", 13, 2, 0, 0);
-	//string_int_to_array(tmp_string, brightness_opt, 5, 10);
-	//lcd_create_view(tmp_string, 8, 2, 0, 0);
-	//lcd_create_view("lux", 13, 2, 0, 0);
+	string_int_to_array(tmp_string, tmp_bright.display, 3, 10);
+	lcd_create_view(tmp_string, 0, 2, 0, 0);
+	lcd_create_view("%", 3, 2, 0, 0);
 	return 0;
 }
 
