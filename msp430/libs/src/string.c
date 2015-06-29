@@ -25,6 +25,28 @@ uint8_t string_fixedpoint_to_array(char *str, uint16_t freq)
 	return 0;
 }
 
+uint8_t string_fixpoint_to_array(char *str, uint32_t value, uint8_t size, uint8_t fp)
+{
+	str[size] = 0;
+	str += size - 1;
+	while (size--) {
+		if(value != 0) {
+			*str = value % 10 + '0';
+			value /= 10;
+		}
+		else {
+			*str = ' ';
+		}
+		if (--fp == 0) {
+			str--;
+			*str = '.';
+
+		}
+		str--;
+	}
+	return 0;
+}
+
 uint8_t string_hex_to_array(char *str, uint16_t value, uint8_t size)
 {
 	str[size] = 0;
