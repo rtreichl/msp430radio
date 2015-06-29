@@ -199,32 +199,19 @@ uint8_t radio_load_settings()
 
 extern uint8_t backlight_controll;
 
-uint32_t radio_brightness(uint8_t mode)
+BRIGHTNESS radio_brightness(uint8_t mode)
 {
 	static uint32_t brightness_value = 0;
 
 	uint32_t tmp_value;
 	uint8_t i = 0;
 	int16_t brightness = 0;
-
-	if(mode == RET_VAL) {
-		return brightness_value >> 4;
-	}
-
-	opt3001_get_value(&tmp_value);
-
-	if(brightness_value == 0) {
-		for(i = 0; i < 16; i++) {
-			brightness_value += tmp_value;
-		}
-	}
-	else {
-		brightness_value -= (brightness_value >> 4);
-		brightness_value += tmp_value;
-	}
+	BRIGHTNESS brightness_stc;
 
 	if(backlight_controll == 0) {
-		brightness = (((brightness_value >> 10) - (radio.settings.brightness << 3)));
+		brightness = (brightness_value >> 8);
+		brightness /= (RADIO_BRIGHTNESS_MAX - radio.settings.brightness + 1);
+
 		if(brightness > 255) {
 			brightness = 255;
 		}
@@ -239,9 +226,27 @@ uint32_t radio_brightness(uint8_t mode)
 		brightness = exp_table[radio.settings.brightness * 2 - 1];
 	}
 
+	if(mode == RET_VAL) {
+		brightness_stc.sensor = &brightness_value;
+		brightness_stc.display = brightness;
+		return brightness_stc;
+	}
+
+	opt3001_get_value(&tmp_value);
+
+	if(brightness_value == 0) {
+		for(i = 0; i < 16; i++) {
+			brightness_value += tmp_value;
+		}
+	}
+	else {
+		brightness_value -= (brightness_value >> 4);
+		brightness_value += tmp_value;
+	}
+
 	pca9632_set_register(PCA9632_PWM0, &brightness);
 
-	return 0;
+	return brightness_stc;
 }
 
 //----------------------------------------------------------------------------------------
