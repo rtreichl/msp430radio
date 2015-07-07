@@ -124,7 +124,14 @@
 /// \brief Define macros for all other kinds of configuration
 //
 //----------------------------------------------------------------------------------------
-
 #define RADIO_AMPLIFIER_GAIN	3				//Gain for tpa2016d2 amplifier in dB
+
+//----------------------------------------------------------------------------------------
+//
+/// \brief Define macros for boolean values which are used for radio
+//
+//----------------------------------------------------------------------------------------
+#define RADIO_TRUE 				1				//Logical high or true is equal to a one
+#define RADIO_FALSE 			0				//Logical low or false is equal to a zero
 
 #endif /* RADIO_CONF_H_ */
