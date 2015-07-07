@@ -443,7 +443,7 @@ uint8_t radio_store_station(uint16_t *freq, char *name, uint8_t pos)
 {
 	char tmp_string[8];
 	if(radio.status.name_valid != RADIO_VALID) {
-		string_fixedpoint_to_array(tmp_string, *freq);
+		string_fixpoint_to_array(tmp_string, (*freq) / 10, 5, 1);
 		tmp_string[5] = 'M';
 		tmp_string[6] = 'H';
 		tmp_string[7] = 'z';

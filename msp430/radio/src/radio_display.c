@@ -184,7 +184,7 @@ uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 		lcd_create_view(radio.rds.name, 0, 0, 0, 0);
 	}
 	else {
-		string_fixedpoint_to_array(tmp_string, radio.settings.frequency);
+		string_fixpoint_to_array(tmp_string, radio.settings.frequency / 10, 5, 1);
 		lcd_create_view(tmp_string, 0, 0, 0, 0);
 		lcd_create_view("MHz", 5, 0, 0, 0); //TODO add this to a String table
 	}
