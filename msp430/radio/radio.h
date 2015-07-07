@@ -25,7 +25,8 @@
 #define RADIO_STORE_VALUE	1
 #define RADIO_AUDIO_NORMAL	0
 #define RADIO_AUDIO_MUTE	1
-#define RADIO_AUDIO_VOLUME	2
+#define RADIO_AUDIO_TA_TP	2
+#define RADIO_AUDIO_SCROLL	3
 
 //----------------------------------------------------------------------------------------
 //
@@ -106,7 +107,7 @@ extern RADIO radio;
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t radio_volume(int8_t volume);
+uint8_t radio_volume(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
 uint16_t radio_seeking(uint8_t up_down);
 uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu);
 uint8_t radio_init();

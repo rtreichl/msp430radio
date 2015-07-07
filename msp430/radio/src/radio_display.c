@@ -29,14 +29,14 @@ uint8_t radio_display_speaker()
 	case RADIO_AUDIO_MUTE:
 		lcd_create_view("\7÷", 0, 1, 0, 0);
 		break;
-	case RADIO_AUDIO_VOLUME:
+	case RADIO_AUDIO_SCROLL:
 		string_int_to_array(tmp_string, radio.settings.volume, 3, 10);
 		lcd_create_view(tmp_string, 1, 1, 0, 0);
 		lcd_create_view("%", 4, 1, 0, 0);
 		lcd_create_view("\7", 0, 1, 0, 0);
-		radio.status.audio_status = 0;
+		radio.status.audio_status = RADIO_AUDIO_NORMAL;
 		break;
-	default:
+	case RADIO_AUDIO_NORMAL:
 		lcd_create_view("\7û", 0, 1, 0, 0);	//Audio normal
 		break;
 	}

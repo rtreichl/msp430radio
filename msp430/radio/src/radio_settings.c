@@ -185,6 +185,7 @@ uint8_t radio_settings_volume(ENCODER *encoder_left, ENCODER *encoder_right, MEN
 	static int8_t tmp_volume = 0;
 	if(tmp_volume == 0 && menu->y != 0) {
 		tmp_volume = radio.settings.volume;
+		radio.status.audio_status = RADIO_AUDIO_SCROLL;
 		if(menu->y == RADIO_SETTINGS_MENU_VOL_TA) {
 			radio.settings.volume = radio.settings.volume_ta;
 		}
@@ -193,10 +194,6 @@ uint8_t radio_settings_volume(ENCODER *encoder_left, ENCODER *encoder_right, MEN
 			flash_read(&tmp_settings, sizeof(tmp_settings), RADIO_SETTINGS_STORE_ADR);
 			radio.settings.volume  = tmp_settings.volume;
 		}
-		radio_volume(radio.settings.volume);
-	}
-	if(menu_encoder_range(encoder_right, &(radio.settings.volume), 1, RADIO_VOLUME_MAX, RADIO_VOLUME_MIN, RADIO_VOLUME_STEP, FALSE)) {
-		radio_volume(radio.settings.volume);
 	}
 
 	if(*encoder_right->button == BUTTON_SHORT) {
@@ -211,11 +208,13 @@ uint8_t radio_settings_volume(ENCODER *encoder_left, ENCODER *encoder_right, MEN
 			}
 			radio.settings.volume = tmp_volume;
 			tmp_volume = 0;
-			radio_volume(radio.settings.volume);
+			radio.status.audio_status = RADIO_AUDIO_SCROLL;
+			radio_volume(encoder_left, encoder_right, menu);
 		}
 		return SHORT_UP_TO_CHILD;
 	}
 	else {
+		radio_volume(encoder_left, encoder_right, menu);
 		menu_scroll_settings(radio.settings.volume);
 	}
 	return STAY_ON_MENU_POINT;

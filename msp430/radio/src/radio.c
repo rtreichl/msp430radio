@@ -117,7 +117,7 @@ uint8_t radio_init()
 	lcd_create_view(startup_line_3, 2, 2, 0, 1);
 	tpa2016d2_init((enum TPA2016D2_EQUALIZER)radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	SI4735_INIT();
-	radio_volume(radio.settings.volume);
+	//radio_volume(radio.settings.volume);
 	radio_tune_freq(radio.settings.frequency);
 	Encoder_1_init();
 	Encoder_2_init();
@@ -261,19 +261,54 @@ BRIGHTNESS radio_brightness(uint8_t mode)
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t radio_volume(int8_t volume)
+uint8_t radio_volume(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
-	uint8_t tmp_volume;
-	if(volume > 100) {
-		volume = 100;
-	} else if(volume < 0) {
-		volume = 0;
+	uint8_t *volume = 0;
+
+	if(radio.status.audio_status == RADIO_AUDIO_SCROLL) {
+		radio.status.audio_status = RADIO_AUDIO_NORMAL;
+		volume = &radio.settings.volume;
 	}
-	tmp_volume = ((int16_t)(volume) * SI4735_VOLUME_MAX) / 100;
-	ext_interrupt_enable(SI_INT_INT);
-	si4735_set_property(RX_VOLUME, tmp_volume);
-	ext_interrupt_disable(SI_INT_INT);
-	_delay_ms(10);
+
+	if(menu_encoder_range(encoder_right, &(radio.settings.volume), 1, RADIO_VOLUME_MAX, RADIO_VOLUME_MIN, RADIO_VOLUME_STEP, RADIO_FALSE)) {
+		if(radio.status.audio_status == RADIO_AUDIO_MUTE) {
+			tpa2016d2_muting(TPA2016D2_OUTPUT);
+		}
+		radio.status.audio_status = RADIO_AUDIO_SCROLL;
+		volume = &radio.settings.volume;
+	}
+
+	if(*encoder_left->button == BUTTON_SHORT) {
+		*encoder_left->button = BUTTON_FREE;
+		if(radio.status.audio_status == RADIO_AUDIO_MUTE) {
+			radio.status.audio_status = RADIO_AUDIO_NORMAL;
+			tpa2016d2_muting(TPA2016D2_OUTPUT);
+		}
+		else {
+			radio.status.audio_status = RADIO_AUDIO_MUTE;
+			tpa2016d2_muting(TPA2016D2_MUTE);
+		}
+	}
+
+	if(radio.status.audio_status == RADIO_AUDIO_NORMAL && radio.status.volume_ta == RADIO_TRUE) {
+		if(radio.settings.volume < radio.settings.volume_ta) {
+			volume = &radio.settings.volume_ta;
+			radio.status.audio_status = RADIO_AUDIO_TA_TP;
+		}
+	}
+	else if(radio.status.audio_status == RADIO_AUDIO_TA_TP && radio.status.volume_ta == RADIO_FALSE) {
+		volume = &radio.settings.volume;
+		radio.status.audio_status = RADIO_AUDIO_NORMAL;
+	}
+
+	if(volume != 0) {
+		ext_interrupt_enable(SI_INT_INT);
+		si4735_set_property(RX_VOLUME, ((uint16_t)(*volume) * SI4735_VOLUME_MAX) / 100);
+		ext_interrupt_disable(SI_INT_INT);
+		_delay_ms(10);
+		return 1;
+	}
+
 	return 0;
 }
 
@@ -296,24 +331,15 @@ uint8_t radio_volume(int8_t volume)
 //
 //----------------------------------------------------------------------------------------
 
-#define TRUE 1
-#define FALSE 0
-
 uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
 	uint8_t tmp_value = 0;
 	uint8_t blend_scroll = 0;
 
-	if(menu_encoder_range(encoder_right, &(radio.settings.volume), 1, RADIO_VOLUME_MAX, RADIO_VOLUME_MIN, RADIO_VOLUME_STEP, FALSE)) {
-		if(radio.status.audio_status == RADIO_AUDIO_MUTE) {
-			tpa2016d2_muting(TPA2016D2_OUTPUT);
-		}
-		radio.status.audio_status = RADIO_AUDIO_VOLUME;
-		tmp_value = radio.settings.volume;
-		blend_scroll = 1;
-		radio_volume(radio.settings.volume);
-	}
-	if(menu_encoder_range(encoder_left, &(radio.settings.frequency), 2, RADIO_TOP_FREQ, RADIO_BOT_FREQ, RADIO_FREQENCY_STEP, TRUE)) {
+	blend_scroll = radio_volume(encoder_left, encoder_right, menu);
+	tmp_value = radio.settings.volume;
+
+	if(menu_encoder_range(encoder_left, &(radio.settings.frequency), 2, RADIO_TOP_FREQ, RADIO_BOT_FREQ, RADIO_FREQENCY_STEP, RADIO_TRUE)) {
 		radio.status.freq_valid = 0;
 		radio_tune_freq(radio.settings.frequency);
 		tmp_value = ((radio.settings.frequency - RADIO_BOT_FREQ) * 10) / ((RADIO_TOP_FREQ - RADIO_BOT_FREQ) / 10);
@@ -329,31 +355,17 @@ uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu
 		*encoder_right->button = BUTTON_FREE;
 		return LONG_INTO_MENU;
 	}
-	if(*encoder_left->button == BUTTON_SHORT)
-	{
-		*encoder_left->button = BUTTON_FREE;
-		if(radio.status.audio_status == RADIO_AUDIO_MUTE) {
-			tpa2016d2_muting(TPA2016D2_OUTPUT);
-			radio.status.audio_status = 0;
-		} else {
-			radio.status.audio_status = RADIO_AUDIO_MUTE;
-			tpa2016d2_muting(TPA2016D2_MUTE);
-		}
-	}
+
 	if(*encoder_left->button == BUTTON_LONG)
 	{
 		*encoder_left->button = BUTTON_FREE;
 		radio_stand_by();
 	}
 
-	if(radio.settings.ta_tp == 1 && radio.rds.ta == 1 && radio.rds.tp == 1 && radio.status.volume_ta == 0) {
-		if(radio.settings.volume < radio.settings.volume_ta) {
-			radio_volume(radio.settings.volume_ta);
-			radio.status.volume_ta = 1;
-		}
-	} else if(radio.rds.ta == 0 && radio.status.volume_ta == 1) {
-		radio_volume(radio.settings.volume);
-		radio.status.volume_ta = 0;
+	if(radio.settings.ta_tp == RADIO_TRUE && radio.rds.ta == RADIO_TRUE && radio.rds.tp == RADIO_TRUE) {
+		radio.status.volume_ta = RADIO_TRUE;
+	} else if(radio.rds.ta == RADIO_FALSE && radio.status.volume_ta == RADIO_TRUE) {
+		radio.status.volume_ta = RADIO_FALSE;
 	}
 
 	radio_display_handler(blend_scroll, tmp_value);
@@ -630,7 +642,7 @@ uint8_t radio_stand_by()
 	//TODO reconfig timer to old state
 	tpa2016d2_powermode(TPA2016D2_POWERUP);
 	//SI4735_INIT();
-	radio_volume(radio.settings.volume);
+	//radio_volume(radio.settings.volume);
 	radio_tune_freq(radio.settings.frequency);
 	radio_brightness(0);
 	return 0;
