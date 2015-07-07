@@ -194,7 +194,6 @@ uint8_t radio_load_settings()
 //
 //----------------------------------------------------------------------------------------
 
-#define OFFSET 10 //50 lux offset
 #define RET_VAL 1
 
 extern uint8_t backlight_controll;
