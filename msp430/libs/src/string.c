@@ -6,25 +6,6 @@
  */
 #include <libs/string.h>
 
-uint8_t string_fixedpoint_to_array(char *str, uint16_t freq)
-{
-	uint8_t count = 0;
-	freq /= 10;
-	str[0] = ' ';
-	str[5] = 0;
-	str += 4;
-	while (freq > 0) {
-		*str = freq % 10 + '0';
-		str--;
-		freq /= 10;
-		if (count++ == 0) {
-			*str = '.';
-			str--;
-		}
-	}
-	return 0;
-}
-
 uint8_t string_fixpoint_to_array(char *str, uint32_t value, uint8_t size, uint8_t fp)
 {
 	str[size] = 0;
