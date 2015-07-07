@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,16 +53,16 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tCopper" color="7" fill="11" visible="no" active="no"/>
-<layer number="54" name="bCopper" color="7" fill="1" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tCopper" color="7" fill="11" visible="yes" active="no"/>
+<layer number="54" name="bCopper" color="7" fill="1" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -12653,7 +12653,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R601" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="C611" library="rcl" deviceset="C-EU" device="C1206K" value="22p"/>
 <part name="C610" library="rcl" deviceset="C-EU" device="C1206K" value="22p"/>
-<part name="C600" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
+<part name="C600" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="Q610" library="Radio Projekt" deviceset="QUARZ32.768KHZ" device="SMD" value="32.768kHz"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="R600" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
@@ -12671,12 +12671,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="C512" library="rcl" deviceset="C-EU" device="C1206K" value="1n"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="CP500" library="rcl" deviceset="C-EU" device="C1206" value="1µ"/>
-<part name="CP501" library="rcl" deviceset="C-EU" device="C1206" value="1µ"/>
-<part name="CP502" library="rcl" deviceset="C-EU" device="C1206" value="1µ"/>
-<part name="CP503" library="rcl" deviceset="C-EU" device="C1206" value="1µ"/>
-<part name="C500" library="rcl" deviceset="C-EU" device="C1206K" value="10µ"/>
-<part name="C501" library="rcl" deviceset="C-EU" device="C1206K" value="10µ"/>
+<part name="CP500" library="rcl" deviceset="C-EU" device="C1206K" value="1u"/>
+<part name="CP501" library="rcl" deviceset="C-EU" device="C1206K" value="1u"/>
+<part name="CP502" library="rcl" deviceset="C-EU" device="C1206K" value="1u"/>
+<part name="CP503" library="rcl" deviceset="C-EU" device="C1206K" value="1u"/>
+<part name="C500" library="rcl" deviceset="C-EU" device="C1206K" value="10u"/>
+<part name="C501" library="rcl" deviceset="C-EU" device="C1206K" value="10u"/>
 <part name="U500" library="Radio Projekt" deviceset="TPA2016D2" device=""/>
 <part name="FRAME3" library="frames" deviceset="A5L-LOC" device="" value="Audio Switch"/>
 <part name="U400" library="Radio Projekt" deviceset="TS3A44159" device="RGT"/>
@@ -12700,41 +12700,41 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="C900" library="rcl" deviceset="C-EU" device="C1206" value="1µ"/>
-<part name="C901" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
-<part name="R900" library="rcl" deviceset="R-EU_" device="R1206" value="4.7"/>
+<part name="C900" library="rcl" deviceset="C-EU" device="C1206K" value="1u"/>
+<part name="C901" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
+<part name="R900" library="rcl" deviceset="R-EU_" device="R1206" value="4R7"/>
 <part name="EN810" library="Radio Projekt" deviceset="PEC11R" device=""/>
 <part name="EN800" library="Radio Projekt" deviceset="PEC11R" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="R800" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R810" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="C800" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
-<part name="C810" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
+<part name="C800" library="rcl" deviceset="C-EU" device="C1206K" value="10n"/>
+<part name="C810" library="rcl" deviceset="C-EU" device="C1206K" value="10n"/>
 <part name="R804" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R803" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R805" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R802" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
-<part name="C802" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
-<part name="C801" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
+<part name="C802" library="rcl" deviceset="C-EU" device="C1206K" value="10n"/>
+<part name="C801" library="rcl" deviceset="C-EU" device="C1206K" value="10n"/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="R814" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R813" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R815" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R812" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
-<part name="C812" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
-<part name="C811" library="rcl" deviceset="C-EU" device="C1206" value="10n"/>
+<part name="C812" library="rcl" deviceset="C-EU" device="C1206K" value="10n"/>
+<part name="C811" library="rcl" deviceset="C-EU" device="C1206K" value="10n"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
 <part name="R811" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="R801" library="rcl" deviceset="R-EU_" device="R1206" value="10k"/>
 <part name="FRAME6" library="frames" deviceset="A4L-LOC" device="" value="Encoders"/>
 <part name="FRAME7" library="frames" deviceset="A4L-LOC" device="" value="Display"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
-<part name="CP100" library="rcl" deviceset="C-EU" device="C1206K" value="10µ"/>
-<part name="CP110" library="rcl" deviceset="C-EU" device="C1206K" value="10µ"/>
-<part name="C100" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
-<part name="C110" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
+<part name="CP100" library="rcl" deviceset="C-EU" device="C1206K" value="10u"/>
+<part name="CP110" library="rcl" deviceset="C-EU" device="C1206K" value="10u"/>
+<part name="C100" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
+<part name="C110" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="U100" library="Radio Projekt" deviceset="LP38693" device=""/>
 <part name="FRAME8" library="frames" deviceset="A4L-LOC" device="" value="Voltage Regulator"/>
 <part name="U300" library="irf-2" deviceset="IRF7103" device=""/>
@@ -12748,7 +12748,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
-<part name="C200" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
+<part name="C200" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
@@ -12759,8 +12759,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
-<part name="C652" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
-<part name="L650" library="rcl" deviceset="L-EU" device="" value="0.1µ"/>
+<part name="C652" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
+<part name="L650" library="rcl" deviceset="L-EU" device="" value="100n"/>
 <part name="C650" library="rcl" deviceset="C-EU" device="C1206K" value="47p"/>
 <part name="C651" library="rcl" deviceset="C-EU" device="C1206K" value="47p"/>
 <part name="FRAME10" library="frames" deviceset="A4L-LOC" device="" value="SI4735 Antenna"/>
@@ -12777,11 +12777,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+13" library="supply1" deviceset="+5V" device=""/>
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
-<part name="C920" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
+<part name="C920" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
-<part name="C930" library="rcl" deviceset="C-EU" device="C1206" value="1µ"/>
+<part name="C930" library="rcl" deviceset="C-EU" device="C1206K" value="1u"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
-<part name="C400" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
+<part name="C400" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="D650" library="diode" deviceset="BAT54S" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
@@ -12795,20 +12795,20 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="JP401" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="C903" library="rcl" deviceset="C-EU" device="C1206" value="1µ"/>
+<part name="C903" library="rcl" deviceset="C-EU" device="C1206K" value="1u"/>
 <part name="GND32" library="supply1" deviceset="GND" device=""/>
 <part name="Q900" library="transistor-small-signal" deviceset="BSS123" device=""/>
-<part name="C910" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
+<part name="C910" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="GND33" library="supply1" deviceset="GND" device=""/>
 <part name="ANT" library="pinhead" deviceset="PINHD-1X2" device=""/>
-<part name="C655" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
-<part name="L651" library="rcl" deviceset="L-EU" device="" value="4.7µ"/>
-<part name="L652" library="rcl" deviceset="L-EU" device="" value="220µ"/>
+<part name="C655" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
+<part name="L651" library="rcl" deviceset="L-EU" device="" value="4u7"/>
+<part name="L652" library="rcl" deviceset="L-EU" device="" value="220u"/>
 <part name="L653" library="rcl" deviceset="L-EU" device="L1812" value="2m2"/>
-<part name="D651" library="diode" deviceset="DIODE-" device="SOD123"/>
-<part name="D652" library="diode" deviceset="DIODE-" device="SOD123"/>
-<part name="C654" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
-<part name="C653" library="rcl" deviceset="C-EU" device="C1206K" value="0.1µ"/>
+<part name="D651" library="diode" deviceset="DIODE-" device="SOD123" value="1N4148W"/>
+<part name="D652" library="diode" deviceset="DIODE-" device="SOD123" value="1N4148W"/>
+<part name="C654" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
+<part name="C653" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="R650" library="rcl" deviceset="R-EU_" device="R1206" value="470"/>
 <part name="R651" library="rcl" deviceset="R-EU_" device="R1206" value="470"/>
 <part name="JP650" library="pinhead" deviceset="PINHD-1X3" device=""/>
@@ -12822,7 +12822,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="FRAME11" library="frames" deviceset="A4L-LOC" device=""/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
-<part name="C940" library="rcl" deviceset="C-EU" device="C1206" value="0,1µ"/>
+<part name="C940" library="rcl" deviceset="C-EU" device="C1206K" value="100n"/>
 <part name="GND38" library="supply1" deviceset="GND" device=""/>
 <part name="U920" library="Radio Projekt" deviceset="PCA9632TK" device=""/>
 <part name="GND39" library="supply1" deviceset="GND" device=""/>
@@ -12859,6 +12859,15 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP29" library="testpad" deviceset="PTR1" device="B2,54" value="PTR1B2,54"/>
 <part name="TP30" library="testpad" deviceset="PTR1" device="B2,54" value="PTR1B2,54"/>
 <part name="TP31" library="testpad" deviceset="PTR1" device="B2,54" value="PTR1B2,54"/>
+<part name="TP18" library="testpad" deviceset="PTR1" device="B1,27"/>
+<part name="TP19" library="testpad" deviceset="PTR1" device="B1,27"/>
+<part name="TP20" library="testpad" deviceset="PTR1" device="B1,27"/>
+<part name="TP21" library="testpad" deviceset="PTR1" device="B1,27"/>
+<part name="TP22" library="testpad" deviceset="PTR1" device="B2,54" value="PTR1B2,54"/>
+<part name="TP32" library="testpad" deviceset="PTR1" device="B1,27"/>
+<part name="TP33" library="testpad" deviceset="PTR1" device="B1,27"/>
+<part name="TP34" library="testpad" deviceset="PTR1" device="B1,27"/>
+<part name="TP35" library="testpad" deviceset="PTR1" device="B1,27"/>
 </parts>
 <sheets>
 <sheet>
@@ -15261,6 +15270,15 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="TP29" gate="G$1" x="48.26" y="119.38" rot="R270"/>
 <instance part="TP30" gate="G$1" x="86.36" y="99.06" rot="R270"/>
 <instance part="TP31" gate="G$1" x="86.36" y="119.38" rot="R270"/>
+<instance part="TP18" gate="G$1" x="48.26" y="76.2" rot="R270"/>
+<instance part="TP19" gate="G$1" x="48.26" y="81.28" rot="R270"/>
+<instance part="TP20" gate="G$1" x="86.36" y="76.2" rot="R270"/>
+<instance part="TP21" gate="G$1" x="86.36" y="81.28" rot="R270"/>
+<instance part="TP22" gate="G$1" x="48.26" y="93.98" rot="R270"/>
+<instance part="TP32" gate="G$1" x="86.36" y="137.16" rot="R270"/>
+<instance part="TP33" gate="G$1" x="86.36" y="142.24" rot="R270"/>
+<instance part="TP34" gate="G$1" x="86.36" y="35.56" rot="R270"/>
+<instance part="TP35" gate="G$1" x="119.38" y="55.88" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -15398,6 +15416,16 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="53.34" y1="137.16" x2="50.8" y2="137.16" width="0.1524" layer="91"/>
 <label x="53.34" y="137.16" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="TP32" gate="G$1" pin="TP"/>
+<wire x1="91.44" y1="137.16" x2="88.9" y2="137.16" width="0.1524" layer="91"/>
+<label x="91.44" y="137.16" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="TP33" gate="G$1" pin="TP"/>
+<wire x1="91.44" y1="142.24" x2="88.9" y2="142.24" width="0.1524" layer="91"/>
+<label x="91.44" y="142.24" size="1.27" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="GND" class="0">
 <segment>
@@ -15429,6 +15457,53 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="TP30" gate="G$1" pin="TP"/>
 <wire x1="91.44" y1="99.06" x2="88.9" y2="99.06" width="0.1524" layer="91"/>
 <label x="91.44" y="99.06" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="TP22" gate="G$1" pin="TP"/>
+<wire x1="53.34" y1="93.98" x2="50.8" y2="93.98" width="0.1524" layer="91"/>
+<label x="53.34" y="93.98" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MSP_RXD" class="0">
+<segment>
+<pinref part="TP18" gate="G$1" pin="TP"/>
+<wire x1="53.34" y1="76.2" x2="50.8" y2="76.2" width="0.1524" layer="91"/>
+<label x="53.34" y="76.2" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MSP_TXD" class="0">
+<segment>
+<pinref part="TP19" gate="G$1" pin="TP"/>
+<wire x1="53.34" y1="81.28" x2="50.8" y2="81.28" width="0.1524" layer="91"/>
+<label x="53.34" y="81.28" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MSP_TEST" class="0">
+<segment>
+<pinref part="TP21" gate="G$1" pin="TP"/>
+<wire x1="91.44" y1="81.28" x2="88.9" y2="81.28" width="0.1524" layer="91"/>
+<label x="91.44" y="81.28" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="MSP_RESET" class="0">
+<segment>
+<pinref part="TP20" gate="G$1" pin="TP"/>
+<wire x1="91.44" y1="76.2" x2="88.9" y2="76.2" width="0.1524" layer="91"/>
+<label x="91.44" y="76.2" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="LCD_BACKLIGHT" class="0">
+<segment>
+<pinref part="TP34" gate="G$1" pin="TP"/>
+<wire x1="91.44" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
+<label x="91.44" y="35.56" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="AUX_GND" class="0">
+<segment>
+<pinref part="TP35" gate="G$1" pin="TP"/>
+<wire x1="124.46" y1="55.88" x2="121.92" y2="55.88" width="0.1524" layer="91"/>
+<label x="124.46" y="55.88" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
