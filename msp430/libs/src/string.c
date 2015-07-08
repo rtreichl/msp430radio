@@ -28,64 +28,40 @@ uint8_t string_fixpoint_to_array(char *str, uint32_t value, uint8_t size, uint8_
 	return 0;
 }
 
-uint8_t string_hex_to_array(char *str, uint16_t value, uint8_t size)
+uint8_t itoa(int16_t num, char *str, uint8_t base, uint8_t size)
 {
-	str[size] = 0;
-	str += size - 1;
-	if(value == 0) {
-		*str = '0';
-		str--;
-	}
-	while (size > 0) {
-		if (value != 0) {
-			*str = value % 16 + '0';
-			if (*str > '9') {
-				*str += 'A' - '9' - 1;
-			}
-			value /= 16;
-		}
-		else {
-			*str = ' ';
-		}
-		str--;
-		size--;
+	uint8_t sign = 0;
+	int8_t i = size;
 
-	}
-	return 0;
-}
+	str[i--] = 0;
 
-uint8_t string_int_to_array(char *str, int16_t value, uint8_t size, uint8_t base)
-{
-	uint8_t tmp_sign = 0;
-	str[size] = 0;
-	str += size - 1;
-	if(value == 0) {
-		*str = '0';
-		str--;
-	} else if (value < 0) {
-		tmp_sign = 1;
-		value = (uint16_t)(-1 * value);
+	if(num == 0) {
+		str[i--] = '0';
 	}
 
-	while (size > 0) {
-		if (value != 0) {
-			*str = value % base + '0';
-			if (*str > '9') {
-				*str += 'A' - '9' - 1;
-			}
-			value /= base;
-		}
-		else {
-			if(tmp_sign == 1) {
-				*str = '-';
-				tmp_sign = 0;
-			} else {
-				*str = ' ';
-			}
-		}
-		str--;
-		size--;
-
+	if(num < 0 && base == 10) {
+		sign = 1;
+		num = -num;
 	}
+
+	while(num != 0) {
+		str[i] = (uint16_t)num % base + '0';
+		if (str[i] > '9') {
+			str[i] += 'A' - '9' - 1;
+		}
+		num = (uint16_t)num / base;
+		i--;
+	}
+
+	if(sign == 1) {
+		str[i--] = '-';
+	}
+
+
+
+	while(i > -1){
+		str[i--] = ' ';
+	}
+
 	return 0;
 }

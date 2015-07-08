@@ -10,8 +10,7 @@
 
 #include <stdint.h>
 
-uint8_t string_hex_to_array(char *str, uint16_t value, uint8_t size);
-uint8_t string_int_to_array(char *str, int16_t value, uint8_t size, uint8_t base);
+uint8_t itoa(int16_t num, char *str, uint8_t base, uint8_t size);
 uint8_t string_fixpoint_to_array(char *str, uint32_t value, uint8_t size, uint8_t fp);
 
 

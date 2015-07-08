@@ -516,7 +516,7 @@ uint8_t radio_auto_search()
 
 		lcd_create_view(auto_search_text, 0, 0, 0, 0);
 		lcd_create_view(progress_text, 0, 1, 0, 0);
-		string_int_to_array(tmp_string, percentage, 3, 10);
+		itoa(percentage, tmp_string, 10, 3);
 		lcd_create_view(tmp_string, 12, 1, 0, 0);
 		lcd_create_view("%", 15, 1, 0, 1);
 
