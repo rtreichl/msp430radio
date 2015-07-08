@@ -2,7 +2,7 @@
 #define _MENU_STRUCT_H_
 
 #include <menu/menu.h>
-#include <menu/lang/language.h>
+#include <text/text.h>
 #include <radio/radio_setting_view.h>
 
 //----------------------------------------------------------------------------------------

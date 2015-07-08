@@ -1,4 +1,4 @@
-#include <menu/lang/language.h>
+#include <text/lang/language.h>
 
 #if RADIO_LANGAUGE == EN
 
