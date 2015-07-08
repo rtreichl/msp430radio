@@ -32,12 +32,12 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 	RDS *rds = (RDS*) (uint16_t*) rds_read_byte;
 	char tmp = 0, doit = 0;
 	static uint8_t rds_text_count = 0, rds_station_count = 0;
-	if(radio->status.freq_valid == 0)
+	if(radio->status.freq_valid == RADIO_NOT_VALID)
 	{
 		rds_text_count = 0;
 		rds_station_count = 0;
-		radio->status.name_valid = 0;
-		radio->status.text_valid = 0;
+		radio->status.name_valid = RADIO_NOT_VALID;
+		radio->status.text_valid = RADIO_NOT_VALID;
 		radio->status.freq_valid = RADIO_VALID;
 	}
 
