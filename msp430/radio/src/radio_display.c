@@ -25,19 +25,19 @@
 uint8_t radio_display_speaker()
 {
 	char tmp_string[9];
+	lcd_create_view(symbol_speaker_text, 0, 1, 0, 0);
 	switch (radio.status.audio_status) {
 	case RADIO_AUDIO_MUTE:
-		lcd_create_view("\7÷", 0, 1, 0, 0);
+		lcd_create_view(symbol_mute_text, 1, 1, 0, 0);
 		break;
 	case RADIO_AUDIO_SCROLL:
 		itoa(radio.settings.volume, tmp_string, 10, 3);
 		lcd_create_view(tmp_string, 1, 1, 0, 0);
-		lcd_create_view("%", 4, 1, 0, 0);
-		lcd_create_view("\7", 0, 1, 0, 0);
+		lcd_create_view(unit_percentage_text, 4, 1, 0, 0);
 		radio.status.audio_status = RADIO_AUDIO_NORMAL;
 		break;
 	case RADIO_AUDIO_NORMAL:
-		lcd_create_view("\7û", 0, 1, 0, 0);	//Audio normal
+		lcd_create_view(symbol_ouput_text, 1, 1, 0, 0);
 		break;
 	}
 	return 0;
@@ -86,7 +86,7 @@ uint8_t radio_display_pipty()
 {
 	char tmp_string[9];
 	itoa(radio.rds.pi, tmp_string, 16, 4);
-	lcd_create_view("PI:", 9, 1, 0, 0);
+	lcd_create_view(symbol_PI_text, 9, 1, 0, 0);
 	lcd_create_view(tmp_string, 12, 1, 0, 0);
 	lcd_create_view(pty_text[radio.rds.pty], 0, 2, 0, 0);
 	return 0;
@@ -110,10 +110,10 @@ uint8_t radio_display_brightness()
 	BRIGHTNESS tmp_bright = radio_brightness(1);
 	string_fixpoint_to_array(tmp_string, (*(tmp_bright.sensor) >> 4), 7, 2);
 	lcd_create_view(tmp_string, 6, 2, 0, 0);
-	lcd_create_view("lux", 13, 2, 0, 0);
+	lcd_create_view(unit_lux_text, 13, 2, 0, 0);
 	itoa(tmp_bright.display, tmp_string, 10, 3);
 	lcd_create_view(tmp_string, 0, 2, 0, 0);
-	lcd_create_view("%", 3, 2, 0, 0);
+	lcd_create_view(unit_percentage_text, 3, 2, 0, 0);
 	return 0;
 }
 
@@ -134,16 +134,16 @@ uint8_t radio_display_rsq()
 	char tmp_string[9];
 	itoa(radio.rsq.rssi, tmp_string, 10, 3);
 	lcd_create_view(tmp_string, 9, 1, 0, 0);
-	lcd_create_view("dBuV", 12, 1, 0, 0);
+	lcd_create_view(unit_dBuV_text, 12, 1, 0, 0);
 	itoa(radio.rsq.snr, tmp_string, 10, 3);
 	lcd_create_view(tmp_string, 0, 2, 0, 0);
-	lcd_create_view("dB", 3, 2, 0, 0);
+	lcd_create_view(unit_dB_text, 3, 2, 0, 0);
 	itoa(radio.rsq.multi, tmp_string, 10, 3);
 	lcd_create_view(tmp_string, 6, 2, 0, 0);
-	lcd_create_view("%", 9, 2, 0, 0);
+	lcd_create_view(unit_percentage_text, 9, 2, 0, 0);
 	itoa(radio.rsq.freq_off, tmp_string, 10, 3);
 	lcd_create_view(tmp_string, 10, 2, 0, 0);
-	lcd_create_view("kHz", 13, 2, 0, 0);
+	lcd_create_view(unit_kHz_text, 13, 2, 0, 0);
 	return 0;
 }
 
@@ -186,7 +186,7 @@ uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 	else {
 		string_fixpoint_to_array(tmp_string, radio.settings.frequency / 10, 5, 1);
 		lcd_create_view(tmp_string, 0, 0, 0, 0);
-		lcd_create_view("MHz", 5, 0, 0, 0); //TODO add this to a String table
+		lcd_create_view(unit_MHz_text, 5, 0, 0, 0);
 	}
 	radio_display_speaker();
 	if(blend_scroll != 0) {
@@ -196,16 +196,16 @@ uint8_t radio_display_handler(uint8_t blend_scroll, uint8_t value)
 	if(radio.settings.ta_tp == RADIO_SETTINGS_TA_TP_ON) {
 		if(radio.status.volume_ta == 1) {
 			if(radio.status.scroll_text % 2 == 0) {
-				lcd_create_view("\020", 6, 1, 0, 0);
+				lcd_create_view(symbol_TM_text, 6, 1, 0, 0);
 			}
 		}
 		else {
-			lcd_create_view("\020", 6, 1, 0, 0);
+			lcd_create_view(symbol_TM_text, 6, 1, 0, 0);
 		}
 	}
 
 	time_time_to_array(tmp_string);
-	lcd_create_view("\6", 10, 0, 0, 0); //TODO \6 add this to lcd symbols
+	lcd_create_view(symbol_clock_text, 10, 0, 0, 0);
 	lcd_create_view(tmp_string,  11, 0, 0, 1);
 
 	return 0;
