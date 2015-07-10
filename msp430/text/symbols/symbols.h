@@ -14,6 +14,6 @@ extern const char symbol_clock_text[];
 extern const char symbol_mute_text[];
 extern const char symbol_ouput_text[];
 extern const char symbol_PI_text[];
-
+extern const char symbol_arrow_text[];
 
 #endif /* TEXT_SYMBOLS_SYMBOLS_H_ */

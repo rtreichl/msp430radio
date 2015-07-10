@@ -51,7 +51,7 @@ uint8_t menu_display(ENCODER *encoder_left, ENCODER *encoder_right)
 		if (actuall_entry->next != 0) {
 			lcd_create_view(actuall_entry->next->text, 1, 2, 0, 0);
 		}
-		lcd_create_view("~", 0, 1, 0, 1);
+		lcd_create_view(symbol_arrow_text, 0, 1, 0, 1);
 	}
 
 	return 0;
@@ -86,7 +86,7 @@ uint8_t menu_scroll_settings(uint8_t value)
 	itoa(value, tmp_string, 10, 3);
 	lcd_create_view(tmp_string, 0, 1, 0, 0);
 	menu_scroll(value);
-	lcd_create_view("%", 3, 1, 0, 1);
+	lcd_create_view(unit_percentage_text, 3, 1, 0, 1);
 	return 0;
 }
 
