@@ -172,7 +172,7 @@ uint8_t si4735_wait_for_command_completed()
 	return 0;
 }
 
-void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
+uint8_t si4735_init(uint8_t volume, uint16_t freq)	// Enthält alle für den Start benötigten Parameter
 {
    //SEN
 	ext_interrupt_create(SI_INT_INT, si4735_interrupt);
@@ -249,26 +249,20 @@ void SI4735_INIT(void)	// Enthält alle für den Start benötigten Parameter
 	//_delay_ms(10);
 
 	/* Tune to frequency 107,7 */
-	si4735_fm_tune_freq(RADIO_BOT_FREQ);
+	si4735_fm_tune_freq(freq);
 
 	si4735_configure_seeking(RADIO_BOT_FREQ, RADIO_TOP_FREQ, RADIO_SEEK_FREQ_SPACE, RADIO_VALID_SNR, RADIO_VALID_RSSI);
 	_delay_ms(10);
 	//si4735_fm_seek_start(1);
-	_delay_ms(2);
-	ext_interrupt_disable(SI_INT_INT);
+	//_delay_ms(2);
+
 	/* Enable radio audio output with standart value */
-	//si4735_set_property(RX_VOLUME, SI4735_volume);
-	//i2c_write_var(I2C_SI4735, STOP, 6, 0x12, 0x00, 0x40, 0x00, 0x00, SI4735_volume);
+	si4735_set_property(RX_VOLUME, SI4735_volume);
 
-	//uint8_t resp[8];
+	/* Disable interrupt for si4735 */
+	ext_interrupt_disable(SI_INT_INT);
 
-
-
-	//si4735_fm_tune_status(0, 0, resp);
-
-	//si4735_get_interrupt(8);
-
-	//while((SI_INT_IN & SI_INT_PIN));
+	return 0;
 }
 
 void si4735_get_interrupt(uint8_t int_number)
