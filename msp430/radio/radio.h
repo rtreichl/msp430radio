@@ -65,6 +65,8 @@ typedef struct radio_rds {
 } RADIO_RDS;
 
 typedef struct radio_settings {
+	uint8_t :7;
+	uint8_t backlight:1;
 	uint8_t display_view:2;
 	uint8_t ta_tp:1;
 	uint8_t equalizer:3;

@@ -196,8 +196,6 @@ uint8_t radio_load_settings()
 
 #define RET_VAL 1
 
-extern uint8_t backlight_controll;
-
 BRIGHTNESS radio_brightness(uint8_t mode)
 {
 	static uint32_t brightness_value = 0;
@@ -207,7 +205,7 @@ BRIGHTNESS radio_brightness(uint8_t mode)
 	int16_t brightness = 0;
 	BRIGHTNESS brightness_stc;
 
-	if(backlight_controll == 0) {
+	if(radio.settings.backlight == RADIO_BACKLIGHT_AUTOMATIC) {
 		brightness = (brightness_value >> 8);
 		brightness /= (RADIO_BRIGHTNESS_MAX - radio.settings.brightness + 1);
 

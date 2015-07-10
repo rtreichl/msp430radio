@@ -40,6 +40,9 @@
 #define RADIO_SETTINGS_TA_TP_ON 		MENU_FIRST_ENTRY
 #define RADIO_SETTINGS_TA_TP_OFF 		MENU_SECOND_ENTRY
 
+#define RADIO_BACKLIGHT_AUTOMATIC		MENU_FIRST_ENTRY
+#define RADIO_BACKLIGHT_MANUEL			MENU_SECOND_ENTRY
+
 //----------------------------------------------------------------------------------------
 //
 /// \brief Definition of functions for:\n

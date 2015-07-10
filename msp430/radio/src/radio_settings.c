@@ -25,8 +25,6 @@
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t backlight_controll = 0;
-
 uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
 	if(menu->y == MENU_THIRD_ENTRY) {
@@ -36,7 +34,7 @@ uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right,
 		menu_scroll_settings(radio.settings.brightness * 2);
 	}
 	else {
-		backlight_controll = menu->y;
+		radio.settings.backlight = menu->y;
 		return SHORT_UP_TO_PARENT;
 	}
 
