@@ -33,15 +33,16 @@
 //
 //----------------------------------------------------------------------------------------
 
-#define RADIO_FACORY_FREQENCY	0				//Seekup on start
-#define RADIO_FACORY_VIEW		0				//RDS view
-#define RADIO_FACORY_VOLUME		20				//Normal volume 20%
-#define RADIO_FACORY_EQUALIZER	0				//Equalizer POP
-#define RADIO_FACORY_SOURCE		0				//Source FM
-#define RADIO_FACORY_BRIGHTNESS	35				//Brightness 70%
-#define RADIO_FACORY_CONTRAST	6				//Contrast 60%
-#define RADIO_FACORY_TATP		0				//TA TP off
-#define RADIO_FACORY_VOLUME_TA	50				//TA volume 50%
+#define RADIO_FACTORY_FREQENCY		0			//Seekup on start
+#define RADIO_FACTORY_VIEW			0			//RDS view
+#define RADIO_FACTORY_VOLUME		20			//Normal volume 20%
+#define RADIO_FACTORY_EQUALIZER		0			//Equalizer POP
+#define RADIO_FACTORY_SOURCE		0			//Source FM
+#define RADIO_FACTORY_BRIGHTNESS	35			//Brightness 70%
+#define RADIO_FACTORY_CONTRAST		6			//Contrast 60%
+#define RADIO_FACTORY_TATP			0			//TA TP off
+#define RADIO_FACTORY_VOLUME_TA		50			//TA volume 50%
+#define RADIO_FACTORY_BACKLIGHT		0			//Backlight autmatic
 
 //----------------------------------------------------------------------------------------
 //

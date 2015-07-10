@@ -568,15 +568,16 @@ uint8_t radio_auto_search()
 uint8_t radio_factory_state()
 {
 	uint8_t i = 0;
-	radio.settings.frequency = RADIO_FACORY_FREQENCY;
-	radio.settings.display_view = RADIO_FACORY_VIEW;
-	radio.settings.volume = RADIO_FACORY_VOLUME;
-	radio.settings.ta_tp = RADIO_FACORY_TATP;
-	radio.settings.volume_ta = RADIO_FACORY_VOLUME_TA;
-	radio.settings.equalizer = RADIO_FACORY_EQUALIZER;
-	radio.settings.source = RADIO_FACORY_SOURCE;
-	radio.settings.brightness = RADIO_FACORY_BRIGHTNESS;
-	radio.settings.contrast = RADIO_FACORY_CONTRAST;
+	radio.settings.frequency = RADIO_FACTORY_FREQENCY;
+	radio.settings.display_view = RADIO_FACTORY_VIEW;
+	radio.settings.volume = RADIO_FACTORY_VOLUME;
+	radio.settings.ta_tp = RADIO_FACTORY_TATP;
+	radio.settings.volume_ta = RADIO_FACTORY_VOLUME_TA;
+	radio.settings.equalizer = RADIO_FACTORY_EQUALIZER;
+	radio.settings.source = RADIO_FACTORY_SOURCE;
+	radio.settings.brightness = RADIO_FACTORY_BRIGHTNESS;
+	radio.settings.contrast = RADIO_FACTORY_CONTRAST;
+	radio.settings.backlight = RADIO_FACTORY_BACKLIGHT;
 
 	for(i = 0; i < 14; i++) {
 		flash_store((char *)empty_text, RADIO_STATION_NAME_STORE_SIZE, RADIO_STATION_NAME_STORE_ADR + RADIO_STATION_NAME_STORE_SIZE * i);
