@@ -25,6 +25,7 @@
 #define RADIO_DCO_FREQ			16				//16 MHz
 #define RADIO_MCLK				16				//16 MHz
 #define RADIO_SCLK				2				//2 MHz
+#define RADIO_I2C_FREQ			100				//100 kHz
 
 //----------------------------------------------------------------------------------------
 //

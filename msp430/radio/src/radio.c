@@ -99,7 +99,7 @@ uint8_t radio_init()
 	basic_clock_init();
 
 	timer_init();
-	i2c_init (400,10);
+	i2c_init(RADIO_SCLK, RADIO_I2C_FREQ);
 
 	if(*init_ptr != 0xAA) {
 		radio_factory_state();

@@ -47,10 +47,10 @@ uint8_t i2c_init (uint16_t smclk_freq, uint16_t i2c_freq)
 	UCB0CTL1 = UCSSEL_2 + UCSWRST;
 
 	/* Calculate prescaler for USCI_B0 based on SMCLK freq and I2C freq  */
-	/*UCB0BR0 = 0x00FF & (uint16_t)smclk_freq/i2c_freq;
-	UCB0BR1 = (0xFF00 & (uint16_t)smclk_freq/i2c_freq) >> 8;*/
+	UCB0BR0 = 0x00FF & (uint16_t)smclk_freq * (1000 / i2c_freq);
+	UCB0BR1 = (0xFF00 & (uint16_t)smclk_freq * (1000 / i2c_freq)) >> 8;
 
-	UCB0BR0 = 0x14;
+	//UCB0BR0 = 0x14;
 
 	/* Enable NACK interrupt */
 	UCB0I2CIE = UCNACKIE;
