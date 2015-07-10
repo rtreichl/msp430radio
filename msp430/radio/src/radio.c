@@ -79,12 +79,14 @@ const PCA9632 pca9632_config = {
 ///	(1)Clock Init\n
 ///	(2)Timer Init\n
 ///	(3)Load stored radio settings\n
-///	(4)Init PCA9530\n
-///	(5)LCD Display Init\n
-///	(6)Write start text\n
-///	(7)TPA Init\n
-///	(8)Si4735 Init\n
-///	(9)Init both encoders
+/// (4)Check for programmed values if not than setup with default ones\n
+///	(5)Init PCA9533\n
+/// (6)Init OPT3001\n
+///	(7)LCD Display Init\n
+///	(8)Write start text\n
+///	(9)TPA Init\n
+///	(10)Si4735 Init\n
+///	(11)Init both encoders
 /// \param
 //
 /// \retval uint8_t
@@ -106,17 +108,16 @@ uint8_t radio_init()
 	}
 
 	radio_load_settings();
-	//pca9530_init(&pca9530_config);
 	pca9632_init(&pca9632_config);
 	opt3001_init(&opt3001_config);
-	radio_brightness(0);
+	//radio_brightness(0);
 	//radio_settings_source(0, 0, 0, 0, 0);
 	lcd_init(radio.settings.contrast);
 	lcd_create_view(startup_line_1, 2, 0, 0, 0);
 	lcd_create_view(startup_line_2, 2, 1, 0, 0);
 	lcd_create_view(startup_line_3, 2, 2, 0, 1);
 	tpa2016d2_init((enum TPA2016D2_EQUALIZER)radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
-	SI4735_INIT();
+	si4735_init(radio.settings.volume, RADIO_BOT_FREQ);
 	//radio_volume(radio.settings.volume);
 	radio_tune_freq(radio.settings.frequency);
 	Encoder_1_init();
