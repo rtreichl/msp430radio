@@ -6,6 +6,7 @@
  */
 
 struct I2C_CTRL {
+	int8_t endian;			///< Stores -1 for a little endian system on slave side and a 1 for a big endian system
 	uint8_t : 5;
 	uint8_t rept_start : 1;		///< Stores the value, if an repated start or stop will be send after performance on I2C.
 	uint8_t status : 2;			///< Stores the actual state of I2C module.
@@ -112,6 +113,7 @@ uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size
 	IE2 = UCB0TXIE;
 
 	i2c.rept_start = rept_start;
+	i2c.endian = I2C_LITTLE_ENDIAN;
 
 	/* Load TX byte counter */
 	i2c.TxByteCtr = n_size;
@@ -135,7 +137,7 @@ uint8_t i2c_write_arr(uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t n_size
 
 }
 
-uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t RXBytes, uint8_t *RxData)
+uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t endian, uint8_t RXBytes, const void *RxData)
 {
 	while(i2c.status != IDLE);
 
@@ -143,7 +145,13 @@ uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t RXBytes, u
 	UCB0I2CSA = addr;
 
 	/* Change pointer to given buffer */
-	i2c.PRxData = RxData;
+	i2c.PRxData = (uint8_t *)RxData;
+
+	if(endian == I2C_BIG_ENDIAN)
+	{
+		i2c.PRxData += RXBytes;
+	}
+
 	/* Load RX counter */
 	i2c.RxByteCtr = RXBytes;
 
@@ -152,6 +160,8 @@ uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t RXBytes, u
 
 	/* configure receiver mode */
 	UCB0CTL1 &= ~UCTR;
+
+	i2c.endian = endian;
 
 	i2c.status = RECEIVE;
 
@@ -188,11 +198,11 @@ __interrupt void USCIAB0TX_ISR(void)
 		if( i2c.RxByteCtr == 0) {
 			UCB0CTL1 |= UCTXSTP;
 			*(i2c.PRxData) = UCB0RXBUF;
-			i2c.PRxData++;
+			i2c.PRxData += i2c.endian;
 		}
 		else {
 			*(i2c.PRxData) = UCB0RXBUF;
-			i2c.PRxData++;
+			i2c.PRxData += i2c.endian;
 			i2c.RxByteCtr--;
 		}
 	}
@@ -206,7 +216,7 @@ __interrupt void USCIAB0TX_ISR(void)
 		}
 		else {
 			UCB0TXBUF = *(i2c.PTxData);
-			i2c.PTxData++;
+			i2c.PTxData += i2c.endian;
 			i2c.TxByteCtr--;
 		}
 	}

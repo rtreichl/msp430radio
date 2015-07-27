@@ -29,7 +29,7 @@ uint8_t opt3001_get_value(uint32_t *data)
 	uint8_t resp[2];
 
 	i2c_write_var(OPT3001_I2C_ADR, REPT, 1, OPT3001_RESULT_REG);
-	i2c_read(OPT3001_I2C_ADR, STOP, 2, resp);
+	i2c_read(OPT3001_I2C_ADR, STOP, I2C_LITTLE_ENDIAN, 2, resp);
 
 	value.bytes[0] = resp[1];
 	value.bytes[1] = resp[0];

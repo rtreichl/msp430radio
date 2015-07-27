@@ -49,7 +49,7 @@ uint8_t si4735_fm_rds_status(uint8_t statusonly, uint8_t mtfifo, uint8_t intack)
 	FM_RDS_STATUS_ARG1_STC arg1 = { .STATUSONLY = statusonly, .MTFIFO = mtfifo, .INTACK = intack};
 
 	i2c_write_var(I2C_SI4735, REPT, 2, FM_RDS_STATUS, arg1.byte);
-	i2c_read(I2C_SI4735, STOP, 13, resp);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 13, resp);
 
 	return resp[0];
 }
@@ -59,7 +59,7 @@ uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp)
 	FM_RSQ_STATUS_ARG1_STC arg1 = { .INTACK = intack};
 
 	i2c_write_var(I2C_SI4735, REPT, 2, FM_RSQ_STATUS, arg1.byte);
-	i2c_read(I2C_SI4735, STOP, 8, resp);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 8, resp);
 
 	return resp[0];
 }
@@ -71,7 +71,7 @@ uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack, uint8_t *resp)
 	i2c_write_var(I2C_SI4735, REPT, 2, FM_TUNE_STATUS, arg1.byte);
 	_delay_ms(10);
 	//si4735_get_interrupt(8);
-	i2c_read(I2C_SI4735, STOP, 8, resp);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 8, resp);
 
 	return resp[0];
 }
@@ -83,7 +83,7 @@ uint8_t si4735_fm_tune_freq(uint16_t frequency)
 
 	i2c_write_var(I2C_SI4735, STOP, 5, FM_TUNE_FREQ, arg1.byte, HB(frequency), LB(frequency), 0x00);
 	si4735_get_interrupt(7);
-	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status.byte);
 
 	return status.byte;
 }
@@ -93,7 +93,7 @@ uint8_t si4735_get_int_status()
 	INT_STATUS status;
 	//TODO check int pin from SI4735 via interrupt routin if interrupt availible read.
 	i2c_write_var(I2C_SI4735, REPT, 1, GET_INT_STATUS);
-	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status.byte);
 
 	return status.byte;
 }
@@ -103,7 +103,7 @@ uint16_t si4735_get_property(uint16_t property, uint16_t *data)
 	uint8_t resp[4];
 
 	i2c_write_var(I2C_SI4735, STOP, 6, SET_PROPERTY, 0x00, HB(property), LB(property));
-	i2c_read(I2C_SI4735, STOP, 4, resp);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 4, resp);
 
 	*data = ((resp[2] << 8) + (resp[3]));
 
@@ -128,7 +128,7 @@ uint8_t si4735_fm_seek_start(uint8_t up_down)	//Frequensuchlauf für höhere Frequ
 	arg1.SEEKUP = up_down;
 	i2c_write_var(I2C_SI4735, STOP, 2, FM_SEEK_START, arg1.byte);
 	si4735_get_interrupt(7);
-	i2c_read(I2C_SI4735, STOP, 1, &status.byte);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status.byte);
 
 	return status.byte;
 }

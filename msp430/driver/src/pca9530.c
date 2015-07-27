@@ -29,7 +29,7 @@ uint8_t pca9530_get_register(enum PCA9530_CTRL_CMD cmd, void *data)
 	pca9530_ctl.addr= cmd;
 
 	i2c_write_arr(PCA9530_I2C_ADR, REPT, sizeof(pca9530_ctl), &pca9530_ctl);
-	i2c_read(PCA9530_I2C_ADR, STOP, 1, data);
+	i2c_read(PCA9530_I2C_ADR, STOP, I2C_LITTLE_ENDIAN, 1, data);
 
 	return 0;
 }

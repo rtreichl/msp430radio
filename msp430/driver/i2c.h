@@ -59,6 +59,9 @@ enum I2C_CRTL_STATS {
 	ERROR			///< Indicates that I2C has occured an error.
 };
 
+#define I2C_BIG_ENDIAN -1
+#define I2C_LITTLE_ENDIAN 1
+
 /**
  *  @brief Setup I2C with a defined clock based on given SMCKL.
  *  @param smclk_freq Frequency of SMCLK clock in Hz
@@ -94,12 +97,13 @@ uint8_t i2c_write_arr (uint8_t addr,enum I2C_CRTL_CMD rept_start, uint8_t n_size
  *  @brief Receives I2C commands until a NACK is received or received RxBytes.
  *  @param addr Slave Address in 7-bit format.
  *  @param rept_start Command for stop or repeated start.
+ *  @param endian of slave system.
  *  @param RxBytes Number of receiving bytes.
  *  @param *RxData Pointer where received I2C commands are be writtn.
  *  @return error
 */
 
-uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, uint8_t RxBytes, uint8_t *RxData);
+uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t endian, uint8_t RXBytes, const void *RxData);
 
 /**
  *  @return Actuall state of I2C module.

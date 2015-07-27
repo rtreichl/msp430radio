@@ -29,7 +29,7 @@ uint8_t pca9632_set_register(enum PCA9632_REGISTERS cmd, void *data)
 uint8_t pca9632_get_register(enum PCA9632_REGISTERS cmd, void *data)
 {
 	i2c_write_arr(PCA9632_I2C_ADR, REPT, sizeof(cmd), cmd);
-	i2c_read(PCA9632_I2C_ADR, STOP, 1, data);
+	i2c_read(PCA9632_I2C_ADR, STOP, I2C_LITTLE_ENDIAN, 1, data);
 
 	return 0;
 }

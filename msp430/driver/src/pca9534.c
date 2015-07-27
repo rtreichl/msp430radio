@@ -21,6 +21,6 @@ uint8_t pca9534_input()
 {
 	uint8_t input;
 	i2c_write_var(PCA9534_I2C_ADR, REPT, 1, IN);
-	i2c_read(PCA9534_I2C_ADR, STOP, 1, &input);
+	i2c_read(PCA9534_I2C_ADR, STOP, I2C_LITTLE_ENDIAN, 1, &input);
 	return input;
 }
