@@ -6,6 +6,7 @@
  */
 
 #include <system/rds.h>
+#include <string.h>
 
 //----------------------------------------------------------------------------------------
 //
@@ -24,13 +25,9 @@
 
 void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslesen
 {
-	//Radio States => [New Freq Bit, Station_Present Bit, Radio_Text_Update Bit, 0 Bit, TP Bit, PTY 5 Bits, TA Bit, M/S Bit, DI 4 Bits] LSB
 	uint8_t pos;
-	uint8_t rds_read_byte[13];
-	uint8_t i;
-	uint8_t temp;
-	RDS *rds = (RDS*) (uint16_t*) rds_read_byte;
-	char tmp = 0, doit = 0;
+	RDS rds = {0};
+	uint8_t doit = 0;
 	static uint8_t rds_text_count = 0, rds_station_count = 0;
 	if(radio->status.freq_valid == RADIO_NOT_VALID)
 	{
@@ -40,88 +37,59 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 		radio->status.text_valid = RADIO_NOT_VALID;
 		radio->status.freq_valid = RADIO_VALID;
 	}
-
-	//TODO: replace 0x04 with macro
-	if(rds_triggered() & 0x04)
-	{
-		do
-		{
+	if(rds_triggered() & RDS_INTERRUPT) {
+		do {
 			i2c_write_var(I2C_SI4735, REPT, 2, 0x24, 0x01);
-			i2c_read(I2C_SI4735, STOP, 13, rds_read_byte);
-			for (i = 4; i <= 10; i+=2) {
-				temp = rds_read_byte[i];
-				rds_read_byte[i] = rds_read_byte[i+1];
-				rds_read_byte[i+1] = temp;
-			}
-			//TODO: replace numbers
-			if(rds->err.BLEA != 3 && rds->err.BLEB != 3 && rds->err.BLEC != 3 && rds->err.BLED != 3)
-			{
-				//TODO:replace number
-				if (rds->block_b.GROUP_NUM == 2)
-				{
-					GROUP_2A *rds2 = (GROUP_2A*) &(rds->pi);
-					pos =rds2->B*4;
-					//TODO:replace number
-					if(++rds_text_count == 16)
-					{
+			i2c_read(I2C_SI4735, STOP, I2C_BIG_ENDIAN, 13, &rds);
+			if(rds.err.BLEA != RDS_BLOCK_ERROR_UNCORRECTABLE &&
+			   rds.err.BLEB != RDS_BLOCK_ERROR_UNCORRECTABLE &&
+			   rds.err.BLEC != RDS_BLOCK_ERROR_UNCORRECTABLE &&
+			   rds.err.BLED != RDS_BLOCK_ERROR_UNCORRECTABLE) {
+				switch(rds.block_b.GROUP_NUM) {
+				case RDS_GROUP_NUM_2:
+					pos = rds.group_2a.B * RDS_RADIO_TEXT_SYMBOLS_PER_FRAME;
+					if(++rds_text_count == RDS_RADIO_TEXT_MAX_SYMBOLS/RDS_RADIO_TEXT_SYMBOLS_PER_FRAME) {
 						rds_text_count = 0;
 						radio->status.text_valid = RADIO_VALID;
 					}
-					radio->rds.text[pos++] = rds2->SEGMENT[1];
-					radio->rds.text[pos++] = rds2->SEGMENT[0];
-					radio->rds.text[pos++] = rds2->SEGMENT[3];
-					radio->rds.text[pos] = rds2->SEGMENT[2];
+					radio->rds.text[pos++] = rds.group_2a.SEGMENT[3];
+					radio->rds.text[pos++] = rds.group_2a.SEGMENT[2];
+					radio->rds.text[pos++] = rds.group_2a.SEGMENT[1];
+					radio->rds.text[pos] = rds.group_2a.SEGMENT[0];
 					radio->rds.text[64] = '\0';
-				}
-				//TODO:replace number
-				if (rds->block_b.GROUP_NUM == 4)
-				{
-					rds_group_4A(rds);
-				}
-				//TODO:replace number
-				if (rds->block_b.GROUP_NUM == 0)
-				{
-
-					//*Radio_States |= (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xFC)>>2;	//TA Bit M/S Bit DI 4 Bits
-					GROUP_0A *rds2 = (GROUP_0A*) &(rds->pi);
-
-					radio->rds.di &= ~(1 << rds2->CI);
-					radio->rds.di |= ~((1 & rds2->DI)<< rds2->CI);
-
-					radio->rds.ms = rds2->MS;
-					radio->rds.ta = rds2->TA;
-
-					//*Radio_States |= (rds2->TA | rds2->MS | rds2->DI) >> 2;
-					pos = rds2->CI*2;
-					radio->rds.name[pos++] = rds2->PS_NAME[1];
-					radio->rds.name[pos] = rds2->PS_NAME[0];
+					break;
+				case RDS_GROUP_NUM_4:
+					rds_group_4A(&rds);
+					break;
+				case RDS_GROUP_NUM_0:
+					radio->rds.di &= ~(1 << rds.group_0a.CI);
+					radio->rds.di |= ~((1 & rds.group_0a.DI)<< rds.group_0a.CI);
+					radio->rds.ms = rds.group_0a.MS;
+					radio->rds.ta = rds.group_0a.TA;
+					pos = rds.group_0a.CI * RDS_STATION_NAME_SYMBOLS_PER_FRAME;
+					radio->rds.name[pos++] = rds.group_0a.PS_NAME[1];
+					radio->rds.name[pos] = rds.group_0a.PS_NAME[0];
 					radio->rds.name[8] = '\0';
-					//TODO:replace number
-					if(++rds_station_count == 4)
-					{
+					if(++rds_station_count == RDS_STATION_NAME_MAX_SYMBOLS/RDS_STATION_NAME_SYMBOLS_PER_FRAME) {
 						rds_station_count = 0;
 						radio->status.name_valid = RADIO_VALID;
 					}
+					break;
 				}
 			}
-			radio->rds.pty = rds->block_b.PTY;
-			radio->rds.pi = rds->pi;
-			radio->rds.tp = rds->block_b.TP;
+			radio->rds.pty = rds.block_b.PTY;
+			radio->rds.pi = rds.pi;
+			radio->rds.tp = rds.block_b.TP;
 			_delay_ten_us(5);
-			tmp = rds->fifo.RDSFIFOUSED;
-			//TODO:replace numbers
-			if(tmp < 10 && doit == 0)
-			{
+			if(rds.fifo.RDSFIFOUSED < RDS_FIFO_MAX_SIZE && doit == 0) {
 				break;
 			}
-			else
-			{
+			else {
 				doit = 1;
 			}
 		}
-		while(tmp > 0);
+		while(rds.fifo.RDSFIFOUSED > 0);
 	}
-	//*Radio_States |= (rds_read_byte[5 + RDS_BYTES_OFFSET] & 0x07)<<9 | (rds_read_byte[6 + RDS_BYTES_OFFSET] & 0xE0)<<1; //TP Bit PTY 5 Bits
 }
 
 //----------------------------------------------------------------------------------------
@@ -140,7 +108,7 @@ uint8_t rds_triggered()
 {
 	uint8_t rds = 0;
 	i2c_write_var(I2C_SI4735, REPT, 1, 0x14);
-	i2c_read(I2C_SI4735, STOP, 1, &rds);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &rds);
 	return rds;
 }
 
@@ -156,9 +124,8 @@ uint8_t rds_triggered()
 //
 //----------------------------------------------------------------------------------------
 
-void rds_group_4A(RDS *data)
+void rds_group_4A(RDS *rds)
 {
-	GROUP_4A *group_4a = (GROUP_4A*) &(data->pi);
 	uint8_t offset = 0;
 	int16_t mdj = 0;
 	uint8_t m_hour, m_minute, m_day, m_month, m_year;
@@ -167,10 +134,10 @@ void rds_group_4A(RDS *data)
 	m_month = 0;
 	m_year = 10;
 
-	m_minute = group_4a->MINUTE;
-	m_hour = group_4a->HOUR_L + group_4a->HOUR_H * 16;
-	offset = group_4a->TIME_OFF;
-	mdj = group_4a->DATE_L + (group_4a->DATE_H << 15);
+	m_minute = rds->group_4a.MINUTE;
+	m_hour = rds->group_4a.HOUR_L + rds->group_4a.HOUR_H * 16;
+	offset = rds->group_4a.TIME_OFF;
+	mdj = rds->group_4a.DATE_L + (rds->group_4a.DATE_H << 15);
 
 	mdj = mdj - 55198 + 1; //55198 = MDJ of 01.01.2010
 
