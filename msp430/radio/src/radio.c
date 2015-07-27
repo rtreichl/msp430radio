@@ -360,7 +360,7 @@ uint8_t radio_main(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu
 		radio_stand_by();
 	}
 
-	if(radio.settings.ta_tp == RADIO_TRUE && radio.rds.ta == RADIO_TRUE && radio.rds.tp == RADIO_TRUE) {
+	if(radio.settings.ta_tp == RADIO_SETTINGS_TA_TP_ON && radio.rds.ta == RADIO_TRUE && radio.rds.tp == RADIO_TRUE) {
 		radio.status.volume_ta = RADIO_TRUE;
 	} else if(radio.rds.ta == RADIO_FALSE && radio.status.volume_ta == RADIO_TRUE) {
 		radio.status.volume_ta = RADIO_FALSE;
