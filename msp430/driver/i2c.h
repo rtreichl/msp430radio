@@ -59,8 +59,8 @@ enum I2C_CRTL_STATS {
 	ERROR			///< Indicates that I2C has occured an error.
 };
 
-#define I2C_BIG_ENDIAN -1
-#define I2C_LITTLE_ENDIAN 1
+#define I2C_BIG_ENDIAN -1	///< Indecates a big endian system for slave
+#define I2C_LITTLE_ENDIAN 1	///< Indecates a little endian system for slave
 
 /**
  *  @brief Setup I2C with a defined clock based on given SMCKL.

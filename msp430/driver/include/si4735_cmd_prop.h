@@ -6,19 +6,599 @@
 #define HB(byte) ((byte & 0xFF00) >> 8)
 #define LB(byte) (byte & 0x00FF)
 
-typedef union int_status {
-	uint8_t byte;
-	struct {
-		uint8_t CTS:1;
-		uint8_t ERR:1;
-		uint8_t :2;
-		uint8_t RSQINT:1;
-		uint8_t RDSINT:1;
-		uint8_t :1;
-		uint8_t STCINT:1;
-	};
-} INT_STATUS;
+///----------------------------------------------------------------------------------------
+///
+/// \struct si4735_status
+/// \brief Status information bitfield
+///
+/// \var si4735_status::CTS
+/// \brief Clear to send.
+///
+/// 0 = Wait before sending next command.\n
+/// 1 = Clear to send next command.
+///
+/// \var si4735_status::ERR
+/// \brief Error.
+///
+/// 0 = No error.\n
+/// 1 = Error.
+///
+/// \var si4735_status::RDSINT
+/// \brief RDS Interrupt.
+///
+/// 0 = RDS interrupt has not been triggered.\n
+/// 1 = RDS interrupt has been triggered.
+///
+/// \var si4735_status::ASQINT
+/// \brief Signal Quality Interrupt.
+///
+/// 0 = Signal quality measurement has not been triggered.\n
+/// 1 = Signal quality measurement has been triggered.
+///
+/// \var si4735_status::STCINT
+/// \brief Seek/Tune Complete Interrupt.
+///
+/// 0 = Tune complete has not been triggered.\n
+/// 1 = Tune complete has been triggered.
+///
+///----------------------------------------------------------------------------------------
 
+
+typedef union si4735_fm_status {
+	uint8_t STCINT:1;
+	uint8_t:1;
+	uint8_t RDSINT:1;
+	uint8_t RSQINT:1;
+	uint8_t:2;
+	uint8_t ERR:1;
+	uint8_t CTS:1;
+} SI4735_FM_STATUS;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct si4735_fm_rds_info
+/// \brief Radio data service infromation bitfield
+///
+/// \var si4735_fm_rds_info::RDSNEWBLOCKB
+/// \brief RDS New Block B.
+///
+/// 1 = Valid Block B data has been received.
+///
+/// \var si4735_fm_rds_info::RDSNEWBLOCKA
+/// \brief RDS New Block A.
+///
+/// 1 = Valid Block A data has been received.
+///
+/// \var si4735_fm_rds_info::RDSSYNCFOUND
+/// \brief RDS Sync Found.t.
+///
+/// 1 = Found RDS synchronization.
+///
+/// \var si4735_fm_rds_info::RDSSYNCLOST
+/// \brief RDS Sync Lost.
+///
+/// 1 = Lost RDS synchronization.
+///
+/// \var si4735_fm_rds_info::RDSRECV
+/// \brief RDS Received.
+///
+/// 1 = FIFO filled to minimum number of groups set by RDSFIFOCNT.
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rds_info {
+	uint8_t RDSRECV:1;
+	uint8_t RDSSYNCLOST:1;
+	uint8_t RDSSYNCFOUND:1;
+	uint8_t:1;
+	uint8_t RDSNEWBLOCKA:1;
+	uint8_t RDSNEWBLOCKB:1;
+	uint8_t:2;
+} SI4735_FM_RDS_INFO;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct si4735_fm_rds_sync
+/// \brief Radio data service synchronization bitfield
+///
+/// \var si4735_fm_rds_sync::GRPLOST
+/// \brief Group Lost.
+///
+/// 1 = One or more RDS groups discarded due to FIFO overrun.
+///
+/// \var si4735_fm_rds_sync::RDSSYNC
+/// \brief RDS Sync.
+///
+/// 1 = RDS currently synchronized.
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rds_sync {
+	uint8_t RDSSYNC:1;
+	uint8_t:1;
+	uint8_t GRPLOST:1;
+	uint8_t:5;
+} SI4735_FM_RDS_SYNC;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct si4735_fm_rds_err
+/// \brief Radio data service block error bitfield
+///
+/// \var si4735_fm_rds_err::BLEA
+/// \brief RDS Block A Corrected Errors.
+///
+/// 0 = No errors.\n
+/// 1 = 1-2 bit errors detected and corrected.\n
+/// 2 = 3-5 bit errors detected and corrected.\n
+/// 3 = Uncorrectable.
+///
+/// \var si4735_fm_rds_err::BLEB
+/// \brief RDS Block B Corrected Errors.
+///
+/// 0 = No errors.\n
+/// 1 = 1-2 bit errors detected and corrected.\n
+/// 2 = 3-5 bit errors detected and corrected.\n
+/// 3 = Uncorrectable.
+///
+///
+/// \var si4735_fm_rds_err::BLEC
+/// \brief RDS Block C Corrected Errors.
+///
+/// 0 = No errors.\n
+/// 1 = 1-2 bit errors detected and corrected.\n
+/// 2 = 3-5 bit errors detected and corrected.\n
+/// 3 = Uncorrectable.
+///
+///
+/// \var si4735_fm_rds_err::BLED
+/// \brief RDS Block D Corrected Errors.
+///
+/// 0 = No errors.\n
+/// 1 = 1-2 bit errors detected and corrected.\n
+/// 2 = 3-5 bit errors detected and corrected.\n
+/// 3 = Uncorrectable.
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rds_err {
+	uint8_t BLED:2;
+	uint8_t BLEC:2;
+	uint8_t BLEB:2;
+	uint8_t BLEA:2;
+} SI4735_FM_RDS_ERR;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct  si4735_fm_rds_status_res
+/// \brief Struct for radio data service status response.\n
+///
+///	Byteorder of this struct expect a big endian order.
+///
+/// \var si4735_rds_status_res::align_byte
+/// \brief This byte is used for a alignment at the processor.
+///
+/// This byte can be used as a normal variable for something else.
+///
+/// \var si4735_fm_rds_status_res::block_d
+/// \brief RDS Block D informations.
+///
+/// For decoding information see at:\n
+///	http://www.g.laroche.free.fr/english/rds/groupes/tramesRDS.htm\n
+///	and look at programming guidlines of si4735.
+///
+/// \var si4735_fm_rds_status_res::block_c
+/// \brief RDS Block C informations.
+///
+/// For decoding information see at:\n
+///	http://www.g.laroche.free.fr/english/rds/groupes/tramesRDS.htm\n
+///	and look at programming guidlines of si4735.
+///
+/// \var si4735_fm_rds_status_res::block_b
+/// \brief RDS Block B informations.
+///
+/// For decoding information see at:\n
+///	http://www.g.laroche.free.fr/english/rds/groupes/tramesRDS.htm\n
+///	and look at programming guidlines of si4735.
+///
+/// \var si4735_fm_rds_status_res::block_a
+/// \brief RDS Block A informations.
+///
+/// For decoding information see at:\n
+///	http://www.g.laroche.free.fr/english/rds/groupes/tramesRDS.htm\n
+///	and look at programming guidlines of si4735.
+///
+/// \var si4735_fm_rds_status_res::fifo
+/// \brief RDS FIFO Used.
+///
+///	Number of groups remaining in the RDS FIFO (0 if empty). If non-zero,BLOCKA-BLOCKD\n
+/// cntain the oldest FIFO entry and RDSFIFOUSED decrements by one on the next call to\n
+/// RDS_FIFO_STATUS (assuming no RDS data received in the interim).
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rds_status_res {
+	uint8_t 		align_byte;
+	SI4735_FM_RDS_ERR	err;
+	uint16_t		block_d;
+	uint16_t		block_c;
+	uint16_t		block_b;
+	uint16_t		block_a;
+	uint8_t			fifo;
+	SI4735_FM_RDS_INFO info;
+	SI4735_FM_RDS_SYNC sync;
+	SI4735_FM_STATUS	status;
+} SI4735_FM_RDS_STATUS_RES;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct  si4735_fm_rds_status_arg
+/// \brief Struct for radio data service status argument.\n
+///
+/// \var si4735_fm_rds_status_arg::INTACK
+/// \brief Interrupt Acknowledge.
+///
+/// 0 = RDSINT status preserved.\n
+/// 1 = Clears RDSINT.
+///
+/// \var si4735_fm_rds_status_arg::MTFIFO
+/// \brief Empty FIFO.
+///
+/// 0 = If FIFO not empty, read and remove oldest FIFO entry.\n
+///	1 = Clear RDS Receive FIFO.
+///
+/// \var si4735_fm_rds_status_arg::STATUSONLY
+/// \brief Status Only.
+///
+///	Determines if data should be removed from the RDS FIFO.\n\n
+///	0 = Data in BLOCKA, BLOCKB, BLOCKC, BLOCKD, and BLE contain the oldest data in the
+///	RDS FIFO.\n
+///	1 = Data in BLOCKA will contain the last valid block A data received for the current
+///	station. Data in BLOCKB will contain the last valid block B data received for
+///	the current station.\n
+///	Data in BLE will describe the bit errors for the data in BLOCKA and BLOCKB.
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rds_status_arg {
+	uint8_t INTACK:1;
+	uint8_t MTFIFO:1;
+	uint8_t STATUSONLY:1;
+	uint8_t :5;
+} SI4735_FM_RDS_STATUS_ARG;
+
+///----------------------------------------------------------------------------------------
+///
+/// \def  SI4735_FM_RDS_STATUS
+/// \brief Command 0x24. FM_RDS_STATUS.
+///
+/// Returns RDS information for current channel and reads an entry from the RDS FIFO. RDS\n
+/// information includes synch status, FIFO status, group data (blocks A, B, C, and D),\n
+///	and block errors corrected. This command clears the RDSINT interrupt bit when INTACK\n
+///	bit in ARG1 is set and, if MTFIFO is set, the entire RDS receive FIFO is cleared \n
+///	(FIFO is always cleared during FM_TUNE_FREQ or FM_SEEK_START). The CTS bit \n
+///	(and optional interrupt) is set when it is safe to send the next command. This \n
+///	command may only be sent when in power up mode. The FIFO size is 25 groups for FMRX\n
+///	component 2.0 or later, and 14 for FMRX component 1.0.
+///
+/// \note  FM_RDS_STATUS is supported in FMRX component 2.0 or later.\n
+///		MTFIFO is not supported in FMRX component 2.0.
+///
+/// Available in: Si4705/06, Si4721, Si474x, Si4731/35/37/39, Si4785.\n
+///
+///	Command arguments: One\n
+///
+/// Response bytes: Twelve
+///
+///----------------------------------------------------------------------------------------
+
+#define SI4735_FM_RDS_STATUS	0x24
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct si4735_fm_rsq_int
+/// \brief Radio signal quality interrupt bitfield
+///
+/// \var si4735_fm_rsq_int::RSSILINT
+/// \brief RSSI Detect Low.
+///
+///	0 = RSSI has not fallen below RSSI low threshold.\n
+///	1 = RSSI has fallen below RSSI low threshold.
+///
+/// \var si4735_fm_rsq_int::RSSIHINT
+/// \brief RSSI Detect High.
+///
+/// 0 = RSSI has not exceeded above RSSI high threshold.\n
+///	1 = RSSI has exceeded above RSSI high threshold.
+///
+/// \var si4735_fm_rsq_int::SNRLINT
+/// \brief RSSI Detect High.
+///
+/// 0 = Received SNR has not fallen below SNR low threshold.\n
+///	1 = Received SNR has fallen below SNR low threshold.
+///
+/// \var si4735_fm_rsq_int::SNRHINT
+/// \brief SNR Detect High.
+///
+/// 0 = Received SNR has not exceeded above SNR high threshold.\n
+///	1 = Received SNR has exceeded above SNR high threshold.
+///
+/// \var si4735_fm_rsq_int::MULTLINT
+/// \brief Multipath Detect Low.
+///
+/// 0 = Detected multipath value has not fallen below the Multipath low threshold.\n
+///	1 = Detected multipath value has fallen below the Multipath low threshold.
+///
+/// \var si4735_fm_rsq_int::MULTHINT
+/// \brief Multipath Detect High.
+///
+/// 0 = Detected multipath value has not exceeded above the Multipath high threshold.\n
+///	1 = Detected multipath value has exceeded above the Multipath high threshold.
+///
+/// \var si4735_fm_rsq_int::BLENDINT
+/// \brief Blend Detect Interrupt.
+///
+/// 0 = Blend is within the Blend threshold settings.\n
+///	1 = Blend goes above or below the Blend threshold settings.
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rsq_int {
+	uint8_t RSSILINT:1;
+	uint8_t RSSIHINT:1;
+	uint8_t SNRLINT:1;
+	uint8_t SNRHINT:1;
+	uint8_t MULTLINT:1;
+	uint8_t MULTHINT:1;
+	uint8_t:1;
+	uint8_t BLENDINT:1;
+} SI4735_FM_RSQ_INT;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct si4735_fm_rsq_info
+/// \brief Radio signal quality information bitfield
+///
+/// \var si4735_fm_rsq_info::SMUTE
+/// \brief Soft Mute Indicator.
+///
+///	Indicates soft mute is engaged.
+///
+/// \var si4735_fm_rsq_info::AFCRL
+/// \brief AFC Rail Indicator.
+///
+///	Set if the AFC rails.
+///
+/// \var si4735_fm_rsq_info::VALID
+/// \brief Valid Channel.
+///
+///	Set if the channel is currently valid and would have been found during a Seek.
+///
+/// \var si4735_fm_rsq_info::PILOT
+/// \brief Pilot Indicator.
+///
+///	Indicates stereo pilot presence.
+///
+/// \var si4735_fm_rsq_info::STBLEND
+/// \brief Stereo Blend Indicator.
+///
+///	Indicates amount of stereo blend in% (100 = full stereo, 0 = full mono).
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rsq_info {
+	uint8_t VALID:1;
+	uint8_t AFCRL:1;
+	uint8_t :1;
+	uint8_t SMUTE:1;
+	uint8_t :4;
+	uint8_t PILOT:1;
+	uint8_t STBLEND:7;
+} SI4735_FM_RSQ_INFO;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct  si4735_fm_rsq_status_resp
+/// \brief Struct for radio signal quality status response.\n
+///
+///	Byteorder of this struct expect a big endian order.
+///
+/// \var si4735_fm_rsq_status_resp::freqoff
+/// \brief Frequency Offset.
+///
+///	Signed frequency offset (kHz).
+///
+/// \var si4735_fm_rsq_status_resp::mult
+/// \brief Multipath.
+///
+///	Contains the current multipath metric. (0 = no multipath; 100 = full multipath)
+///
+/// \var si4735_fm_rsq_status_resp::snr
+/// \brief SNR.
+///
+///	Contains the current SNR metric (0-127 dB).
+///
+/// \var si4735_fm_rsq_status_resp::rssi
+/// \brief Received Signal Strength Indicator.
+///
+///	Contains the current receive signal strength (0-127 dBuV).
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rsq_status_resp {
+	uint8_t				freqoff;
+	uint8_t				mult;
+	uint8_t				snr;
+	uint8_t				rssi;
+	SI4735_FM_RSQ_INFO 	info;
+	SI4735_FM_RSQ_INT 	intr;
+	SI4735_FM_STATUS	status;
+} SI4735_FM_RSQ_STATUS_RESP;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct  si4735_fm_rsq_status_arg
+/// \brief Struct for radio signal quality status argument.\n
+///
+/// \var si4735_fm_rsq_status_arg::INTACK
+/// \brief Interrupt Acknowledge.
+///
+/// 0 = RDSINT status preserved.\n
+/// 1 = Clears RSQINT, BLENDINT, SNRHINT, SNRLINT, RSSIHINT, RSSILINT, MULTHINT, MULTLINT.
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_rsq_status_arg {
+	uint8_t INTACK:1;
+	uint8_t :7;
+} SI4735_FM_RSQ_STATUS_ARG;
+
+///----------------------------------------------------------------------------------------
+///
+/// \def  SI4735_FM_RSQ_STATUS
+/// \brief Command 0x23. FM_RSQ_STATUS.
+///
+/// Returns status information about the received signal quality. The commands returns the\n
+///	RSSI, SNR, frequency offset, and stereo blend percentage. It also indicates valid \n
+///	channel (VALID), soft mute engagement (SMUTE), and AFC rail status (AFCRL). This \n
+///	command can be used to check if the received signal is above the RSSI high threshold\n
+///	as reported by RSSIHINT, or below the RSSI low threshold as reported by RSSILINT. It\n
+///	can also be used to check if the signal is above the SNR high threshold as reported \n
+///	by SNRHINT, or below the SNR low threshold as reported by SNRLINT. For the Si4706/4x,\n
+///	it can be used to check if the detected multipath is above the multipath high\n
+///	threshold as reported by MULTHINT, or below the multipath low threshold as reported\n
+///	by MULTLINT. If the PILOT indicator is set, it can also check whether the blend has\n
+///	crossed a threshold as indicated by BLENDINT. The command clears the RSQINT,\n
+///	BLENDINT, SNRHINT, SNRLINT, RSSIHINT, RSSILINT, MULTHINT, and MULTLINT interrupt bits\n
+///	when INTACK bit of ARG1 is set. The CTS bit (and optional interrupt) is set when it is\n
+///	safe to send the next command. This command may only be sent when in powerup mode.\n
+///
+/// Available in: All\n
+///
+///	Command arguments: One\n
+///
+/// Response bytes: Seven
+///
+///----------------------------------------------------------------------------------------
+
+#define SI4735_FM_RSQ_STATUS	0x23
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct fm_tune_status_info
+/// \brief Radio tune freqency information bitfield
+///
+/// \var fm_tune_status_info::VALID
+/// \brief Valid Channel.
+///
+///	Set if the channel is currently valid as determined by the seek/tune properties\
+///	(0x1403, 0x1404, 0x1108) and would have been found during a Seek.
+///
+/// \var fm_tune_status_info::AFCRL
+/// \brief AFC Rail Indicator.
+///
+///	Set if the AFC rails.
+///
+/// \var fm_tune_status_info::BLTF
+/// \brief Band Limit.
+///
+///	Reports if a seek hit the band limit (WRAP = 0 in FM_START_SEEK) or wrapped to the\n
+///	original frequency (WRAP = 1).
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct fm_tune_status_info {
+	uint8_t VALID:1;
+	uint8_t AFCRL:1;
+	uint8_t :5;
+	uint8_t BLTF:1;
+} FM_TUNE_STATUS_INFO;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct  si4735_fm_tune_status_resp
+/// \brief Struct for radio signal quality status response.\n
+///
+///	Byteorder of this struct expect a big endian order.
+///
+/// \var si4735_fm_tune_status_resp::antcap
+/// \brief Read Antenna Tuning Capacitor (Si4704/05/06/2x only).
+///
+///	This byte contains the current antenna tuning capacitor value.
+///
+/// \var si4735_fm_tune_status_resp::mult
+/// \brief Multipath.
+///
+///	This byte contains the multipath metric when tune is complete.
+///
+/// \var si4735_fm_tune_status_resp::snr
+/// \brief SNR.
+///
+///	This byte contains the SNR metric when tune is complete (dB).
+///
+/// \var si4735_fm_tune_status_resp::rssi
+/// \brief Received Signal Strength Indicator.
+///
+///	This byte contains the receive signal strength when tune is complete (dBuV).
+///
+///	\var si4735_fm_tune_status_resp::freq
+/// \brief Frequency being tuned (10 kHz).
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_tune_status_resp {
+	uint8_t				antcap;
+	uint8_t				mult;
+	uint8_t				snr;
+	uint8_t				rssi;
+	uint16_t 			freq;
+	FM_TUNE_STATUS_INFO	info;
+	SI4735_FM_STATUS	status;
+} SI4735_FM_TUNE_STATUS_RESP;
+
+///----------------------------------------------------------------------------------------
+///
+/// \struct  si4735_fm_tune_status_arg
+/// \brief Struct for radio signal quality status argument.\n
+///
+/// \var si4735_fm_tune_status_arg::INTACK
+/// \brief Seek/Tune Interrupt Clear.
+///
+///	If set, clears the seek/tune complete interrupt status indicator.
+///
+/// \var si4735_fm_tune_status_arg::CANCEL
+/// \brief Cancel seek.
+///
+///	If set, aborts a seek currently in progress.
+///
+///----------------------------------------------------------------------------------------
+
+typedef struct si4735_fm_tune_status_arg {
+	uint8_t INTACK:1;
+	uint8_t CANCEL:1;
+	uint8_t :6;
+} SI4735_FM_TUNE_STATUS_ARG;
+
+///----------------------------------------------------------------------------------------
+///
+/// \def  SI4735_FM_TUNE_STATUS
+/// \brief Command 0x22. FM_TUNE_STATUS.
+///
+/// Returns the status of FM_TUNE_FREQ or FM_SEEK_START commands. The command returns the\n
+///	current frequency, RSSI, SNR, multipath, and the antenna tuning capacitance value\n
+///	(0-191). The command clears the STCINT interrupt bit when INTACK bit of ARG1 is set.\n
+///	The CTS bit (and optional interrupt) is set when it is safe to send the next command.\n
+///	This command may only be sent when in powerup mode.\n
+///
+/// Available in: All\n
+///
+///	Command arguments: One\n
+///
+/// Response bytes: Seven
+///
+///----------------------------------------------------------------------------------------
+
+#define SI4735_FM_TUNE_STATUS	0x22
 
 /* commands + send arguments types*/
 
@@ -76,116 +656,6 @@ typedef union fm_seek_start_arg1 {
 		uint8_t :4;
 	};
 } FM_SEEK_START_ARG1_STC;
-
-
-#define FM_TUNE_STATUS	0x22
-
-typedef union fm_tune_status_arg1 {
-	uint8_t byte;
-	struct {
-		uint8_t :6;
-		uint8_t CANCEL:1;
-		uint8_t INTACK:1;
-	};
-} FM_TUNE_STATUS_ARG1_STC;
-
-typedef union fm_tune_status_resp1 {
-	uint8_t byte;
-	struct {
-		uint8_t :6;
-		uint8_t AFCRL:1;
-		uint8_t VALID:1;
-	};
-} FM_TUNE_STATUS_RESP1_STC;
-
-
-#define FM_RSQ_STATUS	0x23
-
-typedef union fm_rsq_status_arg1 {
-	uint8_t byte;
-	struct {
-		uint8_t :7;
-		uint8_t INTACK:1;
-	};
-} FM_RSQ_STATUS_ARG1_STC;
-
-typedef union fm_rsq_status_resp1 {
-	uint8_t byte;
-	struct {
-		uint8_t BLENDINT:1;
-		uint8_t :1;
-		uint8_t MULTHINT:1;
-		uint8_t MULTLINT:1;
-		uint8_t SNRHINT:1;
-		uint8_t SNRLINT:1;
-		uint8_t RSSIHINT:1;
-		uint8_t RSSILINT:1;
-	};
-} FM_RSQ_STATUS_RESP1_STC;
-
-typedef union fm_rsq_status_resp2 {
-	uint8_t byte;
-	struct {
-		uint8_t :4;
-		uint8_t SMUTE:1;
-		uint8_t :1;
-		uint8_t AFCRL:1;
-		uint8_t VALID:1;
-	};
-} FM_RSQ_STATUS_RESP2_STC;
-
-typedef union fm_rsq_status_resp3 {
-	uint8_t byte;
-	struct {
-		uint8_t PILOT:1;
-		uint8_t STBLEND:7;
-	};
-} FM_RSQ_STATUS_RESP3_STC;
-
-#define FM_RDS_STATUS	0x24
-
-typedef union fm_rds_status_arg1 {
-	uint8_t byte;
-	struct {
-		uint8_t :5;
-		uint8_t STATUSONLY:1;
-		uint8_t MTFIFO:1;
-		uint8_t INTACK:1;
-	};
-} FM_RDS_STATUS_ARG1_STC;
-
-typedef union fm_rds_status_resp1 {
-	uint8_t byte;
-	struct {
-		uint8_t :2;
-		uint8_t RDSNEWBLOCKB:1;
-		uint8_t RDSNEWBLOCKA:1;
-		uint8_t :1;
-		uint8_t RDSSYNCFOUND:1;
-		uint8_t RDSSYNCLOST:1;
-		uint8_t RDSRECV:1;
-	};
-} FM_RDS_STATUS_RESP1_STC;
-
-typedef union fm_rds_status_resp2 {
-	uint8_t byte;
-	struct {
-		uint8_t :5;
-		uint8_t GRPLOST:1;
-		uint8_t :1;
-		uint8_t RDSSYNC:1;
-	};
-} FM_RDS_STATUS_RESP2_STC;
-
-typedef union fm_rds_status_resp12 {
-	uint8_t byte;
-	struct {
-		uint8_t BLEA:2;
-		uint8_t BLEB:1;
-		uint8_t BLEC:2;
-		uint8_t BLED:2;
-	};
-} FM_RDS_STATUS_RESP12_STC;
 
 #define FM_AGC_STATUS	0x27
 

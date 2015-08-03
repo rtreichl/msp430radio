@@ -1,44 +1,44 @@
-/*
- * handler.c
- *
- *  Created on: 05.02.2015
- *      Author: Richard
- */
-
-
-/*
- * The handler calls functions time and interrupt based for the interrupts is a new interrupt handler needed!!!
- * The interrupt handler should reakt on different interrupts and look up in a table where the to calling function is!!!
- * Problem which is to solve is how to get an own interrupt handler on msp430 architectur.
- * For a good performance, interrupt function which is called, should be shortest as possible.
- * As next step there can be a function, that will countinouse the callculation in a normal operate state.
- * The funciton call after a interrupt servece the handler.
- * A further problem is the msp430 has a very low ram, so if many functions saving many variables during calculation.
- * Better implemention would be a not a multitheread system, only a single thread system and minimize waitings.
- */
+///////////////////////////////////////////////////////////////////////////////////////////
+///
+/// \file handler.c
+///
+/// \brief handler.c calls all listed function after a given time
+///
+/// \date 25.03.2015
+///
+/// \author Richard Treichl
+///
+/// \remark
+///
+/// \todo
+///
+/// \version	1.0
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 #include <system/handler.h>
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Handler for menu, RDS, time, the encoders and rsq
-//
+///
 /// Steps in the while loop include:\n
-///	(1)Calculate the new encoder values\n
-///	(2)Update display\n
-///	(3)Actualize menu\n
-///	(4)Actualize encoders\n
-///	(5)Update time\n
-///	(6)Update rsq\n
-///	(7)Update RDS
-//
+///	1. Get new encoder values\n
+///	2. Update display\n
+///	3. Actualize menu\n
+///	4. Actualize encoders\n
+///	5. Update time\n
+///	6. Update rsq\n
+/// 7. Update backlight\n
+///	8. Update RDS
+///
 /// \param	void
-//
+///
 /// \retval	void
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 void handler (void)
 {
@@ -72,7 +72,7 @@ void handler (void)
 			radio_brightness(0);
 			timer_count[RADIO_TIMER_BACKLIGHT] -= RADIO_COUNT_BACKLIGHT;
 		}
-		if(timer_count[RADIO_TIMER_RDS] >= RADIO_COUNT_RDS) { //TODO Rework to interrupt base system
+		if(timer_count[RADIO_TIMER_RDS] >= RADIO_COUNT_RDS) {
 			rds_update(&radio);
 			timer_count[RADIO_TIMER_RDS] -= RADIO_COUNT_RDS;
 		}

@@ -1,19 +1,31 @@
-/*
-* menu_new.c
-*
-*  Created on: 17.03.2015
-*      Author: Richard
-*/
+///////////////////////////////////////////////////////////////////////////////////////////
+///
+/// \file menu.c
+///
+/// \brief menu.c includes all necessary functions macros and structs for the radio data\n
+/// service
+///
+/// \date 17.03.2015
+///
+/// \author Richard Treichl
+///
+/// \remark
+///
+/// \todo Finish documentation
+///
+/// \version	1.0
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 #include <menu/menu.h>
 #include <radio/radio.h>
 #include <libs/string.h>
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Definition of some important values
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 #define MENU_NO_FUNC_ENTRY 0
 
@@ -21,17 +33,15 @@ MENU_ENTRY *actuall_entry = &main_long_entry;
 MENU_FUNC_PTR actuall_func = &radio_main;
 MENU_STC menu = {0, 0, 0, 0};
 
-//----------------------------------------------------------------------------------------
-//
-/// \brief Display the current menu
-//
-/// \param
-//
-/// \retval uint8_t
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
+/// \brief  Display the current menu
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+/// \todot
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t menu_display(ENCODER *encoder_left, ENCODER *encoder_right)
 {
@@ -57,27 +67,15 @@ uint8_t menu_display(ENCODER *encoder_left, ENCODER *encoder_right)
 	return 0;
 }
 
-/*uint8_t menu_function(uint8_t *encoder_left_button, int8_t *encoder_left_count, uint8_t *encoder_right_button, int8_t *encoder_right_count)
-{
-	if(menu_display_selector == MENU_MAIN_ENTRY) {
-		return radio_main(encoder_left_button, encoder_left_count, encoder_right_button, encoder_right_count);
-	}
-	else {
-		return radio_settings(encoder_right_button, encoder_right_count, actuall_entry->entry_num);
-	}
-}*/
-
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Scroll through the settings
-//
-/// \param	<value>	[in]	scroll value
-//
-/// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+/// \todot
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t menu_scroll_settings(uint8_t value)
 {
@@ -90,17 +88,15 @@ uint8_t menu_scroll_settings(uint8_t value)
 	return 0;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Scroll to given position
-//
-/// \param	<value>	[in]	position to be scrolled to
-//
-/// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+/// \todot
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t menu_scroll(uint8_t value)
 {
@@ -125,10 +121,16 @@ uint8_t menu_scroll(uint8_t value)
 	return 0;
 }
 
-#define MENU_ENCODER_CHANGED 1
-#define MENU_ENCODER_NOP 0
-#define TRUE 1
-
+///////////////////////////////////////////////////////////////////////////////////////////
+///
+/// \brief Detected if the encoder hase changed. If encoder has changed than it will check
+/// the boundary condition and execute necessary operation.
+///
+/// \remarks
+///
+/// \todo
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t menu_encoder_range(ENCODER *encoder, void *controll, uint8_t bytes, uint16_t upper_bound, uint16_t lower_bound, uint8_t step, uint8_t overflow)
 {
@@ -174,20 +176,15 @@ uint8_t menu_encoder_range(ENCODER *encoder, void *controll, uint8_t bytes, uint
 	return MENU_ENCODER_NOP;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Handler of the menu, entry to the sub menus and the parent lvl of the menus
-//
-/// \param	<encoder_left_button>	[in]	State of the left button
-/// \param	<encoder_left_count>	[in]	Count of the left encoder
-/// \param	<encoder_right_button>	[in]	State of the right button
-/// \param	<encoder_right_count>	[in]	Count of the right encoder
-//
-/// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+/// \todo
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t menu_handler(ENCODER *encoder_left, ENCODER *encoder_right)
 {

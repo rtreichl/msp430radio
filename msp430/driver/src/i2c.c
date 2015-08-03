@@ -147,8 +147,8 @@ uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t endian, uin
 	/* Change pointer to given buffer */
 	i2c.PRxData = (uint8_t *)RxData;
 
-	if(endian == I2C_BIG_ENDIAN)
-	{
+	/* Check endian to recalculate pointer adress */
+	if(endian == I2C_BIG_ENDIAN) {
 		i2c.PRxData += RXBytes;
 	}
 
