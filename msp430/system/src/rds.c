@@ -104,14 +104,14 @@ void rds_update(RADIO *radio)                 //nur Sender-Stationsnamen auslese
 			radio->rds.tp = rds.block_b.TP;
 			_delay_ten_us(5);
 			/* if fifo puffer less than RDS_FIFO_MAX_SIZE jump out of loop else read every data from rds fifo until it is zero */
-			if(rds.fifo.RDSFIFOUSED < RDS_FIFO_MAX_SIZE && doit == 0) {
+			if(rds.fifo < RDS_FIFO_MAX_SIZE && doit == 0) {
 				break;
 			}
 			else {
 				doit = 1;
 			}
 		}
-		while(rds.fifo.RDSFIFOUSED > 0);
+		while(rds.fifo > 0);
 	}
 }
 

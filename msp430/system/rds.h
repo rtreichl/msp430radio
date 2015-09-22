@@ -43,6 +43,7 @@
 ///	@{
 ///
 ///////////////////////////////////////////////////////////////////////////////////////////
+
 #define RDS_GROUP_NUM_0	0
 #define RDS_GROUP_NUM_1	1
 #define RDS_GROUP_NUM_2	2
@@ -143,43 +144,6 @@
 /// Contains the number which identify the actual group data is transmitted
 ///
 ///////////////////////////////////////////////////////////////////////////////////////////
-typedef struct status {
-	uint8_t STCINT:1;
-	uint8_t:1;
-	uint8_t RDSINT:1;
-	uint8_t RSQINT:1;
-	uint8_t:2;
-	uint8_t ERR:1;
-	uint8_t CTS:1;
-} STATUS;
-
-typedef struct info {
-	uint8_t RDSRECV:1;
-	uint8_t RDSSYNCLOST:1;
-	uint8_t RDSSYNCFOUND:1;
-	uint8_t:1;
-	uint8_t RDSNEWBLOCKA:1;
-	uint8_t RDSNEWBLOCKB:1;
-	uint8_t:2;
-} INFO;
-
-typedef struct sync {
-	uint8_t RDSSYNC:1;
-	uint8_t:1;
-	uint8_t GRPLOST:1;
-	uint8_t:5;
-} SYNC;
-
-typedef struct fifo {
-	uint8_t RDSFIFOUSED;
-} FIFO;
-
-typedef struct err {
-	uint8_t BLED:2;
-	uint8_t BLEC:2;
-	uint8_t BLEB:2;
-	uint8_t BLEA:2;
-} ERR;
 
 typedef struct group_0a {
 	uint8_t PS_NAME[2];
@@ -627,6 +591,7 @@ typedef struct group_1a {
 /// Contains the number which identify the actual group data is transmitted
 ///
 ///////////////////////////////////////////////////////////////////////////////////////////
+
 typedef struct group_4a {
 	int16_t TIME_OFF:6;
 	uint16_t MINUTE:6;
@@ -651,8 +616,8 @@ typedef struct block_b {
 } BLOCK_B;
 
 typedef struct rds {
-	uint8_t algin;
-	ERR		err;
+	uint8_t 			align;
+	SI4735_FM_RDS_ERR	err;
 	union {
 		GROUP_0A group_0a;
 		GROUP_0B group_0b;
@@ -664,11 +629,11 @@ typedef struct rds {
 		BLOCK_B	 block_b;
 		uint8_t block[6];
 	};
-	uint16_t pi;
-	FIFO	fifo;
-	SYNC	sync;
-	INFO	info;
-	STATUS 	status;
+	uint16_t 			pi;
+	uint8_t				fifo;
+	SI4735_FM_RDS_SYNC	sync;
+	SI4735_FM_RDS_INFO	info;
+	SI4735_FM_STATUS 	status;
 } RDS;
 
 void rds_update(RADIO *radio);
