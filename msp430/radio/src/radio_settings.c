@@ -1,34 +1,44 @@
-/*
- * radio_settings.c
- *
- *  Created on: 14.04.2015
- *      Author: Richard
- */
+///////////////////////////////////////////////////////////////////////////////////////////
+///
+/// \file radio_settings.c
+///
+/// \brief menu.h includes all necessary functions macros and structs for the radio data\n
+/// service
+///
+/// \date 14.04.2015
+///
+/// \author Richard Treichl
+///
+/// \remark
+///
+/// \todo Finish documentation
+///
+/// \version	1.0
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 #include <radio/radio_settings.h>
-#define FALSE 0
 
-
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Sets the brightness
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
 	if(menu->y == MENU_THIRD_ENTRY) {
-		if(menu_encoder_range(encoder_right, &(radio.settings.brightness), 1, RADIO_BRIGHTNESS_MAX, RADIO_BRIGHTNESS_MIN, RADIO_BRIGHTNESS_STEP, FALSE)) {
+		if(menu_encoder_range(encoder_right, &(radio.settings.brightness), 1, RADIO_BRIGHTNESS_MAX, RADIO_BRIGHTNESS_MIN, RADIO_BRIGHTNESS_STEP, RADIO_FALSE)) {
 				radio_brightness(0);
 			}
 		menu_scroll_settings(radio.settings.brightness * 2);
@@ -47,26 +57,26 @@ uint8_t radio_settings_brightness(ENCODER *encoder_left, ENCODER *encoder_right,
 	return STAY_ON_MENU_POINT;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Sets the contrast
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_contrast(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
 
-	if(menu_encoder_range(encoder_right, &(radio.settings.contrast), 1, RADIO_CONTRAST_MAX, RADIO_CONTRAST_MIN, RADIO_CONTRAST_STEP, FALSE)) {
+	if(menu_encoder_range(encoder_right, &(radio.settings.contrast), 1, RADIO_CONTRAST_MAX, RADIO_CONTRAST_MIN, RADIO_CONTRAST_STEP, RADIO_FALSE)) {
 		lcd_contrast(radio.settings.contrast / RADIO_CONTRAST_STEP);
 	}
 
@@ -81,21 +91,21 @@ uint8_t radio_settings_contrast(ENCODER *encoder_left, ENCODER *encoder_right, M
 	return STAY_ON_MENU_POINT;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Sets the audio source
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_source(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
@@ -126,10 +136,10 @@ uint8_t radio_settings_source(ENCODER *encoder_left, ENCODER *encoder_right, MEN
 	return SHORT_UP_TO_PARENT;
 }
 
-//----------------------------------------------------------------------------------------
+///////////////////////////////////////////////////////////////////////////////////////////
 //
 /// \brief Sets the equalizer mode
-//
+///
 /// Following modes are supported:\n
 ///	-Rock\n
 ///	-Pop\n
@@ -137,18 +147,18 @@ uint8_t radio_settings_source(ENCODER *encoder_left, ENCODER *encoder_right, MEN
 ///	-News\n
 ///	-Classic\n
 ///	-Jazz\n
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_equalizer(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
@@ -159,24 +169,24 @@ uint8_t radio_settings_equalizer(ENCODER *encoder_left, ENCODER *encoder_right, 
 	return SHORT_UP_TO_PARENT;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Sets the volume
-//
+///
 /// Calculates the new volume acording to the encoder value. Additionally u\n
 ///	can choose to set the startup volume or the TA/TP volume\n
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_volume(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
@@ -218,24 +228,24 @@ uint8_t radio_settings_volume(ENCODER *encoder_left, ENCODER *encoder_right, MEN
 	return STAY_ON_MENU_POINT;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Sets the frequency
-//
+///
 /// In here the u can seach for the next station up- or downwards or just set\n
 ///	the current frequency\n
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_frequency(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
@@ -261,21 +271,21 @@ uint8_t radio_settings_frequency(ENCODER *encoder_left, ENCODER *encoder_right, 
 	return SHORT_UP_TO_CHILD;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Choose the data to display
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 //TODO: First four parameters really needed?
 uint8_t radio_settings_view(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
@@ -286,27 +296,27 @@ uint8_t radio_settings_view(ENCODER *encoder_left, ENCODER *encoder_right, MENU_
 	//return SHORT_UP_TO_CHILD;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Seeks the next station/all available
-//
+///
 /// Following modes are supported:\n
 ///	-Seek up\n
 ///	-Seek down\n
 ///	-Auto Search\n
 ///	-Select station\n
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_station(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
@@ -327,21 +337,21 @@ uint8_t radio_settings_station(ENCODER *encoder_left, ENCODER *encoder_right, ME
 	return SHORT_UP_TO_CHILD;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Set TA/TP
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_tatp(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {
@@ -351,21 +361,21 @@ uint8_t radio_settings_tatp(ENCODER *encoder_left, ENCODER *encoder_right, MENU_
 	//return SHORT_UP_TO_CHILD;
 }
 
-//----------------------------------------------------------------------------------------
-//
+///////////////////////////////////////////////////////////////////////////////////////////
+///
 /// \brief Reset the settings
-//
+///
 /// \param	<encoder_left_button>		[in]	state of the left encoder button
 /// \param	<encoder_left_count>		[in]	value of the left encoder
 /// \param	<encoder_right_button>		[in]	state of the right encoder button
 /// \param	<encoder_right_count>		[in]	value of the right encoder
 /// \param	<entry_num>					[in]	the entry in the menu
-//
+///
 /// \retval uint8_t
-//
+///
 /// \remarks
-//
-//----------------------------------------------------------------------------------------
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t radio_settings_reset(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *menu)
 {

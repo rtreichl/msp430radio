@@ -17,6 +17,23 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////
+///
+/// \defgroup Menu Menu, Structs and Functions
+/// \brief In here the are structs declared for several RDS stuff(See http://www.g.laroche.
+///	free.fr/english/rds/groupes/listeGroupesRDS.htm for more information). Also there are
+///	functions declared to update RDS and to get the	current time out of RDS.\n\n
+///
+/// The group RDS allows to identify the transmitted type of data. There are 16 groups\n
+/// which can each decline in 2 versions A or B.\n
+/// The group type and the version (A or B) are transmitted in the second block (block B)}n
+/// of RDS group. The bits A0 -> A3 indicate the group type (0= group 0, .... F = group\n
+/// 15) and the bit B0 indicate the version (0 = A version ).
+///
+///	@{
+///
+///////////////////////////////////////////////////////////////////////////////////////////
+
 #ifndef _MENU_H_
 #define _MENU_H_
 
@@ -172,5 +189,11 @@ uint8_t menu_scroll_settings(uint8_t value);
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 uint8_t menu_encoder_range(ENCODER *encoder, void *control, uint8_t bytes, uint16_t upper_bound, uint16_t lower_bound, uint8_t step, uint8_t overflow);
+
+///////////////////////////////////////////////////////////////////////////////////////////
+///
+///	@}
+///
+///////////////////////////////////////////////////////////////////////////////////////////
 
 #endif /* _MENU_H_ */
