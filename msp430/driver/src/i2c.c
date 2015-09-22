@@ -186,6 +186,47 @@ uint8_t i2c_read (uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t endian, uin
 	return 0;
 }
 
+uint8_t i2c_write_arr_endian(uint8_t addr, enum I2C_CRTL_CMD rept_start, int8_t endian, uint8_t n_size, const void *TxData)
+{
+	/* Copy pointer from TxData */
+	i2c.PTxData = (uint8_t *)TxData;
+
+	if(endian == I2C_BIG_ENDIAN)
+	{
+		i2c.PTxData += n_size;
+	}
+
+	/* Set slave address */
+	UCB0I2CSA = addr;
+
+	/* Set Transmit Interrupt */
+	IE2 = UCB0TXIE;
+
+	i2c.rept_start = rept_start;
+
+	/* Load TX byte counter */
+	i2c.TxByteCtr = n_size;
+
+	i2c.status = TRANSMIT;
+	i2c.endian = endian;
+
+	/* Send a start condition with write flag */
+	UCB0CTL1 |= UCTR + UCTXSTT;
+
+	/* Wait until Transmition is complet */
+	if(rept_start == STOP) {
+		while(UCB0STAT & UCBBUSY);
+	}
+	else {
+		_delay_ten_us(20);
+	}
+
+	i2c.status = IDLE;
+
+	return 0;
+
+}
+
 uint8_t i2c_get_status()
 {
 	return i2c.status;
