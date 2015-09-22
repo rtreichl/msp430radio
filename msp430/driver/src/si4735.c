@@ -46,9 +46,9 @@ void SI4735_Rx_Hard_Mute (void)	//setzt den Audio Ausgang auf stumm, L und R Aud
 uint8_t si4735_fm_rds_status(uint8_t statusonly, uint8_t mtfifo, uint8_t intack)
 {
 	uint8_t resp[13];
-	FM_RDS_STATUS_ARG1_STC arg1 = { .STATUSONLY = statusonly, .MTFIFO = mtfifo, .INTACK = intack};
+	SI4735_FM_RDS_STATUS_ARG arg = {.INTACK = intack , .MTFIFO = mtfifo, .STATUSONLY = statusonly};
 
-	i2c_write_var(I2C_SI4735, REPT, 2, FM_RDS_STATUS, arg1.byte);
+	i2c_write_var(I2C_SI4735, REPT, 2, SI4735_FM_RDS_STATUS, arg);
 	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 13, resp);
 
 	return resp[0];
@@ -56,9 +56,9 @@ uint8_t si4735_fm_rds_status(uint8_t statusonly, uint8_t mtfifo, uint8_t intack)
 
 uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp)
 {
-	FM_RSQ_STATUS_ARG1_STC arg1 = { .INTACK = intack};
+	SI4735_FM_RSQ_STATUS_ARG arg = { .INTACK = intack};
 
-	i2c_write_var(I2C_SI4735, REPT, 2, FM_RSQ_STATUS, arg1.byte);
+	i2c_write_var(I2C_SI4735, REPT, 2, SI4735_FM_RSQ_STATUS, arg);
 	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 8, resp);
 
 	return resp[0];
@@ -66,9 +66,9 @@ uint8_t si4735_fm_rsq_status(uint8_t intack, uint8_t *resp)
 
 uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack, uint8_t *resp)
 {
-	FM_TUNE_STATUS_ARG1_STC arg1 = { .CANCEL = cancel, .INTACK = intack};
+	SI4735_FM_TUNE_STATUS_ARG arg = { .CANCEL = cancel, .INTACK = intack};
 
-	i2c_write_var(I2C_SI4735, REPT, 2, FM_TUNE_STATUS, arg1.byte);
+	i2c_write_var(I2C_SI4735, REPT, 2, SI4735_FM_TUNE_STATUS, arg);
 	_delay_ms(10);
 	//si4735_get_interrupt(8);
 	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 8, resp);
@@ -76,26 +76,26 @@ uint8_t si4735_fm_tune_status(uint8_t cancel, uint8_t intack, uint8_t *resp)
 	return resp[0];
 }
 
-uint8_t si4735_fm_tune_freq(uint16_t frequency)
+SI4735_FM_STATUS si4735_fm_tune_freq(uint16_t frequency)
 {
-	INT_STATUS status;
+	SI4735_FM_STATUS status;
 	const FM_TUNE_FREQ_ARG1_STC arg1 = { .FREEZE = 0, .FAST = 0};
 
 	i2c_write_var(I2C_SI4735, STOP, 5, FM_TUNE_FREQ, arg1.byte, HB(frequency), LB(frequency), 0x00);
 	si4735_get_interrupt(7);
-	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status.byte);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status);
 
-	return status.byte;
+	return status;
 }
 
-uint8_t si4735_get_int_status()
+SI4735_FM_STATUS si4735_get_int_status()
 {
-	INT_STATUS status;
+	SI4735_FM_STATUS status;
 	//TODO check int pin from SI4735 via interrupt routin if interrupt availible read.
 	i2c_write_var(I2C_SI4735, REPT, 1, GET_INT_STATUS);
-	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status.byte);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status);
 
-	return status.byte;
+	return status;
 }
 
 uint16_t si4735_get_property(uint16_t property, uint16_t *data)
@@ -120,17 +120,17 @@ uint8_t si4735_set_property( uint16_t property, uint16_t data)
 	//TODO wait until command is proceed.
 }
 
-uint8_t si4735_fm_seek_start(uint8_t up_down)	//Frequensuchlauf für höhere Frequenzen
+SI4735_FM_STATUS si4735_fm_seek_start(uint8_t up_down)	//Frequensuchlauf für höhere Frequenzen
 {
-	INT_STATUS status;
+	SI4735_FM_STATUS status;
 	FM_SEEK_START_ARG1_STC arg1 = {.SEEKUP = 0, .WRAP = 1};
 
 	arg1.SEEKUP = up_down;
 	i2c_write_var(I2C_SI4735, STOP, 2, FM_SEEK_START, arg1.byte);
 	si4735_get_interrupt(7);
-	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status.byte);
+	i2c_read(I2C_SI4735, STOP, I2C_LITTLE_ENDIAN, 1, &status);
 
-	return status.byte;
+	return status;
 }
 
 uint8_t si4735_configure_rds(const FM_RDS_INT_SOURCE_STC *rds_int, const FM_RDS_CONFIG_STC *rds_config, const FM_RDS_INT_FIFO_COUNT_STC *rds_fifo)
