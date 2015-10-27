@@ -85,4 +85,5 @@ __interrupt void Port12_interrupts(void)
 		}
 		P2IFG = 0;
 	}
+	_BIC_SR(LPM3_EXIT);
 }

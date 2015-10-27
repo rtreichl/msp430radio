@@ -141,7 +141,7 @@ typedef const struct menu_entry {
 //
 //----------------------------------------------------------------------------------------
 
-uint8_t menu display(ENCODER * encoder_left, ENCODER *encoder_right);
+uint8_t menu_display(ENCODER * encoder_left, ENCODER *encoder_right);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///

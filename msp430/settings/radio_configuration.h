@@ -155,7 +155,7 @@
 /// \defgroup Stuff Macros for all other kinds of configuration
 ///	@{
 ///
-#define RADIO_AMPLIFIER_GAIN	3				///< Gain for tpa2016d2 amplifier in dB
+#define RADIO_AMPLIFIER_GAIN	6				///< Gain for tpa2016d2 amplifier in dB
 ///
 ///	@}
 ///

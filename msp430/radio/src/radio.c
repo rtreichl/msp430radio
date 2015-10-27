@@ -118,6 +118,12 @@ uint8_t radio_init()
 		radio_factory_state();
 	}
 
+	AUDIO_SW_LINE_DIR |= AUDIO_SW_LINE_PIN;
+	AUDIO_SW_GND_DIR |= AUDIO_SW_GND_PIN;
+
+	AUDIO_SW_LINE_OUT &= ~AUDIO_SW_LINE_PIN;
+	AUDIO_SW_GND_OUT &= ~AUDIO_SW_GND_PIN;
+
 	radio_load_settings();
 	pca9632_init(&pca9632_config);
 	opt3001_init(&opt3001_config);
@@ -249,6 +255,11 @@ BRIGHTNESS radio_brightness(uint8_t mode)
 		brightness_value -= (brightness_value >> 4);
 		brightness_value += tmp_value;
 	}
+
+	fi(mode == 2) {
+		brightness = 0;
+	}
+	//brightness = 200;
 
 	pca9632_set_register(PCA9632_PWM0, &brightness);
 
@@ -630,26 +641,25 @@ uint8_t radio_factory_state()
 uint8_t radio_stand_by()
 {
 	tpa2016d2_powermode(TPA2016D2_SHUTDOWN);
-	//si4735_power_down();
+	si4735_power_down();
 	//TODO store actuall freqency
 	//TODO store actuall volume
 	lcd_create_view(0, 0, 0, 0, 2);
-	//radio_brightness(0);
+	radio_brightness(2);
 	//TODO enable interrupt for left button
 	ext_interrupt_create(EN1_TAST_INT, radio_left_button_interrupt);
 	ext_interrupt_enable(EN1_TAST_INT);
 	//TODO reconfig one timer with ACLK to cause an interrupt all minute
 	radio_button = 0;
-	while(radio_button != 2) {
-		//_BIS_SR(LPM3_bits + GIE);
-	}
+	do{
+		_BIS_SR(LPM3_bits + GIE);
+	}while (radio_button == 0);
 	ext_interrupt_disable(EN1_TAST_INT);
 	//TODO go to lpm mode where ACLK is active
 	//TODO wait until button is pressed
 	//TODO reconfig timer to old state
 	tpa2016d2_powermode(TPA2016D2_POWERUP);
-	//SI4735_INIT();
-	//radio_volume(radio.settings.volume);
+	si4735_init(((uint16_t)(radio.settings.volume) * SI4735_VOLUME_MAX) / 100, radio.settings.frequency);
 	radio_tune_freq(radio.settings.frequency);
 	radio_brightness(0);
 	return 0;
@@ -657,5 +667,5 @@ uint8_t radio_stand_by()
 
 void radio_left_button_interrupt()
 {
-	radio_button += 1;
+	radio_button = 1;
 }

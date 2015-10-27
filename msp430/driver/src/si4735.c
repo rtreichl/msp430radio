@@ -22,6 +22,39 @@ void si4735_get_interrupt(uint8_t int_number);
 
 uint8_t si4735_power_up(uint8_t mode)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
 {
+	//Config pins for power up
+	SI_RST_DIR |= SI_RST_PIN;
+	SI_INT_REN &= ~SI_INT_PIN;
+	SI_EN_DIR |= SI_EN_PIN;
+	SI_INT_DIR |= SI_INT_PIN;
+
+	//Set reset pin to low
+	SI_RST_OUT &= ~SI_RST_PIN;
+	// Choose wire mode
+	// 2-Wire mode
+	SI_INT_OUT &= ~ SI_INT_PIN;
+	// SPI mode
+	// SI_INT_OUT |= SI_INT_PIN;
+	_delay_ten_us(25);
+	//Set reset pin to high
+	SI_RST_OUT |= SI_RST_PIN;
+	_delay_ten_us(10);
+
+	//If 2-Wire mode choose adress for si4735
+	//Address 0x11
+	SI_EN_OUT &= ~SI_EN_PIN;
+	//Address 0x63
+	//SI_EN_OUT |= SI_EN_PIN;
+
+	//Reconfig interrupt pin
+	SI_INT_DIR &= ~SI_INT_PIN;
+	SI_INT_REN |= SI_INT_PIN;
+	SI_INT_OUT |= SI_INT_PIN;
+
+	//Create and enable interrupt pin
+	ext_interrupt_create(SI_INT_INT, si4735_interrupt);
+	ext_interrupt_enable(SI_INT_INT);
+
 	i2c_write_var(I2C_SI4735, STOP, 3,  0x01, 0xD0, 0x05);
 	si4735_get_interrupt(8);
 	return 0;
@@ -30,10 +63,7 @@ uint8_t si4735_power_up(uint8_t mode)	//einschalten des Si4735 aktivieren des An
 uint8_t si4735_power_down(void)	//einschalten des Si4735 aktivieren des Analogen Audio Ausgangs
 {
 	i2c_write_var(I2C_SI4735, STOP, 1, 0x11);
-
 	SI_RST_OUT &= ~SI_RST_PIN;
-	SI_EN_OUT |= SI_EN_PIN;
-
 
 	return 0;
 }
@@ -174,23 +204,6 @@ uint8_t si4735_wait_for_command_completed()
 
 uint8_t si4735_init(uint8_t volume, uint16_t freq)	// Enthält alle für den Start benötigten Parameter
 {
-   //SEN
-	ext_interrupt_create(SI_INT_INT, si4735_interrupt);
-
-	SI_RST_DIR |= SI_RST_PIN;
-	SI_EN_DIR |= SI_EN_PIN;
-
-	SI_RST_OUT &= ~SI_RST_PIN;
-	_delay_ten_us(10);
-	SI_RST_OUT |= SI_RST_PIN;
-	_delay_ten_us(10);
-
-	SI_EN_OUT &= ~SI_EN_PIN;
-
-	// Clear Reset
-
-	// Set Reset
-
 	const GPO_IEN_STC gpo_ien = {
 			.STCIEN = 1,
 			.CTSIEN = 1,
@@ -200,17 +213,6 @@ uint8_t si4735_init(uint8_t volume, uint16_t freq)	// Enthält alle für den Start
 			.STCREP = 1
 	};
 
-	_delay_ms(1);
-
-	//GPO2/INT
-	SI_INT_REN |= SI_INT_PIN;
-	SI_INT_OUT |= SI_INT_PIN;
-
-	_delay_ms(1);
-
-	ext_interrupt_enable(SI_INT_INT);
-
-	/* Power_up FM mode */
 	si4735_power_up(0);
 
 	/*activate and setting refclk to 32.768 kHz */
@@ -248,16 +250,16 @@ uint8_t si4735_init(uint8_t volume, uint16_t freq)	// Enthält alle für den Start
 	si4735_set_property(GPO_IEN, gpo_ien.byte);
 	//_delay_ms(10);
 
-	/* Tune to frequency 107,7 */
-	si4735_fm_tune_freq(freq);
-
 	si4735_configure_seeking(RADIO_BOT_FREQ, RADIO_TOP_FREQ, RADIO_SEEK_FREQ_SPACE, RADIO_VALID_SNR, RADIO_VALID_RSSI);
-	_delay_ms(10);
+	//_delay_ms(10);
 	//si4735_fm_seek_start(1);
 	//_delay_ms(2);
 
+	/* Tune to frequency 107,7 */
+	si4735_fm_tune_freq(freq);
+
 	/* Enable radio audio output with standart value */
-	si4735_set_property(RX_VOLUME, SI4735_volume);
+	si4735_set_property(RX_VOLUME, volume);
 
 	/* Disable interrupt for si4735 */
 	ext_interrupt_disable(SI_INT_INT);
