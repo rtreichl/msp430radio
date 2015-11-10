@@ -62,9 +62,10 @@ uint8_t radio_display_rds()
 	if(radio.status.scroll_text < 15) {
 		lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text + 1, 0);
 	}
-	else {
+	else if(radio.status.scroll_text) {
 		lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
 	}
+
 	time_date_to_array(tmp_string);
 	lcd_create_view(tmp_string,  8, 1, 0, 0);
 	return 0;

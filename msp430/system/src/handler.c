@@ -55,6 +55,9 @@ void handler (void)
 			}
 			timer_count[RADIO_TIMER_DISPLAY] = 0;
 			menu_handler(&encoder_left, &encoder_right);
+			//radio_char_selector(encoder_right.count, encoder_left.count, encoder_right.button);
+			//encoder_left.count = 0;
+			//encoder_right.count = 0;
 		}
 		if(timer_count[RADIO_TIMER_ENCODER] >= RADIO_COUNT_ENCODER) {
 			timer_count[RADIO_TIMER_ENCODER] -= RADIO_COUNT_ENCODER;

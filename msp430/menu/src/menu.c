@@ -104,19 +104,19 @@ uint8_t menu_scroll(uint8_t value)
 	char string[2];
 	value = (value * 60) / 100;
 
-	lcd_create_view("- ", 0, 2, 0, 0);
+	lcd_create_view("- ", 0, 2, 2, 0);
 	for(i = 1; i <= value / 5 && i <= 12; i++) {
-		lcd_create_view("\5", 1 + i, 2, 0, 0);
+		lcd_create_view('\5', 1 + i, 2, 1, 0);
 	}
 	if(i <= 12) {
 		string[0] = value % 5;
-		lcd_create_view(string, 1 + i, 2, 0, 0);
+		lcd_create_view(string, 1 + i, 2, i+1, 0);
 	}
 	i++;
 	for(; i <= 12; i++) {
-		lcd_create_view("\0", 1 + i, 2, 0, 0);
+		lcd_create_view('\0', 1 + i, 2, 1, 0);
 	}
-	lcd_create_view(" +", 14, 2, 0, 0);
+	lcd_create_view(" +", 14, 2, 2, 0);
 
 	return 0;
 }

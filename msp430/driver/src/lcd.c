@@ -6,7 +6,7 @@
  */
 
 #include <driver/lcd.h>
-
+#include <string.h>
 int8_t lcd_replace_special_letter(int8_t chr);
 
 uint8_t lcd_init(uint8_t contrast)
@@ -87,12 +87,11 @@ uint8_t lcd_write_char(uint8_t symbol)
 	return 0;
 }
 
-uint8_t lcd_write_string(const int8_t *str, unsigned char n_bytes)
+uint8_t lcd_write_string(const uint8_t *str, unsigned char n_bytes)
 {
 	register uint8_t chr;
-	uint8_t i = 0;
 
-	for(i = 0; i < n_bytes; i++)
+	while(n_bytes-- != 0)
 	{
 		chr = *str++;
 
@@ -291,59 +290,81 @@ uint8_t lcd_generatebargraph()
 	return 0;
 }
 
-uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)
+uint8_t lcd_create_view(char const *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush)
 {
-	static int8_t lcd_view[49];
+	static uint8_t lcd_ram[49];
 
-	uint8_t	i,
-			pos;
+	uint8_t	pos;
+
 	/* invalid line position */
 	if (x > 15) {
-		return 0xFE;
+		return 0xFD;
 	}
 
 	/* invalid row position */
 	if (y > 2) {
-		return 0xFF;
+		return 0xFE;
 	}
 
 	pos = x + y * 16;
 
-	if(num == 0) {
-		num = 48;
+	if(pos >= 48) {
+		return 0xFF;
 	}
 
-	/* if string is empty determinat string on given position */
-	if(*str == 0 && num == 48) {
-		lcd_view[pos] = 0;
+	if(num == 1) {
+		lcd_ram[pos] = (uint8_t)str;
 	}
 	else {
-		/* copy string on given position */
-		while(*str != 0 && pos < 48 && str != 0 && num > 0) {//&& num > 0) {
-			lcd_view[pos++] = *(str++);
+		if(num == 0) {
+			while(str[num++] != 0);
 			num--;
 		}
+		memcpy(lcd_ram+pos, str, num);
+	}
+
+	/*while((uint8_t *)str != 0 && pos < 48) {
+		lcd_ram[pos++] = *(((uint8_t *)str)++);
+	}*/
+
+	/* if string is empty determinat string on given position */
+//	if(*str == 0 && num == 48) {
+//		lcd_ram[pos] = 0;
+//	}
+//	else {
+//		/* copy string on given position */
+//		while(*str != 0 && pos < 48 && str != 0 && num > 0) {//&& num > 0) {
+//			lcd_ram[pos++] = *(str++);
+//			num--;
+//		}
+//	}
+
+	/* Init lcd_view with blanks */
+	if(flush == 2) {
+		lcd_clear_ram(lcd_ram, 48);
+		lcd_flush(lcd_ram, 48);
 	}
 
 	/* Normal flush with over writing lcd_view with blanks */
 	if(flush == 1) {
-		lcd_set_courser(0,1);
-		lcd_write_string(lcd_view,48);
-		for(i = 48; i-- > 0;)	{
-			lcd_view[i] = ' ';
-		}
-		lcd_view[48] = 0;
+		lcd_flush(lcd_ram, 48);
 	}
 
-	/* Init lcd_view with blanks */
-	if(flush == 2) {
-		for(i = 48; i-- > 0;) {
-			lcd_view[i] = 0x20;
-		}
-		lcd_view[48] = 0;
-		lcd_set_courser(0,1);
-		lcd_write_string(lcd_view,48);
-	}
+	return 0;
+}
 
+uint8_t lcd_flush(uint8_t *ram, uint8_t size)
+{
+	lcd_set_courser(0,1);
+	ram[size] = 0;
+	lcd_write_string(ram, size);
+	lcd_clear_ram(ram, size);
+	return 0;
+}
+
+uint8_t lcd_clear_ram(uint8_t *ram, int8_t size)
+{
+	memset(ram, 0x20, size);
+	ram[size] = 0;
 	return 0;
 }

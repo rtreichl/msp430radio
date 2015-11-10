@@ -62,6 +62,8 @@ uint8_t i2c_init (uint16_t smclk_freq, uint16_t i2c_freq)
 	/* Enable gloabl interrupts */
 	__enable_interrupt();
 
+	i2c.status = IDLE;
+
 	return 0;
 }
 

@@ -128,9 +128,9 @@ uint8_t radio_init()
 	pca9632_init(&pca9632_config);
 	opt3001_init(&opt3001_config);
 	lcd_init(radio.settings.contrast);
-	lcd_create_view(startup_line_1, 2, 0, 0, 0);
-	lcd_create_view(startup_line_2, 2, 1, 0, 0);
-	lcd_create_view(startup_line_3, 2, 2, 0, 1);
+//	lcd_create_view(startup_line_1, 2, 0, 0, 0);
+//	lcd_create_view(startup_line_2, 2, 1, 0, 0);
+//	lcd_create_view(startup_line_3, 2, 2, 0, 1);
 	tpa2016d2_init((enum TPA2016D2_EQUALIZER)radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	si4735_init(radio.settings.volume, RADIO_BOT_FREQ);
 	radio_tune_freq(radio.settings.frequency);
@@ -256,7 +256,7 @@ BRIGHTNESS radio_brightness(uint8_t mode)
 		brightness_value += tmp_value;
 	}
 
-	fi(mode == 2) {
+	if(mode == 2) {
 		brightness = 0;
 	}
 	//brightness = 200;
@@ -662,6 +662,60 @@ uint8_t radio_stand_by()
 	si4735_init(((uint16_t)(radio.settings.volume) * SI4735_VOLUME_MAX) / 100, radio.settings.frequency);
 	radio_tune_freq(radio.settings.frequency);
 	radio_brightness(0);
+	return 0;
+}
+
+uint8_t radio_char_selector(uint8_t x, uint8_t y, uint8_t *b)
+{
+	uint8_t i = 0;
+	uint8_t c = 0;
+	static int8_t pos = 0, pos_s = 0;
+	static char name[9] = {0};
+	static char offset = 'a';
+	pos += y * 16 + x;
+	if(pos > 27)
+	{
+		if(y != 0)
+			pos -= 32;
+		else
+			pos = 0;
+	}
+	else if(pos < 0)
+	{
+		if(y != 0)
+			pos += 32;
+		else
+			pos = 27;
+	}
+	if(*b == BUTTON_SHORT) {
+		*b = BUTTON_FREE;
+		switch(pos) {
+		case 26:
+			name[pos_s++] = ' ';
+			break;
+		case 27:
+			if(offset == 'a')
+				offset = 'A';
+			else
+				offset = 'a';
+			break;
+		default:
+			name[pos_s++] = offset + pos;
+		}
+	}
+	lcd_command(LCD_DISPLAY_CONTROL | LCD_DISPLAY_ON | LCD_COURSER_ON);
+	//lcd_set_courser(0,8);
+	for(i = 0; i < 26; i++) {
+		c = offset + i;
+		lcd_create_view(c, i % 16, i / 16, 1, 0);
+	}
+	//c = '_';
+	//lcd_create_view(c, 10, 1, 1, 0);
+	//c = 0x17;
+	lcd_create_view("_\027", 10, 1, 0, 0);
+	lcd_create_view(name, 0, 2, 0, 0);
+	lcd_create_view(0, 0, 0, 0, 1);
+	lcd_set_courser(pos % 16, pos / 16 + 1);
 	return 0;
 }
 

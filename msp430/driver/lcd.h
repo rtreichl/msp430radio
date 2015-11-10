@@ -27,12 +27,14 @@ uint8_t lcd_init(uint8_t contrast);
 uint8_t lcd_write_char(uint8_t chr);
 uint8_t lcd_set_courser(uint8_t x, uint8_t y);
 uint8_t lcd_command(uint8_t cmd);
-uint8_t lcd_write_string(const int8_t *str, uint8_t n_bytes);
+uint8_t lcd_write_string(const uint8_t *str, uint8_t n_bytes);
 uint8_t lcd_connect();
 uint8_t lcd_generatechar(uint8_t code, const uint8_t *data);
 uint8_t lcd_bargraph(uint8_t value);
-uint8_t lcd_create_view(const char *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush);
+uint8_t lcd_create_view(char const *str, uint8_t x, uint8_t y, uint8_t num, uint8_t flush);
 uint8_t lcd_contrast(uint8_t contrast);
+uint8_t lcd_clear_ram(uint8_t *ram, int8_t size);
+uint8_t lcd_flush(uint8_t *ram, uint8_t size);
 uint8_t lcd_generatebargraph();
 
 
