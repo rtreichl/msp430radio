@@ -47,21 +47,21 @@ uint8_t station_list_handler(ENCODER *encoder_left, ENCODER *encoder_right, MENU
 		encoder_right->count = 0;
 	}
 	if(*encoder_right->button == BUTTON_SHORT) {
-		if(*(actuall_station->freq) >= RADIO_BOT_FREQ) {
 			switch(menu->y) {
 			case MENU_FOURTH_ENTRY:
 				radio_store_station(&(radio.settings.frequency), radio.rds.name, actuall_station->entry_num - 1);
 				return SHORT_UP_TO_PARENT;
 			case MENU_FIRST_ENTRY:
 				radio.settings.frequency = *(actuall_station->freq);
-				radio_tune_freq(*(actuall_station->freq));
+				if(*(actuall_station->freq) >= RADIO_BOT_FREQ)
+					radio_tune_freq(*(actuall_station->freq));
 				return SHORT_UP_TO_PARENT;
 			case MENU_THIRD_ENTRY:
 				radio.settings.frequency = *(actuall_station->freq);
 				radio_store_settings(1, 0);
 				return SHORT_UP_TO_PARENT;
 
-			}
+			//}
 		}
 		return SHORT_UP_TO_CHILD;
 	}
