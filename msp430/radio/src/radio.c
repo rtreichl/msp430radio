@@ -128,9 +128,10 @@ uint8_t radio_init()
 	pca9632_init(&pca9632_config);
 	opt3001_init(&opt3001_config);
 	lcd_init(radio.settings.contrast);
-//	lcd_create_view(startup_line_1, 2, 0, 0, 0);
-//	lcd_create_view(startup_line_2, 2, 1, 0, 0);
-//	lcd_create_view(startup_line_3, 2, 2, 0, 1);
+	lcd_create_view(startup_line_1, 2, 0, 0, 0);
+	lcd_create_view(startup_line_2, 2, 1, 0, 0);
+	lcd_create_view(startup_line_3, 2, 2, 0, 1);
+	radio_brightness(3);
 	tpa2016d2_init((enum TPA2016D2_EQUALIZER)radio.settings.equalizer, RADIO_AMPLIFIER_GAIN);
 	si4735_init(radio.settings.volume, RADIO_BOT_FREQ);
 	radio_tune_freq(radio.settings.frequency);
@@ -259,7 +260,10 @@ BRIGHTNESS radio_brightness(uint8_t mode)
 	if(mode == 2) {
 		brightness = 0;
 	}
-	//brightness = 200;
+
+	if(mode == 3) {
+		brightness = 50;
+	}
 
 	pca9632_set_register(PCA9632_PWM0, &brightness);
 
