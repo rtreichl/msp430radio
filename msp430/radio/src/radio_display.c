@@ -54,16 +54,46 @@ uint8_t radio_display_speaker()
 /// \remarks
 //
 //----------------------------------------------------------------------------------------
-
 uint8_t radio_display_rds()
 {
+	static char rds_text[65] = {0};
+	static uint8_t rds_end = 64;
 	char tmp_string[9];
-	if(radio.status.text_valid == RADIO_VALID)
-	if(radio.status.scroll_text < 15) {
-		lcd_create_view(radio.rds.text, 15 - radio.status.scroll_text, 2, radio.status.scroll_text + 1, 0);
+	uint8_t i = 0;
+
+	if(radio.status.text_valid == RADIO_VALID) {
+
+		if(radio.status.scroll_text >= rds_end + RADIO_DISPLAY_WIDTH){
+			radio.status.scroll_text = 0;
+		}
+
+		if(radio.status.scroll_text == 0) {
+			memcpy(rds_text, radio.rds.text, 64);
+			for(i = 0; i <= 64; i++) {
+				if(rds_text[i] == 0 || rds_text[i] == 13) {
+					rds_end = i - 1;
+					break;
+				}
+			}
+		}
+
+		if(radio.status.scroll_text < RADIO_DISPLAY_WIDTH - 1) {
+			lcd_create_view(rds_text, RADIO_DISPLAY_WIDTH - 1 - radio.status.scroll_text, 2, radio.status.scroll_text + 2, 0);
+		}
+		if(radio.status.scroll_text >= RADIO_DISPLAY_WIDTH - 1 && radio.status.scroll_text < rds_end) {
+			lcd_create_view(rds_text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
+		}
+		if(radio.status.scroll_text >= rds_end){
+			if(RADIO_DISPLAY_WIDTH - (radio.status.scroll_text - rds_end) > 1)
+				lcd_create_view(rds_text - (RADIO_DISPLAY_WIDTH - 1) + radio.status.scroll_text, 0, 2, RADIO_DISPLAY_WIDTH - (radio.status.scroll_text - rds_end), 0);
+			else
+				lcd_create_view(*(rds_text - (RADIO_DISPLAY_WIDTH - 1) + radio.status.scroll_text), 0, 2, 1, 0);
+		}
+
+
 	}
-	else if(radio.status.scroll_text) {
-		lcd_create_view(radio.rds.text - 15 + radio.status.scroll_text, 0, 2, 16, 0);
+	else {
+		radio.status.scroll_text = 200;
 	}
 
 	time_date_to_array(tmp_string);

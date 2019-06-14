@@ -166,6 +166,18 @@
 /// \defgroup States Macros for boolean values which are used for radio
 ///	@{
 ///
+#define RADIO_DISPLAY_WIDTH 	16				///< Char width of the display
+#define RADIO_DISPLAY_HIGHT		3				///< Row count of the display
+///
+///	@}
+///
+///////////////////////////////////////////////////////////////////////////////////////////
+
+///----------------------------------------------------------------------------------------
+///
+/// \defgroup States Macros for boolean values which are used for radio
+///	@{
+///
 #define RADIO_TRUE 				1				///< Logical high or true is equal to a one
 #define RADIO_FALSE 			0				///< Logical low or false is equal to a zero
 ///
