@@ -654,6 +654,7 @@ uint8_t radio_stand_by()
 	ext_interrupt_create(EN1_TAST_INT, radio_left_button_interrupt);
 	ext_interrupt_enable(EN1_TAST_INT);
 	//TODO reconfig one timer with ACLK to cause an interrupt all minute
+	_delay_ms(1000);
 	radio_button = 0;
 	do{
 		_BIS_SR(LPM3_bits + GIE);
