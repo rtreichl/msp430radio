@@ -295,6 +295,7 @@ uint8_t lcd_create_view(char const *str, uint8_t x, uint8_t y, uint8_t num, uint
 	static uint8_t lcd_ram[49];
 
 	uint8_t	pos;
+	uint8_t endStr = 0;
 
 	/* invalid line position */
 	if (x > 15) {
@@ -317,10 +318,12 @@ uint8_t lcd_create_view(char const *str, uint8_t x, uint8_t y, uint8_t num, uint
 	}
 	else {
 		if(num == 0) {
-			while(str[num++] != 0);
-			num--;
+			while(str[endStr++] != 0);
+			endStr--;
+		} else {
+			while(endStr++ < num - 1 && str[endStr] != 0);
 		}
-		memcpy(lcd_ram+pos, str, num);
+		memcpy(lcd_ram+pos, str, endStr);
 	}
 
 	/*while((uint8_t *)str != 0 && pos < 48) {
