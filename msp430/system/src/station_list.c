@@ -58,7 +58,8 @@ uint8_t station_list_handler(ENCODER *encoder_left, ENCODER *encoder_right, MENU
 				return SHORT_UP_TO_PARENT;
 			case MENU_THIRD_ENTRY:
 				radio.settings.frequency = *(actuall_station->freq);
-				radio_store_settings(1, 0);
+				if(*(actuall_station->freq) >= RADIO_BOT_FREQ)
+					radio_store_settings(1, 0);
 				return SHORT_UP_TO_PARENT;
 
 			//}
