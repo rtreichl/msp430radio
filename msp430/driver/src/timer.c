@@ -24,8 +24,8 @@ struct TIME_HANDLER {
 
 void basic_clock_init(void)
 {
-	if (CALBC1_16MHZ==0xFF)	{					// If calibration constant erased
-		  while(1);                               // do not load, trap CPU!!
+	if (CALBC1_16MHZ==0xFF)	{				  // If calibration constant erased
+		  while(1);                           // do not load, trap CPU!!
 	}
 	DCOCTL = 0;                               // Select lowest DCOx and MODx settings
 	BCSCTL1 = RADIO_CALBC1;                   // Set range
@@ -34,7 +34,7 @@ void basic_clock_init(void)
 	BCSCTL2 = SELM_0 | DIVM_0 | DIVS_3;
 	BCSCTL3 = LFXT1S_0 | XCAP_0;
 
-	FCTL2 = FWKEY + FSSEL_2 + 0x05;             // MCLK/3 for Flash Timing Generator
+	FCTL2 = FWKEY + FSSEL_2 + 0x05;           // MCLK/3 for Flash Timing Generator
 }
 /*
 uint8_t create_timer(uint8_t mode, uint8_t s, uint8_t ms)
@@ -96,7 +96,6 @@ void timer_init()
 
 	//TA1CCTL0 |= CCIE;			//enable interrupt on compare
 	TA1CTL = TASSEL_2;			//SMCLK 2 MHz = 500ns per count
-	TA1CCR0 = 20;				//500 counts are 10 us for interrupt
 	TA1CTL |= MC_1;				//up-mode counts up to TACCR0 and restart
 
 }
@@ -118,13 +117,17 @@ __interrupt void Timer_A1(void)
 
 void _delay_ms(uint16_t delay)
 {
-	delay *= 100;
-	_delay_ten_us(delay);
+	timer_delay = 0;
+	TA1CCR0 = 2000;					//2000 counts are 1 ms for interrupt
+	TA1CCTL0 |= CCIE;
+	while(timer_delay < delay);
+	TA1CCTL0 &= ~CCIE;
 }
 
 void _delay_ten_us(uint16_t delay)
 {
 	timer_delay = 0;
+	TA1CCR0 = 20;					//20 counts are 10 us for interrupt
 	TA1CCTL0 |= CCIE;
 	while(timer_delay < delay);
 	TA1CCTL0 &= ~CCIE;
