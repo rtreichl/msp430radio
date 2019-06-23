@@ -146,49 +146,71 @@ uint8_t rds_triggered()
 /// \remarks
 ///
 ///----------------------------------------------------------------------------------------
-
 void rds_group_4A(RDS *rds)
 {
 	uint8_t offset = 0;
-	int16_t mdj = 0;
-	uint8_t m_hour, m_minute, m_day, m_month, m_year;
+	static int32_t mjd = 0;
+	uint8_t m_hour, m_minute, m_day, m_month;
+	uint16_t m_year;
 
-	m_day = 1;
-	m_month = 0;
-	m_year = 10;
-
+	//Read all values
 	m_minute = rds->group_4a.MINUTE;
 	m_hour = rds->group_4a.HOUR_L + rds->group_4a.HOUR_H * 16;
 	offset = rds->group_4a.TIME_OFF;
-	mdj = rds->group_4a.DATE_L + (rds->group_4a.DATE_H << 15);
+	mjd = ((uint32_t)(rds->group_4a.DATE_L)) + ((uint32_t)(rds->group_4a.DATE_H) << 15);
 
-	mdj = mdj - 55198 + 1; //55198 = MDJ of 01.01.2010
+	//Init variables for date calculation
+	m_day = 1;
+	m_month = 3;
+	m_year = 1900;
+	//Subtract 15078 which is equal to 01.03.1900
+	mjd -= 15078;
+	//Multiple with 4 to do this operation with out float
+	//mjd /= 365,25
+	mjd = mjd << 2;
 
-	while(mdj > 0) {
-		m_day = mdj;
-		m_month++;
+	//Count years from 1900 until the final year is reached
+	while (mjd > 1461) {
+		mjd -= 1461;
+		m_year++;
+	}
 
-		if (m_month == 13) {
+	//Multiple with 8 end up at a multiplication of 32 for next operation
+	//mdj /= 30,6001
+	mjd = mjd << 3;
+
+	//Count month from 3 until the final month is reached
+	while (mjd > 979) {
+		mjd -= 979;
+		if (++m_month == 13) {
 			m_month = 1;
 			m_year++;
 		}
-
-		mdj -= month_days[m_month - 1];
 	}
+	//Final day is the rest dived by 32
+	m_day += (mjd >> 5);
 
-	mdj = m_minute + 60 * m_hour + 30 * offset;
+	//Sum up all minutes to see if there is a day shift
+	mjd = m_minute + 60 * m_hour + 30 * offset;
 
-	if (mdj >= 1440) {
-		mdj -= 1440;
+	//If there more minutes than a day has increase day by one and subtract minutes
+	if (mjd >= 1440) {
+		mjd -= 1440;
 		m_day++;
 	}
 
-	if (mdj < 0) {
-		mdj += 1440;
+	//If there are less than 0 minutes decrease day by one and add minutes
+	if (mjd < 0) {
+		mjd += 1440;
 		m_day--;
 	}
 
-	m_minute = mdj % 60;
-	m_hour = mdj / 60;
+	//Do this operation to get last two digits
+	m_year = m_year % 100;
+	//Get new minutes back
+	m_minute = mjd % 60;
+	//Get new hours back
+	m_hour = mjd / 60;
+	//Update time of system
 	time_set_time(m_hour, m_minute, m_day, m_month, m_year, 0);
 }
